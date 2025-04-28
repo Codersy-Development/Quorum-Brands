@@ -1,0 +1,184 @@
+{{ 'custom-featured-products.css' | asset_url | stylesheet_tag }}
+<section class="featured-products">
+    <div class="container">
+        <div class="section-header">
+            <h2>{{ section.settings.heading }}</h2>
+
+            <div class="navigation">
+                <div class="featured-button-prev"><img src="{{ 'ico-arrow-right.svg' | asset_url }}" alt="Icon"></div>
+                <div class="featured-button-next"><img src="{{ 'ico-arrow-right.svg' | asset_url }}" alt="Icon"></div>
+            </div>
+        </div>
+
+        <div class="swiper featuredSwiper">
+            <div class="swiper-wrapper">
+                {% for block in section.blocks %}
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="product-image">
+                                {% if block.settings.image_default %}
+                                    <img src="{{ block.settings.image_default | img_url: 'master' }}" alt="{{ block.settings.title }}" class="image-default">
+                                {% endif %}
+                                {% if block.settings.image_hover %}
+                                    <img src="{{ block.settings.image_hover | img_url: 'master' }}" alt="{{ block.settings.title }}" class="image-hover">
+                                {% endif %}
+                            </div>
+
+                            <div class="product-info">
+                                <h3 class="product-title">{{ block.settings.title }}</h3>
+                                <p class="product-subtitle">{{ block.settings.subtitle }}</p>
+                                <p class="product-price">${{ block.settings.price }}</p>
+
+                                <div class="product-colors">
+                                    {% if block.settings.color_1 != blank %}
+                                        <span class="color-dot" style="background-color: {{ block.settings.color_1 }}"></span>
+                                    {% endif %}
+                                    {% if block.settings.color_2 != blank %}
+                                        <span class="color-dot" style="background-color: {{ block.settings.color_2 }}"></span>
+                                    {% endif %}
+                                    {% if block.settings.color_3 != blank %}
+                                        <span class="color-dot" style="background-color: {{ block.settings.color_3 }}"></span>
+                                    {% endif %}
+                                    {% if block.settings.color_4 != blank %}
+                                        <span class="color-dot" style="background-color: {{ block.settings.color_4 }}"></span>
+                                    {% endif %}
+                                    {% if block.settings.color_5 != blank %}
+                                        <span class="color-dot" style="background-color: {{ block.settings.color_5 }}"></span>
+                                    {% endif %}
+                                    {% if block.settings.color_6 != blank %}
+                                        <span class="color-dot" style="background-color: {{ block.settings.color_6 }}"></span>
+                                    {% endif %}
+                                </div>
+
+                                <p class="product-sku">SKU: {{ block.settings.sku }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        new Swiper('.featuredSwiper', {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            navigation: {
+                nextEl: '.featured-button-next',
+                prevEl: '.featured-button-prev',
+            },
+            loop: false,
+            breakpoints: {
+                768: { slidesPerView: 2 },
+                1200: { slidesPerView: 3 }
+            }
+        });
+
+        // Hover swap
+        const cards = document.querySelectorAll('.product-card');
+        cards.forEach(card => {
+            const defaultImage = card.querySelector('.image-default');
+            const hoverImage = card.querySelector('.image-hover');
+
+            card.addEventListener('mouseenter', () => {
+                if (hoverImage) hoverImage.style.opacity = 1;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                if (hoverImage) hoverImage.style.opacity = 0;
+            });
+        });
+    });
+</script>
+
+{% schema %}
+{
+  "name": "Featured Products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Featured Products"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_card",
+      "name": "Product Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_default",
+          "label": "Default Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_hover",
+          "label": "Hover Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Product Title"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Product Subtitle"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price"
+        },
+        {
+          "type": "text",
+          "id": "sku",
+          "label": "SKU"
+        },
+        {
+          "type": "color",
+          "id": "color_1",
+          "label": "Color 1"
+        },
+        {
+          "type": "color",
+          "id": "color_2",
+          "label": "Color 2"
+        },
+        {
+          "type": "color",
+          "id": "color_3",
+          "label": "Color 3"
+        },
+        {
+          "type": "color",
+          "id": "color_4",
+          "label": "Color 4"
+        },
+        {
+          "type": "color",
+          "id": "color_5",
+          "label": "Color 5"
+        },
+        {
+          "type": "color",
+          "id": "color_6",
+          "label": "Color 6"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Products"
+    }
+  ]
+}
+{% endschema %}

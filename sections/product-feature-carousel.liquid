@@ -1,0 +1,113 @@
+{{ 'custom-product-slider-carousel.css' | asset_url | stylesheet_tag }}
+<section class="product-feature-carousel room-feature">
+    <div class="container">
+        <div class="feature-grid">
+            <div class="feature-left">
+                {% if section.settings.main_image %}
+                    <img src="{{ section.settings.main_image | img_url: 'master' }}" alt="Main Room Image" class="main-image">
+                {% endif %}
+            </div>
+
+            <div class="feature-right">
+                <div class="feature-card">
+                    <div class="card-swiper swiper">
+                        <div class="swiper-wrapper">
+                            {% for block in section.blocks %}
+                                <div class="swiper-slide">
+                                    {% if block.settings.card_image %}
+                                        <img src="{{ block.settings.card_image | img_url: 'master' }}" alt="Slide Image" class="card-image">
+                                    {% endif %}
+                                    {% if block.settings.heading %}
+                                        <h2 class="card-title">{{ block.settings.heading }}</h2>
+                                    {% endif %}
+                                    {% if block.settings.text %}
+                                        <p class="card-text">{{ block.settings.text }}</p>
+                                    {% endif %}
+                                    {% if block.settings.button_label and block.settings.button_link %}
+                                        <a href="{{ block.settings.button_link }}" class="card-button">{{ block.settings.button_label }}</a>
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="product-button-wrapper">
+                            <div class="product-button-prev"><img src="{{ 'ico-arrow-right.svg' | asset_url }}" alt="Icon"></div>
+                            <div class="product-button-next"><img src="{{ 'ico-arrow-right.svg' | asset_url }}" alt="Icon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        new Swiper('.card-swiper', {
+            slidesPerView: 1,
+            navigation: {
+                nextEl: '.product-button-next',
+                prevEl: '.product-button-prev',
+            },
+            loop: true
+        });
+    });
+</script>
+
+{% schema %}
+{
+  "name": "Product Feature Carousel",
+  "tag": "section",
+  "class": "room-feature-carousel",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main Large Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card_slide",
+      "name": "Card Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "card_image",
+          "label": "Card Image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading Text",
+          "default": "Shop by Room: Dining"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Paragraph Text",
+          "default": "Designed to enhance every meal, our dining selection combines timeless style with thoughtful functionality."
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "Explore Products"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Feature Carousel"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,138 @@
+{{ 'custom-shop-by-category.css' | asset_url | stylesheet_tag }}
+<section class="category-carousel shop-by-category">
+    <div class="container">
+        <div class="content">
+            <div class="content-left">
+                <h2 class="title">{{ section.settings.title }}</h2>
+                <p class="description">{{ section.settings.description }}</p>
+                <div class="category-button-wrapper">
+                    <div class="category-button-prev"><img src="{{ 'ico-arrow-right.svg' | asset_url }}" alt="Icon"></div>
+                    <div class="category-button-next"><img src="{{ 'ico-arrow-right.svg' | asset_url }}" alt="Icon"></div>
+                </div>
+            </div>
+            <div class="content-right">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        {% for block in section.blocks %}
+                            <div class="swiper-slide">
+                                <div class="card">
+                                    {% if block.settings.image %}
+                                        <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.title }}" class="card-image">
+                                    {% endif %}
+                                    <div class="overlay">
+                                        <ul>
+                                            {% if block.settings.subcategory_1 != blank %}<li>{{ block.settings.subcategory_1 }}</li>{% endif %}
+                                            {% if block.settings.subcategory_2 != blank %}<li>{{ block.settings.subcategory_2 }}</li>{% endif %}
+                                            {% if block.settings.subcategory_3 != blank %}<li>{{ block.settings.subcategory_3 }}</li>{% endif %}
+                                            {% if block.settings.subcategory_4 != blank %}<li>{{ block.settings.subcategory_4 }}</li>{% endif %}
+                                            {% if block.settings.subcategory_5 != blank %}<li>{{ block.settings.subcategory_5 }}</li>{% endif %}
+                                        </ul>
+                                    </div>
+                                    <div class="card-title">{{ block.settings.title }}</div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        new Swiper(".mySwiper", {
+            slidesPerView: 1.2,
+            spaceBetween: 20,
+            slidesPerGroup: 1,
+            navigation: {
+                nextEl: ".category-button-next",
+                prevEl: ".category-button-prev",
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                1024: {
+                    slidesPerView: 2.8,   // <-- Not 3, slightly less
+                    spaceBetween: 30,
+                },
+                1400: {
+                    slidesPerView: 3.2,   // <-- On very large screens, a little more
+                    spaceBetween: 30,
+                }
+            }
+        });
+    });
+</script>
+
+{% schema %}
+{
+  "name": "Shop by Category",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Shop by Category"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Section Description",
+      "default": "Browse our extensive product selection, from stylish furniture to unique accessories that elevate any space."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category_card",
+      "name": "Category Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Category Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Category Title"
+        },
+        {
+          "type": "text",
+          "id": "subcategory_1",
+          "label": "Subcategory 1"
+        },
+        {
+          "type": "text",
+          "id": "subcategory_2",
+          "label": "Subcategory 2"
+        },
+        {
+          "type": "text",
+          "id": "subcategory_3",
+          "label": "Subcategory 3"
+        },
+        {
+          "type": "text",
+          "id": "subcategory_4",
+          "label": "Subcategory 4"
+        },
+        {
+          "type": "text",
+          "id": "subcategory_5",
+          "label": "Subcategory 5"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop by Category"
+    }
+  ]
+}
+{% endschema %}

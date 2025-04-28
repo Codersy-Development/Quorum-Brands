@@ -1,0 +1,355 @@
+<!-- sections/art-of-light-colors-fixed.liquid -->
+<section class="art-of-light">
+    <div class="container">
+        <div class="header">
+            {% if section.settings.title %}
+                <h2 class="title">{{ section.settings.title }}</h2>
+            {% endif %}
+            {% if section.settings.subtitle %}
+                <p class="subtitle">{{ section.settings.subtitle }}</p>
+            {% endif %}
+        </div>
+
+        <div class="colors">
+            {% for block in section.blocks %}
+                <div class="color-item" data-color="{{ block.id }}">
+                    {% if block.settings.icon %}
+                        <img src="{{ block.settings.icon | img_url: 'small' }}" alt="{{ block.settings.label }}" class="color-icon">
+                    {% endif %}
+                    {% if block.settings.label %}
+                        <p class="color-label">{{ block.settings.label }}</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="social-grid-wrapper">
+            {% for block in section.blocks %}
+                <div class="social-grid" id="gallery-{{ block.id }}" style="display: none;">
+                    {% if block.settings.image_1 %}
+                        <div class="social-item">
+                            <img src="{{ block.settings.image_1 | img_url: 'large' }}" alt="Social Image">
+                        </div>
+                    {% endif %}
+                    {% if block.settings.image_2 %}
+                        <div class="social-item">
+                            <img src="{{ block.settings.image_2 | img_url: 'large' }}" alt="Social Image">
+                        </div>
+                    {% endif %}
+                    {% if block.settings.image_3 %}
+                        <div class="social-item">
+                            <img src="{{ block.settings.image_3 | img_url: 'large' }}" alt="Social Image">
+                        </div>
+                    {% endif %}
+                    {% if block.settings.image_4 %}
+                        <div class="social-item">
+                            <img src="{{ block.settings.image_4 | img_url: 'large' }}" alt="Social Image">
+                        </div>
+                    {% endif %}
+                    {% if block.settings.image_5 %}
+                        <div class="social-item">
+                            <img src="{{ block.settings.image_5 | img_url: 'large' }}" alt="Social Image">
+                        </div>
+                    {% endif %}
+                    {% if block.settings.image_6 %}
+                        <div class="social-item">
+                            <img src="{{ block.settings.image_6 | img_url: 'large' }}" alt="Social Image">
+                        </div>
+                    {% endif %}
+                    {% if block.settings.image_7 %}
+                        <div class="social-item">
+                            <img src="{{ block.settings.image_7 | img_url: 'large' }}" alt="Social Image">
+                        </div>
+                    {% endif %}
+                    {% if block.settings.image_8 %}
+                        <div class="social-item">
+                            <img src="{{ block.settings.image_8 | img_url: 'large' }}" alt="Social Image">
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+
+        {% if section.settings.button_text and section.settings.button_link %}
+            <div class="button-wrapper">
+                <a href="{{ section.settings.button_link }}" class="cta-button">{{ section.settings.button_text }}</a>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const colorItems = document.querySelectorAll('.color-item');
+        const galleries = document.querySelectorAll('.social-grid');
+        const wrapper = document.querySelector('.social-grid-wrapper');
+
+        // Create loader element
+        const loader = document.createElement('div');
+        loader.classList.add('loader');
+        wrapper.appendChild(loader);
+
+        function showGallery(id) {
+            // Hide all galleries
+            galleries.forEach(grid => {
+                grid.style.display = 'none';
+                grid.style.opacity = '0';
+            });
+
+            // Show loader
+            loader.style.display = 'block';
+
+            // After 500ms, show the selected gallery
+            setTimeout(() => {
+                galleries.forEach(grid => {
+                    if (grid.id === 'gallery-' + id) {
+                        grid.style.display = 'grid';
+                        setTimeout(() => {
+                            grid.style.opacity = '1';
+                        }, 50);
+                    }
+                });
+
+                loader.style.display = 'none';
+            }, 500);
+
+            // Active state on clicked color
+            colorItems.forEach(item => {
+                item.classList.toggle('active', item.getAttribute('data-color') === id);
+            });
+        }
+
+        if (colorItems.length) {
+            showGallery(colorItems[0].getAttribute('data-color'));
+        }
+
+        colorItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const colorId = this.getAttribute('data-color');
+                showGallery(colorId);
+            });
+        });
+    });
+</script>
+
+
+<style>
+    .art-of-light {
+        padding: 100px 0;
+        background: #fff;
+        text-align: center;
+    }
+
+    .art-of-light .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .header {
+        margin-bottom: 40px;
+    }
+
+    .title {
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+        color: #555;
+        max-width: 800px;
+        margin: 0 auto 40px;
+    }
+
+    .colors {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin-bottom: 40px;
+        cursor: pointer;
+    }
+
+    .color-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: transform 0.3s ease;
+    }
+
+    .color-item.active .color-icon {
+        border: 2px solid black;
+        padding: 2px;
+        border-radius: 50%;
+    }
+
+    .color-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 8px;
+        transition: border 0.3s ease;
+    }
+
+    .color-label {
+        font-size: 14px;
+        color: #333;
+    }
+
+    .social-grid-wrapper {
+        position: relative;
+    }
+
+    .social-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-bottom: 60px;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+
+    .social-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        object-fit: cover;
+    }
+
+    .button-wrapper {
+        margin-top: 30px;
+    }
+
+    .cta-button {
+        display: inline-block;
+        padding: 14px 30px;
+        background: #fff;
+        border: 2px solid #000;
+        font-weight: 600;
+        text-decoration: none;
+        color: #000;
+        transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+        background: #000;
+        color: #fff;
+    }
+    .loader {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+        height: 40px;
+        border: 4px solid #ddd;
+        border-top: 4px solid #000;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        display: none;
+        z-index: 10;
+    }
+
+    @keyframes spin {
+        0% { transform: translate(-50%, -50%) rotate(0deg); }
+        100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+</style>
+
+{% schema %}
+{
+  "name": "Art of Light with Colors",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "The ART OF LIGHT"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle Paragraph",
+      "default": "Our lighting, fans, and mirrors are the finishing touches that turn any room into a place you’ll love. Each piece is crafted to be the color, shape, and style that brings your space to life. Explore some of our favorites below."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "More Inspiration"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "color_images",
+      "name": "Color + Images Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Color Label"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Color Icon Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_4",
+          "label": "Image 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_5",
+          "label": "Image 5"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_6",
+          "label": "Image 6"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_7",
+          "label": "Image 7"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_8",
+          "label": "Image 8"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Art of Light Colors"
+    }
+  ]
+}
+{% endschema %}

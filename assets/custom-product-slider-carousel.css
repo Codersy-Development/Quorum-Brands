@@ -1,0 +1,125 @@
+.product-feature-carousel {
+    padding: 80px 0;
+    background: #fff;
+
+    & .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    & .feature-grid {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+
+    & .feature-left {
+        flex: 0 0 50%;
+        max-height: 800px;
+    }
+
+    & .feature-right {
+        flex: 0 0 50%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        max-height: 800px;
+    }
+
+    & .main-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    & .feature-card {
+        background: #f9f9f9;
+        padding: 30px;
+        border-radius: 8px;
+        width: 100%;
+        max-width: 500px;
+        text-align: start;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    & .card-swiper {
+        width: 100%;
+    }
+
+    & .card-image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    & .card-title {
+        font-size: 22px;
+        font-weight: 700;
+        margin: 15px 0;
+        text-align: left;
+    }
+
+    & .card-text {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    & .card-button {
+        display: inline-block;
+        padding: 12px 24px;
+        border: 2px solid #000;
+        color: #000;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        margin-bottom: 20px;
+    }
+
+    & .card-button:hover {
+        background: #000;
+        color: #fff;
+    }
+    & .product-button-wrapper {
+        display: flex;
+        gap: 12px;
+        justify-content: flex-end;
+    }
+    & .product-button-prev {
+        transform: rotate(180deg);
+    }
+    & .product-button-prev,
+    & .product-button-next {
+        width: 40px;
+        height: 40px;
+        background: #f1f1f1;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    & .product-button-prev::after,
+    & .product-button-next::after {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .product-feature-carousel {
+        padding: 20px 0;
+        & .feature-grid {
+            flex-direction: column;
+        }
+        & .feature-right {
+            width: 100%;
+            margin: 0 16px;
+        }
+    }
+}

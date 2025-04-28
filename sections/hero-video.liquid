@@ -107,7 +107,13 @@
               <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-play" viewBox="18.24 17.35 24.52 28.3"><path fill="#323232" d="M22.1 19.151v25.5l20.4-13.489-20.4-12.011z"/></svg>
             </button>
           {%- endif -%}
-
+          {%- unless section.settings.subheading == blank -%}
+            <div class="hero__subtitle">
+              <div class="animation-cropper"><div class="animation-contents">
+                  {{ section.settings.subheading | escape }}
+                </div></div>
+            </div>
+          {%- endunless -%}
           {%- unless section.settings.title == blank -%}
             <h2 class="h1 hero__title">
               <div class="animation-cropper"><div class="animation-contents">
@@ -116,13 +122,6 @@
             </h2>
           {%- endunless -%}
           {%- if section.settings.subheading or section.settings.link -%}
-            {%- unless section.settings.subheading == blank -%}
-              <div class="hero__subtitle">
-                <div class="animation-cropper"><div class="animation-contents">
-                  {{ section.settings.subheading | escape }}
-                </div></div>
-              </div>
-            {%- endunless -%}
             {%- if section.settings.link_text != blank -%}
               {%- assign link_href = section.settings.link -%}
               {%- if section.settings.link == blank -%}
