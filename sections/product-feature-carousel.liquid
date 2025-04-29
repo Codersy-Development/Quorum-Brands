@@ -3,9 +3,7 @@
     <div class="container">
         <div class="feature-grid">
             <div class="feature-left">
-                {% if section.settings.main_image %}
-                    <img src="{{ section.settings.main_image | img_url: 'master' }}" alt="Main Room Image" class="main-image">
-                {% endif %}
+                <img id="mainImageDynamic" src="{{ section.blocks[0].settings.main_image | img_url: 'master' }}" alt="Main Room Image" class="main-image fade-in">
             </div>
 
             <div class="feature-right">
@@ -13,7 +11,7 @@
                     <div class="card-swiper swiper">
                         <div class="swiper-wrapper">
                             {% for block in section.blocks %}
-                                <div class="swiper-slide">
+                                <div class="swiper-slide" data-main-image="{{ block.settings.main_image | img_url: 'master' }}">
                                     {% if block.settings.card_image %}
                                         <img src="{{ block.settings.card_image | img_url: 'master' }}" alt="Slide Image" class="card-image">
                                     {% endif %}
@@ -29,9 +27,14 @@
                                 </div>
                             {% endfor %}
                         </div>
+
                         <div class="product-button-wrapper">
-                            <div class="product-button-prev"><img src="{{ 'ico-arrow-right.svg' | asset_url }}" alt="Icon"></div>
-                            <div class="product-button-next"><img src="{{ 'ico-arrow-right.svg' | asset_url }}" alt="Icon"></div>
+                            <div class="product-button-prev">
+                                <img src="{{ 'ico-arrow-right.svg' | asset_url }}" alt="Icon">
+                            </div>
+                            <div class="product-button-next">
+                                <img src="{{ 'ico-arrow-right.svg' | asset_url }}" alt="Icon">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -45,13 +48,40 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        new Swiper('.card-swiper', {
+        const mainImage = document.getElementById('mainImageDynamic');
+
+        const swiper = new Swiper('.card-swiper', {
             slidesPerView: 1,
             navigation: {
                 nextEl: '.product-button-next',
                 prevEl: '.product-button-prev',
             },
-            loop: true
+            loop: false,
+            on: {
+                slideChange: function () {
+                    const currentSlide = swiper.slides[swiper.activeIndex];
+                    const newSrc = currentSlide.getAttribute('data-main-image');
+
+                    if (newSrc && mainImage.src !== newSrc) {
+                        mainImage.classList.remove('visible');
+                        mainImage.addEventListener(
+                            'transitionend',
+                            function handler() {
+                                mainImage.removeEventListener('transitionend', handler);
+                                mainImage.src = newSrc;
+                            },
+                            { once: true }
+                        );
+                    }
+                }
+            }
+        });
+
+        // Add fade-in on load
+        mainImage.addEventListener('load', () => {
+            requestAnimationFrame(() => {
+                mainImage.classList.add('visible');
+            });
         });
     });
 </script>
@@ -61,18 +91,17 @@
   "name": "Product Feature Carousel",
   "tag": "section",
   "class": "room-feature-carousel",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "main_image",
-      "label": "Main Large Image"
-    }
-  ],
+  "settings": [],
   "blocks": [
     {
       "type": "card_slide",
       "name": "Card Slide",
       "settings": [
+        {
+          "type": "image_picker",
+          "id": "main_image",
+          "label": "Main Large Image"
+        },
         {
           "type": "image_picker",
           "id": "card_image",

@@ -1,30 +1,316 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
+    "hero_video_7AGby8": {
+      "type": "hero-video",
+      "name": "t:sections.hero-video.presets.video_hero.name",
+      "settings": {
+        "title": "The Art of Light",
+        "title_size": 80,
+        "subheading": "Lighting the Way. Moving Air. Inspiring Spaces",
+        "link_text": "Explore What’s New",
+        "link": "#",
+        "color_accent": "#ffffff",
+        "text_align": "vertical-bottom horizontal-left",
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/83fae7db410944df83d9275b0ea2d9d0.mp4",
+        "overlay_opacity": 0,
+        "section_height": "650px",
+        "mobile_height": "auto"
+      }
+    },
+    "shop_by_category_76eCUa": {
+      "type": "shop-by-category",
+      "blocks": {
+        "category_card_McD8Ur": {
+          "type": "category_card",
+          "settings": {
+            "image": "shopify://shop_images/Dining_2_71a33cd0-89e4-4887-993f-8262d2dc05b1.jpg",
+            "title": "Lighting",
+            "subcategory_1": "1",
+            "subcategory_2": "2",
+            "subcategory_3": "3",
+            "subcategory_4": "4",
+            "subcategory_5": "5"
+          }
+        },
+        "category_card_rzXJYG": {
+          "type": "category_card",
+          "settings": {
+            "image": "shopify://shop_images/DIning.jpg",
+            "title": "Lighting",
+            "subcategory_1": "1",
+            "subcategory_2": "2",
+            "subcategory_3": "3",
+            "subcategory_4": "4",
+            "subcategory_5": "5"
+          }
+        },
+        "category_card_3PKUg7": {
+          "type": "category_card",
+          "settings": {
+            "image": "shopify://shop_images/Tamara_Day_Set2_6_WebSize.jpg",
+            "title": "Lighting",
+            "subcategory_1": "1",
+            "subcategory_2": "2",
+            "subcategory_3": "3",
+            "subcategory_4": "4",
+            "subcategory_5": "5"
+          }
+        },
+        "category_card_bA3LAd": {
+          "type": "category_card",
+          "settings": {
+            "image": "shopify://shop_images/Tamara_Day_Set1-35_WebSize.jpg",
+            "title": "Lighting",
+            "subcategory_1": "1",
+            "subcategory_2": "2",
+            "subcategory_3": "3",
+            "subcategory_4": "4",
+            "subcategory_5": "5"
+          }
+        }
+      },
+      "block_order": [
+        "category_card_McD8Ur",
+        "category_card_rzXJYG",
+        "category_card_3PKUg7",
+        "category_card_bA3LAd"
+      ],
+      "name": "Shop by Category",
+      "settings": {
+        "title": "Shop by Category",
+        "description": "Browse our extensive product selection, from stylish furniture to unique accessories that elevate any space."
+      }
+    },
+    "featured_products_NJPrq9": {
+      "type": "featured-products",
+      "blocks": {
+        "product_card_YMhr8g": {
+          "type": "product_card",
+          "settings": {
+            "image_default": "shopify://shop_images/6123-8-47_1.jpg",
+            "image_hover": "shopify://shop_images/8905-6-59_1.jpg",
+            "title": "3\" Wall Mount Downlight Cylinder",
+            "subtitle": "3\" Wall Mt Downlight Cylinder",
+            "price": "106.15",
+            "sku": "P563000-031-30K",
+            "color_1": "#ffffff",
+            "color_2": "#0f0f0f",
+            "color_3": "#ff4f33",
+            "color_4": "",
+            "color_5": "",
+            "color_6": ""
+          }
+        },
+        "product_card_ycbBdW": {
+          "type": "product_card",
+          "settings": {
+            "image_default": "shopify://shop_images/593-3-47_1.jpg",
+            "image_hover": "shopify://shop_images/8905-6-59_1.jpg",
+            "title": "Alisse Collection One-Light Pendant Light",
+            "subtitle": "One-Light Brushed Gold New Traditional Pendant Light",
+            "price": "209.00",
+            "sku": "P500476-191",
+            "color_1": "#ffffff",
+            "color_2": "#e5e5e5",
+            "color_3": "#ff4f33",
+            "color_4": "#e8e8e1",
+            "color_5": "",
+            "color_6": ""
+          }
+        },
+        "product_card_V8CNgf": {
+          "type": "product_card",
+          "settings": {
+            "image_default": "shopify://shop_images/866-8-0880_1.jpg",
+            "image_hover": "shopify://shop_images/8905-6-59_1.jpg",
+            "title": "Graelyn Collection One-Light Pendant",
+            "subtitle": "One-Light Brushed Gold New Traditional Pendant Light",
+            "price": "220.00",
+            "sku": "P500478-191",
+            "color_1": "#b3a714",
+            "color_2": "",
+            "color_3": "",
+            "color_4": "",
+            "color_5": "",
+            "color_6": ""
+          }
+        },
+        "product_card_Y47L7a": {
+          "type": "product_card",
+          "settings": {
+            "image_default": "shopify://shop_images/5240-2-47_1.jpg",
+            "image_hover": "shopify://shop_images/8905-6-59_1.jpg",
+            "title": "Nova Series Two-Light Wall Sconce",
+            "subtitle": "Modern Double Light Fixture in Matte Black",
+            "price": "150.00",
+            "sku": "NSC200-202",
+            "color_1": "#b3a714",
+            "color_2": "",
+            "color_3": "",
+            "color_4": "",
+            "color_5": "",
+            "color_6": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_card_YMhr8g",
+        "product_card_ycbBdW",
+        "product_card_V8CNgf",
+        "product_card_Y47L7a"
+      ],
+      "name": "Featured Products",
+      "settings": {
+        "heading": "Featured Products"
+      }
+    },
+    "product_feature_carousel_Kqzf77": {
+      "type": "product-feature-carousel",
+      "blocks": {
+        "card_slide_i4j3Mf": {
+          "type": "card_slide",
+          "settings": {
+            "main_image": "shopify://shop_images/DIning.jpg",
+            "card_image": "shopify://shop_images/Dining_2_71a33cd0-89e4-4887-993f-8262d2dc05b1.jpg",
+            "heading": "Shop by Room: Dining",
+            "text": "Designed to enhance every meal, our dining selection combines timeless style with thoughtful functionality.",
+            "button_label": "Explore Products",
+            "button_link": "#"
+          }
+        },
+        "card_slide_cQ9MY3": {
+          "type": "card_slide",
+          "settings": {
+            "main_image": "shopify://shop_images/Tamara_Day_Set2_6_WebSize.jpg",
+            "card_image": "shopify://shop_images/Tamara_Day_Set1-35_WebSize.jpg",
+            "heading": "Shop by Room: Dining",
+            "text": "Designed to enhance every meal, our dining selection combines timeless style with thoughtful functionality.",
+            "button_label": "Explore Products",
+            "button_link": "#"
+          }
+        },
+        "card_slide_q7x7Q6": {
+          "type": "card_slide",
+          "settings": {
+            "main_image": "shopify://shop_images/Tamara_Day_Set1-35_WebSize.jpg",
+            "card_image": "shopify://shop_images/Tamara_Day_Set2_6_WebSize.jpg",
+            "heading": "Shop by Room: Dining",
+            "text": "Designed to enhance every meal, our dining selection combines timeless style with thoughtful functionality.",
+            "button_label": "Explore Products",
+            "button_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "card_slide_i4j3Mf",
+        "card_slide_cQ9MY3",
+        "card_slide_q7x7Q6"
+      ],
+      "name": "Product Feature Carousel",
+      "settings": {}
+    },
+    "image_with_text_MacpA3": {
+      "type": "Image-with-text",
+      "name": "Feature Promo",
+      "settings": {
+        "logo": "shopify://shop_images/Quorum-X-Tamara-Day-Logo.png",
+        "heading": "",
+        "text": "We partnered with celebrity designer Tamara Day to introduce three lighting collections inspired by select homes featured on Magnolia Network’s Bargain Mansions. Each collection has distinct characteristics while remaining rooted in Tamara’s signature style, “laid back luxe.” We are thrilled to showcase the first 54 designs which combine touches of glam with a cozy, livable vibe.",
+        "button_label": "Explore Products",
+        "button_link": "#",
+        "image": "shopify://shop_images/Tamara_Day_Set1-35_WebSize.jpg"
+      }
+    },
+    "art_of_light_yRHyHn": {
+      "type": "art-of-light",
+      "blocks": {
+        "color_images_EbNdTR": {
+          "type": "color_images",
+          "settings": {
+            "label": "Black",
+            "icon": "shopify://shop_images/15583-59_8.jpg",
+            "image_1": "shopify://shop_images/2024-06-13_00.35.36-gigapixel-high_fidelity_v2-1x.jpg",
+            "image_2": "shopify://shop_images/71-2-59_D1_Location.jpg",
+            "image_3": "shopify://shop_images/7940-9-69_D1_Location.jpg",
+            "image_4": "shopify://shop_images/73-20-59_7.jpg",
+            "image_5": "shopify://shop_images/635-6-80_8_copy.jpg",
+            "image_6": "shopify://shop_images/35846-47_8.jpg",
+            "image_7": "shopify://shop_images/15583-59_8.jpg",
+            "image_8": "shopify://shop_images/883-3-5980_5.jpg"
+          }
+        },
+        "color_images_cTjyA6": {
+          "type": "color_images",
+          "settings": {
+            "label": "Brass",
+            "icon": "shopify://shop_images/extracted_gold_dot-removebg-preview.png",
+            "image_1": "shopify://shop_images/693-6-47_7.jpg",
+            "image_2": "shopify://shop_images/8507-6-74_2.jpg",
+            "image_3": "shopify://shop_images/5015-3-47_5.jpg",
+            "image_4": "shopify://shop_images/6803-8-47_5.jpg",
+            "image_5": "shopify://shop_images/6137-6-80_3.jpg",
+            "image_6": "shopify://shop_images/8231-5-47_5.jpg",
+            "image_7": "shopify://shop_images/6169-6-47_5.jpg",
+            "image_8": "shopify://shop_images/6137-6-80_2.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "color_images_EbNdTR",
+        "color_images_cTjyA6"
+      ],
+      "name": "Art of Light Colors",
+      "settings": {
+        "title": "The ART OF LIGHT",
+        "subtitle": "Our lighting, fans, and mirrors are the finishing touches that turn any room into a place you’ll love. Each piece is crafted to be the color, shape, and style that brings your space to life. Explore some of our favorites below.",
+        "button_text": "More Inspiration",
+        "button_link": "#"
+      }
+    },
     "slideshow": {
       "type": "slideshow",
       "blocks": {
         "slideshow-0": {
           "type": "image",
           "settings": {
+            "top_subheading": "",
+            "title": "Two line\ntitle slide.",
             "title_size": 80,
-            "link": "shopify:\/\/collections\/all",
+            "subheading": "And optional subtext",
+            "link": "shopify://collections/all",
             "link_text": "Shop this",
-            "link_2": "shopify:\/\/collections\/all",
+            "link_2": "shopify://collections/all",
             "link_text_2": "Shop all",
             "color_accent": "#000000",
-            "text_align": "vertical-center horizontal-center"
+            "text_align": "vertical-center horizontal-center",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
           }
         },
         "slideshow-1": {
           "type": "image",
           "settings": {
+            "top_subheading": "",
+            "title": "Two line\ntitle slide.",
             "title_size": 80,
-            "link": "shopify:\/\/collections\/all",
+            "subheading": "And optional subtext",
+            "link": "shopify://collections/all",
             "link_text": "Shop all",
-            "link_2": "shopify:\/\/collections\/all",
+            "link_2": "shopify://collections/all",
             "link_text_2": "Shop all",
             "color_accent": "#000000",
-            "text_align": "vertical-bottom horizontal-left"
+            "text_align": "vertical-bottom horizontal-left",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
           }
         }
       },
@@ -32,13 +318,15 @@
         "slideshow-0",
         "slideshow-1"
       ],
+      "disabled": true,
       "settings": {
         "section_height": "750px",
         "mobile_height": "auto",
         "parallax": true,
         "style": "bars",
         "autoplay": true,
-        "autoplay_speed": 7
+        "autoplay_speed": 7,
+        "lazyload_images": true
       }
     },
     "rich-text": {
@@ -46,18 +334,28 @@
       "blocks": {
         "heading": {
           "type": "heading",
-          "settings": {}
+          "settings": {
+            "title": "Rich text"
+          }
         },
         "text": {
           "type": "text",
-          "settings": {}
+          "settings": {
+            "enlarge_text": true,
+            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+          }
         }
       },
       "block_order": [
         "heading",
         "text"
       ],
-      "settings": {}
+      "disabled": true,
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false
+      }
     },
     "promo-grid": {
       "type": "promo-grid",
@@ -65,11 +363,19 @@
         "promo-0": {
           "type": "advanced",
           "settings": {
-            "cta_link1": "shopify:\/\/collections\/all",
+            "subheading": "Limited time",
+            "heading": "Announce your promotion",
+            "textarea": "Include the smaller details of your promotion in text below the title.",
+            "cta_text1": "Shop This",
+            "cta_link1": "shopify://collections/all",
+            "cta_text2": "Shop All",
+            "cta_link2": "",
+            "video_url": "",
             "width": "50",
             "height": 800,
             "text_size": 100,
             "text_align": "vertical-center horizontal-center",
+            "color_accent": "rgba(0,0,0,0)",
             "boxed": false,
             "framed": true
           }
@@ -77,11 +383,19 @@
         "promo-1": {
           "type": "advanced",
           "settings": {
-            "cta_link1": "shopify:\/\/collections\/all",
+            "subheading": "Limited time",
+            "heading": "Announce your promotion",
+            "textarea": "Include the smaller details of your promotion in text below the title.",
+            "cta_text1": "Shop This",
+            "cta_link1": "shopify://collections/all",
+            "cta_text2": "Shop All",
+            "cta_link2": "",
+            "video_url": "",
             "width": "50",
             "height": 500,
             "text_size": 100,
             "text_align": "vertical-bottom horizontal-center",
+            "color_accent": "rgba(0,0,0,0)",
             "boxed": true,
             "framed": false
           }
@@ -91,11 +405,13 @@
         "promo-0",
         "promo-1"
       ],
+      "disabled": true,
       "settings": {
         "full_width": true,
         "gutter_size": 20,
         "space_above": false,
-        "space_below": false
+        "space_below": false,
+        "lazyload_images": true
       }
     },
     "featured-collections": {
@@ -103,19 +419,35 @@
       "blocks": {
         "featured-collections-0": {
           "type": "collection",
-          "settings": {}
+          "settings": {
+            "collection": "",
+            "title": "",
+            "focal_point": "center center"
+          }
         },
         "featured-collections-1": {
           "type": "collection",
-          "settings": {}
+          "settings": {
+            "collection": "",
+            "title": "",
+            "focal_point": "center center"
+          }
         },
         "featured-collections-2": {
           "type": "collection",
-          "settings": {}
+          "settings": {
+            "collection": "",
+            "title": "",
+            "focal_point": "center center"
+          }
         },
         "featured-collections-3": {
           "type": "collection",
-          "settings": {}
+          "settings": {
+            "collection": "",
+            "title": "",
+            "focal_point": "center center"
+          }
         }
       },
       "block_order": [
@@ -124,6 +456,7 @@
         "featured-collections-2",
         "featured-collections-3"
       ],
+      "disabled": true,
       "settings": {
         "title": "Shop by category",
         "divider": false,
@@ -137,10 +470,19 @@
         "promo2-0": {
           "type": "advanced",
           "settings": {
-            "cta_link1": "shopify:\/\/collections\/all",
+            "subheading": "Limited time",
+            "heading": "Announce your promotion",
+            "textarea": "Include the smaller details of your promotion in text below the title.",
+            "cta_text1": "Shop This",
+            "cta_link1": "shopify://collections/all",
+            "cta_text2": "Shop All",
+            "cta_link2": "",
+            "video_url": "",
             "width": "100",
             "height": 720,
             "text_size": 120,
+            "text_align": "vertical-center horizontal-center",
+            "color_accent": "rgba(0,0,0,0)",
             "boxed": false,
             "framed": false
           }
@@ -148,7 +490,13 @@
         "promo2-1": {
           "type": "sale_collection",
           "settings": {
+            "sale_collection": "",
+            "top_text": "Up to",
+            "middle_text": "50% off",
+            "bottom_text": "Select products",
             "width": "50",
+            "color_tint": "#000000",
+            "color_tint_opacity": 0,
             "boxed": false,
             "framed": true
           }
@@ -156,7 +504,13 @@
         "promo2-2": {
           "type": "sale_collection",
           "settings": {
+            "sale_collection": "",
+            "top_text": "Up to",
+            "middle_text": "50% off",
+            "bottom_text": "Select products",
             "width": "50",
+            "color_tint": "#000000",
+            "color_tint_opacity": 0,
             "boxed": false,
             "framed": true
           }
@@ -167,34 +521,48 @@
         "promo2-1",
         "promo2-2"
       ],
+      "disabled": true,
       "settings": {
         "full_width": false,
         "gutter_size": 20,
         "space_above": false,
-        "space_below": false
+        "space_below": false,
+        "lazyload_images": true
       }
     },
     "featured-collection": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
+        "title": "Featured collection",
+        "home_featured_products": "",
         "per_row": 4,
         "rows": 1,
+        "mobile_scrollable": true,
         "view_all": true,
         "divider": false
       }
     },
     "background-image-text": {
       "type": "background-image-text",
+      "disabled": true,
       "settings": {
-        "button_link": "shopify:\/\/collections\/all",
+        "subtitle": "Impressive",
+        "title": "Large image with text box",
+        "text": "<p>Pair large text with a full-width image to draw attention to an important detail of your brand or product line.</p>",
+        "button_label": "",
+        "button_link": "shopify://collections/all",
         "layout": "left",
         "height": 750,
         "framed": false,
-        "parallax": true
+        "parallax": true,
+        "parallax_direction": "top",
+        "lazyload_images": true
       }
     },
     "blog-posts": {
       "type": "blog-posts",
+      "disabled": true,
       "settings": {
         "title": "From the journal",
         "blog": "news",
@@ -210,10 +578,24 @@
     },
     "map": {
       "type": "map",
-      "settings": {}
+      "disabled": true,
+      "settings": {
+        "map_title": "Our retail store",
+        "address": "<p>301 Front St W<br>Toronto, Canada</p><p>Mon - Fri, 8:30am - 10:30pm<br>Saturday, 8:30am - 10:30pm<br>Sunday, 8:30am - 10:30pm</p>",
+        "map_address": "301 Front St W, Toronto, ON M5V 2T6",
+        "api_key": "",
+        "show_button": true,
+        "lazyload_images": true
+      }
     }
   },
   "order": [
+    "hero_video_7AGby8",
+    "shop_by_category_76eCUa",
+    "featured_products_NJPrq9",
+    "product_feature_carousel_Kqzf77",
+    "image_with_text_MacpA3",
+    "art_of_light_yRHyHn",
     "slideshow",
     "rich-text",
     "promo-grid",
