@@ -1,0 +1,128 @@
+{%- if section.settings.divider -%}
+  <div class="section--divider">
+{%- endif -%}
+
+<div id="shopify-section-{{ section.id }}" class="page-width">
+  {%- if section.settings.title != blank -%}
+    <div class="section-header text-{{ section.settings.align_text }}">
+      <h2>{{ section.settings.title }}</h2>
+    </div>
+  {%- endif -%}
+
+  {%- style -%}
+    #shopify-section-{{ section.id }} .video-wrap {
+      width: 100%;
+    }
+
+    #shopify-section-{{ section.id }} .video-wrap iframe {
+      width: 100%;
+      height: 500px;
+      border: 0;
+    }
+  {%- endstyle -%}
+
+  <div class="grid{% unless section.blocks.size == 5 %} grid--uniform{% endunless %} grid--flush-bottom">
+    {%- liquid
+      assign grid_item_width = 'medium-up--one-third'
+      case section.blocks.size
+        when 1
+          assign grid_item_width = 'medium-up--one-half'
+        when 2
+          assign grid_item_width = 'medium-up--one-half'
+        when 4
+          assign grid_item_width = 'medium-up--one-half'
+      endcase
+    -%}
+
+    {%- for block in section.blocks -%}
+      {%- if section.blocks.size == 5 and forloop.index < 3 -%}
+        {%- assign column_width = 'medium-up--one-half' -%}
+      {%- else -%}
+        {%- assign column_width = grid_item_width -%}
+      {%- endif -%}
+
+      <div class="grid__item {{ column_width }} text-{{ section.settings.align_text }}" {{ block.shopify_attributes }} data-aos="row-of-3">
+        {%- if block.settings.video_link != blank -%}
+          <div class="video-wrap">
+            <iframe 
+              src="{% if block.settings.video_link contains 'youtube.com/watch' %}{{ block.settings.video_link | replace: 'watch?v=', 'embed/' }}{% elsif block.settings.video_link contains 'vimeo.com' %}{{ block.settings.video_link | replace: 'vimeo.com/', 'player.vimeo.com/video/' }}{% else %}{{ block.settings.video_link }}{% endif %}" 
+              frameborder="0" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        {%- endif -%}
+
+        {%- if block.settings.title != blank -%}
+          <p class="video-title">{{ block.settings.title }}</p>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{%- if section.settings.divider -%}
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Video columns",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title"
+    },
+    {
+      "type": "select",
+      "id": "align_text",
+      "label": "Text alignment",
+      "default": "center",
+      "options": [
+        { "value": "left",   "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right",  "label": "Right" }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "divider",
+      "label": "Show divider",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "url",
+          "id": "video_link",
+          "label": "Video link (YouTube or Vimeo)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Video title",
+          "default": "Video title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video columns",
+      "blocks": [
+        { "type": "video" },
+        { "type": "video" },
+        { "type": "video" }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["custom.popups"]
+  }
+}
+{% endschema %}
