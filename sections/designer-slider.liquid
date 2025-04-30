@@ -1,0 +1,105 @@
+{{ 'designer-slider.css' | asset_url | stylesheet_tag }}
+
+
+<section class="designers-slider" id="designers-slider-{{ section.id }}">
+  <div class="designers-slider__container">
+    <div class="designers-slider__controls">
+      <div class="designers-slider__pagination" id="pagination-{{ section.id }}">1 / {{ section.blocks.size }}</div>
+      <div class="designers-slider__nav">
+        <div class="designers-slider__button swiper-button-prev">
+          <svg viewBox="0 0 20 20">
+            <path d="M13.66 3.87a1 1 0 0 1 0 1.41L8.93 10l4.73 4.72a1 1 0 1 1-1.41 1.42l-5.44-5.43a1 1 0 0 1 0-1.42l5.44-5.42a1 1 0 0 1 1.41 0Z"/>
+          </svg>
+        </div>
+        <div class="designers-slider__button swiper-button-next">
+          <svg viewBox="0 0 20 20">
+            <path d="M6.34 3.87a1 1 0 0 0 0 1.41L11.07 10l-4.73 4.72a1 1 0 1 0 1.41 1.42l5.44-5.43a1 1 0 0 0 0-1.42l-5.44-5.42a1 1 0 0 0-1.41 0Z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="designers-slider__swiper-container swiper-container" id="designers-swiper-{{ section.id }}">
+      <div class="designers-slider__wrapper swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="designers-slider__slide swiper-slide">
+            <div class="designers-slider__content">
+              {% unless block.settings.name == blank %}<h2 class="designers-slider__title">{{ block.settings.name }}</h2>{% endunless %}
+              {% unless block.settings.bio == blank %}<div class="designers-slider__bio">{{ block.settings.bio }}</div>{% endunless %}
+              {% unless block.settings.link_url == blank or block.settings.link_text == blank %}
+                <a href="{{ block.settings.link_url }}" class="designers-slider__link">{{ block.settings.link_text }}</a>
+              {% endunless %}
+            </div>
+            <div class="designers-slider__images">
+              {% unless block.settings.image_1 == blank %}
+                <img src="{{ block.settings.image_1 | image_url: width: 800 }}" alt="{{ block.settings.image_1_alt | escape }}" class="designers-slider__image" />
+              {% endunless %}
+              {% unless block.settings.image_2 == blank %}
+                <img src="{{ block.settings.image_2 | image_url: width: 800 }}" alt="{{ block.settings.image_2_alt | escape }}" class="designers-slider__image" />
+              {% endunless %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const swiper = new Swiper('#designers-swiper-{{ section.id }}', {
+      slidesPerView: 'auto',
+      loop: false,
+      spaceBetween: 0,
+      autoHeight: true,
+      centeredSlides: false,
+      watchOverflow: true,
+      resistanceRatio: 0,
+      navigation: {
+        nextEl: '#designers-slider-{{ section.id }} .swiper-button-next',
+        prevEl: '#designers-slider-{{ section.id }} .swiper-button-prev'
+      },
+      on: {
+        slideChange: function () {
+          const logicalIndex = Math.floor(swiper.realIndex / 1) + 1;
+          const total = Math.ceil(swiper.slides.length / 1);
+          document.getElementById('pagination-{{ section.id }}').textContent = `${logicalIndex} / ${total}`;
+        }
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Designers Slider",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "designer",
+      "name": "Designer",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Name" },
+        { "type": "richtext", "id": "bio", "label": "Bio" },
+        { "type": "url", "id": "link_url", "label": "Link URL" },
+        { "type": "text", "id": "link_text", "label": "Link Text", "default": "Discover More →" },
+        { "type": "image_picker", "id": "image_1", "label": "Image 1" },
+        { "type": "text", "id": "image_1_alt", "label": "Image 1 Alt Text" },
+        { "type": "image_picker", "id": "image_2", "label": "Image 2" },
+        { "type": "text", "id": "image_2_alt", "label": "Image 2 Alt Text" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Designers Slider",
+      "category": "Custom",
+      "blocks": [
+        { "type": "designer" },
+        { "type": "designer" },
+        { "type": "designer" }
+      ]
+    }
+  ]
+}
+{% endschema %}
