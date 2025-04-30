@@ -1,59 +1,4 @@
-{% stylesheet %}
-.become-customer-banner {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  padding-top: 150px;
-  padding-bottom: 140px; 
-}
-
-.become-customer-banner__images {
-  display: flex;
-  width: 100%;
-}
-
-.become-customer-banner__image {
-  flex: 1;
-  height: 500px;
-  object-fit: cover;
-}
-
-.become-customer-banner__content {
-  position: absolute;
-  top: 180px;
-  left: 50%;
-  transform: translate(-50%, -70%);
-  background: white;
-  padding: 2rem 3rem;
-  text-align: center;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  z-index: 2;
-}
-
-.become-customer-banner__title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 0.8rem;
-}
-
-.become-customer-banner__subtitle {
-  font-size: 1rem;
-  margin-bottom: 1.2rem;
-}
-
-.become-customer-banner__button {
-  background: black;
-  color: white;
-  padding: 0.6rem 1.2rem;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-  text-decoration: none;
-}
-{% endstylesheet %}
+{{ 'new-customer-banner.css' | asset_url | stylesheet_tag }}
 
 <section class="become-customer-banner">
   <div class="become-customer-banner__images">
@@ -71,13 +16,57 @@
   <div class="become-customer-banner__content">
     <h2 class="become-customer-banner__title">{{ section.settings.title }}</h2>
     <p class="become-customer-banner__subtitle">{{ section.settings.subtitle }}</p>
-  <button class="become-customer-banner__button">Click Here</button>
-
+    <button class="become-customer-banner__button">{{ section.settings.button_label }}</button>
   </div>
-  <become-customer-popup></become-customer-popup>
 
+  <div class="become-customer-banner__form-overlay" id="customer-form-overlay">
+    <div class="become-customer-banner__form-popup">
+      <span class="become-customer-banner__form-close" id="form-close">&times;</span>
+      <h3>Become a Customer</h3>
+      <form id="customer-form">
+        <input type="text" name="first_name" placeholder="First Name" required>
+        <input type="text" name="last_name" placeholder="Last Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <textarea name="message" placeholder="Your message"></textarea>
+        <button type="submit" class="become-customer-banner__button">Send</button>
+      </form>
+    </div>
+  </div>
 </section>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const section = document.querySelector(".become-customer-banner");
+    const button = section.querySelector(".become-customer-banner__button");
+    const overlay = section.querySelector("#customer-form-overlay");
+    const closeBtn = section.querySelector("#form-close");
+    const form = section.querySelector("#customer-form");
+
+    if (button && overlay && closeBtn) {
+      button.addEventListener("click", function () {
+        overlay.style.display = "flex";
+      });
+
+      closeBtn.addEventListener("click", function () {
+        overlay.style.display = "none";
+      });
+
+      overlay.addEventListener("click", function (e) {
+        if (e.target === overlay) {
+          overlay.style.display = "none";
+        }
+      });
+    }
+
+    if (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault(); 
+        alert("Form submitted!");
+        overlay.style.display = "none";
+      });
+    }
+  });
+</script>
 
 {% schema %}
 {
