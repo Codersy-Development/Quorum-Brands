@@ -1,0 +1,122 @@
+{{ 'new-customer-banner.css' | asset_url | stylesheet_tag }}
+
+<section class="become-customer-banner">
+  <div class="become-customer-banner__images">
+    {% if section.settings.image_1 %}
+      <img src="{{ section.settings.image_1 | image_url: width: 800 }}" class="become-customer-banner__image" alt="Image 1">
+    {% endif %}
+    {% if section.settings.image_2 %}
+      <img src="{{ section.settings.image_2 | image_url: width: 800 }}" class="become-customer-banner__image" alt="Image 2">
+    {% endif %}
+    {% if section.settings.image_3 %}
+      <img src="{{ section.settings.image_3 | image_url: width: 800 }}" class="become-customer-banner__image" alt="Image 3">
+    {% endif %}
+  </div>
+
+  <div class="become-customer-banner__content">
+    <h2 class="become-customer-banner__title">{{ section.settings.title }}</h2>
+    <p class="become-customer-banner__subtitle">{{ section.settings.subtitle }}</p>
+    <button class="become-customer-banner__button">{{ section.settings.button_label }}</button>
+  </div>
+
+  <div class="become-customer-banner__form-overlay" id="customer-form-overlay">
+    <div class="become-customer-banner__form-popup">
+      <span class="become-customer-banner__form-close" id="form-close">&times;</span>
+      <h3>Become a Customer</h3>
+      <form id="customer-form">
+        <input type="text" name="first_name" placeholder="First Name" required>
+        <input type="text" name="last_name" placeholder="Last Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <textarea name="message" placeholder="Your message"></textarea>
+        <button type="submit" class="become-customer-banner__button">Send</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const section = document.querySelector(".become-customer-banner");
+    const button = section.querySelector(".become-customer-banner__button");
+    const overlay = section.querySelector("#customer-form-overlay");
+    const closeBtn = section.querySelector("#form-close");
+    const form = section.querySelector("#customer-form");
+
+    if (button && overlay && closeBtn) {
+      button.addEventListener("click", function () {
+        overlay.style.display = "flex";
+      });
+
+      closeBtn.addEventListener("click", function () {
+        overlay.style.display = "none";
+      });
+
+      overlay.addEventListener("click", function (e) {
+        if (e.target === overlay) {
+          overlay.style.display = "none";
+        }
+      });
+    }
+
+    if (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault(); 
+        alert("Form submitted!");
+        overlay.style.display = "none";
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Become Customer Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Image 3"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Interested in Becoming a Customer?"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Complete This Form Today."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button text",
+      "default": "Click Here"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link",
+      "default": "/"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Become a Customer Banner",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

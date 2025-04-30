@@ -1,0 +1,27 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+	"sections": {
+		"new_customer_banner_yb939b": {
+			"type": "new-customer-banner",
+			"name": "Become a Customer Banner",
+			"settings": {
+				"image_1": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
+				"image_2": "shopify://shop_images/893-5-47_4_5aadc020-d395-4f82-bf01-d0c8778b242b.jpg",
+				"image_3": "shopify://shop_images/3-502-15_6.jpg",
+				"title": "Interested in Becoming a Customer?",
+				"subtitle": "Complete This Form Today.",
+				"button_label": "Click Here",
+				"button_link": "/"
+			}
+		}
+	},
+	"order": ["new_customer_banner_yb939b"]
+}
