@@ -1,52 +1,149 @@
 {
-  "sections": {
-    "main": {
-      "type": "list-collections-template",
-      "settings": {}
-    },
-    "logo-list": {
-      "type": "logo-list",
-      "blocks": {
-        "logo1": {
-          "type": "logo_image",
-          "settings": {}
-        },
-        "logo2": {
-          "type": "logo_image",
-          "settings": {}
-        },
-        "logo3": {
-          "type": "logo_image",
-          "settings": {}
-        },
-        "logo4": {
-          "type": "logo_image",
-          "settings": {}
-        },
-        "logo5": {
-          "type": "logo_image",
-          "settings": {}
-        },
-        "logo6": {
-          "type": "logo_image",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "logo1",
-        "logo2",
-        "logo3",
-        "logo4",
-        "logo5",
-        "logo6"
-      ],
-      "settings": {
-        "title": "Our brands"
-      }
-    }
-  },
-  "order": [
-    "main",
-    "logo-list"
-  ]
+	"sections": {
+		"text_columns_FhwhxB": {
+			"type": "text-columns",
+			"blocks": {
+				"text_block_bpdehq": {
+					"type": "text_block",
+					"settings": {
+						"enable_image": true,
+						"image": "shopify://shop_images/Screenshot_2025-04-14_at_1.12.08_PM.png",
+						"image_mask": "none",
+						"image_width": 650,
+						"title": "Example title",
+						"text": "",
+						"button_label": "View more",
+						"button_link": ""
+					}
+				},
+				"text_block_pJXeqJ": {
+					"type": "text_block",
+					"settings": {
+						"enable_image": true,
+						"image": "shopify://shop_images/Screenshot_2025-04-14_at_1.12.08_PM.png",
+						"image_mask": "none",
+						"image_width": 650,
+						"title": "Example title",
+						"text": "",
+						"button_label": "View more",
+						"button_link": ""
+					}
+				},
+				"text_block_JpYmc3": {
+					"type": "text_block",
+					"settings": {
+						"enable_image": true,
+						"image": "shopify://shop_images/Screenshot_2025-04-14_at_1.12.08_PM.png",
+						"image_mask": "none",
+						"image_width": 650,
+						"title": "Example title",
+						"text": "",
+						"button_label": "View more",
+						"button_link": ""
+					}
+				},
+				"text_block_APfCw4": {
+					"type": "text_block",
+					"settings": {
+						"enable_image": true,
+						"image": "shopify://shop_images/Screenshot_2025-04-14_at_1.12.08_PM.png",
+						"image_mask": "none",
+						"image_width": 650,
+						"title": "Example title",
+						"text": "",
+						"button_label": "View more",
+						"button_link": ""
+					}
+				},
+				"text_block_gxibUU": {
+					"type": "text_block",
+					"settings": {
+						"enable_image": true,
+						"image": "shopify://shop_images/Screenshot_2025-04-14_at_1.15.06_PM.png",
+						"image_mask": "none",
+						"image_width": 650,
+						"title": "Example title",
+						"text": "",
+						"button_label": "View more",
+						"button_link": ""
+					}
+				},
+				"text_block_AkcTGQ": {
+					"type": "text_block",
+					"settings": {
+						"enable_image": true,
+						"image": "shopify://shop_images/Screenshot_2025-04-14_at_1.13.08_PM.png",
+						"image_mask": "none",
+						"image_width": 650,
+						"title": "Example title",
+						"text": "",
+						"button_label": "View more",
+						"button_link": ""
+					}
+				}
+			},
+			"block_order": [
+				"text_block_bpdehq",
+				"text_block_pJXeqJ",
+				"text_block_JpYmc3",
+				"text_block_APfCw4",
+				"text_block_gxibUU",
+				"text_block_AkcTGQ"
+			],
+			"name": "t:sections.text-columns.presets.text_columns_with_images.name",
+			"settings": {
+				"title": "",
+				"align_text": "center",
+				"divider": false
+			}
+		},
+		"logo-list": {
+			"type": "logo-list",
+			"blocks": {
+				"logo1": {
+					"type": "logo_image",
+					"settings": {
+						"link": ""
+					}
+				},
+				"logo2": {
+					"type": "logo_image",
+					"settings": {
+						"link": ""
+					}
+				},
+				"logo3": {
+					"type": "logo_image",
+					"settings": {
+						"link": ""
+					}
+				},
+				"logo4": {
+					"type": "logo_image",
+					"settings": {
+						"link": ""
+					}
+				},
+				"logo5": {
+					"type": "logo_image",
+					"settings": {
+						"link": ""
+					}
+				},
+				"logo6": {
+					"type": "logo_image",
+					"settings": {
+						"link": ""
+					}
+				}
+			},
+			"block_order": ["logo1", "logo2", "logo3", "logo4", "logo5", "logo6"],
+			"settings": {
+				"title": "Our brands",
+				"logo_opacity": 76,
+				"divider": false
+			}
+		}
+	},
+	"order": ["text_columns_FhwhxB", "logo-list"]
 }

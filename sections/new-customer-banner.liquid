@@ -1,0 +1,133 @@
+{% stylesheet %}
+.become-customer-banner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 150px;
+  padding-bottom: 140px; /* dodat prostor ispod da ne ulazi sledeći sadržaj */
+}
+
+.become-customer-banner__images {
+  display: flex;
+  width: 100%;
+}
+
+.become-customer-banner__image {
+  flex: 1;
+  height: 500px;
+  object-fit: cover;
+}
+
+.become-customer-banner__content {
+  position: absolute;
+  top: 180px;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  background: white;
+  padding: 2rem 3rem;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  z-index: 2;
+}
+
+.become-customer-banner__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.become-customer-banner__subtitle {
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.become-customer-banner__button {
+  background: black;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  text-decoration: none;
+}
+{% endstylesheet %}
+
+<section class="become-customer-banner">
+  <div class="become-customer-banner__images">
+    {% if section.settings.image_1 %}
+      <img src="{{ section.settings.image_1 | image_url: width: 800 }}" class="become-customer-banner__image" alt="Image 1">
+    {% endif %}
+    {% if section.settings.image_2 %}
+      <img src="{{ section.settings.image_2 | image_url: width: 800 }}" class="become-customer-banner__image" alt="Image 2">
+    {% endif %}
+    {% if section.settings.image_3 %}
+      <img src="{{ section.settings.image_3 | image_url: width: 800 }}" class="become-customer-banner__image" alt="Image 3">
+    {% endif %}
+  </div>
+
+  <div class="become-customer-banner__content">
+    <h2 class="become-customer-banner__title">{{ section.settings.title }}</h2>
+    <p class="become-customer-banner__subtitle">{{ section.settings.subtitle }}</p>
+  <button class="become-customer-banner__button">Click Here</button>
+
+  </div>
+  <become-customer-popup></become-customer-popup>
+
+</section>
+
+
+{% schema %}
+{
+  "name": "Become Customer Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Slika 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Slika 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Slika 3"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Naslov",
+      "default": "Interested in Becoming a Customer?"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Podnaslov",
+      "default": "Complete This Form Today."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Tekst dugmeta",
+      "default": "Click Here"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Link dugmeta",
+      "default": "/"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Become a Customer Banner",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
