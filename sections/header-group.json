@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "type": "header",
   "name": "t:sections.header-group.name",
@@ -8,21 +17,56 @@
         "header-0": {
           "type": "logo",
           "settings": {
-            "logo": "shopify:\/\/shop_images\/Quourm_Int_BLK.png",
-            "logo-inverted": "shopify:\/\/shop_images\/Quorum_Int_WHT.png",
+            "logo_for_store": "Uttermost",
+            "logo": "shopify://shop_images/Quourm_Int_BLK.png",
+            "logo-inverted": "shopify://shop_images/Quorum_Int_WHT.png",
             "desktop_logo_width": 140,
             "mobile_logo_width": 110
+          }
+        },
+        "logo_TcHddb": {
+          "type": "logo",
+          "settings": {
+            "logo_for_store": "Revelation",
+            "logo": "shopify://shop_images/Oxygen_Brand.png",
+            "desktop_logo_width": 200,
+            "mobile_logo_width": 140
+          }
+        },
+        "store_selector_Td8HGn": {
+          "type": "store_selector",
+          "settings": {
+            "title": "Uttermost",
+            "menu": "store-1-menu",
+            "color_header": "#ffffff",
+            "color_header_text": "#000000",
+            "color_announcement": "#1c1d1d",
+            "color_announcement_text": "#ffffff"
+          }
+        },
+        "store_selector_WdH4aN": {
+          "type": "store_selector",
+          "settings": {
+            "title": "Revelation",
+            "menu": "store-2-menu",
+            "color_header": "#ff0000",
+            "color_header_text": "#ffffff",
+            "color_announcement": "#1c1d1d",
+            "color_announcement_text": "#ffffff"
           }
         }
       },
       "block_order": [
-        "header-0"
+        "header-0",
+        "logo_TcHddb",
+        "store_selector_Td8HGn",
+        "store_selector_WdH4aN"
       ],
       "settings": {
         "main_menu_link_list": "main-menu",
         "hover_menu": true,
         "mega_menu_images": true,
-        "main_menu_alignment": "center-split",
+        "main_menu_alignment": "center-drawer",
         "header_style": "sticky",
         "sticky_index": false,
         "sticky_collection": false,
