@@ -63,26 +63,30 @@
                     const newSrc = currentSlide.getAttribute('data-main-image');
 
                     if (newSrc && mainImage.src !== newSrc) {
+                        // Hide before changing src
                         mainImage.classList.remove('visible');
-                        mainImage.addEventListener(
-                            'transitionend',
-                            function handler() {
-                                mainImage.removeEventListener('transitionend', handler);
-                                mainImage.src = newSrc;
-                            },
-                            { once: true }
-                        );
+
+                        // Wait for image to fully load before showing again
+                        const onLoadHandler = () => {
+                            mainImage.classList.add('visible');
+                            mainImage.removeEventListener('load', onLoadHandler);
+                        };
+
+                        mainImage.addEventListener('load', onLoadHandler);
+                        mainImage.src = newSrc;
                     }
                 }
             }
         });
 
-        // Add fade-in on load
-        mainImage.addEventListener('load', () => {
-            requestAnimationFrame(() => {
-                mainImage.classList.add('visible');
+        // Initial load fade-in
+        if (mainImage.complete) {
+            requestAnimationFrame(() => mainImage.classList.add('visible'));
+        } else {
+            mainImage.addEventListener('load', () => {
+                requestAnimationFrame(() => mainImage.classList.add('visible'));
             });
-        });
+        }
     });
 </script>
 

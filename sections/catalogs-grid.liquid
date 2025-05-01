@@ -1,0 +1,27 @@
+{{ 'custom-catalogs-grid.css' | asset_url | stylesheet_tag }}
+<section class="catalogs-grid">
+    <h2>CATALOGS</h2>
+    <div class="catalogs-list">
+        {% for product in collections.all.products %}
+            <div class="catalog-item">
+                <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.title }}">
+                <h3>{{ product.title }}</h3>
+                <a href="{{ product.url }}">View</a>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Catalogs Grid",
+  "tag": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Catalogs Grid",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,88 @@
+{{ 'custom-team-section.css' | asset_url | stylesheet_tag }}
+<section class="team-section">
+    <h2>{{ section.settings.title }}</h2>
+    <div class="team-grid">
+        <div class="team-members">
+            {% for block in section.blocks %}
+                <div class="team-member">
+                    <img src="{{ block.settings.image | img_url: 'medium' }}" alt="{{ block.settings.name }}">
+                    <div class="team-overlay">
+                        <h3 class="team-name">{{ block.settings.name }}</h3>
+                        <p class="team-role">{{ block.settings.role }}</p>
+                        <p class="team-bio">{{ block.settings.bio }}</p>
+                    </div>
+                    <div class="name-wrapper">
+                        <div class="team-name">{{ block.settings.name }}</div>
+                        <div class="team-role">{{ block.settings.role }}</div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="team-description">
+            <p>{{ section.settings.description_1 }}</p>
+            <p>{{ section.settings.description_2 }}</p>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Team Section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "OUR DESIGN TEAM"
+    },
+    {
+      "type": "textarea",
+      "id": "description_1",
+      "label": "First Paragraph",
+      "default": "We have an in-house design team of seasoned industrial designers..."
+    },
+    {
+      "type": "textarea",
+      "id": "description_2",
+      "label": "Second Paragraph",
+      "default": "From the beginning, our focus has been on lighting the way..."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "member",
+      "name": "Team Member",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Member Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "role",
+          "label": "Role"
+        },
+        {
+          "type": "textarea",
+          "id": "bio",
+          "label": "Short Bio"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Team Section",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

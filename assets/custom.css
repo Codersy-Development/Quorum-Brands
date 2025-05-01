@@ -1,0 +1,28 @@
+.header__buttons--wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    margin-left: 24px;
+    & .card-button {
+        display: inline-block;
+        padding: 6px 12px;
+        border: 2px solid #000;
+        color: #000;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        margin-top: auto;
+    }
+    & .card-button:hover {
+        background: #000;
+        color: #fff;
+    }
+    & .active-button {
+        background: #000;
+        color: #fff;
+    }
+    & .active-button:hover {
+        background: #fff;
+        color: #000;
+    }
+}

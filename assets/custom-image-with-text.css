@@ -11,7 +11,6 @@
     & .feature-grid {
         display: flex;
         align-items: center;
-        gap: 60px;
     }
 
     & .feature-left {
@@ -68,6 +67,19 @@
         height: auto;
         object-fit: cover;
         border-radius: 8px;
+    }
+    & .feature-video {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        object-fit: cover;
+    }
+    & .video-div {
+        width: 100%;
+        height: auto;
+        /*aspect-ratio: 16 / 9;*/
+        border-radius: 8px;
+        object-fit: cover;
     }
 }
 

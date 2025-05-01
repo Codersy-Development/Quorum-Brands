@@ -1,0 +1,88 @@
+{{ 'custom-brand-feature-grid.css' | asset_url | stylesheet_tag }}
+
+<section class="parent">
+  {% assign block_classes = "div1,div2,div3,div4,div5,div6,div7,div8" | split: "," %}
+
+  {% for block in section.blocks %}
+    {% assign block_class = block_classes[forloop.index0] %}
+
+    {% if block.type == 'image' %}
+      <div class="{{ block_class }}">
+        {% if block.settings.image != blank %}
+          <img src="{{ block.settings.image | img_url: 'master' }}" alt="Grid Image" />
+        {% endif %}
+      </div>
+
+    {% elsif block.type == 'text' %}
+      <div class="{{ block_class }} brand-feature-text {{ block.settings.text_style }}">
+        {% if block.settings.title != blank %}
+          <h2 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">{{ block.settings.title }}</h2>
+        {% endif %}
+        {{ block.settings.content | richtext }}
+      </div>
+    {% endif %}
+  {% endfor %}
+</section>
+
+{% schema %}
+{
+  "name": "Brand Feature Grid",
+  "tag": "section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "label": "Text Background Style",
+          "default": "black",
+          "options": [
+            { "value": "black", "label": "Black" },
+            { "value": "pink", "label": "Pink" }
+          ]
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Text Content"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Feature Grid",
+      "category": "Custom",
+      "blocks": [
+        { "type": "image" },
+        { "type": "text" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" }
+      ]
+    }
+  ]
+}
+{% endschema %}

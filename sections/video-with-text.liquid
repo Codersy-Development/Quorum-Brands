@@ -1,0 +1,114 @@
+{{ 'custom-image-with-text.css' | asset_url | stylesheet_tag }}
+<section class="image-with-text feature-promo">
+    <div class="container">
+        <div class="feature-grid">
+            <div class="feature-left">
+                {% if section.settings.heading != blank %}
+                    <h2 class="feature-title">{{ section.settings.heading }}</h2>
+                {% endif %}
+
+                {% if section.settings.text != blank %}
+                    <div class="feature-text">
+                        {{ section.settings.text | richtext }}
+                    </div>
+                {% endif %}
+
+                {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+                    <a href="{{ section.settings.button_link }}" class="feature-button">{{ section.settings.button_label }}</a>
+                {% endif %}
+            </div>
+
+            <div class="feature-right">
+                {%- if section.settings.video_url contains 'youtube.com/watch' -%}
+                    {%- assign video_id = section.settings.video_url | split: 'v=' -%}
+                    {%- assign video_id = video_id[1] | split: '&' | first -%}
+                    <iframe
+                        class="video-div"
+                        src="https://www.youtube.com/embed/{{ video_id }}?autoplay=1&mute=1&loop=1&playlist={{ video_id }}"
+                        frameborder="0"
+                        allow="autoplay; fullscreen"
+                        allowfullscreen>
+                    </iframe>
+                {%- endif -%}
+
+                {%- if section.settings.video_url contains 'youtu.be/' -%}
+                    {%- assign video_id = section.settings.video_url | split: '.be/' -%}
+                    {%- assign video_id = video_id[1] | split: '&' | first -%}
+                    <iframe
+                        class="video-div"
+                        src="https://www.youtube.com/embed/{{ video_id }}?autoplay=1&mute=1&loop=1&playlist={{ video_id }}"
+                        frameborder="0"
+                        allow="autoplay; fullscreen"
+                        allowfullscreen>
+                    </iframe>
+                {%- endif -%}
+
+                {%- if section.settings.video_url contains 'vimeo.com' -%}
+                    {%- assign video_id = section.settings.video_url | split: '.com/' -%}
+                    {%- assign video_id = video_id[1] | split: '/' | first -%}
+                    <iframe
+                        class="video-div"
+                        src="https://player.vimeo.com/video/{{ video_id }}?autoplay=1&muted=1&loop=1&background=1"
+                        frameborder="0"
+                        allow="autoplay; fullscreen"
+                        allowfullscreen>
+                    </iframe>
+                {%- endif -%}
+
+                {%- if section.settings.video_url contains '.mp4' or section.settings.video_url contains '.MP4' -%}
+                    <video
+                        class="video-div"
+                        src="{{ section.settings.video_url }}"
+                        autoplay
+                        muted
+                        loop
+                        playsinline
+                        controls></video>
+                {%- endif -%}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Video with Text",
+  "tag": "section",
+  "class": "feature-promo-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading Text",
+      "default": "Heading goes here"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Paragraph Text",
+      "default": "<p>Add your paragraph text here. Talk about your brand, product, or promotion.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Text",
+      "default": "Explore Products"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "video_url",
+      "label": "Video URL (YouTube, Vimeo, or MP4)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video with Text"
+    }
+  ]
+}
+{% endschema %}

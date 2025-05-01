@@ -1,0 +1,111 @@
+.brand-feature-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 4rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+.brand-feature-block {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    align-items: center;
+}
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 8px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 40px auto;
+}
+.div1 {
+    grid-row: span 3 / span 3;
+}
+.div2 {
+    grid-column: span 2 / span 2;
+    grid-row: span 2 / span 2;
+}
+.div3 {
+    grid-column: span 2 / span 2;
+    grid-row: span 2 / span 2;
+    grid-column-start: 4;
+    max-height: 410px;
+}
+.div4 {
+    grid-column-start: 2;
+    grid-row-start: 3;
+    max-height: 200px;
+}
+.div5 {
+    grid-column-start: 3;
+    grid-row-start: 3;
+    max-height: 200px;
+}
+.div6 {
+    grid-column: span 2 / span 2;
+    grid-column-start: 4;
+    grid-row-start: 3;
+    max-height: 200px;
+}
+.div7 {
+    grid-column: span 2 / span 2;
+    grid-row: span 2 / span 2;
+    grid-row-start: 4;
+    max-height: 300px;
+}
+.div8 {
+    grid-column: span 3 / span 3;
+    grid-row: span 2 / span 2;
+    grid-column-start: 3;
+    grid-row-start: 4;
+    max-height: 300px;
+}
+.parent img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+.brand-feature-text {
+    background-color: #000;
+    color: #fff;
+    padding: 2rem;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+.brand-feature-text.pink {
+    background-color: #e6007e;
+}
+.brand-feature-block.reverse {
+    grid-template-columns: 2fr 1fr;
+}
+.brand-feature-text {
+    background-color: #000;
+    color: #fff;
+    padding: 2rem;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+.brand-feature-text.pink {
+    background-color: #e6007e;
+    color: #fff;
+}
+.brand-feature-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+.brand-feature-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+@media (max-width: 1024px) {
+    .brand-feature-block,
+    .brand-feature-block.reverse {
+        grid-template-columns: 1fr;
+    }
+}
