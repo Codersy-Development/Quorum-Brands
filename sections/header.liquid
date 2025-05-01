@@ -27,20 +27,23 @@
   endif
 -%}
 <style>
-  {% for block in section.blocks %}
-    {% case block.type %}
-      {% when 'store_selector' %}
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when 'store_selector' -%}
       html[data-store-selected='{{ block.settings.title |  downcase }}'] header{
         --colorNav: {{ block.settings.color_header }};
-        --colorTextBody: {{ block.settings.color_header_text }};
         --colorNavText: {{ block.settings.color_header_text }};
-
+        --colorTextBody: {{ block.settings.color_header_text }};
+      }
+      html[data-store-selected='{{ block.settings.title |  downcase }}'] {
+        --colorAnnouncement: {{ block.settings.color_announcement }};
+        --colorAnnouncementText: {{ block.settings.color_announcement_text }};
       }
        html[data-store-selected='{{ block.settings.title |  downcase }}']  *[data-store]:not([data-store='{{ block.settings.title |  downcase }}']){
         display: none!important;
        }
-    {% endcase %}
-  {% endfor %}
+    {%- endcase -%}
+  {%- endfor -%}
 </style>
 
 {%- render 'drawer-menu',
@@ -50,6 +53,9 @@
   logo_alignment: logo_alignment
 -%}
 {%- render 'cart-drawer' -%}
+
+{{ 'store-switcher.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'store-switcher.js' |   asset_url}}" async></script>
 
 <style>
   .site-nav__link,
@@ -89,7 +95,57 @@
     }
   {%- endif -%}
 </style>
+{% capture hamburger_menu %}
+  <div class="header-item header-item--left header-item--navigation">
+              {%- if section.settings.main_menu_alignment == 'center'
+                or section.settings.main_menu_alignment == 'center-split'
+              -%}
+                {%- if settings.search_enable -%}
+                  <div class="site-nav small--hide">
+                    <a href="{{ routes.search_url }}" class="site-nav__link site-nav__link--icon js-search-header">
+                      <svg
+                        aria-hidden="true"
+                        focusable="false"
+                        role="presentation"
+                        class="icon icon-search"
+                        viewBox="0 0 64 64"
+                      >
+                        <title>icon-search</title><path d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58ZM54 54 41.94 42"/>
+                      </svg>
+                      <span class="icon__fallback-text">{{ 'general.search.title' | t }}</span>
+                    </a>
+                  </div>
+                {%- endif -%}
+              {%- endif -%}
 
+              {%- if section.settings.main_menu_alignment == 'center-left' -%}
+                {%- render 'header-desktop-nav',
+                  main_menu: main_menu,
+                  dropdown_alignment: dropdown_alignment,
+                  hover_menu: section.settings.hover_menu
+                -%}
+              {%- endif -%}
+
+              <div class="site-nav{% unless section.settings.main_menu_alignment == 'center-drawer' %} medium-up--hide{% endunless %}">
+                <button
+                  type="button"
+                  class="site-nav__link site-nav__link--icon js-drawer-open-nav"
+                  aria-controls="NavDrawer"
+                >
+                  <svg
+                    aria-hidden="true"
+                    focusable="false"
+                    role="presentation"
+                    class="icon icon-hamburger"
+                    viewBox="0 0 64 64"
+                  >
+                    <title>icon-hamburger</title><path d="M7 15h51M7 32h43M7 49h51"/>
+                  </svg>
+                  <span class="icon__fallback-text">{{ 'general.drawers.navigation' | t }}</span>
+                </button>
+              </div>
+            </div>
+{% endcapture %}
 <div data-section-id="{{ section.id }}" data-section-type="header">
   {%- unless overlay_header -%}
     {%- if section.settings.show_locale_selector
@@ -148,6 +204,9 @@
               <div class="medium-down--hide">
                 {% render 'store-switch-buttons', section: section %}
               </div>
+              <div class="medium-up--hide hamburger-menu">
+                {{ hamburger_menu }}
+              </div>
               {%- if section.settings.main_menu_alignment == 'center-split' -%}
                 {%- render 'header-split-nav',
                   main_menu: main_menu,
@@ -169,55 +228,7 @@
             </div>
           </div>
           <div class="header-nav--second-row medium-down--hide">
-            <div class="header-item header-item--left header-item--navigation">
-              {%- if section.settings.main_menu_alignment == 'center'
-                or section.settings.main_menu_alignment == 'center-split'
-              -%}
-                {%- if settings.search_enable -%}
-                  <div class="site-nav small--hide">
-                    <a href="{{ routes.search_url }}" class="site-nav__link site-nav__link--icon js-search-header">
-                      <svg
-                        aria-hidden="true"
-                        focusable="false"
-                        role="presentation"
-                        class="icon icon-search"
-                        viewBox="0 0 64 64"
-                      >
-                        <title>icon-search</title><path d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58ZM54 54 41.94 42"/>
-                      </svg>
-                      <span class="icon__fallback-text">{{ 'general.search.title' | t }}</span>
-                    </a>
-                  </div>
-                {%- endif -%}
-              {%- endif -%}
-
-              {%- if section.settings.main_menu_alignment == 'center-left' -%}
-                {%- render 'header-desktop-nav',
-                  main_menu: main_menu,
-                  dropdown_alignment: dropdown_alignment,
-                  hover_menu: section.settings.hover_menu
-                -%}
-              {%- endif -%}
-
-              <div class="site-nav{% unless section.settings.main_menu_alignment == 'center-drawer' %} medium-up--hide{% endunless %}">
-                <button
-                  type="button"
-                  class="site-nav__link site-nav__link--icon js-drawer-open-nav"
-                  aria-controls="NavDrawer"
-                >
-                  <svg
-                    aria-hidden="true"
-                    focusable="false"
-                    role="presentation"
-                    class="icon icon-hamburger"
-                    viewBox="0 0 64 64"
-                  >
-                    <title>icon-hamburger</title><path d="M7 15h51M7 32h43M7 49h51"/>
-                  </svg>
-                  <span class="icon__fallback-text">{{ 'general.drawers.navigation' | t }}</span>
-                </button>
-              </div>
-            </div>
+            {{ hamburger_menu }}
             {% render 'store-switch-menus', section %}
           </div>
 
@@ -432,6 +443,11 @@
           "type": "link_list",
           "id": "menu",
           "label": "Menu"
+        },
+        {
+          "type": "checkbox",
+          "label": "Is mega menu?",
+          "id": "is_mega_menu"
         },
         {
           "type": "color",

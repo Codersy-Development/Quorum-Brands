@@ -1,4 +1,4 @@
-{{ 'store-switcher.css' | asset_url | stylesheet_tag }}
+{% assign random_number = 'now' | date: '%N' | modulo: 9999 | plus: 1 %}
 <store-switcher class="store-switcher-box">
   {% for block in section.blocks %}
     {% case block.type %}
@@ -8,7 +8,7 @@
           <label for="store-switcher-{{ store_name  |  downcase }}">
             <input
               type="radio"
-              name="store-switcher"
+              name="store-switcher-{{ random_number }}"
               id="store-switcher-{{ store_name |  downcase }}"
               value="{{ store_name |  downcase  }}"
               checked
@@ -21,4 +21,3 @@
     {% endcase %}
   {% endfor %}
 </store-switcher>
-<script src="{{ 'store-switcher.js' |   asset_url}}" async></script>
