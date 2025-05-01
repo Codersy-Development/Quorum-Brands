@@ -3,7 +3,12 @@
   context - used to determine whether on the featured product or main product template
   mobile_layout
 {% endcomment %}
-
+<script>
+  const productVendor = "{{ product.vendor }}" || ""
+  if (productVendor.toLowerCase() !== localStorage.getItem("store-selected")) {
+    window.location.href = "/"
+  }
+</script>
 {%- liquid
   assign current_variant = product.selected_or_first_available_variant
 

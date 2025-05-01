@@ -41,10 +41,10 @@
     {%- endstyle -%}
 
     {%- if template == 'index' -%}
-      <h1 class="site-header__logo" itemscope itemtype="http://schema.org/Organization" {{ block.shopify_attributes }}>
-        <span class="visually-hidden">{{ shop.name }}</span>
+      <h1 class="site-header__logo" data-store="{{ block.settings.logo_for_store |  downcase }}" itemscope itemtype="http://schema.org/Organization" {{ block.shopify_attributes }}>
+        <span class="visually-hidden" >{{ shop.name }}</span>
     {%- else -%}
-      <div class="h1 site-header__logo" itemscope itemtype="http://schema.org/Organization" {{ block.shopify_attributes }}>
+      <div class="h1 site-header__logo" data-store="{{ block.settings.logo_for_store |  downcase }}" itemscope itemtype="http://schema.org/Organization" {{ block.shopify_attributes }}>
     {%- endif -%}
 
     {%- if block.settings.logo -%}

@@ -29,6 +29,18 @@
 
   {%- render 'social-meta-tags' -%}
 
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const storeName = params.get('store-name');
+    if (storeName) {
+      localStorage.setItem('store-selected', storeName);
+    }
+    if (localStorage.getItem("store-selected")){
+      document.querySelector("html").dataset.storeSelected = localStorage.getItem("store-selected");
+    }
+    
+  </script>
+
   {%- render 'font-face' -%}
   {{ 'theme.css' | asset_url | stylesheet_tag: preload: true }}
   {%- render 'css-variables' -%}

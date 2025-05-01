@@ -1,0 +1,23 @@
+{% assign random_number = 'now' | date: '%N' | modulo: 9999 | plus: 1 %}
+<store-switcher class="store-switcher-box">
+  {% for block in section.blocks %}
+    {% case block.type %}
+      {% when 'store_selector' %}
+        {% assign store_name = block.settings.title %}
+        <div class="store-switcher__btn">
+          <label for="store-switcher-{{ store_name  |  downcase }}">
+            <input
+              type="radio"
+              name="store-switcher-{{ random_number }}"
+              id="store-switcher-{{ store_name |  downcase }}"
+              value="{{ store_name |  downcase  }}"
+              checked
+            >
+            <div class="store-switcher-content">
+              <div class="store-switcher-title">{{ store_name }}</div>
+            </div>
+          </label>
+        </div>
+    {% endcase %}
+  {% endfor %}
+</store-switcher>
