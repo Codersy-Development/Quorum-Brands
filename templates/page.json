@@ -1,11 +1,175 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {}
+    },
+    "slideshow_ffDiXn": {
+      "type": "slideshow",
+      "blocks": {
+        "image_6X7fQq": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "HOW TO...",
+            "title": "LIGHTING",
+            "title_size": 80,
+            "subheading": "MIRROR & CEIL NG FAN GUIDE",
+            "link": "",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify://shop_images/Header.jpg",
+            "parallax_direction": "top",
+            "overlay_opacity": 30
+          }
+        }
+      },
+      "block_order": [
+        "image_6X7fQq"
+      ],
+      "name": "t:sections.slideshow.presets.hero_optional_slideshow.name",
+      "settings": {
+        "section_height": "650px",
+        "mobile_height": "auto",
+        "parallax": true,
+        "style": "bars",
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "lazyload_images": true
+      }
+    },
+    "guide_section_Hz7TRW": {
+      "type": "guide-section",
+      "blocks": {
+        "split_content_section_GBdaGn": {
+          "type": "split-content-section",
+          "name": "Split Content Section",
+          "settings": {
+            "layout": "vertical"
+          },
+          "blocks": {
+            "info_block_mptnRW": {
+              "type": "info-block",
+              "name": "Info Block with Image",
+              "settings": {
+                "heading": "Sconces",
+                "text": "<p>Create symmetry with sconces placed a few inches on each side of your mirror...</p>",
+                "image": "shopify://shop_images/Argo_Black_On.png",
+                "image_position": "bottom"
+              },
+              "blocks": {
+                "split_content_section_3WAwPN": {
+                  "type": "split-content-section",
+                  "name": "Split Content Section",
+                  "settings": {
+                    "layout": "horizontal"
+                  },
+                  "blocks": {
+                    "global_image_Bp67Gh": {
+                      "type": "global-image",
+                      "name": "Global Image",
+                      "settings": {
+                        "image": "shopify://shop_images/Argo_Black_On.png"
+                      },
+                      "blocks": {}
+                    },
+                    "global_image_43CgbL": {
+                      "type": "global-image",
+                      "name": "Global Image",
+                      "settings": {
+                        "image": "shopify://shop_images/8002-3-47_5.jpg"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "global_image_Bp67Gh",
+                    "global_image_43CgbL"
+                  ]
+                }
+              },
+              "block_order": [
+                "split_content_section_3WAwPN"
+              ]
+            },
+            "info_block_aCpgtr": {
+              "type": "info-block",
+              "name": "Info Block with Image",
+              "settings": {
+                "heading": "Sconces",
+                "text": "<p>Create symmetry with sconces placed a few inches on each side of your mirror...</p>",
+                "image": "shopify://shop_images/535-1-80_5.jpg",
+                "image_position": "bottom"
+              },
+              "blocks": {
+                "split_content_section_JBpzqH": {
+                  "type": "split-content-section",
+                  "name": "Split Content Section",
+                  "settings": {
+                    "layout": "horizontal"
+                  },
+                  "blocks": {
+                    "global_image_iMReYa": {
+                      "type": "global-image",
+                      "name": "Global Image",
+                      "settings": {
+                        "image": "shopify://shop_images/David_Patton_Design_1.jpg"
+                      },
+                      "blocks": {}
+                    },
+                    "global_image_iUjtQc": {
+                      "type": "global-image",
+                      "name": "Global Image",
+                      "settings": {
+                        "image": "shopify://shop_images/Julee_Design_3.jpg"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "global_image_iMReYa",
+                    "global_image_iUjtQc"
+                  ]
+                }
+              },
+              "block_order": [
+                "split_content_section_JBpzqH"
+              ]
+            }
+          },
+          "block_order": [
+            "info_block_mptnRW",
+            "info_block_aCpgtr"
+          ]
+        }
+      },
+      "block_order": [
+        "split_content_section_GBdaGn"
+      ],
+      "name": "Guide Section",
+      "settings": {
+        "heading": "The Bathroom",
+        "description": "How to light vanity",
+        "main_image": "shopify://shop_images/Argo_Black_On.png",
+        "tip": "Dimmer switches allow you to adjust the brightness of vanity lights according to different tasks and moods. For example, you can dim the light for a relaxing bath or increase the brightness for grooming tasks. Additionally, dimmer switches can help conserve energy and extend the lifespan of your light bulbs."
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "slideshow_ffDiXn",
+    "guide_section_Hz7TRW"
   ]
 }
