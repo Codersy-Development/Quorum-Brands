@@ -1,0 +1,40 @@
+<section class="image-full-wrapper">
+    {% if block.settings.image != blank %}
+        <img
+            src="{{ block.settings.image | img_url: 'master' }}"
+            alt="Full width image"
+            class="image-full"
+        >
+    {% endif %}
+</section>
+
+<style>
+.image-full-wrapper {
+    width: 100%;
+    height: 100%;
+}
+.image-full {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Global Image",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Upload Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Global Image"
+    }
+  ]
+}
+{% endschema %}
