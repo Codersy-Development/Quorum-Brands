@@ -77,3 +77,52 @@ document.addEventListener("DOMContentLoaded", () => {
     return; // stop running the rest until after reload
   }
 });
+
+class StoreSwitchMenus extends HTMLElement {
+  constructor() {
+    super();
+
+    this.initMegaMenuPos();
+    this.initMegaMenuHeight();
+  }
+
+  initMegaMenuPos() {
+    this.querySelectorAll(".ssm__menu-link").forEach((item) => {
+      const trigger = item;
+      const menu = item.parentElement.querySelector(".ssm__mega-menu");
+
+      if (!menu) {
+        return;
+      }
+      function positionMenu() {
+        const menuRect = menu.getBoundingClientRect();
+        const triggerRect = trigger.getBoundingClientRect();
+
+        if (menuRect.left < 0) {
+          menu.style.left = -triggerRect.left + "px";
+          menu.style.transform = "none";
+        }
+
+        console.log(menuRect);
+      }
+
+      trigger.addEventListener("mouseenter", positionMenu);
+
+      window.addEventListener("resize", positionMenu);
+    });
+  }
+  initMegaMenuHeight() {
+    const megaMenus = this.querySelectorAll(".ssm__mega-menu");
+    megaMenus.forEach((megaMenu) => {
+      const container = megaMenu.querySelector(".ssm__mega-menu-container");
+      const menusMaxHeight = Math.max(
+        ...Array.from(
+          megaMenu.querySelectorAll(".ssm__mega-menu-container > div")
+        ).map((menu) => menu.offsetHeight)
+      );
+      console.log("MAx height: ", menusMaxHeight);
+      container.style.maxHeight = Math.max(250, menusMaxHeight) + "px";
+    });
+  }
+}
+customElements.define("store-switch-menus", StoreSwitchMenus);

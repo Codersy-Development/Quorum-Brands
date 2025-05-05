@@ -104,10 +104,14 @@ store-switch-menus {
     transform: translateX(-50%);
     background-color: var(--colorNav);
     padding: 1rem 1.5rem;
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
   }
   li:hover > .ssm__mega-menu {
-    display: block;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
   }
   & .ssm__mega-menu-container {
     display: flex;
