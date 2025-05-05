@@ -28,7 +28,7 @@
   <div class="become-customer-banner__content">
     <h2 class="become-customer-banner__title">{{ section.settings.title }}</h2>
     <p class="become-customer-banner__subtitle">{{ section.settings.subtitle }}</p>
-    <a href="pages/registration-request" class="become-customer-banner__button">{{ section.settings.button_label }}</a>
+    <a href="/pages/registration-request" class="become-customer-banner__button">{{ section.settings.button_label }}</a>
   </div>
 
   <div class="become-customer-banner__form-overlay" id="customer-form-overlay">
@@ -46,39 +46,41 @@
   </div>
 </section>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const section = document.querySelector('.become-customer-banner');
-    const button = section.querySelector('.become-customer-banner__button');
-    const overlay = section.querySelector('#customer-form-overlay');
-    const closeBtn = section.querySelector('#form-close');
-    const form = section.querySelector('#customer-form');
+{% comment %}
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const section = document.querySelector('.become-customer-banner');
+      const button = section.querySelector('.become-customer-banner__button');
+      const overlay = section.querySelector('#customer-form-overlay');
+      const closeBtn = section.querySelector('#form-close');
+      const form = section.querySelector('#customer-form');
 
-    if (button && overlay && closeBtn) {
-      button.addEventListener('click', function () {
-        overlay.style.display = 'flex';
-      });
+      if (button && overlay && closeBtn) {
+        button.addEventListener('click', function () {
+          overlay.style.display = 'flex';
+        });
 
-      closeBtn.addEventListener('click', function () {
-        overlay.style.display = 'none';
-      });
-
-      overlay.addEventListener('click', function (e) {
-        if (e.target === overlay) {
+        closeBtn.addEventListener('click', function () {
           overlay.style.display = 'none';
-        }
-      });
-    }
+        });
 
-    if (form) {
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        alert('Form submitted!');
-        overlay.style.display = 'none';
-      });
-    }
-  });
-</script>
+        overlay.addEventListener('click', function (e) {
+          if (e.target === overlay) {
+            overlay.style.display = 'none';
+          }
+        });
+      }
+
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          alert('Form submitted!');
+          overlay.style.display = 'none';
+        });
+      }
+    });
+  </script>
+{% endcomment %}
 
 {% schema %}
 {
