@@ -3,20 +3,32 @@
 <section class="become-customer-banner">
   <div class="become-customer-banner__images">
     {% if section.settings.image_1 %}
-      <img src="{{ section.settings.image_1 | image_url: width: 800 }}" class="become-customer-banner__image" alt="Image 1">
+      <img
+        src="{{ section.settings.image_1 | image_url: width: 800 }}"
+        class="become-customer-banner__image"
+        alt="Image 1"
+      >
     {% endif %}
     {% if section.settings.image_2 %}
-      <img src="{{ section.settings.image_2 | image_url: width: 800 }}" class="become-customer-banner__image" alt="Image 2">
+      <img
+        src="{{ section.settings.image_2 | image_url: width: 800 }}"
+        class="become-customer-banner__image"
+        alt="Image 2"
+      >
     {% endif %}
     {% if section.settings.image_3 %}
-      <img src="{{ section.settings.image_3 | image_url: width: 800 }}" class="become-customer-banner__image" alt="Image 3">
+      <img
+        src="{{ section.settings.image_3 | image_url: width: 800 }}"
+        class="become-customer-banner__image"
+        alt="Image 3"
+      >
     {% endif %}
   </div>
 
   <div class="become-customer-banner__content">
     <h2 class="become-customer-banner__title">{{ section.settings.title }}</h2>
     <p class="become-customer-banner__subtitle">{{ section.settings.subtitle }}</p>
-    <button class="become-customer-banner__button">{{ section.settings.button_label }}</button>
+    <a href="pages/registration-request" class="become-customer-banner__button">{{ section.settings.button_label }}</a>
   </div>
 
   <div class="become-customer-banner__form-overlay" id="customer-form-overlay">
@@ -35,34 +47,34 @@
 </section>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const section = document.querySelector(".become-customer-banner");
-    const button = section.querySelector(".become-customer-banner__button");
-    const overlay = section.querySelector("#customer-form-overlay");
-    const closeBtn = section.querySelector("#form-close");
-    const form = section.querySelector("#customer-form");
+  document.addEventListener('DOMContentLoaded', function () {
+    const section = document.querySelector('.become-customer-banner');
+    const button = section.querySelector('.become-customer-banner__button');
+    const overlay = section.querySelector('#customer-form-overlay');
+    const closeBtn = section.querySelector('#form-close');
+    const form = section.querySelector('#customer-form');
 
     if (button && overlay && closeBtn) {
-      button.addEventListener("click", function () {
-        overlay.style.display = "flex";
+      button.addEventListener('click', function () {
+        overlay.style.display = 'flex';
       });
 
-      closeBtn.addEventListener("click", function () {
-        overlay.style.display = "none";
+      closeBtn.addEventListener('click', function () {
+        overlay.style.display = 'none';
       });
 
-      overlay.addEventListener("click", function (e) {
+      overlay.addEventListener('click', function (e) {
         if (e.target === overlay) {
-          overlay.style.display = "none";
+          overlay.style.display = 'none';
         }
       });
     }
 
     if (form) {
-      form.addEventListener("submit", function (e) {
-        e.preventDefault(); 
-        alert("Form submitted!");
-        overlay.style.display = "none";
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        alert('Form submitted!');
+        overlay.style.display = 'none';
       });
     }
   });
