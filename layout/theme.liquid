@@ -111,6 +111,12 @@
     <script>theme.settings.email = {{ shop.email | json }}</script>
     <script src="https://api.archetypethemes.co/design-mode.js" defer="defer"></script>
   {% endif %}
+<script type="text/javascript">if(typeof window.hulkappsWishlist === 'undefined') {
+                            window.hulkappsWishlist = {};
+                        }
+                        window.hulkappsWishlist.baseURL = '/apps/advanced-wishlist/api';
+                        window.hulkappsWishlist.hasAppBlockSupport = '1';
+                        </script>
 </head>
 
 <body class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}{% if request.path == '/challenge' %} template-challange{% endif %}" data-center-text="{{ settings.type_body_align_text }}" data-button_style="{{ settings.button_style }}" data-type_header_capitalize="{{ settings.type_header_capitalize }}" data-type_headers_align_text="{{ settings.type_headers_align_text }}" data-type_product_capitalize="{{ settings.type_product_capitalize }}" data-swatch_style="{{ settings.swatch_style }}" {% if settings.disable_animations %}data-disable-animations="true"{% endif %}>
@@ -154,5 +160,6 @@
     </div>
   </template>
 
+{% render 'hulkappsWishlistPopup' %}
 </body>
 </html>
