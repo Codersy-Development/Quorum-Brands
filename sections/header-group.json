@@ -38,7 +38,7 @@
           "settings": {
             "title": "Quorum",
             "menu": "store-1-menu",
-            "is_mega_menu": false,
+            "is_mega_menu": true,
             "color_header": "#ffffff",
             "color_header_text": "#000000",
             "color_announcement": "#1c1d1d",
@@ -99,17 +99,11 @@
           }
         }
       },
-      "block_order": [
-        "announcement-0",
-        "announcement-1"
-      ],
+      "block_order": ["announcement-0", "announcement-1"],
       "settings": {
         "announcement_compact": true
       }
     }
   },
-  "order": [
-    "header",
-    "announcement"
-  ]
+  "order": ["header", "announcement"]
 }
