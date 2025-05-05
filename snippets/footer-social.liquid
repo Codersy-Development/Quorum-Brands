@@ -1,0 +1,32 @@
+{% comment %}
+  Renders the social section (contact button + social links) as a block.
+  Expects a `block` variable to be passed in.
+{% endcomment %}
+
+<div>
+    <a class="contact-btn" href="{{ block.settings.contact_button_link }}">
+        {{ block.settings.contact_button_label }}
+    </a>
+    <div class="footer-social">
+        {% if block.settings.facebook_url != blank %}
+            <a href="{{ block.settings.facebook_url }}">
+                <i class="fab fa-facebook-f"></i> Facebook
+            </a>
+        {% endif %}
+        {% if block.settings.linkedin_url != blank %}
+            <a href="{{ block.settings.linkedin_url }}">
+                <i class="fab fa-linkedin-in"></i> Linkedin
+            </a>
+        {% endif %}
+        {% if block.settings.instagram_url != blank %}
+            <a href="{{ block.settings.instagram_url }}">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+        {% endif %}
+        {% if block.settings.vimeo_url != blank %}
+            <a href="{{ block.settings.vimeo_url }}">
+                <i class="fab fa-vimeo-v"></i> Vimeo
+            </a>
+        {% endif %}
+    </div>
+</div>

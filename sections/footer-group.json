@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "type": "footer",
   "name": "t:sections.footer-group.name",
@@ -8,19 +17,34 @@
         "footer-promotions-0": {
           "type": "promotion",
           "settings": {
-            "enable_image": true
+            "enable_image": true,
+            "image_mask": "none",
+            "title": "Site-wide promotion",
+            "text": "<p>Use this section to promote content throughout every page of your site. Add images for further impact.</p>",
+            "button_label": "Optional button",
+            "button_link": ""
           }
         },
         "footer-promotions-1": {
           "type": "promotion",
           "settings": {
-            "enable_image": true
+            "enable_image": true,
+            "image_mask": "none",
+            "title": "Site-wide promotion",
+            "text": "<p>Use this section to promote content throughout every page of your site. Add images for further impact.</p>",
+            "button_label": "Optional button",
+            "button_link": ""
           }
         },
         "footer-promotions-2": {
           "type": "promotion",
           "settings": {
-            "enable_image": true
+            "enable_image": true,
+            "image_mask": "none",
+            "title": "Site-wide promotion",
+            "text": "<p>Use this section to promote content throughout every page of your site. Add images for further impact.</p>",
+            "button_label": "Optional button",
+            "button_link": ""
           }
         }
       },
@@ -29,38 +53,63 @@
         "footer-promotions-1",
         "footer-promotions-2"
       ],
-      "settings": {}
+      "settings": {
+        "hide_homepage": false
+      }
     },
     "footer": {
       "type": "footer",
       "blocks": {
-        "footer-0": {
-          "type": "logo_social",
+        "contact_r4LN7j": {
+          "type": "contact",
           "settings": {
-            "container_width": 95
+            "address_line_1": "201 Railhead Rd.",
+            "address_line_2": "Fort Worth, TX 76106",
+            "phone_number": "(877) 607-0202",
+            "email_address": "customersupport@oxygenlighting.com"
           }
         },
-        "footer-1": {
+        "menu_NhFiUt": {
           "type": "menu",
           "settings": {
-            "menu": "footer",
+            "show_footer_title": true,
+            "menu": "products",
             "container_width": 25
           }
         },
-        "footer2": {
-          "type": "newsletter",
+        "menu_kE8b83": {
+          "type": "menu",
           "settings": {
-            "container_width": 33
+            "show_footer_title": true,
+            "menu": "information",
+            "container_width": 25
+          }
+        },
+        "social_LYWYgF": {
+          "type": "social",
+          "settings": {
+            "contact_button_label": "CONTACT US",
+            "contact_button_link": "#",
+            "facebook_url": "#",
+            "linkedin_url": "#",
+            "instagram_url": "#",
+            "vimeo_url": "#"
           }
         }
       },
       "block_order": [
-        "footer-1",
-        "footer2",
-        "footer-0"
+        "contact_r4LN7j",
+        "menu_NhFiUt",
+        "menu_kE8b83",
+        "social_LYWYgF"
       ],
       "settings": {
-        "show_payment_icons": false
+        "show_locale_selector": true,
+        "show_currency_selector": true,
+        "show_currency_flags": true,
+        "show_payment_icons": false,
+        "show_copyright": true,
+        "copyright_text": ""
       }
     }
   },

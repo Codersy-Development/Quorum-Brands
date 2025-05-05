@@ -1,0 +1,34 @@
+{% comment %}
+  Renders the contact information block for the footer.
+  Expects a `block` object passed into the snippet.
+{% endcomment %}
+
+<div class="footer-contact">
+    <div>
+        <div class="footer-contact-icon-wrapper">
+            <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div class="footer-contact-content-wrapper">
+            <div class="footer-contact-title">ADDRESS</div>
+            <p class="footer-contact-desc">{{ block.settings.address_line_1 }}<br>{{ block.settings.address_line_2 }}</p>
+        </div>
+    </div>
+    <div>
+        <div class="footer-contact-icon-wrapper">
+            <i class="fas fa-phone-alt"></i>
+        </div>
+        <div class="footer-contact-content-wrapper">
+            <div class="footer-contact-title">PHONE</div>
+            <p class="footer-contact-desc">{{ block.settings.phone_number }}</p>
+        </div>
+    </div>
+    <div>
+        <div class="footer-contact-icon-wrapper">
+            <i class="fas fa-envelope"></i>
+        </div>
+        <div class="footer-contact-content-wrapper">
+            <div class="footer-contact-title">EMAIL</div>
+            <p class="footer-contact-desc">{{ block.settings.email_address }}</p>
+        </div>
+    </div>
+</div>

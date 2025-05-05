@@ -1,3 +1,6 @@
+{{ 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css' | stylesheet_tag }}
+{{ 'custom-footer.css' | asset_url | stylesheet_tag }}
+
 {%- liquid
   assign show_selectors = false
   assign currency_selector = false
@@ -26,8 +29,7 @@
 
 <footer class="site-footer" data-section-id="{{ section.id }}" data-section-type="footer-section">
   <div class="page-width">
-
-    <div class="grid">
+    <div class="footer-grid page-width">
       {%- assign row_width = 0 -%}
       {%- for block in section.blocks -%}
         {%- assign row_width = row_width | plus: block.settings.container_width -%}
@@ -37,28 +39,14 @@
         {%- endif -%}
 
         <div {{ block.shopify_attributes }} class="grid__item footer__item--{{ block.id }}" data-type="{{ block.type }}">
-          {%- style -%}
-            @media only screen and (min-width: 769px) and (max-width: 959px) {
-              .footer__item--{{ block.id }} {
-                width: 50%;
-                padding-top: 40px;
-              }
-              .footer__item--{{ block.id }}:nth-child(2n + 1) {
-                clear: left;
-              }
-            }
-            @media only screen and (min-width: 960px) {
-              .footer__item--{{ block.id }} {
-                width: {{ block.settings.container_width }}%;
-              }
-
-            }
-          {%- endstyle -%}
-
           {%- liquid
             case block.type
               when 'logo_social'
                 render 'footer-logo', block: block
+              when 'social'
+                render 'footer-social', block: block
+              when 'contact'
+                render 'footer-contact', block: block
               when 'custom'
                 render 'footer-custom-text', block: block, container_width: block.settings.container_width
               when 'newsletter'
@@ -72,41 +60,17 @@
         </div>
       {%- endfor -%}
     </div>
-
-    {%- if show_selectors -%}
-      <div class="footer__section">
-        {%- render 'multi-selectors',
-          locale_selector: locale_selector,
-          currency_selector: currency_selector,
-          show_currency_flags: section.settings.show_currency_flags
-          location: 'footer'
-        -%}
-      </div>
-    {%- endif -%}
-
-    {%- if section.settings.show_payment_icons -%}
-      {%- unless shop.enabled_payment_types == empty -%}
-        <ul class="inline-list payment-icons footer__section">
-          {%- for type in shop.enabled_payment_types -%}
-            <li class="icon--payment">
-              {{ type | payment_type_svg_tag }}
-            </li>
-          {%- endfor -%}
-        </ul>
-      {%- endunless -%}
-    {%- endif -%}
-
-    {%- if section.settings.show_copyright -%}
+  </div>
+  {%- if section.settings.show_copyright -%}
+    <div class="copyright">
       <p class="footer__small-text">
         &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}
         {%- if section.settings.copyright_text != blank -%}
           {{ section.settings.copyright_text }}
         {%- endif -%}
       </p>
-    {%- endif -%}
-    <p class="footer__small-text">{{ powered_by_link }}</p>
-
-  </div>
+    </div>
+  {%- endif -%}
 </footer>
 
 {% schema %}
@@ -165,6 +129,73 @@
   ],
   "blocks": [
     {
+      "type": "contact",
+      "name": "Contact Info Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "address_line_1",
+          "label": "Address Line 1",
+          "default": "201 Railhead Rd."
+        },
+        {
+          "type": "text",
+          "id": "address_line_2",
+          "label": "Address Line 2",
+          "default": "Fort Worth, TX 76106"
+        },
+        {
+          "type": "text",
+          "id": "phone_number",
+          "label": "Phone Number",
+          "default": "(877) 607-0202"
+        },
+        {
+          "type": "text",
+          "id": "email_address",
+          "label": "Email Address",
+          "default": "customersupport@oxygenlighting.com"
+        }
+      ]
+    },
+    {
+      "type": "social",
+      "name": "Social Section",
+      "settings": [
+        {
+          "type": "text",
+          "id": "contact_button_label",
+          "label": "Contact Button Label",
+          "default": "CONTACT US"
+        },
+        {
+          "type": "url",
+          "id": "contact_button_link",
+          "label": "Contact Button Link"
+        },
+        {
+          "type": "url",
+          "id": "facebook_url",
+          "label": "Facebook URL"
+        },
+        {
+          "type": "url",
+          "id": "linkedin_url",
+          "label": "Linkedin URL"
+        },
+        {
+          "type": "url",
+          "id": "instagram_url",
+          "label": "Instagram URL"
+        },
+        {
+          "type": "url",
+          "id": "vimeo_url",
+          "label": "Vimeo URL"
+        }
+      ]
+    },
+    {
       "type": "logo_social",
       "name": "t:sections.footer.blocks.logo.name",
       "limit": 1,
@@ -214,45 +245,6 @@
           "type": "range",
           "id": "container_width",
           "label": "t:sections.footer.blocks.navigation.settings.container_width.label",
-          "default": 25,
-          "min": 15,
-          "max": 95,
-          "unit": "%"
-        }
-      ]
-    },
-    {
-      "type": "newsletter",
-      "name": "t:sections.footer.blocks.newsletter_and_social.name",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "checkbox",
-          "id": "show_footer_title",
-          "label": "t:sections.footer.blocks.newsletter_and_social.settings.show_footer_title.label",
-          "default": true
-        },
-        {
-          "type": "paragraph",
-          "content": "t:sections.footer.blocks.newsletter_and_social.settings.content"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "t:sections.footer.blocks.newsletter_and_social.settings.title.label",
-          "default": "Sign up and save"
-        },
-        {
-          "type": "richtext",
-          "id": "text",
-          "label": "t:sections.footer.blocks.newsletter_and_social.settings.text.label",
-          "info": "t:sections.footer.blocks.newsletter_and_social.settings.text.info",
-          "default": "<p>Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>"
-        },
-        {
-          "type": "range",
-          "id": "container_width",
-          "label": "t:sections.footer.blocks.newsletter_and_social.settings.container_width.label",
           "default": 25,
           "min": 15,
           "max": 95,
