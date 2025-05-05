@@ -1,4 +1,9 @@
-<section class="image-full-wrapper">
+<section
+    class="image-full-wrapper"
+    {% unless section.settings.store == "all" %}
+        data-store="{{ section.settings.store }}"
+    {% endunless %}
+>
     {% if section.settings.image != blank %}
         <img
             src="{{ section.settings.image | img_url: 'master' }}"
@@ -27,6 +32,18 @@
   "name": "Image",
   "tag": "section",
   "settings": [
+    {
+      "type": "select",
+      "id": "store",
+      "label": "Store",
+      "info": "Populate this to show only on specific store",
+      "options": [
+        { "value": "all", "label": "Show On Both" },
+        { "value": "quorum", "label": "Quorum" },
+        { "value": "oxygen", "label": "Oxygen" }
+      ],
+      "default": "all"
+    },
     {
       "type": "image_picker",
       "id": "image",

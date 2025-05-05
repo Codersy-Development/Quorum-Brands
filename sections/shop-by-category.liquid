@@ -1,5 +1,10 @@
 {{ 'custom-shop-by-category.css' | asset_url | stylesheet_tag }}
-<section class="category-carousel shop-by-category">
+<section
+    class="category-carousel shop-by-category"
+    {% unless section.settings.store == "all" %}
+        data-store="{{ section.settings.store }}"
+    {% endunless %}
+>
     <div class="container">
         <div class="content">
             <div class="content-left">
@@ -73,6 +78,18 @@
 {
   "name": "Shop by Category",
   "settings": [
+    {
+      "type": "select",
+      "id": "store",
+      "label": "Store",
+      "info": "Populate this to show only on specific store",
+      "options": [
+        { "value": "all", "label": "Show On Both" },
+        { "value": "quorum", "label": "Quorum" },
+        { "value": "oxygen", "label": "Oxygen" }
+      ],
+      "default": "all"
+    },
     {
       "type": "text",
       "id": "title",

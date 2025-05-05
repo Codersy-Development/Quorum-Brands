@@ -32,23 +32,23 @@
     grid-column: span 2 / span 2;
     grid-row: span 2 / span 2;
     grid-column-start: 4;
-    max-height: 410px;
+    max-height: 460px;
 }
 .div4 {
     grid-column-start: 2;
     grid-row-start: 3;
-    max-height: 200px;
+    max-height: 226px;
 }
 .div5 {
     grid-column-start: 3;
     grid-row-start: 3;
-    max-height: 200px;
+    max-height: 226px;
 }
 .div6 {
     grid-column: span 2 / span 2;
     grid-column-start: 4;
     grid-row-start: 3;
-    max-height: 200px;
+    max-height: 226px;
 }
 .div7 {
     grid-column: span 2 / span 2;

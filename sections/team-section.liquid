@@ -1,5 +1,10 @@
 {{ 'custom-team-section.css' | asset_url | stylesheet_tag }}
-<section class="team-section">
+<section
+        class="team-section"
+        {% unless section.settings.store == "all" %}
+            data-store="{{ section.settings.store }}"
+        {% endunless %}
+>
     <h2>{{ section.settings.title }}</h2>
     <div class="team-grid">
         <div class="team-members">
@@ -30,6 +35,18 @@
   "name": "Team Section",
   "tag": "section",
   "settings": [
+    {
+      "type": "select",
+      "id": "store",
+      "label": "Store",
+      "info": "Populate this to show only on specific store",
+      "options": [
+        { "value": "all", "label": "Show On Both" },
+        { "value": "quorum", "label": "Quorum" },
+        { "value": "oxygen", "label": "Oxygen" }
+      ],
+      "default": "all"
+    },
     {
       "type": "text",
       "id": "title",

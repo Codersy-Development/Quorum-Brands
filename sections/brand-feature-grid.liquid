@@ -1,6 +1,10 @@
 {{ 'custom-brand-feature-grid.css' | asset_url | stylesheet_tag }}
-
-<section class="parent">
+<section
+        class="parent"
+        {% unless section.settings.store == "all" %}
+          data-store="{{ section.settings.store }}"
+        {% endunless %}
+>
   {% assign block_classes = "div1,div2,div3,div4,div5,div6,div7,div8" | split: "," %}
 
   {% for block in section.blocks %}
@@ -30,6 +34,18 @@
   "tag": "section",
   "settings": [],
   "blocks": [
+    {
+      "type": "select",
+      "id": "store",
+      "label": "Store",
+      "info": "Populate this to show only on specific store",
+      "options": [
+        { "value": "all", "label": "Show On Both" },
+        { "value": "quorum", "label": "Quorum" },
+        { "value": "oxygen", "label": "Oxygen" }
+      ],
+      "default": "all"
+    },
     {
       "type": "text",
       "name": "Text Block",
