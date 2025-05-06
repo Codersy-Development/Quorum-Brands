@@ -27,7 +27,7 @@
           "type": "logo",
           "settings": {
             "logo_for_store": "Oxygen",
-            "logo": "shopify://shop_images/Quourm_Int_BLK.png",
+            "logo": "shopify://shop_images/O_logo.png",
             "logo-inverted": "shopify://shop_images/Quorum_Int_WHT.png",
             "desktop_logo_width": 140,
             "mobile_logo_width": 140
@@ -99,11 +99,17 @@
           }
         }
       },
-      "block_order": ["announcement-0", "announcement-1"],
+      "block_order": [
+        "announcement-0",
+        "announcement-1"
+      ],
       "settings": {
         "announcement_compact": true
       }
     }
   },
-  "order": ["header", "announcement"]
+  "order": [
+    "header",
+    "announcement"
+  ]
 }
