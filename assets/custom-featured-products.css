@@ -83,6 +83,9 @@
         opacity: 0;
     }
 
+    & .swiper {
+        padding-bottom: 5px;
+    }
     & .product-info {
         padding: 20px;
         text-align: left;
