@@ -46,6 +46,7 @@
           <div class="grid__item">
             <div class="grid grid--uniform">
               {%- for i in (1..product_limit) -%}
+                {%- capture wlm_check -%}{%- render 'wlm-product' with i , wlm_is_render:'yes' -%}{%- endcapture -%}{%- if wlm_check == blank -%}{%continue%}{%- endif -%}
                 <div class="grid__item grid-product {{ gridView }}" data-aos="row-of-{{ per_row }}">
                   <div class="grid-product__content">
                     <a href="{{ product.url | within: collection }}" class="grid-product__link">
@@ -67,6 +68,7 @@
         {%- else -%}
 
           {%- for product in collections[section.settings.home_featured_products].products limit: product_limit -%}
+            {%- capture wlm_check -%}{%- render 'wlm-product' with product , wlm_is_render:'yes' -%}{%- endcapture -%}{%- if wlm_check == blank -%}{%continue%}{%- endif -%}
             {%- render 'product-grid-item',
               product: product,
               collection: collection,
