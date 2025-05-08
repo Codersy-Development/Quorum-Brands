@@ -32,12 +32,12 @@
                             <div class="product-info">
                                 <h3 class="product-title">{{ block.settings.title }}</h3>
                                 <p class="product-subtitle">{{ block.settings.subtitle }}</p>
-                                <p class="product-price" data-wpd-product-handle="{{ block.settings.handle }}"
+                                <p class="product-price" data-wpd-product-handle="{{ product.handle }}"
                 data-wpd-variant-id="{{ block.settings.id }}"
                 data-wpd-variant-price="{{ block.settings.price }}"
                 data-wpd-variant-compare-at-price="{{ block.settings.compare_at_price }}"
-                data-wpd-product-collection-ids="{% assign wpdProductCollectionIds = block.settings.collections | map:'id' %}{{ wpdProductCollectionIds | join:',' }}"
-                data-wpd-product-id="{{ block.settings.id }}">${{ block.settings.price }}</p>
+                data-wpd-product-collection-ids="{% assign wpdProductCollectionIds = product.collections | map:'id' %}{{ wpdProductCollectionIds | join:',' }}"
+                data-wpd-product-id="{{ product.id }}">${{ block.settings.price }}</p>
 
                                 <div class="product-colors">
                                     {% if block.settings.color_1 != blank %}
