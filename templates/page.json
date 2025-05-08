@@ -142,6 +142,97 @@
         "text_block_JDXMWW",
         "text_block_pf79bb"
       ],
+      "custom_css": [
+        ".image-wrap,image-element,img {padding: 0; height: 450px !important; object-fit: cover;}"
+      ],
+      "name": "t:sections.text-columns.presets.text_columns_with_images.name",
+      "settings": {
+        "title": "",
+        "align_text": "center",
+        "divider": false
+      }
+    },
+    "text_columns_QFR9WQ": {
+      "type": "text-columns",
+      "blocks": {
+        "text_block_f7rVM6": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/Pendant.jpg",
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "Pendant",
+            "text": "<p>Elevate your space with our collection of pendant lights, designed to provide both function and style. Whether you’re looking for a statement piece or a subtle accent, our pendants offer versatility for any commercial or hospitality setting. Choose from a range of finishes and sizes to create the perfect ambiance, highlighting focal points and creating a memorable first impression.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "text_block_bYamN6": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/Ceiling_Mount.png",
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "Ceiling Mount",
+            "text": "<p>Our ceiling mount lights combine practical functionality with refined design. Whether used in corridors, dining areas, or entryways, these fixtures provide uniform illumination that enhances the atmosphere. With a variety of designs and finishes, our ceiling mounts are a reliable choice for creating well-lit, welcoming environments in commercial and hospitality spaces.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_block_f7rVM6",
+        "text_block_bYamN6"
+      ],
+      "custom_css": [
+        ".image-wrap,image-element,img {padding: 0; height: 450px !important; object-fit: cover;}"
+      ],
+      "name": "t:sections.text-columns.presets.text_columns_with_images.name",
+      "settings": {
+        "title": "",
+        "align_text": "center",
+        "divider": false
+      }
+    },
+    "text_columns_MHMPQe": {
+      "type": "text-columns",
+      "blocks": {
+        "text_block_33REAi": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/Outdoor.jpg",
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "Outdoor",
+            "text": "<p>Illuminate your exterior spaces with our collection of outdoor wall sconces. Built to withstand the elements while delivering sophisticated lighting, these fixtures are perfect for hotel entrances, pathways, and patios. Designed for durability and style, our outdoor sconces provide safety and elegance, creating an inviting atmosphere for your guests.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "text_block_PYUVam": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/Ceiling_Fan.png",
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "Ceiling Fan",
+            "text": "<p>Our ceiling fans are the perfect combination of functionality and style, designed to keep your commercial and hospitality spaces cool while enhancing the aesthetic. Available in a variety of finishes and sizes, these fans provide comfort and airflow, making them an ideal solution for lobbies, restaurants, and event spaces that demand both performance and design.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_block_33REAi",
+        "text_block_PYUVam"
+      ],
+      "custom_css": [
+        ".image-wrap,image-element,img {padding: 0; height: 450px !important; object-fit: cover;}"
+      ],
       "name": "t:sections.text-columns.presets.text_columns_with_images.name",
       "settings": {
         "title": "",
@@ -156,6 +247,8 @@
     "rich_text_GQjWmC",
     "image_jGWtyL",
     "rich_text_Cq3MTt",
-    "text_columns_7xgixt"
+    "text_columns_7xgixt",
+    "text_columns_QFR9WQ",
+    "text_columns_MHMPQe"
   ]
 }
