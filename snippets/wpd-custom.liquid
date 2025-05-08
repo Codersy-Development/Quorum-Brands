@@ -15,3 +15,11 @@
     </script>
   {% endif %}
 {% endif %}
+
+<script>
+document.querySelectorAll('#wpd_extra_fields_wrapper label').forEach(label => {
+    if (label.textContent.includes('UPS Shipping Account Number')) {
+        label.textContent = 'Shipping Account Number';
+    }
+});
+</script>
