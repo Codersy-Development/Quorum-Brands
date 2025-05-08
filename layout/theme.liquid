@@ -162,7 +162,7 @@
 
 {% render 'hulkappsWishlistPopup' %}
 <!-- WPD Start -->
-                {% if customer.tags.size > 0 and template != 'cart' %}
+           {% comment %}     {% if customer.tags.size > 0 and template != 'cart' %}
                 <script>
                     document.addEventListener('DOMContentLoaded', function() {
                       let checkoutbtninterval = setInterval(function(){
@@ -183,7 +183,7 @@
 
                {% if customer.tags.size > 0 and template == 'cart' %}
                  {% include 'wcp_cart' %}
-               {% endif %}
+               {% endif %}  {% endcomment %}
                <!-- WPD End -->
   </body>
 </html>
