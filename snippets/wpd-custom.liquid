@@ -1,0 +1,17 @@
+{% if customer.tags contains "wpdnet" %}
+  {% if canonical_url contains "/cart" or canonical_url contains "/apps/wpdapp/wholesale/wpd-net-order-cart" %}
+    <script>
+      window.addEventListener("DOMContentLoaded", (event) => {
+        const netUpsEl = document.querySelector('#wpdNetUpsNumber');
+        const netUpsLabelEl = document.querySelector('#wpdNetUpsNumber').previousElementSibling;
+        netUpsEl.placeholder = 'Enter Shipping Account Number'
+        netUpsLabelEl.innerHTML = 'Shipping Account Number';
+        const netDwsUpsEl = document.querySelector('#wpd_ups_number');
+        const netDwsUpsLabelEl = document.querySelector('#wpd_ups_number').previousElementSibling;
+        netDwsUpsEl.placeholder = 'Enter Shipping Account Number'
+        netDwsUpsLabelEl.innerHTML = 'Shipping Account Number';
+    });
+      
+    </script>
+  {% endif %}
+{% endif %}
