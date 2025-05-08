@@ -1,0 +1,71 @@
+{% schema %}
+{
+  "name": "Product Information Field",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Colors & Materials"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Text Content",
+      "default": "<p>Add product details here that will help customers make a purchasing decision.</p>"
+    },
+    {
+      "type": "text",
+      "id": "metafield_namespace",
+      "label": "Metafield Namespace",
+      "default": "custom",
+      "info": "Usually 'custom' or 'my_fields', depending on how you've set up your metafields"
+    },
+    {
+      "type": "text",
+      "id": "metafield_key",
+      "label": "Metafield Key",
+      "default": "colors_materials",
+      "info": "Enter the exact metafield key you want to display (e.g., 'colors_materials', 'fabric_content', etc.)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_border",
+      "label": "Show section border",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Info Field",
+      "category": "Product"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="product-info-section" 
+     style="background-color: {{ section.settings.background_color }}; 
+            {% if section.settings.show_border %}border: 1px solid #e8e8e8;{% endif %}">
+  <div class="section-container">
+    {% if section.settings.heading != blank %}
+      <h2 class="section-heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+    
+    <div class="section-content">
+      {{ section.settings.content }}
+      
+      {% if section.settings.metafield_key != blank %}
+        {% assign namespace = section.settings.metafield_namespace %}
+        {% assign key = section.settings.metafield_key %}
+        {{ product.metafields[namespace][key] }}
+      {% endif %}
+    </div>
+  </div>
+</div>
