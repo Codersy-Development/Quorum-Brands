@@ -16,6 +16,7 @@
     -%}
 
     {%- for block in section.blocks -%}
+      {%- capture wlm_check -%}{%- render 'wlm-collection' with block , wlm_is_render:'yes' -%}{%- endcapture -%}{%- if wlm_check == blank -%}{%continue%}{%- endif -%}
       {%- liquid
         assign collection = collections[block.settings.collection]
         assign background_position = block.settings.focal_point
