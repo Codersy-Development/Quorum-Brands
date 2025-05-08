@@ -6,6 +6,15 @@
         var netUpsLabelEl = document.querySelector('#wpdNetUpsNumber').previousElementSibling;
         netUpsEl.placeholder = 'Enter Shipping Account Number'
         netUpsLabelEl.innerHTML = 'Shipping Account Number';
+        
+    });
+      
+    </script>
+  {% endif %}
+{% endif %}
+
+    <script>
+      window.addEventListener("DOMContentLoaded", (event) => {
         var netDwsUpsEl = document.querySelector('#wpd_ups_number');
         var netDwsUpsLabelEl = document.querySelector('#wpd_ups_number').previousElementSibling;
         netDwsUpsEl.placeholder = 'Enter Shipping Account Number'
@@ -13,13 +22,11 @@
     });
       
     </script>
-  {% endif %}
-{% endif %}
 
-<script>
+<!-- <script>
 document.querySelectorAll('#wpd_extra_fields_wrapper label').forEach(label => {
     if (label.textContent.includes('UPS Shipping Account Number')) {
         label.textContent = 'Shipping Account Number';
     }
 });
-</script>
+</script> -->
