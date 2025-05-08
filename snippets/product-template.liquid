@@ -197,7 +197,7 @@
                             {{ 'products.general.regular_price' | t }}
                         </span>
                         <span data-product-price-wrap class="{% if hide_sale_price %} hide{% endif %}">
-                          <span data-compare-price class="product__price product__price--compare">
+                          <span data-compare-price class="data-wpd-hide product__price product__price--compare">
                             {%- if current_variant.compare_at_price > current_variant.price -%}
                               {{ current_variant.compare_at_price | money }}
                             {%- endif -%}
@@ -209,7 +209,14 @@
                       {%- endif -%}
 
                       <span data-product-price
-                        class="product__price{% if current_variant.compare_at_price > current_variant.price %} on-sale{% endif %}">
+                        class="product__price{% if current_variant.compare_at_price > current_variant.price %} on-sale{% endif %}"                
+                data-wpd-product-handle="{{ product.handle }}"
+                data-wpd-variant-id="{{ product.selected_or_first_available_variant.id }}"
+                data-wpd-variant-price="{{ product.selected_or_first_available_variant.price }}"
+                data-wpd-variant-compare-at-price="{{ product.selected_or_first_available_variant.compare_at_price }}"
+                data-wpd-product-collection-ids="{% assign wpdProductCollectionIds = product.collections | map:'id' %}{{ wpdProductCollectionIds | join:',' }}"
+                data-wpd-product-id="{{ product.id }}"
+                >
                         {%- unless product.empty? -%}
                           {{ current_variant.price | money }}
                         {%- else -%}
@@ -223,7 +230,7 @@
                         {%- else -%}
                           {%- capture saved_amount -%}{{ current_variant.compare_at_price | minus: current_variant.price | times: 100.0 | divided_by: current_variant.compare_at_price | round }}%{%- endcapture -%}
                         {%- endif -%}
-                        <span data-save-price class="product__price-savings{% if hide_sale_price %} hide{% endif %}">
+                        <span data-save-price class="data-wpd-hide product__price-savings{% if hide_sale_price %} hide{% endif %}">
                           {%- unless hide_sale_price -%}
                             {{ 'products.general.save_html' | t: saved_amount: saved_amount }}
                           {%- endunless -%}
