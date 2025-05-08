@@ -1,0 +1,14 @@
+<div class="product-block" {{ block.shopify_attributes }} style="text-align: {{ block.settings.text_align }};">
+  {% if block.settings.heading != blank %}
+    <h4>{{ block.settings.heading }}</h4>
+  {% endif %}
+  <div>
+    {{ block.settings.content }}
+    
+    {% if block.settings.metafield_key != blank %}
+      {% assign namespace = block.settings.metafield_namespace %}
+      {% assign key = block.settings.metafield_key %}
+      {{ product.metafields[namespace][key] }}
+    {% endif %}
+  </div>
+</div>

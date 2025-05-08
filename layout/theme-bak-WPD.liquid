@@ -12,7 +12,7 @@
   <link rel="dns-prefetch" href="https://ajax.googleapis.com">
   <link rel="dns-prefetch" href="https://maps.googleapis.com">
   <link rel="dns-prefetch" href="https://maps.gstatic.com">
-  <link
+ <link
     rel="stylesheet"
     href="https://unpkg.com/swiper/swiper-bundle.min.css"
   />
@@ -29,7 +29,7 @@
 
   {%- render 'social-meta-tags' -%}
 
-  <script>
+ <script>
     const params = new URLSearchParams(window.location.search);
     const storeName = params.get('store-name');
     if (storeName) {
@@ -40,7 +40,6 @@
     }
     
   </script>
-
   {%- render 'font-face' -%}
   {{ 'theme.css' | asset_url | stylesheet_tag: preload: true }}
   {%- render 'css-variables' -%}
@@ -111,6 +110,10 @@
     <script>theme.settings.email = {{ shop.email | json }}</script>
     <script src="https://api.archetypethemes.co/design-mode.js" defer="defer"></script>
   {% endif %}
+  {% comment %} Brand Styling for Product Templates {% endcomment %}
+{{ 'custom-oxygen-brand.js' | asset_url | script_tag }}
+{{ 'custom-quorum-brand.js' | asset_url | script_tag }}
+
 <script type="text/javascript">if(typeof window.hulkappsWishlist === 'undefined') {
                             window.hulkappsWishlist = {};
                         }
