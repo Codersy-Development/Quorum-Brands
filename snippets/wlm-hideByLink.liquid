@@ -1,1 +1,17 @@
 {% assign wlmHideLinks=false %}
+{% assign wlmHideLinks=false %}{% unless customer %}
+{% assign wlmHideLinks = true %}
+{% else %}
+{% unless wlmLockedTags305086 %}{% assign wlmHideLinks = true %}{% endunless %}
+{% if wlmHideLinks %}
+<script type='text/javascript'>
+wlm.arrHideLinks.push('a[href$="/products/oxygen-fan-motor-template-copy"],a[href*="/products/oxygen-fan-motor-template-copy/"],a[href*="/products/oxygen-fan-motor-template-copy?"],a[href*="/products/oxygen-fan-motor-template-copy#"]');
+</script><style type='text/css' class='wlm-auto-hl-styles'>a[href$="/products/oxygen-fan-motor-template-copy"],a[href*="/products/oxygen-fan-motor-template-copy/"],a[href*="/products/oxygen-fan-motor-template-copy?"],a[href*="/products/oxygen-fan-motor-template-copy#"]{ display: none !important; }</style>{% endif %}
+{% endunless %}
+{% if wlmHideLinks %}
+<script type='text/javascript'>
+wlm.arrHideLinks.push('a[href$="/products/oxygen-fan-motor-template-copy"],a[href*="/products/oxygen-fan-motor-template-copy/"],a[href*="/products/oxygen-fan-motor-template-copy?"],a[href*="/products/oxygen-fan-motor-template-copy#"]');
+</script><style type='text/css' class='wlm-auto-hl-styles'>a[href$="/products/oxygen-fan-motor-template-copy"],a[href*="/products/oxygen-fan-motor-template-copy/"],a[href*="/products/oxygen-fan-motor-template-copy?"],a[href*="/products/oxygen-fan-motor-template-copy#"]{ display: none !important; }</style>
+{% endif %}
+
+
