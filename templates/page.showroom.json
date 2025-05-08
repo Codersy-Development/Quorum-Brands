@@ -49,10 +49,49 @@
         "autoplay_speed": 5,
         "lazyload_images": true
       }
+    },
+    "image_with_text_cUaNEP": {
+      "type": "Image-with-text",
+      "name": "Feature Promo",
+      "settings": {
+        "store": "all",
+        "heading": "Quorum Dallas",
+        "text": "Dallas Market Center | 2100 Stemmons\nFreeway, Dallas, TX 75207\n\nSuites TM 3111 & TM 3004\n\nOpen Only During Shows\nUpcoming Market – June 18-24",
+        "button_label": "",
+        "button_link": "",
+        "image": "shopify://shop_images/IMG_3421.jpg"
+      }
+    },
+    "image_with_text_8EdFng": {
+      "type": "Image-with-text",
+      "name": "Feature Promo",
+      "settings": {
+        "store": "all",
+        "heading": "Quorum Dallas",
+        "text": "Dallas Market Center | 2100 Stemmons\nFreeway, Dallas, TX 75207\n\nSuites TM 3111 & TM 3004\n\nOpen Only During Shows\nUpcoming Market – June 18-24",
+        "button_label": "",
+        "button_link": "",
+        "image": "shopify://shop_images/IMG_3421.jpg"
+      }
+    },
+    "image_with_text_DX6Wqc": {
+      "type": "Image-with-text",
+      "name": "Feature Promo",
+      "settings": {
+        "store": "all",
+        "heading": "Quorum Dallas",
+        "text": "Dallas Market Center | 2100 Stemmons\nFreeway, Dallas, TX 75207\n\nSuites TM 3111 & TM 3004\n\nOpen Only During Shows\nUpcoming Market – June 18-24",
+        "button_label": "",
+        "button_link": "",
+        "image": "shopify://shop_images/IMG_3421.jpg"
+      }
     }
   },
   "order": [
     "main",
-    "slideshow_ffDiXn"
+    "slideshow_ffDiXn",
+    "image_with_text_cUaNEP",
+    "image_with_text_8EdFng",
+    "image_with_text_DX6Wqc"
   ]
 }
