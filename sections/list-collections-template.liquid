@@ -37,6 +37,7 @@
       -%}
       {%- if section.settings.sort == 'products_low' or section.settings.sort == 'date' or section.settings.sort == 'alphabetical' -%}
         {%- for collection in collections -%}
+          {%- capture wlm_check -%}{%- render 'wlm-collection' with collection , wlm_is_render:'yes' -%}{%- endcapture -%}{%- if wlm_check == blank -%}{%continue%}{%- endif -%}
           {%- render 'collection-grid-item',
               collection: collection,
               gridView: gridView,
@@ -46,6 +47,7 @@
         {%- endfor -%}
       {%- else -%}
         {%- for collection in collections reversed -%}
+          {%- capture wlm_check -%}{%- render 'wlm-collection' with collection , wlm_is_render:'yes' -%}{%- endcapture -%}{%- if wlm_check == blank -%}{%continue%}{%- endif -%}
           {%- render 'collection-grid-item',
               collection: collection,
               gridView: gridView,
@@ -57,6 +59,7 @@
     {%- else -%}
       {%- for block in section.blocks -%}
         {%- assign collection = collections[block.settings.collection] -%}
+        {%- capture wlm_check -%}{%- render 'wlm-collection' with collection , wlm_is_render:'yes' -%}{%- endcapture -%}{%- if wlm_check == blank -%}{%continue%}{%- endif -%}
         {%- render 'collection-grid-item',
           collection: collection,
           gridView: gridView,
