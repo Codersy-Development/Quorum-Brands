@@ -70,6 +70,14 @@
             "email_address": "customersupport@oxygenlighting.com"
           }
         },
+        "menu_AdxKpD": {
+          "type": "menu",
+          "settings": {
+            "show_footer_title": false,
+            "menu": "footer-1",
+            "container_width": 25
+          }
+        },
         "menu_NhFiUt": {
           "type": "menu",
           "settings": {
@@ -100,6 +108,7 @@
       },
       "block_order": [
         "contact_chpeJw",
+        "menu_AdxKpD",
         "menu_NhFiUt",
         "menu_kE8b83",
         "social_Xpfhdp"
