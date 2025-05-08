@@ -111,9 +111,7 @@ data-wpd-cart-drawer-quantity="{{ product.quantity }}" />
               data-wpd-cart-drawer-item="{{ line_item.key }}"                          
               data-wpd-cart-drawer-quantity="{{ line_item.quantity }}"
            {% endif %}
-              data-wpd-cart-variant-id="{{ product.variant.id }}"   
-              data-wpd-cart-item="{{ product.key }}"                                
-              data-wpd-cart-line-price>
+              data-wpd-cart-variant-id="{{ item.variant.id }}" data-wpd-cart-item="{{ item.key }}">
             {{ product.final_price | money }}
           </span>
         {% else %}
@@ -129,9 +127,7 @@ data-wpd-cart-drawer-quantity="{{ product.quantity }}" />
               data-wpd-cart-drawer-item="{{ line_item.key }}"                          
               data-wpd-cart-drawer-quantity="{{ line_item.quantity }}"
            {% endif %}
-              data-wpd-cart-variant-id="{{ product.variant.id }}"   
-              data-wpd-cart-item="{{ product.key }}"                                
-              data-wpd-cart-line-price>
+              data-wpd-cart-variant-id="{{ item.variant.id }}" data-wpd-cart-item="{{ item.key }}">
             {{ product.original_price | money }}
           </span>
         {% endif %}
