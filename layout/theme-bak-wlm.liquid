@@ -93,8 +93,7 @@
     };
   </script>
 
-  {% unless request.design_mode %}{% include 'wlm-head' %}{% endunless %}
-{{ content_for_header }}
+  {{ content_for_header }}
 
   <script src="{{ 'vendor-scripts-v11.js' | asset_url | split: '?' | first }}" defer="defer"></script>
 
@@ -131,7 +130,7 @@
     {%- sections 'popup-group' -%}
 
       <main class="main-content" id="MainContent">
-        {% comment %}{{ content_for_layout }}{% endcomment %}{% include 'wlm-body' %}
+        {{ content_for_layout }}
       </main>
 
     {%- sections 'footer-group' -%}
