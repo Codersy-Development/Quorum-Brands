@@ -7218,6 +7218,16 @@ theme.recentlyViewed = {
             }
             this.cache.priceA11y.setAttribute('aria-hidden', 'true');
           }
+
+          try{
+          this.cache.price.classList.remove("wpd-processed");
+          this.cache.price.setAttribute("data-wpd-variant-compare-at-price",variant.compare_at_price == null?"":variant.compare_at_price);
+          this.cache.price.setAttribute("data-wpd-variant-price",variant.price);
+          this.cache.price.setAttribute("data-wpd-variant-id",variant.id);
+          this.cache.price.setAttribute("data-wpd-product-handle", document.querySelector("#wpdproduct-modal").value);
+            
+          }catch(e){}
+          
         }
       },
   

@@ -14,7 +14,7 @@
   data-count="{{ cart.item_count }}"
   data-cart-subtotal="{{ cart.total_price }}">
   {% for item in cart.items %}
-    {%- render 'cart-item', product: item, sizes: '100px', -%}
+    {%- render 'cart-item', product: item, sizes: '100px', wpddrawer: true -%}
   {% endfor %}
 </div>
 <div class="cart__discounts cart__item-sub cart__item-row{% if cart.cart_level_discount_applications == blank %} hide{% endif %}">

@@ -35,6 +35,7 @@
           -%}
           {%- paginate collection.products by paginate_by -%}
           {%- for block in section.blocks -%}
+            {%- capture wlm_check -%}{%- render 'wlm-collection' with block , wlm_is_render:'yes' -%}{%- endcapture -%}{%- if wlm_check == blank -%}{%continue%}{%- endif -%}
             <div {{ block.shopify_attributes }} {%- if block.type == 'product-grid' -%}data-scroll-to{%- endif -%}>
               {%- case block.type -%}
               {%- when 'collection_description' -%}

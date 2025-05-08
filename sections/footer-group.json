@@ -53,6 +53,7 @@
         "footer-promotions-1",
         "footer-promotions-2"
       ],
+      "disabled": true,
       "settings": {
         "hide_homepage": false
       }
@@ -60,7 +61,7 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "contact_r4LN7j": {
+        "contact_chpeJw": {
           "type": "contact",
           "settings": {
             "address_line_1": "201 Railhead Rd.",
@@ -85,23 +86,23 @@
             "container_width": 25
           }
         },
-        "social_LYWYgF": {
+        "social_Xpfhdp": {
           "type": "social",
           "settings": {
             "contact_button_label": "CONTACT US",
             "contact_button_link": "#",
-            "facebook_url": "#",
+            "facebook_url": "https://www.facebook.com/quoruminternational",
             "linkedin_url": "#",
-            "instagram_url": "#",
+            "instagram_url": "https://www.instagram.com/quoruminternational",
             "vimeo_url": "#"
           }
         }
       },
       "block_order": [
-        "contact_r4LN7j",
+        "contact_chpeJw",
         "menu_NhFiUt",
         "menu_kE8b83",
-        "social_LYWYgF"
+        "social_Xpfhdp"
       ],
       "settings": {
         "show_locale_selector": true,

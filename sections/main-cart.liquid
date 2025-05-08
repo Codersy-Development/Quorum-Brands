@@ -45,8 +45,13 @@
 
           <div class="cart__item-sub cart__item-row">
             <div>{{ 'cart.general.subtotal' | t }}</div>
-            <div data-subtotal>{{ cart.total_price | money }}</div>
+            <div data-subtotal class="wcp-original-cart-total">{{ cart.total_price | money }}</div>
+             <span class="wcp-cart-total"></span>
           </div>
+          <div class="additional-notes">
+            <span class="wcp-minimums-note"></span>
+            <span class="wcp-extra-note "></span>
+          </div>{% render "wcp_multi_currency_msg" %}
 
           {% if settings.cart_terms_conditions_enable %}
             <div class="cart__item-row cart__terms">
@@ -66,6 +71,15 @@
               {{ 'cart.general.checkout' | t }}
             </button>
 
+ {% if customer.tags contains 'wpdnet' %}
+            {% if shop.metafields.wcp_net.isNetEnabled == 'true' or shop.metafields.wcp_net.isNetEnabled == '1' %}
+            <div style="margin-top:30px;display:none;width:100%;" id="wpdNetContainer">
+            <p>{{shop.metafields.wcp_net.netCartMsg}}</p>
+            <button id="wcp-30-open" class="btn button" style="width:100%;"> {{shop.metafields.wcp_net.netBtnMsg}}</button>
+            </div>
+            {% endif %}
+            {% endif %}
+            
             {% if additional_checkout_buttons and settings.cart_additional_buttons %}
               <div class="additional-checkout-buttons">{{ content_for_additional_checkout_buttons }}</div>
             {% endif %}
@@ -81,6 +95,19 @@
     </form>
   {%- endif -%}
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    setTimeout(function(){
+    var x=document.querySelectorAll(".js-qty__adjust, .js-qty__num, .cart__remove");
+    for (var i = 0; i < x.length; i++) {
+      x[i].addEventListener('click', function(){
+        setTimeout(function(){window.location.reload();},2500);
+      }, false);
+    }
+    },2500);
+  }, false);
+</script>
 
 {% schema %}
 {
