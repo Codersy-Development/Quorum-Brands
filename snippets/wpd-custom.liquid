@@ -13,6 +13,8 @@
   {% endif %}
 {% endif %}
 
+{% if customer.tags contains "wpdnet" %}
+  {% if canonical_url contains "/cart" or canonical_url contains "/apps/wpdapp/wholesale/wpd-net-order-cart" %}
     <script>
       window.addEventListener("DOMContentLoaded", (event) => {
         var netDwsUpsEl = document.querySelector('#wpd_ups_number');
@@ -22,11 +24,8 @@
     });
       
     </script>
+  {% endif %}
+{% endif %}
 
-<!-- <script>
-document.querySelectorAll('#wpd_extra_fields_wrapper label').forEach(label => {
-    if (label.textContent.includes('UPS Shipping Account Number')) {
-        label.textContent = 'Shipping Account Number';
-    }
-});
-</script> -->
+    
+
