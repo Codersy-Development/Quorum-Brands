@@ -95,7 +95,20 @@
         }
       }
     },
-    "content_for_index": []
+    "content_for_index": [],
+    "blocks": {
+      "11989592277864780042": {
+        "type": "shopify://apps/wholesale-pricing-discount/blocks/app-embed/94cbfa01-7191-4bb2-bcd8-b519b9b3bd06",
+        "disabled": false,
+        "settings": {
+          "showCrossOutPrice": true,
+          "showCurrencyCodes": false,
+          "priceColor": "#000000",
+          "crossOutPriceColor": "#E9330C",
+          "appProxy": "/apps/wpdapp"
+        }
+      }
+    }
   },
   "presets": {
     "Modern": {
