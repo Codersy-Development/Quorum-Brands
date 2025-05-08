@@ -143,7 +143,7 @@
         "text_block_pf79bb"
       ],
       "custom_css": [
-        ".image-wrap,image-element,img {padding: 0; height: 450px !important; object-fit: cover;}"
+        ".image-wrap,image-element,img {padding-bottom: 0 !important; height: 450px !important; object-fit: cover;}"
       ],
       "name": "t:sections.text-columns.presets.text_columns_with_images.name",
       "settings": {
@@ -187,7 +187,7 @@
         "text_block_bYamN6"
       ],
       "custom_css": [
-        ".image-wrap,image-element,img {padding: 0; height: 450px !important; object-fit: cover;}"
+        ".image-wrap,image-element,img {padding-bottom: 0 !important; height: 450px !important; object-fit: cover;}"
       ],
       "name": "t:sections.text-columns.presets.text_columns_with_images.name",
       "settings": {
