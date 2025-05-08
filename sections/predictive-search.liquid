@@ -2,6 +2,7 @@
   {%- if predictive_search.resources.products.size > 0 -%}
     <div data-type-products>
       {%- for product in predictive_search.resources.products -%}
+        {%- capture wlm_check -%}{%- render 'wlm-product' with product , wlm_is_render:'yes' -%}{%- endcapture -%}{%- if wlm_check == blank -%}{%continue%}{%- endif -%}
         {%- render 'product-grid-item',
           product: product,
           per_row: 4,
@@ -16,6 +17,7 @@
       <p class="h6 predictive__label">{{ 'general.search.collections' | t }}</p>
       <ul class="no-bullets">
         {% for collection in predictive_search.resources.collections %}
+          {%- capture wlm_check -%}{%- render 'wlm-collection' with collection , wlm_is_render:'yes' -%}{%- endcapture -%}{%- if wlm_check == blank -%}{%continue%}{%- endif -%}
           <li>
             <a href="{{ collection.url }}">
               {{ collection.title }}
