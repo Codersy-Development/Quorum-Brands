@@ -76,6 +76,10 @@
             "show_gift_card_recipient": false
           }
         },
+        "separator_QjmJ3y": {
+          "type": "separator",
+          "settings": {}
+        },
         "tab_HAmQP6": {
           "type": "tab",
           "disabled": true,
@@ -137,6 +141,7 @@
         "sales_point",
         "inventory_status",
         "buy_buttons",
+        "separator_QjmJ3y",
         "tab_HAmQP6",
         "tab_zFza3D",
         "tab",
