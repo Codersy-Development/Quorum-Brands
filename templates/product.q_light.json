@@ -70,7 +70,7 @@
           "type": "tab",
           "settings": {
             "title": "Specifications",
-            "content": "<p>{{ product.metafields.custom.prefix_material_1.value }}<br/>{{ product.metafields.custom.prefix_material_2.value }}<br/>{{ product.metafields.custom.prefix_material_3.value }}<br/>{{ product.metafields.custom.prefix_finish_1.value }}<br/><br/>{{ product.metafields.custom.prefix_finish_3.value }}</p>",
+            "content": "<p>{{ product.metafields.custom.prefix_material_1.value }}<br/>{{ product.metafields.custom.prefix_material_2.value }}<br/>{{ product.metafields.custom.prefix_material_3.value }}<br/>{{ product.metafields.custom.prefix_finish_1.value }}<br/>{{ product.metafields.custom.prefix_finish_2.value }}<br/>{{ product.metafields.custom.prefix_finish_3.value }}</p>",
             "page": ""
           }
         },
