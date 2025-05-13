@@ -9,7 +9,7 @@
     endif
   endif
   
-  if content != nil
+  if content != blank and content != '' and content != nil
     # Remove empty paragraphs with just br tags
     assign cleaned_content = content
     assign cleaned_content = cleaned_content | remove: '<p><br><br></p>'
