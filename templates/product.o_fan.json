@@ -90,19 +90,9 @@
         },
         "tab": {
           "type": "tab",
-          "disabled": true,
           "settings": {
             "title": "Performance | Features",
             "content": "<p>{{ product.metafields.custom.prefix_remote_adaptable.value }}<br/>{{ product.metafields.custom.prefix_smart_bond.value }}</p><p>{{ product.metafields.custom.prefix_switch_type.value }}<br/>{{ product.metafields.custom.prefix_reverse_switch_type.value }}</p><p>{{ product.metafields.custom.prefix_wattage.value }}<br/>{{ product.metafields.custom.prefix_RPM_speed_1.value }}<br/>{{ product.metafields.custom.prefix_RPM_speed_3.value }}<br/>{{ product.metafields.custom.prefix_CFM_speed_1.value }}<br/>{{ product.metafields.custom.prefix_CFM_speed_3.value }}<br/>{{ product.metafields.custom.prefix_CFM_watts_1.value }}{{ product.metafields.custom.prefix_CFM_watts_3.value }}</p>",
-            "page": ""
-          }
-        },
-        "tab_nbjTFY": {
-          "type": "tab",
-          "disabled": true,
-          "settings": {
-            "title": "Additional Information",
-            "content": "<p>Use collapsible tabs for more detailed information that will help customers make a purchasing decision.</p><p>Ex: Shipping and return policies, size guides, and other common questions.</p>",
             "page": ""
           }
         },
@@ -116,7 +106,6 @@
         },
         "share": {
           "type": "share",
-          "disabled": true,
           "settings": {}
         }
       },
@@ -133,7 +122,6 @@
         "tab_HAmQP6",
         "tab_zFza3D",
         "tab",
-        "tab_nbjTFY",
         "contact",
         "share"
       ],
@@ -151,15 +139,37 @@
         "product_video_style": "muted"
       }
     },
+    "rich_text_Fcfdk3": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_bCrdnr": {
+          "type": "heading",
+          "settings": {
+            "title": ""
+          }
+        },
+        "text_7PtDXT": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": true,
+            "text": "{{ product.description }}"
+          }
+        }
+      },
+      "block_order": [
+        "heading_bCrdnr",
+        "text_7PtDXT"
+      ],
+      "name": "t:sections.rich-text.presets.rich_text.name",
+      "settings": {
+        "align_text": "left",
+        "narrow_column": false,
+        "divider": false
+      }
+    },
     "sub": {
       "type": "product-full-width",
       "blocks": {
-        "description_jrPRz4": {
-          "type": "description",
-          "settings": {
-            "is_tab": false
-          }
-        },
         "custom_iKKmc3": {
           "type": "custom",
           "settings": {
@@ -200,7 +210,6 @@
         }
       },
       "block_order": [
-        "description_jrPRz4",
         "custom_iKKmc3",
         "tab_hLUUEA",
         "tab_CpMWjw",
@@ -210,46 +219,6 @@
       "custom_css": [],
       "settings": {
         "max_width": false
-      }
-    },
-    "background-image-text": {
-      "type": "background-image-text",
-      "disabled": true,
-      "settings": {
-        "subtitle": "Impressive",
-        "title": "About your brand",
-        "text": "<p>Pair large text with a full-width image to draw attention to an important detail of your brand or product line.</p>",
-        "button_label": "",
-        "button_link": "",
-        "layout": "left",
-        "height": 550,
-        "framed": false,
-        "parallax": false,
-        "parallax_direction": "top",
-        "lazyload_images": true
-      }
-    },
-    "text-and-image2": {
-      "type": "text-and-image",
-      "disabled": true,
-      "settings": {
-        "image": "{{ product.featured_image }}",
-        "image_mask": "none",
-        "image2": "shopify://shop_images/3-1084-6_3_2100x2100_f47c93c5-6fa3-4277-9b18-d4b659e78588.webp",
-        "image2_mask": "none",
-        "subtitle": "",
-        "title": "{{ product.title }}",
-        "text": "{{ product.description }}",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "primary",
-        "align_text": "left",
-        "image_width": "50",
-        "layout": "right",
-        "divider": false,
-        "top_padding": true,
-        "bottom_padding": true,
-        "lazyload_images": true
       }
     },
     "testimonials": {
@@ -318,9 +287,8 @@
   },
   "order": [
     "main",
+    "rich_text_Fcfdk3",
     "sub",
-    "background-image-text",
-    "text-and-image2",
     "testimonials",
     "product-recommendations",
     "recently-viewed",
