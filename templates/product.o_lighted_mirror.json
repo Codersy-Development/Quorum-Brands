@@ -228,6 +228,14 @@
             "page": ""
           }
         },
+        "tab_eTHaLz": {
+          "type": "tab",
+          "settings": {
+            "title": "Certifications",
+            "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p>",
+            "page": ""
+          }
+        },
         "tab_9AjKC6": {
           "type": "tab",
           "settings": {
@@ -247,6 +255,7 @@
         "tab_Qdhy8G",
         "tab_BrwXkF",
         "tab_ECWDQp",
+        "tab_eTHaLz",
         "tab_9AjKC6",
         "share_tb8VYQ"
       ],
