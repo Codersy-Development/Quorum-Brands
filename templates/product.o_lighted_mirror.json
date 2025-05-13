@@ -189,23 +189,6 @@
         "max_width": false
       }
     },
-    "background-image-text": {
-      "type": "background-image-text",
-      "disabled": true,
-      "settings": {
-        "subtitle": "Impressive",
-        "title": "About your brand",
-        "text": "<p>Pair large text with a full-width image to draw attention to an important detail of your brand or product line.</p>",
-        "button_label": "",
-        "button_link": "",
-        "layout": "left",
-        "height": 550,
-        "framed": false,
-        "parallax": false,
-        "parallax_direction": "top",
-        "lazyload_images": true
-      }
-    },
     "background_video_text_qCBfpB": {
       "type": "background-video-text",
       "name": "t:sections.background-video-text.presets.large_video_with_text_box.name",
@@ -215,7 +198,7 @@
         "text": "",
         "button_label": "",
         "button_link": "",
-        "video_url": "https://player.vimeo.com/video/897102122?h=c9edf2e368",
+        "video_url": "https://player.vimeo.com/video/897102122",
         "color_border": "#f4f4f4",
         "layout": "left",
         "height": 550
@@ -288,7 +271,6 @@
   "order": [
     "main",
     "sub",
-    "background-image-text",
     "background_video_text_qCBfpB",
     "testimonials",
     "product-recommendations",
