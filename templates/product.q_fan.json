@@ -16,6 +16,12 @@
           "type": "price",
           "settings": {}
         },
+        "text_VVNKdN": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.custom.prefix_item_series.value }}"
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "disabled": true,
@@ -51,12 +57,6 @@
             "show_dynamic_checkout": false,
             "surface_pickup_enable": false,
             "show_gift_card_recipient": false
-          }
-        },
-        "description": {
-          "type": "description",
-          "settings": {
-            "is_tab": false
           }
         },
         "tab_HAmQP6": {
@@ -111,12 +111,12 @@
       },
       "block_order": [
         "price",
+        "text_VVNKdN",
         "variant_picker",
         "sales_point",
         "inventory_status",
         "separator",
         "buy_buttons",
-        "description",
         "tab_HAmQP6",
         "tab_zFza3D",
         "tab",
