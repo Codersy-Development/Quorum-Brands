@@ -28,14 +28,20 @@
         if text_check != blank and text_check != ''
           # This paragraph has real content, clean it up
           assign clean_para = paragraph
-          # Replace multiple br tags with single br
+          
+          # More aggressive cleaning - replace any 3+ consecutive br tags with single br
+          assign clean_para = clean_para | replace: '<br><br><br><br><br><br>', '<br>'
           assign clean_para = clean_para | replace: '<br><br><br><br><br>', '<br>'
           assign clean_para = clean_para | replace: '<br><br><br><br>', '<br>'
           assign clean_para = clean_para | replace: '<br><br><br>', '<br>'
+          
+          # Replace double br with single br (but keep single br for line breaks)
           assign clean_para = clean_para | replace: '<br><br>', '<br>'
+          
           # Remove br at start and end
           assign clean_para = clean_para | replace: '<p><br>', '<p>'
           assign clean_para = clean_para | replace: '<br></p>', '</p>'
+          
           # Add back the closing tag
           if clean_para contains '<p>'
             assign clean_para = clean_para | append: '</p>'
