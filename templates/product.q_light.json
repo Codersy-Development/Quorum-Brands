@@ -45,12 +45,6 @@
             "code": "<div class=\"logo-row\">\n  {{ product.metafields.custom.cUL_logo.value }}\n  {{ product.metafields.custom.cETL_Logo.value }}\n  {{ product.metafields.custom.CCT_logo.value }}\n  {{ product.metafields.custom.ELT_logo.value }}\n  {{ product.metafields.custom.ghost_logo.value }}\n</div>\n\n<style>\n  .logo-row {\n    display: flex;\n    gap: 20px;\n    align-items: center;\n  }\n</style>"
           }
         },
-        "text_fKgtqN": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.metafields.custom.cETL_Logo.value }}"
-          }
-        },
         "separator_DnBBew": {
           "type": "separator",
           "settings": {}
@@ -123,7 +117,6 @@
         "variant_picker",
         "inventory_status",
         "custom_YXn4Qg",
-        "text_fKgtqN",
         "separator_DnBBew",
         "description_JBaBPV",
         "separator",
