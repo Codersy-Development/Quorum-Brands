@@ -145,14 +145,6 @@
     "sub": {
       "type": "product-full-width",
       "blocks": {
-        "tab_Qdhy8G": {
-          "type": "tab",
-          "settings": {
-            "title": "Preformance | Features",
-            "content": "",
-            "page": ""
-          }
-        },
         "tab_VKwJHy": {
           "type": "tab",
           "settings": {
@@ -179,13 +171,40 @@
         }
       },
       "block_order": [
-        "tab_Qdhy8G",
         "tab_VKwJHy",
         "tab_9AjKC6",
         "tab_NGgmHF"
       ],
       "settings": {
         "max_width": false
+      }
+    },
+    "rich_text_37FyAy": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_hWQQjr": {
+          "type": "heading",
+          "settings": {
+            "title": ""
+          }
+        },
+        "text_Vemtfn": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": true,
+            "text": "{{ product.description }}"
+          }
+        }
+      },
+      "block_order": [
+        "heading_hWQQjr",
+        "text_Vemtfn"
+      ],
+      "name": "t:sections.rich-text.presets.rich_text.name",
+      "settings": {
+        "align_text": "left",
+        "narrow_column": false,
+        "divider": false
       }
     },
     "testimonials": {
@@ -254,6 +273,7 @@
   },
   "order": [
     "main",
+    "rich_text_37FyAy",
     "sub",
     "testimonials",
     "product-recommendations",
