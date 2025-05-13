@@ -174,7 +174,15 @@
           "type": "tab",
           "settings": {
             "title": "Mounting | Installation",
-            "content": "<p>{{ product.metafields.custom.prefix_downrod_length_1.value }}<br/>{{ product.metafields.custom.prefix_downrod_diameter_1.value }}<br/>{{ product.metafields.custom.prefix_downrod_length_2.value }}<br/>{{ product.metafields.custom.prefix_downrod_diameter_2.value }}</p><p>{{ product.metafields.custom.prefix_ceiling_blade_height_1.value }}<br/>{{ product.metafields.custom.prefix_ceiling_bottom_height_1.value }}<br/>{{ product.metafields.custom.prefix_ceiling_blade_height_2.value }}<br/>{{ product.metafields.custom.prefix_ceiling_bottom_height_2.value }}</p><p>{{ product.metafields.custom.prefix_sloped_ceiling_adaptable.value }}<br/>{{ product.metafields.custom.prefix_standard_sloped_ceiling.value }}<br/>{{ product.metafields.custom.prefix_extended_sloped_ceiling.value }}</p><p>{{ product.metafields.custom.prefix_canopy_width.value }}<br/>{{ product.metafields.custom.prefix_canopy_height.value }}<br/>{{ product.metafields.custom.prefix_canopy_length.value }}<br/>{{ product.metafields.custom.prefix_canopy_finish.value }}</p><p>{{ product.metafields.custom.prefix_leadwire_length.value }}</p>",
+            "content": "<p><strong>{{ product.metafields.custom.prefix_downrod_length_1.value }}</strong><strong><br/></strong><strong>{{ product.metafields.custom.prefix_downrod_diameter_1.value }}</strong><strong><br/></strong><strong>{{ product.metafields.custom.prefix_downrod_length_2.value }}</strong><strong><br/></strong><strong>{{ product.metafields.custom.prefix_downrod_diameter_2.value }}</strong></p><p><strong>{{ product.metafields.custom.prefix_ceiling_blade_height_1.value }}</strong><strong><br/></strong><strong>{{ product.metafields.custom.prefix_ceiling_bottom_height_1.value }}</strong><strong><br/></strong><strong>{{ product.metafields.custom.prefix_ceiling_blade_height_2.value }}</strong><strong><br/></strong><strong>{{ product.metafields.custom.prefix_ceiling_bottom_height_2.value }}</strong></p><p><strong>{{ product.metafields.custom.prefix_sloped_ceiling_adaptable.value }}</strong><strong><br/></strong><strong>{{ product.metafields.custom.prefix_standard_sloped_ceiling.value }}</strong><strong><br/></strong><strong>{{ product.metafields.custom.prefix_extended_sloped_ceiling.value }}</strong></p><p><strong>{{ product.metafields.custom.prefix_canopy_width.value }}</strong><strong><br/></strong><strong>{{ product.metafields.custom.prefix_canopy_height.value }}</strong><strong><br/></strong><strong>{{ product.metafields.custom.prefix_canopy_length.value }}</strong><strong><br/></strong><strong>{{ product.metafields.custom.prefix_canopy_finish.value }}</strong></p><p><strong>{{ product.metafields.custom.prefix_leadwire_length.value }}</strong></p>",
+            "page": ""
+          }
+        },
+        "tab_FHmb4f": {
+          "type": "tab",
+          "settings": {
+            "title": "Certifications",
+            "content": "<p><strong>{{ product.metafields.custom.safety_ratings.value }}</strong></p><p><strong>{{ product.metafields.custom.prefix_manufacturer_warranty.value }}</strong></p>",
             "page": ""
           }
         },
@@ -183,14 +191,6 @@
           "settings": {
             "title": "Shipping information",
             "content": "<p>{{ product.metafields.custom.prefix_shipping.value }}</p><p>{{ product.metafields.custom.prefix_carton_weight.value }}<br/>{{ product.metafields.custom.prefix_carton_height.value }}<br/>{{ product.metafields.custom.prefix_carton_length.value }}<br/>{{ product.metafields.custom.prefix_carton_width.value }}</p>",
-            "page": ""
-          }
-        },
-        "tab_FHmb4f": {
-          "type": "tab",
-          "settings": {
-            "title": "Certifications",
-            "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p><p>{{ product.metafields.custom.prefix_manufacturer_warranty.value }}</p>",
             "page": ""
           }
         },
@@ -205,8 +205,8 @@
       },
       "block_order": [
         "tab_hLUUEA",
-        "tab_CpMWjw",
         "tab_FHmb4f",
+        "tab_CpMWjw",
         "tab_9AjKC6"
       ],
       "custom_css": [],
