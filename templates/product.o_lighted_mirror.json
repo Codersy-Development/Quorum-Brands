@@ -191,9 +191,9 @@
         "subheading": "",
         "link_text": "",
         "link": "",
-        "color_accent": "rgba(0,0,0,0)",
+        "color_accent": "#ff00fb",
         "text_align": "vertical-center horizontal-center",
-        "video_url": "{{ product.metafields.custom.vimeo_link_url.value }}",
+        "video_url": "https://player.vimeo.com/video/897102122",
         "overlay_opacity": 0,
         "section_height": "550px",
         "mobile_height": "300px"
