@@ -150,8 +150,8 @@
         "tab_X4ETqR": {
           "type": "tab",
           "settings": {
-            "title": "Spec",
-            "content": "",
+            "title": "Specifications",
+            "content": "<p>{{ product.metafields.custom.prefix_material_1.value }}<br/>{{ product.metafields.custom.prefix_material_2.value }}<br/>{{ product.metafields.custom.prefix_material_3.value }}</p><p>{{ product.metafields.custom.prefix_finish_1.value }}<br/>{{ product.metafields.custom.prefix_finish_2.value }}<br/>{{ product.metafields.custom.prefix_finish_3.value }}</p><p></p>",
             "page": ""
           }
         },
