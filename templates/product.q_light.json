@@ -17,6 +17,12 @@
           "disabled": true,
           "settings": {}
         },
+        "text_wG7MLT": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.custom.prefix_item_series.value }}"
+          }
+        },
         "separator": {
           "type": "separator",
           "settings": {}
@@ -52,12 +58,6 @@
             "show_dynamic_checkout": false,
             "surface_pickup_enable": false,
             "show_gift_card_recipient": false
-          }
-        },
-        "description": {
-          "type": "description",
-          "settings": {
-            "is_tab": false
           }
         },
         "tab_HAmQP6": {
@@ -111,12 +111,12 @@
       },
       "block_order": [
         "price",
+        "text_wG7MLT",
         "separator",
         "variant_picker",
         "sales_point",
         "inventory_status",
         "buy_buttons",
-        "description",
         "tab_HAmQP6",
         "tab_zFza3D",
         "tab",
@@ -126,8 +126,8 @@
       ],
       "settings": {
         "sku_enable": true,
-        "image_position": "left",
-        "image_size": "medium",
+        "image_position": "right",
+        "image_size": "large",
         "product_zoom_enable": true,
         "thumbnail_position": "beside",
         "thumbnail_height": "flexible",
@@ -144,7 +144,7 @@
           "type": "tab",
           "settings": {
             "title": "Lighting Specs",
-            "content": "<p>Use collapsible tabs for more detailed information that will help customers make a purchasing decision.</p><p>Ex: Shipping and return policies, size guides, and other common questions.</p>",
+            "content": "",
             "page": ""
           }
         },
