@@ -10,33 +10,33 @@
   endif
   
   if content != blank and content != '' and content != nil
-    # Debug: Show original content
-    assign original = content
-    
-    # Start cleaning
+    # Start with the original content
     assign cleaned_content = content
     
-    # Step 1: Remove empty paragraphs
-    assign cleaned_content = cleaned_content | remove: '<p></p>'
+    # Remove empty paragraphs with br/ tags
+    assign cleaned_content = cleaned_content | remove: '<p><br/></p>'
+    assign cleaned_content = cleaned_content | remove: '<p><br/><br/></p>'
+    assign cleaned_content = cleaned_content | remove: '<p><br/><br/><br/></p>'
+    assign cleaned_content = cleaned_content | remove: '<p><br/><br/><br/><br/></p>'
+    
+    # Also handle regular br tags
     assign cleaned_content = cleaned_content | remove: '<p><br></p>'
     assign cleaned_content = cleaned_content | remove: '<p><br><br></p>'
-    assign step1 = cleaned_content
+    assign cleaned_content = cleaned_content | remove: '<p></p>'
     
-    # Step 2: Replace the specific pattern
-    assign cleaned_content = cleaned_content | replace: '<br><br><br><br><br>', '|BREAK|'
-    assign step2 = cleaned_content
+    # Replace multiple br/ tags with single br
+    assign cleaned_content = cleaned_content | replace: '<br/><br/><br/><br/><br/>', '<br>'
+    assign cleaned_content = cleaned_content | replace: '<br/><br/><br/><br/>', '<br>'
+    assign cleaned_content = cleaned_content | replace: '<br/><br/><br/>', '<br>'
+    assign cleaned_content = cleaned_content | replace: '<br/><br/>', '<br>'
     
-    # Step 3: Continue with other patterns
-    assign cleaned_content = cleaned_content | replace: '<br><br><br><br>', '|BREAK|'
-    assign cleaned_content = cleaned_content | replace: '<br><br><br>', '|BREAK|'
-    assign cleaned_content = cleaned_content | replace: '<br><br>', '|BREAK|'
-    assign step3 = cleaned_content
+    # Also handle regular br tags
+    assign cleaned_content = cleaned_content | replace: '<br><br><br><br><br>', '<br>'
+    assign cleaned_content = cleaned_content | replace: '<br><br><br><br>', '<br>'
+    assign cleaned_content = cleaned_content | replace: '<br><br><br>', '<br>'
+    assign cleaned_content = cleaned_content | replace: '<br><br>', '<br>'
     
-    # Step 4: Replace markers with single br
-    assign cleaned_content = cleaned_content | replace: '|BREAK|', '<br>'
-    assign final = cleaned_content
-    
-    # Check for content
+    # Final check for content
     assign content_check = cleaned_content | strip_html | strip
     if content_check != blank and content_check != ''
       assign has_content = true
@@ -49,13 +49,6 @@
   endif
 -%}
 {%- if output_tab -%}
-<!-- Debug output -->
-<!-- Original: {{ original | escape }} -->
-<!-- Step 1: {{ step1 | escape }} -->
-<!-- Step 2: {{ step2 | escape }} -->
-<!-- Step 3: {{ step3 | escape }} -->
-<!-- Final: {{ final | escape }} -->
-
 <div class="collapsibles-wrapper collapsibles-wrapper--border-bottom">
   <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height{%- if force_open %} is-open{%- endif -%}" aria-controls="Product-content-{{ id }}"{%- if force_open %} aria-expanded="true"{%- endif -%}>
     {{- title | strip -}}
