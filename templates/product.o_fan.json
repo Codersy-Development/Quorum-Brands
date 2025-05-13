@@ -95,9 +95,8 @@
             "page": ""
           }
         },
-        "contact": {
+        "contact_36dV9j": {
           "type": "contact",
-          "disabled": true,
           "settings": {
             "title": "Ask a question",
             "phone": false
@@ -121,7 +120,7 @@
         "tab_HAmQP6",
         "tab_zFza3D",
         "tab",
-        "contact",
+        "contact_36dV9j",
         "share"
       ],
       "custom_css": [],
