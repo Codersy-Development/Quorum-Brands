@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Check if we're on a product page
-  const isProductPage = window.location.pathname.includes('/products/','2Fproducts%' );
+  const isProductPage = window.location.pathname.includes('/products/');
   
   if (isProductPage) {
     // Method 1: Try Shopify global object
