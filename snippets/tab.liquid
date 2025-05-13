@@ -1,13 +1,23 @@
 {%- liquid
+  assign has_title = false
+  assign has_content = false
+  
+  if title != blank and title != '' and title != nil
+    assign title_check = title | strip | strip_html
+    if title_check != blank and title_check != ''
+      assign has_title = true
+    endif
+  endif
+  
+  if content != blank and content != '' and content != nil
+    assign content_check = content | strip | strip_html
+    if content_check != blank and content_check != ''
+      assign has_content = true
+    endif
+  endif
+  
   assign output_tab = false
-  assign clean_title = title | strip | remove: '&nbsp;' | remove: '&#160;' | remove: '&#8203;'
-  assign clean_content = content | strip | remove: '&nbsp;' | remove: '&#160;' | remove: '&#8203;'
-  
-  # Remove any HTML tags to check if there's actual content
-  assign title_text = clean_title | strip_html | strip
-  assign content_text = clean_content | strip_html | strip
-  
-  if title_text != blank or content_text != blank
+  if has_title or has_content
     assign output_tab = true
   endif
 -%}
@@ -17,14 +27,14 @@
     <button type="button"
       class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height{% if force_open %} is-open{% endif %}" aria-controls="Product-content-{{ id }}"
       {% if force_open %}aria-expanded="true"{% endif %}>
-      {{- clean_title | strip -}}
+      {{- title -}}
       {%- render 'collapsible-icons' -%}
     </button>
     <div id="Product-content-{{ id }}"
       class="collapsible-content collapsible-content--all{% if force_open %} is-open{% endif %}"
       {% if force_open %}style="height: auto;"{% endif %}>
       <div class="collapsible-content__inner rte">
-        {{- clean_content | strip -}}
+        {{- content -}}
       </div>
     </div>
   </div>
