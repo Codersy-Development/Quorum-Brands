@@ -16,6 +16,19 @@
           "type": "price",
           "settings": {}
         },
+        "inventory_status": {
+          "type": "inventory_status",
+          "settings": {
+            "inventory_threshold": 10,
+            "inventory_transfers_enable": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "is_tab": false
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "disabled": true,
@@ -26,19 +39,10 @@
             "color_swatches": false
           }
         },
-        "sales_point": {
-          "type": "sales_point",
-          "disabled": true,
+        "custom_dE4wYQ": {
+          "type": "custom",
           "settings": {
-            "icon": "checkmark",
-            "text": "Free worldwide shipping"
-          }
-        },
-        "inventory_status": {
-          "type": "inventory_status",
-          "settings": {
-            "inventory_threshold": 10,
-            "inventory_transfers_enable": true
+            "code": "{{ product.metafields.custom.vimeo_embed.value }}"
           }
         },
         "separator": {
@@ -51,12 +55,6 @@
             "show_dynamic_checkout": false,
             "surface_pickup_enable": false,
             "show_gift_card_recipient": false
-          }
-        },
-        "description": {
-          "type": "description",
-          "settings": {
-            "is_tab": false
           }
         },
         "tab_HAmQP6": {
@@ -111,12 +109,12 @@
       },
       "block_order": [
         "price",
-        "variant_picker",
-        "sales_point",
         "inventory_status",
+        "description",
+        "variant_picker",
+        "custom_dE4wYQ",
         "separator",
         "buy_buttons",
-        "description",
         "tab_HAmQP6",
         "tab_zFza3D",
         "tab",
@@ -145,7 +143,7 @@
           "type": "tab",
           "settings": {
             "title": "Fan Specs",
-            "content": "<p>Use collapsible tabs for more detailed information that will help customers make a purchasing decision.</p><p>Ex: Shipping and return policies, size guides, and other common questions.</p>",
+            "content": "",
             "page": ""
           }
         },
