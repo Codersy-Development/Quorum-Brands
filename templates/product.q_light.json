@@ -180,6 +180,14 @@
             "page": ""
           }
         },
+        "tab_VKwJHy": {
+          "type": "tab",
+          "settings": {
+            "title": "Certifications",
+            "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p>",
+            "page": ""
+          }
+        },
         "share_tb8VYQ": {
           "type": "share",
           "settings": {}
@@ -190,6 +198,7 @@
         "tab_hLUUEA",
         "tab_Qdhy8G",
         "tab_9AjKC6",
+        "tab_VKwJHy",
         "share_tb8VYQ"
       ],
       "settings": {
