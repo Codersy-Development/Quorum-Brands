@@ -66,6 +66,12 @@
             "show_gift_card_recipient": false
           }
         },
+        "custom_k9qkkg": {
+          "type": "custom",
+          "settings": {
+            "code": ""
+          }
+        },
         "text_fKgtqN": {
           "type": "text",
           "settings": {
@@ -131,6 +137,7 @@
         "sales_point",
         "inventory_status",
         "buy_buttons",
+        "custom_k9qkkg",
         "text_fKgtqN",
         "tab_HAmQP6",
         "tab_zFza3D",
