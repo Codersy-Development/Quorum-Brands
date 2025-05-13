@@ -69,7 +69,7 @@
         "custom_k9qkkg": {
           "type": "custom",
           "settings": {
-            "code": ""
+            "code": "{{ product.metafields.custom.cETL_Logo.value }}"
           }
         },
         "text_fKgtqN": {
