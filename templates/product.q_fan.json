@@ -181,7 +181,7 @@
           "type": "tab",
           "settings": {
             "title": "Certifications",
-            "content": "<p><strong>{{ product.metafields.custom.safety_ratings.value }}</strong></p><p><strong>{{ product.metafields.custom.prefix_manufacturer_warranty.value }}</strong></p>",
+            "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p><p>{{ product.metafields.custom.prefix_manufacturer_warranty.value }}</p><p></p>",
             "page": ""
           }
         },
