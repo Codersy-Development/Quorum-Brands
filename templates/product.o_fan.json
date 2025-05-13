@@ -146,6 +146,12 @@
     "sub": {
       "type": "product-full-width",
       "blocks": {
+        "custom_iKKmc3": {
+          "type": "custom",
+          "settings": {
+            "code": "{{ product.metafields.custom.vimeo_embed.value }}"
+          }
+        },
         "tab_wG9kaR": {
           "type": "tab",
           "settings": {
@@ -192,6 +198,7 @@
         }
       },
       "block_order": [
+        "custom_iKKmc3",
         "tab_wG9kaR",
         "tab_X4ETqR",
         "tab_hLUUEA",
