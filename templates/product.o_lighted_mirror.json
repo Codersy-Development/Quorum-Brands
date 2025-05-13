@@ -23,18 +23,20 @@
             "text": "{{ product.metafields.custom.prefix_item_series.value }}"
           }
         },
-        "separator": {
-          "type": "separator",
-          "settings": {}
-        },
         "variant_picker": {
           "type": "variant_picker",
-          "disabled": true,
           "settings": {
             "variant_labels": true,
             "picker_type": "button",
             "product_dynamic_variants_enable": true,
             "color_swatches": false
+          }
+        },
+        "inventory_status": {
+          "type": "inventory_status",
+          "settings": {
+            "inventory_threshold": 10,
+            "inventory_transfers_enable": true
           }
         },
         "sales_point": {
@@ -45,12 +47,9 @@
             "text": "Free worldwide shipping"
           }
         },
-        "inventory_status": {
-          "type": "inventory_status",
-          "settings": {
-            "inventory_threshold": 10,
-            "inventory_transfers_enable": true
-          }
+        "separator": {
+          "type": "separator",
+          "settings": {}
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -113,10 +112,10 @@
       "block_order": [
         "price",
         "text_Hn6GpR",
-        "separator",
         "variant_picker",
-        "sales_point",
         "inventory_status",
+        "sales_point",
+        "separator",
         "buy_buttons",
         "tab_HAmQP6",
         "tab_zFza3D",
@@ -192,8 +191,8 @@
         "tab_X4ETqR": {
           "type": "tab",
           "settings": {
-            "title": "Lighting Specs",
-            "content": "",
+            "title": "Specifications",
+            "content": "<p>{{ product.metafields.custom.prefix_material_1.value }}<br/>{{ product.metafields.custom.prefix_material_2.value }}<br/>{{ product.metafields.custom.prefix_material_3.value }}</p><p>{{ product.metafields.custom.mfg_finish_1.value }}<br/>{{ product.metafields.custom.mfg_finish_2.value }}<br/>{{ product.metafields.custom.mfg_finish_3.value }}</p><p>{{ product.metafields.custom.prefix_length.value }}<br/>{{ product.metafields.custom.prefix_width.value }}<br/>{{ product.metafields.custom.prefix_height.value }}<br/>{{ product.metafields.custom.prefix_extension.value }}<br/>{{ product.metafields.custom.prefix_diameter.value }}<br/>{{ product.metafields.custom.prefix_Depth.value }}<br/>{{ product.metafields.custom.prefix_weight.value }}</p><p>{{ product.metafields.custom.prefix_diffuser_material.value }}<br/>{{ product.metafields.custom.prefix_diffuser_height_1.value }}<br/>{{ product.metafields.custom.prefix_diffuser_width_1.value }}<br/>{{ product.metafields.custom.prefix_diffuser_width_2.value }}</p>",
             "page": ""
           }
         },
@@ -237,51 +236,6 @@
         "max_width": false
       }
     },
-    "testimonials": {
-      "type": "testimonials",
-      "blocks": {
-        "testimonials-0": {
-          "type": "testimonial",
-          "settings": {
-            "icon": "5-stars",
-            "testimonial": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>",
-            "author": "Author's name",
-            "author_info": "Los Angeles, CA"
-          }
-        },
-        "testimonials-1": {
-          "type": "testimonial",
-          "settings": {
-            "icon": "5-stars",
-            "testimonial": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>",
-            "author": "Author's name",
-            "author_info": "Los Angeles, CA"
-          }
-        },
-        "testimonials-2": {
-          "type": "testimonial",
-          "settings": {
-            "icon": "5-stars",
-            "testimonial": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>",
-            "author": "Author's name",
-            "author_info": "Los Angeles, CA"
-          }
-        }
-      },
-      "block_order": [
-        "testimonials-0",
-        "testimonials-1",
-        "testimonials-2"
-      ],
-      "disabled": true,
-      "settings": {
-        "title": "Testimonials",
-        "align_text": "center",
-        "round_images": true,
-        "color_background": "#f9f9f9",
-        "color_text": "#1c1d1d"
-      }
-    },
     "product-recommendations": {
       "type": "product-recommendations",
       "settings": {
@@ -306,7 +260,6 @@
     "rich_text_qFVY46",
     "hero_video_yDnEgm",
     "sub",
-    "testimonials",
     "product-recommendations",
     "recently-viewed",
     "collection-return"
