@@ -170,12 +170,6 @@
     "sub": {
       "type": "product-full-width",
       "blocks": {
-        "custom_iKKmc3": {
-          "type": "custom",
-          "settings": {
-            "code": "{{ product.metafields.custom.vimeo .value }}"
-          }
-        },
         "tab_hLUUEA": {
           "type": "tab",
           "settings": {
@@ -210,7 +204,6 @@
         }
       },
       "block_order": [
-        "custom_iKKmc3",
         "tab_hLUUEA",
         "tab_CpMWjw",
         "tab_FHmb4f",
