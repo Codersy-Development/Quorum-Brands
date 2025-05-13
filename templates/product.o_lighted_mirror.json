@@ -179,26 +179,6 @@
         "divider": false
       }
     },
-    "hero_video_yDnEgm": {
-      "type": "hero-video",
-      "custom_css": [
-        "div {margin-bottom: 50px;}"
-      ],
-      "name": "t:sections.hero-video.presets.video_hero.name",
-      "settings": {
-        "title": "",
-        "title_size": 80,
-        "subheading": "",
-        "link_text": "",
-        "link": "",
-        "color_accent": "#ff00fb",
-        "text_align": "vertical-center horizontal-center",
-        "video_url": "https://player.vimeo.com/video/897102122",
-        "overlay_opacity": 0,
-        "section_height": "550px",
-        "mobile_height": "300px"
-      }
-    },
     "sub": {
       "type": "product-full-width",
       "blocks": {
@@ -277,6 +257,26 @@
         "max_width": false
       }
     },
+    "hero_video_yDnEgm": {
+      "type": "hero-video",
+      "custom_css": [
+        "div {margin-bottom: 50px;}"
+      ],
+      "name": "t:sections.hero-video.presets.video_hero.name",
+      "settings": {
+        "title": "",
+        "title_size": 80,
+        "subheading": "",
+        "link_text": "",
+        "link": "",
+        "color_accent": "#ff00fb",
+        "text_align": "vertical-center horizontal-center",
+        "video_url": "{{ product.metafields.custom.vimeo_link_url.value }}",
+        "overlay_opacity": 0,
+        "section_height": "550px",
+        "mobile_height": "300px"
+      }
+    },
     "product-recommendations": {
       "type": "product-recommendations",
       "settings": {
@@ -299,8 +299,8 @@
   "order": [
     "main",
     "rich_text_qFVY46",
-    "hero_video_yDnEgm",
     "sub",
+    "hero_video_yDnEgm",
     "product-recommendations",
     "recently-viewed",
     "collection-return"
