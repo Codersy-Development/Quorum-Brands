@@ -10,22 +10,25 @@
   endif
   
   if content != blank and content != '' and content != nil
-    # Remove all empty paragraphs
+    # Remove empty paragraphs with just br tags
     assign cleaned_content = content
-    assign cleaned_content = cleaned_content | remove: '<p></p>'
-    assign cleaned_content = cleaned_content | remove: '<p> </p>'
-    assign cleaned_content = cleaned_content | remove: '<p><br></p>'
-    assign cleaned_content = cleaned_content | remove: '<p><br/></p>'
     assign cleaned_content = cleaned_content | remove: '<p><br><br></p>'
     assign cleaned_content = cleaned_content | remove: '<p><br><br><br></p>'
     assign cleaned_content = cleaned_content | remove: '<p><br><br><br><br></p>'
+    assign cleaned_content = cleaned_content | remove: '<p><br></p>'
+    assign cleaned_content = cleaned_content | remove: '<p></p>'
     
-    # Remove all br tags completely
-    assign cleaned_content = cleaned_content | remove: '<br>'
-    assign cleaned_content = cleaned_content | remove: '<br/>'
-    assign cleaned_content = cleaned_content | remove: '<br />'
+    # Replace multiple consecutive br tags with single br
+    assign cleaned_content = cleaned_content | replace: '<br><br><br><br><br>', '<br>'
+    assign cleaned_content = cleaned_content | replace: '<br><br><br><br>', '<br>'
+    assign cleaned_content = cleaned_content | replace: '<br><br><br>', '<br>'
+    assign cleaned_content = cleaned_content | replace: '<br><br>', '<br>'
     
-    # Clean up empty paragraphs that might remain
+    # Clean up br tags at start and end of paragraphs
+    assign cleaned_content = cleaned_content | replace: '<p><br>', '<p>'
+    assign cleaned_content = cleaned_content | replace: '<br></p>', '</p>'
+    
+    # Remove empty paragraphs that might remain
     assign cleaned_content = cleaned_content | replace: '<p></p>', ''
     
     # Check if there's actual text content
