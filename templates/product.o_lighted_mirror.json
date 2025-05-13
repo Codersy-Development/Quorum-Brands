@@ -198,7 +198,7 @@
         "text": "",
         "button_label": "",
         "button_link": "",
-        "video_url": "",
+        "video_url": "<iframe title=\"vimeo-player\" src=\"https://player.vimeo.com/video/897102122?h=c9edf2e368\" width=\"640\" height=\"360\" frameborder=\"0\" allowfullscreen></iframe>",
         "color_border": "#ffffff",
         "layout": "left",
         "height": 750
