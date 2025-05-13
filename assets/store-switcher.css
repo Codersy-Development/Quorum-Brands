@@ -141,6 +141,7 @@ store-switch-menus {
   padding: 20px;
   border-top: 1px solid var(--colorDrawerBorder);
   padding-bottom: 40px;
+  left: 0;
 }
 
 #mobile-nav:has(.store-switch-buttons--drawer) {
