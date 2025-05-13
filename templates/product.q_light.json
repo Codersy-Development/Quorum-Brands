@@ -66,6 +66,12 @@
             "show_gift_card_recipient": false
           }
         },
+        "text_fKgtqN": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.custom.cETL_Logo.value }}"
+          }
+        },
         "tab_HAmQP6": {
           "type": "tab",
           "disabled": true,
@@ -125,6 +131,7 @@
         "sales_point",
         "inventory_status",
         "buy_buttons",
+        "text_fKgtqN",
         "tab_HAmQP6",
         "tab_zFza3D",
         "tab",
