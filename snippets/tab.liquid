@@ -33,7 +33,6 @@
           assign previous = ''
           for i in (1..10)
             assign previous = clean_para
-            assign clean_para = clean_para | replace: '<br><br><br>', '<br>'
             assign clean_para = clean_para | replace: '<br><br>', '<br>'
             if clean_para == previous
               break
@@ -41,6 +40,7 @@
           endfor
           
           # Remove br at start and end
+          assign clean_para = clean_para | replace: '<br><br><br>', '<br>'
           assign clean_para = clean_para | replace: '<p><br>', '<p>'
           assign clean_para = clean_para | replace: '<br></p>', '</p>'
           
