@@ -54,12 +54,6 @@
             "show_gift_card_recipient": false
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {
-            "is_tab": false
-          }
-        },
         "tab_HAmQP6": {
           "type": "tab",
           "disabled": true,
@@ -117,7 +111,6 @@
         "sales_point",
         "inventory_status",
         "buy_buttons",
-        "description",
         "tab_HAmQP6",
         "tab_zFza3D",
         "tab",
@@ -141,6 +134,12 @@
     "sub": {
       "type": "product-full-width",
       "blocks": {
+        "description_rqMciT": {
+          "type": "description",
+          "settings": {
+            "is_tab": false
+          }
+        },
         "tab_X4ETqR": {
           "type": "tab",
           "settings": {
@@ -179,6 +178,7 @@
         }
       },
       "block_order": [
+        "description_rqMciT",
         "tab_X4ETqR",
         "tab_hLUUEA",
         "tab_Qdhy8G",
