@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Check if we're on a product page
   const isProductPage = window.location.pathname.includes('/products/') || 
-                      window.location.pathname.includes('/editor?previewPath=%2Fproducts%');;
+                      window.location.pathname.includes('/editor?');;
   
   if (isProductPage) {
     // Method 1: Try Shopify global object
