@@ -17,6 +17,12 @@
           "disabled": true,
           "settings": {}
         },
+        "text_Hn6GpR": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.custom.prefix_item_series.value }}"
+          }
+        },
         "separator": {
           "type": "separator",
           "settings": {}
@@ -106,6 +112,7 @@
       },
       "block_order": [
         "price",
+        "text_Hn6GpR",
         "separator",
         "variant_picker",
         "sales_point",
@@ -131,20 +138,62 @@
         "product_video_style": "muted"
       }
     },
+    "rich_text_qFVY46": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_mC7MBA": {
+          "type": "heading",
+          "settings": {
+            "title": ""
+          }
+        },
+        "text_pjPpbY": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": true,
+            "text": "{{ product.description }}"
+          }
+        }
+      },
+      "block_order": [
+        "heading_mC7MBA",
+        "text_pjPpbY"
+      ],
+      "name": "t:sections.rich-text.presets.rich_text.name",
+      "settings": {
+        "align_text": "left",
+        "narrow_column": true,
+        "divider": false
+      }
+    },
+    "hero_video_yDnEgm": {
+      "type": "hero-video",
+      "custom_css": [
+        "div {margin-bottom: 50px;}"
+      ],
+      "name": "t:sections.hero-video.presets.video_hero.name",
+      "settings": {
+        "title": "",
+        "title_size": 80,
+        "subheading": "",
+        "link_text": "",
+        "link": "",
+        "color_accent": "rgba(0,0,0,0)",
+        "text_align": "vertical-center horizontal-center",
+        "video_url": "{{ product.metafields.custom.vimeo_link_url.value }}",
+        "overlay_opacity": 0,
+        "section_height": "550px",
+        "mobile_height": "300px"
+      }
+    },
     "sub": {
       "type": "product-full-width",
       "blocks": {
-        "description_rqMciT": {
-          "type": "description",
-          "settings": {
-            "is_tab": false
-          }
-        },
         "tab_X4ETqR": {
           "type": "tab",
           "settings": {
             "title": "Lighting Specs",
-            "content": "<p>{{ product.metafields.custom.vimeo | metafield_tag }}</p>",
+            "content": "",
             "page": ""
           }
         },
@@ -178,7 +227,6 @@
         }
       },
       "block_order": [
-        "description_rqMciT",
         "tab_X4ETqR",
         "tab_hLUUEA",
         "tab_Qdhy8G",
@@ -187,21 +235,6 @@
       ],
       "settings": {
         "max_width": false
-      }
-    },
-    "background_video_text_qCBfpB": {
-      "type": "background-video-text",
-      "name": "t:sections.background-video-text.presets.large_video_with_text_box.name",
-      "settings": {
-        "subtitle": "",
-        "title": "",
-        "text": "",
-        "button_label": "",
-        "button_link": "",
-        "video_url": "https://vimeo.com/897102122",
-        "color_border": "#ffffff",
-        "layout": "left",
-        "height": 550
       }
     },
     "testimonials": {
@@ -270,8 +303,9 @@
   },
   "order": [
     "main",
+    "rich_text_qFVY46",
+    "hero_video_yDnEgm",
     "sub",
-    "background_video_text_qCBfpB",
     "testimonials",
     "product-recommendations",
     "recently-viewed",
