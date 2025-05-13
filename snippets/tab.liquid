@@ -10,50 +10,26 @@
   endif
   
   if content != blank and content != '' and content != nil
-    # Convert content to string and split into paragraphs
-    assign content_string = content | strip
-    assign paragraphs = content_string | split: '</p>'
-    assign clean_paragraphs = ''
+    # Start with the original content
+    assign cleaned_content = content
     
-    # Process each paragraph
-    for paragraph in paragraphs
-      if paragraph contains '<p>'
-        # Remove opening tag temporarily to check content
-        assign para_content = paragraph | remove: '<p>'
-        assign para_content = para_content | strip
-        
-        # Check if paragraph has actual text content (not just br tags)
-        assign text_check = para_content | remove: '<br>' | remove: '<br/>' | remove: '<br />' | strip
-        
-        if text_check != blank and text_check != ''
-          # This paragraph has real content, clean it up
-          assign clean_para = paragraph
-          
-          # More aggressive cleaning - replace any 3+ consecutive br tags with single br
-          assign clean_para = clean_para | replace: '<br><br><br><br><br><br>', '<br>'
-          assign clean_para = clean_para | replace: '<br><br><br><br><br>', '<br>'
-          assign clean_para = clean_para | replace: '<br><br><br><br>', '<br>'
-          assign clean_para = clean_para | replace: '<br><br><br>', '<br>'
-          
-          # Replace double br with single br (but keep single br for line breaks)
-          assign clean_para = clean_para | replace: '<br><br>', '<br>'
-          
-          # Remove br at start and end
-          assign clean_para = clean_para | replace: '<p><br>', '<p>'
-          assign clean_para = clean_para | replace: '<br></p>', '</p>'
-          
-          # Add back the closing tag
-          if clean_para contains '<p>'
-            assign clean_para = clean_para | append: '</p>'
-          endif
-          assign clean_paragraphs = clean_paragraphs | append: clean_para
-        endif
-      endif
-    endfor
+    # Remove empty paragraphs first
+    assign cleaned_content = cleaned_content | remove: '<p><br><br></p>'
+    assign cleaned_content = cleaned_content | remove: '<p><br><br><br></p>'
+    assign cleaned_content = cleaned_content | remove: '<p><br><br><br><br></p>'
+    assign cleaned_content = cleaned_content | remove: '<p><br></p>'
+    assign cleaned_content = cleaned_content | remove: '<p></p>'
     
-    assign cleaned_content = clean_paragraphs
+    # Now specifically target the pattern in your content
+    # Replace exactly 5 consecutive br tags with single br
+    assign cleaned_content = cleaned_content | replace: '<br><br><br><br><br>', '<br>'
     
-    # Final check for content
+    # Clean up any remaining multiple br tags
+    assign cleaned_content = cleaned_content | replace: '<br><br><br><br>', '<br>'
+    assign cleaned_content = cleaned_content | replace: '<br><br><br>', '<br>'
+    assign cleaned_content = cleaned_content | replace: '<br><br>', '<br>'
+    
+    # Check if there's actual text content
     assign content_check = cleaned_content | strip_html | strip
     if content_check != blank and content_check != ''
       assign has_content = true
