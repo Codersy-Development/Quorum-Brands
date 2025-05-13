@@ -89,7 +89,6 @@
         },
         "tab": {
           "type": "tab",
-          "disabled": true,
           "settings": {
             "title": "Performance | Features",
             "content": "<p>{{ product.metafields.custom.prefix_remote_adaptable.value }}<br/>{{ product.metafields.custom.prefix_smart_bond.value }}<br/>{{ product.metafields.custom.prefix_ghost_frame.value }}<br/>{{ product.metafields.custom.prefix_ghost_light.value }}<br/>{{ product.metafields.custom.prefix_dimmable.value }}<br/>{{ product.metafields.custom.prefix_infered.value }}<br/><br/>{{ product.metafields.custom.prefix_wireless_charging.value }}<br/>{{ product.metafields.custom.prefix_modular_system.value }}</p><p>{{ product.metafields.custom.prefix_manufacturer_warranty.value }}</p>",
@@ -115,7 +114,6 @@
         },
         "share": {
           "type": "share",
-          "disabled": true,
           "settings": {}
         }
       },
@@ -214,6 +212,7 @@
         },
         "share_tb8VYQ": {
           "type": "share",
+          "disabled": true,
           "settings": {}
         }
       },
