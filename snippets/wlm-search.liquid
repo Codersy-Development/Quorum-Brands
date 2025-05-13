@@ -1,25 +1,14 @@
 {%- assign w_continue = 'no' -%}
-{% assign wlmHideItem_Search = false %}{% assign wlmLockedTags305086 = false %}
-{% assign wlmLockedTags305826 = false %}
+{% assign wlmHideItem_Search = false %}{% assign wlmLockedTags305826 = false %}
 {% assign wlmLockedTags305828 = false %}
 {% assign wlmLockedTags305827 = false %}
+{% assign wlmLockedTags305829 = false %}
 {% for tag in customer.tags %}
-{% if tag == 'WLMTest' %}{% assign wlmLockedTags305086 = true %}{% endif %}
 {% if tag == 'Wholesale' %}{% assign wlmLockedTags305826 = true %}{% endif %}
 {% if tag == 'Editor' %}{% assign wlmLockedTags305828 = true %}{% endif %}
 {% if tag == 'Designer' %}{% assign wlmLockedTags305827 = true %}{% endif %}
+{% if tag == 'WLMTest' %}{% assign wlmLockedTags305829 = true %}{% endif %}
 {% endfor %}
-
-{%  if wlm-search.object_type == 'product' %}
-{% if wlm-search.id == 8956723790037 %} 
- {% unless customer %}
-{% assign wlmLockON = true %}
-  {% assign wlmHideItem_Search = true %}
-{% else %}
-{% unless wlmLockedTags305086 %}{% assign wlmHideItem_Search = true %}{% endunless %}
-{% endunless %}
-{% endif %}
-{% endif %}
 
 
 
