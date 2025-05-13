@@ -42,7 +42,7 @@
         "custom_dE4wYQ": {
           "type": "custom",
           "settings": {
-            "code": "{{ product.metafields.custom.vimeo_embed.value }}"
+            "code": "<iframe title=\"vimeo-player\" src=\"https://player.vimeo.com/video/897102122?h=c9edf2e368\" width=\"640\" height=\"360\" frameborder=\"0\"    allowfullscreen></iframe>"
           }
         },
         "text_EK3KDk": {
@@ -149,7 +149,7 @@
         "custom_iKKmc3": {
           "type": "custom",
           "settings": {
-            "code": "{{ product.metafields.custom.vimeo_embed.value }}"
+            "code": ""
           }
         },
         "tab_wG9kaR": {
