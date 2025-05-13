@@ -45,6 +45,12 @@
             "code": "{{ product.metafields.custom.vimeo_embed.value }}"
           }
         },
+        "text_EK3KDk": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.custom.vimeo_embed.value }}"
+          }
+        },
         "separator": {
           "type": "separator",
           "settings": {}
@@ -113,6 +119,7 @@
         "description",
         "variant_picker",
         "custom_dE4wYQ",
+        "text_EK3KDk",
         "separator",
         "buy_buttons",
         "tab_HAmQP6",
