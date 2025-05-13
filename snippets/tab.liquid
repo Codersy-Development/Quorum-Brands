@@ -9,26 +9,27 @@
     endif
   endif
   
-  if content != blank and content != '' and content != nil
-    # Start with the original content
+  if content != nil
+    # Remove empty paragraphs with just br tags
     assign cleaned_content = content
-    
-    # Remove empty paragraphs
     assign cleaned_content = cleaned_content | remove: '<p><br><br></p>'
     assign cleaned_content = cleaned_content | remove: '<p><br><br><br></p>'
     assign cleaned_content = cleaned_content | remove: '<p><br><br><br><br></p>'
     assign cleaned_content = cleaned_content | remove: '<p><br></p>'
     assign cleaned_content = cleaned_content | remove: '<p></p>'
     
-    # Keep replacing double br with single br until no more doubles exist
-    assign previous = ''
-    for i in (1..10)
-      assign previous = cleaned_content
-      assign cleaned_content = cleaned_content | replace: '<br><br>', '<br>'
-      if cleaned_content == previous
-        break
-      endif
-    endfor
+    # Replace multiple consecutive br tags with single br
+    assign cleaned_content = cleaned_content | replace: '<br><br><br><br><br>', '<br>'
+    assign cleaned_content = cleaned_content | replace: '<br><br><br><br>', '<br>'
+    assign cleaned_content = cleaned_content | replace: '<br><br><br>', '<br>'
+    assign cleaned_content = cleaned_content | replace: '<br><br>', '<br>'
+    
+    # Clean up br tags at start and end of paragraphs
+    assign cleaned_content = cleaned_content | replace: '<p><br>', '<p>'
+    assign cleaned_content = cleaned_content | replace: '<br></p>', '</p>'
+    
+    # Remove empty paragraphs that might remain
+    assign cleaned_content = cleaned_content | replace: '<p></p>', ''
     
     # Check if there's actual text content
     assign content_check = cleaned_content | strip_html | strip
