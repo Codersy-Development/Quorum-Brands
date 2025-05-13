@@ -174,19 +174,19 @@
             "page": ""
           }
         },
-        "tab_Qdhy8G": {
-          "type": "tab",
-          "settings": {
-            "title": "Performance | Features",
-            "content": "",
-            "page": ""
-          }
-        },
         "tab_CpMWjw": {
           "type": "tab",
           "settings": {
             "title": "Shipping information",
             "content": "<p>{{ product.metafields.custom.prefix_shipping.value }}</p><p>{{ product.metafields.custom.prefix_carton_weight.value }}<br/>{{ product.metafields.custom.prefix_carton_height.value }}<br/>{{ product.metafields.custom.prefix_carton_length.value }}<br/>{{ product.metafields.custom.prefix_carton_width.value }}</p>",
+            "page": ""
+          }
+        },
+        "tab_FHmb4f": {
+          "type": "tab",
+          "settings": {
+            "title": "Certifications",
+            "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p><p>{{ product.metafields.custom.prefix_manufacturer_warranty.value }}</p>",
             "page": ""
           }
         },
@@ -197,20 +197,15 @@
             "content": "<p>{{ product.metafields.custom.button_cutsheet.value }}</p><p>{{ product.metafields.custom.button_revit.value }}</p><p>{{ product.metafields.custom.button_ies.value }}</p><p>{{ product.metafields.custom.button_instructions.value }}</p><p>{{ product.metafields.custom.button_photo_metrics.value }}</p>",
             "page": ""
           }
-        },
-        "share_tb8VYQ": {
-          "type": "share",
-          "settings": {}
         }
       },
       "block_order": [
         "description_jrPRz4",
         "custom_iKKmc3",
         "tab_hLUUEA",
-        "tab_Qdhy8G",
         "tab_CpMWjw",
-        "tab_9AjKC6",
-        "share_tb8VYQ"
+        "tab_FHmb4f",
+        "tab_9AjKC6"
       ],
       "custom_css": [],
       "settings": {
