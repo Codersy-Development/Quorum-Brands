@@ -39,7 +39,10 @@
             endif
           endfor
           
-
+          # Remove br at start and end
+          assign clean_para = clean_para | replace: '<br><br><br><br><br>', '<br>'
+          assign clean_para = clean_para | replace: '<p><br>', '<p>'
+          assign clean_para = clean_para | replace: '<br></p>', '</p>'
           
           # Add back the closing tag
           if clean_para contains '<p>'
