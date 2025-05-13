@@ -189,43 +189,6 @@
         "max_width": false
       }
     },
-    "background_video_text_pd8nry": {
-      "type": "background-video-text",
-      "name": "t:sections.background-video-text.presets.large_video_with_text_box.name",
-      "settings": {
-        "subtitle": "",
-        "title": "",
-        "text": "",
-        "button_label": "",
-        "button_link": "",
-        "video_url": "",
-        "color_border": "#ffffff",
-        "layout": "left",
-        "height": 750
-      }
-    },
-    "text-and-image2": {
-      "type": "text-and-image",
-      "settings": {
-        "image": "{{ product.featured_image }}",
-        "image_mask": "none",
-        "image2": "shopify://shop_images/3-1084-6_3_2100x2100_f47c93c5-6fa3-4277-9b18-d4b659e78588.webp",
-        "image2_mask": "none",
-        "subtitle": "",
-        "title": "{{ product.title }}",
-        "text": "{{ product.description }}",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "primary",
-        "align_text": "left",
-        "image_width": "50",
-        "layout": "right",
-        "divider": false,
-        "top_padding": true,
-        "bottom_padding": true,
-        "lazyload_images": true
-      }
-    },
     "background-image-text": {
       "type": "background-image-text",
       "disabled": true,
@@ -241,6 +204,21 @@
         "parallax": false,
         "parallax_direction": "top",
         "lazyload_images": true
+      }
+    },
+    "background_video_text_qCBfpB": {
+      "type": "background-video-text",
+      "name": "t:sections.background-video-text.presets.large_video_with_text_box.name",
+      "settings": {
+        "subtitle": "{{ product.vendor }}",
+        "title": "{{ product.title }}",
+        "text": "",
+        "button_label": "",
+        "button_link": "",
+        "video_url": "https://player.vimeo.com/video/897102122?h=c9edf2e368",
+        "color_border": "#f4f4f4",
+        "layout": "left",
+        "height": 550
       }
     },
     "testimonials": {
@@ -310,9 +288,8 @@
   "order": [
     "main",
     "sub",
-    "background_video_text_pd8nry",
-    "text-and-image2",
     "background-image-text",
+    "background_video_text_qCBfpB",
     "testimonials",
     "product-recommendations",
     "recently-viewed",
