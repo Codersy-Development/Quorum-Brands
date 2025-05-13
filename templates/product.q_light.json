@@ -184,7 +184,7 @@
           "type": "tab",
           "settings": {
             "title": "Certifications",
-            "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p>",
+            "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p><p>{{ product.metafields.custom.cETL_Logo.value }}</p>",
             "page": ""
           }
         },
