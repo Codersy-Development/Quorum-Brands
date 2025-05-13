@@ -75,8 +75,8 @@
           "type": "tab",
           "disabled": true,
           "settings": {
-            "title": "Colors & Materials",
-            "content": "<p>Use collapsible tabs for more detailed information that will help customers make a purchasing decision.</p><p>Ex: Shipping and return policies, size guides, and other common questions.</p>",
+            "title": "Specifications",
+            "content": "<p>{{ product.metafields.custom.prefix_material_1.value }}<br/>{{ product.metafields.custom.prefix_material_2.value }}<br/>{{ product.metafields.custom.prefix_material_3.value }}</p><p>{{ product.metafields.custom.mfg_finish_1.value }}<br/>{{ product.metafields.custom.mfg_finish_2.value }}<br/>{{ product.metafields.custom.mfg_finish_3.value }}</p><p>{{ product.metafields.custom.prefix_length.value }}<br/>{{ product.metafields.custom.prefix_width.value }}<br/>{{ product.metafields.custom.prefix_height.value }}<br/>{{ product.metafields.custom.prefix_extension.value }}<br/>{{ product.metafields.custom.prefix_diameter.value }}<br/>{{ product.metafields.custom.prefix_Depth.value }}<br/>{{ product.metafields.custom.prefix_weight.value }}</p><p>{{ product.metafields.custom.prefix_diffuser_material.value }}<br/>{{ product.metafields.custom.prefix_diffuser_height_1.value }}<br/>{{ product.metafields.custom.prefix_diffuser_width_1.value }}<br/>{{ product.metafields.custom.prefix_diffuser_width_2.value }}</p>",
             "page": ""
           }
         },
