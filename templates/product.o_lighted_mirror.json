@@ -186,19 +186,19 @@
             "page": ""
           }
         },
+        "tab_eTHaLz": {
+          "type": "tab",
+          "settings": {
+            "title": "Certifications",
+            "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p><p>{{ product.metafields.custom.prefix_manufacturer_warranty.value }}</p>",
+            "page": ""
+          }
+        },
         "tab_ECWDQp": {
           "type": "tab",
           "settings": {
             "title": "Shipping",
             "content": "<p>{{ product.metafields.custom.prefix_shipping.value }}</p><p>{{ product.metafields.custom.prefix_carton_weight.value }}<br/>{{ product.metafields.custom.prefix_carton_length.value }}<br/>{{ product.metafields.custom.prefix_carton_width.value }}<br/>{{ product.metafields.custom.prefix_carton_height.value }}</p>",
-            "page": ""
-          }
-        },
-        "tab_eTHaLz": {
-          "type": "tab",
-          "settings": {
-            "title": "Certifications",
-            "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p><p>{{ product.metafields.custom.cUL_logo.value }}</p><p>{{ product.metafields.custom.cETL_Logo.value }}</p><p>{{ product.metafields.custom.ELT_logo.value }}</p>",
             "page": ""
           }
         },
@@ -218,8 +218,8 @@
       },
       "block_order": [
         "tab_Qdhy8G",
-        "tab_ECWDQp",
         "tab_eTHaLz",
+        "tab_ECWDQp",
         "tab_9AjKC6",
         "share_tb8VYQ"
       ],
