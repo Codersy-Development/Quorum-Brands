@@ -12,8 +12,15 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "custom_3KGy6B": {
+          "type": "custom",
+          "settings": {
+            "code": "{{ product.metafields.custom.cUL_logo.value }} {{ product.metafields.custom.cETL_Logo.value }}"
+          }
+        },
         "text_yRHbFB": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "{{ product.metafields.custom.cUL_logo.value }} {{ product.metafields.custom.cETL_Logo.value }}"
           }
@@ -116,6 +123,7 @@
         }
       },
       "block_order": [
+        "custom_3KGy6B",
         "text_yRHbFB",
         "price",
         "inventory_status",
