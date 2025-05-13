@@ -49,16 +49,6 @@
           "type": "separator",
           "settings": {}
         },
-        "description_JBaBPV": {
-          "type": "description",
-          "settings": {
-            "is_tab": false
-          }
-        },
-        "separator": {
-          "type": "separator",
-          "settings": {}
-        },
         "sales_point": {
           "type": "sales_point",
           "disabled": true,
@@ -118,8 +108,6 @@
         "inventory_status",
         "custom_YXn4Qg",
         "separator_DnBBew",
-        "description_JBaBPV",
-        "separator",
         "sales_point",
         "buy_buttons",
         "tab_HAmQP6",
