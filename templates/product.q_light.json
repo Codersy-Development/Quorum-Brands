@@ -76,13 +76,8 @@
             "show_gift_card_recipient": false
           }
         },
-        "separator_QjmJ3y": {
-          "type": "separator",
-          "settings": {}
-        },
         "tab_HAmQP6": {
           "type": "tab",
-          "disabled": true,
           "settings": {
             "title": "Specifications",
             "content": "<p>{{ product.metafields.custom.prefix_material_1.value }}<br/>{{ product.metafields.custom.prefix_material_2.value }}<br/>{{ product.metafields.custom.prefix_material_3.value }}</p><p>{{ product.metafields.custom.prefix_finish_1.value }}<br/>{{ product.metafields.custom.prefix_finish_2.value }}<br/>{{ product.metafields.custom.prefix_finish_3.value }}</p><p>{{ product.metafields.custom.prefix_length.value }}<br/>{{ product.metafields.custom.prefix_width.value }}<br/>{{ product.metafields.custom.prefix_height.value }}<br/>{{ product.metafields.custom.prefix_extension.value }}<br/>{{ product.metafields.custom.prefix_diameter.value }}<br/>{{ product.metafields.custom.prefix_Depth.value }}<br/>{{ product.metafields.custom.prefix_weight.value }}</p><p>{{ product.metafields.custom.prefix_candle_finish_1.value }}<br/>{{ product.metafields.custom.prefix_candle_finish_2.value }}</p><p>{{ product.metafields.custom.prefix_shade_length.value }}<br/>{{ product.metafields.custom.prefix_shade_width.value }}<br/>{{ product.metafields.custom.prefix_shade_height.value }}</p><p>{{ product.metafields.custom.prefix_diffuser_material.value }}<br/>{{ product.metafields.custom.prefix_diffuser_height_1.value }}<br/>{{ product.metafields.custom.prefix_diffuser_width_1.value }}<br/>{{ product.metafields.custom.prefix_diffuser_height_2.value }}<br/>{{ product.metafields.custom.prefix_diffuser_width_2.value }}</p>",
@@ -141,7 +136,6 @@
         "sales_point",
         "inventory_status",
         "buy_buttons",
-        "separator_QjmJ3y",
         "tab_HAmQP6",
         "tab_zFza3D",
         "tab",
@@ -231,28 +225,6 @@
         "max_width": false
       }
     },
-    "text-and-image2": {
-      "type": "text-and-image",
-      "disabled": true,
-      "settings": {
-        "image": "{{ product.featured_image }}",
-        "image_mask": "none",
-        "image2_mask": "none",
-        "subtitle": "",
-        "title": "",
-        "text": "",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "primary",
-        "align_text": "left",
-        "image_width": "50",
-        "layout": "right",
-        "divider": false,
-        "top_padding": true,
-        "bottom_padding": true,
-        "lazyload_images": true
-      }
-    },
     "testimonials": {
       "type": "testimonials",
       "blocks": {
@@ -302,8 +274,8 @@
       "type": "product-recommendations",
       "settings": {
         "product_recommendations_heading": "You may also like",
-        "related_count": 6,
-        "products_per_row": 3
+        "related_count": 5,
+        "products_per_row": 5
       }
     },
     "recently-viewed": {
@@ -320,7 +292,6 @@
   "order": [
     "main",
     "sub",
-    "text-and-image2",
     "testimonials",
     "product-recommendations",
     "recently-viewed",
