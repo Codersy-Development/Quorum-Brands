@@ -137,6 +137,34 @@
         "product_video_style": "muted"
       }
     },
+    "rich_text_nLFmLM": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_UBgjiG": {
+          "type": "heading",
+          "settings": {
+            "title": ""
+          }
+        },
+        "text_zbzVKy": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": true,
+            "text": "{{ product.description }}"
+          }
+        }
+      },
+      "block_order": [
+        "heading_UBgjiG",
+        "text_zbzVKy"
+      ],
+      "name": "t:sections.rich-text.presets.rich_text.name",
+      "settings": {
+        "align_text": "left",
+        "narrow_column": false,
+        "divider": false
+      }
+    },
     "sub": {
       "type": "product-full-width",
       "blocks": {
@@ -195,45 +223,6 @@
       ],
       "settings": {
         "max_width": false
-      }
-    },
-    "background-image-text": {
-      "type": "background-image-text",
-      "disabled": true,
-      "settings": {
-        "subtitle": "Impressive",
-        "title": "About your brand",
-        "text": "<p>Pair large text with a full-width image to draw attention to an important detail of your brand or product line.</p>",
-        "button_label": "",
-        "button_link": "",
-        "layout": "left",
-        "height": 550,
-        "framed": false,
-        "parallax": false,
-        "parallax_direction": "top",
-        "lazyload_images": true
-      }
-    },
-    "text-and-image2": {
-      "type": "text-and-image",
-      "settings": {
-        "image": "{{ product.featured_image }}",
-        "image_mask": "none",
-        "image2": "shopify://shop_images/3-1084-6_3_2100x2100_f47c93c5-6fa3-4277-9b18-d4b659e78588.webp",
-        "image2_mask": "none",
-        "subtitle": "",
-        "title": "{{ product.title }}",
-        "text": "{{ product.description }}",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "primary",
-        "align_text": "left",
-        "image_width": "50",
-        "layout": "right",
-        "divider": false,
-        "top_padding": true,
-        "bottom_padding": true,
-        "lazyload_images": true
       }
     },
     "testimonials": {
@@ -302,9 +291,8 @@
   },
   "order": [
     "main",
+    "rich_text_nLFmLM",
     "sub",
-    "background-image-text",
-    "text-and-image2",
     "testimonials",
     "product-recommendations",
     "recently-viewed",
