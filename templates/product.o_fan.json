@@ -12,16 +12,10 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "custom_gaFA9B": {
-          "type": "custom",
-          "settings": {
-            "code": ""
-          }
-        },
         "text_yRHbFB": {
           "type": "text",
           "settings": {
-            "text": "{{ product.metafields.custom.cUL_logo.value }}"
+            "text": "{{ product.metafields.custom.cUL_logo.value }} {{ product.metafields.custom.cETL_Logo.value }}"
           }
         },
         "price": {
@@ -122,7 +116,6 @@
         }
       },
       "block_order": [
-        "custom_gaFA9B",
         "text_yRHbFB",
         "price",
         "inventory_status",
