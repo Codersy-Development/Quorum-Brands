@@ -212,6 +212,14 @@
             "page": ""
           }
         },
+        "tab_BrwXkF": {
+          "type": "tab",
+          "settings": {
+            "title": "Performance | Features",
+            "content": "<p>{{ product.metafields.custom.prefix_remote_adaptable.value }}<br/>{{ product.metafields.custom.prefix_smart_bond.value }}<br/></p>",
+            "page": ""
+          }
+        },
         "tab_9AjKC6": {
           "type": "tab",
           "settings": {
@@ -229,6 +237,7 @@
         "tab_X4ETqR",
         "tab_hLUUEA",
         "tab_Qdhy8G",
+        "tab_BrwXkF",
         "tab_9AjKC6",
         "share_tb8VYQ"
       ],
