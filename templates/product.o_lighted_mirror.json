@@ -56,7 +56,7 @@
         "custom_khQKRQ": {
           "type": "custom",
           "settings": {
-            "code": "{{ product.metafields.custom.cUL_logo.value }}   {{ product.metafields.custom.cETL_Logo.value }}{{ product.metafields.custom.CCT_logo.value }}{{ product.metafields.custom.ELT_logo.value }}{{ product.metafields.custom.ghost_logo.value }}"
+            "code": "<div class=\"logo-row\">\n  {{ product.metafields.custom.cUL_logo.value }}\n  {{ product.metafields.custom.cETL_Logo.value }}\n  {{ product.metafields.custom.CCT_logo.value }}\n  {{ product.metafields.custom.ELT_logo.value }}\n  {{ product.metafields.custom.ghost_logo.value }}\n</div>\n\n<style>\n  .logo-row {\n    display: flex;\n    gap: 20px;\n    align-items: center;\n  }\n\n</style>"
           }
         },
         "separator": {
