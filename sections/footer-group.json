@@ -82,7 +82,7 @@
           "type": "menu",
           "settings": {
             "show_footer_title": true,
-            "menu": "products",
+            "menu": "professional-resources",
             "container_width": 25
           }
         },
