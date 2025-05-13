@@ -25,7 +25,10 @@
     # Also handle regular br tags
     assign cleaned_content = cleaned_content | remove: '<p><br></p>'
     assign cleaned_content = cleaned_content | remove: '<p><br><br></p>'
-    assign cleaned_content = cleaned_content | remove: '<p><br><br><br></p>'    
+    assign cleaned_content = cleaned_content | remove: '<p><br><br><br></p>'   
+    assign cleaned_content = cleaned_content | remove: '<p><br><br><br><br></p>'      
+    assign cleaned_content = cleaned_content | remove: '<p><br><br><br><br><br></p>' 
+    assign cleaned_content = cleaned_content | remove: '<p><br><br><br><br><br><br></p>' 
     assign cleaned_content = cleaned_content | remove: '<p></p>'
     
     # Replace multiple br/ tags with single br
