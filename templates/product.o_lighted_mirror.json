@@ -220,6 +220,14 @@
             "page": ""
           }
         },
+        "tab_ECWDQp": {
+          "type": "tab",
+          "settings": {
+            "title": "Shipping",
+            "content": "<p>{{ product.metafields.custom.prefix_shipping.value }}</p><p>{{ product.metafields.custom.prefix_carton_weight.value }}<br/>{{ product.metafields.custom.prefix_carton_length.value }}<br/>{{ product.metafields.custom.prefix_carton_width.value }}<br/>{{ product.metafields.custom.prefix_carton_height.value }}</p>",
+            "page": ""
+          }
+        },
         "tab_9AjKC6": {
           "type": "tab",
           "settings": {
@@ -238,6 +246,7 @@
         "tab_hLUUEA",
         "tab_Qdhy8G",
         "tab_BrwXkF",
+        "tab_ECWDQp",
         "tab_9AjKC6",
         "share_tb8VYQ"
       ],
