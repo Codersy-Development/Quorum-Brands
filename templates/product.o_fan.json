@@ -42,13 +42,7 @@
         "custom_dE4wYQ": {
           "type": "custom",
           "settings": {
-            "code": "<div class=\"page-width\" style=\"max-width: 1100px;\" >{{ product.metafields.custom.vimeo_embed.value }}"
-          }
-        },
-        "text_EK3KDk": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.metafields.custom.vimeo_embed.value }}"
+            "code": "{{ product.metafields.custom.vimeo.value }}"
           }
         },
         "separator": {
@@ -119,7 +113,6 @@
         "description",
         "variant_picker",
         "custom_dE4wYQ",
-        "text_EK3KDk",
         "separator",
         "buy_buttons",
         "tab_HAmQP6",
@@ -149,7 +142,7 @@
         "custom_iKKmc3": {
           "type": "custom",
           "settings": {
-            "code": ""
+            "code": "{{ product.metafields.custom.vimeo | metafield_tag }}"
           }
         },
         "tab_wG9kaR": {
