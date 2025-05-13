@@ -12,12 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "custom_3KGy6B": {
-          "type": "custom",
-          "settings": {
-            "code": "{{ product.metafields.custom.cUL_logo.value }} {{ product.metafields.custom.cETL_Logo.value }}"
-          }
-        },
         "text_yRHbFB": {
           "type": "text",
           "disabled": true,
@@ -29,11 +23,23 @@
           "type": "price",
           "settings": {}
         },
+        "text_fUUVDY": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.custom.prefix_item_series.value }}"
+          }
+        },
         "inventory_status": {
           "type": "inventory_status",
           "settings": {
             "inventory_threshold": 10,
             "inventory_transfers_enable": true
+          }
+        },
+        "custom_dE4wYQ": {
+          "type": "custom",
+          "settings": {
+            "code": "<div class=\"logo-row\">\n  {{ product.metafields.custom.cUL_logo.value }}\n  {{ product.metafields.custom.cETL_Logo.value }}\n  {{ product.metafields.custom.CCT_logo.value }}\n  {{ product.metafields.custom.ELT_logo.value }}\n  {{ product.metafields.custom.ghost_logo.value }}\n</div>\n\n<style>\n  .logo-row {\n    display: flex;\n    gap: 20px;\n    align-items: center;\n  }\n</style>"
           }
         },
         "description": {
@@ -51,13 +57,6 @@
             "picker_type": "button",
             "product_dynamic_variants_enable": true,
             "color_swatches": false
-          }
-        },
-        "custom_dE4wYQ": {
-          "type": "custom",
-          "disabled": true,
-          "settings": {
-            "code": "{{ product.metafields.custom.vimeo.value }}"
           }
         },
         "separator": {
@@ -110,13 +109,13 @@
         }
       },
       "block_order": [
-        "custom_3KGy6B",
         "text_yRHbFB",
         "price",
+        "text_fUUVDY",
         "inventory_status",
+        "custom_dE4wYQ",
         "description",
         "variant_picker",
-        "custom_dE4wYQ",
         "separator",
         "buy_buttons",
         "tab_HAmQP6",
@@ -160,6 +159,7 @@
         "heading_bCrdnr",
         "text_7PtDXT"
       ],
+      "custom_css": [],
       "name": "t:sections.rich-text.presets.rich_text.name",
       "settings": {
         "align_text": "left",
