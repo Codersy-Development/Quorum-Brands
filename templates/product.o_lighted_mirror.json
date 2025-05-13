@@ -171,7 +171,7 @@
       "name": "t:sections.rich-text.presets.rich_text.name",
       "settings": {
         "align_text": "left",
-        "narrow_column": true,
+        "narrow_column": false,
         "divider": false
       }
     },
