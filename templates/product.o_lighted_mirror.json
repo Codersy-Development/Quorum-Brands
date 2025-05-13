@@ -14,7 +14,6 @@
       "blocks": {
         "price": {
           "type": "price",
-          "disabled": true,
           "settings": {}
         },
         "text_Hn6GpR": {
@@ -45,6 +44,19 @@
           "settings": {
             "icon": "checkmark",
             "text": "Free worldwide shipping"
+          }
+        },
+        "text_cEWGf8": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "{{ product.metafields.custom.cUL_logo.value }}   {{ product.metafields.custom.cETL_Logo.value }}{{ product.metafields.custom.CCT_logo.value }}{{ product.metafields.custom.ELT_logo.value }}{{ product.metafields.custom.ghost_logo.value }}"
+          }
+        },
+        "custom_khQKRQ": {
+          "type": "custom",
+          "settings": {
+            "code": "{{ product.metafields.custom.cUL_logo.value }}   {{ product.metafields.custom.cETL_Logo.value }}{{ product.metafields.custom.CCT_logo.value }}{{ product.metafields.custom.ELT_logo.value }}{{ product.metafields.custom.ghost_logo.value }}"
           }
         },
         "separator": {
@@ -115,6 +127,8 @@
         "variant_picker",
         "inventory_status",
         "sales_point",
+        "text_cEWGf8",
+        "custom_khQKRQ",
         "separator",
         "buy_buttons",
         "tab_HAmQP6",
@@ -232,7 +246,7 @@
           "type": "tab",
           "settings": {
             "title": "Certifications",
-            "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p>",
+            "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p><p>{{ product.metafields.custom.cUL_logo.value }}</p><p>{{ product.metafields.custom.cETL_Logo.value }}</p><p>{{ product.metafields.custom.ELT_logo.value }}</p>",
             "page": ""
           }
         },
