@@ -43,17 +43,15 @@
     assign cleaned_content = cleaned_content | replace: '<br><br><br>', '<br>'
     assign cleaned_content = cleaned_content | replace: '<br><br>', '<br>'
     
-    # Final check for content
+    # Final check for content - check the cleaned content
     assign content_check = cleaned_content | strip_html | strip
     if content_check != blank and content_check != ''
       assign has_content = true
     endif
   endif
   
-  assign output_tab = false
-  if has_title or has_content
-    assign output_tab = true
-  endif
+  # CHANGED: Only output tab if there's actual content (ignore title)
+  assign output_tab = has_content
 -%}
 {%- if output_tab -%}
 <div class="collapsibles-wrapper collapsibles-wrapper--border-bottom">
