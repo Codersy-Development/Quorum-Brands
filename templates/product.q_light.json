@@ -86,7 +86,6 @@
         },
         "tab_zFza3D": {
           "type": "tab",
-          "disabled": true,
           "settings": {
             "title": "Electrical | Lighting",
             "content": "<p>{{ product.metafields.custom.prefix_UL_type.value }}</p><p>{{ product.metafields.custom.prefix_bulbs_included.value }}<br/>{{ product.metafields.custom.prefix_number_of_lights.value }}<br/>{{ product.metafields.custom.prefix_integrated_LED.value }}<br/>{{ product.metafields.custom.prefix_socket_base.value }}<br/>{{ product.metafields.custom.prefix_blub_type.value }}</p><p>{{ product.metafields.custom.prefix_color_temp.value }}<br/>{{ product.metafields.custom.prefix_CCT_1.value }}<br/>{{ product.metafields.custom.prefix_CCT_2.value }}<br/>{{ product.metafields.custom.prefix_CCT_3.value }}<br/>{{ product.metafields.custom.prefix_CCT_4.value }}<br/>{{ product.metafields.custom.prefix_CCT_5.value }}<br/>{{ product.metafields.custom.prefix_CCT_6.value }}</p><p>{{ product.metafields.custom.prefix_initial_lumens.value }}<br/>{{ product.metafields.custom.prefix_delivered_lumens.value }}<br/>{{ product.metafields.custom.prefix_cri.value }}<br/>{{ product.metafields.custom.prefix_wattage.value }}<br/>{{ product.metafields.custom.prefix_voltage.value }}</p><p>{{ product.metafields.custom.prefix_driver_model.value }}<br/>{{ product.metafields.custom.prefix_driver_voltage.value }}</p><p>{{ product.metafields.custom.prefix_power_cord.value }}</p>",
@@ -97,8 +96,8 @@
           "type": "tab",
           "disabled": true,
           "settings": {
-            "title": " Dimensions & Mounting",
-            "content": "<p>Use collapsible tabs for more detailed information that will help customers make a purchasing decision.</p><p>Ex: Shipping and return policies, size guides, and other common questions.</p>",
+            "title": "Performance | Features",
+            "content": "<p>{{ product.metafields.custom.prefix_dark_sky_compliant.value }}<br/>{{ product.metafields.custom.prefix_coastal_grade.value }}<br/>{{ product.metafields.custom.prefix_dimmable.value }}</p><p>{{ product.metafields.custom.prefix_manufacturer_warranty.value }}</p>",
             "page": ""
           }
         },
@@ -158,27 +157,11 @@
     "sub": {
       "type": "product-full-width",
       "blocks": {
-        "tab_hLUUEA": {
-          "type": "tab",
-          "settings": {
-            "title": "Electrical | Lighting Specs",
-            "content": "<p>{{ product.metafields.custom.prefix_UL_type.value }}</p><p>{{ product.metafields.custom.prefix_bulbs_included.value }}<br/>{{ product.metafields.custom.prefix_number_of_lights.value }}<br/>{{ product.metafields.custom.prefix_integrated_LED.value }}<br/>{{ product.metafields.custom.prefix_socket_base.value }}<br/>{{ product.metafields.custom.prefix_blub_type.value }}</p><p>{{ product.metafields.custom.prefix_color_temp.value }}<br/>{{ product.metafields.custom.prefix_CCT_1.value }}<br/>{{ product.metafields.custom.prefix_CCT_2.value }}<br/>{{ product.metafields.custom.prefix_CCT_3.value }}<br/>{{ product.metafields.custom.prefix_CCT_4.value }}<br/>{{ product.metafields.custom.prefix_CCT_5.value }}<br/>{{ product.metafields.custom.prefix_CCT_6.value }}</p><p>{{ product.metafields.custom.prefix_initial_lumens.value }}<br/>{{ product.metafields.custom.prefix_delivered_lumens.value }}<br/>{{ product.metafields.custom.prefix_cri.value }}<br/>{{ product.metafields.custom.prefix_wattage.value }}<br/>{{ product.metafields.custom.prefix_voltage.value }}</p><p>{{ product.metafields.custom.prefix_driver_model.value }}<br/>{{ product.metafields.custom.prefix_driver_voltage.value }}</p><p>{{ product.metafields.custom.prefix_power_cord.value }}</p>",
-            "page": ""
-          }
-        },
         "tab_Qdhy8G": {
           "type": "tab",
           "settings": {
             "title": "Preformance | Features",
-            "content": "<p>{{ product.metafields.custom.prefix_dark_sky_compliant.value }}<br/>{{ product.metafields.custom.prefix_coastal_grade.value }}<br/>{{ product.metafields.custom.prefix_dimmable.value }}</p><p>{{ product.metafields.custom.prefix_manufacturer_warranty.value }}</p>",
-            "page": ""
-          }
-        },
-        "tab_9AjKC6": {
-          "type": "tab",
-          "settings": {
-            "title": "Shipping",
-            "content": "<p>{{ product.metafields.custom.prefix_shipping.value }}</p><p>{{ product.metafields.custom.prefix_carton_weight.value }}<br/>{{ product.metafields.custom.prefix_carton_height.value }}<br/>{{ product.metafields.custom.prefix_carton_length.value }}<br/>{{ product.metafields.custom.prefix_carton_width.value }}</p>",
+            "content": "",
             "page": ""
           }
         },
@@ -187,6 +170,14 @@
           "settings": {
             "title": "Certifications",
             "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p><p>{{ product.metafields.custom.cETL_Logo.value }}</p>",
+            "page": ""
+          }
+        },
+        "tab_9AjKC6": {
+          "type": "tab",
+          "settings": {
+            "title": "Shipping",
+            "content": "<p>{{ product.metafields.custom.prefix_shipping.value }}</p><p>{{ product.metafields.custom.prefix_carton_weight.value }}<br/>{{ product.metafields.custom.prefix_carton_height.value }}<br/>{{ product.metafields.custom.prefix_carton_length.value }}<br/>{{ product.metafields.custom.prefix_carton_width.value }}</p>",
             "page": ""
           }
         },
@@ -200,10 +191,9 @@
         }
       },
       "block_order": [
-        "tab_hLUUEA",
         "tab_Qdhy8G",
-        "tab_9AjKC6",
         "tab_VKwJHy",
+        "tab_9AjKC6",
         "tab_NGgmHF"
       ],
       "settings": {
