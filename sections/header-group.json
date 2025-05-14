@@ -51,9 +51,9 @@
             "title": "Oxygen",
             "menu": "store-2-menu",
             "is_mega_menu": true,
-            "color_header": "#faaefa",
-            "color_header_text": "#ffffff",
-            "color_announcement": "#ff00fb",
+            "color_header": "#ffffff",
+            "color_header_text": "#000000",
+            "color_announcement": "#ec008c",
             "color_announcement_text": "#ffffff"
           }
         }
