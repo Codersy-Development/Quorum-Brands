@@ -1,0 +1,162 @@
+{% assign wcp_wholesale_customer = false %}
+{% if shop.metafields.wcp_status.wcp_status != 'disabled' and customer %}
+{% assign active_discounts = shop.metafields.wcp_active_discounts.wcp_active_discounts %}
+{% assign active_discounts_array = active_discounts | split: ',' %}
+{% assign customer_tags = blank %}
+{% for tag in customer.tags %}
+{% assign tempTag = tag | downcase %}
+    {% if tempTag == 'wpdnet' %}
+      {% assign hide_checkout = true %}
+    {% endif %}
+{% assign customer_tags = customer_tags | prepend:tempTag %}
+{% unless forloop.last %}
+{% assign customer_tags = customer_tags | prepend:','  %}
+{% endunless %}
+{% endfor %}
+{% assign customer_tags = customer_tags | split:',' %}
+{% assign active_discounts = active_discounts | downcase %}
+{% for discount_key in active_discounts_array %}
+{% assign key_split = discount_key | split: '-' %}
+{% assign key_split_length = key_split | size %}
+{% if key_split_length > 2 %}
+{% assign removeable_key = key_split.last | prepend: '-' %}
+{% assign wcp_customer_tag = discount_key | remove_last: removeable_key %}
+{% else %}
+{% assign wcp_customer_tag = key_split[0] %}
+{% endif %}
+{% assign wcp_customer_tag = wcp_customer_tag | downcase %}
+{% if customer_tags contains wcp_customer_tag %}
+{% assign wcp_wholesale_customer = true %}
+{% endif %}
+{% endfor %}
+{% endif %}
+
+<!-- CSS for Wholesale Tagged Customer -->
+{% if wcp_wholesale_customer == true %}
+<style>
+ .wishlist-status .wishlist-btn{
+  display:block !important;
+  }
+  .money.conversion-bear-money{
+   display:block !important;  
+  }
+  .variant-button {
+  display:none !important;
+  }
+  .hulk__wishlist-wrap .hulk-price .compare_price {
+    display: none !important;
+}
+</style>
+<!-- CSS for not logged-in -->  
+{% else %}
+<style>
+ .wishlist-status .wishlist-btn{
+  display:none !important;
+  }
+  .money.conversion-bear-money{
+   display:none !important;  
+  }
+  /* for cart drawer icon  */
+#SiteHeader a.js-drawer-open-cart{
+ display: none;       
+  }
+    /* Hide checkout button */
+  .cart__checkout,
+  button[name="checkout"],
+  input[name="checkout"] {
+    display: none !important;
+  }
+  /* Hide Check out */
+  #wpdNetContainer {
+    display: none !important;
+  }
+.btn.add-to-cart {
+  display: none !important;
+}
+  /* for quantity selector and inventory and price */
+ .grid__item div:nth-child(2) div:nth-child(13) .product__quantity{
+  display: none;  
+ }    
+ .grid__item div:nth-child(2) .product-block.product-block--sales-point{
+ display: none;  
+ }  
+.product-block.product-block--price { 
+  display: none;  
+ }  
+  /* Hide Check out */
+  #wpdNetContainer {
+    display: none !important;
+  }
+</style>
+{% endif %}
+
+
+<!-- CSS Wholesale tagged customer to manage Net Princing -->
+
+{% if hide_checkout == true and request.path contains '/cart' %} 
+<style>
+  /* Hide checkout button */
+  .cart__checkout,
+  button[name="checkout"],
+  input[name="checkout"] {
+    display: none !important;
+  }
+  /* Show wpdNetContainer */
+  #wpdNetContainer {
+    display: block !important;
+  }
+.ajaxcart__note {
+     display: none !important; 
+  } 
+</style>
+{% else %}
+<style>
+  /* Hide Check out */
+  #wpdNetContainer {
+    display: none !important;
+  }
+</style>
+{% endif %}
+
+<!-- Additional CSS for not logged-in -->
+
+{% if customer == null %}
+ <style>
+/* for cart drawer icon  */
+#SiteHeader a.js-drawer-open-cart{
+ display: none;       
+  }
+    
+  /* Hide Check out */
+  #wpdNetContainer {
+    display: none !important;
+  }
+/* for quantity selector and inventory */
+ .grid__item div:nth-child(2) div:nth-child(13) .product__quantity{
+  display: none;  
+ }    
+ .grid__item div:nth-child(2) .product-block.product-block--sales-point{
+ display: none;  
+ }  
+</style> 
+{% endif %}
+
+{% if customer.tags contains "wpdnet" %}
+  {% if canonical_url contains "/cart" or canonical_url contains "/apps/wpdapp/wholesale/wpd-net-order-cart" %}
+    <script>
+      window.addEventListener("DOMContentLoaded", (event) => {
+        const netUpsEl = document.querySelector('#wpdNetUpsNumber');
+        const netUpsLabelEl = document.querySelector('#wpdNetUpsNumber').previousElementSibling;
+        netUpsEl.placeholder = 'Enter Shipping Account Number'
+        netUpsLabelEl.innerHTML = 'Shipping Account Number';
+        const netDwsUpsEl = document.querySelector('#wpd_ups_number');
+        const netDwsUpsLabelEl = document.querySelector('#wpd_ups_number').previousElementSibling;
+        netDwsUpsEl.placeholder = 'Enter Shipping Account Number'
+        netDwsUpsLabelEl.innerHTML = 'Shipping Account Number';
+    });
+      
+    </script>
+  {% endif %}
+{% endif %}
+  
+
