@@ -59,17 +59,23 @@
 <script src="{{ 'store-switcher.js' |   asset_url}}" async></script>
 
 <style>
-/* Main navigation links and dropdown triggers */
-.site-nav__link,
-.site-nav__link--has-dropdown,
-.site-nav__dropdown-link--second-level {
-  font-size: {{ settings.type_navigation_size }}px;
-}
-
-/* Ensure summary elements get the same font size */
-summary.site-nav__link {
-  font-size: {{ settings.type_navigation_size }}px;
-}
+  /* Main navigation links and dropdown triggers */
+  .site-nav__link,
+  .site-nav__link--has-dropdown,
+  .site-nav__dropdown-link--second-level {
+    font-size: {{ settings.type_navigation_size }}px;
+  }
+  
+  /* Ensure summary elements get the same font size */
+  summary.site-nav__link {
+    font-size: {{ settings.type_navigation_size }}px;
+  }
+  
+  /* Store switcher menu links - make them consistent with main nav */
+  .ssm__menu-link,
+  .ssm__menu-link--title {
+    font-size: {{ settings.type_navigation_size }}px;
+  }
   {% if settings.type_navigation_capitalize %}
     .site-nav__link, .mobile-nav__link--top-level {
       text-transform: uppercase;
