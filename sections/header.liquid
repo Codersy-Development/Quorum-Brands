@@ -60,7 +60,7 @@
 
 <style>
   .site-nav__link,
-  .site-nav__dropdown-link {
+  .site-nav__dropdown-link:not(.site-nav__dropdown-link--top-level) {
     font-size: {{ settings.type_navigation_size }}px;
   }
   {% if settings.type_navigation_capitalize %}
@@ -121,7 +121,7 @@
   <div class="header-item header-item--left header-item--navigation">
               {%- if section.settings.main_menu_alignment == 'center'
                 or section.settings.main_menu_alignment == 'center-split'
-                or section.settings.main_menu_alignment == 'center-all'
+                
               -%}
                 {%- if settings.search_enable -%}
                   <div class="site-nav small--hide">
