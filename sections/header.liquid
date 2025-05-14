@@ -60,10 +60,12 @@
 
 <style>
   .site-nav__link,
-  .site-nav__dropdown-link {
-    font-size: {{ settings.type_navigation_size }}px !important;
+  .site-nav__dropdown-link,
+  .site-nav__link--has-dropdown {
+    font-size: {{ settings.type_navigation_size }}px;
   }
-    .site-nav__dropdown-link--top-level {
+  
+  summary.site-nav__link--has-dropdown {
     font-size: {{ settings.type_navigation_size }}px !important;
   }
   {% if settings.type_navigation_capitalize %}
