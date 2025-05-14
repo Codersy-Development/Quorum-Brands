@@ -38,12 +38,14 @@
             {{ link.title }} <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="m1.57 1.59 12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none"/></svg>
           </summary>
       {% else %}
+        {% comment %}
         <a
           href="{{ link.url }}"
           class="site-nav__link site-nav__link--underline{% if has_dropdown %} site-nav__link--has-dropdown{% endif %}"
         >
           {{ link.title }}
         </a>
+          {% endcomment %}
       {% endif %}
         {%- if is_megamenu -%}
           {%- assign previous_column_type = '' -%}
