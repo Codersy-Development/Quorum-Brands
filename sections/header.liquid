@@ -45,62 +45,6 @@
        }
     {%- endcase -%}
   {%- endfor -%}
-  
-  {% if section.settings.main_menu_alignment == 'center-all' %}
-    .header-layout--center-all {
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-    }
-    
-    .header-layout--center-all .header-nav--second-row {
-      width: 100%;
-      text-align: center;
-    }
-    
-    .header-layout--center-all .header-nav--full-width {
-      width: 100%;
-      text-align: center;
-      margin-top: 15px;
-    }
-    
-    .header-layout--center-all .site-nav {
-      justify-content: center;
-    }
-    
-    .header-layout--center-all .header-item--icons {
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    
-    .header-layout--center-all .header-item--left {
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    
-    .header-layout--center-all .store-switch-buttons {
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
-    
-    @media only screen and (max-width: 749px) {
-      .header-layout--center-all .header-item--icons,
-      .header-layout--center-all .header-item--left {
-        position: relative;
-        transform: none;
-      }
-      
-      .header-layout--center-all .store-switch-buttons {
-        position: relative;
-        margin-bottom: 10px;
-      }
-    }
-  {% endif %}
 </style>
 
 {%- render 'drawer-menu',
@@ -261,74 +205,63 @@
             {%- endif -%}
 
             {%- if logo_alignment == 'center' -%}
-              {%- if section.settings.main_menu_alignment != 'center-all' -%}
-                <div class="medium-down--hide">
-                  {% render 'store-switch-buttons', section: section %}
-                </div>
-              {%- endif -%}
+              <div class="medium-down--hide">
+                {% render 'store-switch-buttons', section: section %}
+              </div>
               <div class="medium-up--hide hamburger-menu">
                 {{ hamburger_menu }}
               </div>
               
-              {%- if section.settings.main_menu_alignment == 'center-all' -%}
-                <div class="medium-down--hide store-switch-buttons">
-                  {% render 'store-switch-buttons', section: section %}
-                </div>
+              {%- if section.settings.main_menu_alignment == 'center-split' -%}
+                {%- render 'header-split-nav',
+                  main_menu: main_menu,
+                  section: section,
+                  dropdown_alignment: dropdown_alignment,
+                  hover_menu: section.settings.hover_menu
+                -%}
+              {%- endif -%}
+
+              {%- if section.settings.main_menu_alignment != 'center-split' -%}
                 <div class="header-item header-item--logo">
                   {%- render 'header-logo-block', section: section -%}
                 </div>
-                <div class="header-item header-item--icons">
-                  {%- render 'hulkapps-wishlist-product-btn' -%}
-                  {%- render 'header-icons', section: section -%}
-                </div>
-                <div class="header-nav--full-width">
+              {%- endif -%}
+              
+              {%- if section.settings.main_menu_alignment == 'center-all' -%}
+                <div
+                  class="header-item header-item--navigation text-center"
+                  {% unless disable_aria %}
+                    role="navigation" aria-label="Primary"
+                  {% endunless %}
+                >
                   {%- render 'header-desktop-nav',
                     main_menu: main_menu,
                     dropdown_alignment: dropdown_alignment,
                     hover_menu: section.settings.hover_menu
                   -%}
                 </div>
-              {%- else -%}
-                {%- if section.settings.main_menu_alignment == 'center-split' -%}
-                  {%- render 'header-split-nav',
-                    main_menu: main_menu,
-                    section: section,
-                    dropdown_alignment: dropdown_alignment,
-                    hover_menu: section.settings.hover_menu
-                  -%}
-                {%- endif -%}
-
-                {%- if section.settings.main_menu_alignment != 'center-split' -%}
-                  <div class="header-item header-item--logo">
-                    {%- render 'header-logo-block', section: section -%}
-                  </div>
-                {%- endif -%}
               {%- endif -%}
             {%- endif -%}
 
-            {%- if section.settings.main_menu_alignment != 'center-all' -%}
-              <div class="header-item header-item--icons">
-                {%- render 'hulkapps-wishlist-product-btn' -%}
-                {%- render 'header-icons', section: section -%}
-              </div>
-            {%- endif -%}
+            <div class="header-item header-item--icons">
+              {%- render 'hulkapps-wishlist-product-btn' -%}
+              {%- render 'header-icons', section: section -%}
+            </div>
           </div>
           
-          {%- if section.settings.main_menu_alignment != 'center-all' -%}
-            <div class="header-nav--second-row medium-down--hide">
-              {{ hamburger_menu }}
-              {% render 'store-switch-menus', section %}
-            </div>
+          <div class="header-nav--second-row medium-down--hide">
+            {{ hamburger_menu }}
+            {% render 'store-switch-menus', section %}
+          </div>
 
-            {%- if section.settings.main_menu_alignment == 'center' -%}
-              <div class="text-center">
-                {%- render 'header-desktop-nav',
-                  main_menu: main_menu,
-                  dropdown_alignment: dropdown_alignment,
-                  hover_menu: section.settings.hover_menu
-                -%}
-              </div>
-            {%- endif -%}
+          {%- if section.settings.main_menu_alignment == 'center' -%}
+            <div class="text-center">
+              {%- render 'header-desktop-nav',
+                main_menu: main_menu,
+                dropdown_alignment: dropdown_alignment,
+                hover_menu: section.settings.hover_menu
+              -%}
+            </div>
           {%- endif -%}
         </div>
         <div class="site-header__search-container">
