@@ -95,6 +95,26 @@
       border-top: 0;
     }
   {%- endif -%}
+  
+  {% if section.settings.main_menu_alignment == 'center-all' %}
+    .header-layout--center-all .site-nav {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+    }
+    
+    .header-layout--center-all .site-nav > li {
+      display: inline-flex;
+    }
+    
+    .header-layout--center-all .site-nav__link {
+      white-space: nowrap;
+    }
+    
+    .header-layout--center-all .header-item--navigation {
+      flex: 1;
+    }
+  {% endif %}
 </style>
 
 {% capture hamburger_menu %}
@@ -229,7 +249,7 @@
               
               {%- if section.settings.main_menu_alignment == 'center-all' -%}
                 <div
-                  class="header-item header-item--navigation text-center"
+                  class="header-item header-item--navigation{% if section.settings.main_menu_alignment == 'center-all' %} text-center{% endif %}"
                   {% unless disable_aria %}
                     role="navigation" aria-label="Primary"
                   {% endunless %}
