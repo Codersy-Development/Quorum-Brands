@@ -1,3 +1,27 @@
+
+{% if shop.customer_accounts_enabled %}
+{% unless template == 'product' %}
+{% assign button_layout = 'simple_button' %}
+{% if shop.metafields.hulkapps_wishlist.hulkapps_wishlist_general.button_layout != null %}
+{% assign button_layout = shop.metafields.hulkapps_wishlist.hulkapps_wishlist_general.button_layout %}
+{% endif %}
+<a href="/apps/advanced-wishlist" class="icon-wishlist-heart-empty wishlist-btn grid-wishlist-btn heart-wishlist-animation" data-wishList data-added="false" data-proID="{{ product.id }}" data-varID="{{ product.selected_or_first_available_variant.id }}" data-button-layout="{{ button_layout }}" style="display:none">
+<div class="hulk_wl_wishlist_icon-text" hulk-wl-custom-style data-count="{{ shop.metafields.hulkapps_wishlist.hulkapps_wishlist_general.public_wishlist_count }}">
+<div class="hulk_wl_wishlist_icon">
+<i class="heart-hulk-animation"><i class="icon-wishlist-heart-empty" style="font-weight: 500;"></i></i>
+<span></span>
+</div>
+</div>
+{% if button_layout == 'multi_color_button' and shop.metafields.hulkapps_wishlist.hulkapps_wishlist_buttonstyle.button_style == 'style_2' or shop.metafields.hulkapps_wishlist.hulkapps_wishlist_buttonstyle.button_style == 'style_4' %}
+<span class="count" hulk-wl_wishlist-custom-style>0</span>
+{% else %}
+<span class="count" hulk-wl_wishlist-custom-style>(0)</span>
+{% endif %}
+</a>
+{% endunless %}
+{% endif %}
+
+
 {% if shop.customer_accounts_enabled %}
 {% assign button_layout = 'simple_button' %}
 {% endif %}
