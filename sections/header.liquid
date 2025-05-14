@@ -76,6 +76,16 @@
   .ssm__menu-link--title {
     font-size: {{ settings.type_navigation_size }}px;
   }
+  @media only screen and (min-width: 1200px) {
+    .header-nav--second-row {
+      margin-top: -10px; /* Brings elements closer together */
+    }
+    
+    /* Alternative: target store-switch-menus directly */
+    .header-nav--second-row store-switch-menus {
+      margin-top: -5px; /* Adjust this value as needed */
+    }
+  }
   {% if settings.type_navigation_capitalize %}
     .site-nav__link, .mobile-nav__link--top-level {
       text-transform: uppercase;
