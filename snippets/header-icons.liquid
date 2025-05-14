@@ -1,4 +1,4 @@
-{% comment %}
+
 {% if shop.customer_accounts_enabled %}
 {% unless template == 'product' %}
 {% assign button_layout = 'simple_button' %}
@@ -20,8 +20,8 @@
 </a>
 {% endunless %}
 {% endif %}
-{% endcomment %}
 
+{% comment %}
 {% if shop.customer_accounts_enabled %}
 {% assign button_layout = 'simple_button' %}
 {% endif %}
@@ -30,6 +30,7 @@
 <i class="heart-hulk-animation"><i class="icon-wishlist-heart-empty" style="font-weight: 500;"></i></i>
   </div>
 </a>
+{% endcomment %}
 
 <div class="site-nav">
   <div class="site-nav__icons">
