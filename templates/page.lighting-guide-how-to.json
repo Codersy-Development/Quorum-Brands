@@ -108,8 +108,8 @@
               "type": "info-block",
               "name": "Info Block with Image",
               "settings": {
-                "heading": "Sconces",
-                "text": "<p>Create symmetry with sconces placed a few inches on each side of your mirror...</p>",
+                "heading": "Bar Lighting",
+                "text": "<p>Maintain a distance of about 75 inches between the floor and the lowest point of the fixture.Match the fixture width to about 3/4 of the mirror’s width, avoiding overhang. Opt for minimal wall extension to reduce shadows.</p>",
                 "image": "shopify://shop_images/Argo_Black_On.png",
                 "image_position": "bottom"
               },
@@ -163,7 +163,7 @@
         "heading": "The Bathroom",
         "description": "HOW TO LIGHT YOUR VANITY",
         "main_image": "shopify://shop_images/5119-4-259_8.jpg",
-        "tip": "test"
+        "tip": "Dimmer switches allow you to adjust the brightness of the lights according to different tasks and moods. For example, you can dim the lights for a relaxing bath or increase the brightness for grooming tasks. Additionally, dimmer switches can help conserve energy and extend the lifespan of your light bulbs."
       }
     }
   },
