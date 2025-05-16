@@ -22,13 +22,42 @@
     margin: 40px auto;
 }
 .oxygen {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 8px;
-    width: 100%;
-    max-width: 1400px;
-    margin: 40px auto;
+  display: grid;
+  grid-template-areas:
+    "img1 text"
+    "img2 img3"
+    "img4 img5";
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+}
+
+.oxygen .div1 { grid-area: img1; }
+.oxygen .div2 { grid-area: text; }
+.oxygen .div3 { grid-area: img2; }
+.oxygen .div4 { grid-area: img3; }
+.oxygen .div5 { grid-area: img4; }
+.oxygen .div6 { grid-area: img5; }
+
+.oxygen img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
+}
+
+.oxygen .brand-feature-text {
+  background: #e0007c;
+  color: white;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 .div1 {
     grid-row: span 3 / span 3;
