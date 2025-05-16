@@ -976,6 +976,114 @@
         "main_image": "shopify://shop_images/35846-47_8_bce38010-4bb2-4ed1-a1c0-c2daba62f0c4.jpg",
         "tip": ""
       }
+    },
+    "guide_section_renDgP": {
+      "type": "guide-section",
+      "blocks": {
+        "split_content_section_MGTXM3": {
+          "type": "split-content-section",
+          "name": "Split Content Section",
+          "settings": {
+            "layout": "horizontal"
+          },
+          "blocks": {
+            "split_content_section_aFEiqN": {
+              "type": "split-content-section",
+              "name": "Split Content Section",
+              "settings": {
+                "layout": "horizontal"
+              },
+              "blocks": {
+                "info_block_fEAidr": {
+                  "type": "info-block",
+                  "name": "Info Block with Image",
+                  "settings": {
+                    "heading": "Ceiling Fan Installation Guide",
+                    "text": "<p>For proper installation, make sure the ceiling fan is:<br/>18 inches from walls<br/>7 feet from the ground to the base of the fan<br/><strong>Mounting Types:<br/></strong> — for <strong>7½’–9’ ceilings</strong><br/> — for <strong>8’–9’ ceilings</strong><br/> — recommended for <strong>9’+ ceilings</strong></p>",
+                    "image_position": "bottom"
+                  },
+                  "blocks": {
+                    "global_image_XemANm": {
+                      "type": "global-image",
+                      "name": "Global Image",
+                      "settings": {
+                        "image": "shopify://shop_images/Fan_Mounting.png"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "global_image_XemANm"
+                  ]
+                }
+              },
+              "block_order": [
+                "info_block_fEAidr"
+              ]
+            }
+          },
+          "block_order": [
+            "split_content_section_aFEiqN"
+          ]
+        },
+        "split_content_section_PXYUMP": {
+          "type": "split-content-section",
+          "name": "Split Content Section",
+          "settings": {
+            "layout": "horizontal"
+          },
+          "blocks": {
+            "split_content_section_pDGrDL": {
+              "type": "split-content-section",
+              "name": "Split Content Section",
+              "settings": {
+                "layout": "horizontal"
+              },
+              "blocks": {
+                "info_block_m4iPfp": {
+                  "type": "info-block",
+                  "name": "Info Block with Image",
+                  "settings": {
+                    "heading": "Ceiling Fan Control Choices",
+                    "text": "<p>You can control your ceiling fan using various methods to suit your convenience and lifestyle. <br/><strong>Wall controls</strong> <br/>Allow you to operate the fan and light directly from a switch integrated into your existing wall plate. For added flexibility. <br/><strong>Remote controls</strong> <br/>Offer the convenience of adjusting your fan settings from a distance. Additionally. <br/><strong>Smart home integration<br/></strong>Lets you manage your fan and lighting using your smartphone or connected smart device.</p>",
+                    "image_position": "bottom"
+                  },
+                  "blocks": {
+                    "global_image_4nmaeU": {
+                      "type": "global-image",
+                      "name": "Global Image",
+                      "settings": {
+                        "image": "shopify://shop_images/ceiling_fan_controls_high_quality.png"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "global_image_4nmaeU"
+                  ]
+                }
+              },
+              "block_order": [
+                "info_block_m4iPfp"
+              ]
+            }
+          },
+          "block_order": [
+            "split_content_section_pDGrDL"
+          ]
+        }
+      },
+      "block_order": [
+        "split_content_section_MGTXM3",
+        "split_content_section_PXYUMP"
+      ],
+      "name": "Guide Section",
+      "settings": {
+        "heading": "Ceiling Fan",
+        "description": "MOUNTING & CONTROLS",
+        "main_image": "shopify://shop_images/3-129-15_LS.jpg",
+        "tip": "Consider Blade Finish:\nPay attention to the finish and material of the fan blades.\n\t•\tWood blades add warmth and texture\n\t•\tMetal blades provide a sleek, modern look\n\nChoose a finish that complements other room elements such as furniture, flooring, and lighting fixtures."
+      }
     }
   },
   "order": [
@@ -989,6 +1097,7 @@
     "guide_section_qdNxM6",
     "guide_section_dgHDqk",
     "guide_section_GGyHp9",
-    "guide_section_Agj4jm"
+    "guide_section_Agj4jm",
+    "guide_section_renDgP"
   ]
 }
