@@ -620,6 +620,112 @@
         "main_image": "shopify://shop_images/419_Bm_4274f.jpg",
         "tip": "Consider dimmer switches or adjustable brightness levels. This allows you to customize the lighting ambiance according to your mood or time of day — whether you prefer soft, ambient lighting for winding down in the evening or brighter task lighting for reading."
       }
+    },
+    "guide_section_dgHDqk": {
+      "type": "guide-section",
+      "blocks": {
+        "global_image_f3fc4k": {
+          "type": "global-image",
+          "name": "Global Image",
+          "settings": {
+            "image": "shopify://shop_images/715-10-69_lit_1.jpg"
+          },
+          "blocks": {}
+        },
+        "split_content_section_cmpKke": {
+          "type": "split-content-section",
+          "name": "Split Content Section",
+          "settings": {
+            "layout": "horizontal"
+          },
+          "blocks": {
+            "split_content_section_pRMTAE": {
+              "type": "split-content-section",
+              "name": "Split Content Section",
+              "settings": {
+                "layout": "horizontal"
+              },
+              "blocks": {
+                "split_content_section_C9Y8rj": {
+                  "type": "split-content-section",
+                  "name": "Split Content Section",
+                  "settings": {
+                    "layout": "horizontal"
+                  },
+                  "blocks": {
+                    "info_block_3VNLGa": {
+                      "type": "info-block",
+                      "name": "Info Block with Image",
+                      "settings": {
+                        "heading": "Above an Exterior Door",
+                        "text": "<p>Select a hanging fixture that is proportionate to the size of your outdoor entryway.<br/>A fixture that is too small may get lost in the space, while one that is too large may overwhelm it.<br/><strong>Aim for a size that provides adequate illumination without obstructing the entryway or door.</strong></p>",
+                        "image": "shopify://shop_images/Sconce_Garage.png",
+                        "image_position": "left"
+                      },
+                      "blocks": {
+                        "global_image_JGY3Yb": {
+                          "type": "global-image",
+                          "name": "Global Image",
+                          "settings": {
+                            "image": "shopify://shop_images/OutdoorPendant_Entry.png"
+                          },
+                          "blocks": {}
+                        }
+                      },
+                      "block_order": [
+                        "global_image_JGY3Yb"
+                      ]
+                    }
+                  },
+                  "block_order": [
+                    "info_block_3VNLGa"
+                  ]
+                },
+                "info_block_e44DXi": {
+                  "type": "info-block",
+                  "name": "Info Block with Image",
+                  "settings": {
+                    "heading": "Sides of an Exterior Door",
+                    "text": "<p>Ensure that the fixtures are installed at a <strong>height and position</strong> that provide ample illumination for safety and security — without obstructing the door’s operation or interfering with any architectural features.</p>",
+                    "image_position": "bottom"
+                  },
+                  "blocks": {
+                    "global_image_Cq7WAG": {
+                      "type": "global-image",
+                      "name": "Global Image",
+                      "settings": {
+                        "image": "shopify://shop_images/OutdoorSconce_Entry.png"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "global_image_Cq7WAG"
+                  ]
+                }
+              },
+              "block_order": [
+                "split_content_section_C9Y8rj",
+                "info_block_e44DXi"
+              ]
+            }
+          },
+          "block_order": [
+            "split_content_section_pRMTAE"
+          ]
+        }
+      },
+      "block_order": [
+        "global_image_f3fc4k",
+        "split_content_section_cmpKke"
+      ],
+      "name": "Guide Section",
+      "settings": {
+        "heading": "Foyers & Exteriors",
+        "description": "HOW TO CREATE A WELCOMING ENTRY",
+        "main_image": "shopify://shop_images/715-10-69_lit_1.jpg",
+        "tip": "Since the fixture will be exposed to the elements, choose a wet or damp rated product.\nCoastal Grade weather-resistant materials are a great choice as well."
+      }
     }
   },
   "order": [
@@ -630,6 +736,7 @@
     "guide_section_eR9WTd",
     "guide_section_rCdEjz",
     "guide_section_Kmx3dR",
-    "guide_section_qdNxM6"
+    "guide_section_qdNxM6",
+    "guide_section_dgHDqk"
   ]
 }
