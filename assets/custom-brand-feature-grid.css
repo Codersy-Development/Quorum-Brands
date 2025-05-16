@@ -27,7 +27,7 @@
     "img1 text text"
     "img2 img3 img4";
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 8px;
+  gap: 2rem;
   max-width: 1400px;
   margin: 0 auto;
   padding: 4rem 1rem;
