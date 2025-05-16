@@ -162,7 +162,6 @@
       "settings": {
         "heading": "The Bathroom",
         "description": "HOW TO LIGHT YOUR VANITY",
-        "main_image": "shopify://shop_images/5119-4-259_8.jpg",
         "tip": "Dimmer switches allow you to adjust the brightness of the lights according to different tasks and moods. For example, you can dim the lights for a relaxing bath or increase the brightness for grooming tasks. Additionally, dimmer switches can help conserve energy and extend the lifespan of your light bulbs."
       }
     },
@@ -175,7 +174,7 @@
           "settings": {
             "heading": "Bathroom",
             "text": "<p>Ensure that the mirror is placed roughly 60 inches from the floor or at eye level so you can see yourself clearly when standing in front of it. If you have a taller faucet, adjust slightly and hang the mirror 2–3 inches above the tallest point of the faucet for the best look.</p>",
-            "image": "shopify://shop_images/5169-3-47_4.jpg",
+            "image": "shopify://shop_images/Mirrors_bathroom.png",
             "image_position": "bottom"
           },
           "blocks": {}
@@ -188,7 +187,6 @@
       "settings": {
         "heading": "",
         "description": "",
-        "main_image": "shopify://shop_images/Argo_Black_On.png",
         "tip": ""
       }
     }
