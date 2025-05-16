@@ -144,7 +144,9 @@
     render 'photoswipe-template'
     render 'tool-tip'
   -%}
-
+  {% comment %} Brand Styling for Product Templates {% endcomment %}
+<script src="{{ 'custom-oxygen-brand.js' | asset_url }}" async></script>
+<script src="{{ 'custom-quorum-brand.js' | asset_url }}" async></script>
   {% comment %} Image markup used when building product grid item via JS {% endcomment %}
   <template id="naturalImageMarkup">
     <div class="image-wrap" style="height: 0;">
