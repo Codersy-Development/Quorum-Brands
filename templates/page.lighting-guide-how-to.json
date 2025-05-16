@@ -178,7 +178,19 @@
             "image": "shopify://shop_images/Mirrors_bathroom.png",
             "image_position": "bottom"
           },
-          "blocks": {}
+          "blocks": {
+            "global_image_hEQQra": {
+              "type": "global-image",
+              "name": "Global Image",
+              "settings": {
+                "image": "shopify://shop_images/Mirrors_bathroom.png"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "global_image_hEQQra"
+          ]
         }
       },
       "block_order": [
@@ -191,12 +203,128 @@
         "main_image": "shopify://shop_images/Argo_Black_On.png",
         "tip": ""
       }
+    },
+    "guide_section_eR9WTd": {
+      "type": "guide-section",
+      "blocks": {
+        "split_content_section_yLzGxi": {
+          "type": "split-content-section",
+          "name": "Split Content Section",
+          "settings": {
+            "layout": "horizontal"
+          },
+          "blocks": {
+            "split_content_section_Vt9zRW": {
+              "type": "split-content-section",
+              "name": "Split Content Section",
+              "settings": {
+                "layout": "vertical"
+              },
+              "blocks": {
+                "info_block_Ydhei9": {
+                  "type": "info-block",
+                  "name": "Info Block with Image",
+                  "settings": {
+                    "heading": "Pendants",
+                    "text": "<p>Maintain a distance of <strong>2.5 feet between the widest part</strong> of the shade.<br/>Ensure there’s a gap of about <strong>3 feet between the counter surface and the fixture base</strong>.</p>",
+                    "image": "shopify://shop_images/3077-3-59_Lit_LS.jpg",
+                    "image_position": "bottom"
+                  },
+                  "blocks": {
+                    "global_image_iUV7fx": {
+                      "type": "global-image",
+                      "name": "Global Image",
+                      "settings": {
+                        "image": "shopify://shop_images/3077-3-59_Lit_LS.jpg"
+                      },
+                      "blocks": {}
+                    },
+                    "global_image_FTWwnP": {
+                      "type": "global-image",
+                      "name": "Global Image",
+                      "settings": {
+                        "image": "shopify://shop_images/Pendants_kitchen.png"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "global_image_iUV7fx",
+                    "global_image_FTWwnP"
+                  ]
+                }
+              },
+              "block_order": [
+                "info_block_Ydhei9"
+              ]
+            },
+            "split_content_section_XMWgGR": {
+              "type": "split-content-section",
+              "name": "Split Content Section",
+              "settings": {
+                "layout": "vertical"
+              },
+              "blocks": {
+                "info_block_nzyQQB": {
+                  "type": "info-block",
+                  "name": "Info Block with Image",
+                  "settings": {
+                    "heading": "Linear",
+                    "text": "<p>Ensure the length of a linear fixture does <strong>not exceed around 2/3 of the island length</strong>.<br/>Leave about <strong>three feet of space</strong> between the counter surface and the lowest point of the fixture.</p>",
+                    "image_position": "bottom"
+                  },
+                  "blocks": {
+                    "global_image_YVJ3we": {
+                      "type": "global-image",
+                      "name": "Global Image",
+                      "settings": {
+                        "image": "shopify://shop_images/Linear_kitchen.png"
+                      },
+                      "blocks": {}
+                    },
+                    "global_image_qYNUjp": {
+                      "type": "global-image",
+                      "name": "Global Image",
+                      "settings": {
+                        "image": "shopify://shop_images/6863-16-5980_5.jpg"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "global_image_YVJ3we",
+                    "global_image_qYNUjp"
+                  ]
+                }
+              },
+              "block_order": [
+                "info_block_nzyQQB"
+              ]
+            }
+          },
+          "block_order": [
+            "split_content_section_Vt9zRW",
+            "split_content_section_XMWgGR"
+          ]
+        }
+      },
+      "block_order": [
+        "split_content_section_yLzGxi"
+      ],
+      "name": "Guide Section",
+      "settings": {
+        "heading": "The Kitchen",
+        "description": "HOW TO HANG OVER AN ISLAND",
+        "main_image": "shopify://shop_images/5119-4-259_8.jpg",
+        "tip": "Consider the style and finish of the pendant lights. Choose pendant lights that complement the overall design aesthetic of the kitchen, whether it’s modern, traditional, industrial, or eclectic.\nOpt for finishes that coordinate with other fixtures and hardware in the kitchen, such as brushed nickel, bronze, or matte black, to create a cohesive look."
+      }
     }
   },
   "order": [
     "main",
     "slideshow_ffDiXn",
     "guide_section_e9jDXD",
-    "guide_section_jB3Jea"
+    "guide_section_jB3Jea",
+    "guide_section_eR9WTd"
   ]
 }
