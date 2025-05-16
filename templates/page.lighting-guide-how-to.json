@@ -318,6 +318,133 @@
         "main_image": "shopify://shop_images/5119-4-259_8.jpg",
         "tip": "Consider the style and finish of the pendant lights. Choose pendant lights that complement the overall design aesthetic of the kitchen, whether it’s modern, traditional, industrial, or eclectic.\nOpt for finishes that coordinate with other fixtures and hardware in the kitchen, such as brushed nickel, bronze, or matte black, to create a cohesive look."
       }
+    },
+    "guide_section_rCdEjz": {
+      "type": "guide-section",
+      "blocks": {
+        "split_content_section_xHdCye": {
+          "type": "split-content-section",
+          "name": "Split Content Section",
+          "settings": {
+            "layout": "horizontal"
+          },
+          "blocks": {
+            "split_content_section_GhCick": {
+              "type": "split-content-section",
+              "name": "Split Content Section",
+              "settings": {
+                "layout": "horizontal"
+              },
+              "blocks": {
+                "info_block_aanGVU": {
+                  "type": "info-block",
+                  "name": "Info Block with Image",
+                  "settings": {
+                    "heading": "Over a Square Table",
+                    "text": "<p>Mount the fixture at a height of about <strong>3 feet above the table surface</strong>.Opt for a width that is <strong>6 inches less than all edges of the table</strong> for the ideal fit.</p>",
+                    "image": "shopify://shop_images/Chandelier_square_table.png",
+                    "image_position": "bottom"
+                  },
+                  "blocks": {
+                    "global_image_ped76m": {
+                      "type": "global-image",
+                      "name": "Global Image",
+                      "settings": {
+                        "image": "shopify://shop_images/Chandelier_square_table.png"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "global_image_ped76m"
+                  ]
+                }
+              },
+              "block_order": [
+                "info_block_aanGVU"
+              ]
+            },
+            "global_image_F3FKV3": {
+              "type": "global-image",
+              "name": "Global Image",
+              "settings": {
+                "image": "shopify://shop_images/6021-6-59_Location_Alt_2.jpg"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "split_content_section_GhCick",
+            "global_image_F3FKV3"
+          ]
+        },
+        "split_content_section_Kn6J6i": {
+          "type": "split-content-section",
+          "name": "Split Content Section",
+          "settings": {
+            "layout": "horizontal"
+          },
+          "blocks": {
+            "split_content_section_EYdqdW": {
+              "type": "split-content-section",
+              "name": "Split Content Section",
+              "settings": {
+                "layout": "horizontal"
+              },
+              "blocks": {
+                "global_image_FKwkry": {
+                  "type": "global-image",
+                  "name": "Global Image",
+                  "settings": {
+                    "image": "shopify://shop_images/6123-4-47_4.jpg"
+                  },
+                  "blocks": {}
+                },
+                "info_block_4Nb9w9": {
+                  "type": "info-block",
+                  "name": "Info Block with Image",
+                  "settings": {
+                    "heading": "Over a Round Table",
+                    "text": "<p>Position the fixture <strong>3 feet above the tabletop</strong>.</p><p>Calculate the width of your ideal fixture by <strong>subtracting about a foot from the diameter</strong> of the table surface.</p>",
+                    "image_position": "bottom"
+                  },
+                  "blocks": {
+                    "global_image_HEKiFc": {
+                      "type": "global-image",
+                      "name": "Global Image",
+                      "settings": {
+                        "image": "shopify://shop_images/Chandelier_round_table.png"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "global_image_HEKiFc"
+                  ]
+                }
+              },
+              "block_order": [
+                "global_image_FKwkry",
+                "info_block_4Nb9w9"
+              ]
+            }
+          },
+          "block_order": [
+            "split_content_section_EYdqdW"
+          ]
+        }
+      },
+      "block_order": [
+        "split_content_section_xHdCye",
+        "split_content_section_Kn6J6i"
+      ],
+      "name": "Guide Section",
+      "settings": {
+        "heading": "Dining Areas",
+        "description": "HOW TO HANG OVER A TABLE",
+        "main_image": "shopify://shop_images/Dining_2_71a33cd0-89e4-4887-993f-8262d2dc05b1.jpg",
+        "tip": ""
+      }
     }
   },
   "order": [
@@ -325,6 +452,7 @@
     "slideshow_ffDiXn",
     "guide_section_e9jDXD",
     "guide_section_jB3Jea",
-    "guide_section_eR9WTd"
+    "guide_section_eR9WTd",
+    "guide_section_rCdEjz"
   ]
 }
