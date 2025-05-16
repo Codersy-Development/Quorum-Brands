@@ -169,117 +169,27 @@
     "guide_section_jB3Jea": {
       "type": "guide-section",
       "blocks": {
-        "split_content_section_h3jBaE": {
-          "type": "split-content-section",
-          "name": "Split Content Section",
+        "info_block_G4Pw3z": {
+          "type": "info-block",
+          "name": "Info Block with Image",
           "settings": {
-            "layout": "vertical"
+            "heading": "Bathroom",
+            "text": "<p>Ensure that the mirror is placed roughly 60 inches from the floor or at eye level so you can see yourself clearly when standing in front of it. If you have a taller faucet, adjust slightly and hang the mirror 2–3 inches above the tallest point of the faucet for the best look.</p>",
+            "image": "shopify://shop_images/Mirrors_bathroom.png",
+            "image_position": "bottom"
           },
-          "blocks": {
-            "info_block_PMWKeP": {
-              "type": "info-block",
-              "name": "Info Block with Image",
-              "settings": {
-                "heading": "Sconces",
-                "text": "<p>Create symmetry with sconces placed a few inches on each side of your mirror...</p>",
-                "image": "shopify://shop_images/Argo_Black_On.png",
-                "image_position": "bottom"
-              },
-              "blocks": {
-                "split_content_section_fJXydw": {
-                  "type": "split-content-section",
-                  "name": "Split Content Section",
-                  "settings": {
-                    "layout": "horizontal"
-                  },
-                  "blocks": {
-                    "global_image_DNMqLL": {
-                      "type": "global-image",
-                      "name": "Global Image",
-                      "settings": {
-                        "image": "shopify://shop_images/Sconce_bathroom_1.png"
-                      },
-                      "blocks": {}
-                    },
-                    "global_image_3zq9bU": {
-                      "type": "global-image",
-                      "name": "Global Image",
-                      "settings": {
-                        "image": "shopify://shop_images/548-1-65.jpg"
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "global_image_DNMqLL",
-                    "global_image_3zq9bU"
-                  ]
-                }
-              },
-              "block_order": [
-                "split_content_section_fJXydw"
-              ]
-            },
-            "info_block_HfyLpw": {
-              "type": "info-block",
-              "name": "Info Block with Image",
-              "settings": {
-                "heading": "Bar Lighting",
-                "text": "<p>Maintain a distance of about 75 inches between the floor and the lowest point of the fixture.Match the fixture width to about 3/4 of the mirror’s width, avoiding overhang. Opt for minimal wall extension to reduce shadows.</p>",
-                "image": "shopify://shop_images/Argo_Black_On.png",
-                "image_position": "bottom"
-              },
-              "blocks": {
-                "split_content_section_H8xWEn": {
-                  "type": "split-content-section",
-                  "name": "Split Content Section",
-                  "settings": {
-                    "layout": "horizontal"
-                  },
-                  "blocks": {
-                    "global_image_mWfnV8": {
-                      "type": "global-image",
-                      "name": "Global Image",
-                      "settings": {
-                        "image": "shopify://shop_images/Vanity_bathroom.png"
-                      },
-                      "blocks": {}
-                    },
-                    "global_image_7MLXTn": {
-                      "type": "global-image",
-                      "name": "Global Image",
-                      "settings": {
-                        "image": "shopify://shop_images/5169-3-47_4.jpg"
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "global_image_mWfnV8",
-                    "global_image_7MLXTn"
-                  ]
-                }
-              },
-              "block_order": [
-                "split_content_section_H8xWEn"
-              ]
-            }
-          },
-          "block_order": [
-            "info_block_PMWKeP",
-            "info_block_HfyLpw"
-          ]
+          "blocks": {}
         }
       },
       "block_order": [
-        "split_content_section_h3jBaE"
+        "info_block_G4Pw3z"
       ],
       "name": "Guide Section",
       "settings": {
         "heading": "",
         "description": "",
-        "main_image": "shopify://shop_images/Vanity.jpg",
-        "tip": "Dimmer switches allow you to adjust the brightness of the lights according to different tasks and moods. For example, you can dim the lights for a relaxing bath or increase the brightness for grooming tasks. Additionally, dimmer switches can help conserve energy and extend the lifespan of your light bulbs."
+        "main_image": "shopify://shop_images/Argo_Black_On.png",
+        "tip": ""
       }
     }
   },
