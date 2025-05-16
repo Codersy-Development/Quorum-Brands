@@ -24,7 +24,7 @@
 .oxygen {
   display: grid;
   grid-template-areas:
-    "img1 img1 text"
+    "img1 text text"
     "img2 img3 img4";
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
