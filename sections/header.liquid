@@ -35,6 +35,10 @@
         --colorNav: {{ block.settings.color_header }};
         --colorNavText: {{ block.settings.color_header_text }};
         --colorTextBody: {{ block.settings.color_header_text }};
+        --store-switch-buttons-bg: {{ block.settings.buttons_color }};
+        --store-switch-buttons-text-color: {{ block.settings.buttons_text_color }};
+        --selected-store-switch-btn-color: {{  block.settings.store_button_color }};
+        --selected-store-switch-btn-text-color: {{ block.settings.store_button_text_color }}
       }
       html[data-store-selected='{{ block.settings.title |  downcase }}'] {
         --colorAnnouncement: {{ block.settings.color_announcement }};
@@ -65,12 +69,12 @@
   .site-nav__dropdown-link--second-level {
     font-size: {{ settings.type_navigation_size }}px;
   }
-  
+
   /* Ensure summary elements get the same font size */
   summary.site-nav__link {
     font-size: {{ settings.type_navigation_size }}px;
   }
-  
+
   /* Store switcher menu links - make them consistent with main nav */
   .ssm__menu-link,
   .ssm__menu-link--title {
@@ -80,7 +84,7 @@
     .header-nav--second-row {
       margin-top: -10px; /* Brings elements closer together */
     }
-    
+
     /* Alternative: target store-switch-menus directly */
     .header-nav--second-row store-switch-menus {
       margin-top: -5px; /* Adjust this value as needed */
@@ -118,22 +122,22 @@
       border-top: 0;
     }
   {%- endif -%}
-  
+
   {% if section.settings.main_menu_alignment == 'center-all' %}
     .header-layout--center-all .site-nav {
       display: flex;
       flex-wrap: nowrap;
       justify-content: center;
     }
-    
+
     .header-layout--center-all .site-nav > li {
       display: inline-flex;
     }
-    
+
     .header-layout--center-all .site-nav__link {
       white-space: nowrap;
     }
-    
+
     .header-layout--center-all .header-item--navigation {
       flex: 1;
     }
@@ -254,7 +258,7 @@
               <div class="medium-up--hide hamburger-menu">
                 {{ hamburger_menu }}
               </div>
-              
+
               {%- if section.settings.main_menu_alignment == 'center-split' -%}
                 {%- render 'header-split-nav',
                   main_menu: main_menu,
@@ -269,10 +273,10 @@
                   {%- render 'header-logo-block', section: section -%}
                 </div>
               {%- endif -%}
-              
+
               {%- if section.settings.main_menu_alignment == 'center-all' -%}
                 <div
-                  class="header-item header-item--navigation{% if section.settings.main_menu_alignment == 'center-all' %} text-center{% endif %}"
+                  class="header-item header-item--navigation{% if section.settings.main_menu_alignment == 'center-all' %} text-center{% endif %} medium-down--hide"
                   {% unless disable_aria %}
                     role="navigation" aria-label="Primary"
                   {% endunless %}
@@ -291,7 +295,7 @@
               {%- render 'header-icons', section: section -%}
             </div>
           </div>
-          
+
           <div class="header-nav--second-row medium-down--hide">
             {{ hamburger_menu }}
             {% render 'store-switch-menus', section %}
@@ -306,7 +310,7 @@
               -%}
             </div>
           {%- endif -%}
-        </div> 
+        </div>
         <div class="site-header__search-container">
           <div class="site-header__search">
             <div class="page-width">
@@ -517,6 +521,26 @@
           "type": "checkbox",
           "label": "Is mega menu?",
           "id": "is_mega_menu"
+        },
+        {
+          "type": "color",
+          "label": "Store switch Buttons Colors",
+          "id": "buttons_color"
+        },
+        {
+          "type": "color",
+          "label": "This button color",
+          "id": "store_button_color"
+        },
+        {
+          "type": "color",
+          "label": "Store switch Buttons text color",
+          "id": "buttons_text_color"
+        },
+        {
+          "type": "color",
+          "label": "This button text color color",
+          "id": "store_button_text_color"
         },
         {
           "type": "color",

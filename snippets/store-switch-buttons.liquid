@@ -5,11 +5,11 @@
       {% when 'store_selector' %}
         {% assign store_name = block.settings.title %}
         <div class="store-switcher__btn">
-          <label for="store-switcher-{{ store_name  |  downcase }}">
+          <label for="store-switcher-{{ store_name  |  downcase }}--{{ random_number }}">
             <input
               type="radio"
               name="store-switcher-{{ random_number }}"
-              id="store-switcher-{{ store_name |  downcase }}"
+              id="store-switcher-{{ store_name |  downcase }}--{{ random_number }}"
               value="{{ store_name |  downcase  }}"
               checked
             >
