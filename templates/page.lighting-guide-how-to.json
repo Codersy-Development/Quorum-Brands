@@ -482,6 +482,144 @@
         "main_image": "shopify://shop_images/681-8-80_LiteLS.jpg",
         "tip": "Consider Aesthetics: Choose a chandelier size that complements the scale of the room and the furniture. The chandelier should not overwhelm the space but should make a visual impact."
       }
+    },
+    "guide_section_qdNxM6": {
+      "type": "guide-section",
+      "blocks": {
+        "split_content_section_66azfC": {
+          "type": "split-content-section",
+          "name": "Split Content Section",
+          "settings": {
+            "layout": "horizontal"
+          },
+          "blocks": {
+            "split_content_section_6yn47J": {
+              "type": "split-content-section",
+              "name": "Split Content Section",
+              "settings": {
+                "layout": "vertical"
+              },
+              "blocks": {
+                "split_content_section_Uy7kNF": {
+                  "type": "split-content-section",
+                  "name": "Split Content Section",
+                  "settings": {
+                    "layout": "vertical"
+                  },
+                  "blocks": {
+                    "info_block_6LArVQ": {
+                      "type": "info-block",
+                      "name": "Info Block with Image",
+                      "settings": {
+                        "heading": "Pendants",
+                        "text": "<p><strong>Proper Sizing:<br/></strong>Ensure that the size and scale of the hanging fixture are proportionate to the size of the nightstand and the space above it. A fixture that is too large may overwhelm the nightstand, while one that is too small may not provide adequate illumination or visual impact.<br/><strong>Height Placement:<br/></strong>A general guideline is to position the bottom of the fixture <strong>between 12 to 18 inches above the surface of the nightstand</strong>, allowing for comfortable reading and bedside tasks without obstructing the view.</p>",
+                        "image_position": "bottom"
+                      },
+                      "blocks": {
+                        "global_image_wPnnFN": {
+                          "type": "global-image",
+                          "name": "Global Image",
+                          "settings": {
+                            "image": "shopify://shop_images/Pendant_Bedroom.png"
+                          },
+                          "blocks": {}
+                        }
+                      },
+                      "block_order": [
+                        "global_image_wPnnFN"
+                      ]
+                    }
+                  },
+                  "block_order": [
+                    "info_block_6LArVQ"
+                  ]
+                },
+                "global_image_ifBXAj": {
+                  "type": "global-image",
+                  "name": "Global Image",
+                  "settings": {
+                    "image": "shopify://shop_images/Peloton_10051_beauty_alternative_v1_1.jpg"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "split_content_section_Uy7kNF",
+                "global_image_ifBXAj"
+              ]
+            },
+            "split_content_section_dQqY9n": {
+              "type": "split-content-section",
+              "name": "Split Content Section",
+              "settings": {
+                "layout": "vertical"
+              },
+              "blocks": {
+                "split_content_section_PcpRqJ": {
+                  "type": "split-content-section",
+                  "name": "Split Content Section",
+                  "settings": {
+                    "layout": "vertical"
+                  },
+                  "blocks": {
+                    "info_block_9CFygN": {
+                      "type": "info-block",
+                      "name": "Info Block with Image",
+                      "settings": {
+                        "heading": "Sconces",
+                        "text": "<p>Ensure that the sconces are mounted at a height that allows for comfortable reading and bedside tasks, typically <strong>around eye level when seated in bed</strong>.</p>",
+                        "image_position": "bottom"
+                      },
+                      "blocks": {
+                        "global_image_GcAWkQ": {
+                          "type": "global-image",
+                          "name": "Global Image",
+                          "settings": {
+                            "image": "shopify://shop_images/Sconce_Bedroom.png"
+                          },
+                          "blocks": {}
+                        }
+                      },
+                      "block_order": [
+                        "global_image_GcAWkQ"
+                      ]
+                    }
+                  },
+                  "block_order": [
+                    "info_block_9CFygN"
+                  ]
+                },
+                "global_image_AVJTYL": {
+                  "type": "global-image",
+                  "name": "Global Image",
+                  "settings": {
+                    "image": "shopify://shop_images/3-403-15_LS.jpg"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "split_content_section_PcpRqJ",
+                "global_image_AVJTYL"
+              ]
+            }
+          },
+          "block_order": [
+            "split_content_section_6yn47J",
+            "split_content_section_dQqY9n"
+          ]
+        }
+      },
+      "block_order": [
+        "split_content_section_66azfC"
+      ],
+      "name": "Guide Section",
+      "settings": {
+        "heading": "The Bedroom",
+        "description": "ACHIEVE FUNCTIONAL BEDSIDE LIGHTING",
+        "main_image": "shopify://shop_images/419_Bm_4274f.jpg",
+        "tip": "Consider dimmer switches or adjustable brightness levels. This allows you to customize the lighting ambiance according to your mood or time of day — whether you prefer soft, ambient lighting for winding down in the evening or brighter task lighting for reading."
+      }
     }
   },
   "order": [
@@ -491,6 +629,7 @@
     "guide_section_jB3Jea",
     "guide_section_eR9WTd",
     "guide_section_rCdEjz",
-    "guide_section_Kmx3dR"
+    "guide_section_Kmx3dR",
+    "guide_section_qdNxM6"
   ]
 }
