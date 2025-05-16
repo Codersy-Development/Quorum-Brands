@@ -35,9 +35,9 @@
 
 .oxygen .div1 { grid-area: img1; overflow: hidden; }
 .oxygen .div2 { grid-area: text; overflow: hidden; }
-.oxygen .div3 { grid-area: img2; overflow: hidden; }
-.oxygen .div4 { grid-area: img3; overflow: hidden; }
-.oxygen .div5 { grid-area: img4; overflow: hidden; }
+.oxygen .div3 { grid-area: img2; overflow: hidden; max-height: 300px; }
+.oxygen .div4 { grid-area: img3; overflow: hidden; max-height: 300px; }
+.oxygen .div5 { grid-area: img4; overflow: hidden; max-height: 300px; }
 
 .oxygen img {
   width: 100%;
