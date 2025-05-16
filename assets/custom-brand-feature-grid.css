@@ -121,6 +121,6 @@
     .div6,
     .div7,
     .div8 {
-      max-height: auto;
+      max-height: 100% !important;
     }
 }
