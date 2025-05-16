@@ -24,7 +24,7 @@
 .oxygen {
   display: grid;
   grid-template-areas:
-    "img1 text text"
+    "img1 img1 text"
     "img2 img3 img4";
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
@@ -33,11 +33,11 @@
   padding: 4rem 1rem;
 }
 
-.oxygen .div1 { grid-area: img1; }
-.oxygen .div2 { grid-area: text; }
-.oxygen .div3 { grid-area: img2; }
-.oxygen .div4 { grid-area: img3; }
-.oxygen .div5 { grid-area: img4; }
+.oxygen .div1 { grid-area: img1; overflow: hidden; }
+.oxygen .div2 { grid-area: text; overflow: hidden; }
+.oxygen .div3 { grid-area: img2; overflow: hidden; }
+.oxygen .div4 { grid-area: img3; overflow: hidden; }
+.oxygen .div5 { grid-area: img4; overflow: hidden; }
 
 .oxygen img {
   width: 100%;
