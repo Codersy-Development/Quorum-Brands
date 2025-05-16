@@ -1,6 +1,6 @@
 {{ 'custom-brand-feature-grid.css' | asset_url | stylesheet_tag }}
 <section
-        class="parent"
+        class="{% if section.settings.store == 'oxygen' %}oxygen{% else %}parent{% endif %}"
         {% unless section.settings.store == "all" %}
           data-store="{{ section.settings.store }}"
         {% endunless %}

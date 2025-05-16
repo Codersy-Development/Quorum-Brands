@@ -74,6 +74,7 @@
       "type": "image",
       "name": "Full Width Image",
       "settings": {
+        "store": "all",
         "image": "shopify://shop_images/Quorum-Company-Photo.jpg"
       }
     },
@@ -81,6 +82,7 @@
       "type": "video-with-text",
       "name": "Video with Text",
       "settings": {
+        "store": "all",
         "heading": "",
         "text": "<p>Quorum - “an appropriate number of members of a body that when duly assembled, is rightfully able to conduct business.”</p><p>Our success is the result of dedication, sacrifice, and the strength of a collective mindset. The story of Quorum began in the early days with a group of passionate individuals—a community united by the drive to take risks, break the mold, and embrace new opportunities.</p><p>Exceptional design, attention to detail, and quality craftsmanship areembedded in the DNA of every product we create. Our products are designed with our customers in mind, as we strive to deliver products that<br/>our customers are proud to purchase.</p>",
         "button_label": "Explore Products",
@@ -156,6 +158,7 @@
       ],
       "name": "Team Section",
       "settings": {
+        "store": "all",
         "title": "OUR DESIGN TEAM",
         "description_1": "We have an in-house design team of seasoned industrial designers who are the driving force behind our creations. Our acclaimed team collaborates closely to bring ideas to life, drawing inspiration from the world around us and applying it practically to the world of lighting and fans. With a focus on innovation, they explore new directions in design and finishes, ensuring that each product is a functional work of art.",
         "description_2": "From the beginning, our focus has been on lighting the way, moving air, and enhancing spaces. Fueled by a desire to create, we’ve developed a diverse range of lighting and fan solutions suitable for any style, space, or environment. These designs are crafted to transform spaces and elevate lifestyles, ensuring we meet the unique needs of our customers."
@@ -226,121 +229,56 @@
         "image_D8tyrf"
       ],
       "name": "Brand Feature Grid",
-      "settings": {}
+      "settings": {
+        "store": "quorum"
+      }
     },
-    "rich-text": {
-      "type": "rich-text",
+    "brand_feature_grid_RXXhQm": {
+      "type": "brand-feature-grid",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "image_DKBhRp": {
+          "type": "image",
           "settings": {
-            "title": "Rich text"
+            "image": "shopify://shop_images/3-878-56_7.jpg"
           }
         },
-        "text": {
+        "text_GAQaTb": {
           "type": "text",
           "settings": {
-            "enlarge_text": true,
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+            "title": "",
+            "text_style": "pink",
+            "content": "<p>Oxygen provides statement-making lighting and ceiling fan solutions for any commercial or multi-family application. We take pride in bringing a sleek and sophisticated<br/>aesthetic to any setting. As a division of Quorum International, an industry leader for<br/>over 40 years, Oxygen has carved its own path in differentiating its unique style of<br/>products. The brand’s vision is to create refreshing, modern fixtures that stand out as<br/>uniquely ours.<br/>Over the years, our designs have shared consistent characteristics that keep our fixtures entirely in line with our signature look—the use of sharp angles, clean lines, geometric styling, and monochromatic finishes. These highlights have allowed us to remain firmly grounded in modern/minimalistic design in all of our indoor and outdoor<br/>pendants, vanities, ceiling, and wall mounts.</p>"
+          }
+        },
+        "image_kRpWxg": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/3-80-56_5.jpg"
+          }
+        },
+        "image_PGV6Wh": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/3-647-56_5.jpg"
+          }
+        },
+        "image_kqwYmj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/3-892-15_4.jpg"
           }
         }
       },
       "block_order": [
-        "heading",
-        "text"
+        "image_DKBhRp",
+        "text_GAQaTb",
+        "image_kRpWxg",
+        "image_PGV6Wh",
+        "image_kqwYmj"
       ],
-      "disabled": true,
+      "name": "Brand Feature Grid",
       "settings": {
-        "align_text": "center",
-        "narrow_column": true,
-        "divider": false
-      }
-    },
-    "text-columns": {
-      "type": "text-columns",
-      "blocks": {
-        "column1": {
-          "type": "text_block",
-          "settings": {
-            "enable_image": true,
-            "image_mask": "none",
-            "image_width": 650,
-            "title": "Example title",
-            "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.</p>",
-            "button_label": "Optional button",
-            "button_link": ""
-          }
-        },
-        "column2": {
-          "type": "text_block",
-          "settings": {
-            "enable_image": true,
-            "image_mask": "none",
-            "image_width": 650,
-            "title": "Example title",
-            "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.</p>",
-            "button_label": "Optional button",
-            "button_link": ""
-          }
-        },
-        "column3": {
-          "type": "text_block",
-          "settings": {
-            "enable_image": true,
-            "image_mask": "none",
-            "image_width": 650,
-            "title": "Example title",
-            "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.</p>",
-            "button_label": "Optional button",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column1",
-        "column2",
-        "column3"
-      ],
-      "disabled": true,
-      "settings": {
-        "title": "",
-        "align_text": "center",
-        "divider": false
-      }
-    },
-    "map": {
-      "type": "map",
-      "disabled": true,
-      "settings": {
-        "map_title": "Our retail store",
-        "address": "<p>301 Front St W<br>Toronto, Canada</p><p>Mon - Fri, 8:30am - 10:30pm<br>Saturday, 8:30am - 10:30pm<br>Sunday, 8:30am - 10:30pm</p>",
-        "map_address": "301 Front St W, Toronto, ON M5V 2T6",
-        "api_key": "",
-        "show_button": true,
-        "lazyload_images": true
-      }
-    },
-    "featured-collection": {
-      "type": "featured-collection",
-      "disabled": true,
-      "settings": {
-        "title": "Featured collection",
-        "home_featured_products": "",
-        "per_row": 4,
-        "rows": 1,
-        "mobile_scrollable": true,
-        "view_all": true,
-        "divider": false
-      }
-    },
-    "form": {
-      "type": "contact-form",
-      "disabled": true,
-      "settings": {
-        "title": "Contact us",
-        "text": "",
-        "show_phone": false,
-        "narrow_column": true
+        "store": "oxygen"
       }
     }
   },
@@ -352,10 +290,6 @@
     "video_with_text_KipHdi",
     "team_section_7PJ7pU",
     "brand_feature_grid_f8E3iR",
-    "rich-text",
-    "text-columns",
-    "map",
-    "featured-collection",
-    "form"
+    "brand_feature_grid_RXXhQm"
   ]
 }

@@ -3,6 +3,15 @@ class StoreSwitcher extends HTMLElement {
     super();
     this.htmlEL = document.querySelector("html");
     this.inputs = this.querySelectorAll("input");
+
+    this._init();
+  }
+  connectedCallback() {
+    this.htmlEL = document.querySelector("html");
+    this.inputs = this.querySelectorAll("input");
+  }
+
+  _init() {
     if (localStorage.getItem("store-selected")) {
       this.inputs.forEach((input) => {
         if (input.value === localStorage.getItem("store-selected")) {
@@ -10,8 +19,19 @@ class StoreSwitcher extends HTMLElement {
         }
       });
     }
+
     this.inputs.forEach((input) => {
       input.addEventListener("change", () => {
+        if (!input.checked) {
+          return;
+        }
+        console.log(input);
+        this.inputs.forEach((otherInput) => {
+          if (input.name === otherInput.name && input.id !== otherInput.id) {
+            console.log("FOUND: ", otherInput);
+            otherInput.removeAttribute("checked");
+          }
+        });
         this.htmlEL.dataset.storeSelected = input.value;
         localStorage.setItem("store-selected", input.value);
         theme.headerNav.init();
@@ -26,6 +46,7 @@ class StoreSwitcher extends HTMLElement {
         }
       });
     });
+
     if (!localStorage.getItem("store-selected")) {
       localStorage.setItem("store-selected", this.inputs[0].value);
       this.htmlEL.dataset.storeSelected = this.inputs[0].value;
@@ -82,8 +103,40 @@ class StoreSwitchMenus extends HTMLElement {
   constructor() {
     super();
 
-    this.initMegaMenuPos();
+    // this.initMegaMenuPos();
     this.initMegaMenuHeight();
+    this.initShowingLogic();
+  }
+
+  initShowingLogic() {
+    const header = document.getElementById("SiteHeader");
+    const itemsWithMega = this.querySelectorAll(
+      ".ssm__menu li:has(.ssm__mega-menu)"
+    );
+    const hideAllMegas = () => {
+      itemsWithMega.forEach((li) => {
+        li.querySelector(".ssm__mega-menu").classList.remove("visible");
+      });
+    };
+
+    header.querySelectorAll("li:not(:has(.ssm__mega-menu))").forEach((el) => {
+      el.addEventListener("mouseover", () => {
+        hideAllMegas();
+      });
+    });
+
+    header.addEventListener("mouseleave", () => {
+      hideAllMegas();
+    });
+
+    this.querySelectorAll(".ssm__menu li:has(.ssm__mega-menu)").forEach(
+      (link) => {
+        link.addEventListener("mouseover", () => {
+          hideAllMegas();
+          link.querySelector(".ssm__mega-menu").classList.add("visible");
+        });
+      }
+    );
   }
 
   initMegaMenuPos() {

@@ -30,7 +30,9 @@ store-switcher {
   & .store-switcher__btn {
     border: 1px solid;
     border-radius: 0.3rem;
-    border-color: rgb(229, 231, 235);
+    border-color: var(--store-switch-buttons-text-color);
+    background-color: var(--store-switch-buttons-bg);
+    color: var(--store-switch-buttons-text-color);
     padding: 6px 18px;
     height: fit-content;
   }
@@ -38,10 +40,15 @@ store-switcher {
     letter-spacing: 0.032rem;
     line-height: 1.4rem;
     font-size: 1rem;
-    color: var(--colorNavText);
+    color: var(--store-switch-buttons-text-color);
   }
   & .store-switcher__btn:has(input:checked) {
-    border-color: var(--colorNavText);
+    border-color: var(--selected-store-switch-btn-color);
+    color: var(--selected-store-switch-btn-text-color);
+    background-color: var(--selected-store-switch-btn-color);
+  }
+  & .store-switcher__btn:has(input:checked) .store-switcher-title {
+    color: var(--selected-store-switch-btn-text-color);
   }
 }
 
@@ -95,32 +102,34 @@ store-switch-menus {
   }
 
   li:has(> .ssm__mega-menu) {
-    position: relative;
+    /* position: relative; */
   }
   & .ssm__mega-menu {
     position: absolute;
     top: calc(100% - 4px);
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+
     background-color: var(--colorNav);
     padding: 1rem 1.5rem;
     visibility: hidden;
     opacity: 0;
+    width: 100vw;
     pointer-events: none;
   }
-  li:hover > .ssm__mega-menu {
+  .ssm__mega-menu.visible {
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
   }
   & .ssm__mega-menu-container {
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
     gap: 1rem;
-    max-height: 250px;
-    width: max-content;
     line-height: 2;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1440px;
+    margin: auto;
   }
   & .ssm__menu-link--title {
     text-transform: uppercase;
