@@ -445,6 +445,43 @@
         "main_image": "shopify://shop_images/Dining_2_71a33cd0-89e4-4887-993f-8262d2dc05b1.jpg",
         "tip": ""
       }
+    },
+    "guide_section_Kmx3dR": {
+      "type": "guide-section",
+      "blocks": {
+        "info_block_3hdcPG": {
+          "type": "info-block",
+          "name": "Info Block with Image",
+          "settings": {
+            "heading": "Chandeliers in a Room",
+            "text": "<p><strong>Measure the Room:<br/></strong>Measure the length and width of the room in feet.</p><p><strong>Calculate Fixture Diameter:<br/></strong>Add the room length and room width in feet together. Convert to inches — this sum gives you the suggested diameter for the chandelier.</p><p><strong>Determine Hang Height:<br/></strong>Measure the ceiling height in feet<br/>2.5 to find the <strong>minimum hang height</strong>.<br/>3 to find the <strong>maximum hang height</strong>.<br/></p>",
+            "image_position": "bottom"
+          },
+          "blocks": {
+            "global_image_y93z66": {
+              "type": "global-image",
+              "name": "Global Image",
+              "settings": {
+                "image": "shopify://shop_images/892-3-80_6.jpg"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "global_image_y93z66"
+          ]
+        }
+      },
+      "block_order": [
+        "info_block_3hdcPG"
+      ],
+      "name": "Guide Section",
+      "settings": {
+        "heading": "Living Spaces",
+        "description": "HOW TO HANG IN ROOM",
+        "main_image": "shopify://shop_images/681-8-80_LiteLS.jpg",
+        "tip": "Consider Aesthetics: Choose a chandelier size that complements the scale of the room and the furniture. The chandelier should not overwhelm the space but should make a visual impact."
+      }
     }
   },
   "order": [
@@ -453,6 +490,7 @@
     "guide_section_e9jDXD",
     "guide_section_jB3Jea",
     "guide_section_eR9WTd",
-    "guide_section_rCdEjz"
+    "guide_section_rCdEjz",
+    "guide_section_Kmx3dR"
   ]
 }
