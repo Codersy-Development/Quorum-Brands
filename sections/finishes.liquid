@@ -1,0 +1,153 @@
+{{ 'finishes.css' | asset_url | stylesheet_tag }}
+
+<section class="finishes-section">
+
+  {% if section.blocks.size > 0 %}
+    <button
+      type="button"
+      class="finishes-section__toggle"
+      data-show-more="{{ section.settings.show_more_text }}"
+      data-show-less="{{ section.settings.show_less_text }}"
+    >
+      {{ section.settings.show_more_text }}
+    </button>
+  {% endif %}
+
+  <div class="finishes-section__grid finishes-section__grid--preview">
+    {% for block in section.blocks limit:5 %}
+      <div class="finishes-section__item">
+        {% if block.settings.image %}
+          <img
+            src="{{ block.settings.image | img_url: 'medium' }}"
+            alt="{{ block.settings.label }}"
+          />
+        {% endif %}
+        {% if block.settings.label != blank %}
+          <p class="finishes-section__label">{{ block.settings.label }}</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="finishes-section__grid finishes-section__grid--more">
+    {% for block in section.blocks offset:5 %}
+      <div class="finishes-section__item">
+        {% if block.settings.image %}
+          <img
+            src="{{ block.settings.image | img_url: 'medium' }}"
+            alt="{{ block.settings.label }}"
+          />
+        {% endif %}
+        {% if block.settings.label != blank %}
+          <p class="finishes-section__label">{{ block.settings.label }}</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="finishes-section__grid finishes-section__grid--all">
+    {% for block in section.blocks %}
+      <div class="finishes-section__item">
+        {% if block.settings.image %}
+          <img
+            src="{{ block.settings.image | img_url: 'medium' }}"
+            alt="{{ block.settings.label }}"
+          />
+        {% endif %}
+        {% if block.settings.label != blank %}
+          <p class="finishes-section__label">{{ block.settings.label }}</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.finishes-section').forEach(function(sec) {
+      var btn  = sec.querySelector('.finishes-section__toggle');
+      var more = sec.querySelector('.finishes-section__grid--more');
+      var all  = sec.querySelector('.finishes-section__grid--all');
+      if (!btn) return;
+
+      var showMoreText = btn.dataset.showMore;
+      var showLessText = btn.dataset.showLess;
+
+      function updateBtn(isOpen) {
+        btn.textContent = isOpen ? showLessText : showMoreText;
+        btn.classList.toggle('open', isOpen);
+      }
+
+      btn.addEventListener('click', function() {
+        var isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+        if (isMobile) {
+          all.classList.toggle('visible');
+          updateBtn(all.classList.contains('visible'));
+        } else {
+          more.classList.toggle('visible');
+          updateBtn(more.classList.contains('visible'));
+        }
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Finishes",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Finish Options"
+    },
+    {
+      "type": "text",
+      "id": "show_more_text",
+      "label": "Show more button text",
+      "default": "Show more"
+    },
+    {
+      "type": "text",
+      "id": "show_less_text",
+      "label": "Show less button text",
+      "default": "Show less"
+    },
+    {
+      "type": "checkbox",
+      "id": "opened",
+      "label": "Open by default",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Finish Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Finish"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "presets": [
+    {
+      "name": "Finishes",
+      "category": "Product"
+    }
+  ]
+}
+{% endschema %}

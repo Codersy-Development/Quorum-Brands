@@ -1,0 +1,292 @@
+{
+	"sections": {
+		"main": {
+			"type": "main-page",
+			"disabled": true,
+			"settings": {}
+		},
+		"slideshow_AAxj9k": {
+			"type": "slideshow",
+			"blocks": {
+				"image_YQ4NDV": {
+					"type": "image",
+					"settings": {
+						"top_subheading": "",
+						"title": "",
+						"title_size": 80,
+						"subheading": "",
+						"link": "",
+						"link_text": "",
+						"link_2": "",
+						"link_text_2": "",
+						"color_accent": "rgba(0,0,0,0)",
+						"text_align": "",
+						"parallax_direction": "top",
+						"overlay_opacity": 0
+					}
+				}
+			},
+			"block_order": ["image_YQ4NDV"],
+			"name": "t:sections.slideshow.presets.hero_optional_slideshow.name",
+			"settings": {
+				"section_height": "650px",
+				"mobile_height": "auto",
+				"parallax": false,
+				"style": "bars",
+				"autoplay": false,
+				"autoplay_speed": 5,
+				"lazyload_images": true
+			}
+		},
+		"rich_text_YKc8iz": {
+			"type": "rich-text",
+			"blocks": {
+				"heading_FeMzLz": {
+					"type": "heading",
+					"settings": {
+						"title": "Finishes"
+					}
+				},
+				"text_JCcpkR": {
+					"type": "text",
+					"settings": {
+						"enlarge_text": false,
+						"text": "<p>We understand that the finish of a product can transform its entire look and feel. That’s why we offer a diverse collection of high-quality finishes that complement every style, from modern elegance to classic charm. Whether you’re looking to create a bold statement or add a subtle touch of sophis-</p>"
+					}
+				}
+			},
+			"block_order": ["heading_FeMzLz", "text_JCcpkR"],
+			"name": "t:sections.rich-text.presets.rich_text.name",
+			"settings": {
+				"align_text": "center",
+				"narrow_column": true,
+				"divider": false
+			}
+		},
+		"finishes_ym9xT3": {
+			"type": "finishes",
+			"blocks": {
+				"item_KJiqTQ": {
+					"type": "item",
+					"settings": {
+						"image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
+						"label": "Finish 1"
+					}
+				},
+				"item_QEMrkV": {
+					"type": "item",
+					"settings": {
+						"image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
+						"label": "Finish 1"
+					}
+				},
+				"item_wdQbaP": {
+					"type": "item",
+					"settings": {
+						"image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
+						"label": "Finish 1"
+					}
+				},
+				"item_tdh4Wf": {
+					"type": "item",
+					"settings": {
+						"image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
+						"label": "Finish 1"
+					}
+				},
+				"item_xLrNNL": {
+					"type": "item",
+					"settings": {
+						"image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
+						"label": "Finish 1"
+					}
+				},
+				"item_iYrUnA": {
+					"type": "item",
+					"settings": {
+						"image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
+						"label": "Finish 1"
+					}
+				}
+			},
+			"block_order": ["item_KJiqTQ", "item_QEMrkV", "item_wdQbaP", "item_tdh4Wf", "item_xLrNNL", "item_iYrUnA"],
+			"name": "Finishes",
+			"settings": {
+				"title": "Finishes",
+				"show_more_text": "Show all finishes",
+				"show_less_text": "Collapse",
+				"opened": true
+			}
+		},
+		"rich_text_KNpbP3": {
+			"type": "rich-text",
+			"blocks": {
+				"heading_EizcTh": {
+					"type": "heading",
+					"settings": {
+						"title": "Glass"
+					}
+				},
+				"text_83mcQ7": {
+					"type": "text",
+					"settings": {
+						"enlarge_text": false,
+						"text": "<p>We understand that the finish of a product can transform its entire look and feel. That’s why we offer a diverse collection of high-quality finishes that complement every style, from modern elegance to classic charm. Whether you’re looking to create a bold statement or add a subtle touch of sophis-</p>"
+					}
+				}
+			},
+			"block_order": ["heading_EizcTh", "text_83mcQ7"],
+			"name": "t:sections.rich-text.presets.rich_text.name",
+			"settings": {
+				"align_text": "center",
+				"narrow_column": true,
+				"divider": false
+			}
+		},
+		"finishes_TmFJWN": {
+			"type": "finishes",
+			"blocks": {
+				"item_PcJfAb": {
+					"type": "item",
+					"settings": {
+						"image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
+						"label": "Finish 1"
+					}
+				},
+				"item_hQ3AHb": {
+					"type": "item",
+					"settings": {
+						"image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
+						"label": "Finish 1"
+					}
+				},
+				"item_kCpA3N": {
+					"type": "item",
+					"settings": {
+						"image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
+						"label": "Finish 1"
+					}
+				},
+				"item_dpJLqY": {
+					"type": "item",
+					"settings": {
+						"image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
+						"label": "Finish 1"
+					}
+				},
+				"item_AVBwjC": {
+					"type": "item",
+					"settings": {
+						"image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
+						"label": "Finish 1"
+					}
+				},
+				"item_Pz9TzV": {
+					"type": "item",
+					"settings": {
+						"image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
+						"label": "Finish 1"
+					}
+				}
+			},
+			"block_order": ["item_PcJfAb", "item_hQ3AHb", "item_kCpA3N", "item_dpJLqY", "item_AVBwjC", "item_Pz9TzV"],
+			"name": "Finishes",
+			"settings": {
+				"title": "Finishes",
+				"show_more_text": "Show more",
+				"show_less_text": "Show less finishes",
+				"opened": true
+			}
+		},
+		"rich_text_dr3B67": {
+			"type": "rich-text",
+			"blocks": {
+				"heading_pw7wxc": {
+					"type": "heading",
+					"settings": {
+						"title": "Blade finishes"
+					}
+				},
+				"text_FHq6Vx": {
+					"type": "text",
+					"settings": {
+						"enlarge_text": false,
+						"text": "<p>We understand that the finish of a product can transform its entire look and feel. That’s why we offer a diverse collection of high-quality finishes that complement every style, from modern elegance to classic charm. Whether you’re looking to create a bold statement or add a subtle touch of sophis-</p>"
+					}
+				}
+			},
+			"block_order": ["heading_pw7wxc", "text_FHq6Vx"],
+			"name": "t:sections.rich-text.presets.rich_text.name",
+			"settings": {
+				"align_text": "center",
+				"narrow_column": true,
+				"divider": false
+			}
+		},
+		"finishes_VTrVRY": {
+			"type": "finishes",
+			"blocks": {
+				"item_jP9bY4": {
+					"type": "item",
+					"settings": {
+						"image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
+						"label": "Finish 1"
+					}
+				},
+				"item_ygd9qT": {
+					"type": "item",
+					"settings": {
+						"image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
+						"label": "Finish 1"
+					}
+				},
+				"item_BnwWCB": {
+					"type": "item",
+					"settings": {
+						"image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
+						"label": "Finish 1"
+					}
+				},
+				"item_7mbUKh": {
+					"type": "item",
+					"settings": {
+						"image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
+						"label": "Finish 1"
+					}
+				},
+				"item_cdrJ79": {
+					"type": "item",
+					"settings": {
+						"image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
+						"label": "Finish 1"
+					}
+				},
+				"item_8QgyBt": {
+					"type": "item",
+					"settings": {
+						"image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
+						"label": "Finish 1"
+					}
+				}
+			},
+			"block_order": ["item_jP9bY4", "item_ygd9qT", "item_BnwWCB", "item_7mbUKh", "item_cdrJ79", "item_8QgyBt"],
+			"name": "Finishes",
+			"settings": {
+				"title": "Finishes",
+				"show_more_text": "Show more",
+				"show_less_text": "Show less finishes",
+				"opened": true
+			}
+		}
+	},
+	"order": [
+		"main",
+		"slideshow_AAxj9k",
+		"rich_text_YKc8iz",
+		"finishes_ym9xT3",
+		"rich_text_KNpbP3",
+		"finishes_TmFJWN",
+		"rich_text_dr3B67",
+		"finishes_VTrVRY"
+	]
+}

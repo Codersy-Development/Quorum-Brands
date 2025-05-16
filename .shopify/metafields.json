@@ -9,7 +9,1748 @@
   "market": [],
   "order": [],
   "page": [],
-  "product": [],
+  "product": [
+    {
+      "key": "queries",
+      "namespace": "shopify--discovery--product_search_boost",
+      "name": "Search product boosts",
+      "description": "List of search queries for which a product gets higher rank in search results",
+      "type": {
+        "name": "list.single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "related_products",
+      "namespace": "shopify--discovery--product_recommendation",
+      "name": "Related products",
+      "description": "List of related products",
+      "type": {
+        "name": "list.product_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "related_products_display",
+      "namespace": "shopify--discovery--product_recommendation",
+      "name": "Related products settings",
+      "description": "Determines how related products are displayed along with algorithmic product recommendations",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "complementary_products",
+      "namespace": "shopify--discovery--product_recommendation",
+      "name": "Complementary products",
+      "description": "List of complementary products",
+      "type": {
+        "name": "list.product_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "blade_material",
+      "namespace": "custom",
+      "name": "Prefix Blade Material",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "blade_number",
+      "namespace": "custom",
+      "name": "Number of Blades",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "button_cutsheet",
+      "namespace": "custom",
+      "name": "Cutsheet Button HTML",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "button_ies",
+      "namespace": "custom",
+      "name": "IES Button HTML",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "button_instructions",
+      "namespace": "custom",
+      "name": "Instructions Button HTML",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "button_photo_metrics",
+      "namespace": "custom",
+      "name": "Photo Metrics Button HTML",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "cETL",
+      "namespace": "custom",
+      "name": "Prefix cETL",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "cETL_Logo",
+      "namespace": "custom",
+      "name": "cETL Logo Image HTML",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "color_temp",
+      "namespace": "custom",
+      "name": "Filter Color Temperature",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "cUL",
+      "namespace": "custom",
+      "name": "Prefix cUL",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "depth",
+      "namespace": "custom",
+      "name": "Filter Depth",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "designer",
+      "namespace": "custom",
+      "name": "Filter Designer",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "diameter",
+      "namespace": "custom",
+      "name": "Filter Diameter",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "dimmable",
+      "namespace": "custom",
+      "name": "Filter Dimmable",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "ELT",
+      "namespace": "custom",
+      "name": "Prefix ETL",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "extension",
+      "namespace": "custom",
+      "name": "Filter Extension",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "height",
+      "namespace": "custom",
+      "name": "Filter Height",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "housing_color",
+      "namespace": "custom",
+      "name": "Filter Housing Color",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "integrated_LED",
+      "namespace": "custom",
+      "name": "Filter Integrated LED",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "item_series",
+      "namespace": "custom",
+      "name": "Filter Item Series",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "length",
+      "namespace": "custom",
+      "name": "Filter Length",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "lightkit_adaptable",
+      "namespace": "custom",
+      "name": "Filter Light Kit Adaptable",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "lightkit_included",
+      "namespace": "custom",
+      "name": "Filter Light Kit Included",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "material_1",
+      "namespace": "custom",
+      "name": "Filter Material 1",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "material_2",
+      "namespace": "custom",
+      "name": "Filter Material 2",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "material_3",
+      "namespace": "custom",
+      "name": "Filter Material 3",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "mfg_finish_1",
+      "namespace": "custom",
+      "name": "Filter Finish 1",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "mfg_finish_2",
+      "namespace": "custom",
+      "name": "Filter Finish 2",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "mfg_finish_3",
+      "namespace": "custom",
+      "name": "Filter Finish 3",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "motor_size",
+      "namespace": "custom",
+      "name": "Filter Motor Size",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_amps",
+      "namespace": "custom",
+      "name": "Prefix Amps",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_back_plate_depth",
+      "namespace": "custom",
+      "name": "Prefix Backplate Depth",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_back_plate_height",
+      "namespace": "custom",
+      "name": "Prefix Backplate Height",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_back_plate_width",
+      "namespace": "custom",
+      "name": "Prefix Backplate Width",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_blade_finish_a",
+      "namespace": "custom",
+      "name": "Prefix Blade Finish A",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_blade_finish_b",
+      "namespace": "custom",
+      "name": "Prefix Blade Finish B",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_blade_material",
+      "namespace": "custom",
+      "name": "Prefix Blade Material",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_blade_number",
+      "namespace": "custom",
+      "name": "Prefix Blade Number",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_blade_pitch",
+      "namespace": "custom",
+      "name": "Prefix Blade Pitch",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_blub_type",
+      "namespace": "custom",
+      "name": "Prefix Bulb Type",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_bulbs_included",
+      "namespace": "custom",
+      "name": "Prefix Bulbs Included",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_candle_finish_1",
+      "namespace": "custom",
+      "name": "Prefix Candle Finish 1",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_candle_finish_2",
+      "namespace": "custom",
+      "name": "Prefix Candle Finish 2",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_canopy_finish",
+      "namespace": "custom",
+      "name": "Prefix Canopy Finish",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_canopy_height",
+      "namespace": "custom",
+      "name": "Prefix Canopy Height",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_canopy_length",
+      "namespace": "custom",
+      "name": "Prefix Canopy Length",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_canopy_width",
+      "namespace": "custom",
+      "name": "Prefix Canopy Width",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_carton_height",
+      "namespace": "custom",
+      "name": "Prefix Carton Height",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_carton_length",
+      "namespace": "custom",
+      "name": "Prefix Carton Length",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_carton_weight",
+      "namespace": "custom",
+      "name": "Prefix Carton Weight",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_carton_width",
+      "namespace": "custom",
+      "name": "Prefix Carton Width",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_CCT_1",
+      "namespace": "custom",
+      "name": "Prefix CCT 1",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_CCT_2",
+      "namespace": "custom",
+      "name": "Prefix CCT 2",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_CCT_3",
+      "namespace": "custom",
+      "name": "Prefix CCT 3",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_CCT_4",
+      "namespace": "custom",
+      "name": "Prefix CCT 4",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_CCT_5",
+      "namespace": "custom",
+      "name": "Prefix CCT 5",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_CCT_6",
+      "namespace": "custom",
+      "name": "Prefix CCT 6",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_ceiling_blade_height_1",
+      "namespace": "custom",
+      "name": "Prefix Ceiling Blade Height 1",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_ceiling_blade_height_2",
+      "namespace": "custom",
+      "name": "Prefix Ceiling Blade Height 2",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_ceiling_bottom_height_1",
+      "namespace": "custom",
+      "name": "Prefix Ceiling Bottom Height 1",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_ceiling_bottom_height_2",
+      "namespace": "custom",
+      "name": "Prefix Ceiling to Bottom Height 2",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_CFM_airflow_1",
+      "namespace": "custom",
+      "name": "Prefix CFM Airflow 1",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_CFM_airflow_3",
+      "namespace": "custom",
+      "name": "Prefix CFM Airflow 3",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_CFM_speed_1",
+      "namespace": "custom",
+      "name": "Prefix CFM Speed 1",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_CFM_speed_3",
+      "namespace": "custom",
+      "name": "Prefix CFM Speed 3",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_CFM_watts_1",
+      "namespace": "custom",
+      "name": "Prefix CFM Watts 1",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_CFM_watts_3",
+      "namespace": "custom",
+      "name": "Prefix CFM Watts 3",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_chain_finish",
+      "namespace": "custom",
+      "name": "Prefix Chain Finish",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_chain_length_1",
+      "namespace": "custom",
+      "name": "Prefix Chain Length 1",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_chain_length_2",
+      "namespace": "custom",
+      "name": "Prefix Chain Length 2",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_coastal_grade",
+      "namespace": "custom",
+      "name": "Prefix Coastal Grade",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_color_temp",
+      "namespace": "custom",
+      "name": "Prefix Color Temp",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_cri",
+      "namespace": "custom",
+      "name": "Prefix CRI",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_dark_sky_compliant",
+      "namespace": "custom",
+      "name": "Prefix Dark Sky Compliant",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_delivered_lumens",
+      "namespace": "custom",
+      "name": "Prefix Delivered Lumens",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_Depth",
+      "namespace": "custom",
+      "name": "Prefix Depth",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_designer",
+      "namespace": "custom",
+      "name": "Prefix Designer",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_diameter",
+      "namespace": "custom",
+      "name": "Prefix Diameter",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_diffuser_height_1",
+      "namespace": "custom",
+      "name": "Prefix Diffuser Height 1",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_diffuser_height_2",
+      "namespace": "custom",
+      "name": "Prefix Diffuser Height 2",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_diffuser_material",
+      "namespace": "custom",
+      "name": "Prefix Diffuser Material",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_diffuser_width_2",
+      "namespace": "custom",
+      "name": "Prefix Diffuser Width 2",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_dimmable",
+      "namespace": "custom",
+      "name": "Prefix Dimmer",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_downrod_diameter_1",
+      "namespace": "custom",
+      "name": "Prefix Downrod Diameter 1",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_downrod_diameter_2",
+      "namespace": "custom",
+      "name": "Prefix Downrod Diameter 2",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_downrod_length_1",
+      "namespace": "custom",
+      "name": "Prefix Downrod Length 1",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_downrod_length_2",
+      "namespace": "custom",
+      "name": "Prefix Downrod Length 2",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_driver_model",
+      "namespace": "custom",
+      "name": "Prefix Driver Model",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_driver_voltage",
+      "namespace": "custom",
+      "name": "Prefix Drive Voltage",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_extended_sloped_ceiling",
+      "namespace": "custom",
+      "name": "Prefix Extended Sloped Celing",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_extension",
+      "namespace": "custom",
+      "name": "Prefix Extension",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_finish_1",
+      "namespace": "custom",
+      "name": "Prefix Finish 1",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_finish_2",
+      "namespace": "custom",
+      "name": "Prefix Finish 2",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_finish_3",
+      "namespace": "custom",
+      "name": "Prefix Finish 3",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_height",
+      "namespace": "custom",
+      "name": "Prefix Height",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_housing_color",
+      "namespace": "custom",
+      "name": "Prefix Housing Color",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_housing_diameter",
+      "namespace": "custom",
+      "name": "Prefix Housing Diamteter",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_housing_height",
+      "namespace": "custom",
+      "name": "Prefix Housing Height",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_initial_lumens",
+      "namespace": "custom",
+      "name": "Prefix Initial Lumens",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_integrated_LED",
+      "namespace": "custom",
+      "name": "Prefix Integrated LED",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_item_series",
+      "namespace": "custom",
+      "name": "Prefix Item Series",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_leadwire_length",
+      "namespace": "custom",
+      "name": "Prefix Leadwire Length",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_length",
+      "namespace": "custom",
+      "name": "Prefix Length",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_lightkit_adaptable",
+      "namespace": "custom",
+      "name": "Prefix Light Kit Adaptable",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_lightkit_included",
+      "namespace": "custom",
+      "name": "Prefix Light Kit Included",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_manufacturer_warranty",
+      "namespace": "custom",
+      "name": "Prefix Manufacturer Warranty",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_material_1",
+      "namespace": "custom",
+      "name": "Prefix Material 1",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_material_2",
+      "namespace": "custom",
+      "name": "Prefix Material 2",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_material_3",
+      "namespace": "custom",
+      "name": "Prefix Material 3",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_motor_diameter",
+      "namespace": "custom",
+      "name": "Prefix Motor Diameter",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_motor_height",
+      "namespace": "custom",
+      "name": "Prefix Motor Height",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_motor_poles",
+      "namespace": "custom",
+      "name": "Prefix Motor Poles",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_motor_size",
+      "namespace": "custom",
+      "name": "Prefix Motor Size",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_motor_width",
+      "namespace": "custom",
+      "name": "Prefix Motor Width",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_mount_bottom_back_plate",
+      "namespace": "custom",
+      "name": "Prefix Mounting Bottom to Backplate",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_mount_bottom_fixutre",
+      "namespace": "custom",
+      "name": "Prefix Mounting to Bottom Fixture",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_mount_plate_height",
+      "namespace": "custom",
+      "name": "Prefix Mounting Plate Height",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_mount_plate_width",
+      "namespace": "custom",
+      "name": "Prefix Mounting Plate Width",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_mount_top_back_plate",
+      "namespace": "custom",
+      "name": "Prefix Mounting to Top Backplate",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_mount_top_fixutre",
+      "namespace": "custom",
+      "name": "Prefix Mounting to Top of Fixture",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_number_of_lights",
+      "namespace": "custom",
+      "name": "Prefix Number of Lights",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "number_of_lights",
+      "namespace": "custom",
+      "name": "Filter Number of Lights",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_power_cord",
+      "namespace": "custom",
+      "name": "Prefix Power Cord",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_remote_adaptable",
+      "namespace": "custom",
+      "name": "Prefix Remote Adaptable",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_reverse_switch_type",
+      "namespace": "custom",
+      "name": "Prefix Reverse Switch Type",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_rod_1",
+      "namespace": "custom",
+      "name": "Prefix Rod 1",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_rod_2",
+      "namespace": "custom",
+      "name": "Prefix Rod 2",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_rod_3",
+      "namespace": "custom",
+      "name": "Prefix Rod 3",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_rod_finish",
+      "namespace": "custom",
+      "name": "Prefix Rod Finish",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_shade_height",
+      "namespace": "custom",
+      "name": "Prefix Shade Height",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_shade_length",
+      "namespace": "custom",
+      "name": "Prefix Shade Length",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_shade_width",
+      "namespace": "custom",
+      "name": "Prefix Shade Width",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_shipping",
+      "namespace": "custom",
+      "name": "Prefix Shipping",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_sloped_ceiling_adaptable",
+      "namespace": "custom",
+      "name": "Prefix Sloped Ceiling Adaptable",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_smart_bond",
+      "namespace": "custom",
+      "name": "Prefix Smart Bond",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_socket_base",
+      "namespace": "custom",
+      "name": "Prefix Socket Base",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_standard_sloped_ceiling",
+      "namespace": "custom",
+      "name": "Prefix Standard Sloped Ceiling",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_switch_type",
+      "namespace": "custom",
+      "name": "Prefix Switch Type",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_UL_type",
+      "namespace": "custom",
+      "name": "Prefix UL Type (Location Rating)",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_voltage",
+      "namespace": "custom",
+      "name": "Prefix Voltage",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_wattage",
+      "namespace": "custom",
+      "name": "Prefix Wattage",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_weight",
+      "namespace": "custom",
+      "name": "Prefix Weight",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_width",
+      "namespace": "custom",
+      "name": "Prefix Width",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "product_type",
+      "namespace": "custom",
+      "name": "Filter Product Type",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "safety_ratings",
+      "namespace": "custom",
+      "name": "Prefix Safety Ratings",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "shade_height",
+      "namespace": "custom",
+      "name": "Filter Shade Height",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "shade_length",
+      "namespace": "custom",
+      "name": "Filter Shade Length",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "sloped_ceiling_adaptable",
+      "namespace": "custom",
+      "name": "Filter Sloped Ceiling Adaptable",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "smart_bond",
+      "namespace": "custom",
+      "name": "Filter Smart Bond",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "UL_type",
+      "namespace": "custom",
+      "name": "Filter UL Type",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "weight",
+      "namespace": "custom",
+      "name": "Filter Weight",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "width",
+      "namespace": "custom",
+      "name": "Filter Width",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "button_revit",
+      "namespace": "custom",
+      "name": "Revit Button HTML",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_diffuser_width_1",
+      "namespace": "custom",
+      "name": "Prefix Diffuser Width 1",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "blade_sweep",
+      "namespace": "custom",
+      "name": "Filter Blade",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_blade_sweep",
+      "namespace": "custom",
+      "name": "Prefix Blade Sweep",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "cUL_logo",
+      "namespace": "custom",
+      "name": "cUL Logo HTML",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "vimeo",
+      "namespace": "custom",
+      "name": "Vimeo",
+      "description": "",
+      "type": {
+        "name": "multi_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_RPM_speed_1",
+      "namespace": "custom",
+      "name": "Prefix RPM Speed 1",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_RPM_speed_3",
+      "namespace": "custom",
+      "name": "Prefix RPM Speed 3",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "vimeo_link_url",
+      "namespace": "custom",
+      "name": "Vimeo Link URL",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "CCT_logo",
+      "namespace": "custom",
+      "name": "CTT Logo HTML",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "ELT_logo",
+      "namespace": "custom",
+      "name": "ETL Logo HTML",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "ghost_logo",
+      "namespace": "custom",
+      "name": "Ghost Logo HTML",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_defogger",
+      "namespace": "custom",
+      "name": "Prefix Defogger",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_ghost_frame",
+      "namespace": "custom",
+      "name": "Prefix Ghost Frame",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_ghost_light",
+      "namespace": "custom",
+      "name": "Prefix Ghost Light",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_infered",
+      "namespace": "custom",
+      "name": "Prefix Infered",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_modular_system",
+      "namespace": "custom",
+      "name": "Prefix Modular System",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "prefix_wireless_charging",
+      "namespace": "custom",
+      "name": "Prefix Wireless Charging",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    }
+  ],
   "variant": [],
   "shop": []
 }
