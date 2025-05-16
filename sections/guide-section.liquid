@@ -7,6 +7,7 @@
               <img src="{{ section.settings.main_image | img_url: 'master' }}" alt="Bathroom Image">
             {% endif %}
         </div>
+      {{ section.settings.main_image }}
 
         <div class="right-box">
             {% content_for 'blocks' %}
