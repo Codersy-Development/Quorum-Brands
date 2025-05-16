@@ -832,6 +832,150 @@
         "main_image": "shopify://shop_images/917-24-69_lit-tif.jpg",
         "tip": ""
       }
+    },
+    "guide_section_Agj4jm": {
+      "type": "guide-section",
+      "blocks": {
+        "split_content_section_UkfMrD": {
+          "type": "split-content-section",
+          "name": "Split Content Section",
+          "settings": {
+            "layout": "horizontal"
+          },
+          "blocks": {
+            "split_content_section_Rbe9JF": {
+              "type": "split-content-section",
+              "name": "Split Content Section",
+              "settings": {
+                "layout": "horizontal"
+              },
+              "blocks": {
+                "split_content_section_pKcRba": {
+                  "type": "split-content-section",
+                  "name": "Split Content Section",
+                  "settings": {
+                    "layout": "horizontal"
+                  },
+                  "blocks": {
+                    "info_block_PRUNf4": {
+                      "type": "info-block",
+                      "name": "Info Block with Image",
+                      "settings": {
+                        "heading": "",
+                        "text": "",
+                        "image": "shopify://shop_images/Sconce_Garage.png",
+                        "image_position": "left"
+                      },
+                      "blocks": {
+                        "global_image_RJh3JA": {
+                          "type": "global-image",
+                          "name": "Global Image",
+                          "settings": {
+                            "image": "shopify://shop_images/10656-80_LS.jpg"
+                          },
+                          "blocks": {}
+                        }
+                      },
+                      "block_order": [
+                        "global_image_RJh3JA"
+                      ]
+                    }
+                  },
+                  "block_order": [
+                    "info_block_PRUNf4"
+                  ]
+                },
+                "info_block_zYhCHU": {
+                  "type": "info-block",
+                  "name": "Info Block with Image",
+                  "settings": {
+                    "heading": "Ceiling Height",
+                    "text": "<p>Make sure your ceiling fan is installed at an efficient height.<br/>For standard ceilings, the fan blades should typically be mounted at least <strong>7 feet above the floor</strong>.<br/>For higher ceilings, consider using a <strong>downrod extension</strong> to lower the fan for optimal airflow.</p>",
+                    "image_position": "bottom"
+                  },
+                  "blocks": {
+                    "global_image_xrVpUz": {
+                      "type": "global-image",
+                      "name": "Global Image",
+                      "settings": {
+                        "image": "shopify://shop_images/Fan_Ceiling_Height.png"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "global_image_xrVpUz"
+                  ]
+                }
+              },
+              "block_order": [
+                "split_content_section_pKcRba",
+                "info_block_zYhCHU"
+              ]
+            }
+          },
+          "block_order": [
+            "split_content_section_Rbe9JF"
+          ]
+        },
+        "split_content_section_CAcxHB": {
+          "type": "split-content-section",
+          "name": "Split Content Section",
+          "settings": {
+            "layout": "horizontal"
+          },
+          "blocks": {
+            "split_content_section_rxU4hf": {
+              "type": "split-content-section",
+              "name": "Split Content Section",
+              "settings": {
+                "layout": "horizontal"
+              },
+              "blocks": {
+                "info_block_EtkPEd": {
+                  "type": "info-block",
+                  "name": "Info Block with Image",
+                  "settings": {
+                    "heading": "Ceiling Fan Size",
+                    "text": "<p>Choose the right diameter of your ceiling fan based on the <strong>square footage</strong> of your space.<br/><strong>Formula:</strong> Diameter = 2 × Radius</p>",
+                    "image_position": "bottom"
+                  },
+                  "blocks": {
+                    "global_image_R7PaRw": {
+                      "type": "global-image",
+                      "name": "Global Image",
+                      "settings": {
+                        "image": "shopify://shop_images/Fan_SqFt.png"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "global_image_R7PaRw"
+                  ]
+                }
+              },
+              "block_order": [
+                "info_block_EtkPEd"
+              ]
+            }
+          },
+          "block_order": [
+            "split_content_section_rxU4hf"
+          ]
+        }
+      },
+      "block_order": [
+        "split_content_section_UkfMrD",
+        "split_content_section_CAcxHB"
+      ],
+      "name": "Guide Section",
+      "settings": {
+        "heading": "Ceiling Fan",
+        "description": "CALM, COOL & COLLECTED",
+        "main_image": "shopify://shop_images/35846-47_8_bce38010-4bb2-4ed1-a1c0-c2daba62f0c4.jpg",
+        "tip": ""
+      }
     }
   },
   "order": [
@@ -844,6 +988,7 @@
     "guide_section_Kmx3dR",
     "guide_section_qdNxM6",
     "guide_section_dgHDqk",
-    "guide_section_GGyHp9"
+    "guide_section_GGyHp9",
+    "guide_section_Agj4jm"
   ]
 }
