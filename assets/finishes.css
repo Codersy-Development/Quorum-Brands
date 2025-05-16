@@ -61,7 +61,6 @@
 	font-size: 14px;
 }
 
-/* Tablet (≤768px): sakrij preview i more, sve prikazuj u all kada se otvori */
 @media (max-width: 768px) {
 	.finishes-section {
 		padding: 0 24px;
@@ -78,7 +77,6 @@
 	}
 }
 
-/* Mobile (≤480px): jedna kolona */
 @media (max-width: 480px) {
 	.finishes-section {
 		padding: 0 16px;
@@ -95,7 +93,6 @@
 	}
 }
 
-/* Small mobile (≤360px): manji gap */
 @media (max-width: 360px) {
 	.finishes-section__grid--all.visible {
 		gap: 8px;
