@@ -25,8 +25,7 @@
   display: grid;
   grid-template-areas:
     "img1 text"
-    "img2 img3"
-    "img4 img5";
+    "img2 img3 img4";
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   max-width: 1400px;
