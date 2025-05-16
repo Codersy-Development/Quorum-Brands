@@ -24,10 +24,9 @@
 .oxygen {
   display: grid;
   grid-template-areas:
-    "img1 text"
+    "img1 text text"
     "img2 img3 img4";
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
   max-width: 1400px;
   margin: 0 auto;
