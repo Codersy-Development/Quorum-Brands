@@ -81,7 +81,7 @@
                       "type": "global-image",
                       "name": "Global Image",
                       "settings": {
-                        "image": "shopify://shop_images/Argo_Black_On.png"
+                        "image": "shopify://shop_images/Sconce_bathroom_1.png"
                       },
                       "blocks": {}
                     },
@@ -89,7 +89,7 @@
                       "type": "global-image",
                       "name": "Global Image",
                       "settings": {
-                        "image": "shopify://shop_images/Argo_Black_On.png"
+                        "image": "shopify://shop_images/548-1-65.jpg"
                       },
                       "blocks": {}
                     }
@@ -125,13 +125,22 @@
                       "type": "global-image",
                       "name": "Global Image",
                       "settings": {
-                        "image": "shopify://shop_images/Argo_Black_On.png"
+                        "image": "shopify://shop_images/Vanity_bathroom.png"
+                      },
+                      "blocks": {}
+                    },
+                    "global_image_eKQnVN": {
+                      "type": "global-image",
+                      "name": "Global Image",
+                      "settings": {
+                        "image": "shopify://shop_images/5169-3-47_4.jpg"
                       },
                       "blocks": {}
                     }
                   },
                   "block_order": [
-                    "global_image_3Mdwe8"
+                    "global_image_3Mdwe8",
+                    "global_image_eKQnVN"
                   ]
                 }
               },
@@ -153,7 +162,7 @@
       "settings": {
         "heading": "The Bathroom",
         "description": "HOW TO LIGHT YOUR VANITY",
-        "main_image": "shopify://shop_images/Argo_Black_On.png",
+        "main_image": "shopify://shop_images/5119-4-259_8.jpg",
         "tip": "test"
       }
     }
