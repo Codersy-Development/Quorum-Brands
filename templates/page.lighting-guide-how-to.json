@@ -726,6 +726,112 @@
         "main_image": "shopify://shop_images/715-10-69_lit_1.jpg",
         "tip": "Since the fixture will be exposed to the elements, choose a wet or damp rated product.\nCoastal Grade weather-resistant materials are a great choice as well."
       }
+    },
+    "guide_section_GGyHp9": {
+      "type": "guide-section",
+      "blocks": {
+        "split_content_section_f3QJ3E": {
+          "type": "split-content-section",
+          "name": "Split Content Section",
+          "settings": {
+            "layout": "horizontal"
+          },
+          "blocks": {
+            "split_content_section_GdnDhc": {
+              "type": "split-content-section",
+              "name": "Split Content Section",
+              "settings": {
+                "layout": "horizontal"
+              },
+              "blocks": {
+                "split_content_section_rynnyj": {
+                  "type": "split-content-section",
+                  "name": "Split Content Section",
+                  "settings": {
+                    "layout": "horizontal"
+                  },
+                  "blocks": {
+                    "info_block_yMWyAB": {
+                      "type": "info-block",
+                      "name": "Info Block with Image",
+                      "settings": {
+                        "heading": "Garage Door Side Sconces",
+                        "text": "<p>For garage door side sconces, place exterior wall sconces around <strong>5 to 6 feet from the ground</strong>.<br/>As a general rule, the <strong>size of the fixture should be about 1/4 of the height of the garage door</strong>.</p>",
+                        "image": "shopify://shop_images/Sconce_Garage.png",
+                        "image_position": "left"
+                      },
+                      "blocks": {
+                        "global_image_VnRy6Q": {
+                          "type": "global-image",
+                          "name": "Global Image",
+                          "settings": {
+                            "image": "shopify://shop_images/Sconces_Garage.png"
+                          },
+                          "blocks": {}
+                        }
+                      },
+                      "block_order": [
+                        "global_image_VnRy6Q"
+                      ]
+                    }
+                  },
+                  "block_order": [
+                    "info_block_yMWyAB"
+                  ]
+                },
+                "info_block_tqt3Re": {
+                  "type": "info-block",
+                  "name": "Info Block with Image",
+                  "settings": {
+                    "heading": "Garage Door Above Sconce",
+                    "text": "<p>Sconces above the garage door should be installed <strong>8 to 12 inches above it</strong>, ensuring that the bottom of the shade <strong>does not hang lower than the garage frame</strong>.</p>",
+                    "image_position": "bottom"
+                  },
+                  "blocks": {
+                    "global_image_A8eL3c": {
+                      "type": "global-image",
+                      "name": "Global Image",
+                      "settings": {
+                        "image": "shopify://shop_images/Sconce_Garage.png"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "global_image_A8eL3c"
+                  ]
+                }
+              },
+              "block_order": [
+                "split_content_section_rynnyj",
+                "info_block_tqt3Re"
+              ]
+            }
+          },
+          "block_order": [
+            "split_content_section_GdnDhc"
+          ]
+        },
+        "global_image_wCQzkz": {
+          "type": "global-image",
+          "name": "Global Image",
+          "settings": {
+            "image": "shopify://shop_images/736-15-69_1.jpg"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "split_content_section_f3QJ3E",
+        "global_image_wCQzkz"
+      ],
+      "name": "Guide Section",
+      "settings": {
+        "heading": "Garage Doors",
+        "description": "HOW TO CREATE A STYLES DRIVEWAY",
+        "main_image": "shopify://shop_images/917-24-69_lit-tif.jpg",
+        "tip": ""
+      }
     }
   },
   "order": [
@@ -737,6 +843,7 @@
     "guide_section_rCdEjz",
     "guide_section_Kmx3dR",
     "guide_section_qdNxM6",
-    "guide_section_dgHDqk"
+    "guide_section_dgHDqk",
+    "guide_section_GGyHp9"
   ]
 }
