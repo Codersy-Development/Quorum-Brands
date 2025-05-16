@@ -108,4 +108,9 @@
     .brand-feature-block.reverse {
         grid-template-columns: 1fr;
     }
+    .parent {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
 }
