@@ -4,7 +4,7 @@
             <h2 class="h2">{{ section.settings.heading }}</h2>
             <p class="guide-desc">{{ section.settings.description }}</p>
             {% if section.settings.main_image %}
-              <img src="{{ section.settings.main_image | image_url: width: 1000 }}" alt="Bathroom Image">
+              <img src="{{ section.settings.custom_image | image_url: width: 1000 }}" alt="Bathroom Image">
             {% endif %}
         </div>
 
@@ -111,7 +111,7 @@
     },
     {
       "type": "image_picker",
-      "id": "main_image",
+      "id": "custom_image",
       "label": "Main Image"
     },
     {
