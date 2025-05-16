@@ -162,6 +162,7 @@
       "settings": {
         "heading": "The Bathroom",
         "description": "HOW TO LIGHT YOUR VANITY",
+        "main_image": "shopify://shop_images/5119-4-259_8.jpg",
         "tip": "Dimmer switches allow you to adjust the brightness of the lights according to different tasks and moods. For example, you can dim the lights for a relaxing bath or increase the brightness for grooming tasks. Additionally, dimmer switches can help conserve energy and extend the lifespan of your light bulbs."
       }
     },
@@ -187,6 +188,7 @@
       "settings": {
         "heading": "",
         "description": "",
+        "main_image": "shopify://shop_images/Argo_Black_On.png",
         "tip": ""
       }
     }
