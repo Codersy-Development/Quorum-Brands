@@ -134,20 +134,20 @@
         "category_card_FfUKYU": {
           "type": "category_card",
           "settings": {
-            "image": "shopify://shop_images/Ceiling_Mounted.jpg",
+            "image": "shopify://shop_images/Ceiling_Mounted_8559aae5-e359-4cff-9fd9-60ca6fa9f67b.jpg",
             "title": "Ceiling Mounted",
             "subcategory_1": "Chandeliers",
             "subcategory_2": "Pendants",
-            "subcategory_3": "Linear Pendants (Island Lights)",
-            "subcategory_4": "Entry",
-            "subcategory_5": "Ceiling Mounts",
+            "subcategory_3": "Ceiling Mounts",
+            "subcategory_4": "",
+            "subcategory_5": "",
             "subcategory_6": ""
           }
         },
         "category_card_7QbgmU": {
           "type": "category_card",
           "settings": {
-            "image": "shopify://shop_images/Wall_Mounted.jpg",
+            "image": "shopify://shop_images/Hallway_1.png",
             "title": "Wall Mounted",
             "subcategory_1": "Wall Sconce",
             "subcategory_2": "Vanity",
@@ -160,12 +160,12 @@
         "category_card_CUDM6f": {
           "type": "category_card",
           "settings": {
-            "image": "shopify://shop_images/Outdoor_Lighting.jpg",
+            "image": "shopify://shop_images/Outdoor_2.jpg",
             "title": "Outdoor Lighting",
-            "subcategory_1": "Pendants",
-            "subcategory_2": "Wall Mounts",
-            "subcategory_3": "Ceiling Mounts",
-            "subcategory_4": "Posts",
+            "subcategory_1": "Wall Mounts",
+            "subcategory_2": "",
+            "subcategory_3": "",
+            "subcategory_4": "",
             "subcategory_5": "",
             "subcategory_6": ""
           }
