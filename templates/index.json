@@ -110,90 +110,6 @@
         "description": "Browse our extensive product selection, from stylish furniture to unique accessories that elevate any space."
       }
     },
-    "featured_products_NJPrq9": {
-      "type": "featured-products",
-      "blocks": {
-        "product_card_YMhr8g": {
-          "type": "product_card",
-          "settings": {
-            "image_default": "shopify://shop_images/6123-8-47_1.jpg",
-            "image_hover": "shopify://shop_images/8905-6-59_1.jpg",
-            "title": "3\" Wall Mount Downlight Cylinder",
-            "subtitle": "3\" Wall Mt Downlight Cylinder",
-            "price": "106.15",
-            "sku": "P563000-031-30K",
-            "color_1": "#ffffff",
-            "color_2": "#0f0f0f",
-            "color_3": "#ff4f33",
-            "color_4": "",
-            "color_5": "",
-            "color_6": ""
-          }
-        },
-        "product_card_ycbBdW": {
-          "type": "product_card",
-          "settings": {
-            "image_default": "shopify://shop_images/593-3-47_1.jpg",
-            "image_hover": "shopify://shop_images/8905-6-59_1.jpg",
-            "title": "Alisse Collection One-Light Pendant Light",
-            "subtitle": "One-Light Brushed Gold New Traditional Pendant Light",
-            "price": "209.00",
-            "sku": "P500476-191",
-            "color_1": "#ffffff",
-            "color_2": "#e5e5e5",
-            "color_3": "#ff4f33",
-            "color_4": "#e8e8e1",
-            "color_5": "",
-            "color_6": ""
-          }
-        },
-        "product_card_V8CNgf": {
-          "type": "product_card",
-          "settings": {
-            "image_default": "shopify://shop_images/866-8-0880_1.jpg",
-            "image_hover": "shopify://shop_images/8905-6-59_1.jpg",
-            "title": "Graelyn Collection One-Light Pendant",
-            "subtitle": "One-Light Brushed Gold New Traditional Pendant Light",
-            "price": "220.00",
-            "sku": "P500478-191",
-            "color_1": "#b3a714",
-            "color_2": "",
-            "color_3": "",
-            "color_4": "",
-            "color_5": "",
-            "color_6": ""
-          }
-        },
-        "product_card_Y47L7a": {
-          "type": "product_card",
-          "settings": {
-            "image_default": "shopify://shop_images/5240-2-47_1.jpg",
-            "image_hover": "shopify://shop_images/8905-6-59_1.jpg",
-            "title": "Nova Series Two-Light Wall Sconce",
-            "subtitle": "Modern Double Light Fixture in Matte Black",
-            "price": "150.00",
-            "sku": "NSC200-202",
-            "color_1": "#b3a714",
-            "color_2": "",
-            "color_3": "",
-            "color_4": "",
-            "color_5": "",
-            "color_6": ""
-          }
-        }
-      },
-      "block_order": [
-        "product_card_YMhr8g",
-        "product_card_ycbBdW",
-        "product_card_V8CNgf",
-        "product_card_Y47L7a"
-      ],
-      "name": "Featured Products",
-      "settings": {
-        "store": "quorum",
-        "heading": "Featured Products"
-      }
-    },
     "featured_products_4iHgi6": {
       "type": "featured-products",
       "blocks": {
@@ -307,6 +223,126 @@
         "product_card_FErbDU",
         "product_card_akWdCY",
         "product_card_k6Lgpw"
+      ],
+      "name": "Featured Products",
+      "settings": {
+        "store": "oxygen",
+        "heading": "Featured Products"
+      }
+    },
+    "featured_products_jFKX9w": {
+      "type": "featured-products",
+      "blocks": {
+        "product_card_DcTWKW": {
+          "type": "product_card",
+          "settings": {
+            "image_default": "shopify://shop_images/3-586-40_1.jpg",
+            "image_hover": "shopify://shop_images/3-586-15.jpg",
+            "title": "Virtue",
+            "subtitle": "Designer Wall Sconce Light Fixture",
+            "price": "",
+            "sku": "3-586-40",
+            "color_1": "#ffffff",
+            "color_2": "#0f0f0f",
+            "color_3": "#ff4f33",
+            "color_4": "",
+            "color_5": "",
+            "color_6": ""
+          }
+        },
+        "product_card_XGxtbP": {
+          "type": "product_card",
+          "settings": {
+            "image_default": "shopify://shop_images/3-80-56_1.jpg",
+            "image_hover": "shopify://shop_images/3-81-56_1.jpg",
+            "title": "Favo",
+            "subtitle": "Ceiling Hanging Pendant Light Fixture 12 inch 5CCT ",
+            "price": "",
+            "sku": "3-80-56",
+            "color_1": "#ffffff",
+            "color_2": "#e5e5e5",
+            "color_3": "#ff4f33",
+            "color_4": "#e8e8e1",
+            "color_5": "",
+            "color_6": ""
+          }
+        },
+        "product_card_UaxBh4": {
+          "type": "product_card",
+          "settings": {
+            "image_default": "shopify://shop_images/3-216-650.jpg",
+            "image_hover": "shopify://shop_images/3-216-1550.jpg",
+            "title": "Lucci",
+            "subtitle": "25” Ceiling Mount",
+            "price": "",
+            "sku": "3-216-650",
+            "color_1": "#ffffff",
+            "color_2": "#000000",
+            "color_3": "",
+            "color_4": "",
+            "color_5": "",
+            "color_6": ""
+          }
+        },
+        "product_card_phf77m": {
+          "type": "product_card",
+          "settings": {
+            "image_default": "shopify://shop_images/3-697-56_1.jpg",
+            "image_hover": "shopify://shop_images/3-697-15_1_c305edf1-b0db-47b9-b81c-146f11bd83c5.jpg",
+            "title": "Mika",
+            "subtitle": "Ten Light Chandelier",
+            "price": "",
+            "sku": "3-697-56",
+            "color_1": "#b3a714",
+            "color_2": "#000000",
+            "color_3": "",
+            "color_4": "",
+            "color_5": "",
+            "color_6": ""
+          }
+        },
+        "product_card_U8RLq9": {
+          "type": "product_card",
+          "settings": {
+            "image_default": "shopify://shop_images/3-878-56_1.jpg",
+            "image_hover": "shopify://shop_images/3-878-15_1.jpg",
+            "title": "Meriam",
+            "subtitle": "42″ 3CCT Pendant",
+            "price": "",
+            "sku": "3-878-15",
+            "color_1": "#b3a714",
+            "color_2": "#111111",
+            "color_3": "",
+            "color_4": "",
+            "color_5": "",
+            "color_6": ""
+          }
+        },
+        "product_card_UpKUhE": {
+          "type": "product_card",
+          "settings": {
+            "image_default": "shopify://shop_images/5240-2-47_1.jpg",
+            "image_hover": "shopify://shop_images/5240-1-59_1.jpg",
+            "title": "Chantell",
+            "subtitle": "2 Candle Wall Sconce",
+            "price": "",
+            "sku": "5240-2-47",
+            "color_1": "#b3a714",
+            "color_2": "#111111",
+            "color_3": "",
+            "color_4": "",
+            "color_5": "",
+            "color_6": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_card_DcTWKW",
+        "product_card_XGxtbP",
+        "product_card_UaxBh4",
+        "product_card_phf77m",
+        "product_card_U8RLq9",
+        "product_card_UpKUhE"
       ],
       "name": "Featured Products",
       "settings": {
@@ -555,8 +591,8 @@
     "hero_video_7AGby8",
     "hero_video_dmDgPf",
     "shop_by_category_76eCUa",
-    "featured_products_NJPrq9",
     "featured_products_4iHgi6",
+    "featured_products_jFKX9w",
     "product_feature_carousel_Kqzf77",
     "image_with_text_MacpA3",
     "background_image_text_HPadbT",
