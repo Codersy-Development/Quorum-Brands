@@ -183,9 +183,9 @@
       ],
       "name": "t:sections.advanced-content.presets.custom_content.name",
       "settings": {
-        "full_width": false,
-        "space_around": true,
-        "lazyload_images": true
+        "full_width": true,
+        "space_around": false,
+        "lazyload_images": false
       }
     },
     "guide_section_jB3Jea": {
@@ -224,6 +224,28 @@
         "description": "",
         "main_image": "shopify://shop_images/Argo_Black_On.png",
         "tip": ""
+      }
+    },
+    "advanced_content_kqp8Hz": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_xEcm7U": {
+          "type": "liquid",
+          "settings": {
+            "code": "<hr style=\"width: 50%; height:2px;background-color:#E8E8E1\">",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_xEcm7U"
+      ],
+      "name": "t:sections.advanced-content.presets.custom_content.name",
+      "settings": {
+        "full_width": true,
+        "space_around": false,
+        "lazyload_images": false
       }
     },
     "guide_section_eR9WTd": {
@@ -339,6 +361,28 @@
         "description": "HOW TO HANG OVER AN ISLAND",
         "main_image": "shopify://shop_images/5119-4-259_8.jpg",
         "tip": "Consider the style and finish of the pendant lights. Choose pendant lights that complement the overall design aesthetic of the kitchen, whether it’s modern, traditional, industrial, or eclectic.\nOpt for finishes that coordinate with other fixtures and hardware in the kitchen, such as brushed nickel, bronze, or matte black, to create a cohesive look."
+      }
+    },
+    "advanced_content_dcJgkh": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_qfhCYG": {
+          "type": "liquid",
+          "settings": {
+            "code": "<hr style=\"width: 50%; height:2px;background-color:#E8E8E1\">",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_qfhCYG"
+      ],
+      "name": "t:sections.advanced-content.presets.custom_content.name",
+      "settings": {
+        "full_width": true,
+        "space_around": false,
+        "lazyload_images": false
       }
     },
     "guide_section_rCdEjz": {
@@ -468,6 +512,28 @@
         "tip": ""
       }
     },
+    "advanced_content_P3ARTf": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_HTRKeG": {
+          "type": "liquid",
+          "settings": {
+            "code": "<hr style=\"width: 50%; height:2px;background-color:#E8E8E1\">",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_HTRKeG"
+      ],
+      "name": "t:sections.advanced-content.presets.custom_content.name",
+      "settings": {
+        "full_width": true,
+        "space_around": false,
+        "lazyload_images": false
+      }
+    },
     "guide_section_Kmx3dR": {
       "type": "guide-section",
       "blocks": {
@@ -503,6 +569,28 @@
         "description": "HOW TO HANG IN ROOM",
         "main_image": "shopify://shop_images/681-8-80_LiteLS.jpg",
         "tip": "Consider Aesthetics: Choose a chandelier size that complements the scale of the room and the furniture. The chandelier should not overwhelm the space but should make a visual impact."
+      }
+    },
+    "advanced_content_pBYHKV": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_KRqhPa": {
+          "type": "liquid",
+          "settings": {
+            "code": "<hr style=\"width: 50%; height:2px;background-color:#E8E8E1\">",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_KRqhPa"
+      ],
+      "name": "t:sections.advanced-content.presets.custom_content.name",
+      "settings": {
+        "full_width": true,
+        "space_around": false,
+        "lazyload_images": false
       }
     },
     "guide_section_qdNxM6": {
@@ -643,6 +731,28 @@
         "tip": "Consider dimmer switches or adjustable brightness levels. This allows you to customize the lighting ambiance according to your mood or time of day — whether you prefer soft, ambient lighting for winding down in the evening or brighter task lighting for reading."
       }
     },
+    "advanced_content_mABDzN": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_GKVz4b": {
+          "type": "liquid",
+          "settings": {
+            "code": "<hr style=\"width: 50%; height:2px;background-color:#E8E8E1\">",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_GKVz4b"
+      ],
+      "name": "t:sections.advanced-content.presets.custom_content.name",
+      "settings": {
+        "full_width": true,
+        "space_around": false,
+        "lazyload_images": false
+      }
+    },
     "guide_section_dgHDqk": {
       "type": "guide-section",
       "blocks": {
@@ -749,6 +859,28 @@
         "tip": "Since the fixture will be exposed to the elements, choose a wet or damp rated product.\nCoastal Grade weather-resistant materials are a great choice as well."
       }
     },
+    "advanced_content_jqLn3e": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_HqwzJX": {
+          "type": "liquid",
+          "settings": {
+            "code": "<hr style=\"width: 50%; height:2px;background-color:#E8E8E1\">",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_HqwzJX"
+      ],
+      "name": "t:sections.advanced-content.presets.custom_content.name",
+      "settings": {
+        "full_width": true,
+        "space_around": false,
+        "lazyload_images": false
+      }
+    },
     "guide_section_GGyHp9": {
       "type": "guide-section",
       "blocks": {
@@ -853,6 +985,50 @@
         "description": "HOW TO CREATE A STYLES DRIVEWAY",
         "main_image": "shopify://shop_images/917-24-69_lit-tif.jpg",
         "tip": ""
+      }
+    },
+    "advanced_content_ccURtF": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_Nqq6Eb": {
+          "type": "liquid",
+          "settings": {
+            "code": "<hr style=\"width: 50%; height:2px;background-color:#E8E8E1\">",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_Nqq6Eb"
+      ],
+      "name": "t:sections.advanced-content.presets.custom_content.name",
+      "settings": {
+        "full_width": true,
+        "space_around": false,
+        "lazyload_images": false
+      }
+    },
+    "advanced_content_fmnixD": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_CaUad6": {
+          "type": "liquid",
+          "settings": {
+            "code": "<hr style=\"width: 50%; height:2px;background-color:#E8E8E1\">",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_CaUad6"
+      ],
+      "name": "t:sections.advanced-content.presets.custom_content.name",
+      "settings": {
+        "full_width": true,
+        "space_around": false,
+        "lazyload_images": false
       }
     },
     "guide_section_Agj4jm": {
@@ -1114,13 +1290,21 @@
     "guide_section_e9jDXD",
     "advanced_content_UeCmr9",
     "guide_section_jB3Jea",
+    "advanced_content_kqp8Hz",
     "guide_section_eR9WTd",
+    "advanced_content_dcJgkh",
     "guide_section_rCdEjz",
+    "advanced_content_P3ARTf",
     "guide_section_Kmx3dR",
+    "advanced_content_pBYHKV",
     "guide_section_qdNxM6",
+    "advanced_content_mABDzN",
     "guide_section_dgHDqk",
+    "advanced_content_jqLn3e",
     "guide_section_GGyHp9",
+    "advanced_content_ccURtF",
     "guide_section_Agj4jm",
+    "advanced_content_fmnixD",
     "guide_section_renDgP"
   ]
 }
