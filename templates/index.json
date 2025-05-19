@@ -190,7 +190,91 @@
       ],
       "name": "Featured Products",
       "settings": {
-        "store": "all",
+        "store": "quorum",
+        "heading": "Featured Products"
+      }
+    },
+    "featured_products_4iHgi6": {
+      "type": "featured-products",
+      "blocks": {
+        "product_card_VUEjV4": {
+          "type": "product_card",
+          "settings": {
+            "image_default": "shopify://shop_images/6123-8-47_1.jpg",
+            "image_hover": "shopify://shop_images/8905-6-59_1.jpg",
+            "title": "3\" Wall Mount Downlight Cylinder",
+            "subtitle": "3\" Wall Mt Downlight Cylinder",
+            "price": "106.15",
+            "sku": "P563000-031-30K",
+            "color_1": "#ffffff",
+            "color_2": "#0f0f0f",
+            "color_3": "#ff4f33",
+            "color_4": "",
+            "color_5": "",
+            "color_6": ""
+          }
+        },
+        "product_card_LmMFmB": {
+          "type": "product_card",
+          "settings": {
+            "image_default": "shopify://shop_images/593-3-47_1.jpg",
+            "image_hover": "shopify://shop_images/8905-6-59_1.jpg",
+            "title": "Alisse Collection One-Light Pendant Light",
+            "subtitle": "One-Light Brushed Gold New Traditional Pendant Light",
+            "price": "209.00",
+            "sku": "P500476-191",
+            "color_1": "#ffffff",
+            "color_2": "#e5e5e5",
+            "color_3": "#ff4f33",
+            "color_4": "#e8e8e1",
+            "color_5": "",
+            "color_6": ""
+          }
+        },
+        "product_card_B3p7pL": {
+          "type": "product_card",
+          "settings": {
+            "image_default": "shopify://shop_images/866-8-0880_1.jpg",
+            "image_hover": "shopify://shop_images/8905-6-59_1.jpg",
+            "title": "Graelyn Collection One-Light Pendant",
+            "subtitle": "One-Light Brushed Gold New Traditional Pendant Light",
+            "price": "220.00",
+            "sku": "P500478-191",
+            "color_1": "#b3a714",
+            "color_2": "",
+            "color_3": "",
+            "color_4": "",
+            "color_5": "",
+            "color_6": ""
+          }
+        },
+        "product_card_FErbDU": {
+          "type": "product_card",
+          "settings": {
+            "image_default": "shopify://shop_images/5240-2-47_1.jpg",
+            "image_hover": "shopify://shop_images/8905-6-59_1.jpg",
+            "title": "Nova Series Two-Light Wall Sconce",
+            "subtitle": "Modern Double Light Fixture in Matte Black",
+            "price": "150.00",
+            "sku": "NSC200-202",
+            "color_1": "#b3a714",
+            "color_2": "",
+            "color_3": "",
+            "color_4": "",
+            "color_5": "",
+            "color_6": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_card_VUEjV4",
+        "product_card_LmMFmB",
+        "product_card_B3p7pL",
+        "product_card_FErbDU"
+      ],
+      "name": "Featured Products",
+      "settings": {
+        "store": "oxygen",
         "heading": "Featured Products"
       }
     },
@@ -436,6 +520,7 @@
     "hero_video_dmDgPf",
     "shop_by_category_76eCUa",
     "featured_products_NJPrq9",
+    "featured_products_4iHgi6",
     "product_feature_carousel_Kqzf77",
     "image_with_text_MacpA3",
     "background_image_text_HPadbT",
