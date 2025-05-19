@@ -150,8 +150,8 @@
         "product_card_B3p7pL": {
           "type": "product_card",
           "settings": {
-            "image_default": "shopify://shop_images/3-216-650.jpg",
-            "image_hover": "shopify://shop_images/3-216-1550.jpg",
+            "image_default": "shopify://shop_images/Quourm_Int_BLK.png",
+            "image_hover": "shopify://shop_images/Quorum_Int_WHT.png",
             "title": "Loire",
             "subtitle": "25” Ceiling Mount",
             "price": "",
