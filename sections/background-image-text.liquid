@@ -2,33 +2,22 @@
   data-section-id="{{ section.id }}"
   data-section-type="background-image"
   class="background-media-text background-media-text--{{ section.id }} background-media-text--{{ section.settings.height }} loaded"
-  data-aos="background-media-text__animation"
-  {% if section.settings.parallax %}data-parallax="true"{% endif %}>
+  data-aos="background-media-text__animation">
 
-  <div class="background-media-text__container">
-    {%- if section.settings.parallax -%}
-      <parallax-image class="parallax-container">
-        <div class="parallax-image" data-movement="15%" data-parallax-image data-angle="{{ section.settings.parallax_direction }}">
-    {%- endif -%}
-
-      {%- if section.settings.image != blank -%}
-          {% assign classes = 'image-fit background-media-text__image background-media-text__image--' | append: section.id %}
-          {% comment %} Full width image so don't need to adjust sizes attribute, fallback is 100vw {% endcomment %}
-          {%- render 'image-element',
-            img: section.settings.image,
-            img_width: 1360,
-            loading: section.settings.lazyload_images,
-            classes: classes,
-          -%}
-      {%- else -%}
-        {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
-      {%- endif -%}
-
-    {%- if section.settings.parallax -%}
-        </div>
-      </parallax-image>
+  <div class="background-media-text__container" style="max-width: 1360px; margin: 0 auto;">
+    {%- if section.settings.image != blank -%}
+        {% assign classes = 'image-fit background-media-text__image background-media-text__image--' | append: section.id %}
+        {%- render 'image-element',
+          img: section.settings.image,
+          img_width: 1360,
+          loading: section.settings.lazyload_images,
+          classes: classes,
+        -%}
+    {%- else -%}
+      {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
     {%- endif -%}
   </div>
+  
   {%- if section.settings.subtitle != blank or section.settings.title != blank or section.settings.text != blank -%}
     <div class="background-media-text__inner">
       <div class="background-media-text__aligner background-media-text--{{ section.settings.layout }}">
@@ -119,7 +108,7 @@
       "label": "t:sections.background-image-text.settings.height.label",
       "default": 550,
       "min": 450,
-      "max": 1050,
+      "max": 750,
       "step": 100,
       "unit": "px"
     },
@@ -128,28 +117,6 @@
       "id": "framed",
       "label": "t:sections.background-image-text.settings.framed.label",
       "default": false
-    },
-    {
-      "type": "checkbox",
-      "id": "parallax",
-      "label": "t:sections.background-image-text.settings.parallax.label",
-      "default": true
-    },
-    {
-      "type": "select",
-      "id": "parallax_direction",
-      "label": "t:sections.background-image-text.settings.parallax_direction.label",
-      "default": "top",
-      "options": [
-        {
-          "value": "top",
-          "label": "t:sections.background-image-text.settings.parallax_direction.options.top.label"
-        },
-        {
-          "value": "left",
-          "label": "t:sections.background-image-text.settings.parallax_direction.options.left.label"
-        }
-      ]
     },
     {
       "type": "checkbox",
