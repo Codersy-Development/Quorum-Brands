@@ -22,7 +22,7 @@
         "text_align": "vertical-bottom horizontal-left",
         "video_url": "https://cdn.shopify.com/videos/c/o/v/83fae7db410944df83d9275b0ea2d9d0.mp4",
         "overlay_opacity": 0,
-        "section_height": "650px",
+        "section_height": "750px",
         "mobile_height": "auto"
       }
     },
@@ -249,8 +249,6 @@
         "layout": "right",
         "height": 750,
         "framed": true,
-        "parallax": false,
-        "parallax_direction": "top",
         "lazyload_images": true
       }
     },
