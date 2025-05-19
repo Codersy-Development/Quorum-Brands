@@ -577,7 +577,7 @@
         "liquid_KRqhPa": {
           "type": "liquid",
           "settings": {
-            "code": "<hr style=\"width: 50%; height:2px;background-color:#E8E8E1\">",
+            "code": "<hr style=\"width: 50%; height:2px;background-color:#E8E8E1\"></hr>",
             "width": "100%",
             "alignment": "center"
           }
