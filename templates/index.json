@@ -227,7 +227,7 @@
       "disabled": true,
       "name": "Feature Promo",
       "settings": {
-        "store": "all",
+        "store": "quorum",
         "logo": "shopify://shop_images/Quorum-X-Tamara-Day-Logo.png",
         "heading": "",
         "text": "We partnered with celebrity designer Tamara Day to introduce three lighting collections inspired by select homes featured on Magnolia Network’s Bargain Mansions. Each collection has distinct characteristics while remaining rooted in Tamara’s signature style, “laid back luxe.” We are thrilled to showcase the first 54 designs which combine touches of glam with a cozy, livable vibe.",
