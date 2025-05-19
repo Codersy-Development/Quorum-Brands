@@ -104,8 +104,8 @@
       "type": "featured-video",
       "name": "t:sections.featured-video.presets.video.name",
       "settings": {
-        "title": "",
-        "video_url": "",
+        "title": "Light From the Source",
+        "video_url": "https://www.youtube.com/watch?v=6gU1fQaTXY8",
         "divider": false
       }
     },
