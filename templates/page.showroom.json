@@ -50,54 +50,51 @@
         "lazyload_images": true
       }
     },
-    "image_with_text_cUaNEP": {
-      "type": "Image-with-text",
-      "name": "Feature Promo",
+    "showroom_WyyRGH": {
+      "type": "showroom",
+      "name": "Showroom",
       "settings": {
         "store": "all",
         "logo": "shopify://shop_images/DMC_logo1.jpg",
         "heading": "Quorum Dallas",
         "text": "Dallas Market Center | 2100 Stemmons Freeway, Dallas, TX 75207\n\nSuites TM 3111 & TM 3004\n\nOpen Only During Shows\nUpcoming Market – June 18–24",
-        "button_label": "",
-        "button_link": "",
-        "image": "shopify://shop_images/IMG_3421.jpg",
-        "image2": "shopify://shop_images/IMG_3421.jpg"
+        "button_label": "Dallas Market Center",
+        "button_link": "https://www.dallasmarketcenter.com/exhibitors/quorum-international/",
+        "image": "shopify://shop_images/IMG_3421.jpg"
       }
     },
-    "image_with_text_8EdFng": {
-      "type": "Image-with-text",
-      "name": "Feature Promo",
+    "showroom_CWjYRi": {
+      "type": "showroom",
+      "name": "Showroom",
       "settings": {
         "store": "all",
         "logo": "shopify://shop_images/DMC_logo1.jpg",
-        "heading": "Oxygen Dallas",
-        "text": "Dallas Market Center | 2100 Stemmons Freeway, Dallas, TX 75207\n\nSuite TM 3006\n\nOpen Only During Shows\nUpcoming Market – June 18–24",
-        "button_label": "",
-        "button_link": "",
-        "image": "shopify://shop_images/IMG_3443.jpg",
-        "image2": "shopify://shop_images/IMG_3443.jpg"
+        "heading": "Quorum Dallas",
+        "text": "Dallas Market Center | 2100 Stemmons \nFreeway, Dallas, TX 75207\n\n Suite TM 3006\n\n Open Only During Shows\n Upcoming Market – June 18-24",
+        "button_label": "Dallas Market Center",
+        "button_link": "https://www.dallasmarketcenter.com/exhibitors/quorum-international/",
+        "image": "shopify://shop_images/IMG_3443.jpg"
       }
     },
-    "image_with_text_DX6Wqc": {
-      "type": "Image-with-text",
-      "name": "Feature Promo",
+    "showroom_NzyiTM": {
+      "type": "showroom",
+      "name": "Showroom",
       "settings": {
         "store": "all",
         "logo": "shopify://shop_images/HP-Market-logo-web.jpg",
-        "heading": "Quorum High Point",
+        "heading": "Quorum Dallas",
         "text": "Suites At Market Square | Jacob’s Place, High Point, NC 27260\n\nSuites M-1000A, M-1000B, Mezzanine\n\nOpen Only During Shows\nUpcoming Market – October 25–29",
-        "button_label": "",
+        "button_label": "Explore Products",
         "button_link": "",
-        "image": "shopify://shop_images/IMG_9169.jpg",
-        "image2": "shopify://shop_images/IMG_9169.jpg"
+        "image": "shopify://shop_images/IMG_9169.jpg"
       }
     }
   },
   "order": [
     "main",
     "slideshow_ffDiXn",
-    "image_with_text_cUaNEP",
-    "image_with_text_8EdFng",
-    "image_with_text_DX6Wqc"
+    "showroom_WyyRGH",
+    "showroom_CWjYRi",
+    "showroom_NzyiTM"
   ]
 }
