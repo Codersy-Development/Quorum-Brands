@@ -18,7 +18,7 @@
           "type": "logo",
           "settings": {
             "logo_for_store": "Quorum",
-            "logo": "shopify://shop_images/Quorum_bound.png",
+            "logo": "shopify://shop_images/Quorum_B.png",
             "desktop_logo_width": 180,
             "mobile_logo_width": 100
           }
@@ -39,9 +39,9 @@
             "menu": "store-1-menu",
             "is_mega_menu": true,
             "buttons_color": "",
-            "store_button_color": "#000000",
+            "store_button_color": "",
             "buttons_text_color": "",
-            "store_button_text_color": "#ffffff",
+            "store_button_text_color": "",
             "color_header": "#e8e8e1",
             "color_header_text": "#000000",
             "color_announcement": "#1c1d1d",
@@ -55,9 +55,9 @@
             "menu": "store-2-menu",
             "is_mega_menu": true,
             "buttons_color": "",
-            "store_button_color": "#ec008c",
+            "store_button_color": "",
             "buttons_text_color": "",
-            "store_button_text_color": "#ffffff",
+            "store_button_text_color": "",
             "color_header": "#ffffff",
             "color_header_text": "#000000",
             "color_announcement": "#ec008c",
@@ -106,11 +106,17 @@
           }
         }
       },
-      "block_order": ["announcement-0", "announcement-1"],
+      "block_order": [
+        "announcement-0",
+        "announcement-1"
+      ],
       "settings": {
         "announcement_compact": true
       }
     }
   },
-  "order": ["header", "announcement"]
+  "order": [
+    "header",
+    "announcement"
+  ]
 }
