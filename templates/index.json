@@ -281,6 +281,23 @@
             "color_5": "",
             "color_6": ""
           }
+        },
+        "product_card_k6Lgpw": {
+          "type": "product_card",
+          "settings": {
+            "image_default": "shopify://shop_images/5240-2-47_1.jpg",
+            "image_hover": "shopify://shop_images/5240-1-59_1.jpg",
+            "title": "Chantell",
+            "subtitle": "",
+            "price": "",
+            "sku": "5240-2-47",
+            "color_1": "#b3a714",
+            "color_2": "#111111",
+            "color_3": "",
+            "color_4": "",
+            "color_5": "",
+            "color_6": ""
+          }
         }
       },
       "block_order": [
@@ -288,7 +305,8 @@
         "product_card_LmMFmB",
         "product_card_B3p7pL",
         "product_card_FErbDU",
-        "product_card_akWdCY"
+        "product_card_akWdCY",
+        "product_card_k6Lgpw"
       ],
       "name": "Featured Products",
       "settings": {
