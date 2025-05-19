@@ -85,11 +85,14 @@
       "name": "Feature Promo",
       "settings": {
         "store": "all",
+        "logo": "shopify://shop_images/HP-Market-logo-web.jpg",
         "heading": "Quorum High Point",
         "text": "Suites At Market Square | Jacob’s Place, High Point, NC 27260\n\nSuites M-1000A, M-1000B, Mezzanine\n\nOpen Only During Shows\nUpcoming Market – October 25–29",
         "button_label": "",
         "button_link": "",
-        "image": "shopify://shop_images/IMG_3421.jpg"
+        "image": "shopify://shop_images/IMG_3421.jpg",
+        "image2": "shopify://shop_images/IMG_3421.jpg",
+        "image3": "shopify://shop_images/IMG_3421.jpg"
       }
     }
   },
