@@ -363,16 +363,15 @@
     },
     "image_with_text_MacpA3": {
       "type": "Image-with-text",
-      "disabled": true,
       "name": "Feature Promo",
       "settings": {
-        "store": "quorum",
-        "logo": "shopify://shop_images/Quorum-X-Tamara-Day-Logo.png",
+        "store": "oxygen",
+        "logo": "shopify://shop_images/Vanita-option1.png",
         "heading": "",
-        "text": "We partnered with celebrity designer Tamara Day to introduce three lighting collections inspired by select homes featured on Magnolia Network’s Bargain Mansions. Each collection has distinct characteristics while remaining rooted in Tamara’s signature style, “laid back luxe.” We are thrilled to showcase the first 54 designs which combine touches of glam with a cozy, livable vibe.",
+        "text": "Indulge in the allure of Vanita by Oxygen – a harmonious blend of Italian design brilliance and state of the art technology. Effortless operation meets sophistication with these reflective luminaries.",
         "button_label": "Explore Products",
         "button_link": "#",
-        "image": "shopify://shop_images/Tamara_Day_Set1-35_WebSize.jpg"
+        "image": "shopify://shop_images/Vanita_Image_1.jpg"
       }
     },
     "background_image_text_HPadbT": {
