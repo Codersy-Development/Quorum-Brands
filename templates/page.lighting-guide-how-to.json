@@ -166,6 +166,28 @@
         "tip": "Dimmer switches allow you to adjust the brightness of the lights according to different tasks and moods. For example, you can dim the lights for a relaxing bath or increase the brightness for grooming tasks. Additionally, dimmer switches can help conserve energy and extend the lifespan of your light bulbs."
       }
     },
+    "advanced_content_UeCmr9": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_DrYxFj": {
+          "type": "liquid",
+          "settings": {
+            "code": "<hr style=\"width:50%;height:1px;text-align:left;margin-left:0;background-color:#E8E8E1\">",
+            "width": "50%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_DrYxFj"
+      ],
+      "name": "t:sections.advanced-content.presets.custom_content.name",
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
+    },
     "guide_section_jB3Jea": {
       "type": "guide-section",
       "blocks": {
@@ -1090,6 +1112,7 @@
     "main",
     "slideshow_ffDiXn",
     "guide_section_e9jDXD",
+    "advanced_content_UeCmr9",
     "guide_section_jB3Jea",
     "guide_section_eR9WTd",
     "guide_section_rCdEjz",
