@@ -737,7 +737,7 @@
         "liquid_GKVz4b": {
           "type": "liquid",
           "settings": {
-            "code": "<hr style=\"width: 50%; height:2px;background-color:#E8E8E1\">",
+            "code": "<hr style=\"width: 50%; height:2px;background-color:#E8E8E1\"></hr>",
             "width": "100%",
             "alignment": "center"
           }
@@ -865,7 +865,7 @@
         "liquid_HqwzJX": {
           "type": "liquid",
           "settings": {
-            "code": "<hr style=\"width: 50%; height:2px;background-color:#E8E8E1\">",
+            "code": "<hr style=\"width: 50%; height:2px;background-color:#E8E8E1\"></hr>",
             "width": "100%",
             "alignment": "center"
           }
@@ -993,7 +993,7 @@
         "liquid_Nqq6Eb": {
           "type": "liquid",
           "settings": {
-            "code": "<hr style=\"width: 50%; height:2px;background-color:#E8E8E1\">",
+            "code": "<hr style=\"width: 50%; height:2px;background-color:#E8E8E1\"></hr>",
             "width": "100%",
             "alignment": "center"
           }
@@ -1001,28 +1001,6 @@
       },
       "block_order": [
         "liquid_Nqq6Eb"
-      ],
-      "name": "t:sections.advanced-content.presets.custom_content.name",
-      "settings": {
-        "full_width": true,
-        "space_around": false,
-        "lazyload_images": false
-      }
-    },
-    "advanced_content_fmnixD": {
-      "type": "advanced-content",
-      "blocks": {
-        "liquid_CaUad6": {
-          "type": "liquid",
-          "settings": {
-            "code": "<hr style=\"width: 50%; height:2px;background-color:#E8E8E1\">",
-            "width": "100%",
-            "alignment": "center"
-          }
-        }
-      },
-      "block_order": [
-        "liquid_CaUad6"
       ],
       "name": "t:sections.advanced-content.presets.custom_content.name",
       "settings": {
@@ -1173,6 +1151,28 @@
         "description": "CALM, COOL & COLLECTED",
         "main_image": "shopify://shop_images/35846-47_8_bce38010-4bb2-4ed1-a1c0-c2daba62f0c4.jpg",
         "tip": ""
+      }
+    },
+    "advanced_content_fmnixD": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_CaUad6": {
+          "type": "liquid",
+          "settings": {
+            "code": "<hr style=\"width: 50%; height:2px;background-color:#E8E8E1\"></hr>",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_CaUad6"
+      ],
+      "name": "t:sections.advanced-content.presets.custom_content.name",
+      "settings": {
+        "full_width": true,
+        "space_around": false,
+        "lazyload_images": false
       }
     },
     "guide_section_renDgP": {
