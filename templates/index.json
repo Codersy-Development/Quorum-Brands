@@ -264,13 +264,31 @@
             "color_5": "",
             "color_6": ""
           }
+        },
+        "product_card_akWdCY": {
+          "type": "product_card",
+          "settings": {
+            "image_default": "shopify://shop_images/3-878-56_1.jpg",
+            "image_hover": "shopify://shop_images/3-878-15_1.jpg",
+            "title": "Meriam",
+            "subtitle": "42″ 3CCT Pendant",
+            "price": "",
+            "sku": "3-878-15",
+            "color_1": "#b3a714",
+            "color_2": "#111111",
+            "color_3": "",
+            "color_4": "",
+            "color_5": "",
+            "color_6": ""
+          }
         }
       },
       "block_order": [
         "product_card_VUEjV4",
         "product_card_LmMFmB",
         "product_card_B3p7pL",
-        "product_card_FErbDU"
+        "product_card_FErbDU",
+        "product_card_akWdCY"
       ],
       "name": "Featured Products",
       "settings": {
