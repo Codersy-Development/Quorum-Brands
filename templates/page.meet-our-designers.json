@@ -7,166 +7,186 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-
 {
-	"sections": {
-		"hero": {
-			"type": "slideshow",
-			"blocks": {
-				"slide1": {
-					"type": "image",
-					"settings": {
-						"top_subheading": "",
-						"title": "Our Design Team",
-						"title_size": 80,
-						"subheading": "",
-						"link": "",
-						"link_text": "",
-						"link_2": "",
-						"link_text_2": "",
-						"color_accent": "rgba(0,0,0,0)",
-						"text_align": "vertical-center horizontal-center",
-						"image": "shopify://shop_images/Header_Image.jpg",
-						"parallax_direction": "top",
-						"overlay_opacity": 0
-					}
-				}
-			},
-			"block_order": ["slide1"],
-			"settings": {
-				"section_height": "650px",
-				"mobile_height": "auto",
-				"parallax": true,
-				"style": "bars",
-				"autoplay": false,
-				"autoplay_speed": 7,
-				"lazyload_images": true
-			}
-		},
-		"rich_text": {
-			"type": "rich-text",
-			"blocks": {
-				"text1": {
-					"type": "text",
-					"settings": {
-						"enlarge_text": true,
-						"text": "<p>Get an inside look at our design process</p>"
-					}
-				}
-			},
-			"block_order": ["text1"],
-			"settings": {
-				"align_text": "center",
-				"narrow_column": false,
-				"divider": false
-			}
-		},
-		"video_gallery": {
-			"type": "video-gallery",
-			"blocks": {
-				"video1": {
-					"type": "video",
-					"settings": {
-						"video_link": "https://cdn.shopify.com/videos/c/o/v/83fae7db410944df83d9275b0ea2d9d0.mp4",
-						"title": "Video 1"
-					}
-				},
-				"video_Cf4kDL": {
-					"type": "video",
-					"settings": {
-						"video_link": "https://cdn.shopify.com/videos/c/o/v/83fae7db410944df83d9275b0ea2d9d0.mp4",
-						"title": "Video 2"
-					}
-				},
-				"video_ecTc7F": {
-					"type": "video",
-					"settings": {
-						"video_link": "https://cdn.shopify.com/videos/c/o/v/83fae7db410944df83d9275b0ea2d9d0.mp4",
-						"title": "Video 3"
-					}
-				}
-			},
-			"block_order": ["video1", "video_Cf4kDL", "video_ecTc7F"],
-			"settings": {
-				"title": "",
-				"align_text": "center",
-				"divider": false
-			}
-		},
-		"featured_video_zdEg4d": {
-			"type": "featured-video",
-			"name": "t:sections.featured-video.presets.video.name",
-			"settings": {
-				"title": "",
-				"video_url": "",
-				"divider": false
-			}
-		},
-		"rich_text_kkwUqq": {
-			"type": "rich-text",
-			"blocks": {
-				"text_mUUj74": {
-					"type": "text",
-					"settings": {
-						"enlarge_text": true,
-						"text": "<p>Meet Our Team</p>"
-					}
-				}
-			},
-			"block_order": ["text_mUUj74"],
-			"settings": {
-				"align_text": "center",
-				"narrow_column": false,
-				"divider": false
-			}
-		},
-		"designer_slider_9hHQJK": {
-			"type": "designer-slider",
-			"blocks": {
-				"designer_N67FkB": {
-					"type": "designer",
-					"settings": {
-						"name": "Kelly Behun × Hudson Valley Lighting",
-						"bio": "<p>Lauded by The New York Times as “an interior designer with the eye of a gallerist,” she has deep ties to the art world and her clients have included high-profile individuals from the worlds of business, technology, politics, and entertainment. Kelly is on Architectural Digest’s AD100 list and Interior Design’s Hall of Fame.<br/><br/></p>",
-						"link_url": "shopify://products/oxygen-fan-accessory-template",
-						"link_text": "Discover More →",
-						"image_1": "shopify://shop_images/David_Patton_Headshot.jpg",
-						"image_1_alt": "",
-						"image_2": "shopify://shop_images/David_Patton_Design_1.jpg",
-						"image_2_alt": ""
-					}
-				},
-				"designer_HnkdwM": {
-					"type": "designer",
-					"settings": {
-						"name": "Kelly Behun × Hudson Valley Lighting",
-						"bio": "<p>Lauded by The New York Times as “an interior designer with the eye of a gallerist,” she has deep ties to the art world and her clients have included high-profile individuals from the worlds of business, technology, politics, and entertainment. Kelly is on Architectural Digest’s AD100 list and Interior Design’s Hall of Fame.<br/><br/></p>",
-						"link_url": "shopify://products/oxygen-fan-accessory-template",
-						"link_text": "Discover More →",
-						"image_1": "shopify://shop_images/David_Patton_Headshot.jpg",
-						"image_1_alt": "",
-						"image_2": "shopify://shop_images/David_Patton_Design_1.jpg",
-						"image_2_alt": ""
-					}
-				},
-				"designer_gtphfc": {
-					"type": "designer",
-					"settings": {
-						"name": "Kelly Behun × Hudson Valley Lighting",
-						"bio": "<p>Lauded by The New York Times as “an interior designer with the eye of a gallerist,” she has deep ties to the art world and her clients have included high-profile individuals from the worlds of business, technology, politics, and entertainment. Kelly is on Architectural Digest’s AD100 list and Interior Design’s Hall of Fame.<br/><br/></p>",
-						"link_url": "shopify://products/oxygen-fan-accessory-template",
-						"link_text": "Discover More →",
-						"image_1": "shopify://shop_images/Brett_Curtin_Profile_Photo.jpg",
-						"image_1_alt": "",
-						"image_2": "shopify://shop_images/Brett_Design_1.jpg",
-						"image_2_alt": ""
-					}
-				}
-			},
-			"block_order": ["designer_N67FkB", "designer_HnkdwM", "designer_gtphfc"],
-			"name": "Designers Slider",
-			"settings": {}
-		}
-	},
-	"order": ["hero", "rich_text", "video_gallery", "featured_video_zdEg4d", "rich_text_kkwUqq", "designer_slider_9hHQJK"]
+  "sections": {
+    "hero": {
+      "type": "slideshow",
+      "blocks": {
+        "slide1": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "Our Design Team",
+            "title_size": 80,
+            "subheading": "",
+            "link": "",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify://shop_images/Header_Image.jpg",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "slide1"
+      ],
+      "settings": {
+        "section_height": "650px",
+        "mobile_height": "auto",
+        "parallax": true,
+        "style": "bars",
+        "autoplay": false,
+        "autoplay_speed": 7,
+        "lazyload_images": true
+      }
+    },
+    "rich_text": {
+      "type": "rich-text",
+      "blocks": {
+        "text1": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": true,
+            "text": "<p>Get an inside look at our design process</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text1"
+      ],
+      "settings": {
+        "align_text": "center",
+        "narrow_column": false,
+        "divider": false
+      }
+    },
+    "video_gallery": {
+      "type": "video-gallery",
+      "blocks": {
+        "video1": {
+          "type": "video",
+          "settings": {
+            "video_link": "https://cdn.shopify.com/videos/c/o/v/83fae7db410944df83d9275b0ea2d9d0.mp4",
+            "title": ""
+          }
+        },
+        "video_Cf4kDL": {
+          "type": "video",
+          "settings": {
+            "video_link": "https://cdn.shopify.com/videos/c/o/v/83fae7db410944df83d9275b0ea2d9d0.mp4",
+            "title": "Video 2"
+          }
+        },
+        "video_ecTc7F": {
+          "type": "video",
+          "settings": {
+            "video_link": "https://cdn.shopify.com/videos/c/o/v/83fae7db410944df83d9275b0ea2d9d0.mp4",
+            "title": "Video 3"
+          }
+        }
+      },
+      "block_order": [
+        "video1",
+        "video_Cf4kDL",
+        "video_ecTc7F"
+      ],
+      "settings": {
+        "title": "",
+        "align_text": "center",
+        "divider": false
+      }
+    },
+    "featured_video_zdEg4d": {
+      "type": "featured-video",
+      "name": "t:sections.featured-video.presets.video.name",
+      "settings": {
+        "title": "",
+        "video_url": "",
+        "divider": false
+      }
+    },
+    "rich_text_kkwUqq": {
+      "type": "rich-text",
+      "blocks": {
+        "text_mUUj74": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": true,
+            "text": "<p>Meet Our Team</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_mUUj74"
+      ],
+      "settings": {
+        "align_text": "center",
+        "narrow_column": false,
+        "divider": false
+      }
+    },
+    "designer_slider_9hHQJK": {
+      "type": "designer-slider",
+      "blocks": {
+        "designer_N67FkB": {
+          "type": "designer",
+          "settings": {
+            "name": "Kelly Behun × Hudson Valley Lighting",
+            "bio": "<p>Lauded by The New York Times as “an interior designer with the eye of a gallerist,” she has deep ties to the art world and her clients have included high-profile individuals from the worlds of business, technology, politics, and entertainment. Kelly is on Architectural Digest’s AD100 list and Interior Design’s Hall of Fame.<br/><br/></p>",
+            "link_url": "shopify://products/oxygen-fan-accessory-template",
+            "link_text": "Discover More →",
+            "image_1": "shopify://shop_images/David_Patton_Headshot.jpg",
+            "image_1_alt": "",
+            "image_2": "shopify://shop_images/David_Patton_Design_1.jpg",
+            "image_2_alt": ""
+          }
+        },
+        "designer_HnkdwM": {
+          "type": "designer",
+          "settings": {
+            "name": "Kelly Behun × Hudson Valley Lighting",
+            "bio": "<p>Lauded by The New York Times as “an interior designer with the eye of a gallerist,” she has deep ties to the art world and her clients have included high-profile individuals from the worlds of business, technology, politics, and entertainment. Kelly is on Architectural Digest’s AD100 list and Interior Design’s Hall of Fame.<br/><br/></p>",
+            "link_url": "shopify://products/oxygen-fan-accessory-template",
+            "link_text": "Discover More →",
+            "image_1": "shopify://shop_images/David_Patton_Headshot.jpg",
+            "image_1_alt": "",
+            "image_2": "shopify://shop_images/David_Patton_Design_1.jpg",
+            "image_2_alt": ""
+          }
+        },
+        "designer_gtphfc": {
+          "type": "designer",
+          "settings": {
+            "name": "Kelly Behun × Hudson Valley Lighting",
+            "bio": "<p>Lauded by The New York Times as “an interior designer with the eye of a gallerist,” she has deep ties to the art world and her clients have included high-profile individuals from the worlds of business, technology, politics, and entertainment. Kelly is on Architectural Digest’s AD100 list and Interior Design’s Hall of Fame.<br/><br/></p>",
+            "link_url": "shopify://products/oxygen-fan-accessory-template",
+            "link_text": "Discover More →",
+            "image_1": "shopify://shop_images/Brett_Curtin_Profile_Photo.jpg",
+            "image_1_alt": "",
+            "image_2": "shopify://shop_images/Brett_Design_1.jpg",
+            "image_2_alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "designer_N67FkB",
+        "designer_HnkdwM",
+        "designer_gtphfc"
+      ],
+      "name": "Designers Slider",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "rich_text",
+    "video_gallery",
+    "featured_video_zdEg4d",
+    "rich_text_kkwUqq",
+    "designer_slider_9hHQJK"
+  ]
 }
