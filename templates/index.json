@@ -51,7 +51,7 @@
         "category_card_McD8Ur": {
           "type": "category_card",
           "settings": {
-            "image": "shopify://shop_images/Dining_2_71a33cd0-89e4-4887-993f-8262d2dc05b1.jpg",
+            "image": "shopify://shop_images/Ceiling_Mounted.jpg",
             "title": "Ceiling Mounted",
             "subcategory_1": "Chandeliers",
             "subcategory_2": "Pendants",
@@ -63,7 +63,7 @@
         "category_card_rzXJYG": {
           "type": "category_card",
           "settings": {
-            "image": "shopify://shop_images/DIning.jpg",
+            "image": "shopify://shop_images/Wall_Mounted.jpg",
             "title": "Wall Mounted",
             "subcategory_1": "Wall Sconce",
             "subcategory_2": "Vanity",
@@ -75,7 +75,7 @@
         "category_card_3PKUg7": {
           "type": "category_card",
           "settings": {
-            "image": "shopify://shop_images/Tamara_Day_Set2_6_WebSize.jpg",
+            "image": "shopify://shop_images/Outdoor_Lighting.jpg",
             "title": "Outdoor Lighting",
             "subcategory_1": "Pendants",
             "subcategory_2": "Wall Mounts",
@@ -87,8 +87,8 @@
         "category_card_bA3LAd": {
           "type": "category_card",
           "settings": {
-            "image": "shopify://shop_images/Tamara_Day_Set1-35_WebSize.jpg",
-            "title": "Ceiling Lights",
+            "image": "shopify://shop_images/Ceiling_Fans.jpg",
+            "title": "Ceiling Fans",
             "subcategory_1": "Indoor Fans",
             "subcategory_2": "Patio Fans",
             "subcategory_3": "",
@@ -99,6 +99,7 @@
         "category_card_6PUbEp": {
           "type": "category_card",
           "settings": {
+            "image": "shopify://shop_images/Mirrors.jpg",
             "title": "Mirrors",
             "subcategory_1": "Round",
             "subcategory_2": "Arch",
@@ -117,7 +118,7 @@
       ],
       "name": "Shop by Category",
       "settings": {
-        "store": "all",
+        "store": "quorum",
         "title": "Shop by Category",
         "description": "Browse our extensive product selection, from stylish furniture to unique accessories that elevate any space."
       }
