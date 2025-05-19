@@ -54,7 +54,7 @@
             "title": "Oxygen",
             "menu": "store-2-menu",
             "is_mega_menu": true,
-            "buttons_color": "",
+            "buttons_color": "#ec008c",
             "store_button_color": "",
             "buttons_text_color": "",
             "store_button_text_color": "",
