@@ -1,6 +1,315 @@
-{% schema %}
-  {
-    "name": "Section name",
-    "settings": []
+{% comment %}sections/sales-representatives.liquid{% endcomment %}
+
+<div class="page-width">
+  <div class="sales-reps-header text-center margin-bottom-3">
+    <h1>{{ section.settings.title }}</h1>
+    <div class="rte">{{ section.settings.description }}</div>
+  </div>
+
+  <div class="search-filters margin-bottom-3">
+    <div class="search-container">
+      <input 
+        type="text" 
+        id="repSearch" 
+        class="search-input" 
+        placeholder="Search by name or group..."
+      >
+      <select id="territoryFilter" class="territory-select">
+        <option value="">All Territories</option>
+        {% assign all_territories = '' %}
+        {% for block in section.blocks %}
+          {% if block.type == 'rep' and block.settings.territory != blank %}
+            {% assign territories = block.settings.territory | replace: '.', ',' | replace: '/', ',' | split: ',' %}
+            {% for territory in territories %}
+              {% assign cleaned_territory = territory | strip %}
+              {% if cleaned_territory != '' %}
+                {% assign all_territories = all_territories | append: '^' | append: cleaned_territory %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+        
+        {% assign territory_array = all_territories | split: '^' %}
+        {% assign unique_sorted_territories = territory_array | uniq | sort %}
+        
+        {% for territory in unique_sorted_territories %}
+          {% if territory != '' %}
+            <option value="{{ territory | strip | escape }}">{{ territory | strip }}</option>
+          {% endif %}
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+
+  <div class="sales-reps-grid" id="repsContainer">
+    {% for block in section.blocks %}
+      {% if block.type == 'rep' %}
+        <div class="sales-rep-card" 
+          data-territories="{{ block.settings.territory | replace: '.', ',' | replace: '/', ',' | escape }}"
+          data-name="{{ block.settings.name | strip | escape }}"
+          data-group="{{ block.settings.rep_group | strip | escape }}"
+          {{ block.shopify_attributes }}>
+          <h3>{{ block.settings.name }}</h3>
+          {% if block.settings.rep_group != blank %}
+            <p class="rep-group">{{ block.settings.rep_group }}</p>
+          {% endif %}
+              <div class="rep-details">
+                {% if block.settings.position != blank %}
+                  <p class="position">{{ block.settings.position }}</p>
+                {% endif %}
+                 {% if block.settings.territory != blank %}
+                  <p class="territory">
+                    Territory: {{ block.settings.territory }}
+                    {% if block.settings.territory_detail != blank %}
+                      <span class="territory-detail">{{ block.settings.territory_detail }}</span>
+                    {% endif %}
+                  </p>
+                {% endif %}
+                {% if block.settings.email != blank %}
+                  <p class="email">
+                    <a href="mailto:{{ block.settings.email }}">{{ block.settings.email }}</a>
+                  </p>
+                {% endif %}
+                {% if block.settings.phone != blank %}
+                  <p class="phone">{{ block.settings.phone }}</p>
+                {% endif %}
+              </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <div id="noResults" class="no-results" style="display: none;">
+    <p>No sales representatives found matching your search criteria.</p>
+  </div>
+</div>
+
+<style>
+  .search-filters {
+    margin-bottom: 30px;
   }
+
+  .search-container {
+    display: flex;
+    gap: 15px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .search-input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+
+  .territory-select {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    min-width: 200px;
+  }
+
+  .sales-rep-card {
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .sales-rep-card:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .sales-rep-card h3 {
+    margin: 0 0 10px 0;
+  }
+  
+  .rep-group {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  
+  .rep-details {
+    margin-top: 15px;
+  }
+  
+  .rep-details p {
+    margin: 5px 0;
+  }
+
+
+
+  .email a {
+    text-decoration: none;
+  }
+
+  .email a:hover {
+    text-decoration: underline;
+  }
+
+  .email, .phone {
+    margin: 5px 0;
+  }
+
+  
+  /* New styles for territory section */
+  .territory {
+    position: relative;
+    padding: 15px 0;
+    margin: 15px 0 !important;
+    border-top: 1px solid #998542;
+    border-bottom: 1px solid #998542;
+  }
+
+ .territory-detail {
+    display: block;
+    font-style: italic;
+    color: #666;
+    font-size: 0.8em;
+    margin-top: 5px;
+  }
+
+
+  .no-results {
+    text-align: center;
+    padding: 40px;
+    font-size: 18px;
+    color: #666;
+  }
+  
+  @media screen and (min-width: 750px) {
+    .sales-reps-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+  
+  @media screen and (min-width: 990px) {
+    .sales-reps-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .search-container {
+      flex-direction: column;
+    }
+    
+    .territory-select {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  const repSearch = document.getElementById('repSearch');
+  const territoryFilter = document.getElementById('territoryFilter');
+  const repsContainer = document.getElementById('repsContainer');
+  const noResults = document.getElementById('noResults');
+  const repCards = document.querySelectorAll('.sales-rep-card');
+
+  function filterReps() {
+    const searchTerm = repSearch.value.toLowerCase();
+    const selectedTerritory = territoryFilter.value.toLowerCase();
+    let hasVisibleReps = false;
+
+    repCards.forEach(card => {
+      const territories = card.dataset.territories.toLowerCase().split(',').map(t => t.trim());
+      const name = card.dataset.name.toLowerCase();
+      const group = card.dataset.group.toLowerCase();
+      
+      const matchesSearch = name.includes(searchTerm) || 
+                           group.includes(searchTerm);
+      const matchesTerritory = selectedTerritory === '' || 
+                              territories.some(t => t.includes(selectedTerritory));
+
+      if (matchesSearch && matchesTerritory) {
+        card.style.display = '';
+        hasVisibleReps = true;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    noResults.style.display = hasVisibleReps ? 'none' : 'block';
+  }
+
+  repSearch.addEventListener('input', filterReps);
+  territoryFilter.addEventListener('change', filterReps);
+</script>
+
+{% schema %}
+{
+  "name": "Sales Representatives",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Sales Representatives"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Contact our professional sales team for assistance</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "rep",
+      "name": "Sales Representative",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Representative Name"
+        },
+        {
+          "type": "text",
+          "id": "rep_group",
+          "label": "Rep Group"
+        },
+        {
+          "type": "text",
+          "id": "position",
+          "label": "Position"
+        },
+        {
+          "type": "text",
+          "id": "territory",
+          "label": "Territory"
+        },
+        {
+          "type": "text",
+          "id": "territory_detail",
+          "label": "Territory Detail",
+          "info": "Will display in italics below territory"
+        },
+        {
+          "type": "text",
+          "id": "email",
+          "label": "Email"
+        },
+        {
+          "type": "text",
+          "id": "phone",
+          "label": "Phone"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sales Representatives"
+    }
+  ]
+}
 {% endschema %}
