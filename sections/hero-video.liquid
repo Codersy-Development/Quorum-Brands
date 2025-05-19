@@ -45,6 +45,13 @@
   {% endif %}
 {%- endstyle -%}
 
+<section
+    class="index-section--hero"
+    {% unless section.settings.store == "all" %}
+        data-store="{{ section.settings.store }}"
+    {% endunless %}
+>
+
 <div
   data-section-id="{{ section.id }}"
   data-section-type="video-section"
@@ -158,6 +165,18 @@
   "name": "t:sections.hero-video.name",
   "class": "index-section--hero",
   "settings": [
+    {
+      "type": "select",
+      "id": "store",
+      "label": "Store",
+      "info": "Populate this to show only on specific store",
+      "options": [
+        { "value": "all", "label": "Show On Both" },
+        { "value": "quorum", "label": "Quorum" },
+        { "value": "oxygen", "label": "Oxygen" }
+      ],
+      "default": "all"
+    },
     {
       "type": "textarea",
       "id": "title",
