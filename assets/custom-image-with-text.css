@@ -1,93 +1,175 @@
+/* feature-promo-vanita.css */
+
 .image-with-text {
     padding: 100px 0;
     background: #fff;
-
-    & .container {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-
-    & .feature-grid {
-        display: flex;
-        align-items: center;
-    }
-
-    & .feature-left {
-        flex: 0 0 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    & .feature-right {
-        flex: 0 0 50%;
-    }
-
-    & .feature-logo {
-        max-width: 300px;
-        height: auto;
-        margin-bottom: 20px;
-    }
-
-    & .feature-title {
-        font-size: 24px;
-        font-weight: 700;
-        margin-bottom: 20px;
-        max-width: 500px;
-    }
-
-    & .feature-text {
-        font-size: 16px;
-        color: #666;
-        margin-bottom: 30px;
-        max-width: 500px;
-        text-align: justify-all;
-    }
-
-    & .feature-button {
-        display: inline-block;
-        padding: 14px 30px;
-        border: 2px solid #333;
-        background: #fff;
-        color: #333;
-        font-weight: 600;
-        text-decoration: none;
-        transition: all 0.3s ease;
-    }
-
-    & .feature-button:hover {
-        background: #333;
-        color: #fff;
-    }
-
-    & .feature-image {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        border-radius: 8px;
-    }
-    & .feature-video {
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-        object-fit: cover;
-    }
-    & .video-div {
-        width: 100%;
-        height: auto;
-        /*aspect-ratio: 16 / 9;*/
-        border-radius: 8px;
-        object-fit: cover;
-    }
 }
 
+.image-with-text .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.image-with-text .feature-grid {
+    display: flex;
+    align-items: center;
+}
+
+.image-with-text .feature-left {
+    flex: 0 0 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-with-text .feature-right {
+    flex: 0 0 50%;
+    position: relative;
+}
+
+.image-with-text .feature-logo {
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.image-with-text .feature-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    max-width: 500px;
+}
+
+.image-with-text .feature-text {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 30px;
+    max-width: 500px;
+    text-align: justify-all;
+}
+
+.image-with-text .feature-button {
+    display: inline-block;
+    padding: 14px 30px;
+    border: 2px solid #333;
+    background: #fff;
+    color: #333;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.image-with-text .feature-button:hover {
+    background: #333;
+    color: #fff;
+}
+
+/* Slideshow specific styles */
+.image-with-text .slideshow-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.image-with-text .slideshow-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+}
+
+.image-with-text .slideshow-slide.active {
+    opacity: 1;
+}
+
+.image-with-text .slideshow-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Navigation dots */
+.image-with-text .slideshow-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.image-with-text .slideshow-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.image-with-text .slideshow-dot.active {
+    background-color: white;
+    transform: scale(1.2);
+}
+
+/* Fade animation */
+.image-with-text .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: 0.4}
+    to {opacity: 1}
+}
+
+/* Oxygen brand style overrides */
+[data-store="oxygen"] .image-with-text .feature-button {
+    border-color: #e83e8c;
+    color: #e83e8c;
+}
+
+[data-store="oxygen"] .image-with-text .feature-button:hover {
+    background-color: #e83e8c;
+    color: white;
+}
+
+/* Quorum brand style overrides */
+[data-store="quorum"] .image-with-text .feature-button {
+    border-color: #3e7be8;
+    color: #3e7be8;
+}
+
+[data-store="quorum"] .image-with-text .feature-button:hover {
+    background-color: #3e7be8;
+    color: white;
+}
+
+/* Responsive styles */
 @media only screen and (max-width: 768px) {
     .image-with-text {
         padding: 20px 0;
-        & .feature-grid {
-            flex-direction: column;
-        }
+    }
+    
+    .image-with-text .feature-grid {
+        flex-direction: column;
+    }
+    
+    .image-with-text .feature-right {
+        margin-top: 30px;
+        width: 100%;
+    }
+    
+    .image-with-text .slideshow-container {
+        height: auto;
+        aspect-ratio: 4/3;
     }
 }
