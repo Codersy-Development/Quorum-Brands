@@ -128,6 +128,89 @@
         "description": "Browse our extensive product selection, from stylish furniture to unique accessories that elevate any space."
       }
     },
+    "shop_by_category_ag9Wrh": {
+      "type": "shop-by-category",
+      "blocks": {
+        "category_card_FfUKYU": {
+          "type": "category_card",
+          "settings": {
+            "image": "shopify://shop_images/Ceiling_Mounted.jpg",
+            "title": "Ceiling Mounted",
+            "subcategory_1": "Chandeliers",
+            "subcategory_2": "Pendants",
+            "subcategory_3": "Linear Pendants (Island Lights)",
+            "subcategory_4": "Entry",
+            "subcategory_5": "Ceiling Mounts",
+            "subcategory_6": ""
+          }
+        },
+        "category_card_7QbgmU": {
+          "type": "category_card",
+          "settings": {
+            "image": "shopify://shop_images/Wall_Mounted.jpg",
+            "title": "Wall Mounted",
+            "subcategory_1": "Wall Sconce",
+            "subcategory_2": "Vanity",
+            "subcategory_3": "Picture Lights",
+            "subcategory_4": "",
+            "subcategory_5": "",
+            "subcategory_6": ""
+          }
+        },
+        "category_card_CUDM6f": {
+          "type": "category_card",
+          "settings": {
+            "image": "shopify://shop_images/Outdoor_Lighting.jpg",
+            "title": "Outdoor Lighting",
+            "subcategory_1": "Pendants",
+            "subcategory_2": "Wall Mounts",
+            "subcategory_3": "Ceiling Mounts",
+            "subcategory_4": "Posts",
+            "subcategory_5": "",
+            "subcategory_6": ""
+          }
+        },
+        "category_card_rrRHrB": {
+          "type": "category_card",
+          "settings": {
+            "image": "shopify://shop_images/Ceiling_Fans.jpg",
+            "title": "Ceiling Fans",
+            "subcategory_1": "Indoor Fans",
+            "subcategory_2": "Patio Fans",
+            "subcategory_3": "",
+            "subcategory_4": "",
+            "subcategory_5": "",
+            "subcategory_6": ""
+          }
+        },
+        "category_card_gTBMYp": {
+          "type": "category_card",
+          "settings": {
+            "image": "shopify://shop_images/Mirrors.jpg",
+            "title": "Mirrors",
+            "subcategory_1": "Round",
+            "subcategory_2": "Arch",
+            "subcategory_3": "Rectange",
+            "subcategory_4": "Stadium",
+            "subcategory_5": "Capsule",
+            "subcategory_6": "Hexagon"
+          }
+        }
+      },
+      "block_order": [
+        "category_card_FfUKYU",
+        "category_card_7QbgmU",
+        "category_card_CUDM6f",
+        "category_card_rrRHrB",
+        "category_card_gTBMYp"
+      ],
+      "name": "Shop by Category",
+      "settings": {
+        "store": "oxygen",
+        "title": "Shop by Category",
+        "description": "Browse our extensive product selection, from stylish furniture to unique accessories that elevate any space."
+      }
+    },
     "featured_products_4iHgi6": {
       "type": "featured-products",
       "blocks": {
@@ -609,6 +692,7 @@
     "hero_video_7AGby8",
     "hero_video_dmDgPf",
     "shop_by_category_76eCUa",
+    "shop_by_category_ag9Wrh",
     "featured_products_4iHgi6",
     "featured_products_jFKX9w",
     "product_feature_carousel_Kqzf77",
