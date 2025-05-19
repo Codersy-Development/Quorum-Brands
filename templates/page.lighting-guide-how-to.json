@@ -172,7 +172,7 @@
         "liquid_DrYxFj": {
           "type": "liquid",
           "settings": {
-            "code": "<hr style=\"width:200%;height:1px;text-align:left;margin-left:0;background-color:#E8E8E1\">",
+            "code": "<hr style=\"height:2px;text-align:left;margin-left:0;background-color:#E8E8E1\">",
             "width": "50%",
             "alignment": "center"
           }
