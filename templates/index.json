@@ -13,9 +13,28 @@
       "type": "hero-video",
       "name": "t:sections.hero-video.presets.video_hero.name",
       "settings": {
+        "store": "quorum",
         "title": "The Art of Light",
         "title_size": 80,
         "subheading": "Lighting the Way. Moving Air. Inspiring Spaces",
+        "link_text": "Explore What’s New",
+        "link": "#",
+        "color_accent": "#ffffff",
+        "text_align": "vertical-bottom horizontal-left",
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/83fae7db410944df83d9275b0ea2d9d0.mp4",
+        "overlay_opacity": 0,
+        "section_height": "750px",
+        "mobile_height": "auto"
+      }
+    },
+    "hero_video_dmDgPf": {
+      "type": "hero-video",
+      "name": "t:sections.hero-video.presets.video_hero.name",
+      "settings": {
+        "store": "oxygen",
+        "title": "You Need It",
+        "title_size": 80,
+        "subheading": "Browse The Latest Looks In Modern Lighting",
         "link_text": "Explore What’s New",
         "link": "#",
         "color_accent": "#ffffff",
@@ -414,6 +433,7 @@
   },
   "order": [
     "hero_video_7AGby8",
+    "hero_video_dmDgPf",
     "shop_by_category_76eCUa",
     "featured_products_NJPrq9",
     "product_feature_carousel_Kqzf77",
