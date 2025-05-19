@@ -1,0 +1,192 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "slideshow",
+      "blocks": {
+        "slide1": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "Our Design Team",
+            "title_size": 80,
+            "subheading": "",
+            "link": "",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify://shop_images/Header_Image.jpg",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "slide1"
+      ],
+      "settings": {
+        "section_height": "650px",
+        "mobile_height": "auto",
+        "parallax": true,
+        "style": "bars",
+        "autoplay": false,
+        "autoplay_speed": 7,
+        "lazyload_images": true
+      }
+    },
+    "rich_text": {
+      "type": "rich-text",
+      "blocks": {
+        "text1": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": true,
+            "text": "<p>Get an inside look at our design process</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text1"
+      ],
+      "settings": {
+        "align_text": "center",
+        "narrow_column": false,
+        "divider": false
+      }
+    },
+    "video_gallery": {
+      "type": "video-gallery",
+      "blocks": {
+        "video1": {
+          "type": "video",
+          "settings": {
+            "video_link": "https://vimeo.com/1066703820",
+            "title": "Art of Light"
+          }
+        },
+        "video_Cf4kDL": {
+          "type": "video",
+          "settings": {
+            "video_link": "https://vimeo.com/1053144462",
+            "title": "Interview with David Patton"
+          }
+        },
+        "video_ecTc7F": {
+          "type": "video",
+          "settings": {
+            "video_link": "https://vimeo.com/1066703770",
+            "title": "A Closer Look"
+          }
+        }
+      },
+      "block_order": [
+        "video1",
+        "video_Cf4kDL",
+        "video_ecTc7F"
+      ],
+      "settings": {
+        "title": "",
+        "align_text": "center",
+        "divider": false
+      }
+    },
+    "featured_video_zdEg4d": {
+      "type": "featured-video",
+      "name": "t:sections.featured-video.presets.video.name",
+      "settings": {
+        "title": "Light From the Source",
+        "video_url": "https://www.youtube.com/watch?v=6gU1fQaTXY8",
+        "divider": false
+      }
+    },
+    "rich_text_kkwUqq": {
+      "type": "rich-text",
+      "blocks": {
+        "text_mUUj74": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": true,
+            "text": "<p>Meet Our Team</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_mUUj74"
+      ],
+      "settings": {
+        "align_text": "center",
+        "narrow_column": false,
+        "divider": false
+      }
+    },
+    "designer_slider_9hHQJK": {
+      "type": "designer-slider",
+      "blocks": {
+        "designer_N67FkB": {
+          "type": "designer",
+          "settings": {
+            "name": "David Patton (Director of Design)",
+            "bio": "<p>An industrial designer by trade, he has worked across diverse industries including sporting goods, consumer electronics, retail fixturing, commercial furniture, and, of course, lighting and fans. His most pivotal career moment came when he earned the title of ‘Father of the Standing Desk.’ Along with two partners, he co-invented and patented the world’s first ‘desktop converter,’ launching a multibillion-dollar standing desk and workplace ergonomics market through their company, VARIDESK. This innovation earned numerous product awards, transformed office culture, and improved the lives of many. He keeps letters from customers as a reminder of the people designers are ultimately serving.<br/><br/><br/>Quorum's mission is to stand out through design, and David plays a key role in bringing that vision to life...</p>",
+            "link_url": "shopify://products/quorum-light-accessory-template",
+            "link_text": "Discover More →",
+            "image_1": "shopify://shop_images/David_Patton_Headshot.jpg",
+            "image_1_alt": "",
+            "image_2": "shopify://shop_images/David_Patton_Design_1.jpg",
+            "image_2_alt": ""
+          }
+        },
+        "designer_HnkdwM": {
+          "type": "designer",
+          "settings": {
+            "name": "Julee Owens",
+            "bio": "<p>She believes that companies can leverage the power of user-centered design to profoundly influence experiences across a variety of business settings. By putting the user’s needs and behaviors at the center of the design process, businesses can create environments that resonate with their audiences. She emphasizes that fostering both the opportunity and desire for customers to engage with their surroundings is essential for a successful strategic execution. This approach doesn’t just enhance the experience; it also drives long-term success by creating spaces that are not only functional but also memorable.<br/><br/>With over 20 years of experience in design, Julee has honed her expertise in several critical areas, including retail and interior design, cross-departmental collaboration, and both budget and strategic planning... <br/></p>",
+            "link_url": "shopify://products/oxygen-fan-accessory-template",
+            "link_text": "Discover More →",
+            "image_1": "shopify://shop_images/Julee-Owens_Web.jpg",
+            "image_1_alt": "",
+            "image_2": "shopify://shop_images/Julee_Design_1_5b861c40-8457-44be-bb75-1611edcc194c.jpg",
+            "image_2_alt": ""
+          }
+        },
+        "designer_gtphfc": {
+          "type": "designer",
+          "settings": {
+            "name": "Brett Curtin",
+            "bio": "<p>Brett Curtin’s design journey began in the world of furniture and lighting, where he quickly distinguished himself by contributing to the creation of several<br/>top-selling products. His keen eye for detail and ability to balance functionality with aesthetic appeal laid the foundation for a flourishing career in design. As his expertise grew, Brett took on the role of an in-house designer, where he not only cultivated a design team but also played an instrumental role in redefining the brand’s visual identity. His leadership and creative vision brought a fresh perspective to the brand, blending innovation with timeless appeal.</p><h1></h1><h1></h1><p>Driven by an unwavering passion for the creative process, Brett approaches each project with a commitment to crafting captivating and enduring designs. Whether working within traditional, contemporary, or transitional styles, he strives to produce pieces that transcend trends and leave a lasting impression.</p>",
+            "link_url": "shopify://products/oxygen-fan-accessory-template",
+            "link_text": "Discover More →",
+            "image_1": "shopify://shop_images/Brett_Curtin_Profile_Photo.jpg",
+            "image_1_alt": "",
+            "image_2": "shopify://shop_images/Brett_Design_1.jpg",
+            "image_2_alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "designer_N67FkB",
+        "designer_HnkdwM",
+        "designer_gtphfc"
+      ],
+      "name": "Designers Slider",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "rich_text",
+    "video_gallery",
+    "featured_video_zdEg4d",
+    "rich_text_kkwUqq",
+    "designer_slider_9hHQJK"
+  ]
+}
