@@ -1,3 +1,9 @@
+<section
+    class="background-media-text"
+    {% unless section.settings.store == "all" %}
+        data-store="{{ section.settings.store }}"
+    {% endunless %}
+>
 <div
   data-section-id="{{ section.id }}"
   data-section-type="background-image"
