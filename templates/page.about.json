@@ -93,6 +93,7 @@
     },
     "video_with_text_WNUaLp": {
       "type": "video-with-text",
+      "custom_css": [],
       "name": "Video with Text",
       "settings": {
         "store": "all",
