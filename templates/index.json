@@ -133,16 +133,16 @@
         "product_card_LmMFmB": {
           "type": "product_card",
           "settings": {
-            "image_default": "shopify://shop_images/3-80-56_1.jpg",
-            "image_hover": "shopify://shop_images/3-81-56_1.jpg",
-            "title": "Favo",
-            "subtitle": "Ceiling Hanging Pendant Light Fixture 12 inch 5CCT ",
+            "image_default": "shopify://shop_images/6123-8-47_1.jpg",
+            "image_hover": "shopify://shop_images/6123-8-59_1.jpg",
+            "title": "Fairview",
+            "subtitle": "8 Light Pendant",
             "price": "",
-            "sku": "3-80-56",
-            "color_1": "#ffffff",
-            "color_2": "#e5e5e5",
-            "color_3": "#ff4f33",
-            "color_4": "#e8e8e1",
+            "sku": "6123-8-59",
+            "color_1": "#e8e8e1",
+            "color_2": "#000000",
+            "color_3": "rgba(0,0,0,0)",
+            "color_4": "rgba(0,0,0,0)",
             "color_5": "",
             "color_6": ""
           }
@@ -152,7 +152,7 @@
           "settings": {
             "image_default": "shopify://shop_images/3-216-650.jpg",
             "image_hover": "shopify://shop_images/3-216-1550.jpg",
-            "title": "Lucci",
+            "title": "Loire",
             "subtitle": "25” Ceiling Mount",
             "price": "",
             "sku": "3-216-650",
@@ -167,13 +167,13 @@
         "product_card_FErbDU": {
           "type": "product_card",
           "settings": {
-            "image_default": "shopify://shop_images/3-697-56_1.jpg",
-            "image_hover": "shopify://shop_images/3-697-15_1_c305edf1-b0db-47b9-b81c-146f11bd83c5.jpg",
-            "title": "Mika",
-            "subtitle": "Ten Light Chandelier",
+            "image_default": "shopify://shop_images/8905-6-8_1.jpg",
+            "image_hover": "shopify://shop_images/8905-6-59_1.jpg",
+            "title": "Harrelson",
+            "subtitle": "6-Light Pendant",
             "price": "",
             "sku": "3-697-56",
-            "color_1": "#b3a714",
+            "color_1": "#ffffff",
             "color_2": "#000000",
             "color_3": "",
             "color_4": "",
