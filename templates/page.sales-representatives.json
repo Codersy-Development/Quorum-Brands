@@ -24,7 +24,7 @@
             "link_2": "",
             "link_text_2": "",
             "color_accent": "rgba(0,0,0,0)",
-            "text_align": "vertical-center horizontal-center",
+            "text_align": "vertical-center horizontal-left",
             "image": "shopify://shop_images/Header_Image.jpg",
             "parallax_direction": "top",
             "overlay_opacity": 0
