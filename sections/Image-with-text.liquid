@@ -1,142 +1,40 @@
-{% comment %}
-  Feature Promo with Slideshow
-  - Supports up to 3 images that fade in and out
-  - Compatible with your existing Feature Promo section
-{% endcomment %}
-
-{{ 'feature-promo-slideshow.css' | asset_url | stylesheet_tag }}
-
-<section
-    class="image-with-text feature-promo"
-    {% unless section.settings.store == "all" %}
-        data-store="{{ section.settings.store }}"
-    {% endunless %}
->
+{{ 'custom-image-with-text.css' | asset_url | stylesheet_tag }}
+<section class="image-with-text feature-promo">
     <div class="container">
         <div class="feature-grid">
             <div class="feature-left">
                 {% if section.settings.logo %}
                     <img src="{{ section.settings.logo | img_url: 'master' }}" alt="Logo" class="feature-logo">
                 {% endif %}
+
                 {% if section.settings.heading != blank %}
                     <h2 class="feature-title">{{ section.settings.heading }}</h2>
                 {% endif %}
+
                 {% if section.settings.text != blank %}
                     <p class="feature-text">{{ section.settings.text }}</p>
                 {% endif %}
+
                 {% if section.settings.button_label != blank and section.settings.button_link != blank %}
                     <a href="{{ section.settings.button_link }}" class="feature-button">{{ section.settings.button_label }}</a>
                 {% endif %}
             </div>
+
             <div class="feature-right">
-                <div class="slideshow-container">
-                    {% if section.settings.image %}
-                        <div class="slideshow-slide fade">
-                            <img src="{{ section.settings.image | img_url: 'master' }}" alt="Feature Image" class="slideshow-image">
-                        </div>
-                    {% endif %}
-                    
-                    {% if section.settings.image2 %}
-                        <div class="slideshow-slide fade">
-                            <img src="{{ section.settings.image2 | img_url: 'master' }}" alt="Feature Image 2" class="slideshow-image">
-                        </div>
-                    {% endif %}
-                    
-                    {% if section.settings.image3 %}
-                        <div class="slideshow-slide fade">
-                            <img src="{{ section.settings.image3 | img_url: 'master' }}" alt="Feature Image 3" class="slideshow-image">
-                        </div>
-                    {% endif %}
-                    
-                    <!-- Navigation dots -->
-                    <div class="slideshow-dots">
-                        {% if section.settings.image %}
-                            <span class="slideshow-dot"></span>
-                        {% endif %}
-                        {% if section.settings.image2 %}
-                            <span class="slideshow-dot"></span>
-                        {% endif %}
-                        {% if section.settings.image3 %}
-                            <span class="slideshow-dot"></span>
-                        {% endif %}
-                    </div>
-                </div>
+                {% if section.settings.image %}
+                    <img src="{{ section.settings.image | img_url: 'master' }}" alt="Feature Image" class="feature-image">
+                {% endif %}
             </div>
         </div>
     </div>
 </section>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const slideshowContainers = document.querySelectorAll('.slideshow-container');
-    
-    slideshowContainers.forEach(container => {
-      const slides = container.querySelectorAll('.slideshow-slide');
-      const dots = container.querySelectorAll('.slideshow-dot');
-      let currentSlide = 0;
-      
-      // No slideshow needed if there's only one image
-      if (slides.length <= 1) return;
-      
-      // Initialize the first slide and dot
-      slides[0].classList.add('active');
-      if (dots.length > 0) dots[0].classList.add('active');
-      
-      function showSlide(n) {
-        // Hide all slides
-        slides.forEach(slide => {
-          slide.classList.remove('active');
-          slide.style.opacity = 0;
-        });
-        
-        // Remove active class from all dots
-        dots.forEach(dot => dot.classList.remove('active'));
-        
-        // Show the current slide with fade effect
-        slides[n].classList.add('active');
-        slides[n].style.opacity = 1;
-        
-        // Mark the current dot as active
-        if (dots.length > 0) dots[n].classList.add('active');
-      }
-      
-      function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-      }
-      
-      // Add click events to dots
-      dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-          currentSlide = index;
-          showSlide(currentSlide);
-        });
-      });
-      
-      // Start the slideshow
-      setInterval(nextSlide, 5000); // Change image every 5 seconds
-    });
-  });
-</script>
-
 {% schema %}
 {
-  "name": "Feature Promo Slideshow",
+  "name": "Feature Promo",
   "tag": "section",
   "class": "feature-promo-section",
   "settings": [
-    {
-      "type": "select",
-      "id": "store",
-      "label": "Store",
-      "info": "Populate this to show only on specific store",
-      "options": [
-        { "value": "all", "label": "Show On Both" },
-        { "value": "quorum", "label": "Quorum" },
-        { "value": "oxygen", "label": "Oxygen" }
-      ],
-      "default": "all"
-    },
     {
       "type": "image_picker",
       "id": "logo",
@@ -168,22 +66,12 @@
     {
       "type": "image_picker",
       "id": "image",
-      "label": "Image 1"
-    },
-    {
-      "type": "image_picker",
-      "id": "image2",
-      "label": "Image 2"
-    },
-    {
-      "type": "image_picker",
-      "id": "image3",
-      "label": "Image 3"
+      "label": "Main Feature Image"
     }
   ],
   "presets": [
     {
-      "name": "Feature Promo Slideshow"
+      "name": "Feature Promo"
     }
   ]
 }
