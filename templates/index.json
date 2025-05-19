@@ -52,48 +52,59 @@
           "type": "category_card",
           "settings": {
             "image": "shopify://shop_images/Dining_2_71a33cd0-89e4-4887-993f-8262d2dc05b1.jpg",
-            "title": "Lighting",
-            "subcategory_1": "1",
-            "subcategory_2": "2",
-            "subcategory_3": "3",
-            "subcategory_4": "4",
-            "subcategory_5": "5"
+            "title": "Ceiling Mounted",
+            "subcategory_1": "Chandeliers",
+            "subcategory_2": "Pendants",
+            "subcategory_3": "Linear Pendants (Island Lights)",
+            "subcategory_4": "Entry",
+            "subcategory_5": "Ceiling Mounts"
           }
         },
         "category_card_rzXJYG": {
           "type": "category_card",
           "settings": {
             "image": "shopify://shop_images/DIning.jpg",
-            "title": "Lighting",
-            "subcategory_1": "1",
-            "subcategory_2": "2",
-            "subcategory_3": "3",
-            "subcategory_4": "4",
-            "subcategory_5": "5"
+            "title": "Wall Mounted",
+            "subcategory_1": "Wall Sconce",
+            "subcategory_2": "Vanity",
+            "subcategory_3": "Picture Lights",
+            "subcategory_4": "",
+            "subcategory_5": ""
           }
         },
         "category_card_3PKUg7": {
           "type": "category_card",
           "settings": {
             "image": "shopify://shop_images/Tamara_Day_Set2_6_WebSize.jpg",
-            "title": "Lighting",
-            "subcategory_1": "1",
-            "subcategory_2": "2",
-            "subcategory_3": "3",
-            "subcategory_4": "4",
-            "subcategory_5": "5"
+            "title": "Outdoor Lighting",
+            "subcategory_1": "Pendants",
+            "subcategory_2": "Wall Mounts",
+            "subcategory_3": "Ceiling Mounts",
+            "subcategory_4": "Posts",
+            "subcategory_5": ""
           }
         },
         "category_card_bA3LAd": {
           "type": "category_card",
           "settings": {
             "image": "shopify://shop_images/Tamara_Day_Set1-35_WebSize.jpg",
-            "title": "Lighting",
-            "subcategory_1": "1",
-            "subcategory_2": "2",
-            "subcategory_3": "3",
-            "subcategory_4": "4",
-            "subcategory_5": "5"
+            "title": "Ceiling Lights",
+            "subcategory_1": "Indoor Fans",
+            "subcategory_2": "Patio Fans",
+            "subcategory_3": "",
+            "subcategory_4": "",
+            "subcategory_5": ""
+          }
+        },
+        "category_card_6PUbEp": {
+          "type": "category_card",
+          "settings": {
+            "title": "Mirrors",
+            "subcategory_1": "Round",
+            "subcategory_2": "Arch",
+            "subcategory_3": "Rectange",
+            "subcategory_4": "Stadium",
+            "subcategory_5": "Capsule"
           }
         }
       },
@@ -101,7 +112,8 @@
         "category_card_McD8Ur",
         "category_card_rzXJYG",
         "category_card_3PKUg7",
-        "category_card_bA3LAd"
+        "category_card_bA3LAd",
+        "category_card_6PUbEp"
       ],
       "name": "Shop by Category",
       "settings": {
