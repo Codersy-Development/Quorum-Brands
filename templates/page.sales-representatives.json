@@ -29,10 +29,29 @@
             "parallax_direction": "top",
             "overlay_opacity": 0
           }
+        },
+        "image_JxBCMM": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "Authorized\nSales\nRepresentatives",
+            "title_size": 80,
+            "subheading": "",
+            "link": "",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-left",
+            "image": "shopify://shop_images/Brett-Design-2.jpg",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
         }
       },
       "block_order": [
-        "slide1"
+        "slide1",
+        "image_JxBCMM"
       ],
       "settings": {
         "section_height": "650px",
