@@ -57,7 +57,7 @@
         "store": "all",
         "logo": "shopify://shop_images/DMC_logo1.jpg",
         "heading": "Quorum Dallas",
-        "text": "Dallas Market Center | 2100 Stemmons Freeway, Dallas, TX 75207\n\nSuites TM 3111 & TM 3004\n\nOpen Only During Shows\nUpcoming Market – June 18–24",
+        "text": "<p>Dallas Market Center | 2100 Stemmons Freeway, Dallas, TX 75207\n\nSuites TM 3111 & TM 3004\n\nOpen Only During Shows\nUpcoming Market – June 18–24</p>",
         "button_label": "Dallas Market Center",
         "button_link": "https://www.dallasmarketcenter.com/exhibitors/quorum-international/",
         "image": "shopify://shop_images/IMG_3421.jpg"
@@ -70,7 +70,7 @@
         "store": "all",
         "logo": "shopify://shop_images/DMC_logo1.jpg",
         "heading": "Quorum Dallas",
-        "text": "Dallas Market Center | 2100 Stemmons \nFreeway, Dallas, TX 75207\n\n Suite TM 3006\n\n Open Only During Shows\n Upcoming Market – June 18-24",
+        "text": "<p>Dallas Market Center | 2100 Stemmons <br/>Freeway, Dallas, TX 75207<br/><br/> Suite TM 3006<br/><br/> Open Only During Shows<br/> Upcoming Market – June 18-24</p>",
         "button_label": "Dallas Market Center",
         "button_link": "https://www.dallasmarketcenter.com/exhibitors/quorum-international/",
         "image": "shopify://shop_images/IMG_3443.jpg"
@@ -83,9 +83,9 @@
         "store": "all",
         "logo": "shopify://shop_images/HP-Market-logo-web.jpg",
         "heading": "Quorum Dallas",
-        "text": "Suites At Market Square | Jacob’s Place, High Point, NC 27260\n\nSuites M-1000A, M-1000B, Mezzanine\n\nOpen Only During Shows\nUpcoming Market – October 25–29",
-        "button_label": "Explore Products",
-        "button_link": "",
+        "text": "<p>Suites At Market Square | Jacob’s Place, High Point, NC 27260<br/><br/>Suites M-1000A, M-1000B, Mezzanine<br/><br/>Open Only During Shows<br/>Upcoming Market – October 25–29</p>",
+        "button_label": "High Point",
+        "button_link": "https://www.highpointmarket.org/exhibitor/15885",
         "image": "shopify://shop_images/IMG_9169.jpg"
       }
     }
