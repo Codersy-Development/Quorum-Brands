@@ -116,15 +116,15 @@
         "product_card_VUEjV4": {
           "type": "product_card",
           "settings": {
-            "image_default": "shopify://shop_images/3-586-40_1.jpg",
-            "image_hover": "shopify://shop_images/3-586-15.jpg",
-            "title": "Virtue",
-            "subtitle": "Designer Wall Sconce Light Fixture",
+            "image_default": "shopify://shop_images/866-8-0880_1.jpg",
+            "image_hover": "shopify://shop_images/866-8-3280_1.jpg",
+            "title": "Domain",
+            "subtitle": "30\" Pendant ",
             "price": "",
-            "sku": "3-586-40",
-            "color_1": "#ffffff",
+            "sku": "866-8-0880",
+            "color_1": "#b3a714",
             "color_2": "#0f0f0f",
-            "color_3": "#ff4f33",
+            "color_3": "rgba(0,0,0,0)",
             "color_4": "",
             "color_5": "",
             "color_6": ""
@@ -226,7 +226,7 @@
       ],
       "name": "Featured Products",
       "settings": {
-        "store": "oxygen",
+        "store": "quorum",
         "heading": "Featured Products"
       }
     },
