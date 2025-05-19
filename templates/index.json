@@ -686,6 +686,22 @@
         "button_text": "More Inspiration",
         "button_link": "#"
       }
+    },
+    "17476802510571b8d1": {
+      "type": "apps",
+      "blocks": {
+        "socialwidget_instafeed_base_widget_GgWcKR": {
+          "type": "shopify://apps/socialwidget-instafeed/blocks/base-widget/508b8d5b-b176-4dc6-a0ba-2b222db6eb79",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "socialwidget_instafeed_base_widget_GgWcKR"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
     }
   },
   "order": [
@@ -699,6 +715,7 @@
     "image_with_text_MacpA3",
     "background_image_text_HPadbT",
     "art_of_light_yRHyHn",
-    "art_of_light_MxLcCG"
+    "art_of_light_MxLcCG",
+    "17476802510571b8d1"
   ]
 }

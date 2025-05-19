@@ -134,6 +134,11 @@
           "collection_count_background_color": "#5c6ac4",
           "collection_count_color": "#ffffff"
         }
+      },
+      "7709396684840320309": {
+        "type": "shopify://apps/socialwidget-instafeed/blocks/social-widget/508b8d5b-b176-4dc6-a0ba-2b222db6eb79",
+        "disabled": false,
+        "settings": {}
       }
     }
   },
