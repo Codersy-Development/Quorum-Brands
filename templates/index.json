@@ -200,12 +200,12 @@
         "product_card_VUEjV4": {
           "type": "product_card",
           "settings": {
-            "image_default": "shopify://shop_images/6123-8-47_1.jpg",
-            "image_hover": "shopify://shop_images/8905-6-59_1.jpg",
-            "title": "3\" Wall Mount Downlight Cylinder",
-            "subtitle": "3\" Wall Mt Downlight Cylinder",
-            "price": "106.15",
-            "sku": "P563000-031-30K",
+            "image_default": "shopify://shop_images/3-586-40_1.jpg",
+            "image_hover": "shopify://shop_images/3-586-15.jpg",
+            "title": "Virtue",
+            "subtitle": "Designer Wall Sconce Light Fixture",
+            "price": "",
+            "sku": "3-586-40",
             "color_1": "#ffffff",
             "color_2": "#0f0f0f",
             "color_3": "#ff4f33",
@@ -234,7 +234,7 @@
         "product_card_B3p7pL": {
           "type": "product_card",
           "settings": {
-            "image_default": "shopify://shop_images/866-8-0880_1.jpg",
+            "image_default": "shopify://shop_images/3-586-40_1.jpg",
             "image_hover": "shopify://shop_images/8905-6-59_1.jpg",
             "title": "Graelyn Collection One-Light Pendant",
             "subtitle": "One-Light Brushed Gold New Traditional Pendant Light",
