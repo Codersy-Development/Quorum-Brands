@@ -31,6 +31,7 @@
                                             {% if block.settings.subcategory_3 != blank %}<li>{{ block.settings.subcategory_3 }}</li>{% endif %}
                                             {% if block.settings.subcategory_4 != blank %}<li>{{ block.settings.subcategory_4 }}</li>{% endif %}
                                             {% if block.settings.subcategory_5 != blank %}<li>{{ block.settings.subcategory_5 }}</li>{% endif %}
+                                            {% if block.settings.subcategory_6 != blank %}<li>{{ block.settings.subcategory_6 }}</li>{% endif %}
                                         </ul>
                                     </div>
                                     <div class="card-title">{{ block.settings.title }}</div>
@@ -142,6 +143,11 @@
           "type": "text",
           "id": "subcategory_5",
           "label": "Subcategory 5"
+        },
+        {
+          "type": "text",
+          "id": "subcategory_6",
+          "label": "Subcategory 6"
         }
       ]
     }
