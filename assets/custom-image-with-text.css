@@ -70,8 +70,11 @@
 .image-with-text .slideshow-container {
     position: relative;
     width: 100%;
-    overflow: hidden;
     border-radius: 8px;
+    overflow: hidden;
+    /* Default aspect ratio, will be overridden by JS */
+    padding-bottom: 75%;
+    height: 0;
 }
 
 .image-with-text .slideshow-slide {
@@ -82,17 +85,20 @@
     height: 100%;
     opacity: 0;
     transition: opacity 1.2s ease-in-out;
+    z-index: 1;
 }
 
 .image-with-text .slideshow-slide.active {
     opacity: 1;
+    z-index: 2;
 }
 
 .image-with-text .slideshow-image {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
     border-radius: 8px;
+    display: block;
 }
 
 /* Navigation dots */
@@ -104,15 +110,17 @@
     display: flex;
     justify-content: center;
     gap: 10px;
+    z-index: 5;
 }
 
 .image-with-text .slideshow-dot {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.6);
     cursor: pointer;
     transition: all 0.3s ease;
+    z-index: 10;
 }
 
 .image-with-text .slideshow-dot.active {
@@ -166,10 +174,5 @@
     .image-with-text .feature-right {
         margin-top: 30px;
         width: 100%;
-    }
-    
-    .image-with-text .slideshow-container {
-        height: auto;
-        aspect-ratio: 4/3;
     }
 }
