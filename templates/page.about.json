@@ -119,55 +119,25 @@
           "type": "member",
           "settings": {
             "image": "shopify://shop_images/David_Patton_Headshot.jpg",
-            "name": "David Kitts",
+            "name": "Julee Owens",
             "role": "Designer",
-            "bio": "David Martin is the longest tenured designer having designed for HØ over 10 years. He is a native Vermonter and has an architecture degree from Syracuse University."
+            "bio": "Julee believes companies can leverage the power of user-centered design to influence experiences in countless business settings. And, creating the opportunity and desire for customers to engage with the environment is vital to successful strategic execution. Her 20 years in design have enabled her to develop expertise in retail and interior design, cross-departmental collaboration, budget and strategic planning, and in cultivating teams."
           }
         },
         "member_6gtXQT": {
           "type": "member",
           "settings": {
             "image": "shopify://shop_images/David_Patton_Headshot.jpg",
-            "name": "David Kitts",
+            "name": "Brett Curtin",
             "role": "Designer",
-            "bio": "David Martin is the longest tenured designer having designed for HØ over 10 years. He is a native Vermonter and has an architecture degree from Syracuse University."
-          }
-        },
-        "member_DXzzrj": {
-          "type": "member",
-          "settings": {
-            "image": "shopify://shop_images/David_Patton_Headshot.jpg",
-            "name": "David Kitts",
-            "role": "Designer",
-            "bio": "David Martin is the longest tenured designer having designed for HØ over 10 years. He is a native Vermonter and has an architecture degree from Syracuse University."
-          }
-        },
-        "member_YhcB6N": {
-          "type": "member",
-          "settings": {
-            "image": "shopify://shop_images/David_Patton_Headshot.jpg",
-            "name": "David Kitts",
-            "role": "Designer",
-            "bio": "David Martin is the longest tenured designer having designed for HØ over 10 years. He is a native Vermonter and has an architecture degree from Syracuse University."
-          }
-        },
-        "member_Gni3r7": {
-          "type": "member",
-          "settings": {
-            "image": "shopify://shop_images/David_Patton_Headshot.jpg",
-            "name": "David Kitts",
-            "role": "Designer",
-            "bio": "David Martin is the longest tenured designer having designed for HØ over 10 years. He is a native Vermonter and has an architecture degree from Syracuse University."
+            "bio": "Brett’s design journey began in furniture and lighting, where he quickly contributed to top-selling products. His keen eye for detail and ability to balance functionality with aesthetics laid the foundation for his career. As an in-house designer, Brett led a design team and played a key role in redefining the brand’s visual identity. His creative vision brought a fresh perspective, blending innovation with timeless appeal. Passionate about the creative process, Brett approaches each project with a commitment to crafting captivating designs that transcend trends and leave a lasting impression."
           }
         }
       },
       "block_order": [
         "member_QNaYHt",
         "member_AGpcDV",
-        "member_6gtXQT",
-        "member_DXzzrj",
-        "member_YhcB6N",
-        "member_Gni3r7"
+        "member_6gtXQT"
       ],
       "name": "Team Section",
       "settings": {
