@@ -1,0 +1,71 @@
+<section class="sku-search-section">
+    <div class="sku-search-container">
+        <form method="get" action="/search">
+            <input
+                type="text"
+                name="q"
+                placeholder="{{ section.settings.placeholder }}"
+                class="sku-input"
+                required
+            />
+            <input type="hidden" name="type" value="product" />
+            <button type="submit" class="sku-button">Search</button>
+        </form>
+    </div>
+</section>
+
+<style>
+    .sku-search-section {
+        padding: 40px 20px;
+        background: #fff;
+    }
+
+    .sku-search-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .sku-search-container form {
+        display: flex;
+        border: 1px solid #ccc;
+    }
+
+    .sku-input {
+        flex-grow: 1;
+        padding: 14px 16px;
+        font-size: 16px;
+        border: none;
+        outline: none;
+    }
+
+    .sku-button {
+        background-color: #000;
+        color: #fff;
+        padding: 0 24px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .sku-button:hover {
+        background-color: #333;
+    }
+</style>
+{% schema %}
+{
+  "name": "Product Search",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Placeholder"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Search"
+    }
+  ]
+}
+{% endschema %}
