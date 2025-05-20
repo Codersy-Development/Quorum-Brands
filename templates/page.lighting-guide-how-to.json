@@ -1121,7 +1121,7 @@
                       "type": "global-image",
                       "name": "Global Image",
                       "settings": {
-                        "image": "shopify://shop_images/Fan_SqFt.png"
+                        "image": "shopify://shop_images/Fan_Mounting_1.png"
                       },
                       "blocks": {}
                     }
