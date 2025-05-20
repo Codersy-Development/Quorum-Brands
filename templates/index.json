@@ -457,10 +457,10 @@
         "card_slide_i4j3Mf": {
           "type": "card_slide",
           "settings": {
-            "main_image": "shopify://shop_images/DIning.jpg",
-            "card_image": "shopify://shop_images/Dining_2_71a33cd0-89e4-4887-993f-8262d2dc05b1.jpg",
-            "heading": "Shop by Room: Dining",
-            "text": "Designed to enhance every meal, our dining selection combines timeless style with thoughtful functionality.",
+            "main_image": "shopify://shop_images/Living.jpg",
+            "card_image": "shopify://shop_images/LivingRoom2.jpg",
+            "heading": "Shop by Room: Living Room",
+            "text": "Discover stylish lighting and fans that bring comfort and elegance to your living room, creating the perfect ambiance for relaxation and entertaining.",
             "button_label": "Explore Products",
             "button_link": "#"
           }
