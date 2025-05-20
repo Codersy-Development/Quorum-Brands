@@ -431,43 +431,141 @@
         "item_jP9bY4": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
-            "label": "Finish 1"
+            "image": "shopify://shop_images/Antique_White.png",
+            "label": "Antique White"
           }
         },
         "item_ygd9qT": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
-            "label": "Finish 1"
+            "image": "shopify://shop_images/Black_Walnut.png",
+            "label": "Black Walnut"
           }
         },
         "item_BnwWCB": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
-            "label": "Finish 1"
+            "image": "shopify://shop_images/Black.png",
+            "label": "Black"
           }
         },
         "item_7mbUKh": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
-            "label": "Finish 1"
+            "image": "shopify://shop_images/Cherry.png",
+            "label": "Cherry"
           }
         },
         "item_cdrJ79": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
-            "label": "Finish 1"
+            "image": "shopify://shop_images/Dark_Oak.png",
+            "label": "Dark Oak"
           }
         },
         "item_8QgyBt": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
-            "label": "Finish 1"
+            "image": "shopify://shop_images/Maple.png",
+            "label": "Maple"
+          }
+        },
+        "item_7aCDxn": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Matte_Black.png",
+            "label": "Matte Black"
+          }
+        },
+        "item_Tw7mTP": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Medium_Oak.png",
+            "label": "Medium Oak"
+          }
+        },
+        "item_nPwqiX": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Oiled_Bronze.png",
+            "label": "Oiled Bronze"
+          }
+        },
+        "item_Q4WpBP": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Old_Pine.png",
+            "label": "Old Pine"
+          }
+        },
+        "item_eVFHXB": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Rosewood.png",
+            "label": "Rosewood"
+          }
+        },
+        "item_MQ8pUj": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Silver.png",
+            "label": "Silver"
+          }
+        },
+        "item_86H9W8": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Studio_White.png",
+            "label": "Studio White"
+          }
+        },
+        "item_feLXky": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Teak.png",
+            "label": "Teak"
+          }
+        },
+        "item_7JB7XX": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Textured_Black.jpg",
+            "label": "Textured Black"
+          }
+        },
+        "item_gUz4H7": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Toasted_Sienna.png",
+            "label": "Toasted Sienna"
+          }
+        },
+        "item_DceFcC": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Vintage_Walnut_Distressed.png",
+            "label": "Vintage Walnut Distressed"
+          }
+        },
+        "item_TJKLcy": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Vintage_Walnut_Scrapped.png",
+            "label": "Vintage Walnut Scrapped"
+          }
+        },
+        "item_6pTAEk": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Vintage_Walnut.png",
+            "label": "Vintage Walnut"
+          }
+        },
+        "item_kbCqcd": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Walnut.png",
+            "label": "Walnut"
           }
         }
       },
@@ -477,7 +575,21 @@
         "item_BnwWCB",
         "item_7mbUKh",
         "item_cdrJ79",
-        "item_8QgyBt"
+        "item_8QgyBt",
+        "item_7aCDxn",
+        "item_Tw7mTP",
+        "item_nPwqiX",
+        "item_Q4WpBP",
+        "item_eVFHXB",
+        "item_MQ8pUj",
+        "item_86H9W8",
+        "item_feLXky",
+        "item_7JB7XX",
+        "item_gUz4H7",
+        "item_DceFcC",
+        "item_TJKLcy",
+        "item_6pTAEk",
+        "item_kbCqcd"
       ],
       "name": "Finishes",
       "settings": {
