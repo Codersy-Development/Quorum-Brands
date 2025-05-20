@@ -58,7 +58,13 @@
             "subcategory_3": "Linear Pendants (Island Lights)",
             "subcategory_4": "Entry",
             "subcategory_5": "Ceiling Mounts",
-            "subcategory_6": ""
+            "subcategory_6": "",
+            "subcategory_1_link": "",
+            "subcategory_2_link": "",
+            "subcategory_3_link": "",
+            "subcategory_4_link": "",
+            "subcategory_5_link": "",
+            "subcategory_6_link": ""
           }
         },
         "category_card_rzXJYG": {
@@ -71,7 +77,13 @@
             "subcategory_3": "Picture Lights",
             "subcategory_4": "",
             "subcategory_5": "",
-            "subcategory_6": ""
+            "subcategory_6": "",
+            "subcategory_1_link": "",
+            "subcategory_2_link": "",
+            "subcategory_3_link": "",
+            "subcategory_4_link": "",
+            "subcategory_5_link": "",
+            "subcategory_6_link": ""
           }
         },
         "category_card_3PKUg7": {
@@ -84,7 +96,13 @@
             "subcategory_3": "Ceiling Mounts",
             "subcategory_4": "Posts",
             "subcategory_5": "",
-            "subcategory_6": ""
+            "subcategory_6": "",
+            "subcategory_1_link": "",
+            "subcategory_2_link": "",
+            "subcategory_3_link": "",
+            "subcategory_4_link": "",
+            "subcategory_5_link": "",
+            "subcategory_6_link": ""
           }
         },
         "category_card_bA3LAd": {
@@ -97,7 +115,13 @@
             "subcategory_3": "",
             "subcategory_4": "",
             "subcategory_5": "",
-            "subcategory_6": ""
+            "subcategory_6": "",
+            "subcategory_1_link": "",
+            "subcategory_2_link": "",
+            "subcategory_3_link": "",
+            "subcategory_4_link": "",
+            "subcategory_5_link": "",
+            "subcategory_6_link": ""
           }
         },
         "category_card_6PUbEp": {
@@ -110,7 +134,13 @@
             "subcategory_3": "Rectange",
             "subcategory_4": "Stadium",
             "subcategory_5": "Capsule",
-            "subcategory_6": "Hexagon"
+            "subcategory_6": "Hexagon",
+            "subcategory_1_link": "",
+            "subcategory_2_link": "",
+            "subcategory_3_link": "",
+            "subcategory_4_link": "",
+            "subcategory_5_link": "",
+            "subcategory_6_link": ""
           }
         }
       },
@@ -141,7 +171,13 @@
             "subcategory_3": "Ceiling Mounts",
             "subcategory_4": "",
             "subcategory_5": "",
-            "subcategory_6": ""
+            "subcategory_6": "",
+            "subcategory_1_link": "",
+            "subcategory_2_link": "",
+            "subcategory_3_link": "",
+            "subcategory_4_link": "",
+            "subcategory_5_link": "",
+            "subcategory_6_link": ""
           }
         },
         "category_card_7QbgmU": {
@@ -154,7 +190,13 @@
             "subcategory_3": "Picture Lights",
             "subcategory_4": "",
             "subcategory_5": "",
-            "subcategory_6": ""
+            "subcategory_6": "",
+            "subcategory_1_link": "",
+            "subcategory_2_link": "",
+            "subcategory_3_link": "",
+            "subcategory_4_link": "",
+            "subcategory_5_link": "",
+            "subcategory_6_link": ""
           }
         },
         "category_card_CUDM6f": {
@@ -167,7 +209,13 @@
             "subcategory_3": "",
             "subcategory_4": "",
             "subcategory_5": "",
-            "subcategory_6": ""
+            "subcategory_6": "",
+            "subcategory_1_link": "",
+            "subcategory_2_link": "",
+            "subcategory_3_link": "",
+            "subcategory_4_link": "",
+            "subcategory_5_link": "",
+            "subcategory_6_link": ""
           }
         },
         "category_card_rrRHrB": {
@@ -180,7 +228,13 @@
             "subcategory_3": "",
             "subcategory_4": "",
             "subcategory_5": "",
-            "subcategory_6": ""
+            "subcategory_6": "",
+            "subcategory_1_link": "",
+            "subcategory_2_link": "",
+            "subcategory_3_link": "",
+            "subcategory_4_link": "",
+            "subcategory_5_link": "",
+            "subcategory_6_link": ""
           }
         },
         "category_card_gTBMYp": {
@@ -193,7 +247,13 @@
             "subcategory_3": "Rectange",
             "subcategory_4": "Stadium",
             "subcategory_5": "Capsule",
-            "subcategory_6": "Hexagon"
+            "subcategory_6": "Hexagon",
+            "subcategory_1_link": "",
+            "subcategory_2_link": "",
+            "subcategory_3_link": "",
+            "subcategory_4_link": "",
+            "subcategory_5_link": "",
+            "subcategory_6_link": ""
           }
         }
       },
@@ -519,7 +579,78 @@
       ],
       "name": "Product Feature Carousel",
       "settings": {
-        "store": "all"
+        "store": "quorum"
+      }
+    },
+    "product_feature_carousel_ThxpUR": {
+      "type": "product-feature-carousel",
+      "blocks": {
+        "card_slide_mqAfjm": {
+          "type": "card_slide",
+          "settings": {
+            "main_image": "shopify://shop_images/Living_Room_1.jpg",
+            "card_image": "shopify://shop_images/Living_Room_1.jpg",
+            "heading": "Shop by Room: Living Room",
+            "text": "Discover stylish lighting and fans that bring \ncomfort and elegance to any living space, creating the perfect ambiance for relaxation and entertaining.",
+            "button_label": "Explore Products",
+            "button_link": "#"
+          }
+        },
+        "card_slide_tipKqt": {
+          "type": "card_slide",
+          "settings": {
+            "main_image": "shopify://shop_images/Bathroom_1.png",
+            "card_image": "shopify://shop_images/Bathroom_2_6835cefb-61a2-4820-ab11-e437b72888e3.jpg",
+            "heading": "Shop by Room: Bathroom",
+            "text": "Elevate bathroom styling with our curated selection  of lighting and mirrors, designed to add a touch of luxury and  functionality to your space.",
+            "button_label": "Explore Products",
+            "button_link": "#"
+          }
+        },
+        "card_slide_yPEAWh": {
+          "type": "card_slide",
+          "settings": {
+            "main_image": "shopify://shop_images/Hallway_1_fa07f335-112e-42fc-9de5-6caf3ef4846d.png",
+            "card_image": "shopify://shop_images/Hallway_2.jpg",
+            "heading": "Shop by Room: Hallways & Entries",
+            "text": "Illuminate any hallways and entries with stylish lighting that sets the tone for your home, creating a  welcoming and sophisticated first impression",
+            "button_label": "Explore Products",
+            "button_link": "#"
+          }
+        },
+        "card_slide_xgmhVR": {
+          "type": "card_slide",
+          "settings": {
+            "main_image": "shopify://shop_images/Dining_Room_1.jpg",
+            "card_image": "shopify://shop_images/Dining_Room_2.png",
+            "heading": "Shop by Room: Dining",
+            "text": "Set the perfect tone for a dining area with lighting  fixtures that enhance the atmosphere, making every meal feel  special.",
+            "button_label": "Explore Products",
+            "button_link": "#"
+          }
+        },
+        "card_slide_7iH8Hg": {
+          "type": "card_slide",
+          "settings": {
+            "main_image": "shopify://shop_images/Outdoor_1.png",
+            "card_image": "shopify://shop_images/Outdoor_2_c251dd41-65f7-4e44-b14c-1abfdb57e5fc.jpg",
+            "heading": "Shop by Room: Outdoor",
+            "text": "Bring beauty and functionality to an outdoor spaces  with durable, weather-resistant lighting and fans that create a  comfortable and inviting atmosphere.",
+            "button_label": "Explore Products",
+            "button_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "card_slide_mqAfjm",
+        "card_slide_tipKqt",
+        "card_slide_yPEAWh",
+        "card_slide_xgmhVR",
+        "card_slide_7iH8Hg"
+      ],
+      "name": "Product Feature Carousel",
+      "settings": {
+        "store": "oxygen"
       }
     },
     "image_with_text_MacpA3": {
@@ -736,6 +867,7 @@
     "featured_products_4iHgi6",
     "featured_products_jFKX9w",
     "product_feature_carousel_Kqzf77",
+    "product_feature_carousel_ThxpUR",
     "image_with_text_MacpA3",
     "background_image_text_HPadbT",
     "art_of_light_yRHyHn",
