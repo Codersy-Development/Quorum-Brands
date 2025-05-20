@@ -21,7 +21,7 @@
           "type": "image",
           "settings": {
             "top_subheading": "",
-            "title": "Commercial/Hospitality",
+            "title": "Downloads",
             "title_size": 80,
             "subheading": "",
             "link": "",
@@ -30,7 +30,7 @@
             "link_text_2": "",
             "color_accent": "rgba(0,0,0,0)",
             "text_align": "vertical-center horizontal-center",
-            "image": "shopify://shop_images/Header_ccd159bf-fc92-442f-8f1a-0cf5d1e26780.jpg",
+            "image": "shopify://shop_images/3-61-6.jpg",
             "parallax_direction": "top",
             "overlay_opacity": 30
           }
@@ -50,64 +50,6 @@
         "lazyload_images": true
       }
     },
-    "rich_text_GQjWmC": {
-      "type": "rich-text",
-      "blocks": {
-        "text_Rc7nAj": {
-          "type": "text",
-          "settings": {
-            "enlarge_text": true,
-            "text": "<p>Our Commercial/Hospitality collection boast extensive offerings with looks fit for any project. </p>"
-          }
-        }
-      },
-      "block_order": [
-        "text_Rc7nAj"
-      ],
-      "name": "t:sections.rich-text.presets.rich_text.name",
-      "settings": {
-        "align_text": "center",
-        "narrow_column": true,
-        "divider": false
-      }
-    },
-    "image_jGWtyL": {
-      "type": "image",
-      "name": "Full Width Image",
-      "settings": {
-        "store": "all",
-        "image": "shopify://shop_images/Additional-Image.jpg"
-      }
-    },
-    "rich_text_Cq3MTt": {
-      "type": "rich-text",
-      "blocks": {
-        "text_rdTx3G": {
-          "type": "text",
-          "settings": {
-            "enlarge_text": true,
-            "text": "<p>We create lighting solutions that do more than illuminate − they inspire. Our innovative fixtures are crafted with the design community in mind, blending architectural form, advanced functionality, and elevated aesthetics to enhance every space they touch.</p>"
-          }
-        },
-        "text_dCYtWK": {
-          "type": "text",
-          "settings": {
-            "enlarge_text": true,
-            "text": "<p>Whether for a commercial or hospitality space, our collection is as intentional as it is functional. We know that your project demands performance, reliability, and a hassle-free specification. Our lighting solutions combine cutting-edge efficiency with design flexibility that elevates the experience of your design, all while offering support and the tools you need to make your space shine.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "text_rdTx3G",
-        "text_dCYtWK"
-      ],
-      "name": "t:sections.rich-text.presets.rich_text.name",
-      "settings": {
-        "align_text": "center",
-        "narrow_column": true,
-        "divider": false
-      }
-    },
     "text_columns_7xgixt": {
       "type": "text-columns",
       "blocks": {
@@ -118,10 +60,10 @@
             "image": "shopify://shop_images/Sconce.png",
             "image_mask": "none",
             "image_width": 650,
-            "title": "Wall Sconce",
-            "text": "<p>Our wall sconces are crafted to offer both task lighting and decorative appeal. Ideal for hallways, bathrooms, or lobbies, these fixtures combine form and function to enhance your space’s visual appeal. With a wide selection of styles and finishes, our sconces provide thoughtful illumination while adding a stylish touch to any commercial or hospitality environment.</p>",
-            "button_label": "",
-            "button_link": ""
+            "title": "Test 1",
+            "text": "",
+            "button_label": "Download",
+            "button_link": "#"
           }
         },
         "text_block_pf79bb": {
@@ -131,10 +73,10 @@
             "image": "shopify://shop_images/Vanity.jpg",
             "image_mask": "none",
             "image_width": 650,
-            "title": "Vanity",
-            "text": "<p>Transform your bathrooms with our stunning vanity lighting options. Designed to provide both ample light and elegance, these fixtures bring a sophisticated touch to any space. Perfect for commercial and hospitality applications, our vanity lights are engineered to offer balanced, flattering light while complementing the overall aesthetic of your design.</p>",
-            "button_label": "",
-            "button_link": ""
+            "title": "Test 2",
+            "text": "",
+            "button_label": "Download",
+            "button_link": "#"
           }
         }
       },
@@ -186,6 +128,7 @@
         "text_block_f7rVM6",
         "text_block_bYamN6"
       ],
+      "disabled": true,
       "custom_css": [
         ".image-wrap,image-element,img {padding-bottom: 0 !important; height: 450px !important; object-fit: cover;}"
       ],
@@ -230,6 +173,7 @@
         "text_block_33REAi",
         "text_block_PYUVam"
       ],
+      "disabled": true,
       "custom_css": [
         ".image-wrap,image-element,img {padding: 0; height: 450px !important; object-fit: cover;}"
       ],
@@ -244,9 +188,6 @@
   "order": [
     "main",
     "slideshow_ffDiXn",
-    "rich_text_GQjWmC",
-    "image_jGWtyL",
-    "rich_text_Cq3MTt",
     "text_columns_7xgixt",
     "text_columns_QFR9WQ",
     "text_columns_MHMPQe"
