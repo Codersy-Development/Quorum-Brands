@@ -135,6 +135,11 @@ store-switch-menus {
     text-transform: uppercase;
     font-weight: 600;
   }
+  @media only screen and (max-width: 1270px) {
+    .ssm__menu-link--title {
+      font-size: 16px;
+    }
+  }
 }
 
 #PBarNextFrameWrapper {
@@ -160,4 +165,29 @@ store-switch-menus {
 .hamburger-menu {
   display: flex;
   align-items: center;
+}
+
+.store-switch-navigations {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.store-switch-navigations .navigation-cenetered-bottom > .site-nav {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1235px) {
+  .navigation-cenetered-top {
+    display: none !important;
+  }
+}
+@media only screen and (min-width: 1236px) {
+  .navigation-cenetered-bottom {
+    display: none !important;
+  }
 }

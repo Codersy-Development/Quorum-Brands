@@ -276,7 +276,7 @@
 
               {%- if section.settings.main_menu_alignment == 'center-all' -%}
                 <div
-                  class="header-item header-item--navigation{% if section.settings.main_menu_alignment == 'center-all' %} text-center{% endif %} medium-down--hide"
+                  class="header-item header-item--navigation{% if section.settings.main_menu_alignment == 'center-all' %} text-center{% endif %} medium-down--hide navigation-cenetered-top"
                   {% unless disable_aria %}
                     role="navigation" aria-label="Primary"
                   {% endunless %}
@@ -298,7 +298,23 @@
 
           <div class="header-nav--second-row medium-down--hide">
             {{ hamburger_menu }}
-            {% render 'store-switch-menus', section %}
+            <div class="store-switch-navigations">
+              {% render 'store-switch-menus', section %}
+              {%- if section.settings.main_menu_alignment == 'center-all' -%}
+                <div
+                  class="header-item header-item--navigation{% if section.settings.main_menu_alignment == 'center-all' %} text-center{% endif %} medium-down--hide navigation-cenetered-bottom"
+                  {% unless disable_aria %}
+                    role="navigation" aria-label="Primary"
+                  {% endunless %}
+                >
+                  {%- render 'header-desktop-nav',
+                    main_menu: main_menu,
+                    dropdown_alignment: dropdown_alignment,
+                    hover_menu: section.settings.hover_menu
+                  -%}
+                </div>
+              {%- endif -%}
+            </div>
           </div>
 
           {%- if section.settings.main_menu_alignment == 'center' -%}
