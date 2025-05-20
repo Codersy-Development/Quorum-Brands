@@ -102,7 +102,7 @@
         display: flex;
         gap: 12px;
         justify-content: flex-end;
-        margin-top: 20px;
+        /* margin-top: 20px; */
     }
 
     & .product-button-prev {
