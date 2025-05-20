@@ -7,14 +7,8 @@
 >
     <div class="container">
         <div class="content">
-            <div class="content-left">
-                {% if section.settings.category_link != blank %}
-                    <a href="{{ section.settings.category_link }}">
-                      <h2 class="title">{{ section.settings.title }}</h2>
-                    </a>
-                {% else %}
-                    <h2 class="title">{{ section.settings.title }}</h2>
-                {% endif %}
+            <div class="content-left">                
+                <h2 class="title">{{ section.settings.title }}</h2>
                 <p class="description">{{ section.settings.description }}</p>
                 <div class="category-button-wrapper">
                     <div class="category-button-prev"><img src="{{ 'ico-arrow-right.svg' | asset_url }}" alt="Icon"></div>
@@ -88,7 +82,13 @@
                                             {% endif %}
                                         </ul>
                                     </div>
-                                    <div class="card-title">{{ block.settings.title }}</div>
+                                    {% if block.settings.category_link != blank %}
+                                        <a href="{{ block.settings.category_link }}">
+                                          <div class="card-title">{{ block.settings.title }}</div>
+                                        </a>
+                                    {% else %}
+                                        <div class="card-title">{{ block.settings.title }}</div>
+                                    {% endif %}
                                 </div>
                             </div>
                         {% endfor %}
