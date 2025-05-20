@@ -486,12 +486,36 @@
             "button_label": "Explore Products",
             "button_link": "#"
           }
+        },
+        "card_slide_Bx6f7c": {
+          "type": "card_slide",
+          "settings": {
+            "main_image": "shopify://shop_images/DIning_17bcd4ca-5470-4e32-b797-2cd3be95a3a6.jpg",
+            "card_image": "shopify://shop_images/Dining_2_03b47df6-1fcf-4e42-9a1c-f09755adec16.jpg",
+            "heading": "Shop by Room: Dining",
+            "text": "Set the perfect tone for your dining area with lighting fixtures that enhance the atmosphere, making every meal feel special.",
+            "button_label": "Explore Products",
+            "button_link": "#"
+          }
+        },
+        "card_slide_gz7fGt": {
+          "type": "card_slide",
+          "settings": {
+            "main_image": "shopify://shop_images/Outdoor_Lighting_87a2c8d2-8be5-42ea-9961-df597c4da4c5.jpg",
+            "card_image": "shopify://shop_images/Outdoor2.jpg",
+            "heading": "Shop by Room: Outdoor",
+            "text": "Bring beauty and functionality to your outdoor spaces with durable, weather-resistant lighting and fans that create a comfortable and inviting atmosphere.",
+            "button_label": "Explore Products",
+            "button_link": "#"
+          }
         }
       },
       "block_order": [
         "card_slide_i4j3Mf",
         "card_slide_cQ9MY3",
-        "card_slide_q7x7Q6"
+        "card_slide_q7x7Q6",
+        "card_slide_Bx6f7c",
+        "card_slide_gz7fGt"
       ],
       "name": "Product Feature Carousel",
       "settings": {
