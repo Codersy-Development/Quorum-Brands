@@ -2,24 +2,28 @@
   {%- assign has_logo = section.settings.logo -%}
   {%- if has_logo -%}
     {%- style -%}
-    .site-header__logo a {
-      max-width: {{ section.settings.mobile_logo_width }}px;
-    }
-    @media only screen and (min-width: 769px) {
       .site-header__logo a {
-        max-width: {{ section.settings.desktop_logo_width }}px;
+        max-width: {{ section.settings.mobile_logo_width }}px;
       }
-    }
+      @media only screen and (min-width: 769px) {
+        .site-header__logo a {
+          max-width: {{ section.settings.desktop_logo_width }}px;
+        }
+      }
     {%- endstyle -%}
   {%- endif -%}
 
-  <h1 class="site-header__logo{% unless has_logo %} text-center{% endunless %}" itemscope itemtype="http://schema.org/Organization">
+  <h1
+    class="site-header__logo{% unless has_logo %} text-center{% endunless %}"
+    itemscope
+    itemtype="http://schema.org/Organization"
+  >
     {%- if section.settings.logo -%}
       <a
         href="{{ routes.root_url }}"
         itemprop="url"
-        class="site-header__logo-link">
-
+        class="site-header__logo-link"
+      >
         {% comment %} Desktop logo {% endcomment %}
         {%- assign width = section.settings.desktop_logo_width | times: 2 -%}
         {%- assign height = section.settings.desktop_logo_width | divided_by: section.settings.logo.aspect_ratio -%}
@@ -29,12 +33,15 @@
 
         {% comment %} Mobile logo {% endcomment %}
         {%- assign mobile_width = section.settings.mobile_logo_width | times: 2 -%}
-        {%- assign mobile_height = section.settings.mobile_logo_width | divided_by: section.settings.logo.aspect_ratio -%}
+        {%- assign mobile_height = section.settings.mobile_logo_width
+          | divided_by: section.settings.logo.aspect_ratio
+        -%}
         {%- capture mobile_sizes -%}{{ section.settings.mobile_logo_width }}px{%- endcapture -%}
         {%- capture mobile_widths -%}{{ section.settings.mobile_logo_width }}, {{ section.settings.mobile_logo_width | times: 2 }}{%- endcapture -%}
         {%- capture mobile_style -%}max-height: {{ section.settings.mobile_logo_width | divided_by: section.settings.logo.aspect_ratio }}px;max-width: {{ section.settings.mobile_logo_width }}px;{%- endcapture -%}
 
-        {%- render 'image-element',
+        {%-
+          render 'image-element',
           img: section.settings.logo,
           img_width: width,
           img_height: height,
@@ -42,12 +49,13 @@
           sizes: sizes,
           widths: widths,
           style: style,
-          classes: 'small--hide',
+          classes: 'small--hide medium-down--hide',
           loading: 'eager',
           alt: section.settings.logo.alt | default: shop.name,
           itemprop: 'logo',
         -%}
-        {%- render 'image-element',
+        {%-
+          render 'image-element',
           img: section.settings.logo,
           img_width: mobile_width,
           img_height: mobile_height,
