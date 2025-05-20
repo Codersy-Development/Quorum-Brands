@@ -285,43 +285,92 @@
         "item_PcJfAb": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
-            "label": "Finish 1"
+            "image": "shopify://shop_images/Amber_Scavo.png",
+            "label": "Amber Scavo"
           }
         },
         "item_hQ3AHb": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
-            "label": "Finish 1"
+            "image": "shopify://shop_images/Clear_Crackle.png",
+            "label": "Clear Crackle"
           }
         },
         "item_kCpA3N": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
-            "label": "Finish 1"
+            "image": "shopify://shop_images/Clear_Ribbed.png",
+            "label": "Clear Ribbed"
           }
         },
         "item_dpJLqY": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
-            "label": "Finish 1"
+            "image": "shopify://shop_images/Clear_Hammered.png",
+            "label": "Clear Hammered"
           }
         },
         "item_AVBwjC": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
-            "label": "Finish 1"
+            "image": "shopify://shop_images/Clear_Seeded.png",
+            "label": "Clear Seeded"
           }
         },
         "item_Pz9TzV": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/3-502-15_6_65a42561-855d-4dce-a5b7-fa0ce64fe71e.jpg",
-            "label": "Finish 1"
+            "image": "shopify://shop_images/Clear.png",
+            "label": "Clear"
+          }
+        },
+        "item_7bTi7L": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Cream_Mottled_Scavo.png",
+            "label": "Cream Mottled Scavo"
+          }
+        },
+        "item_xDXBBM": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Faux_Alabaster.png",
+            "label": "Faux Alabaster"
+          }
+        },
+        "item_eeMeVP": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Faux_Brown_Alabaster.png",
+            "label": "Faux Brown Alabaster"
+          }
+        },
+        "item_edTEpX": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Frosted_Ribbed.png",
+            "label": "Frosted Ribbed"
+          }
+        },
+        "item_7Pmfbk": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Opal.jpg",
+            "label": "Opal"
+          }
+        },
+        "item_LU6mKh": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Satin_Opal.png",
+            "label": "Satin Opal"
+          }
+        },
+        "item_UrLHRT": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Silver_Mercury.png",
+            "label": "Silver Mercury"
           }
         }
       },
@@ -331,7 +380,14 @@
         "item_kCpA3N",
         "item_dpJLqY",
         "item_AVBwjC",
-        "item_Pz9TzV"
+        "item_Pz9TzV",
+        "item_7bTi7L",
+        "item_xDXBBM",
+        "item_eeMeVP",
+        "item_edTEpX",
+        "item_7Pmfbk",
+        "item_LU6mKh",
+        "item_UrLHRT"
       ],
       "name": "Finishes",
       "settings": {
