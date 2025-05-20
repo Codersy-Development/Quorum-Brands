@@ -1074,7 +1074,7 @@
                       "type": "global-image",
                       "name": "Global Image",
                       "settings": {
-                        "image": "shopify://shop_images/Fan_Ceiling_Height.png"
+                        "image": "shopify://shop_images/Fan_Ceiling-Height_1.png"
                       },
                       "blocks": {}
                     }
@@ -1121,7 +1121,7 @@
                       "type": "global-image",
                       "name": "Global Image",
                       "settings": {
-                        "image": "shopify://shop_images/Fan_Mounting_1.png"
+                        "image": "shopify://shop_images/Fan_SqFt_1.png"
                       },
                       "blocks": {}
                     }
@@ -1205,7 +1205,7 @@
                       "type": "global-image",
                       "name": "Global Image",
                       "settings": {
-                        "image": "shopify://shop_images/Fan_Mounting.png"
+                        "image": "shopify://shop_images/Fan_Mounting_1.png"
                       },
                       "blocks": {}
                     }
