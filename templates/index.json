@@ -468,10 +468,10 @@
         "card_slide_cQ9MY3": {
           "type": "card_slide",
           "settings": {
-            "main_image": "shopify://shop_images/Tamara_Day_Set2_6_WebSize.jpg",
-            "card_image": "shopify://shop_images/Tamara_Day_Set1-35_WebSize.jpg",
-            "heading": "Shop by Room: Dining",
-            "text": "Designed to enhance every meal, our dining selection combines timeless style with thoughtful functionality.",
+            "main_image": "shopify://shop_images/Bathroom_1.jpg",
+            "card_image": "shopify://shop_images/Bathroom_2.jpg",
+            "heading": "Shop by Room: Bathroom",
+            "text": "Elevate your bathroom with our curated selection of lighting and mirrors, designed to add a touch of luxury and functionality to your space.",
             "button_label": "Explore Products",
             "button_link": "#"
           }
