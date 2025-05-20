@@ -94,7 +94,8 @@
         text-align: center;
     }
 
-    & .overlay ul li {
+    & .overlay ul li,
+    & .overlay ul li a {
         color: #fff;
         font-size: 16px;
         margin-bottom: 10px;
