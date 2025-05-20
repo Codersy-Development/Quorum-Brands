@@ -1,9 +1,9 @@
 {{ 'custom-featured-products.css' | asset_url | stylesheet_tag }}
 <section
-    class="featured-products"
-    {% unless section.settings.store == "all" %}
-        data-store="{{ section.settings.store }}"
-    {% endunless %}
+        class="featured-products"
+        {% unless section.settings.store == "all" %}
+            data-store="{{ section.settings.store }}"
+        {% endunless %}
 >
     <div class="container">
         <div class="section-header">
@@ -18,47 +18,44 @@
         <div class="swiper featuredSwiper">
             <div class="swiper-wrapper">
                 {% for block in section.blocks %}
-                    <div class="swiper-slide">
-                        <div class="product-card">
-                            <div class="product-image">
-                                {% if block.settings.image_default %}
-                                    <img src="{{ block.settings.image_default | img_url: 'master' }}" alt="{{ block.settings.title }}" class="image-default">
-                                {% endif %}
-                                {% if block.settings.image_hover %}
-                                    <img src="{{ block.settings.image_hover | img_url: 'master' }}" alt="{{ block.settings.title }}" class="image-hover">
-                                {% endif %}
-                            </div>
-
-                            <div class="product-info">
-                               <h3 class="product-title">{{ block.settings.title }}</h3>
-                                <p class="product-subtitle">{{ block.settings.subtitle }}</p>
-                                <p class="product-price">${{ block.settings.price }}</p>
-
-                                <div class="product-colors">
-                                    {% if block.settings.color_1 != blank %}
-                                        <span class="color-dot" style="background-color: {{ block.settings.color_1 }}"></span>
+                    {% assign product = all_products[block.settings.product] %}
+                    {% if product %}
+                        {% assign first_image = product.images[0] %}
+                        {% assign second_image = product.images[1] %}
+                        <div class="swiper-slide">
+                            <a href="{{ product.url }}" class="product-card">
+                                <div class="product-image">
+                                    {% if first_image %}
+                                        <img
+                                            src="{{ first_image | img_url: 'master' }}"
+                                            alt="{{ product.title }}"
+                                            class="image-default"
+                                        >
                                     {% endif %}
-                                    {% if block.settings.color_2 != blank %}
-                                        <span class="color-dot" style="background-color: {{ block.settings.color_2 }}"></span>
-                                    {% endif %}
-                                    {% if block.settings.color_3 != blank %}
-                                        <span class="color-dot" style="background-color: {{ block.settings.color_3 }}"></span>
-                                    {% endif %}
-                                    {% if block.settings.color_4 != blank %}
-                                        <span class="color-dot" style="background-color: {{ block.settings.color_4 }}"></span>
-                                    {% endif %}
-                                    {% if block.settings.color_5 != blank %}
-                                        <span class="color-dot" style="background-color: {{ block.settings.color_5 }}"></span>
-                                    {% endif %}
-                                    {% if block.settings.color_6 != blank %}
-                                        <span class="color-dot" style="background-color: {{ block.settings.color_6 }}"></span>
+                                    {% if second_image %}
+                                        <img
+                                            src="{{ second_image | img_url: 'master' }}"
+                                            alt="{{ product.title }} - hover"
+                                            class="image-hover"
+                                        >
                                     {% endif %}
                                 </div>
 
-                                <p class="product-sku">SKU: {{ block.settings.sku }}</p>
-                            </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">{{ product.title }}</h3>
+                                    {% if product.metafields.custom.featured_description %}
+                                        <p class="product-subtitle">
+                                            {{ product.metafields.custom.featured_description.value }}
+                                        </p>
+                                    {% endif %}
+
+                                    {% if product.variants.first.sku %}
+                                        <p class="product-sku">SKU: {{ product.variants.first.sku }}</p>
+                                    {% endif %}
+                                </div>
+                            </a>
                         </div>
-                    </div>
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>
@@ -79,7 +76,7 @@
             },
             loop: false,
             breakpoints: {
-                0: {             // 👈 ensures mobile gets 1 slide
+                0: {
                     slidesPerView: 1,
                     spaceBetween: 20
                 },
@@ -94,23 +91,31 @@
             }
         });
 
-        // Hover swap
+        // Image hover swap
         const cards = document.querySelectorAll('.product-card');
         cards.forEach(card => {
             const defaultImage = card.querySelector('.image-default');
             const hoverImage = card.querySelector('.image-hover');
 
-            card.addEventListener('mouseenter', () => {
-                if (hoverImage) hoverImage.style.opacity = 1;
-            });
+            if (hoverImage) {
+                hoverImage.style.opacity = 0;
+                hoverImage.style.position = 'absolute';
+                hoverImage.style.top = '0';
+                hoverImage.style.left = '0';
+                hoverImage.style.transition = 'opacity 0.3s ease';
+                card.querySelector('.product-image').style.position = 'relative';
 
-            card.addEventListener('mouseleave', () => {
-                if (hoverImage) hoverImage.style.opacity = 0;
-            });
+                card.addEventListener('mouseenter', () => {
+                    hoverImage.style.opacity = 1;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    hoverImage.style.opacity = 0;
+                });
+            }
         });
     });
 </script>
-
 {% schema %}
 {
   "name": "Featured Products",
@@ -140,64 +145,9 @@
       "name": "Product Card",
       "settings": [
         {
-          "type": "image_picker",
-          "id": "image_default",
-          "label": "Default Image"
-        },
-        {
-          "type": "image_picker",
-          "id": "image_hover",
-          "label": "Hover Image"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Product Title"
-        },
-        {
-          "type": "text",
-          "id": "subtitle",
-          "label": "Product Subtitle"
-        },
-        {
-          "type": "text",
-          "id": "price",
-          "label": "Price"
-        },
-        {
-          "type": "text",
-          "id": "sku",
-          "label": "SKU"
-        },
-        {
-          "type": "color",
-          "id": "color_1",
-          "label": "Color 1"
-        },
-        {
-          "type": "color",
-          "id": "color_2",
-          "label": "Color 2"
-        },
-        {
-          "type": "color",
-          "id": "color_3",
-          "label": "Color 3"
-        },
-        {
-          "type": "color",
-          "id": "color_4",
-          "label": "Color 4"
-        },
-        {
-          "type": "color",
-          "id": "color_5",
-          "label": "Color 5"
-        },
-        {
-          "type": "color",
-          "id": "color_6",
-          "label": "Color 6"
+          "type": "product",
+          "id": "product",
+          "label": "Select Product"
         }
       ]
     }
