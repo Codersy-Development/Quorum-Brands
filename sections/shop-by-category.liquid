@@ -100,6 +100,8 @@
         new Swiper(".mySwiper", {
             slidesPerView: 1.2,
             spaceBetween: 20,
+            watchOverflow: true,
+            loop: false,
             slidesPerGroup: 1,
             navigation: {
                 nextEl: ".category-button-next",
@@ -107,15 +109,15 @@
             },
             breakpoints: {
                 768: {
-                    slidesPerView: 2,
+                    slidesPerView: 1.2,
                     spaceBetween: 20,
                 },
                 1024: {
-                    slidesPerView: 2.8,   // <-- Not 3, slightly less
+                    slidesPerView: 1.8,   // <-- Not 3, slightly less
                     spaceBetween: 30,
                 },
                 1400: {
-                    slidesPerView: 3.2,   // <-- On very large screens, a little more
+                    slidesPerView: 2.2,   // <-- On very large screens, a little more
                     spaceBetween: 30,
                 }
             }
