@@ -77,11 +77,20 @@
         "narrow_column": true,
         "divider": false
       }
+    },
+    "sales_representatives_7ekkL7": {
+      "type": "sales-representatives",
+      "name": "Sales Representatives",
+      "settings": {
+        "title": "Sales Representatives",
+        "description": "<p>Contact our professional sales team for assistance</p>"
+      }
     }
   },
   "order": [
     "main",
     "slideshow_ffDiXn",
-    "rich_text_8qeBbJ"
+    "rich_text_8qeBbJ",
+    "sales_representatives_7ekkL7"
   ]
 }
