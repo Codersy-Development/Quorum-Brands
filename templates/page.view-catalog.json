@@ -1,0 +1,158 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "slideshow_AAxj9k": {
+      "type": "slideshow",
+      "blocks": {
+        "image_YQ4NDV": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "Catalogs",
+            "title_size": 100,
+            "subheading": "",
+            "link": "",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-bottom horizontal-left",
+            "image": "shopify://shop_images/Ceiling_Mounted.jpg",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_YQ4NDV"
+      ],
+      "name": "t:sections.slideshow.presets.hero_optional_slideshow.name",
+      "settings": {
+        "section_height": "650px",
+        "mobile_height": "auto",
+        "parallax": false,
+        "style": "bars",
+        "autoplay": false,
+        "autoplay_speed": 5,
+        "lazyload_images": true
+      }
+    },
+    "rich_text_YKc8iz": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_FeMzLz": {
+          "type": "heading",
+          "settings": {
+            "title": "Finishes"
+          }
+        },
+        "text_JCcpkR": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p>We understand that the finish of a product can transform its entire look and feel. That’s why we offer a diverse collection of high-quality finishes that complement every style, from modern elegance to classic charm. Whether you’re looking to create a bold statement or add a subtle touch of sophis-</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_FeMzLz",
+        "text_JCcpkR"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.rich_text.name",
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false
+      }
+    },
+    "text_columns_JrCknm": {
+      "type": "text-columns",
+      "blocks": {
+        "text_block_UjqFjB": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/Screenshot_2025-04-14_at_1.15.06_PM_27b9940b-43b1-4b56-8d00-9d8bdeabcace.png",
+            "image_mask": "none",
+            "image_width": 300,
+            "title": "Quorum Lighting 2025",
+            "text": "",
+            "button_label": "View Catalog",
+            "button_link": "shopify://pages/quorum-lighting-catalog-2025"
+          }
+        },
+        "text_block_z4cWYM": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/Screenshot_2025-04-14_at_1.13.08_PM_30d74a90-b325-4882-a5a8-5436395aa758.png",
+            "image_mask": "none",
+            "image_width": 300,
+            "title": "Quorum Fan 2025",
+            "text": "",
+            "button_label": "View Catalog",
+            "button_link": ""
+          }
+        },
+        "text_block_jcYNxj": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/Screenshot_2025-04-14_at_1.12.08_PM_38c381ec-8abb-42e6-bd63-b4ea5d4811db.png",
+            "image_mask": "none",
+            "image_width": 300,
+            "title": "Quorum Spring 2025",
+            "text": "",
+            "button_label": "View Catalog",
+            "button_link": ""
+          }
+        },
+        "text_block_b6rNbC": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/Screenshot_2025-04-14_at_1.12.30_PM_0851d6a4-ee8e-4111-b3c0-78917ccc4d7d.png",
+            "image_mask": "none",
+            "image_width": 300,
+            "title": "Oxygen 2025",
+            "text": "",
+            "button_label": "View Catalog",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_block_UjqFjB",
+        "text_block_z4cWYM",
+        "text_block_jcYNxj",
+        "text_block_b6rNbC"
+      ],
+      "name": "t:sections.text-columns.presets.text_columns_with_images.name",
+      "settings": {
+        "title": "",
+        "align_text": "left",
+        "divider": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_AAxj9k",
+    "rich_text_YKc8iz",
+    "text_columns_JrCknm"
+  ]
+}
