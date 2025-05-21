@@ -49,35 +49,6 @@
       "type": "main-page",
       "settings": {}
     },
-    "rich_text_YKc8iz": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_FeMzLz": {
-          "type": "heading",
-          "settings": {
-            "title": "Finishes"
-          }
-        },
-        "text_JCcpkR": {
-          "type": "text",
-          "settings": {
-            "enlarge_text": false,
-            "text": "<p>We understand that the finish of a product can transform its entire look and feel. That’s why we offer a diverse collection of high-quality finishes that complement every style, from modern elegance to classic charm. Whether you’re looking to create a bold statement or add a subtle touch of sophis-</p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading_FeMzLz",
-        "text_JCcpkR"
-      ],
-      "disabled": true,
-      "name": "t:sections.rich-text.presets.rich_text.name",
-      "settings": {
-        "align_text": "center",
-        "narrow_column": true,
-        "divider": false
-      }
-    },
     "text_columns_JrCknm": {
       "type": "text-columns",
       "blocks": {
@@ -147,12 +118,39 @@
         "align_text": "left",
         "divider": false
       }
+    },
+    "text_columns_jPnFJ9": {
+      "type": "text-columns",
+      "blocks": {
+        "text_block_fmYRpE": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/Screenshot_2025-04-14_at_1.15.06_PM_27b9940b-43b1-4b56-8d00-9d8bdeabcace.png",
+            "image_mask": "none",
+            "image_width": 200,
+            "title": "",
+            "text": "",
+            "button_label": "Back to Catalogs",
+            "button_link": "shopify://pages/catalogs"
+          }
+        }
+      },
+      "block_order": [
+        "text_block_fmYRpE"
+      ],
+      "name": "t:sections.text-columns.presets.text_columns_with_images.name",
+      "settings": {
+        "title": "",
+        "align_text": "center",
+        "divider": false
+      }
     }
   },
   "order": [
     "slideshow_AAxj9k",
     "main",
-    "rich_text_YKc8iz",
-    "text_columns_JrCknm"
+    "text_columns_JrCknm",
+    "text_columns_jPnFJ9"
   ]
 }
