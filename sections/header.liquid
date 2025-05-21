@@ -31,7 +31,8 @@
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when 'store_selector' -%}
-      html[data-store-selected='{{ block.settings.title |  downcase }}'] header{
+      html[data-store-selected='{{ block.settings.title |  downcase }}'] header,
+      html[data-store-selected='{{ block.settings.title |  downcase }}'] footer {
         --colorNav: {{ block.settings.color_header }};
         --colorNavText: {{ block.settings.color_header_text }};
         --colorTextBody: {{ block.settings.color_header_text }};
