@@ -1,15 +1,15 @@
 <section
-    class="t:sections.background-image-text.name"
+    class="t:sections.background-image-text.name index-section--flush"
     {% unless section.settings.store == "all" %}
         data-store="{{ section.settings.store }}"
     {% endunless %}
-    style="display: flex; justify-content: center; width: 100%;"
+    style="width: 100%; display: flex; justify-content: center; align-items: center; margin: 0; padding: 0;"
 >
 <div
   data-section-id="{{ section.id }}"
   data-section-type="background-image"
   class="background-media-text background-media-text--{{ section.id }} background-media-text--{{ section.settings.height }} loaded"
-  style="max-width: 1400px; width: 100%; overflow: hidden; position: relative;"
+  style="max-width: 1400px; width: 100%; overflow: hidden; position: relative; left: 0; right: 0; margin-left: auto; margin-right: auto;"
   data-aos="background-media-text__animation">
 
   <div class="background-media-text__container">
