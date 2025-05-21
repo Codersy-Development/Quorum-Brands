@@ -22,34 +22,34 @@
     {%- else -%}
       {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
     {%- endif -%}
-  </div>
   
-  {%- if section.settings.subtitle != blank or section.settings.title != blank or section.settings.text != blank -%}
-    <div class="background-media-text__inner">
-      <div class="background-media-text__aligner background-media-text--{{ section.settings.layout }}">
-        <div class="animation-cropper">
-          <div class="animation-contents">
-            <div class="background-media-text__text{% if section.settings.framed %} background-media-text__text--framed{% endif %}">
-              {%- if section.settings.subtitle -%}
-                <p class="h5">{{ section.settings.subtitle }}</p>
-              {%- endif -%}
-              {%- if section.settings.title != blank -%}
-                <p class="h3">{{ section.settings.title | escape }}</p>
-              {%- endif -%}
-              {%- if section.settings.text != blank -%}
-                <div class="rte background-media-text__subtext">{{ section.settings.text }}</div>
-              {%- endif -%}
-              {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
-                <a href="{{ section.settings.button_link }}" class="btn">
-                  {{ section.settings.button_label }}
-                </a>
-              {%- endif -%}
+    {%- if section.settings.subtitle != blank or section.settings.title != blank or section.settings.text != blank -%}
+      <div class="background-media-text__inner" style="max-width: 1400px;">
+        <div class="background-media-text__aligner background-media-text--{{ section.settings.layout }}">
+          <div class="animation-cropper">
+            <div class="animation-contents">
+              <div class="background-media-text__text{% if section.settings.framed %} background-media-text__text--framed{% endif %}">
+                {%- if section.settings.subtitle -%}
+                  <p class="h5">{{ section.settings.subtitle }}</p>
+                {%- endif -%}
+                {%- if section.settings.title != blank -%}
+                  <p class="h3">{{ section.settings.title | escape }}</p>
+                {%- endif -%}
+                {%- if section.settings.text != blank -%}
+                  <div class="rte background-media-text__subtext">{{ section.settings.text }}</div>
+                {%- endif -%}
+                {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
+                  <a href="{{ section.settings.button_link }}" class="btn">
+                    {{ section.settings.button_label }}
+                  </a>
+                {%- endif -%}
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  {%- endif -%}
+    {%- endif -%}
+  </div>
 </div>
 
 <div class="background-media-text__spacer background-media-text--{{ section.settings.height }}"></div>
