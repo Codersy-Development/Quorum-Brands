@@ -21,7 +21,7 @@
           "type": "image",
           "settings": {
             "top_subheading": "",
-            "title": "",
+            "title": "Catalogs",
             "title_size": 80,
             "subheading": "",
             "link": "",
@@ -78,178 +78,57 @@
         "divider": false
       }
     },
-    "finishes_ym9xT3": {
-      "type": "finishes",
+    "text_columns_JrCknm": {
+      "type": "text-columns",
       "blocks": {
-        "item_KJiqTQ": {
-          "type": "item",
+        "text_block_UjqFjB": {
+          "type": "text_block",
           "settings": {
-            "image": "shopify://shop_images/AgedBrass_CC-80.jpg",
-            "label": "Aged Brass"
+            "enable_image": true,
+            "image": "shopify://shop_images/Screenshot_2025-04-14_at_1.13.08_PM_a143ac62-0522-4a01-9aa0-82d54cf68bff.png",
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "Quorum Lighting Catalog 2025",
+            "text": "",
+            "button_label": "View Catalog",
+            "button_link": ""
           }
         },
-        "item_QEMrkV": {
-          "type": "item",
+        "text_block_z4cWYM": {
+          "type": "text_block",
           "settings": {
-            "image": "shopify://shop_images/AgedSilverLeaf_CC-60.jpg",
-            "label": "Aged Silver Leaf"
+            "enable_image": true,
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "Example title",
+            "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.</p>",
+            "button_label": "Optional button",
+            "button_link": ""
           }
         },
-        "item_wdQbaP": {
-          "type": "item",
+        "text_block_b6rNbC": {
+          "type": "text_block",
           "settings": {
-            "image": "shopify://shop_images/GoldLeaf_CC-74.jpg",
-            "label": "Gold Leaf"
-          }
-        },
-        "item_tdh4Wf": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/WeatheredZinc_CC-37.jpg",
-            "label": "Weathered Zinc"
-          }
-        },
-        "item_xLrNNL": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Rust_CC-5.jpg",
-            "label": "Rust"
-          }
-        },
-        "item_iYrUnA": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/ToastedSienna_CC-44.jpg",
-            "label": "Toasted Sienna"
-          }
-        },
-        "item_wADGmV": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Galvanized_CC-9.jpg",
-            "label": "Galvanized"
-          }
-        },
-        "item_e8BKEe": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Zinc_CC-17.jpg",
-            "label": "Zinc"
-          }
-        },
-        "item_UafrMT": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Corsican-Gold_CC-88.jpg",
-            "label": "Corsican Gold"
-          }
-        },
-        "item_HxkBLw": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Noir_CC-69.jpg",
-            "label": "Noir"
-          }
-        },
-        "item_8RBHMn": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/OiledBronze_CC-86.jpg",
-            "label": "Oiled Bronze"
-          }
-        },
-        "item_cnfcGC": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/BrushedSilver_CC-63.jpg",
-            "label": "Brushed Silver"
-          }
-        },
-        "item_g48Paq": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Graphite_CC-3.jpg",
-            "label": "Graphite"
-          }
-        },
-        "item_PzdbJU": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/TumbledSteel_CC-7.jpg",
-            "label": "Tumbled Steel"
-          }
-        },
-        "item_jb7wT9": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/French-Umber_CC-94.jpg",
-            "label": "French Umber"
-          }
-        },
-        "item_GFYN8e": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/ManchesterGray_CC-56.jpg",
-            "label": "Manchester Gray"
-          }
-        },
-        "item_QiffMq": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/BrushedBrass_CC-47.jpg",
-            "label": "Brushed Brass"
-          }
-        },
-        "item_xrrJaN": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/AntiqueSilver_CC-92.jpg",
-            "label": "Antique Silver"
-          }
-        },
-        "item_L9pUie": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Antique-Brass_CC-4.jpg",
-            "label": "Antique Brass"
-          }
-        },
-        "item_AE9Dt4": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Silver_CC-61.jpg",
-            "label": "Silver"
+            "enable_image": true,
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "Example title",
+            "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.</p>",
+            "button_label": "Optional button",
+            "button_link": ""
           }
         }
       },
       "block_order": [
-        "item_KJiqTQ",
-        "item_QEMrkV",
-        "item_wdQbaP",
-        "item_tdh4Wf",
-        "item_xLrNNL",
-        "item_iYrUnA",
-        "item_wADGmV",
-        "item_e8BKEe",
-        "item_UafrMT",
-        "item_HxkBLw",
-        "item_8RBHMn",
-        "item_cnfcGC",
-        "item_g48Paq",
-        "item_PzdbJU",
-        "item_jb7wT9",
-        "item_GFYN8e",
-        "item_QiffMq",
-        "item_xrrJaN",
-        "item_L9pUie",
-        "item_AE9Dt4"
+        "text_block_UjqFjB",
+        "text_block_z4cWYM",
+        "text_block_b6rNbC"
       ],
-      "name": "Finishes",
+      "name": "t:sections.text-columns.presets.text_columns_with_images.name",
       "settings": {
-        "title": "Finishes",
-        "show_more_text": "Show all finishes",
-        "show_less_text": "Collapse",
-        "opened": true
+        "title": "",
+        "align_text": "center",
+        "divider": false
       }
     },
     "rich_text_KNpbP3": {
@@ -605,7 +484,7 @@
     "main",
     "slideshow_AAxj9k",
     "rich_text_YKc8iz",
-    "finishes_ym9xT3",
+    "text_columns_JrCknm",
     "rich_text_KNpbP3",
     "finishes_TmFJWN",
     "rich_text_dr3B67",
