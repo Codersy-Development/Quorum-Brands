@@ -131,7 +131,7 @@
             "title": "Oxygen 2025",
             "text": "",
             "button_label": "View Catalog",
-            "button_link": ""
+            "button_link": "shopify://pages/oxygen-catalog-2025"
           }
         }
       },
@@ -144,7 +144,7 @@
       "name": "t:sections.text-columns.presets.text_columns_with_images.name",
       "settings": {
         "title": "",
-        "align_text": "left",
+        "align_text": "center",
         "divider": false
       }
     }
