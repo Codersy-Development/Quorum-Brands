@@ -264,6 +264,28 @@
       "settings": {
         "store": "oxygen"
       }
+    },
+    "advanced_content_dAiKDm": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_WBtT3Q": {
+          "type": "liquid",
+          "settings": {
+            "code": "<a href=\"pages/meet-our-designers\" class=\"btn btn--secondary btn--small\">\n            Meet Our Designers\n        </a>",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_WBtT3Q"
+      ],
+      "name": "t:sections.advanced-content.presets.custom_content.name",
+      "settings": {
+        "full_width": false,
+        "space_around": false,
+        "lazyload_images": true
+      }
     }
   },
   "order": [
@@ -275,6 +297,7 @@
     "video_with_text_WNUaLp",
     "team_section_7PJ7pU",
     "brand_feature_grid_f8E3iR",
-    "brand_feature_grid_RXXhQm"
+    "brand_feature_grid_RXXhQm",
+    "advanced_content_dAiKDm"
   ]
 }
