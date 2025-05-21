@@ -58,7 +58,7 @@
         "liquid_eaKnHH": {
           "type": "liquid",
           "settings": {
-            "code": "<body>\n    <div>\n        <a href=\"/pages/catalogs\" class=\"btn btn--secondary btn--small\">\n            Back to Catalogs\n        </a>\n    </div>\n</body>",
+            "code": "<a href=\"/pages/catalogs\" class=\"btn btn--secondary btn--small\">\n            Back to Catalogs\n        </a>",
             "width": "100%",
             "alignment": "center"
           }
@@ -67,11 +67,12 @@
       "block_order": [
         "liquid_eaKnHH"
       ],
+      "custom_css": [],
       "name": "t:sections.advanced-content.presets.custom_content.name",
       "settings": {
         "full_width": false,
         "space_around": true,
-        "lazyload_images": true
+        "lazyload_images": false
       }
     }
   },
