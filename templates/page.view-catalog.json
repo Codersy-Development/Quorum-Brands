@@ -52,41 +52,14 @@
       ],
       "settings": {}
     },
-    "text_columns_jPnFJ9": {
-      "type": "text-columns",
-      "blocks": {
-        "text_block_fmYRpE": {
-          "type": "text_block",
-          "settings": {
-            "enable_image": true,
-            "image": "shopify://shop_images/Screenshot_2025-04-14_at_1.15.06_PM_27b9940b-43b1-4b56-8d00-9d8bdeabcace.png",
-            "image_mask": "none",
-            "image_width": 200,
-            "title": "",
-            "text": "",
-            "button_label": "Back to Catalogs",
-            "button_link": "shopify://pages/catalogs"
-          }
-        }
-      },
-      "block_order": [
-        "text_block_fmYRpE"
-      ],
-      "name": "t:sections.text-columns.presets.text_columns_with_images.name",
-      "settings": {
-        "title": "",
-        "align_text": "center",
-        "divider": false
-      }
-    },
     "advanced_content_mtiNe3": {
       "type": "advanced-content",
       "blocks": {
         "liquid_eaKnHH": {
           "type": "liquid",
           "settings": {
-            "code": "<a href=\"/pages/catalogs\" class=\"btn btn--secondary btn--small\" data-live-text-setting=\"template--19218421416149__text_columns_jPnFJ9__text_block_fmYRpE.button_label\">\n            Back to Catalogs\n          </a>\n    </div>",
-            "width": "50%",
+            "code": "<body>\n    <div>\n        <a href=\"/pages/catalogs\" class=\"btn btn--secondary btn--small\">\n            Back to Catalogs\n        </a>\n    </div>\n</body>",
+            "width": "100%",
             "alignment": "center"
           }
         }
@@ -105,7 +78,6 @@
   "order": [
     "slideshow_AAxj9k",
     "main",
-    "text_columns_jPnFJ9",
     "advanced_content_mtiNe3"
   ]
 }
