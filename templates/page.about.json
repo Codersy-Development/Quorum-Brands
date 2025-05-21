@@ -78,19 +78,6 @@
         "image": "shopify://shop_images/Quorum-Company-Photo.jpg"
       }
     },
-    "video_with_text_KipHdi": {
-      "type": "video-with-text",
-      "disabled": true,
-      "name": "Video with Text",
-      "settings": {
-        "store": "all",
-        "heading": "",
-        "text": "<p>Quorum - “an appropriate number of members of a body that when duly assembled, is rightfully able to conduct business.”</p><p>Our success is the result of dedication, sacrifice, and the strength of a collective mindset. The story of Quorum began in the early days with a group of passionate individuals—a community united by the drive to take risks, break the mold, and embrace new opportunities.</p><p>Exceptional design, attention to detail, and quality craftsmanship areembedded in the DNA of every product we create. Our products are designed with our customers in mind, as we strive to deliver products that<br/>our customers are proud to purchase.</p>",
-        "button_label": "Explore Products",
-        "button_link": "",
-        "video_url": "https://cdn.shopify.com/videos/c/o/v/83fae7db410944df83d9275b0ea2d9d0.mp4"
-      }
-    },
     "video_with_text_WNUaLp": {
       "type": "video-with-text",
       "custom_css": [],
@@ -146,31 +133,6 @@
         "title": "OUR DESIGN TEAM",
         "description_1": "We have an in-house design team of seasoned industrial designers who are the driving force behind our creations. Our acclaimed team collaborates closely to bring ideas to life, drawing inspiration from the world around us and applying it practically to the world of lighting and fans. With a focus on innovation, they explore new directions in design and finishes, ensuring that each product is a functional work of art.",
         "description_2": "From the beginning, our focus has been on lighting the way, moving air, and enhancing spaces. Fueled by a desire to create, we’ve developed a diverse range of lighting and fan solutions suitable for any style, space, or environment. These designs are crafted to transform spaces and elevate lifestyles, ensuring we meet the unique needs of our customers."
-      }
-    },
-    "advanced_content_dAiKDm": {
-      "type": "advanced-content",
-      "blocks": {
-        "liquid_WBtT3Q": {
-          "type": "liquid",
-          "settings": {
-            "code": "<a href=\"pages/meet-our-designers\" class=\"btn btn--secondary btn--small\">\n            Meet Our Designers\n        </a>",
-            "width": "100%",
-            "alignment": "center"
-          }
-        }
-      },
-      "block_order": [
-        "liquid_WBtT3Q"
-      ],
-      "custom_css": [
-        ".btn {margin-left: 25px;}"
-      ],
-      "name": "t:sections.advanced-content.presets.custom_content.name",
-      "settings": {
-        "full_width": false,
-        "space_around": false,
-        "lazyload_images": true
       }
     },
     "brand_feature_grid_f8E3iR": {
@@ -296,10 +258,8 @@
     "slideshow",
     "rich_text_9EMCRE",
     "image_G3pG3G",
-    "video_with_text_KipHdi",
     "video_with_text_WNUaLp",
     "team_section_7PJ7pU",
-    "advanced_content_dAiKDm",
     "brand_feature_grid_f8E3iR",
     "brand_feature_grid_RXXhQm"
   ]
