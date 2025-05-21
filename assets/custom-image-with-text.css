@@ -127,7 +127,14 @@
     background-color: white;
     transform: scale(1.2);
 }
-
+.video-div {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border: none;
+    min-height: 400px;
+}
 /* Fade animation */
 .image-with-text .fade {
     animation-name: fade;
@@ -174,5 +181,8 @@
     .image-with-text .feature-right {
         margin-top: 30px;
         width: 100%;
+    }
+    .video-div {
+        min-height: 200px;
     }
 }
