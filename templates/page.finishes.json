@@ -30,6 +30,7 @@
             "link_text_2": "",
             "color_accent": "rgba(0,0,0,0)",
             "text_align": "",
+            "image": "shopify://shop_images/Ceiling_Mounted.jpg",
             "parallax_direction": "top",
             "overlay_opacity": 0
           }
