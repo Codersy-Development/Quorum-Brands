@@ -10,7 +10,7 @@
   class="background-media-text background-media-text--{{ section.id }} background-media-text--{{ section.settings.height }} loaded"
   data-aos="background-media-text__animation">
 
-  <div class="background-media-text__container" style="max-width: 1360px; margin: 0 auto;">
+  <div class="background-media-text__container" style="max-width: 1400px; margin: 0 auto;">
     {%- if section.settings.image != blank -%}
         {% assign classes = 'image-fit background-media-text__image background-media-text__image--' | append: section.id %}
         {%- render 'image-element',
