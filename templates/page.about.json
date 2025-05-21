@@ -164,7 +164,7 @@
         "liquid_WBtT3Q"
       ],
       "custom_css": [
-        "div {margin-left: 10px;}"
+        "div {align-items: center; align-content: center; margin-left: 50px;}"
       ],
       "name": "t:sections.advanced-content.presets.custom_content.name",
       "settings": {
