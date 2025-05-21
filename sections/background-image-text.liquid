@@ -3,12 +3,13 @@
     {% unless section.settings.store == "all" %}
         data-store="{{ section.settings.store }}"
     {% endunless %}
+    style="display: flex; justify-content: center; width: 100%;"
 >
 <div
   data-section-id="{{ section.id }}"
   data-section-type="background-image"
   class="background-media-text background-media-text--{{ section.id }} background-media-text--{{ section.settings.height }} loaded"
-  style="max-width: 1400px; margin: 0 auto; overflow: hidden;"
+  style="max-width: 1400px; width: 100%; overflow: hidden; position: relative;"
   data-aos="background-media-text__animation">
 
   <div class="background-media-text__container">
