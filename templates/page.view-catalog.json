@@ -45,99 +45,6 @@
         "lazyload_images": true
       }
     },
-    "advanced_content_XB98We": {
-      "type": "advanced-content",
-      "blocks": {
-        "liquid_YTiP6W": {
-          "type": "liquid",
-          "settings": {
-            "code": "",
-            "width": "100%",
-            "alignment": "center"
-          }
-        }
-      },
-      "block_order": [
-        "liquid_YTiP6W"
-      ],
-      "disabled": true,
-      "name": "t:sections.advanced-content.presets.custom_content.name",
-      "settings": {
-        "full_width": false,
-        "space_around": true,
-        "lazyload_images": true
-      }
-    },
-    "text_columns_JrCknm": {
-      "type": "text-columns",
-      "blocks": {
-        "text_block_UjqFjB": {
-          "type": "text_block",
-          "settings": {
-            "enable_image": true,
-            "image": "shopify://shop_images/Screenshot_2025-04-14_at_1.15.06_PM_27b9940b-43b1-4b56-8d00-9d8bdeabcace.png",
-            "image_mask": "none",
-            "image_width": 300,
-            "title": "Quorum Lighting 2025",
-            "text": "",
-            "button_label": "View Catalog",
-            "button_link": "shopify://pages/quorum-lighting-catalog-2025"
-          }
-        },
-        "text_block_z4cWYM": {
-          "type": "text_block",
-          "settings": {
-            "enable_image": true,
-            "image": "shopify://shop_images/Screenshot_2025-04-14_at_1.13.08_PM_30d74a90-b325-4882-a5a8-5436395aa758.png",
-            "image_mask": "none",
-            "image_width": 300,
-            "title": "Quorum Fan 2025",
-            "text": "",
-            "button_label": "View Catalog",
-            "button_link": ""
-          }
-        },
-        "text_block_jcYNxj": {
-          "type": "text_block",
-          "settings": {
-            "enable_image": true,
-            "image": "shopify://shop_images/Screenshot_2025-04-14_at_1.12.08_PM_38c381ec-8abb-42e6-bd63-b4ea5d4811db.png",
-            "image_mask": "none",
-            "image_width": 300,
-            "title": "Quorum Spring 2025",
-            "text": "",
-            "button_label": "View Catalog",
-            "button_link": ""
-          }
-        },
-        "text_block_b6rNbC": {
-          "type": "text_block",
-          "settings": {
-            "enable_image": true,
-            "image": "shopify://shop_images/Screenshot_2025-04-14_at_1.12.30_PM_0851d6a4-ee8e-4111-b3c0-78917ccc4d7d.png",
-            "image_mask": "none",
-            "image_width": 300,
-            "title": "Oxygen 2025",
-            "text": "",
-            "button_label": "View Catalog",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "text_block_UjqFjB",
-        "text_block_z4cWYM",
-        "text_block_jcYNxj",
-        "text_block_b6rNbC"
-      ],
-      "disabled": true,
-      "name": "t:sections.text-columns.presets.text_columns_with_images.name",
-      "settings": {
-        "title": "",
-        "align_text": "left",
-        "divider": false
-      }
-    },
     "main": {
       "type": "main-page",
       "custom_css": [
@@ -160,10 +67,23 @@
             "button_label": "Back to Catalogs",
             "button_link": "shopify://pages/catalogs"
           }
+        },
+        "text_block_VpcaBq": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image_mask": "none",
+            "image_width": 200,
+            "title": "Example title",
+            "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.</p>",
+            "button_label": "Optional button",
+            "button_link": ""
+          }
         }
       },
       "block_order": [
-        "text_block_fmYRpE"
+        "text_block_fmYRpE",
+        "text_block_VpcaBq"
       ],
       "name": "t:sections.text-columns.presets.text_columns_with_images.name",
       "settings": {
@@ -175,8 +95,6 @@
   },
   "order": [
     "slideshow_AAxj9k",
-    "advanced_content_XB98We",
-    "text_columns_JrCknm",
     "main",
     "text_columns_jPnFJ9"
   ]
