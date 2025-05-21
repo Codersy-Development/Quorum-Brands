@@ -8,48 +8,49 @@
   data-section-id="{{ section.id }}"
   data-section-type="background-image"
   class="background-media-text background-media-text--{{ section.id }} background-media-text--{{ section.settings.height }} loaded"
+  style="max-width: 1400px; margin: 0 auto; overflow: hidden;"
   data-aos="background-media-text__animation">
 
-  <div class="background-media-text__container" style="max-width: 1400px; margin: 0 auto;">
+  <div class="background-media-text__container">
     {%- if section.settings.image != blank -%}
         {% assign classes = 'image-fit background-media-text__image background-media-text__image--' | append: section.id %}
         {%- render 'image-element',
           img: section.settings.image,
-          img_width: 1960,
+          img_width: 1400,
           loading: section.settings.lazyload_images,
           classes: classes,
         -%}
     {%- else -%}
       {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
     {%- endif -%}
+  </div>
   
-    {%- if section.settings.subtitle != blank or section.settings.title != blank or section.settings.text != blank -%}
-      <div class="background-media-text__inner" style="max-width: 1400px;">
-        <div class="background-media-text__aligner background-media-text--{{ section.settings.layout }}">
-          <div class="animation-cropper">
-            <div class="animation-contents">
-              <div class="background-media-text__text{% if section.settings.framed %} background-media-text__text--framed{% endif %}">
-                {%- if section.settings.subtitle -%}
-                  <p class="h5">{{ section.settings.subtitle }}</p>
-                {%- endif -%}
-                {%- if section.settings.title != blank -%}
-                  <p class="h3">{{ section.settings.title | escape }}</p>
-                {%- endif -%}
-                {%- if section.settings.text != blank -%}
-                  <div class="rte background-media-text__subtext">{{ section.settings.text }}</div>
-                {%- endif -%}
-                {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
-                  <a href="{{ section.settings.button_link }}" class="btn">
-                    {{ section.settings.button_label }}
-                  </a>
-                {%- endif -%}
-              </div>
+  {%- if section.settings.subtitle != blank or section.settings.title != blank or section.settings.text != blank -%}
+    <div class="background-media-text__inner">
+      <div class="background-media-text__aligner background-media-text--{{ section.settings.layout }}">
+        <div class="animation-cropper">
+          <div class="animation-contents">
+            <div class="background-media-text__text{% if section.settings.framed %} background-media-text__text--framed{% endif %}">
+              {%- if section.settings.subtitle -%}
+                <p class="h5">{{ section.settings.subtitle }}</p>
+              {%- endif -%}
+              {%- if section.settings.title != blank -%}
+                <p class="h3">{{ section.settings.title | escape }}</p>
+              {%- endif -%}
+              {%- if section.settings.text != blank -%}
+                <div class="rte background-media-text__subtext">{{ section.settings.text }}</div>
+              {%- endif -%}
+              {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
+                <a href="{{ section.settings.button_link }}" class="btn">
+                  {{ section.settings.button_label }}
+                </a>
+              {%- endif -%}
             </div>
           </div>
         </div>
       </div>
-    {%- endif -%}
-  </div>
+    </div>
+  {%- endif -%}
 </div>
 
 <div class="background-media-text__spacer background-media-text--{{ section.settings.height }}"></div>
