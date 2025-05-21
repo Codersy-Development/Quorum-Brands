@@ -67,23 +67,10 @@
             "button_label": "Back to Catalogs",
             "button_link": "shopify://pages/catalogs"
           }
-        },
-        "text_block_VpcaBq": {
-          "type": "text_block",
-          "settings": {
-            "enable_image": true,
-            "image_mask": "none",
-            "image_width": 200,
-            "title": "Example title",
-            "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.</p>",
-            "button_label": "Optional button",
-            "button_link": ""
-          }
         }
       },
       "block_order": [
-        "text_block_fmYRpE",
-        "text_block_VpcaBq"
+        "text_block_fmYRpE"
       ],
       "name": "t:sections.text-columns.presets.text_columns_with_images.name",
       "settings": {
