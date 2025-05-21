@@ -37,7 +37,7 @@
           "settings": {
             "title": "Quorum",
             "menu": "store-1-menu",
-            "is_mega_menu": false,
+            "is_mega_menu": true,
             "buttons_color": "#e8e8e1",
             "store_button_color": "#000000",
             "buttons_text_color": "#ec008c",
