@@ -9,11 +9,6 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "main-page",
-      "disabled": true,
-      "settings": {}
-    },
     "slideshow_AAxj9k": {
       "type": "slideshow",
       "blocks": {
@@ -49,6 +44,10 @@
         "autoplay_speed": 5,
         "lazyload_images": true
       }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {}
     },
     "rich_text_YKc8iz": {
       "type": "rich-text",
@@ -141,6 +140,7 @@
         "text_block_jcYNxj",
         "text_block_b6rNbC"
       ],
+      "disabled": true,
       "name": "t:sections.text-columns.presets.text_columns_with_images.name",
       "settings": {
         "title": "",
@@ -150,8 +150,8 @@
     }
   },
   "order": [
-    "main",
     "slideshow_AAxj9k",
+    "main",
     "rich_text_YKc8iz",
     "text_columns_JrCknm"
   ]
