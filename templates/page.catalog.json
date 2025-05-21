@@ -125,11 +125,12 @@
           "type": "text_block",
           "settings": {
             "enable_image": true,
+            "image": "shopify://shop_images/Screenshot_2025-04-14_at_1.12.30_PM_0851d6a4-ee8e-4111-b3c0-78917ccc4d7d.png",
             "image_mask": "none",
             "image_width": 650,
-            "title": "Example title",
-            "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.</p>",
-            "button_label": "Optional button",
+            "title": "Oxygen Catalog 2025",
+            "text": "",
+            "button_label": "View Catalog",
             "button_link": ""
           }
         }
