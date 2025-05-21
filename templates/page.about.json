@@ -150,9 +150,7 @@
       "block_order": [
         "liquid_YMiJqj"
       ],
-      "custom_css": [
-        "div {margin-left: 15px;}"
-      ],
+      "custom_css": [],
       "name": "t:sections.advanced-content.presets.custom_content.name",
       "settings": {
         "full_width": false,
