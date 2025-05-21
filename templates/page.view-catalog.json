@@ -78,11 +78,34 @@
         "align_text": "center",
         "divider": false
       }
+    },
+    "advanced_content_mtiNe3": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_eaKnHH": {
+          "type": "liquid",
+          "settings": {
+            "code": "<a href=\"/pages/catalogs\" class=\"btn btn--secondary btn--small\" data-live-text-setting=\"template--19218421416149__text_columns_jPnFJ9__text_block_fmYRpE.button_label\">\n            Back to Catalogs\n          </a>\n    </div>",
+            "width": "50%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_eaKnHH"
+      ],
+      "name": "t:sections.advanced-content.presets.custom_content.name",
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
     }
   },
   "order": [
     "slideshow_AAxj9k",
     "main",
-    "text_columns_jPnFJ9"
+    "text_columns_jPnFJ9",
+    "advanced_content_mtiNe3"
   ]
 }
