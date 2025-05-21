@@ -20,7 +20,7 @@
       endcase
     -%}
     {%- for block in section.blocks -%}
-      {%- if section.blocks.size == 5 and forloop.index < 3 -%}
+      {%- if section.blocks.size == 5 and forloop.index < 4 -%}
         {%- assign column_width = 'medium-up--one-half' -%}
       {%- else -%}
         {%- assign column_width = grid_item_width -%}
