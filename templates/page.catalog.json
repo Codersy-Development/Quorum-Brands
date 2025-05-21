@@ -22,14 +22,14 @@
           "settings": {
             "top_subheading": "",
             "title": "Catalogs",
-            "title_size": 80,
+            "title_size": 100,
             "subheading": "",
             "link": "",
             "link_text": "",
             "link_2": "",
             "link_text_2": "",
             "color_accent": "rgba(0,0,0,0)",
-            "text_align": "",
+            "text_align": "vertical-bottom horizontal-left",
             "image": "shopify://shop_images/Ceiling_Mounted.jpg",
             "parallax_direction": "top",
             "overlay_opacity": 0
