@@ -106,6 +106,7 @@ class StoreSwitchMenus extends HTMLElement {
     // this.initMegaMenuPos();
     this.initMegaMenuHeight();
     this.initShowingLogic();
+    this.initResizeListener();
   }
 
   initShowingLogic() {
@@ -139,6 +140,15 @@ class StoreSwitchMenus extends HTMLElement {
     );
   }
 
+  initResizeListener() {
+    let resizeTimeout;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        this.initMegaMenuHeight();
+      }, 100);
+    });
+  }
   initMegaMenuPos() {
     this.querySelectorAll(".ssm__menu-link").forEach((item) => {
       const trigger = item;
@@ -168,11 +178,12 @@ class StoreSwitchMenus extends HTMLElement {
     const megaMenus = this.querySelectorAll(".ssm__mega-menu");
     megaMenus.forEach((megaMenu) => {
       const container = megaMenu.querySelector(".ssm__mega-menu-container");
-      const menusMaxHeight = Math.max(
-        ...Array.from(
-          megaMenu.querySelectorAll(".ssm__mega-menu-container > div")
-        ).map((menu) => menu.offsetHeight)
-      );
+      const menusMaxHeight =
+        Math.max(
+          ...Array.from(
+            megaMenu.querySelectorAll(".ssm__mega-menu-container > div")
+          ).map((menu) => menu.offsetHeight)
+        ) + 30;
       console.log("MAx height: ", menusMaxHeight);
       container.style.maxHeight = Math.max(250, menusMaxHeight) + "px";
     });

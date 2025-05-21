@@ -135,9 +135,22 @@ store-switch-menus {
     text-transform: uppercase;
     font-weight: 600;
   }
-  @media only screen and (max-width: 1270px) {
+  @media only screen and (max-width: 1350px) {
     .ssm__menu-link--title {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    & .ssm__mega-menu-container {
+      line-height: 1.7;
+    }
+
+    & .ssm__mega-menu .ssm__menu-link {
       font-size: 16px;
+    }
+  }
+  @media only screen and (max-width: 1250px) {
+    & .ssm__mega-menu.ssm__menu-link {
+      font-size: 14px;
     }
   }
 }
