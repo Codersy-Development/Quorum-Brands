@@ -51,8 +51,8 @@
         "liquid_YTiP6W": {
           "type": "liquid",
           "settings": {
-            "code": "<h2>Custom content</h2><p>Use this advanced section to build your own layouts or to add custom HTML, Liquid, or scripts.</p>",
-            "width": "100%",
+            "code": "<iframe style=\"position: absolute; border: none; width: 100%; height: 100%; left: 0; right: 0; top: 0; bottom: 0;\" src=\"https://e.issuu.com/embed.html?d=catbltgq25_lr&amp;hideIssuuLogo=true&amp;u=qlp-publishing\" sandbox=\"allow-top-navigation allow-top-navigation-by-user-activation allow-downloads allow-scripts allow-same-origin allow-popups allow-modals allow-popups-to-escape-sandbox allow-forms\" allowfullscreen=\"true\"></iframe>",
+            "width": "66%",
             "alignment": "center"
           }
         }
@@ -66,13 +66,6 @@
         "space_around": true,
         "lazyload_images": true
       }
-    },
-    "main": {
-      "type": "main-page",
-      "custom_css": [
-        "div {margin-top: 50px;}"
-      ],
-      "settings": {}
     },
     "text_columns_JrCknm": {
       "type": "text-columns",
@@ -144,6 +137,14 @@
         "divider": false
       }
     },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "custom_css": [
+        "div {margin-top: 50px;}"
+      ],
+      "settings": {}
+    },
     "text_columns_jPnFJ9": {
       "type": "text-columns",
       "blocks": {
@@ -175,8 +176,8 @@
   "order": [
     "slideshow_AAxj9k",
     "advanced_content_XB98We",
-    "main",
     "text_columns_JrCknm",
+    "main",
     "text_columns_jPnFJ9"
   ]
 }
