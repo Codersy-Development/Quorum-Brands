@@ -88,8 +88,8 @@
             "enable_image": true,
             "image": "shopify://shop_images/Screenshot_2025-04-14_at_1.15.06_PM_27b9940b-43b1-4b56-8d00-9d8bdeabcace.png",
             "image_mask": "none",
-            "image_width": 450,
-            "title": "Quorum Lighting Catalog 2025",
+            "image_width": 150,
+            "title": "Quorum Lighting 2025",
             "text": "",
             "button_label": "View Catalog",
             "button_link": ""
@@ -101,8 +101,8 @@
             "enable_image": true,
             "image": "shopify://shop_images/Screenshot_2025-04-14_at_1.13.08_PM_30d74a90-b325-4882-a5a8-5436395aa758.png",
             "image_mask": "none",
-            "image_width": 450,
-            "title": "Quorum Fan Catalog 2025",
+            "image_width": 150,
+            "title": "Quorum Fan 2025",
             "text": "",
             "button_label": "View Catalog",
             "button_link": ""
@@ -114,7 +114,7 @@
             "enable_image": true,
             "image": "shopify://shop_images/Screenshot_2025-04-14_at_1.12.08_PM_38c381ec-8abb-42e6-bd63-b4ea5d4811db.png",
             "image_mask": "none",
-            "image_width": 450,
+            "image_width": 150,
             "title": "Quorum Spring 2025",
             "text": "",
             "button_label": "View Catalog",
@@ -127,8 +127,8 @@
             "enable_image": true,
             "image": "shopify://shop_images/Screenshot_2025-04-14_at_1.12.30_PM_0851d6a4-ee8e-4111-b3c0-78917ccc4d7d.png",
             "image_mask": "none",
-            "image_width": 450,
-            "title": "Oxygen Catalog 2025",
+            "image_width": 150,
+            "title": "Oxygen 2025",
             "text": "",
             "button_label": "View Catalog",
             "button_link": ""
@@ -147,364 +147,12 @@
         "align_text": "left",
         "divider": false
       }
-    },
-    "rich_text_KNpbP3": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_EizcTh": {
-          "type": "heading",
-          "settings": {
-            "title": "Glass"
-          }
-        },
-        "text_83mcQ7": {
-          "type": "text",
-          "settings": {
-            "enlarge_text": false,
-            "text": "<p>We understand that the finish of a product can transform its entire look and feel. That’s why we offer a diverse collection of high-quality finishes that complement every style, from modern elegance to classic charm. Whether you’re looking to create a bold statement or add a subtle touch of sophis-</p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading_EizcTh",
-        "text_83mcQ7"
-      ],
-      "name": "t:sections.rich-text.presets.rich_text.name",
-      "settings": {
-        "align_text": "center",
-        "narrow_column": true,
-        "divider": false
-      }
-    },
-    "finishes_TmFJWN": {
-      "type": "finishes",
-      "blocks": {
-        "item_PcJfAb": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Amber_Scavo.png",
-            "label": "Amber Scavo"
-          }
-        },
-        "item_hQ3AHb": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Clear_Crackle.png",
-            "label": "Clear Crackle"
-          }
-        },
-        "item_kCpA3N": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Clear_Ribbed.png",
-            "label": "Clear Ribbed"
-          }
-        },
-        "item_dpJLqY": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Clear_Hammered.png",
-            "label": "Clear Hammered"
-          }
-        },
-        "item_AVBwjC": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Clear_Seeded.png",
-            "label": "Clear Seeded"
-          }
-        },
-        "item_Pz9TzV": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Clear.png",
-            "label": "Clear"
-          }
-        },
-        "item_7bTi7L": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Cream_Mottled_Scavo.png",
-            "label": "Cream Mottled Scavo"
-          }
-        },
-        "item_xDXBBM": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Faux_Alabaster.png",
-            "label": "Faux Alabaster"
-          }
-        },
-        "item_eeMeVP": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Faux_Brown_Alabaster.png",
-            "label": "Faux Brown Alabaster"
-          }
-        },
-        "item_edTEpX": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Frosted_Ribbed.png",
-            "label": "Frosted Ribbed"
-          }
-        },
-        "item_7Pmfbk": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Opal.jpg",
-            "label": "Opal"
-          }
-        },
-        "item_LU6mKh": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Satin_Opal.png",
-            "label": "Satin Opal"
-          }
-        },
-        "item_UrLHRT": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Silver_Mercury.png",
-            "label": "Silver Mercury"
-          }
-        }
-      },
-      "block_order": [
-        "item_PcJfAb",
-        "item_hQ3AHb",
-        "item_kCpA3N",
-        "item_dpJLqY",
-        "item_AVBwjC",
-        "item_Pz9TzV",
-        "item_7bTi7L",
-        "item_xDXBBM",
-        "item_eeMeVP",
-        "item_edTEpX",
-        "item_7Pmfbk",
-        "item_LU6mKh",
-        "item_UrLHRT"
-      ],
-      "name": "Finishes",
-      "settings": {
-        "title": "Finishes",
-        "show_more_text": "Show more",
-        "show_less_text": "Show less finishes",
-        "opened": true
-      }
-    },
-    "rich_text_dr3B67": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_pw7wxc": {
-          "type": "heading",
-          "settings": {
-            "title": "Blade finishes"
-          }
-        },
-        "text_FHq6Vx": {
-          "type": "text",
-          "settings": {
-            "enlarge_text": false,
-            "text": "<p>We understand that the finish of a product can transform its entire look and feel. That’s why we offer a diverse collection of high-quality finishes that complement every style, from modern elegance to classic charm. Whether you’re looking to create a bold statement or add a subtle touch of sophis-</p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading_pw7wxc",
-        "text_FHq6Vx"
-      ],
-      "name": "t:sections.rich-text.presets.rich_text.name",
-      "settings": {
-        "align_text": "center",
-        "narrow_column": true,
-        "divider": false
-      }
-    },
-    "finishes_VTrVRY": {
-      "type": "finishes",
-      "blocks": {
-        "item_jP9bY4": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Antique_White.png",
-            "label": "Antique White"
-          }
-        },
-        "item_ygd9qT": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Black_Walnut.png",
-            "label": "Black Walnut"
-          }
-        },
-        "item_BnwWCB": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Black.png",
-            "label": "Black"
-          }
-        },
-        "item_7mbUKh": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Cherry.png",
-            "label": "Cherry"
-          }
-        },
-        "item_cdrJ79": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Dark_Oak.png",
-            "label": "Dark Oak"
-          }
-        },
-        "item_8QgyBt": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Maple.png",
-            "label": "Maple"
-          }
-        },
-        "item_7aCDxn": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Matte_Black.png",
-            "label": "Matte Black"
-          }
-        },
-        "item_Tw7mTP": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Medium_Oak.png",
-            "label": "Medium Oak"
-          }
-        },
-        "item_nPwqiX": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Oiled_Bronze.png",
-            "label": "Oiled Bronze"
-          }
-        },
-        "item_Q4WpBP": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Old_Pine.png",
-            "label": "Old Pine"
-          }
-        },
-        "item_eVFHXB": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Rosewood.png",
-            "label": "Rosewood"
-          }
-        },
-        "item_MQ8pUj": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Silver.png",
-            "label": "Silver"
-          }
-        },
-        "item_86H9W8": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Studio_White.png",
-            "label": "Studio White"
-          }
-        },
-        "item_feLXky": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Teak.png",
-            "label": "Teak"
-          }
-        },
-        "item_7JB7XX": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Textured_Black.jpg",
-            "label": "Textured Black"
-          }
-        },
-        "item_gUz4H7": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Toasted_Sienna.png",
-            "label": "Toasted Sienna"
-          }
-        },
-        "item_DceFcC": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Vintage_Walnut_Distressed.png",
-            "label": "Vintage Walnut Distressed"
-          }
-        },
-        "item_TJKLcy": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Vintage_Walnut_Scrapped.png",
-            "label": "Vintage Walnut Scrapped"
-          }
-        },
-        "item_6pTAEk": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Vintage_Walnut.png",
-            "label": "Vintage Walnut"
-          }
-        },
-        "item_kbCqcd": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Walnut.png",
-            "label": "Walnut"
-          }
-        }
-      },
-      "block_order": [
-        "item_jP9bY4",
-        "item_ygd9qT",
-        "item_BnwWCB",
-        "item_7mbUKh",
-        "item_cdrJ79",
-        "item_8QgyBt",
-        "item_7aCDxn",
-        "item_Tw7mTP",
-        "item_nPwqiX",
-        "item_Q4WpBP",
-        "item_eVFHXB",
-        "item_MQ8pUj",
-        "item_86H9W8",
-        "item_feLXky",
-        "item_7JB7XX",
-        "item_gUz4H7",
-        "item_DceFcC",
-        "item_TJKLcy",
-        "item_6pTAEk",
-        "item_kbCqcd"
-      ],
-      "name": "Finishes",
-      "settings": {
-        "title": "Finishes",
-        "show_more_text": "Show more",
-        "show_less_text": "Show less finishes",
-        "opened": true
-      }
     }
   },
   "order": [
     "main",
     "slideshow_AAxj9k",
     "rich_text_YKc8iz",
-    "text_columns_JrCknm",
-    "rich_text_KNpbP3",
-    "finishes_TmFJWN",
-    "rich_text_dr3B67",
-    "finishes_VTrVRY"
+    "text_columns_JrCknm"
   ]
 }
