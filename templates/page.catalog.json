@@ -127,7 +127,7 @@
             "enable_image": true,
             "image": "shopify://shop_images/Screenshot_2025-04-14_at_1.12.30_PM_0851d6a4-ee8e-4111-b3c0-78917ccc4d7d.png",
             "image_mask": "none",
-            "image_width": 150,
+            "image_width": 300,
             "title": "Oxygen 2025",
             "text": "",
             "button_label": "View Catalog",
