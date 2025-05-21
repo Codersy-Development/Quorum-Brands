@@ -47,6 +47,7 @@
     },
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {}
     },
     "text_columns_JrCknm": {
@@ -145,10 +146,34 @@
         "align_text": "center",
         "divider": false
       }
+    },
+    "advanced_content_jB8bmU": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_3ebQbT": {
+          "type": "liquid",
+          "settings": {
+            "code": "<iframe style=\"position: absolute; border: none; width: 100%; height: 100%; left: 0; right: 0; top: 0; bottom: 0;\" src=\"https://e.issuu.com/embed.html?d=catbltgq25_lr&amp;hideIssuuLogo=true&amp;u=qlp-publishing\" sandbox=\"allow-top-navigation allow-top-navigation-by-user-activation allow-downloads allow-scripts allow-same-origin allow-popups allow-modals allow-popups-to-escape-sandbox allow-forms\" allowfullscreen=\"true\"></iframe>",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_3ebQbT"
+      ],
+      "custom_css": [],
+      "name": "t:sections.advanced-content.presets.custom_content.name",
+      "settings": {
+        "full_width": false,
+        "space_around": false,
+        "lazyload_images": true
+      }
     }
   },
   "order": [
     "slideshow_AAxj9k",
+    "advanced_content_jB8bmU",
     "main",
     "text_columns_JrCknm",
     "text_columns_jPnFJ9"
