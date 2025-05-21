@@ -112,11 +112,12 @@
           "type": "text_block",
           "settings": {
             "enable_image": true,
+            "image": "shopify://shop_images/Screenshot_2025-04-14_at_1.12.08_PM_38c381ec-8abb-42e6-bd63-b4ea5d4811db.png",
             "image_mask": "none",
             "image_width": 650,
-            "title": "Example title",
-            "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.</p>",
-            "button_label": "Optional button",
+            "title": "Quorum Spring 2025",
+            "text": "",
+            "button_label": "View Catalog",
             "button_link": ""
           }
         },
@@ -142,7 +143,7 @@
       "name": "t:sections.text-columns.presets.text_columns_with_images.name",
       "settings": {
         "title": "",
-        "align_text": "center",
+        "align_text": "left",
         "divider": false
       }
     },
