@@ -531,77 +531,6 @@
         "store": "oxygen"
       }
     },
-    "product_feature_carousel_TJ8tMG": {
-      "type": "product-feature-carousel",
-      "blocks": {
-        "card_slide_EPzR6t": {
-          "type": "card_slide",
-          "settings": {
-            "main_image": "shopify://shop_images/Ceiling_Mounted_8559aae5-e359-4cff-9fd9-60ca6fa9f67b.jpg",
-            "card_image": "shopify://shop_images/Living_Room_1.jpg",
-            "heading": "Shop by Room: Living Room",
-            "text": "Discover stylish lighting and fans that bring \ncomfort and elegance to any living space, creating the perfect ambiance for relaxation and entertaining.",
-            "button_label": "Explore Products",
-            "button_link": "#"
-          }
-        },
-        "card_slide_ib8zfb": {
-          "type": "card_slide",
-          "settings": {
-            "main_image": "shopify://shop_images/Bathroom_1.png",
-            "card_image": "shopify://shop_images/Bathroom_2_6835cefb-61a2-4820-ab11-e437b72888e3.jpg",
-            "heading": "Shop by Room: Bathroom",
-            "text": "Elevate bathroom styling with our curated selection  of lighting and mirrors, designed to add a touch of luxury and  functionality to your space.",
-            "button_label": "Explore Products",
-            "button_link": "#"
-          }
-        },
-        "card_slide_G9qbqC": {
-          "type": "card_slide",
-          "settings": {
-            "main_image": "shopify://shop_images/Hallway_1_fa07f335-112e-42fc-9de5-6caf3ef4846d.png",
-            "card_image": "shopify://shop_images/Hallway_2.jpg",
-            "heading": "Shop by Room: Hallways & Entries",
-            "text": "Illuminate any hallways and entries with stylish lighting that sets the tone for your home, creating a  welcoming and sophisticated first impression",
-            "button_label": "Explore Products",
-            "button_link": "#"
-          }
-        },
-        "card_slide_WB7jRX": {
-          "type": "card_slide",
-          "settings": {
-            "main_image": "shopify://shop_images/Dining_Room_1.jpg",
-            "card_image": "shopify://shop_images/Dining_Room_2.png",
-            "heading": "Shop by Room: Dining",
-            "text": "Set the perfect tone for a dining area with lighting  fixtures that enhance the atmosphere, making every meal feel  special.",
-            "button_label": "Explore Products",
-            "button_link": "#"
-          }
-        },
-        "card_slide_zw9YE4": {
-          "type": "card_slide",
-          "settings": {
-            "main_image": "shopify://shop_images/Outdoor_1.png",
-            "card_image": "shopify://shop_images/Outdoor_2_c251dd41-65f7-4e44-b14c-1abfdb57e5fc.jpg",
-            "heading": "Shop by Room: Outdoor",
-            "text": "Bring beauty and functionality to an outdoor spaces  with durable, weather-resistant lighting and fans that create a  comfortable and inviting atmosphere.",
-            "button_label": "Explore Products",
-            "button_link": "#"
-          }
-        }
-      },
-      "block_order": [
-        "card_slide_EPzR6t",
-        "card_slide_ib8zfb",
-        "card_slide_G9qbqC",
-        "card_slide_WB7jRX",
-        "card_slide_zw9YE4"
-      ],
-      "name": "Product Feature Carousel",
-      "settings": {
-        "store": "oxygen"
-      }
-    },
     "image_with_text_MacpA3": {
       "type": "Image-with-text",
       "name": "Feature Promo",
@@ -817,7 +746,6 @@
     "featured_products_jFKX9w",
     "product_feature_carousel_Kqzf77",
     "product_feature_carousel_ThxpUR",
-    "product_feature_carousel_TJ8tMG",
     "image_with_text_MacpA3",
     "background_image_text_HPadbT",
     "art_of_light_yRHyHn",
