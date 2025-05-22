@@ -7,8 +7,16 @@
     & .swiper {
         width: 100%;
         height: auto;
+        display: flex;
+        flex-direction: column;
     }
-
+    & .swiper-wrapper {
+        height: fit-content;
+    }
+    & .swiper-button-wrapper {
+        position: relative;
+        margin-top: 1rem;
+    }
     & .swiper-slide img {
         width: 100%;
         height: auto;
@@ -48,7 +56,9 @@
     }
     & .swiper-button-next,
     & .swiper-button-prev {
-
+        /*background-color: rgba(255, 255, 255, 0.5);*/
+        padding: 2rem;
+        border-radius: 50%;
         color: #000; /* You can customize this */
         width: 32px;
         height: 32px;
@@ -56,10 +66,12 @@
 
     & .swiper-button-next {
         right: 0;
+        padding-right: 1.5rem;
     }
 
     & .swiper-button-prev {
         left: 0;
+        padding-left: 2.5rem;
     }
 }
 
