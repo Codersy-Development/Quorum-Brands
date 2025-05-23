@@ -23,6 +23,30 @@
         "collection_MYFKnP": {
           "type": "collection",
           "settings": {
+            "collection": "chandeliers",
+            "title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_jDLYTd": {
+          "type": "collection",
+          "settings": {
+            "collection": "dual-mount",
+            "title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_kfnWfP": {
+          "type": "collection",
+          "settings": {
+            "collection": "islands-linear",
+            "title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_xacDpX": {
+          "type": "collection",
+          "settings": {
             "collection": "",
             "title": "",
             "focal_point": "center center"
@@ -48,6 +72,9 @@
       "block_order": [
         "collection_J37fbq",
         "collection_MYFKnP",
+        "collection_jDLYTd",
+        "collection_kfnWfP",
+        "collection_xacDpX",
         "collection_M4QVRJ",
         "collection_3Azxkf"
       ],
