@@ -95,25 +95,25 @@
         "collection_kRqBVE": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "islands-linear",
             "title": "",
-            "focal_point": "center center"
+            "focal_point": "bottom center"
           }
         },
         "collection_EcbcBK": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "nook",
             "title": "",
-            "focal_point": "center center"
+            "focal_point": "bottom center"
           }
         },
         "collection_wMiCgL": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "pendants",
             "title": "",
-            "focal_point": "center center"
+            "focal_point": "bottom center"
           }
         },
         "collection_BUapEN": {
