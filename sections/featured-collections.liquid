@@ -58,6 +58,19 @@
 </div>
 
 {%- if section.settings.divider -%}</div>{%- endif -%}
+<style>
+  .index-section .collection-grid-item {
+    max-width: 266px;
+    max-height: 266px;
+  }
+  
+  .index-section .collection-grid-item img {
+    max-width: 100%;
+    max-height: 266px;
+    object-fit: cover;
+  }
+</style>
+            
 
 {% schema %}
 {
