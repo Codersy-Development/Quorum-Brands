@@ -63,7 +63,7 @@
         "collection_4gyJaM": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "ceiling-mounts",
             "title": "",
             "focal_point": "center center"
           }
@@ -71,12 +71,44 @@
         "collection_fpi3Un": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "chandeliers",
             "title": "",
             "focal_point": "center center"
           }
         },
         "collection_Yie8Eb": {
+          "type": "collection",
+          "settings": {
+            "collection": "dual-mount",
+            "title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_GhRfbp": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_kRqBVE": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_EcbcBK": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_wMiCgL": {
           "type": "collection",
           "settings": {
             "collection": "",
@@ -97,13 +129,17 @@
         "collection_4gyJaM",
         "collection_fpi3Un",
         "collection_Yie8Eb",
+        "collection_GhRfbp",
+        "collection_kRqBVE",
+        "collection_EcbcBK",
+        "collection_wMiCgL",
         "collection_BUapEN"
       ],
       "name": "t:sections.featured-collections.presets.collection_list.name",
       "settings": {
-        "title": "Collection list",
+        "title": "Indoor Lighting",
         "divider": false,
-        "per_row": 4,
+        "per_row": 5,
         "enable_gutter": true
       }
     }
