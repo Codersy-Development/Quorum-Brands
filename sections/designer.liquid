@@ -7,15 +7,21 @@
                 {% if block.type == 'image' and block.settings.image != blank %}
                     <div class="swiper-slide">
                         <img src="{{ block.settings.image | image_url: width: 1000 }}" alt="Designer image">
+                        {% if block.settings.button_text and block.settings.button_url != blank %}
+                            <a href="{{ block.settings.button_url }}" class="card-button">{{ block.settings.button_text }}</a>
+                        {% endif %}
                     </div>
                 {% endif %}
             {% endfor %}
         </div>
 
-        <!-- Add Swiper navigation buttons -->
-        <div class="swiper-button-wrapper">
-            <div class="swiper-button-prev">Previous</div>
-            <div class="swiper-button-next">Next</div>
+        <div class="button-wrapper">
+            <div class="button-prev">
+                <img src="{{ 'ico-arrow-right.svg' | asset_url }}" alt="Icon">
+            </div>
+            <div class="button-next">
+                <img src="{{ 'ico-arrow-right.svg' | asset_url }}" alt="Icon">
+            </div>
         </div>
     </div>
 
@@ -55,8 +61,8 @@
             el: '.swiper-pagination',
         },
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+            nextEl: '.button-next',
+            prevEl: '.button-prev',
         },
     });
 </script>
@@ -91,7 +97,7 @@
     {
       "type": "richtext",
       "id": "description",
-      "label": "Main Text",
+      "label": "Main Text"
     },
     {
       "type": "text",
@@ -102,7 +108,7 @@
     {
       "type": "richtext",
       "id": "subtext",
-      "label": "Subtext",
+      "label": "Subtext"
     }
   ],
   "blocks": [
@@ -114,6 +120,16 @@
           "type": "image_picker",
           "id": "image",
           "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Label"
+        },
+        {
+          "type": "text",
+          "id": "button_url",
+          "label": "Button URL"
         }
       ]
     }
