@@ -177,7 +177,7 @@
       "settings": {
         "title": "Indoor Lighting",
         "divider": false,
-        "per_row": 6,
+        "per_row": 5,
         "enable_gutter": true
       }
     },
