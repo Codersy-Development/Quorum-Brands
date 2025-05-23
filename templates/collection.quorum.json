@@ -123,6 +123,30 @@
             "title": "",
             "focal_point": "bottom center"
           }
+        },
+        "collection_wLrJEF": {
+          "type": "collection",
+          "settings": {
+            "collection": "vanities",
+            "title": "",
+            "focal_point": "top center"
+          }
+        },
+        "collection_BA4mLG": {
+          "type": "collection",
+          "settings": {
+            "collection": "wall-mounts",
+            "title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_yy3kBH": {
+          "type": "collection",
+          "settings": {
+            "collection": "picture-lights",
+            "title": "",
+            "focal_point": "center center"
+          }
         }
       },
       "block_order": [
@@ -133,13 +157,16 @@
         "collection_kRqBVE",
         "collection_EcbcBK",
         "collection_wMiCgL",
-        "collection_BUapEN"
+        "collection_BUapEN",
+        "collection_wLrJEF",
+        "collection_BA4mLG",
+        "collection_yy3kBH"
       ],
       "name": "t:sections.featured-collections.presets.collection_list.name",
       "settings": {
         "title": "Indoor Lighting",
         "divider": false,
-        "per_row": 5,
+        "per_row": 6,
         "enable_gutter": true
       }
     }
