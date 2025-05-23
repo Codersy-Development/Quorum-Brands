@@ -47,7 +47,7 @@
         "collection_xacDpX": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "nook",
             "title": "",
             "focal_point": "center center"
           }
@@ -55,7 +55,7 @@
         "collection_M4QVRJ": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "pendants",
             "title": "",
             "focal_point": "center center"
           }
@@ -63,7 +63,31 @@
         "collection_3Azxkf": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "under-cabinet",
+            "title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_nq8rza": {
+          "type": "collection",
+          "settings": {
+            "collection": "vanities",
+            "title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_3a87mp": {
+          "type": "collection",
+          "settings": {
+            "collection": "wall-mounts",
+            "title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_BpUANm": {
+          "type": "collection",
+          "settings": {
+            "collection": "picture-lights",
             "title": "",
             "focal_point": "center center"
           }
@@ -76,7 +100,10 @@
         "collection_kfnWfP",
         "collection_xacDpX",
         "collection_M4QVRJ",
-        "collection_3Azxkf"
+        "collection_3Azxkf",
+        "collection_nq8rza",
+        "collection_3a87mp",
+        "collection_BpUANm"
       ],
       "name": "t:sections.featured-collections.presets.collection_list.name",
       "settings": {
