@@ -11,7 +11,6 @@
   "sections": {
     "collection-header": {
       "type": "collection-header",
-      "disabled": true,
       "settings": {
         "enable": true,
         "collection_image_enable": true,
@@ -169,11 +168,311 @@
         "per_row": 6,
         "enable_gutter": true
       }
+    },
+    "featured_collections_rm9iQE": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_kaYWV7": {
+          "type": "collection",
+          "settings": {
+            "collection": "outdoor-wall-mount",
+            "title": "",
+            "focal_point": "bottom center"
+          }
+        },
+        "collection_8DAQPm": {
+          "type": "collection",
+          "settings": {
+            "collection": "post",
+            "title": "",
+            "focal_point": "bottom center"
+          }
+        },
+        "collection_faVBKC": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Pendants",
+            "focal_point": "bottom center"
+          }
+        }
+      },
+      "block_order": [
+        "collection_kaYWV7",
+        "collection_8DAQPm",
+        "collection_faVBKC"
+      ],
+      "name": "t:sections.featured-collections.presets.collection_list.name",
+      "settings": {
+        "title": "Outdoor Lighting",
+        "divider": false,
+        "per_row": 6,
+        "enable_gutter": true
+      }
+    },
+    "featured_collections_gJ9qba": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_Hfq6Pe": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Chandeliers & Pendants",
+            "focal_point": "bottom center"
+          }
+        },
+        "collection_mmwGxF": {
+          "type": "collection",
+          "settings": {
+            "collection": "wall-mounts",
+            "title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_pfi4DD": {
+          "type": "collection",
+          "settings": {
+            "collection": "vanities",
+            "title": "",
+            "focal_point": "top center"
+          }
+        },
+        "collection_ifHVxF": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Ceiling Fans",
+            "focal_point": "bottom center"
+          }
+        },
+        "collection_WGRVLj": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Patio Fans",
+            "focal_point": "bottom center"
+          }
+        },
+        "collection_JNxWhM": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Mirrors",
+            "focal_point": "bottom center"
+          }
+        },
+        "collection_GYkdam": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Doorbell & Chimes",
+            "focal_point": "center center"
+          }
+        },
+        "collection_UgMDDR": {
+          "type": "collection",
+          "settings": {
+            "collection": "under-cabinet",
+            "title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_kX3dVQ": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Accessories",
+            "focal_point": "center center"
+          }
+        }
+      },
+      "block_order": [
+        "collection_Hfq6Pe",
+        "collection_mmwGxF",
+        "collection_pfi4DD",
+        "collection_ifHVxF",
+        "collection_WGRVLj",
+        "collection_JNxWhM",
+        "collection_GYkdam",
+        "collection_UgMDDR",
+        "collection_kX3dVQ"
+      ],
+      "name": "t:sections.featured-collections.presets.collection_list.name",
+      "settings": {
+        "title": "Main Street",
+        "divider": false,
+        "per_row": 5,
+        "enable_gutter": true
+      }
+    },
+    "featured_collections_eAdnqU": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_wHfKMm": {
+          "type": "collection",
+          "settings": {
+            "collection": "light-kits",
+            "title": "",
+            "focal_point": "bottom center"
+          }
+        },
+        "collection_r7Rt3E": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Ceiling Fans",
+            "focal_point": "bottom center"
+          }
+        },
+        "collection_eizqXP": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Hugger Fans",
+            "focal_point": "bottom center"
+          }
+        }
+      },
+      "block_order": [
+        "collection_wHfKMm",
+        "collection_r7Rt3E",
+        "collection_eizqXP"
+      ],
+      "name": "t:sections.featured-collections.presets.collection_list.name",
+      "settings": {
+        "title": "Indoor Fans",
+        "divider": false,
+        "per_row": 6,
+        "enable_gutter": true
+      }
+    },
+    "featured_collections_3QXYka": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_Y9BJi7": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Patio Light Kits",
+            "focal_point": "bottom center"
+          }
+        },
+        "collection_9kAnkK": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Patio Fans",
+            "focal_point": "bottom center"
+          }
+        },
+        "collection_tW8Gff": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Hugger Fans",
+            "focal_point": "bottom center"
+          }
+        },
+        "collection_apaGtK": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Wall Fans",
+            "focal_point": "center center"
+          }
+        }
+      },
+      "block_order": [
+        "collection_Y9BJi7",
+        "collection_9kAnkK",
+        "collection_tW8Gff",
+        "collection_apaGtK"
+      ],
+      "name": "t:sections.featured-collections.presets.collection_list.name",
+      "settings": {
+        "title": "Outdoor Fans",
+        "divider": false,
+        "per_row": 6,
+        "enable_gutter": true
+      }
+    },
+    "featured_collections_JbkieV": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_YXDX9m": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Fan Blades",
+            "focal_point": "bottom center"
+          }
+        },
+        "collection_QtYjWk": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Ceiling Adapters",
+            "focal_point": "bottom center"
+          }
+        },
+        "collection_NxBXeL": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Fan Remotes",
+            "focal_point": "bottom center"
+          }
+        },
+        "collection_PkLPXA": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Bowl Kits Caps",
+            "focal_point": "center center"
+          }
+        },
+        "collection_kmbETP": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Downrods",
+            "focal_point": "center center"
+          }
+        },
+        "collection_gxVhEw": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Glass",
+            "focal_point": "center center"
+          }
+        }
+      },
+      "block_order": [
+        "collection_YXDX9m",
+        "collection_QtYjWk",
+        "collection_NxBXeL",
+        "collection_PkLPXA",
+        "collection_kmbETP",
+        "collection_gxVhEw"
+      ],
+      "name": "t:sections.featured-collections.presets.collection_list.name",
+      "settings": {
+        "title": "Accessories",
+        "divider": false,
+        "per_row": 5,
+        "enable_gutter": true
+      }
     }
   },
   "order": [
     "collection-header",
     "main-collection",
-    "featured_collections_ERiW4b"
+    "featured_collections_ERiW4b",
+    "featured_collections_rm9iQE",
+    "featured_collections_gJ9qba",
+    "featured_collections_eAdnqU",
+    "featured_collections_3QXYka",
+    "featured_collections_JbkieV"
   ]
 }
