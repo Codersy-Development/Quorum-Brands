@@ -65,7 +65,7 @@
           "settings": {
             "collection": "ceiling-mounts",
             "title": "",
-            "focal_point": "center center"
+            "focal_point": "bottom center"
           }
         },
         "collection_fpi3Un": {
@@ -73,7 +73,7 @@
           "settings": {
             "collection": "chandeliers",
             "title": "",
-            "focal_point": "center center"
+            "focal_point": "bottom center"
           }
         },
         "collection_Yie8Eb": {
@@ -81,15 +81,15 @@
           "settings": {
             "collection": "dual-mount",
             "title": "",
-            "focal_point": "center center"
+            "focal_point": "bottom center"
           }
         },
         "collection_GhRfbp": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "entry",
             "title": "",
-            "focal_point": "center center"
+            "focal_point": "bottom center"
           }
         },
         "collection_kRqBVE": {
