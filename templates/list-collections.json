@@ -1,149 +1,66 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-	"sections": {
-		"text_columns_FhwhxB": {
-			"type": "text-columns",
-			"blocks": {
-				"text_block_bpdehq": {
-					"type": "text_block",
-					"settings": {
-						"enable_image": true,
-						"image": "shopify://shop_images/Screenshot_2025-04-14_at_1.12.08_PM.png",
-						"image_mask": "none",
-						"image_width": 650,
-						"title": "Example title",
-						"text": "",
-						"button_label": "View more",
-						"button_link": ""
-					}
-				},
-				"text_block_pJXeqJ": {
-					"type": "text_block",
-					"settings": {
-						"enable_image": true,
-						"image": "shopify://shop_images/Screenshot_2025-04-14_at_1.12.08_PM.png",
-						"image_mask": "none",
-						"image_width": 650,
-						"title": "Example title",
-						"text": "",
-						"button_label": "View more",
-						"button_link": ""
-					}
-				},
-				"text_block_JpYmc3": {
-					"type": "text_block",
-					"settings": {
-						"enable_image": true,
-						"image": "shopify://shop_images/Screenshot_2025-04-14_at_1.12.08_PM.png",
-						"image_mask": "none",
-						"image_width": 650,
-						"title": "Example title",
-						"text": "",
-						"button_label": "View more",
-						"button_link": ""
-					}
-				},
-				"text_block_APfCw4": {
-					"type": "text_block",
-					"settings": {
-						"enable_image": true,
-						"image": "shopify://shop_images/Screenshot_2025-04-14_at_1.12.08_PM.png",
-						"image_mask": "none",
-						"image_width": 650,
-						"title": "Example title",
-						"text": "",
-						"button_label": "View more",
-						"button_link": ""
-					}
-				},
-				"text_block_gxibUU": {
-					"type": "text_block",
-					"settings": {
-						"enable_image": true,
-						"image": "shopify://shop_images/Screenshot_2025-04-14_at_1.15.06_PM.png",
-						"image_mask": "none",
-						"image_width": 650,
-						"title": "Example title",
-						"text": "",
-						"button_label": "View more",
-						"button_link": ""
-					}
-				},
-				"text_block_AkcTGQ": {
-					"type": "text_block",
-					"settings": {
-						"enable_image": true,
-						"image": "shopify://shop_images/Screenshot_2025-04-14_at_1.13.08_PM.png",
-						"image_mask": "none",
-						"image_width": 650,
-						"title": "Example title",
-						"text": "",
-						"button_label": "View more",
-						"button_link": ""
-					}
-				}
-			},
-			"block_order": [
-				"text_block_bpdehq",
-				"text_block_pJXeqJ",
-				"text_block_JpYmc3",
-				"text_block_APfCw4",
-				"text_block_gxibUU",
-				"text_block_AkcTGQ"
-			],
-			"name": "t:sections.text-columns.presets.text_columns_with_images.name",
-			"settings": {
-				"title": "",
-				"align_text": "center",
-				"divider": false
-			}
-		},
-		"logo-list": {
-			"type": "logo-list",
-			"blocks": {
-				"logo1": {
-					"type": "logo_image",
-					"settings": {
-						"link": ""
-					}
-				},
-				"logo2": {
-					"type": "logo_image",
-					"settings": {
-						"link": ""
-					}
-				},
-				"logo3": {
-					"type": "logo_image",
-					"settings": {
-						"link": ""
-					}
-				},
-				"logo4": {
-					"type": "logo_image",
-					"settings": {
-						"link": ""
-					}
-				},
-				"logo5": {
-					"type": "logo_image",
-					"settings": {
-						"link": ""
-					}
-				},
-				"logo6": {
-					"type": "logo_image",
-					"settings": {
-						"link": ""
-					}
-				}
-			},
-			"block_order": ["logo1", "logo2", "logo3", "logo4", "logo5", "logo6"],
-			"settings": {
-				"title": "Our brands",
-				"logo_opacity": 76,
-				"divider": false
-			}
-		}
-	},
-	"order": ["text_columns_FhwhxB", "logo-list"]
+  "sections": {
+    "featured_collections_aAYwW4": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_J37fbq": {
+          "type": "collection",
+          "settings": {
+            "collection": "ceiling-mounts",
+            "title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_MYFKnP": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_M4QVRJ": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_3Azxkf": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "focal_point": "center center"
+          }
+        }
+      },
+      "block_order": [
+        "collection_J37fbq",
+        "collection_MYFKnP",
+        "collection_M4QVRJ",
+        "collection_3Azxkf"
+      ],
+      "name": "t:sections.featured-collections.presets.collection_list.name",
+      "settings": {
+        "title": "Indoor Lighting",
+        "divider": false,
+        "per_row": 5,
+        "enable_gutter": true
+      }
+    }
+  },
+  "order": [
+    "featured_collections_aAYwW4"
+  ]
 }
