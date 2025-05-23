@@ -60,16 +60,20 @@
 {%- if section.settings.divider -%}</div>{%- endif -%}
 
 <style>
-  .index-section .collection-grid-item {
-    max-width: 266px !imporant;
-    max-height: 266px !imporant;
-  }
-  
-  .index-section .collection-grid-item img {
-    max-width: 100% !imporant;
-    max-height: 266px !imporant;
-    object-fit: cover;
-  }
+.grid__item:has(.collection-item) {
+  max-width: 266px;
+}
+
+/* Alternative if :has() isn't supported in older browsers */
+.grid__item .collection-item {
+  max-width: 266px;
+}
+
+.grid__item .collection-image img {
+  max-width: 266px;
+  max-height: 266px;
+  object-fit: cover;
+}
 </style>
             
 
