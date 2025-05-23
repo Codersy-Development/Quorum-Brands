@@ -119,9 +119,9 @@
         "collection_BUapEN": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "under-cabinet",
             "title": "",
-            "focal_point": "center center"
+            "focal_point": "bottom center"
           }
         }
       },
