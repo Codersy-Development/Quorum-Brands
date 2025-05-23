@@ -90,86 +90,105 @@
   color: #666;
 }
 
-/* Ensure consistent grid layout regardless of item count */
-@media screen and (min-width: 1200px) {
-  .grid--uniform.featured-collections--fixed-height {
-    display: grid;
+/* Base grid setup */
+.grid--uniform.featured-collections--fixed-height {
+  display: grid;
+  gap: 1rem;
+}
+
+.grid--uniform.featured-collections--fixed-height.grid--no-gutters {
+  gap: 0;
+}
+
+/* Responsive grid - reduces columns when items would be too small (less than 100px wide) */
+/* For 6 columns: needs at least 600px + gaps */
+@media screen and (min-width: 1400px) {
+  .featured-collections--fixed-height[data-per-row="6"] {
     grid-template-columns: repeat(6, 1fr);
-    gap: 1rem;
   }
-  
-  .grid--uniform.featured-collections--fixed-height.grid--no-gutters {
-    gap: 0;
-  }
-}
-
-@media screen and (max-width: 1199px) and (min-width: 990px) {
-  .grid--uniform.featured-collections--fixed-height {
-    display: grid;
+  .featured-collections--fixed-height[data-per-row="5"] {
     grid-template-columns: repeat(5, 1fr);
-    gap: 1rem;
   }
-  
-  .grid--uniform.featured-collections--fixed-height.grid--no-gutters {
-    gap: 0;
-  }
-}
-
-@media screen and (max-width: 989px) and (min-width: 750px) {
-  .grid--uniform.featured-collections--fixed-height {
-    display: grid;
+  .featured-collections--fixed-height[data-per-row="4"] {
     grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
   }
-  
-  .grid--uniform.featured-collections--fixed-height.grid--no-gutters {
-    gap: 0;
-  }
-}
-
-@media screen and (max-width: 749px) and (min-width: 480px) {
-  .grid--uniform.featured-collections--fixed-height {
-    display: grid;
+  .featured-collections--fixed-height[data-per-row="3"] {
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
   }
-  
-  .grid--uniform.featured-collections--fixed-height.grid--no-gutters {
-    gap: 0;
-  }
-}
-
-@media screen and (max-width: 479px) {
-  .grid--uniform.featured-collections--fixed-height {
-    display: grid;
+  .featured-collections--fixed-height[data-per-row="2"] {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-  
-  .grid--uniform.featured-collections--fixed-height.grid--no-gutters {
-    gap: 0;
   }
 }
 
-/* Dynamic grid based on per_row setting */
-.featured-collections--fixed-height[data-per-row="2"] {
-  grid-template-columns: repeat(2, 1fr) !important;
+/* For 5 columns: needs at least 500px + gaps */
+@media screen and (max-width: 1399px) and (min-width: 1200px) {
+  .featured-collections--fixed-height[data-per-row="6"] {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .featured-collections--fixed-height[data-per-row="5"] {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .featured-collections--fixed-height[data-per-row="4"] {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .featured-collections--fixed-height[data-per-row="3"] {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .featured-collections--fixed-height[data-per-row="2"] {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.featured-collections--fixed-height[data-per-row="3"] {
-  grid-template-columns: repeat(3, 1fr) !important;
+/* For 4 columns: needs at least 400px + gaps */
+@media screen and (max-width: 1199px) and (min-width: 990px) {
+  .featured-collections--fixed-height[data-per-row="6"],
+  .featured-collections--fixed-height[data-per-row="5"] {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .featured-collections--fixed-height[data-per-row="4"] {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .featured-collections--fixed-height[data-per-row="3"] {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .featured-collections--fixed-height[data-per-row="2"] {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.featured-collections--fixed-height[data-per-row="4"] {
-  grid-template-columns: repeat(4, 1fr) !important;
+/* For 3 columns: needs at least 300px + gaps */
+@media screen and (max-width: 989px) and (min-width: 750px) {
+  .featured-collections--fixed-height[data-per-row="6"],
+  .featured-collections--fixed-height[data-per-row="5"],
+  .featured-collections--fixed-height[data-per-row="4"] {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .featured-collections--fixed-height[data-per-row="3"] {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .featured-collections--fixed-height[data-per-row="2"] {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.featured-collections--fixed-height[data-per-row="5"] {
-  grid-template-columns: repeat(5, 1fr) !important;
+/* For 2 columns: needs at least 200px + gaps */
+@media screen and (max-width: 749px) and (min-width: 480px) {
+  .featured-collections--fixed-height[data-per-row="6"],
+  .featured-collections--fixed-height[data-per-row="5"],
+  .featured-collections--fixed-height[data-per-row="4"],
+  .featured-collections--fixed-height[data-per-row="3"] {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .featured-collections--fixed-height[data-per-row="2"] {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.featured-collections--fixed-height[data-per-row="6"] {
-  grid-template-columns: repeat(6, 1fr) !important;
+/* Single column for very small screens */
+@media screen and (max-width: 479px) {
+  .featured-collections--fixed-height {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 
