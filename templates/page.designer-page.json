@@ -20,19 +20,25 @@
         "image_Y6V9Fr": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/David_Patton_Headshot.jpg"
+            "image": "shopify://shop_images/David_Patton_Headshot.jpg",
+            "button_text": "test",
+            "button_url": "test"
           }
         },
         "image_XdnEcj": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/David_Patton_Headshot.jpg"
+            "image": "shopify://shop_images/9721-69_1.jpg",
+            "button_text": "",
+            "button_url": ""
           }
         },
         "image_W6nwQp": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/David_Patton_Headshot.jpg"
+            "image": "shopify://shop_images/David_Patton_Headshot.jpg",
+            "button_text": "",
+            "button_url": ""
           }
         }
       },
