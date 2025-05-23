@@ -73,7 +73,7 @@
       "settings": {
         "title": "Brand Collections",
         "divider": false,
-        "per_row": 5,
+        "per_row": 6,
         "enable_gutter": true
       }
     },
