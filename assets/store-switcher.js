@@ -1,3 +1,27 @@
+const setCollectionsFilters = () => {
+  // 1) pull + capitalize your store name
+  const store = getStoreSentenceCase();
+  // 2) for each link whose href *contains* “/collections/”
+  document.querySelectorAll('a[href*="/collections/"]').forEach((aTag) => {
+    try {
+      // aTag.href is always an absolute URL string
+      const url = new URL(aTag.href);
+
+      // 3) only add if it’s missing
+      if (!url.searchParams.has("filter.p.vendor")) {
+        url.searchParams.set("filter.p.vendor", store);
+        aTag.href = url.toString();
+      } else {
+        url.searchParams.set("filter.p.vendor", store);
+        aTag.href = url.toString();
+      }
+    } catch (e) {
+      // this should almost never fire, since aTag.href is absolute
+      console.warn("Skipping invalid URL:", aTag.href);
+    }
+  });
+}
+
 class StoreSwitcher extends HTMLElement {
   constructor() {
     super();
@@ -34,6 +58,7 @@ class StoreSwitcher extends HTMLElement {
         });
         this.htmlEL.dataset.storeSelected = input.value;
         localStorage.setItem("store-selected", input.value);
+        setCollectionsFilters();
         theme.headerNav.init();
         const current = new URL(window.location.href);
         if (/\/(?:collections|products)\//.test(current.pathname)) {
@@ -44,6 +69,7 @@ class StoreSwitcher extends HTMLElement {
             window.location.reload();
           }
         }
+        
       });
     });
 
@@ -67,28 +93,10 @@ const getStoreSentenceCase = () => {
   return rawStore[0].toUpperCase() + rawStore.slice(1);
 };
 
-document.addEventListener("DOMContentLoaded", () => {
-  // 1) pull + capitalize your store name
-  const store = getStoreSentenceCase();
-  // 2) for each link whose href *contains* “/collections/”
-  document.querySelectorAll('a[href*="/collections/"]').forEach((aTag) => {
-    try {
-      // aTag.href is always an absolute URL string
-      const url = new URL(aTag.href);
 
-      // 3) only add if it’s missing
-      if (!url.searchParams.has("filter.p.vendor")) {
-        url.searchParams.set("filter.p.vendor", store);
-        aTag.href = url.toString();
-      } else {
-        url.searchParams.set("filter.p.vendor", store);
-        aTag.href = url.toString();
-      }
-    } catch (e) {
-      // this should almost never fire, since aTag.href is absolute
-      console.warn("Skipping invalid URL:", aTag.href);
-    }
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  
+  setCollectionsFilters();
 
   const current = new URL(window.location.href);
   if (
