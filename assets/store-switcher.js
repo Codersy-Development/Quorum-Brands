@@ -80,6 +80,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!url.searchParams.has("filter.p.vendor")) {
         url.searchParams.set("filter.p.vendor", store);
         aTag.href = url.toString();
+      } else {
+        url.searchParams.set("filter.p.vendor", store);
+        aTag.href = url.toString();
       }
     } catch (e) {
       // this should almost never fire, since aTag.href is absolute
