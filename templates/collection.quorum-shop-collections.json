@@ -211,6 +211,7 @@
         "collection3",
         "collection4"
       ],
+      "disabled": true,
       "settings": {
         "title": "You may also like",
         "divider": false,
@@ -246,7 +247,6 @@
         "subcollections",
         "product_grid"
       ],
-      "disabled": true,
       "settings": {
         "enable_sidebar": true,
         "collapsed": true,
