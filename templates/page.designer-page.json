@@ -28,7 +28,7 @@
         "image_XdnEcj": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/9721-69_1.jpg",
+            "image": "shopify://shop_images/David_Patton_Design_1_99f00b46-4938-4a4b-b4d8-d0f2273dca70.jpg",
             "button_text": "",
             "button_url": ""
           }
@@ -36,7 +36,7 @@
         "image_W6nwQp": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/David_Patton_Headshot.jpg",
+            "image": "shopify://shop_images/David_Patton_Design_2.jpg",
             "button_text": "",
             "button_url": ""
           }
@@ -47,7 +47,6 @@
         "image_XdnEcj",
         "image_W6nwQp"
       ],
-      "name": "Designer Showcase",
       "settings": {
         "avatar": "shopify://shop_images/David_Patton_Headshot.jpg",
         "name": "David Patton",
