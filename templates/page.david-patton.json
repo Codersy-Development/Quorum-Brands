@@ -65,10 +65,44 @@
         "subheading": "",
         "subtext": ""
       }
+    },
+    "featured_products_GicNFJ": {
+      "type": "featured-products",
+      "blocks": {
+        "product_card_krentJ": {
+          "type": "product_card",
+          "settings": {
+            "product": "5391-80"
+          }
+        },
+        "product_card_VpN4eg": {
+          "type": "product_card",
+          "settings": {
+            "product": "582-1-59"
+          }
+        },
+        "product_card_iwDMqC": {
+          "type": "product_card",
+          "settings": {
+            "product": "912-69"
+          }
+        }
+      },
+      "block_order": [
+        "product_card_krentJ",
+        "product_card_VpN4eg",
+        "product_card_iwDMqC"
+      ],
+      "name": "Featured Products",
+      "settings": {
+        "store": "all",
+        "heading": "Featured Products"
+      }
     }
   },
   "order": [
     "main",
-    "designer_ePCNUJ"
+    "designer_ePCNUJ",
+    "featured_products_GicNFJ"
   ]
 }
