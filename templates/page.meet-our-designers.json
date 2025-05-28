@@ -51,7 +51,7 @@
           "type": "text",
           "settings": {
             "enlarge_text": true,
-            "text": "<p>Get an inside look at our design process</p>"
+            "text": "<h2>Get an inside look at our design process</h2>"
           }
         }
       },
@@ -123,7 +123,7 @@
         "text_mUUj74"
       ],
       "settings": {
-        "align_text": "center",
+        "align_text": "left",
         "narrow_column": false,
         "divider": false
       }
