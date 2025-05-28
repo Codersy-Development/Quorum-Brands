@@ -95,6 +95,19 @@
         "divider": false
       }
     },
+    "featured_collection_Qjh8pU": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.featured_collection.name",
+      "settings": {
+        "title": "Al Fresco",
+        "home_featured_products": "al-fresco-by-quorum",
+        "per_row": 4,
+        "rows": 1,
+        "mobile_scrollable": true,
+        "view_all": true,
+        "divider": false
+      }
+    },
     "promo_grid_3b9mqd": {
       "type": "promo-grid",
       "blocks": {
@@ -273,6 +286,7 @@
     "featured-collection",
     "featured-collection2",
     "featured-collection3",
+    "featured_collection_Qjh8pU",
     "promo_grid_3b9mqd",
     "featured-collections",
     "featured_collection_jqzDA8",
