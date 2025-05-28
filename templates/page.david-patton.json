@@ -93,6 +93,7 @@
         "product_card_VpN4eg",
         "product_card_iwDMqC"
       ],
+      "disabled": true,
       "settings": {
         "store": "all",
         "heading": "Featured Products"
