@@ -1,0 +1,74 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "designer_ePCNUJ": {
+      "type": "designer",
+      "blocks": {
+        "image_Y6V9Fr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/David_Patton_Headshot.jpg",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "image_XdnEcj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/David_Patton_Design_1_99f00b46-4938-4a4b-b4d8-d0f2273dca70.jpg",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "image_W6nwQp": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/David_Patton_Design_2.jpg",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "image_U7FrMd": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/David_Patton_Design_3-1-1-1.jpg",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_Y6V9Fr",
+        "image_XdnEcj",
+        "image_W6nwQp",
+        "image_U7FrMd"
+      ],
+      "settings": {
+        "avatar": "shopify://shop_images/David_Patton_Headshot.jpg",
+        "name": "David Patton",
+        "role": "Director of Design",
+        "heading": "About David",
+        "description": "<p>An industrial designer by trade, he has worked across diverse industries including sporting goods, consumer electronics, retail fixturing, commercial furniture, and, of course, lighting and fans. His most pivotal career moment came when he earned the title of ‘Father of the Standing Desk.’ Along with two partners, he co-invented and patented the world’s first ‘desktop converter,’ launching a multibillion-dollar standing desk and workplace ergonomics market through their company, VARIDESK. This innovation earned numerous product awards, transformed office culture, and improved the lives of many. He keeps letters from customers as a reminder of the people designers are ultimately serving.</p><p>An industrial designer by trade, he has worked across diverse industries including sporting goods, consumer electronics, retail fixturing, commercial furniture, and, of course, lighting and fans. His most pivotal career moment came when he earned the title of ‘Father of the Standing Desk.’ Along with two partners, he co-invented and patented the world’s first ‘desktop converter,’ launching a multibillion-dollar standing desk and workplace ergonomics market through their company, VARIDESK. This innovation earned numerous product awards, transformed office culture, and improved the lives of many. He keeps letters from customers as a reminder of the people designers are ultimately serving.</p><p>An industrial designer by trade, he has worked across diverse industries including sporting goods, consumer electronics, retail fixturing, commercial furniture, and, of course, lighting and fans. His most pivotal career moment came when he earned the title of ‘Father of the Standing Desk.’ Along with two partners, he co-invented and patented the world’s first ‘desktop converter,’ launching a multibillion-dollar standing desk and workplace ergonomics market through their company, VARIDESK. This innovation earned numerous product awards, transformed office culture, and improved the lives of many. He keeps letters from customers as a reminder of the people designers are ultimately serving.</p><p>An industrial designer by trade, he has worked across diverse industries including sporting goods, consumer electronics, retail fixturing, commercial furniture, and, of course, lighting and fans. His most pivotal career moment came when he earned the title of ‘Father of the Standing Desk.’ Along with two partners, he co-invented and patented the world’s first ‘desktop converter,’ launching a multibillion-dollar standing desk and workplace ergonomics market through their company, VARIDESK. This innovation earned numerous product awards, transformed office culture, and improved the lives of many. He keeps letters from customers as a reminder of the people designers are ultimately serving.An industrial designer by trade, he has worked across diverse industries including sporting goods, consumer electronics, retail fixturing, commercial furniture, and, of course, lighting and fans. His most pivotal career moment came when he earned the title of ‘Father of the Standing Desk.’ Along with two partners, he co-invented and patented the world’s first ‘desktop converter,’ launching a multibillion-dollar standing desk and workplace ergonomics market through their company, VARIDESK. This innovation earned numerous product awards, transformed office culture, and improved the lives of many. He keeps letters from customers as a reminder of the people designers are ultimately serving.</p><p>An industrial designer by trade, he has worked across diverse industries including sporting goods, consumer electronics, retail fixturing, commercial furniture, and, of course, lighting and fans. His most pivotal career moment came when he earned the title of ‘Father of the Standing Desk.’ Along with two partners, he co-invented and patented the world’s first ‘desktop converter,’ launching a multibillion-dollar standing desk and workplace ergonomics market through their company, VARIDESK. This innovation earned numerous product awards, transformed office culture, and improved the lives of many. He keeps letters from customers as a reminder of the people designers are ultimately serving.</p>",
+        "subheading": "",
+        "subtext": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "designer_ePCNUJ"
+  ]
+}
