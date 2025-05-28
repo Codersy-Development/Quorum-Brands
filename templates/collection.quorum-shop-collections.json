@@ -219,6 +219,19 @@
         "enable_gutter": true
       }
     },
+    "featured_collection_jqzDA8": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.featured_collection.name",
+      "settings": {
+        "title": "Featured collection",
+        "home_featured_products": "dual-mount",
+        "per_row": 4,
+        "rows": 1,
+        "mobile_scrollable": true,
+        "view_all": true,
+        "divider": false
+      }
+    },
     "main-collection": {
       "type": "main-collection",
       "blocks": {
@@ -264,6 +277,7 @@
     "featured-collection3",
     "promo_grid_3b9mqd",
     "featured-collections",
+    "featured_collection_jqzDA8",
     "main-collection"
   ]
 }
