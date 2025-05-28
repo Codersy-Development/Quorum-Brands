@@ -1,12 +1,17 @@
+<section
+    class="category-carousel shop-by-category"
+    {% unless section.settings.store == "all" %}
+        data-store="{{ section.settings.store }}"
+    {% endunless %}
+>
+
 <div
   data-section-id="{{ section.id }}"
   data-section-type="promo-grid">
   {%- unless section.settings.full_width -%}
     <div class="page-width">
   {%- endunless -%}
-    {% unless section.settings.store == "all" %}
-        data-store="{{ section.settings.store }}"
-    {% endunless %}
+
   {%- render 'promo-grid', section: section, collection_page: false -%}
 
   {%- if section.blocks.size == 0 -%}
