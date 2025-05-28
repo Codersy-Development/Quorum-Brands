@@ -75,13 +75,13 @@
     "featured-collection2": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured collection",
-        "home_featured_products": "",
+        "title": "Abram",
+        "home_featured_products": "abram-by-quorum",
         "per_row": 4,
         "rows": 1,
         "mobile_scrollable": true,
         "view_all": true,
-        "divider": false
+        "divider": true
       }
     },
     "promo-grid2": {
