@@ -160,7 +160,6 @@
         "advanced_h4LNjG",
         "advanced_DaNeLb"
       ],
-      "name": "t:sections.promo-grid.presets.promotional_grid.name",
       "settings": {
         "full_width": false,
         "gutter_size": 20,
@@ -221,7 +220,6 @@
     },
     "featured_collection_jqzDA8": {
       "type": "featured-collection",
-      "name": "t:sections.featured-collection.presets.featured_collection.name",
       "settings": {
         "title": "Featured collection",
         "home_featured_products": "dual-mount",
