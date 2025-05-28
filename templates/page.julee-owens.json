@@ -1,0 +1,108 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "designer_ePCNUJ": {
+      "type": "designer",
+      "blocks": {
+        "image_Y6V9Fr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/David_Patton_Headshot.jpg",
+            "button_text": "View David's Collection of Products",
+            "button_url": "#"
+          }
+        },
+        "image_XdnEcj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/David_Patton_Design_1_99f00b46-4938-4a4b-b4d8-d0f2273dca70.jpg",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "image_W6nwQp": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/David_Patton_Design_2.jpg",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "image_U7FrMd": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/David_Patton_Design_3-1-1-1.jpg",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_Y6V9Fr",
+        "image_XdnEcj",
+        "image_W6nwQp",
+        "image_U7FrMd"
+      ],
+      "settings": {
+        "avatar": "shopify://shop_images/David_Patton_Headshot.jpg",
+        "name": "David Patton",
+        "role": "Director of Design",
+        "heading": "About David",
+        "description": "<p>An industrial designer by trade, he has worked across diverse industries including sporting goods, consumer electronics, retail fixturing, commercial furniture, and, of course, lighting and fans. His most pivotal career moment came when he earned the title of ‘Father of the Standing Desk.’ Along with two partners, he co-invented and patented the world’s first ‘desktop converter,’ launching a multibillion-dollar standing desk and workplace ergonomics market through their company, VARIDESK. This innovation earned numerous product awards, transformed office culture, and improved the lives of many. He keeps letters from customers as a reminder of the people designers are ultimately serving.</p><p>Quorum's mission is to stand out through design, and David plays a<br/>key role in bringing that vision to life. His deep commitment to the value of<br/>their work and the responsibility they have to customers reflects his<br/>understanding that the arts and sciences must be blended to create powerful,<br/>emotional experiences. David listens closely to customers, ensuring that every product is not only visually appealing but also functional for their needs. Under his leadership, Quorum continues to emphasize quality, authenticity, and innovation, with a collection that includes over 1,200 fans and nearly 3,000 lighting fixtures, all designed in-house by their award-winning team.</p>",
+        "subheading": "",
+        "subtext": ""
+      }
+    },
+    "featured_products_GicNFJ": {
+      "type": "featured-products",
+      "blocks": {
+        "product_card_krentJ": {
+          "type": "product_card",
+          "settings": {
+            "product": "5391-80"
+          }
+        },
+        "product_card_VpN4eg": {
+          "type": "product_card",
+          "settings": {
+            "product": "582-1-59"
+          }
+        },
+        "product_card_iwDMqC": {
+          "type": "product_card",
+          "settings": {
+            "product": "912-69"
+          }
+        }
+      },
+      "block_order": [
+        "product_card_krentJ",
+        "product_card_VpN4eg",
+        "product_card_iwDMqC"
+      ],
+      "disabled": true,
+      "settings": {
+        "store": "all",
+        "heading": "Featured Products"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "designer_ePCNUJ",
+    "featured_products_GicNFJ"
+  ]
+}
