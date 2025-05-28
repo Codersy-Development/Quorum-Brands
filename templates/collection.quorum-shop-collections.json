@@ -62,8 +62,8 @@
     "featured-collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Fans",
-        "home_featured_products": "fans",
+        "title": "Abaca",
+        "home_featured_products": "abaca-by-quourm",
         "per_row": 5,
         "rows": 1,
         "mobile_scrollable": true,
@@ -74,8 +74,8 @@
     "featured-collection2": {
       "type": "featured-collection",
       "settings": {
-        "title": "Chandeliers",
-        "home_featured_products": "chandeliers",
+        "title": "Abram",
+        "home_featured_products": "abram-by-quorum",
         "per_row": 5,
         "rows": 1,
         "mobile_scrollable": true,
