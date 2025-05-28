@@ -83,54 +83,6 @@
         "divider": false
       }
     },
-    "promo-grid2": {
-      "type": "promo-grid",
-      "blocks": {
-        "simple": {
-          "type": "simple",
-          "settings": {
-            "link": "",
-            "text": "",
-            "width": "50",
-            "height": 300,
-            "color_tint": "#000000",
-            "color_tint_opacity": 8,
-            "framed": false
-          }
-        },
-        "advanced": {
-          "type": "advanced",
-          "settings": {
-            "subheading": "Limited time",
-            "heading": "Announce your promotion",
-            "textarea": "Include the smaller details of your promotion in text below the title.",
-            "cta_text1": "Shop This",
-            "cta_link1": "",
-            "cta_text2": "Shop All",
-            "cta_link2": "",
-            "video_url": "",
-            "width": "50",
-            "height": 500,
-            "text_size": 120,
-            "text_align": "vertical-center horizontal-center",
-            "color_accent": "rgba(0,0,0,0)",
-            "boxed": false,
-            "framed": false
-          }
-        }
-      },
-      "block_order": [
-        "simple",
-        "advanced"
-      ],
-      "settings": {
-        "full_width": false,
-        "gutter_size": 20,
-        "space_above": false,
-        "space_below": false,
-        "lazyload_images": true
-      }
-    },
     "featured-collection3": {
       "type": "featured-collection",
       "settings": {
@@ -141,6 +93,57 @@
         "mobile_scrollable": true,
         "view_all": true,
         "divider": false
+      }
+    },
+    "promo_grid_3b9mqd": {
+      "type": "promo-grid",
+      "blocks": {
+        "simple_Urc9bz": {
+          "type": "simple",
+          "settings": {
+            "link": "",
+            "text": "David Patton",
+            "image": "shopify://shop_images/David_Patton_Design_1_99f00b46-4938-4a4b-b4d8-d0f2273dca70.jpg",
+            "width": "50",
+            "height": 800,
+            "color_tint": "#000000",
+            "color_tint_opacity": 0,
+            "framed": true
+          }
+        },
+        "advanced_DaNeLb": {
+          "type": "advanced",
+          "settings": {
+            "subheading": "Our Designers",
+            "heading": "Shop By Designer",
+            "textarea": "Driven by an unwavering passion for the creative process, our designers approach each project with a commitment to crafting captivating and enduring designs",
+            "cta_text1": "Shop Julee Owens",
+            "cta_link1": "",
+            "cta_text2": "Shop Brett Curtin",
+            "cta_link2": "",
+            "image": "shopify://shop_images/Brett_Design_3.jpg",
+            "video_url": "",
+            "width": "50",
+            "height": 500,
+            "text_size": 100,
+            "text_align": "vertical-center horizontal-center",
+            "color_accent": "rgba(0,0,0,0)",
+            "boxed": false,
+            "framed": false
+          }
+        }
+      },
+      "block_order": [
+        "simple_Urc9bz",
+        "advanced_DaNeLb"
+      ],
+      "name": "t:sections.promo-grid.presets.promotional_grid.name",
+      "settings": {
+        "full_width": false,
+        "gutter_size": 20,
+        "space_above": true,
+        "space_below": true,
+        "lazyload_images": true
       }
     },
     "featured-collections": {
@@ -235,8 +238,8 @@
     "promo-grid",
     "featured-collection",
     "featured-collection2",
-    "promo-grid2",
     "featured-collection3",
+    "promo_grid_3b9mqd",
     "featured-collections",
     "main-collection"
   ]
