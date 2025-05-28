@@ -101,7 +101,7 @@
         "simple_Urc9bz": {
           "type": "simple",
           "settings": {
-            "link": "",
+            "link": "shopify://pages/david-patton-director-of-design",
             "text": "David Patton",
             "image": "shopify://shop_images/David_Patton_Design_1_99f00b46-4938-4a4b-b4d8-d0f2273dca70.jpg",
             "width": "50",
@@ -118,9 +118,9 @@
             "heading": "Shop By Designer",
             "textarea": "Driven by an unwavering passion for the creative process, our designers approach each project with a commitment to crafting captivating and enduring designs",
             "cta_text1": "Shop Julee Owens",
-            "cta_link1": "",
+            "cta_link1": "#",
             "cta_text2": "Shop Brett Curtin",
-            "cta_link2": "",
+            "cta_link2": "#",
             "image": "shopify://shop_images/Brett_Design_3.jpg",
             "video_url": "",
             "width": "50",
