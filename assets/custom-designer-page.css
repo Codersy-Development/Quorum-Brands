@@ -9,6 +9,7 @@
         display: flex;
         flex-direction: column;
         height: fit-content;
+        margin-bottom: 20px; /* Add 20px spacing below the swiper */
     }
     & .swiper-slide {
         display: flex;
