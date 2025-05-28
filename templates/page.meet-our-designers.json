@@ -115,7 +115,7 @@
           "type": "text",
           "settings": {
             "enlarge_text": true,
-            "text": "<p>Meet Our Team</p>"
+            "text": "<h2>Meet Our Team</h2>"
           }
         }
       },
