@@ -125,12 +125,12 @@
             "image": "shopify://shop_images/David_Patton_Design_2.jpg",
             "video_url": "",
             "width": "50",
-            "height": 500,
+            "height": 780,
             "text_size": 120,
             "text_align": "vertical-center horizontal-center",
             "color_accent": "#e8e8e1",
             "boxed": false,
-            "framed": false
+            "framed": true
           }
         },
         "advanced_DaNeLb": {
