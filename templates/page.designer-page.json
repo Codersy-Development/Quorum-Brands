@@ -40,12 +40,21 @@
             "button_text": "",
             "button_url": ""
           }
+        },
+        "image_U7FrMd": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/David_Patton_Design_3-1-1-1.jpg",
+            "button_text": "",
+            "button_url": ""
+          }
         }
       },
       "block_order": [
         "image_Y6V9Fr",
         "image_XdnEcj",
-        "image_W6nwQp"
+        "image_W6nwQp",
+        "image_U7FrMd"
       ],
       "settings": {
         "avatar": "shopify://shop_images/David_Patton_Headshot.jpg",
