@@ -1,5 +1,10 @@
 
-<div
+<section
+        class="promo-grid"
+        {% unless section.settings.store == "all" %}
+            data-store="{{ section.settings.store }}"
+        {% endunless %}
+><div
   data-section-id="{{ section.id }}"
   data-section-type="promo-grid">
   {%- unless section.settings.full_width -%}
@@ -22,6 +27,7 @@
     </div>
   {%- endunless -%}
 </div>
+</section>
 
 {% schema %}
 {
