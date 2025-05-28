@@ -86,12 +86,26 @@
           "settings": {
             "product": "912-69"
           }
+        },
+        "product_card_HAjpFr": {
+          "type": "product_card",
+          "settings": {
+            "product": "5669-1-80"
+          }
+        },
+        "product_card_R3BDUG": {
+          "type": "product_card",
+          "settings": {
+            "product": "633-5-0881"
+          }
         }
       },
       "block_order": [
         "product_card_krentJ",
         "product_card_VpN4eg",
-        "product_card_iwDMqC"
+        "product_card_iwDMqC",
+        "product_card_HAjpFr",
+        "product_card_R3BDUG"
       ],
       "settings": {
         "store": "all",
