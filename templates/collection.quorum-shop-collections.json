@@ -83,31 +83,6 @@
         "divider": false
       }
     },
-    "featured-collection3": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Adirondacks",
-        "home_featured_products": "adirondacks-by-quorum",
-        "per_row": 4,
-        "rows": 1,
-        "mobile_scrollable": true,
-        "view_all": true,
-        "divider": false
-      }
-    },
-    "featured_collection_Qjh8pU": {
-      "type": "featured-collection",
-      "name": "t:sections.featured-collection.presets.featured_collection.name",
-      "settings": {
-        "title": "Al Fresco",
-        "home_featured_products": "al-fresco-by-quorum",
-        "per_row": 4,
-        "rows": 1,
-        "mobile_scrollable": true,
-        "view_all": true,
-        "divider": false
-      }
-    },
     "promo_grid_3b9mqd": {
       "type": "promo-grid",
       "blocks": {
@@ -173,12 +148,38 @@
         "advanced_h4LNjG",
         "advanced_DaNeLb"
       ],
+      "disabled": true,
       "settings": {
         "full_width": false,
         "gutter_size": 20,
         "space_above": true,
         "space_below": true,
         "lazyload_images": true
+      }
+    },
+    "featured-collection3": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Adirondacks",
+        "home_featured_products": "adirondacks-by-quorum",
+        "per_row": 4,
+        "rows": 1,
+        "mobile_scrollable": true,
+        "view_all": true,
+        "divider": false
+      }
+    },
+    "featured_collection_Qjh8pU": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.featured_collection.name",
+      "settings": {
+        "title": "Al Fresco",
+        "home_featured_products": "al-fresco-by-quorum",
+        "per_row": 4,
+        "rows": 1,
+        "mobile_scrollable": true,
+        "view_all": true,
+        "divider": false
       }
     },
     "featured-collections": {
@@ -233,6 +234,7 @@
     },
     "featured_collection_jqzDA8": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Featured collection",
         "home_featured_products": "dual-mount",
@@ -279,17 +281,91 @@
         "enable_swatch_labels": true,
         "enable_sort": true
       }
+    },
+    "promo_grid_AiDNXN": {
+      "type": "promo-grid",
+      "blocks": {
+        "simple_NwhBKi": {
+          "type": "simple",
+          "disabled": true,
+          "settings": {
+            "link": "shopify://pages/david-patton-director-of-design",
+            "text": "David Patton",
+            "image": "shopify://shop_images/David_Patton_Design_1_99f00b46-4938-4a4b-b4d8-d0f2273dca70.jpg",
+            "width": "50",
+            "height": 800,
+            "color_tint": "#000000",
+            "color_tint_opacity": 0,
+            "framed": false
+          }
+        },
+        "advanced_EfJztr": {
+          "type": "advanced",
+          "settings": {
+            "subheading": "Design Director",
+            "heading": "David Patton",
+            "textarea": "Quorum's mission is to stand out through design, and David plays a key role in bringing that vision to life.",
+            "cta_text1": "Shop David Patton",
+            "cta_link1": "shopify://pages/david-patton-director-of-design",
+            "cta_text2": "",
+            "cta_link2": "",
+            "image": "shopify://shop_images/David_Patton_Design_2.jpg",
+            "video_url": "",
+            "width": "50",
+            "height": 780,
+            "text_size": 120,
+            "text_align": "vertical-center horizontal-center",
+            "color_accent": "#e8e8e1",
+            "boxed": false,
+            "framed": true
+          }
+        },
+        "advanced_zazG6D": {
+          "type": "advanced",
+          "settings": {
+            "subheading": "Our Designers",
+            "heading": "Shop By Designer",
+            "textarea": "Driven by an unwavering passion for the creative process, our designers approach each project with a commitment to crafting captivating and enduring designs",
+            "cta_text1": "Shop Julee Owens",
+            "cta_link1": "#",
+            "cta_text2": "Shop Brett Curtin",
+            "cta_link2": "#",
+            "image": "shopify://shop_images/Brett_Design_3.jpg",
+            "video_url": "",
+            "width": "50",
+            "height": 500,
+            "text_size": 100,
+            "text_align": "vertical-center horizontal-center",
+            "color_accent": "#e8e8e1",
+            "boxed": false,
+            "framed": true
+          }
+        }
+      },
+      "block_order": [
+        "simple_NwhBKi",
+        "advanced_EfJztr",
+        "advanced_zazG6D"
+      ],
+      "settings": {
+        "full_width": false,
+        "gutter_size": 20,
+        "space_above": true,
+        "space_below": true,
+        "lazyload_images": true
+      }
     }
   },
   "order": [
     "promo-grid",
     "featured-collection",
     "featured-collection2",
+    "promo_grid_3b9mqd",
     "featured-collection3",
     "featured_collection_Qjh8pU",
-    "promo_grid_3b9mqd",
     "featured-collections",
     "featured_collection_jqzDA8",
-    "main-collection"
+    "main-collection",
+    "promo_grid_AiDNXN"
   ]
 }
