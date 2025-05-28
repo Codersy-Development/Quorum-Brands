@@ -9,7 +9,8 @@
         display: flex;
         flex-direction: column;
         height: fit-content;
-        margin-bottom: 20px; /* Add 20px spacing below the swiper */
+        position: relative; /* Ensure relative positioning for absolute children */
+        padding-bottom: 10px; /* Add space for the arrows */
     }
     & .swiper-slide {
         display: flex;
@@ -34,9 +35,8 @@
     & .button-wrapper {
         display: flex;
         position: absolute;
-        bottom: 0;
+        bottom: 10px; /* Position 10px from the bottom of the swiper container */
         right: 0;
-        margin-top: 1rem;
         gap: 1rem;
         z-index: 100;
     }
@@ -46,11 +46,9 @@
         object-fit: cover;
         border-radius: 0.5rem;
     }
-
     & .designer-info {
         text-align: center;
     }
-
     & .designer-info img {
         width: 64px;
         height: 64px;
@@ -58,21 +56,17 @@
         object-fit: cover;
         margin-bottom: 0.5rem;
     }
-
     & .designer-info .name {
         text-align: left;
         font-weight: bold;
     }
-
     & .designer-info .role {
         color: #555;
     }
-
     & .designer-text h2 {
         font-size: 1.5rem;
         margin-bottom: 1rem;
     }
-
     & .designer-text p {
         margin-bottom: 1rem;
         color: #333;
@@ -92,7 +86,6 @@
         transform: rotate(-180deg);
     }
 }
-
 @media (max-width: 768px) {
     .designer-showcase {
         grid-template-columns: 1fr;
@@ -103,11 +96,13 @@
             gap: 1rem;
             align-items: center;
         }
-
         & .swiper {
             order: 1;
+            padding-bottom: 10px; /* Maintain spacing on mobile */
         }
-
+        & .button-wrapper {
+            bottom: 5px; /* Maintain 10px spacing on mobile */
+        }
         & .designer-text {
             order: 3;
             margin-top: 1.5rem;
