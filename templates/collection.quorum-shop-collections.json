@@ -108,7 +108,7 @@
             "height": 800,
             "color_tint": "#000000",
             "color_tint_opacity": 0,
-            "framed": true
+            "framed": false
           }
         },
         "advanced_DaNeLb": {
@@ -127,9 +127,9 @@
             "height": 500,
             "text_size": 100,
             "text_align": "vertical-center horizontal-center",
-            "color_accent": "rgba(0,0,0,0)",
+            "color_accent": "#e8e8e1",
             "boxed": false,
-            "framed": false
+            "framed": true
           }
         }
       },
