@@ -86,8 +86,8 @@
     "featured-collection3": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured collection",
-        "home_featured_products": "",
+        "title": "Adirondacks",
+        "home_featured_products": "adirondacks-by-quorum",
         "per_row": 4,
         "rows": 1,
         "mobile_scrollable": true,
