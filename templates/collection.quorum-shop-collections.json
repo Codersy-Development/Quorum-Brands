@@ -100,6 +100,7 @@
       "blocks": {
         "simple_Urc9bz": {
           "type": "simple",
+          "disabled": true,
           "settings": {
             "link": "shopify://pages/david-patton-director-of-design",
             "text": "David Patton",
@@ -108,6 +109,27 @@
             "height": 800,
             "color_tint": "#000000",
             "color_tint_opacity": 0,
+            "framed": false
+          }
+        },
+        "advanced_h4LNjG": {
+          "type": "advanced",
+          "settings": {
+            "subheading": "Design Director",
+            "heading": "David Patton",
+            "textarea": "Quorum's mission is to stand out through design, and David plays a key role in bringing that vision to life.",
+            "cta_text1": "Shop David Patton",
+            "cta_link1": "shopify://pages/david-patton-director-of-design",
+            "cta_text2": "",
+            "cta_link2": "",
+            "image": "shopify://shop_images/David_Patton_Design_2.jpg",
+            "video_url": "",
+            "width": "50",
+            "height": 500,
+            "text_size": 120,
+            "text_align": "vertical-center horizontal-center",
+            "color_accent": "#e8e8e1",
+            "boxed": false,
             "framed": false
           }
         },
@@ -135,6 +157,7 @@
       },
       "block_order": [
         "simple_Urc9bz",
+        "advanced_h4LNjG",
         "advanced_DaNeLb"
       ],
       "name": "t:sections.promo-grid.presets.promotional_grid.name",
