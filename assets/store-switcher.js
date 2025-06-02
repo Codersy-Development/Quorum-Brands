@@ -20,7 +20,7 @@ const setCollectionsFilters = () => {
       console.warn("Skipping invalid URL:", aTag.href);
     }
   });
-}
+};
 
 class StoreSwitcher extends HTMLElement {
   constructor() {
@@ -69,7 +69,6 @@ class StoreSwitcher extends HTMLElement {
             window.location.reload();
           }
         }
-        
       });
     });
 
@@ -93,9 +92,7 @@ const getStoreSentenceCase = () => {
   return rawStore[0].toUpperCase() + rawStore.slice(1);
 };
 
-
 document.addEventListener("DOMContentLoaded", () => {
-  
   setCollectionsFilters();
 
   const current = new URL(window.location.href);
@@ -145,6 +142,7 @@ class StoreSwitchMenus extends HTMLElement {
       (link) => {
         link.addEventListener("mouseover", () => {
           hideAllMegas();
+          this.initMegaMenuHeight();
           link.querySelector(".ssm__mega-menu").classList.add("visible");
         });
       }
