@@ -1,0 +1,77 @@
+{{ 'files-downloads-search.css' | asset_url | stylesheet_tag }}
+<files-download-search-section class="files-download-search">
+  <div class="fds__container">
+    <div class="fds__content page-width">
+      {% assign test_product = all_products['4525-03159-draft'] %}
+      {{ test_product.id }}
+      {% assign revit_btn = test_product.metafields.custom.button_revit %}
+      {% assign photo_metrics_btn = test_product.metafields.custom.button_photo_metrics %}
+      {% assign instructions_btn = test_product.metafields.custom.button_instructions %}
+      {% assign ies_btn = test_product.metafields.custom.button_ies %}
+      {% assign cutsheet_btn = test_product.metafields.custom.button_cutsheet %}
+
+      <div class="fds__items">
+        <div class="fds__item">
+          <input type="checkbox" name="files_to_downloads" value="">
+          {{ revit_btn }}
+        </div>
+        <div class="fds__item">
+          <input type="checkbox" name="files_to_downloads" value="">
+          {{ photo_metrics_btn }}
+        </div>
+        <div class="fds__item">
+          <input type="checkbox" name="files_to_downloads" value="">
+          {{ instructions_btn }}
+        </div>
+        <div class="fds__item">
+          <input type="checkbox" name="files_to_downloads" value="">
+          {{ ies_btn }}
+        </div>
+        <div class="fds__item">
+          <input type="checkbox" name="files_to_downloads" value="">
+          {{ cutsheet_btn }}
+        </div>
+      </div>
+    </div>
+    <button class="js-floating-btn">Download selected</button>
+  </div>
+</files-download-search-section>
+
+<script>
+  class FilesDownloadSearchSection extends HTMLElement {
+    constructor() {
+      super();
+
+      this.floatingBtn = this.querySelector('.js-floating-btn');
+
+      this.floatingBtn.addEventListener('click', () => {
+        let linksToDonwload = Array.from(this.querySelectorAll('input:checked'))
+          .filter((el) => el.nextElementSibling)
+          .map((el) => {
+            el.nextElementSibling?.getAttribute('href');
+          });
+      });
+
+      this._initFilesToDownload();
+    }
+    renderFilesToDownload(data){
+
+    }
+    _initFilesToDownload(){
+      //send request to get files to download
+      fetch('http://localhost:3000/api/files-to-download', {
+        method: 'POST',
+        body: JSON.stringify({
+          searchQuery: '4525-03159-draft'
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        this.renderFilesToDownload(data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+    }
+  }
+  customElements.define('files-download-search-section', FilesDownloadSearchSection);
+</script>
