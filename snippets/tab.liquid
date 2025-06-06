@@ -1,34 +1,86 @@
 {%- liquid
   assign has_content = false
-  assign debug_output = ''
+  assign cleaned_content = ''
   
   if content != blank and content != '' and content != nil
-    assign debug_output = debug_output | append: 'Content exists. '
+    comment
+      First, check if there's actually meaningful content
+    endcomment
+    assign content_test = content | strip_html | strip | replace: '&nbsp;', '' | replace: ' ', '' | replace: '\n', '' | replace: '\r', '' | replace: '\t', ''
     
-    assign stripped_content = content | strip_html | strip
-    assign debug_output = debug_output | append: 'Stripped length: ' | append: stripped_content.size | append: '. '
-    
-    assign no_spaces = stripped_content | replace: ' ', '' | replace: '&nbsp;', '' | replace: '\n', '' | replace: '\r', '' | replace: '\t', ''
-    assign debug_output = debug_output | append: 'No spaces length: ' | append: no_spaces.size | append: '. '
-    
-    if no_spaces != blank and no_spaces != '' and no_spaces.size > 0
+    if content_test != blank and content_test != '' and content_test.size > 0
       assign has_content = true
-      assign debug_output = debug_output | append: 'HAS CONTENT. '
-    else
-      assign debug_output = debug_output | append: 'NO CONTENT. '
+      
+      comment
+        Clean up the content spacing while preserving structure
+      endcomment
+      assign cleaned_content = content
+      
+      comment
+        Remove excessive line breaks and empty paragraphs
+      endcomment
+      assign cleaned_content = cleaned_content | replace: '<br/>', '<br>'
+      assign cleaned_content = cleaned_content | replace: '<br />', '<br>'
+      assign cleaned_content = cleaned_content | replace: '<BR>', '<br>'
+      
+      comment
+        Remove empty paragraphs and divs
+      endcomment
+      assign cleaned_content = cleaned_content | replace: '<p></p>', ''
+      assign cleaned_content = cleaned_content | replace: '<p> </p>', ''
+      assign cleaned_content = cleaned_content | replace: '<p>&nbsp;</p>', ''
+      assign cleaned_content = cleaned_content | replace: '<div></div>', ''
+      assign cleaned_content = cleaned_content | replace: '<div> </div>', ''
+      
+      comment
+        Remove paragraphs containing only br tags
+      endcomment
+      assign cleaned_content = cleaned_content | replace: '<p><br></p>', ''
+      assign cleaned_content = cleaned_content | replace: '<p><br><br></p>', ''
+      assign cleaned_content = cleaned_content | replace: '<p><br><br><br></p>', ''
+      
+      comment
+        Collapse multiple br tags - do this multiple times to catch nested cases
+      endcomment
+      assign cleaned_content = cleaned_content | replace: '<br><br><br><br><br><br>', '<br>'
+      assign cleaned_content = cleaned_content | replace: '<br><br><br><br><br>', '<br>'
+      assign cleaned_content = cleaned_content | replace: '<br><br><br><br>', '<br>'
+      assign cleaned_content = cleaned_content | replace: '<br><br><br>', '<br><br>'
+      assign cleaned_content = cleaned_content | replace: '<br><br><br>', '<br><br>'
+      
+      comment
+        Remove excessive whitespace between lines but preserve some structure
+      endcomment
+      assign cleaned_content = cleaned_content | replace: '    ', ' '
+      assign cleaned_content = cleaned_content | replace: '   ', ' '
+      assign cleaned_content = cleaned_content | replace: '  ', ' '
+      
+      comment
+        Clean up multiple newlines in a row
+      endcomment
+      assign temp_content = cleaned_content | newline_to_br
+      assign temp_content = temp_content | replace: '<br><br><br><br>', '<br><br>'
+      assign temp_content = temp_content | replace: '<br><br><br>', '<br><br>'
+      assign cleaned_content = temp_content
+      
+      comment
+        Remove leading and trailing br tags
+      endcomment
+      assign cleaned_content = cleaned_content | strip
+      if cleaned_content first == '<br>'
+        assign cleaned_content = cleaned_content | remove_first: '<br>'
+      endif
+      if cleaned_content last == '>'
+        assign temp_check = cleaned_content | split: '' | last: 4 | join: ''
+        if temp_check == '<br>'
+          assign cleaned_content = cleaned_content | remove_last: '<br>'
+        endif
+      endif
+      
+      assign cleaned_content = cleaned_content | strip
     endif
-  else
-    assign debug_output = 'Content is blank/empty/nil. '
   endif
 -%}
-
-{% comment %} Remove this debug section in production {% endcomment %}
-<div style="background: #f0f0f0; padding: 10px; margin: 10px 0; font-size: 12px; border: 1px solid #ccc;">
-  <strong>DEBUG:</strong> {{ debug_output }}<br>
-  <strong>Original content:</strong> "{{ content }}"<br>
-  <strong>Stripped content:</strong> "{{ content | strip_html | strip }}"<br>
-  <strong>Will show tab:</strong> {{ has_content }}
-</div>
 
 {%- if has_content -%}
 <div class="collapsibles-wrapper collapsibles-wrapper--border-bottom">
@@ -38,12 +90,8 @@
   </button>
   <div id="Product-content-{{ id }}" class="collapsible-content collapsible-content--all{%- if force_open %} is-open{%- endif -%}"{%- if force_open %} style="height: auto;"{%- endif -%}>
     <div class="collapsible-content__inner rte">
-      {{- content -}}
+      {{- cleaned_content -}}
     </div>
   </div>
-</div>
-{%- else -%}
-<div style="background: #ffeeee; padding: 10px; margin: 10px 0; font-size: 12px; border: 1px solid #ffcccc;">
-  <strong>TAB HIDDEN:</strong> No meaningful content detected.
 </div>
 {%- endif -%}
