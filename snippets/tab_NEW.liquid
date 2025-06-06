@@ -1,0 +1,71 @@
+{%- liquid
+  assign has_title = false
+  assign has_content = false
+  
+  if title != blank and title != '' and title != nil
+    assign title_check = title | strip | strip_html
+    if title_check != blank and title_check != ''
+      assign has_title = true
+    endif
+  endif
+  
+  if content != blank and content != '' and content != nil
+    # Start with the original content
+    assign cleaned_content = content
+    
+    # Remove empty paragraphs with br/ tags
+
+    assign cleaned_content = cleaned_content | remove: '<br/><br/></p>'
+    assign cleaned_content = cleaned_content | remove: '<br/><br/><br/></p>'
+    assign cleaned_content = cleaned_content | remove: '<br/><br/><br/><br/></p>'
+    assign cleaned_content = cleaned_content | remove: '<br/><br/><br/><br/><br/></p>'
+    assign cleaned_content = cleaned_content | remove: '<br/><br/><br/><br/><br/><br/></p>'
+    assign cleaned_content = cleaned_content | remove: '<br/><br/><br/><br/><br/><br/><br/></p>'
+    
+    # Also handle regular br tags
+    assign cleaned_content = cleaned_content | remove: '<br></p>'
+    assign cleaned_content = cleaned_content | remove: '<br><br></p>'
+    assign cleaned_content = cleaned_content | remove: '<br><br><br></p>'   
+    assign cleaned_content = cleaned_content | remove: '<br><br><br><br></p>'      
+    assign cleaned_content = cleaned_content | remove: '<br><br><br><br><br></p>' 
+    assign cleaned_content = cleaned_content | remove: '<br><br><br><br><br><br></p>' 
+
+    
+    # Replace multiple br/ tags with single br
+    assign cleaned_content = cleaned_content | replace: '<br/><br/><br/><br/><br/><br/><br/>', '<br>'
+    assign cleaned_content = cleaned_content | replace: '<br/><br/><br/><br/><br/>', '<br>'
+    assign cleaned_content = cleaned_content | replace: '<br/><br/><br/><br/>', '<br>'
+    assign cleaned_content = cleaned_content | replace: '<br/><br/><br/>', '<br>'
+
+    
+    # Also handle regular br tags
+    assign cleaned_content = cleaned_content | replace: '<br><br><br><br><br><br><br>', '<br>'
+    assign cleaned_content = cleaned_content | replace: '<br><br><br><br><br><br>', '<br>'
+    assign cleaned_content = cleaned_content | replace: '<br><br><br><br><br>', '<br>'
+    assign cleaned_content = cleaned_content | replace: '<br><br><br><br>', '<br>'
+    assign cleaned_content = cleaned_content | replace: '<br><br><br>', '<br>'
+
+    
+    # Final check for content - check the cleaned content
+    assign content_check = cleaned_content | strip_html | strip
+    if content_check != blank and content_check != ''
+      assign has_content = true
+    endif
+  endif
+  
+  # CHANGED: Only output tab if there's actual content (ignore title)
+  assign output_tab = has_content
+-%}
+{%- if output_tab -%}
+<div class="collapsibles-wrapper collapsibles-wrapper--border-bottom">
+  <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height{%- if force_open %} is-open{%- endif -%}" aria-controls="Product-content-{{ id }}"{%- if force_open %} aria-expanded="true"{%- endif -%}>
+    {{- title | strip -}}
+    {%- render 'collapsible-icons' -%}
+  </button>
+  <div id="Product-content-{{ id }}" class="collapsible-content collapsible-content--all{%- if force_open %} is-open{%- endif -%}"{%- if force_open %} style="height: auto;"{%- endif -%}>
+    <div class="collapsible-content__inner rte">
+      {{- cleaned_content -}}
+    </div>
+  </div>
+</div>
+{%- endif -%}
