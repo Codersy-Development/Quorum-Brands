@@ -2,8 +2,11 @@
   assign has_title = false
   assign has_content = false
   
-  # Debug: Add some logging to see what's happening
-  assign debug_mode = false  # Set to true for debugging
+  comment
+    Debug: Add some logging to see what's happening
+    Set debug_mode to true for debugging
+  endcomment
+  assign debug_mode = false
   
   if title != blank and title != '' and title != nil
     assign title_check = title | strip | strip_html
@@ -75,7 +78,9 @@
       assign has_content = true
     endunless
     
-    # Debug output (remove in production)
+    comment
+      Debug output - remove in production
+    endcomment
     if debug_mode
       echo 'Original content: ' | append: content | append: '<br>'
       echo 'Cleaned content: ' | append: cleaned_content | append: '<br>'
@@ -94,7 +99,9 @@ You can also try this simpler but more aggressive approach:
 {%- endcomment -%}
 
 {%- liquid
-  # Alternative simpler validation
+  comment
+    Alternative simpler validation
+  endcomment
   assign simple_check = false
   if content != blank
     assign test_content = content | strip_html | strip | replace: '&nbsp;', '' | replace: ' ', ''
@@ -103,7 +110,9 @@ You can also try this simpler but more aggressive approach:
     endif
   endif
   
-  # Use either has_content or simple_check
+  comment
+    Use either has_content or simple_check
+  endcomment
   assign final_output = simple_check
 -%}
 
