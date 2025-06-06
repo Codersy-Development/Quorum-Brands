@@ -65,6 +65,12 @@
             "show_gift_card_recipient": false
           }
         },
+        "description_xJwzFy": {
+          "type": "description",
+          "settings": {
+            "is_tab": false
+          }
+        },
         "tab_HAmQP6": {
           "type": "tab",
           "settings": {
@@ -89,6 +95,14 @@
             "page": ""
           }
         },
+        "tab_8btMxN": {
+          "type": "tab",
+          "settings": {
+            "title": "Shipping information",
+            "content": "<p>{{ product.metafields.custom.prefix_shipping.value }}{{ product.metafields.custom.prefix_carton_weight.value }}<br/>{{ product.metafields.custom.prefix_carton_height.value }}<br/>{{ product.metafields.custom.prefix_carton_length.value }}<br/>{{ product.metafields.custom.prefix_carton_width.value }}</p>",
+            "page": ""
+          }
+        },
         "contact": {
           "type": "contact",
           "settings": {
@@ -110,9 +124,11 @@
         "separator",
         "sales_point",
         "buy_buttons",
+        "description_xJwzFy",
         "tab_HAmQP6",
         "tab_zFza3D",
         "tab",
+        "tab_8btMxN",
         "contact",
         "share"
       ],
@@ -150,6 +166,7 @@
         "heading_hWQQjr",
         "text_Vemtfn"
       ],
+      "disabled": true,
       "name": "t:sections.rich-text.presets.rich_text.name",
       "settings": {
         "align_text": "left",
@@ -172,7 +189,7 @@
           "type": "tab",
           "settings": {
             "title": "Shipping",
-            "content": "<p>{{ product.metafields.custom.prefix_shipping.value }}</p><p>{{ product.metafields.custom.prefix_carton_weight.value }}<br/>{{ product.metafields.custom.prefix_carton_height.value }}<br/>{{ product.metafields.custom.prefix_carton_length.value }}<br/>{{ product.metafields.custom.prefix_carton_width.value }}</p>",
+            "content": "<p>{{ product.metafields.custom.prefix_shipping.value }}{{ product.metafields.custom.prefix_carton_weight.value }}<br/>{{ product.metafields.custom.prefix_carton_height.value }}<br/>{{ product.metafields.custom.prefix_carton_length.value }}<br/>{{ product.metafields.custom.prefix_carton_width.value }}</p>",
             "page": ""
           }
         },
@@ -209,6 +226,7 @@
       "block_order": [
         "liquid_nCzVYd"
       ],
+      "disabled": true,
       "name": "t:sections.advanced-content.presets.custom_content.name",
       "settings": {
         "full_width": false,
