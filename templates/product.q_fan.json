@@ -166,6 +166,35 @@
         "divider": false
       }
     },
+    "rich_text_7NA4BM": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_L6wW3y": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "title": "Additional Information"
+          }
+        },
+        "text_Y7HM8w": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": true,
+            "text": "<h3>Additional Information</h3>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_L6wW3y",
+        "text_Y7HM8w"
+      ],
+      "name": "t:sections.rich-text.presets.rich_text.name",
+      "settings": {
+        "align_text": "left",
+        "narrow_column": false,
+        "divider": false
+      }
+    },
     "sub": {
       "type": "product-full-width",
       "blocks": {
@@ -280,6 +309,7 @@
   "order": [
     "main",
     "rich_text_Fcfdk3",
+    "rich_text_7NA4BM",
     "sub",
     "testimonials",
     "product-recommendations",
