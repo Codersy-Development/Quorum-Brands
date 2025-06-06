@@ -67,13 +67,26 @@
         Remove leading and trailing br tags
       endcomment
       assign cleaned_content = cleaned_content | strip
-      if cleaned_content first == '<br>'
+      
+      comment
+        Check if content starts with br tag
+      endcomment
+      assign content_start = cleaned_content | slice: 0, 4
+      if content_start == '<br>'
         assign cleaned_content = cleaned_content | remove_first: '<br>'
+        assign cleaned_content = cleaned_content | strip
       endif
-      if cleaned_content last == '>'
-        assign temp_check = cleaned_content | split: '' | last: 4 | join: ''
-        if temp_check == '<br>'
-          assign cleaned_content = cleaned_content | remove_last: '<br>'
+      
+      comment
+        Check if content ends with br tag
+      endcomment
+      assign content_length = cleaned_content.size
+      if content_length > 4
+        assign content_end = cleaned_content | slice: -4, 4
+        if content_end == '<br>'
+          assign temp_size = content_length | minus: 4
+          assign cleaned_content = cleaned_content | slice: 0, temp_size
+          assign cleaned_content = cleaned_content | strip
         endif
       endif
       
