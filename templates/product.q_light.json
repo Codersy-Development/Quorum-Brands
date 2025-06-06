@@ -227,6 +227,7 @@
       "block_order": [
         "liquid_nCzVYd"
       ],
+      "disabled": true,
       "name": "t:sections.advanced-content.presets.custom_content.name",
       "settings": {
         "full_width": false,
