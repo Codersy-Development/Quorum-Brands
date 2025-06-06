@@ -94,8 +94,15 @@
             "page": ""
           }
         },
+        "custom_hFAeGk": {
+          "type": "custom",
+          "settings": {
+            "code": "<a class=\"btn\" \n       href=\"https://cdn.shopify.com/s/files/1/0740/2668/0533/files/Quorum_Fan_Data_Sheets_2025_LR.pdf?v=1749244114\" \n       download=\"Quorum_Fan_Data_Sheets_2025.pdf\"\n       target=\"_blank\"\n       \">\n        QUOURM FAN DATASHEET\n    </a>"
+          }
+        },
         "contact_36dV9j": {
           "type": "contact",
+          "disabled": true,
           "settings": {
             "title": "Ask a question",
             "phone": false
@@ -119,6 +126,7 @@
         "tab_HAmQP6",
         "tab_zFza3D",
         "tab",
+        "custom_hFAeGk",
         "contact_36dV9j",
         "share"
       ],
