@@ -51,9 +51,16 @@
       assign cleaned_content = cleaned_content | replace: '<br><br></p>', '</p>'
       
       comment
-        Clean up double br tags within paragraphs
+        Clean up double br tags within paragraphs - do this multiple times
       endcomment
+      assign cleaned_content = cleaned_content | replace: '<br><br><br>', '<br>'
       assign cleaned_content = cleaned_content | replace: '<br><br>', '<br>'
+      assign cleaned_content = cleaned_content | replace: '<br><br>', '<br>'
+      
+      comment
+        Remove br tags at end of paragraphs again after br cleanup
+      endcomment
+      assign cleaned_content = cleaned_content | replace: '<br></p>', '</p>'
       
       comment
         Collapse multiple br tags - do this several times
