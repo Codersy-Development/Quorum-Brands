@@ -207,6 +207,7 @@
         "tab_9AjKC6",
         "tab_NGgmHF"
       ],
+      "disabled": true,
       "settings": {
         "max_width": false
       }
@@ -226,7 +227,6 @@
       "block_order": [
         "liquid_nCzVYd"
       ],
-      "disabled": true,
       "name": "t:sections.advanced-content.presets.custom_content.name",
       "settings": {
         "full_width": false,
