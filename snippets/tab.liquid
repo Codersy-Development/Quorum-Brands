@@ -2,6 +2,9 @@
   assign has_title = false
   assign has_content = false
   
+  # Debug: Add some logging to see what's happening
+  assign debug_mode = false  # Set to true for debugging
+  
   if title != blank and title != '' and title != nil
     assign title_check = title | strip | strip_html
     if title_check != blank and title_check != ''
@@ -10,53 +13,101 @@
   endif
   
   if content != blank and content != '' and content != nil
-    # Start with the original content
+    # More aggressive content cleaning
     assign cleaned_content = content
     
-    # Remove empty paragraphs with br/ tags
-
-    assign cleaned_content = cleaned_content | remove: '<br/><br/></p>'
-    assign cleaned_content = cleaned_content | remove: '<br/><br/><br/></p>'
-    assign cleaned_content = cleaned_content | remove: '<br/><br/><br/><br/></p>'
-    assign cleaned_content = cleaned_content | remove: '<br/><br/><br/><br/><br/></p>'
-    assign cleaned_content = cleaned_content | remove: '<br/><br/><br/><br/><br/><br/></p>'
-    assign cleaned_content = cleaned_content | remove: '<br/><br/><br/><br/><br/><br/><br/></p>'
+    # First, normalize all br variants to a single format
+    assign cleaned_content = cleaned_content | replace: '<br/>', '<br>'
+    assign cleaned_content = cleaned_content | replace: '<br />', '<br>'
+    assign cleaned_content = cleaned_content | replace: '<BR>', '<br>'
+    assign cleaned_content = cleaned_content | replace: '<BR/>', '<br>'
     
-    # Also handle regular br tags
-    assign cleaned_content = cleaned_content | remove: '<br></p>'
-    assign cleaned_content = cleaned_content | remove: '<br><br></p>'
-    assign cleaned_content = cleaned_content | remove: '<br><br><br></p>'   
-    assign cleaned_content = cleaned_content | remove: '<br><br><br><br></p>'      
-    assign cleaned_content = cleaned_content | remove: '<br><br><br><br><br></p>' 
-    assign cleaned_content = cleaned_content | remove: '<br><br><br><br><br><br></p>' 
-
+    # Remove empty paragraphs and divs
+    assign cleaned_content = cleaned_content | replace: '<p></p>', ''
+    assign cleaned_content = cleaned_content | replace: '<p> </p>', ''
+    assign cleaned_content = cleaned_content | replace: '<p>&nbsp;</p>', ''
+    assign cleaned_content = cleaned_content | replace: '<div></div>', ''
+    assign cleaned_content = cleaned_content | replace: '<div> </div>', ''
     
-    # Replace multiple br/ tags with single br
-    assign cleaned_content = cleaned_content | replace: '<br/><br/><br/><br/><br/><br/><br/>', '<br>'
-    assign cleaned_content = cleaned_content | replace: '<br/><br/><br/><br/><br/>', '<br>'
-    assign cleaned_content = cleaned_content | replace: '<br/><br/><br/><br/>', '<br>'
-    assign cleaned_content = cleaned_content | replace: '<br/><br/><br/>', '<br>'
-
+    # Remove paragraphs that only contain br tags
+    assign cleaned_content = cleaned_content | replace: '<p><br></p>', ''
+    assign cleaned_content = cleaned_content | replace: '<p><br><br></p>', ''
+    assign cleaned_content = cleaned_content | replace: '<p><br><br><br></p>', ''
+    assign cleaned_content = cleaned_content | replace: '<p><br><br><br><br></p>', ''
+    assign cleaned_content = cleaned_content | replace: '<p><br><br><br><br><br></p>', ''
     
-    # Also handle regular br tags
-    assign cleaned_content = cleaned_content | replace: '<br><br><br><br><br><br><br>', '<br>'
+    # Collapse multiple br tags into single br
     assign cleaned_content = cleaned_content | replace: '<br><br><br><br><br><br>', '<br>'
     assign cleaned_content = cleaned_content | replace: '<br><br><br><br><br>', '<br>'
     assign cleaned_content = cleaned_content | replace: '<br><br><br><br>', '<br>'
     assign cleaned_content = cleaned_content | replace: '<br><br><br>', '<br>'
-
+    assign cleaned_content = cleaned_content | replace: '<br><br>', '<br>'
     
-    # Final check for content - check the cleaned content
+    # Remove leading/trailing br tags
+    assign cleaned_content = cleaned_content | strip
+    assign temp_content = cleaned_content | remove_first: '<br>'
+    if temp_content != cleaned_content
+      assign cleaned_content = temp_content | strip
+    endif
+    
+    # Check if content has substance after cleaning
     assign content_check = cleaned_content | strip_html | strip
-    if content_check != blank and content_check != ''
+    
+    # Also check for common empty content patterns
+    assign is_empty_content = false
+    if content_check == blank or content_check == '' or content_check == nil
+      assign is_empty_content = true
+    endif
+    
+    # Check for content that's only whitespace characters
+    assign whitespace_only = content_check | replace: ' ', '' | replace: '\n', '' | replace: '\r', '' | replace: '\t', ''
+    if whitespace_only == blank or whitespace_only == ''
+      assign is_empty_content = true
+    endif
+    
+    # Check for content that's only &nbsp; entities
+    assign nbsp_check = content_check | replace: '&nbsp;', '' | strip
+    if nbsp_check == blank or nbsp_check == ''
+      assign is_empty_content = true
+    endif
+    
+    unless is_empty_content
       assign has_content = true
+    endunless
+    
+    # Debug output (remove in production)
+    if debug_mode
+      echo 'Original content: ' | append: content | append: '<br>'
+      echo 'Cleaned content: ' | append: cleaned_content | append: '<br>'
+      echo 'Content check: ' | append: content_check | append: '<br>'
+      echo 'Has content: ' | append: has_content | append: '<br><br>'
     endif
   endif
   
-  # CHANGED: Only output tab if there's actual content (ignore title)
+  # Only output tab if there's actual content
   assign output_tab = has_content
 -%}
-{%- if output_tab -%}
+
+{%- comment -%}
+Alternative approach: More strict content validation
+You can also try this simpler but more aggressive approach:
+{%- endcomment -%}
+
+{%- liquid
+  # Alternative simpler validation
+  assign simple_check = false
+  if content != blank
+    assign test_content = content | strip_html | strip | replace: '&nbsp;', '' | replace: ' ', ''
+    if test_content != blank and test_content != ''
+      assign simple_check = true
+    endif
+  endif
+  
+  # Use either has_content or simple_check
+  assign final_output = simple_check
+-%}
+
+{%- if final_output -%}
 <div class="collapsibles-wrapper collapsibles-wrapper--border-bottom">
   <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height{%- if force_open %} is-open{%- endif -%}" aria-controls="Product-content-{{ id }}"{%- if force_open %} aria-expanded="true"{%- endif -%}>
     {{- title | strip -}}
@@ -64,7 +115,7 @@
   </button>
   <div id="Product-content-{{ id }}" class="collapsible-content collapsible-content--all{%- if force_open %} is-open{%- endif -%}"{%- if force_open %} style="height: auto;"{%- endif -%}>
     <div class="collapsible-content__inner rte">
-      {{- cleaned_content -}}
+      {{- cleaned_content | default: content -}}
     </div>
   </div>
 </div>
