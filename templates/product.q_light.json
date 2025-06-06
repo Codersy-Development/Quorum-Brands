@@ -218,7 +218,7 @@
         "liquid_nCzVYd": {
           "type": "liquid",
           "settings": {
-            "code": "<div class=\"product-block\" {{ block.shopify_attributes }}><hr>",
+            "code": "<hr>",
             "width": "100%",
             "alignment": "center"
           }
