@@ -44,7 +44,6 @@
         },
         "description": {
           "type": "description",
-          "disabled": true,
           "settings": {
             "is_tab": false
           }
@@ -158,6 +157,7 @@
         "heading_bCrdnr",
         "text_7PtDXT"
       ],
+      "disabled": true,
       "custom_css": [],
       "name": "t:sections.rich-text.presets.rich_text.name",
       "settings": {
