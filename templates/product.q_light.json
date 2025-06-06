@@ -194,6 +194,28 @@
         "max_width": false
       }
     },
+    "advanced_content_QUCmxM": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_nCzVYd": {
+          "type": "liquid",
+          "settings": {
+            "code": "<div class=\"product-block\" {{ block.shopify_attributes }}><hr>",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_nCzVYd"
+      ],
+      "name": "t:sections.advanced-content.presets.custom_content.name",
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
+    },
     "testimonials": {
       "type": "testimonials",
       "blocks": {
@@ -262,6 +284,7 @@
     "main",
     "rich_text_37FyAy",
     "sub",
+    "advanced_content_QUCmxM",
     "testimonials",
     "product-recommendations",
     "recently-viewed",
