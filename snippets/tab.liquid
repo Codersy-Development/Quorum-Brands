@@ -12,73 +12,75 @@
       assign has_content = true
       
       comment
-        Clean up the content spacing while preserving structure
+        Aggressive content cleaning
       endcomment
       assign cleaned_content = content
       
       comment
-        Remove excessive line breaks and empty paragraphs
+        First pass: normalize all br variants
       endcomment
       assign cleaned_content = cleaned_content | replace: '<br/>', '<br>'
       assign cleaned_content = cleaned_content | replace: '<br />', '<br>'
       assign cleaned_content = cleaned_content | replace: '<BR>', '<br>'
+      assign cleaned_content = cleaned_content | replace: '<BR/>', '<br>'
+      assign cleaned_content = cleaned_content | replace: '<BR />', '<br>'
       
       comment
-        Remove empty paragraphs and divs
-      endcomment
-      assign cleaned_content = cleaned_content | replace: '<p></p>', ''
-      assign cleaned_content = cleaned_content | replace: '<p> </p>', ''
-      assign cleaned_content = cleaned_content | replace: '<p>&nbsp;</p>', ''
-      assign cleaned_content = cleaned_content | replace: '<div></div>', ''
-      assign cleaned_content = cleaned_content | replace: '<div> </div>', ''
-      
-      comment
-        Remove paragraphs containing only br tags
+        Remove problematic paragraph patterns
       endcomment
       assign cleaned_content = cleaned_content | replace: '<p><br></p>', ''
       assign cleaned_content = cleaned_content | replace: '<p><br><br></p>', ''
       assign cleaned_content = cleaned_content | replace: '<p><br><br><br></p>', ''
+      assign cleaned_content = cleaned_content | replace: '<p> </p>', ''
+      assign cleaned_content = cleaned_content | replace: '<p></p>', ''
+      assign cleaned_content = cleaned_content | replace: '<p>&nbsp;</p>', ''
       
       comment
-        Collapse multiple br tags - do this multiple times to catch nested cases
+        Remove br tags at start/end of paragraphs
       endcomment
-      assign cleaned_content = cleaned_content | replace: '<br><br><br><br><br><br>', '<br>'
-      assign cleaned_content = cleaned_content | replace: '<br><br><br><br><br>', '<br>'
-      assign cleaned_content = cleaned_content | replace: '<br><br><br><br>', '<br>'
-      assign cleaned_content = cleaned_content | replace: '<br><br><br>', '<br><br>'
+      assign cleaned_content = cleaned_content | replace: '<p><br>', '<p>'
+      assign cleaned_content = cleaned_content | replace: '<br></p>', '</p>'
+      assign cleaned_content = cleaned_content | replace: '<p><br><br>', '<p>'
+      assign cleaned_content = cleaned_content | replace: '<br><br></p>', '</p>'
+      
+      comment
+        Collapse multiple br tags - do this several times
+      endcomment
+      assign cleaned_content = cleaned_content | replace: '<br><br><br><br><br><br>', '<br><br>'
+      assign cleaned_content = cleaned_content | replace: '<br><br><br><br><br>', '<br><br>'
+      assign cleaned_content = cleaned_content | replace: '<br><br><br><br>', '<br><br>'
       assign cleaned_content = cleaned_content | replace: '<br><br><br>', '<br><br>'
       
       comment
-        Remove excessive whitespace between lines but preserve some structure
+        Remove standalone br tags outside of paragraphs
+      endcomment
+      assign cleaned_content = cleaned_content | replace: '</p><br><p>', '</p><p>'
+      assign cleaned_content = cleaned_content | replace: '</p><br><br><p>', '</p><p>'
+      assign cleaned_content = cleaned_content | replace: '</p><br><br><br><p>', '</p><p>'
+      
+      comment
+        Clean up whitespace
       endcomment
       assign cleaned_content = cleaned_content | replace: '    ', ' '
       assign cleaned_content = cleaned_content | replace: '   ', ' '
       assign cleaned_content = cleaned_content | replace: '  ', ' '
       
       comment
-        Clean up multiple newlines in a row
-      endcomment
-      assign temp_content = cleaned_content | newline_to_br
-      assign temp_content = temp_content | replace: '<br><br><br><br>', '<br><br>'
-      assign temp_content = temp_content | replace: '<br><br><br>', '<br><br>'
-      assign cleaned_content = temp_content
-      
-      comment
-        Remove leading and trailing br tags
+        Remove leading/trailing br tags from entire content
       endcomment
       assign cleaned_content = cleaned_content | strip
       
       comment
-        Check if content starts with br tag
+        Remove br at very beginning
       endcomment
       assign content_start = cleaned_content | slice: 0, 4
       if content_start == '<br>'
-        assign cleaned_content = cleaned_content | remove_first: '<br>'
+        assign cleaned_content = cleaned_content | slice: 4, 999999
         assign cleaned_content = cleaned_content | strip
       endif
       
       comment
-        Check if content ends with br tag
+        Remove br at very end
       endcomment
       assign content_length = cleaned_content.size
       if content_length > 4
@@ -90,6 +92,9 @@
         endif
       endif
       
+      comment
+        Final cleanup pass
+      endcomment
       assign cleaned_content = cleaned_content | strip
     endif
   endif
