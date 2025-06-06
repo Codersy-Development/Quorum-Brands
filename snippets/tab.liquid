@@ -26,7 +26,7 @@
       assign cleaned_content = cleaned_content | replace: '<BR />', '<br>'
       
       comment
-        Remove problematic paragraph patterns
+        Remove problematic paragraph patterns - do this multiple times
       endcomment
       assign cleaned_content = cleaned_content | replace: '<p><br></p>', ''
       assign cleaned_content = cleaned_content | replace: '<p><br><br></p>', ''
@@ -36,12 +36,24 @@
       assign cleaned_content = cleaned_content | replace: '<p>&nbsp;</p>', ''
       
       comment
-        Remove br tags at start/end of paragraphs
+        Second pass to catch any remaining empty paragraphs
+      endcomment
+      assign cleaned_content = cleaned_content | replace: '<p></p>', ''
+      assign cleaned_content = cleaned_content | replace: '<p> </p>', ''
+      assign cleaned_content = cleaned_content | replace: '<p>&nbsp;</p>', ''
+      
+      comment
+        Remove br tags at end of paragraphs that create extra spacing
       endcomment
       assign cleaned_content = cleaned_content | replace: '<p><br>', '<p>'
       assign cleaned_content = cleaned_content | replace: '<br></p>', '</p>'
       assign cleaned_content = cleaned_content | replace: '<p><br><br>', '<p>'
       assign cleaned_content = cleaned_content | replace: '<br><br></p>', '</p>'
+      
+      comment
+        Clean up double br tags within paragraphs
+      endcomment
+      assign cleaned_content = cleaned_content | replace: '<br><br>', '<br>'
       
       comment
         Collapse multiple br tags - do this several times
@@ -93,8 +105,12 @@
       endif
       
       comment
-        Final cleanup pass
+        Final cleanup pass - remove any remaining empty elements
       endcomment
+      assign cleaned_content = cleaned_content | replace: '<p></p>', ''
+      assign cleaned_content = cleaned_content | replace: '<p> </p>', ''
+      assign cleaned_content = cleaned_content | replace: '<div></div>', ''
+      assign cleaned_content = cleaned_content | replace: '<div> </div>', ''
       assign cleaned_content = cleaned_content | strip
     endif
   endif
