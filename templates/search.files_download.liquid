@@ -1,0 +1,85 @@
+{% layout none %}
+{% paginate search.results by 10 %}
+  {% capture output %}
+
+    {
+        "products":
+            [
+                {% for item in search.results %}
+                    {% assign handler = item.handle %}
+                    {% assign revit_btn = item.metafields.custom.button_revit %}
+                    {% assign photo_metrics_btn = item.metafields.custom.button_photo_metrics %}
+                    {% assign instructions_btn = item.metafields.custom.button_instructions %}
+                    {% assign ies_btn = item.metafields.custom.button_ies %}
+                    {% assign cutsheet_btn = item.metafields.custom.button_cutsheet %}
+                    {% assign revit_link = revit_btn | split: 'href="' | last | split: '"' | first %}
+                    {% assign revit_title = revit_btn | split: '>' | last | split: '<' | first | strip %}
+                    {% assign photo_metrics_link = photo_metrics_btn | split: 'href="' | last | split: '"' | first %}
+                    {% assign photo_metrics_title = photo_metrics_btn | split: '>' | last | split: '<' | first | strip %}
+                    {% assign instructions_link = instructions_btn | split: 'href="' | last | split: '"' | first %}
+                    {% assign instructions_title = instructions_btn | split: '>' | last | split: '<' | first | strip %}
+                    {% assign ies_link = ies_btn | split: 'href="' | last | split: '"' | first %}
+                    {% assign ies_title = ies_btn | split: '>' | last | split: '<' | first | strip %}
+                    {% assign cutsheet_link = cutsheet_btn | split: 'href="' | last | split: '"' | first %}
+                    {% assign cutsheet_title = cutsheet_btn | split: '>' | last | split: '<' | first | strip %}
+                    {% assign metaobjects_downloads = item.metafields.custom.images_for_downloads.value %}
+
+                    {% unless handler == blank %}
+                        {
+                            "id": "{{ item.id }}",
+                            "handle": "{{ handler }}",
+                            "buttons": {
+                                "revit": {
+                                    "title": "{{ revit_title | escape }}",
+                                    "link": "{{ revit_link | escape }}"
+                                },
+                                "photo_metrics": {
+                                    "title": "{{ photo_metrics_title | escape }}",
+                                    "link": "{{ photo_metrics_link | escape }}"
+                                },
+                                "instructions": {
+                                    "title": "{{ instructions_title | escape }}",
+                                    "link": "{{ instructions_link | escape }}"
+                                },
+                                "ies": {
+                                    "title": "{{ ies_title | escape }}",
+                                    "link": "{{ ies_link | escape }}"
+                                },
+                                "cutsheet": {
+                                    "title": "{{ cutsheet_title | escape }}",
+                                    "link": "{{ cutsheet_link | escape }}"
+                                },
+                                "metaobjects_downloads": [
+                                    {% for metaobject in metaobjects_downloads %}
+                                    {% for i in (1..25) %}
+                                    {% assign title_field = 'images_'|  append: i | append: '_title' %}
+                                    {% assign next_num = i | plus: 1 %}
+                                    {% assign next_title_field = 'images_'|  append: next_num | append: '_title' %}
+                                   
+                                    {% unless metaobject[title_field] == blank %}
+                                    {
+                                        "title": "{{ metaobject[title_field] | escape }}",
+                                        "images": [
+                                            {% assign image_field = 'images_group_' | append: i  %}
+                                            {% for image in metaobject[image_field].value %}
+                                            {
+                                                "src": "{{ image.src |  image_url: width: 2000 | escape }}",
+                                                "alt": "{{ image | escape |  replace: 'files/', '' |  truncate: 45, '...' }}"
+                                            }{% unless forloop.last %},{% endunless %}
+                                            {% endfor %}
+                                        ]
+                                    }{% unless forloop.last or metaobject[next_title_field] == blank %},{% endunless %}
+                                    {% endunless %}
+                                    {% endfor %}
+                                    {% unless forloop.last %},{% endunless %}
+                                    {% endfor %}
+                                ]
+                            }
+                        }{% unless forloop.last %},{% endunless %}
+                    {% endunless %}
+                {% endfor %}
+            ]
+    }
+{% endcapture %}
+{% endpaginate %}
+{{- output | strip_newlines -}}

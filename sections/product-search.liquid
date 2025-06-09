@@ -1,56 +1,136 @@
-<section class="sku-search-section">
+{{ 'files-downloads-search.css' | asset_url | stylesheet_tag }}
+<products-download-search>
+  <section class="sku-search-section">
     <div class="sku-search-container">
-        <form method="get" action="/search">
-            <input
-                type="text"
-                name="q"
-                placeholder="{{ section.settings.placeholder }}"
-                class="sku-input"
-                required
-            />
-            <input type="hidden" name="type" value="product" />
-            <button type="submit" class="sku-button">Search</button>
-        </form>
+      <form method="GET" action="/search">
+        <input
+          type="text"
+          name="q"
+          placeholder="{{ section.settings.placeholder }}"
+          class="sku-input js-search-products"
+          required
+        >
+        <input type="hidden" name="type" value="product">
+        <button type="submit" class="sku-button">Search</button>
+      </form>
     </div>
-</section>
+  </section>
 
-<style>
-    .sku-search-section {
-        padding: 40px 20px;
-        background: #fff;
-    }
+  <section class="spec-accordion-section">
+    <details class="spec-accordion">
+      <summary class="accordion-toggle" type="button">
+        Revit
+        <span class="arrow">▼</span>
+      </summary>
 
-    .sku-search-container {
-        max-width: 800px;
-        margin: 0 auto;
-    }
+      <files-download-search-section class="files-download-search">
+        <div class="fds__container">
+          <div class="fds__content page-width">
+            <div class="fds__items" data-file-type="revit"></div>
+          </div>
+        </div>
+      </files-download-search-section>
+    </details>
 
-    .sku-search-container form {
-        display: flex;
-        border: 1px solid #ccc;
-    }
+    <details class="spec-accordion">
+      <summary class="accordion-toggle" type="button">
+        Photo Metrics
+        <span class="arrow">▼</span>
+      </summary>
 
-    .sku-input {
-        flex-grow: 1;
-        padding: 14px 16px;
-        font-size: 16px;
-        border: none;
-        outline: none;
-    }
+      <files-download-search-section class="files-download-search">
+        <div class="fds__container">
+          <div class="fds__content page-width">
+            <div class="fds__items" data-file-type="photo_metrics"></div>
+          </div>
+        </div>
+      </files-download-search-section>
+    </details>
 
-    .sku-button {
-        background-color: #000;
-        color: #fff;
-        padding: 0 24px;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-    }
+    <details class="spec-accordion">
+      <summary class="accordion-toggle" type="button">
+        Instructions
+        <span class="arrow">▼</span>
+      </summary>
 
-    .sku-button:hover {
-        background-color: #333;
-    }
-</style>
+      <files-download-search-section class="files-download-search">
+        <div class="fds__container">
+          <div class="fds__content page-width">
+            <div class="fds__items" data-file-type="instructions"></div>
+          </div>
+        </div>
+      </files-download-search-section>
+    </details>
+
+    <details class="spec-accordion">
+      <summary class="accordion-toggle" type="button">
+        IES
+        <span class="arrow">▼</span>
+      </summary>
+
+      <files-download-search-section class="files-download-search">
+        <div class="fds__container">
+          <div class="fds__content page-width">
+            <div class="fds__items" data-file-type="ies"></div>
+          </div>
+        </div>
+      </files-download-search-section>
+    </details>
+
+    <details class="spec-accordion">
+      <summary class="accordion-toggle" type="button">
+        Cutsheet
+        <span class="arrow">▼</span>
+      </summary>
+
+      <files-download-search-section class="files-download-search">
+        <div class="fds__container">
+          <div class="fds__content page-width">
+            <div class="fds__items" data-file-type="cutsheet"></div>
+          </div>
+        </div>
+      </files-download-search-section>
+    </details>
+  </section>
+
+  <div class="floating-btn-container">
+    <button class="js-floating-btn">Download selected</button>
+  </div>
+  <template id="file-item-template">
+    <div class="fds__item">
+      <input type="checkbox" name="files_to_downloads" value="">
+      <span class="file-name"></span>
+      <a href="" class="view-link">View</a>
+      <a href="" class="download-link">Download</a>
+    </div>
+  </template>
+  <template id="details-template">
+    <details class="spec-accordion">
+      <summary class="accordion-toggle" type="button">
+        <span class="title"></span>
+        <span class="arrow">▼</span>
+      </summary>
+
+      <files-download-search-section class="files-download-search" data-has-view="true">
+        <div class="fds__container">
+          <div class="fds__content page-width">
+            <div class="fds__items" data-file-type=""></div>
+          </div>
+        </div>
+      </files-download-search-section>
+    </details>
+  </template>
+
+  <div class="file-preview-popup" id="file-preview-popup">
+    <div class="popup-content">
+      <button class="close-popup">&times;</button>
+      <div class="popup-body">
+        <!-- Preview content will be loaded here -->
+      </div>
+    </div>
+  </div>
+</products-download-search>
+<script src="{{ 'file-downloads.js' |  asset_url }}" async></script>
 {% schema %}
 {
   "name": "Product Search",

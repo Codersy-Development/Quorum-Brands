@@ -78,12 +78,18 @@
         "divider": false
       }
     },
-    "sales_representatives_7ekkL7": {
-      "type": "sales-representatives",
-      "name": "Sales Representatives",
+    "product_accordion_eHy7mM": {
+      "type": "product-accordion",
+      "name": "Product Spec Sheets",
       "settings": {
-        "title": "Sales Representatives",
-        "description": "<p>Contact our professional sales team for assistance</p>"
+        "title": ""
+      }
+    },
+    "product_search_akTzTF": {
+      "type": "product-search",
+      "name": "Product Search",
+      "settings": {
+        "placeholder": ""
       }
     }
   },
@@ -91,6 +97,7 @@
     "main",
     "slideshow_ffDiXn",
     "rich_text_8qeBbJ",
-    "sales_representatives_7ekkL7"
+    "product_search_akTzTF",
+    "product_accordion_eHy7mM"
   ]
 }
