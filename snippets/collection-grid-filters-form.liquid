@@ -36,11 +36,16 @@
     {% if filters_to_hide contains filter.label %}
       {% continue %}
     {% endif %}
+    {% if filter.label == brands_label %}
+      {%  assign collapsed = false %}
+    {% else %}
+      {%  assign collapsed = true %}
+    {%  endif %}
     <div class="collection-sidebar__group--{{ filter_index }}">
       <div class="collection-sidebar__group">
         <button
           type="button"
-          class="collapsible-trigger collapsible-trigger-btn collapsible--auto-height{% unless collapsed or filter.label == brands_label %} is-open{% endunless %} tag-list__header"
+          class="collapsible-trigger collapsible-trigger-btn collapsible--auto-height{% unless collapsed %} is-open{% endunless %} tag-list__header"
           aria-controls="{{ location }}-{{ filter_index }}{% if filter_id %}-{{ filter_id }}{% endif %}"
           data-collapsible-id="{{ filter_id }}"
         >
