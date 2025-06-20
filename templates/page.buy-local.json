@@ -100,9 +100,9 @@
           "settings": {
             "distance_unit": "MI",
             "display_title": true,
-            "display_header_html": true,
+            "display_header_html": false,
             "display_search": true,
-            "display_footer_html": true,
+            "display_footer_html": false,
             "search_text": "#121212",
             "search_background": "linear-gradient(180deg, rgba(245, 245, 245, 1), rgba(243, 243, 243, 1) 100%)",
             "display_addresses_sidebar": true,
