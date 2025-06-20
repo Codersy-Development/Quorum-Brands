@@ -3,7 +3,11 @@
   - enable_color_swatches: boolean
   - collapsed: boolean
 {% endcomment %}
+{% comment %}
+
 {% assign filters_to_hide = 'Brands' %}
+{% endcomment %}
+{% assign filters_to_hide = '' %}
 <ul class="no-bullets tag-list tag-list--active-tags">
   {%- for filter in filters -%}
     {%- assign filter_index = forloop.index -%}
