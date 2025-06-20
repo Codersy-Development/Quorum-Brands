@@ -21,7 +21,7 @@
           "type": "image",
           "settings": {
             "top_subheading": "",
-            "title": "Our Showrooms",
+            "title": "Buy Local",
             "title_size": 80,
             "subheading": "",
             "link": "",
@@ -29,8 +29,8 @@
             "link_2": "",
             "link_text_2": "",
             "color_accent": "rgba(0,0,0,0)",
-            "text_align": "vertical-center horizontal-center",
-            "image": "shopify://shop_images/IMG_3413.jpg",
+            "text_align": "vertical-bottom horizontal-left",
+            "image": "shopify://shop_images/Quorum-Company-Photo.jpg",
             "parallax_direction": "top",
             "overlay_opacity": 30
           }
@@ -52,6 +52,7 @@
     },
     "showroom_WyyRGH": {
       "type": "showroom",
+      "disabled": true,
       "name": "Showroom",
       "settings": {
         "store": "all",
@@ -65,6 +66,7 @@
     },
     "showroom_CWjYRi": {
       "type": "showroom",
+      "disabled": true,
       "name": "Showroom",
       "settings": {
         "store": "all",
@@ -78,6 +80,7 @@
     },
     "showroom_NzyiTM": {
       "type": "showroom",
+      "disabled": true,
       "name": "Showroom",
       "settings": {
         "store": "all",
@@ -88,6 +91,33 @@
         "button_link": "https://www.highpointmarket.org/exhibitor/15885",
         "image": "shopify://shop_images/IMG_9169.jpg"
       }
+    },
+    "17504532829ba7c8eb": {
+      "type": "apps",
+      "blocks": {
+        "sc_store_locator_map_map_kGkRfE": {
+          "type": "shopify://apps/sc-store-locator-map/blocks/map/4ca379c6-722c-49d3-b6ec-a7fe7c1061a5",
+          "settings": {
+            "distance_unit": "MI",
+            "display_title": true,
+            "display_header_html": true,
+            "display_search": true,
+            "display_footer_html": true,
+            "search_text": "#121212",
+            "search_background": "linear-gradient(180deg, rgba(245, 245, 245, 1), rgba(243, 243, 243, 1) 100%)",
+            "display_addresses_sidebar": true,
+            "map_theme": "default",
+            "google_maps_language": "en"
+          }
+        }
+      },
+      "block_order": [
+        "sc_store_locator_map_map_kGkRfE"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
     }
   },
   "order": [
@@ -95,6 +125,7 @@
     "slideshow_ffDiXn",
     "showroom_WyyRGH",
     "showroom_CWjYRi",
-    "showroom_NzyiTM"
+    "showroom_NzyiTM",
+    "17504532829ba7c8eb"
   ]
 }
