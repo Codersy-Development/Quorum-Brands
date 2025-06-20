@@ -13,7 +13,7 @@
     {%- assign filter_index = forloop.index -%}
 
     {%- for filter_value in filter.active_values -%}
-      {% if filters_to_hide contains filter.label %}
+      {% if filters_to_hide contains filter.label or filter.label == 'Brands' %}
         {% continue %}
       {% endif %}
       <li class="tag tag--remove">
