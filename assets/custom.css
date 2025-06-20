@@ -26,3 +26,11 @@
         color: #000;
     }
 }
+
+html[data-store-selected="oxygen"] .tag:has(> #tag-oxygen){
+  display: none!important;
+}
+
+html[data-store-selected="quorum"] .tag:has(> #tag-quorum){
+  display: none!important;
+}
