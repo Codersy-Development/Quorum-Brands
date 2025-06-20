@@ -99,7 +99,7 @@
           "type": "shopify://apps/sc-store-locator-map/blocks/map/4ca379c6-722c-49d3-b6ec-a7fe7c1061a5",
           "settings": {
             "distance_unit": "MI",
-            "display_title": true,
+            "display_title": false,
             "display_header_html": false,
             "display_search": true,
             "display_footer_html": false,
