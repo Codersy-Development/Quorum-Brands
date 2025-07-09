@@ -41,16 +41,6 @@
             "is_tab": false
           }
         },
-        "variant_picker": {
-          "type": "variant_picker",
-          "disabled": true,
-          "settings": {
-            "variant_labels": true,
-            "picker_type": "button",
-            "product_dynamic_variants_enable": true,
-            "color_swatches": false
-          }
-        },
         "separator": {
           "type": "separator",
           "settings": {}
@@ -99,7 +89,7 @@
           "type": "tab",
           "settings": {
             "title": "Certifications",
-            "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p><p>{{ product.metafields.custom.cETL_Logo.value }}</p><p>{{ product.metafields.custom.CCT_logo.value }}</p><p>{{ product.metafields.custom.ELT_logo.value }}</p><p>{{ product.metafields.custom.ELT_logo.value }}</p><p>{{ product.metafields.custom.ghost_logo.value }}</p>",
+            "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p>",
             "page": ""
           }
         },
@@ -122,7 +112,6 @@
         "inventory_status",
         "custom_dE4wYQ",
         "description",
-        "variant_picker",
         "separator",
         "buy_buttons",
         "tab_HAmQP6",
