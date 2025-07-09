@@ -22,15 +22,6 @@
             "text": "{{ product.metafields.custom.prefix_item_series.value }}"
           }
         },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "variant_labels": true,
-            "picker_type": "button",
-            "product_dynamic_variants_enable": true,
-            "color_swatches": false
-          }
-        },
         "inventory_status": {
           "type": "inventory_status",
           "settings": {
@@ -126,7 +117,6 @@
       "block_order": [
         "price",
         "text_Hn6GpR",
-        "variant_picker",
         "inventory_status",
         "custom_khQKRQ",
         "separator",
