@@ -71,16 +71,16 @@
         "tab_zFza3D": {
           "type": "tab",
           "settings": {
-            "title": "Lighting Specs",
-            "content": "<p>Use collapsible tabs for more detailed information that will help customers make a purchasing decision.</p><p>Ex: Shipping and return policies, size guides, and other common questions.</p>",
+            "title": "Electrical | Lighting",
+            "content": "<p>{{ product.metafields.custom.prefix_UL_type.value }}</p><p>{{ product.metafields.custom.prefix_bulbs_included.value }}<br/>{{ product.metafields.custom.prefix_number_of_lights.value }}<br/>{{ product.metafields.custom.prefix_integrated_LED.value }}<br/>{{ product.metafields.custom.prefix_socket_base.value }}<br/>{{ product.metafields.custom.prefix_blub_type.value }}</p><p>{{ product.metafields.custom.prefix_color_temp.value }}<br/>{{ product.metafields.custom.prefix_CCT_1.value }}<br/>{{ product.metafields.custom.prefix_CCT_2.value }}<br/>{{ product.metafields.custom.prefix_CCT_3.value }}<br/>{{ product.metafields.custom.prefix_CCT_4.value }}<br/>{{ product.metafields.custom.prefix_CCT_5.value }}<br/>{{ product.metafields.custom.prefix_CCT_6.value }}</p><p>{{ product.metafields.custom.prefix_initial_lumens.value }}<br/>{{ product.metafields.custom.prefix_delivered_lumens.value }}<br/>{{ product.metafields.custom.prefix_cri.value }}<br/>{{ product.metafields.custom.prefix_wattage.value }}<br/>{{ product.metafields.custom.prefix_voltage.value }}</p><p>{{ product.metafields.custom.prefix_driver_model.value }}<br/>{{ product.metafields.custom.prefix_driver_voltage.value }}</p><p>{{ product.metafields.custom.prefix_power_cord.value }}</p>",
             "page": ""
           }
         },
         "tab": {
           "type": "tab",
           "settings": {
-            "title": " Dimensions & Mounting",
-            "content": "<p>Use collapsible tabs for more detailed information that will help customers make a purchasing decision.</p><p>Ex: Shipping and return policies, size guides, and other common questions.</p>",
+            "title": "Performance | Features",
+            "content": "<p>{{ product.metafields.custom.prefix_dark_sky_compliant.value }}<br/>{{ product.metafields.custom.prefix_coastal_grade.value }}<br/>{{ product.metafields.custom.prefix_dimmable.value }}</p><p>{{ product.metafields.custom.special_attribute.value }}</p><p>{{ product.metafields.custom.prefix_manufacturer_warranty.value }}</p>",
             "page": ""
           }
         },
