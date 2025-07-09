@@ -107,9 +107,9 @@
       ],
       "name": "t:sections.featured-collections.presets.collection_list.name",
       "settings": {
-        "title": "Indoor Lighting",
+        "title": "Shop by Designer",
         "divider": false,
-        "per_row": 5,
+        "per_row": 6,
         "enable_gutter": true
       }
     },
