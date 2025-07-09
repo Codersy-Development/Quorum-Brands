@@ -95,19 +95,20 @@
             "page": ""
           }
         },
+        "tab_xifNL9": {
+          "type": "tab",
+          "settings": {
+            "title": "Certifications",
+            "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p><p>{{ product.metafields.custom.cETL_Logo.value }}</p><p>{{ product.metafields.custom.CCT_logo.value }}</p><p>{{ product.metafields.custom.ELT_logo.value }}</p><p>{{ product.metafields.custom.ELT_logo.value }}</p><p>{{ product.metafields.custom.ghost_logo.value }}</p>",
+            "page": ""
+          }
+        },
         "tab_DMwcBQ": {
           "type": "tab",
           "settings": {
             "title": "Shipping information",
             "content": "<p>{{ product.metafields.custom.prefix_shipping.value }}</p><p>{{ product.metafields.custom.prefix_carton_weight.value }}<br/>{{ product.metafields.custom.prefix_carton_height.value }}<br/>{{ product.metafields.custom.prefix_carton_length.value }}<br/>{{ product.metafields.custom.prefix_carton_width.value }}</p>",
             "page": ""
-          }
-        },
-        "contact": {
-          "type": "contact",
-          "settings": {
-            "title": "Ask a question",
-            "phone": false
           }
         },
         "share": {
@@ -128,8 +129,8 @@
         "tab_HAmQP6",
         "tab_zFza3D",
         "tab",
+        "tab_xifNL9",
         "tab_DMwcBQ",
-        "contact",
         "share"
       ],
       "settings": {
@@ -145,53 +146,9 @@
         "product_video_style": "muted"
       }
     },
-    "rich_text_37FyAy": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_hWQQjr": {
-          "type": "heading",
-          "settings": {
-            "title": ""
-          }
-        },
-        "text_Vemtfn": {
-          "type": "text",
-          "settings": {
-            "enlarge_text": true,
-            "text": "{{ product.description }}"
-          }
-        }
-      },
-      "block_order": [
-        "heading_hWQQjr",
-        "text_Vemtfn"
-      ],
-      "name": "t:sections.rich-text.presets.rich_text.name",
-      "settings": {
-        "align_text": "left",
-        "narrow_column": false,
-        "divider": false
-      }
-    },
     "sub": {
       "type": "product-full-width",
       "blocks": {
-        "tab_VKwJHy": {
-          "type": "tab",
-          "settings": {
-            "title": "Certifications",
-            "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p><p>{{ product.metafields.custom.cETL_Logo.value }}</p>",
-            "page": ""
-          }
-        },
-        "tab_9AjKC6": {
-          "type": "tab",
-          "settings": {
-            "title": "Shipping",
-            "content": "<p>{{ product.metafields.custom.prefix_shipping.value }}</p><p>{{ product.metafields.custom.prefix_carton_weight.value }}<br/>{{ product.metafields.custom.prefix_carton_height.value }}<br/>{{ product.metafields.custom.prefix_carton_length.value }}<br/>{{ product.metafields.custom.prefix_carton_width.value }}</p>",
-            "page": ""
-          }
-        },
         "tab_NGgmHF": {
           "type": "tab",
           "settings": {
@@ -202,12 +159,10 @@
         }
       },
       "block_order": [
-        "tab_VKwJHy",
-        "tab_9AjKC6",
         "tab_NGgmHF"
       ],
       "settings": {
-        "max_width": false
+        "max_width": true
       }
     },
     "testimonials": {
@@ -276,7 +231,6 @@
   },
   "order": [
     "main",
-    "rich_text_37FyAy",
     "sub",
     "testimonials",
     "product-recommendations",
