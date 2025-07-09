@@ -82,55 +82,6 @@
         "divider": false
       }
     },
-    "promo-grid2": {
-      "type": "promo-grid",
-      "blocks": {
-        "simple": {
-          "type": "simple",
-          "settings": {
-            "link": "",
-            "text": "",
-            "width": "50",
-            "height": 300,
-            "color_tint": "#000000",
-            "color_tint_opacity": 8,
-            "framed": false
-          }
-        },
-        "advanced": {
-          "type": "advanced",
-          "settings": {
-            "subheading": "Limited time",
-            "heading": "Announce your promotion",
-            "textarea": "Include the smaller details of your promotion in text below the title.",
-            "cta_text1": "Shop This",
-            "cta_link1": "",
-            "cta_text2": "Shop All",
-            "cta_link2": "",
-            "video_url": "",
-            "width": "50",
-            "height": 500,
-            "text_size": 120,
-            "text_align": "vertical-center horizontal-center",
-            "color_accent": "rgba(0,0,0,0)",
-            "boxed": false,
-            "framed": false
-          }
-        }
-      },
-      "block_order": [
-        "simple",
-        "advanced"
-      ],
-      "disabled": true,
-      "settings": {
-        "full_width": false,
-        "gutter_size": 20,
-        "space_above": false,
-        "space_below": false,
-        "lazyload_images": true
-      }
-    },
     "featured-collection3": {
       "type": "featured-collection",
       "settings": {
@@ -256,17 +207,66 @@
         "enable_swatch_labels": true,
         "enable_sort": true
       }
+    },
+    "promo-grid2": {
+      "type": "promo-grid",
+      "blocks": {
+        "simple": {
+          "type": "simple",
+          "settings": {
+            "link": "",
+            "text": "",
+            "width": "50",
+            "height": 300,
+            "color_tint": "#000000",
+            "color_tint_opacity": 8,
+            "framed": false
+          }
+        },
+        "advanced": {
+          "type": "advanced",
+          "settings": {
+            "subheading": "Limited time",
+            "heading": "Announce your promotion",
+            "textarea": "Include the smaller details of your promotion in text below the title.",
+            "cta_text1": "Shop This",
+            "cta_link1": "",
+            "cta_text2": "Shop All",
+            "cta_link2": "",
+            "video_url": "",
+            "width": "50",
+            "height": 500,
+            "text_size": 120,
+            "text_align": "vertical-center horizontal-center",
+            "color_accent": "rgba(0,0,0,0)",
+            "boxed": false,
+            "framed": false
+          }
+        }
+      },
+      "block_order": [
+        "simple",
+        "advanced"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "gutter_size": 20,
+        "space_above": false,
+        "space_below": false,
+        "lazyload_images": true
+      }
     }
   },
   "order": [
     "promo-grid",
     "featured-collection",
     "featured-collection2",
-    "promo-grid2",
     "featured-collection3",
     "featured_collection_iqGQrh",
     "featured_collection_BwhNzj",
     "featured-collections",
-    "main-collection"
+    "main-collection",
+    "promo-grid2"
   ]
 }
