@@ -73,8 +73,8 @@
     "featured-collection2": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured collection",
-        "home_featured_products": "",
+        "title": "Sconces",
+        "home_featured_products": "tamara-day-sconces",
         "per_row": 4,
         "rows": 1,
         "mobile_scrollable": true,
@@ -122,6 +122,7 @@
         "simple",
         "advanced"
       ],
+      "disabled": true,
       "settings": {
         "full_width": false,
         "gutter_size": 20,
@@ -133,8 +134,8 @@
     "featured-collection3": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured collection",
-        "home_featured_products": "",
+        "title": "Vanities",
+        "home_featured_products": "tamara-day-vanities",
         "per_row": 4,
         "rows": 1,
         "mobile_scrollable": true,
