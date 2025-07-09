@@ -14,7 +14,6 @@
       "blocks": {
         "text_yRHbFB": {
           "type": "text",
-          "disabled": true,
           "settings": {
             "text": "{{ product.metafields.custom.cUL_logo.value }} {{ product.metafields.custom.cETL_Logo.value }}"
           }
@@ -42,12 +41,6 @@
             "code": "<div class=\"logo-row\">\n  {{ product.metafields.custom.cUL_logo.value }}\n  {{ product.metafields.custom.cETL_Logo.value }}\n  {{ product.metafields.custom.CCT_logo.value }}\n  {{ product.metafields.custom.ELT_logo.value }}\n  {{ product.metafields.custom.ghost_logo.value }}\n</div>\n\n<style>\n  .logo-row {\n    display: flex;\n    gap: 20px;\n    align-items: center;\n  }\n</style>"
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {
-            "is_tab": false
-          }
-        },
         "variant_picker": {
           "type": "variant_picker",
           "disabled": true,
@@ -61,6 +54,12 @@
         "separator": {
           "type": "separator",
           "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "is_tab": false
+          }
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -143,9 +142,9 @@
         "text_fUUVDY",
         "inventory_status",
         "custom_dE4wYQ",
-        "description",
         "variant_picker",
         "separator",
+        "description",
         "buy_buttons",
         "tab_HAmQP6",
         "tab_zFza3D",
@@ -257,7 +256,6 @@
         "testimonials-1",
         "testimonials-2"
       ],
-      "disabled": true,
       "settings": {
         "title": "Testimonials",
         "align_text": "center",
