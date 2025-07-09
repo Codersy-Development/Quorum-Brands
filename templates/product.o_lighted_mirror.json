@@ -106,7 +106,7 @@
           "type": "tab",
           "settings": {
             "title": "Certifications",
-            "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p><p>{{ product.metafields.custom.cETL_Logo.value }}</p><p>{{ product.metafields.custom.CCT_logo.value }}</p><p>{{ product.metafields.custom.ELT_logo.value }}</p><p>{{ product.metafields.custom.ELT_logo.value }}</p><p>{{ product.metafields.custom.ghost_logo.value }}</p>",
+            "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p>",
             "page": ""
           }
         },
@@ -175,6 +175,7 @@
         "heading_mC7MBA",
         "text_pjPpbY"
       ],
+      "disabled": true,
       "name": "t:sections.rich-text.presets.rich_text.name",
       "settings": {
         "align_text": "left",
