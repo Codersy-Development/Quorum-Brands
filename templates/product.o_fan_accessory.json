@@ -22,16 +22,6 @@
             "text": "{{ product.metafields.custom.prefix_item_series.value }}"
           }
         },
-        "variant_picker": {
-          "type": "variant_picker",
-          "disabled": true,
-          "settings": {
-            "variant_labels": true,
-            "picker_type": "button",
-            "product_dynamic_variants_enable": true,
-            "color_swatches": false
-          }
-        },
         "inventory_status": {
           "type": "inventory_status",
           "settings": {
@@ -53,14 +43,6 @@
           "type": "description",
           "settings": {
             "is_tab": false
-          }
-        },
-        "sales_point": {
-          "type": "sales_point",
-          "disabled": true,
-          "settings": {
-            "icon": "checkmark",
-            "text": "Free worldwide shipping"
           }
         },
         "buy_buttons": {
@@ -99,7 +81,7 @@
           "type": "tab",
           "settings": {
             "title": "Certifications",
-            "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p><p>{{ product.metafields.custom.cETL_Logo.value }}</p><p>{{ product.metafields.custom.CCT_logo.value }}</p><p>{{ product.metafields.custom.ELT_logo.value }}</p><p>{{ product.metafields.custom.ELT_logo.value }}</p><p>{{ product.metafields.custom.ghost_logo.value }}</p>",
+            "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p>",
             "page": ""
           }
         },
@@ -119,12 +101,10 @@
       "block_order": [
         "price",
         "text_wG7MLT",
-        "variant_picker",
         "inventory_status",
         "custom_YXn4Qg",
         "separator_DnBBew",
         "description_cLFPAT",
-        "sales_point",
         "buy_buttons",
         "tab_HAmQP6",
         "tab_zFza3D",
