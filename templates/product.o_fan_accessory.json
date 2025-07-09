@@ -201,7 +201,6 @@
         "testimonials-1",
         "testimonials-2"
       ],
-      "disabled": true,
       "settings": {
         "title": "Testimonials",
         "align_text": "center",
