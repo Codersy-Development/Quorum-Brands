@@ -86,6 +86,14 @@
             "page": ""
           }
         },
+        "tab_TThRxK": {
+          "type": "tab",
+          "settings": {
+            "title": "Mounting | Installation",
+            "content": "<p>{{ product.metafields.custom.prefix_back_plate_width.value }}<br/>{{ product.metafields.custom.prefix_back_plate_height.value }}<br/>{{ product.metafields.custom.prefix_back_plate_width.value }}</p><p>{{ product.metafields.custom.prefix_mount_top_fixutre.value }}<br/>{{ product.metafields.custom.prefix_mount_bottom_fixutre.value }}<br/>{{ product.metafields.custom.prefix_mount_top_back_plate.value }}<br/>{{ product.metafields.custom.prefix_mount_bottom_fixutre.value }}</p>",
+            "page": ""
+          }
+        },
         "tab_nbjTFY": {
           "type": "tab",
           "settings": {
@@ -119,6 +127,7 @@
         "tab_HAmQP6",
         "tab_zFza3D",
         "tab",
+        "tab_TThRxK",
         "tab_nbjTFY",
         "contact",
         "share"
@@ -171,7 +180,7 @@
           "type": "tab",
           "settings": {
             "title": "Mounting | Installation",
-            "content": "<p>{{ product.metafields.custom.prefix_back_plate_width.value }}<br/>{{ product.metafields.custom.prefix_back_plate_height.value }}<br/>{{ product.metafields.custom.prefix_back_plate_width.value }}</p><p>{{ product.metafields.custom.prefix_mount_top_fixutre.value }}<br/>{{ product.metafields.custom.prefix_mount_bottom_fixutre.value }}<br/>{{ product.metafields.custom.prefix_mount_top_back_plate.value }}<br/>{{ product.metafields.custom.prefix_mount_bottom_fixutre.value }}</p>",
+            "content": "",
             "page": ""
           }
         },
