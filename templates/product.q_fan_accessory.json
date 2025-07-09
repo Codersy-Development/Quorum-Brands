@@ -99,7 +99,7 @@
           "type": "tab",
           "settings": {
             "title": "Shipping information",
-            "content": "<p>Use collapsible tabs for more detailed information that will help customers make a purchasing decision.</p><p>Ex: Shipping and return policies, size guides, and other common questions.</p>",
+            "content": "<p>{{ product.metafields.custom.prefix_shipping.value }}</p><p>{{ product.metafields.custom.prefix_carton_weight.value }}<br/>{{ product.metafields.custom.prefix_carton_height.value }}<br/>{{ product.metafields.custom.prefix_carton_length.value }}<br/>{{ product.metafields.custom.prefix_carton_width.value }}</p>",
             "page": ""
           }
         },
@@ -143,34 +143,6 @@
         "mobile_layout": "partial",
         "enable_video_looping": true,
         "product_video_style": "muted"
-      }
-    },
-    "rich_text_37FyAy": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_hWQQjr": {
-          "type": "heading",
-          "settings": {
-            "title": ""
-          }
-        },
-        "text_Vemtfn": {
-          "type": "text",
-          "settings": {
-            "enlarge_text": true,
-            "text": "{{ product.description }}"
-          }
-        }
-      },
-      "block_order": [
-        "heading_hWQQjr",
-        "text_Vemtfn"
-      ],
-      "name": "t:sections.rich-text.presets.rich_text.name",
-      "settings": {
-        "align_text": "left",
-        "narrow_column": false,
-        "divider": false
       }
     },
     "sub": {
@@ -276,7 +248,6 @@
   },
   "order": [
     "main",
-    "rich_text_37FyAy",
     "sub",
     "testimonials",
     "product-recommendations",
