@@ -13,6 +13,24 @@
       "type": "hero-video",
       "name": "t:sections.hero-video.presets.video_hero.name",
       "settings": {
+        "store": "shop all brands",
+        "title": "The Art of Light",
+        "title_size": 80,
+        "subheading": "Lighting the Way. Moving Air. Inspiring Spaces",
+        "link_text": "Explore What’s New",
+        "link": "#",
+        "color_accent": "#ffffff",
+        "text_align": "vertical-bottom horizontal-left",
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/83fae7db410944df83d9275b0ea2d9d0.mp4",
+        "overlay_opacity": 0,
+        "section_height": "750px",
+        "mobile_height": "auto"
+      }
+    },
+    "hero_video_7kxaNH": {
+      "type": "hero-video",
+      "name": "t:sections.hero-video.presets.video_hero.name",
+      "settings": {
         "store": "quorum",
         "title": "The Art of Light",
         "title_size": 80,
@@ -155,6 +173,124 @@
         "category_card_3PKUg7",
         "category_card_bA3LAd",
         "category_card_6PUbEp"
+      ],
+      "name": "Shop by Category",
+      "settings": {
+        "store": "shop all brands",
+        "title": "Shop by Category",
+        "description": "Browse our extensive product selection, from stylish furniture to unique accessories that elevate any space."
+      }
+    },
+    "shop_by_category_DJ9atJ": {
+      "type": "shop-by-category",
+      "blocks": {
+        "category_card_XHKtdG": {
+          "type": "category_card",
+          "settings": {
+            "image": "shopify://shop_images/Ceiling_Mounted.jpg",
+            "title": "Ceiling Mounted",
+            "subcategory_1": "Chandeliers",
+            "subcategory_2": "Pendants",
+            "subcategory_3": "Linear Pendants (Island Lights)",
+            "subcategory_4": "Entry",
+            "subcategory_5": "Ceiling Mounts",
+            "subcategory_6": "",
+            "category_link": "#",
+            "subcategory_1_link": "",
+            "subcategory_2_link": "",
+            "subcategory_3_link": "",
+            "subcategory_4_link": "",
+            "subcategory_5_link": "",
+            "subcategory_6_link": ""
+          }
+        },
+        "category_card_hjKtDf": {
+          "type": "category_card",
+          "settings": {
+            "image": "shopify://shop_images/Wall_Mounted.jpg",
+            "title": "Wall Mounted",
+            "subcategory_1": "Wall Sconce",
+            "subcategory_2": "Vanity",
+            "subcategory_3": "Picture Lights",
+            "subcategory_4": "",
+            "subcategory_5": "",
+            "subcategory_6": "",
+            "category_link": "",
+            "subcategory_1_link": "",
+            "subcategory_2_link": "",
+            "subcategory_3_link": "",
+            "subcategory_4_link": "",
+            "subcategory_5_link": "",
+            "subcategory_6_link": ""
+          }
+        },
+        "category_card_eBMxkn": {
+          "type": "category_card",
+          "settings": {
+            "image": "shopify://shop_images/Outdoor_Lighting.jpg",
+            "title": "Outdoor Lighting",
+            "subcategory_1": "Pendants",
+            "subcategory_2": "Wall Mounts",
+            "subcategory_3": "Ceiling Mounts",
+            "subcategory_4": "Posts",
+            "subcategory_5": "",
+            "subcategory_6": "",
+            "category_link": "",
+            "subcategory_1_link": "",
+            "subcategory_2_link": "",
+            "subcategory_3_link": "",
+            "subcategory_4_link": "",
+            "subcategory_5_link": "",
+            "subcategory_6_link": ""
+          }
+        },
+        "category_card_b6XdJA": {
+          "type": "category_card",
+          "settings": {
+            "image": "shopify://shop_images/Ceiling_Fans.jpg",
+            "title": "Ceiling Fans",
+            "subcategory_1": "Indoor Fans",
+            "subcategory_2": "Patio Fans",
+            "subcategory_3": "",
+            "subcategory_4": "",
+            "subcategory_5": "",
+            "subcategory_6": "",
+            "category_link": "",
+            "subcategory_1_link": "",
+            "subcategory_2_link": "",
+            "subcategory_3_link": "",
+            "subcategory_4_link": "",
+            "subcategory_5_link": "",
+            "subcategory_6_link": ""
+          }
+        },
+        "category_card_6PeFNt": {
+          "type": "category_card",
+          "settings": {
+            "image": "shopify://shop_images/Mirrors.jpg",
+            "title": "Mirrors",
+            "subcategory_1": "Round",
+            "subcategory_2": "Arch",
+            "subcategory_3": "Rectange",
+            "subcategory_4": "Stadium",
+            "subcategory_5": "Capsule",
+            "subcategory_6": "Hexagon",
+            "category_link": "",
+            "subcategory_1_link": "",
+            "subcategory_2_link": "",
+            "subcategory_3_link": "",
+            "subcategory_4_link": "",
+            "subcategory_5_link": "",
+            "subcategory_6_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "category_card_XHKtdG",
+        "category_card_hjKtDf",
+        "category_card_eBMxkn",
+        "category_card_b6XdJA",
+        "category_card_6PeFNt"
       ],
       "name": "Shop by Category",
       "settings": {
@@ -331,6 +467,60 @@
       ],
       "name": "Featured Products",
       "settings": {
+        "store": "shop all brands",
+        "heading": "Featured Products"
+      }
+    },
+    "featured_products_UP4fnw": {
+      "type": "featured-products",
+      "blocks": {
+        "product_card_PTfiQ8": {
+          "type": "product_card",
+          "settings": {
+            "product": "4525-03159-draft"
+          }
+        },
+        "product_card_FhLh8Q": {
+          "type": "product_card",
+          "settings": {
+            "product": "1375-886-draft"
+          }
+        },
+        "product_card_9tbLgg": {
+          "type": "product_card",
+          "settings": {
+            "product": "941-80-draft"
+          }
+        },
+        "product_card_aPcfaF": {
+          "type": "product_card",
+          "settings": {
+            "product": "6058641179-draft"
+          }
+        },
+        "product_card_UqJEDX": {
+          "type": "product_card",
+          "settings": {
+            "product": "quorum-light-accessory-template"
+          }
+        },
+        "product_card_yqFPJB": {
+          "type": "product_card",
+          "settings": {
+            "product": "3-25-15-draft"
+          }
+        }
+      },
+      "block_order": [
+        "product_card_PTfiQ8",
+        "product_card_FhLh8Q",
+        "product_card_9tbLgg",
+        "product_card_aPcfaF",
+        "product_card_UqJEDX",
+        "product_card_yqFPJB"
+      ],
+      "name": "Featured Products",
+      "settings": {
         "store": "quorum",
         "heading": "Featured Products"
       }
@@ -457,6 +647,77 @@
       ],
       "name": "Product Feature Carousel",
       "settings": {
+        "store": "shop all brands"
+      }
+    },
+    "product_feature_carousel_FMKU9b": {
+      "type": "product-feature-carousel",
+      "blocks": {
+        "card_slide_8CeDHf": {
+          "type": "card_slide",
+          "settings": {
+            "main_image": "shopify://shop_images/Living.jpg",
+            "card_image": "shopify://shop_images/LivingRoom2.jpg",
+            "heading": "Shop by Room: Living Room",
+            "text": "Discover stylish lighting and fans that bring comfort and elegance to your living room, creating the perfect ambiance for relaxation and entertaining.",
+            "button_label": "Explore Products",
+            "button_link": "#"
+          }
+        },
+        "card_slide_UgEEKJ": {
+          "type": "card_slide",
+          "settings": {
+            "main_image": "shopify://shop_images/Bathroom_1.jpg",
+            "card_image": "shopify://shop_images/Bathroom_2.jpg",
+            "heading": "Shop by Room: Bathroom",
+            "text": "Elevate your bathroom with our curated selection of lighting and mirrors, designed to add a touch of luxury and functionality to your space.",
+            "button_label": "Explore Products",
+            "button_link": "#"
+          }
+        },
+        "card_slide_hbgJhd": {
+          "type": "card_slide",
+          "settings": {
+            "main_image": "shopify://shop_images/Kitchen.jpg",
+            "card_image": "shopify://shop_images/Kitchen_2.jpg",
+            "heading": "Shop by Room: Kitchen",
+            "text": "Transform your kitchen with modern lighting and ceiling fans that combine style and performance, making it the heart of your home.",
+            "button_label": "Explore Products",
+            "button_link": "#"
+          }
+        },
+        "card_slide_zGbgLL": {
+          "type": "card_slide",
+          "settings": {
+            "main_image": "shopify://shop_images/DIning_17bcd4ca-5470-4e32-b797-2cd3be95a3a6.jpg",
+            "card_image": "shopify://shop_images/Dining_2_03b47df6-1fcf-4e42-9a1c-f09755adec16.jpg",
+            "heading": "Shop by Room: Dining",
+            "text": "Set the perfect tone for your dining area with lighting fixtures that enhance the atmosphere, making every meal feel special.",
+            "button_label": "Explore Products",
+            "button_link": "#"
+          }
+        },
+        "card_slide_r66LwF": {
+          "type": "card_slide",
+          "settings": {
+            "main_image": "shopify://shop_images/Outdoor_Lighting_87a2c8d2-8be5-42ea-9961-df597c4da4c5.jpg",
+            "card_image": "shopify://shop_images/Outdoor2.jpg",
+            "heading": "Shop by Room: Outdoor",
+            "text": "Bring beauty and functionality to your outdoor spaces with durable, weather-resistant lighting and fans that create a comfortable and inviting atmosphere.",
+            "button_label": "Explore Products",
+            "button_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "card_slide_8CeDHf",
+        "card_slide_UgEEKJ",
+        "card_slide_hbgJhd",
+        "card_slide_zGbgLL",
+        "card_slide_r66LwF"
+      ],
+      "name": "Product Feature Carousel",
+      "settings": {
         "store": "quorum"
       }
     },
@@ -531,7 +792,7 @@
         "store": "oxygen"
       }
     },
-    "image_with_text_MacpA3": {
+    "image_with_text_6hFVYh": {
       "type": "Image-with-text",
       "name": "Feature Promo",
       "settings": {
@@ -550,6 +811,23 @@
       "name": "t:sections.background-image-text.presets.large_image_with_text_box.name",
       "settings": {
         "store": "quorum",
+        "subtitle": "Introducing Tamara Day's",
+        "title": "Laid Back Luxe",
+        "text": "<p>We partnered with celebrity designer Tamara Day to introduce several lighting collections inspired by select homes featured on Magnolia Network’s Bargain Mansions. Each collection has distinct characteristics while remaining rooted in Tamara’s signature style, “Laid Back Luxe.” We are thrilled to showcase her designs which combine touches of glam with a cozy livable vibe. </p>",
+        "button_label": "Explore Collection",
+        "button_link": "shopify://collections/nook",
+        "image": "shopify://shop_images/Web_1920_3.png",
+        "layout": "right",
+        "height": 750,
+        "framed": true,
+        "lazyload_images": true
+      }
+    },
+    "background_image_text_ydVWJ9": {
+      "type": "background-image-text",
+      "name": "t:sections.background-image-text.presets.large_image_with_text_box.name",
+      "settings": {
+        "store": "shop all brands",
         "subtitle": "Introducing Tamara Day's",
         "title": "Laid Back Luxe",
         "text": "<p>We partnered with celebrity designer Tamara Day to introduce several lighting collections inspired by select homes featured on Magnolia Network’s Bargain Mansions. Each collection has distinct characteristics while remaining rooted in Tamara’s signature style, “Laid Back Luxe.” We are thrilled to showcase her designs which combine touches of glam with a cozy livable vibe. </p>",
@@ -631,6 +909,85 @@
         "color_images_cTjyA6",
         "color_images_cT9dHX",
         "color_images_6r9iYQ"
+      ],
+      "name": "Art of Light Colors",
+      "settings": {
+        "store": "shop all brands",
+        "title": "The ART OF LIGHT",
+        "subtitle": "Our lighting, fans, and mirrors are the finishing touches that turn any room into a work of art. Each piece is crafted to be the color, shape, and style that brings your space to life. Explore some of our favorites below.",
+        "button_text": "More Inspiration",
+        "button_link": "#"
+      }
+    },
+    "art_of_light_bd8VfE": {
+      "type": "art-of-light",
+      "blocks": {
+        "color_images_dEBtmF": {
+          "type": "color_images",
+          "settings": {
+            "label": "Black",
+            "icon": "shopify://shop_images/15583-59_8.jpg",
+            "image_1": "shopify://shop_images/2024-06-13_00.35.36-gigapixel-high_fidelity_v2-1x.jpg",
+            "image_2": "shopify://shop_images/71-2-59_D1_Location.jpg",
+            "image_3": "shopify://shop_images/7940-9-69_D1_Location.jpg",
+            "image_4": "shopify://shop_images/73-20-59_7.jpg",
+            "image_5": "shopify://shop_images/635-6-80_8_copy.jpg",
+            "image_6": "shopify://shop_images/35846-47_8.jpg",
+            "image_7": "shopify://shop_images/15583-59_8.jpg",
+            "image_8": "shopify://shop_images/883-3-5980_5.jpg"
+          }
+        },
+        "color_images_anEbUQ": {
+          "type": "color_images",
+          "settings": {
+            "label": "Brass",
+            "icon": "shopify://shop_images/693-6-47_7_34a7f370-10f8-4c60-a471-88ce73d3b400.jpg",
+            "image_1": "shopify://shop_images/693-6-47_7.jpg",
+            "image_2": "shopify://shop_images/8507-6-74_2.jpg",
+            "image_3": "shopify://shop_images/5015-3-47_5.jpg",
+            "image_4": "shopify://shop_images/6803-8-47_5.jpg",
+            "image_5": "shopify://shop_images/6137-6-80_3.jpg",
+            "image_6": "shopify://shop_images/8231-5-47_5.jpg",
+            "image_7": "shopify://shop_images/6169-6-47_5.jpg",
+            "image_8": "shopify://shop_images/6137-6-80_2.jpg"
+          }
+        },
+        "color_images_mAUEVJ": {
+          "type": "color_images",
+          "settings": {
+            "label": "Natural",
+            "icon": "shopify://shop_images/6123-8-47_5.jpg",
+            "image_1": "shopify://shop_images/852-22-47_5.jpg",
+            "image_2": "shopify://shop_images/892-3-59_7.jpg",
+            "image_3": "shopify://shop_images/892-3-59_5.jpg",
+            "image_4": "shopify://shop_images/892-3-80_6_5756611e-8bae-46c5-8b1b-51e3cbfea244.jpg",
+            "image_5": "shopify://shop_images/5123-1-59_5.jpg",
+            "image_6": "shopify://shop_images/6123-8-59_5.jpg",
+            "image_7": "shopify://shop_images/6123-8-59_5.jpg",
+            "image_8": "shopify://shop_images/5123-47_4.jpg"
+          }
+        },
+        "color_images_KBq3ta": {
+          "type": "color_images",
+          "settings": {
+            "label": "White",
+            "icon": "shopify://shop_images/WB2382Z4-4RA-80_D1_LS.jpg",
+            "image_1": "shopify://shop_images/WB2382Z4-4RA-80_Lit_LS.jpg",
+            "image_2": "shopify://shop_images/841-4-47_6.jpg",
+            "image_3": "shopify://shop_images/8382-3-47_5.jpg",
+            "image_4": "shopify://shop_images/841-4-47_4_ea999f37-cc4e-4ec3-94a9-a8747cf3c6c4.jpg",
+            "image_5": "shopify://shop_images/865-8-0880_5.jpg",
+            "image_6": "shopify://shop_images/639-6-59_6.jpg",
+            "image_7": "shopify://shop_images/8382-3-47_4.jpg",
+            "image_8": "shopify://shop_images/6169-8-47_5.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "color_images_dEBtmF",
+        "color_images_anEbUQ",
+        "color_images_mAUEVJ",
+        "color_images_KBq3ta"
       ],
       "name": "Art of Light Colors",
       "settings": {
@@ -739,16 +1096,22 @@
   },
   "order": [
     "hero_video_7AGby8",
+    "hero_video_7kxaNH",
     "hero_video_dmDgPf",
     "shop_by_category_76eCUa",
+    "shop_by_category_DJ9atJ",
     "shop_by_category_ag9Wrh",
     "featured_products_4iHgi6",
+    "featured_products_UP4fnw",
     "featured_products_jFKX9w",
     "product_feature_carousel_Kqzf77",
+    "product_feature_carousel_FMKU9b",
     "product_feature_carousel_ThxpUR",
-    "image_with_text_MacpA3",
+    "image_with_text_6hFVYh",
     "background_image_text_HPadbT",
+    "background_image_text_ydVWJ9",
     "art_of_light_yRHyHn",
+    "art_of_light_bd8VfE",
     "art_of_light_MxLcCG",
     "17476802510571b8d1"
   ]
