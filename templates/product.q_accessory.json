@@ -77,6 +77,14 @@
             "page": ""
           }
         },
+        "tab_NzDwbR": {
+          "type": "tab",
+          "settings": {
+            "title": "Certifications",
+            "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p><p>{{ product.metafields.custom.cETL_Logo.value }}</p><p>{{ product.metafields.custom.CCT_logo.value }}</p><p>{{ product.metafields.custom.ELT_logo.value }}</p><p>{{ product.metafields.custom.ELT_logo.value }}</p><p>{{ product.metafields.custom.ghost_logo.value }}</p>",
+            "page": ""
+          }
+        },
         "tab_Cn3yWY": {
           "type": "tab",
           "settings": {
@@ -101,6 +109,7 @@
         "tab_HAmQP6",
         "tab_zFza3D",
         "tab",
+        "tab_NzDwbR",
         "tab_Cn3yWY",
         "share"
       ],
@@ -120,14 +129,6 @@
     "sub": {
       "type": "product-full-width",
       "blocks": {
-        "tab_VKwJHy": {
-          "type": "tab",
-          "settings": {
-            "title": "Certifications",
-            "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p><p>{{ product.metafields.custom.cETL_Logo.value }}</p>",
-            "page": ""
-          }
-        },
         "tab_NGgmHF": {
           "type": "tab",
           "settings": {
@@ -138,11 +139,10 @@
         }
       },
       "block_order": [
-        "tab_VKwJHy",
         "tab_NGgmHF"
       ],
       "settings": {
-        "max_width": false
+        "max_width": true
       }
     },
     "testimonials": {
