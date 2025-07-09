@@ -95,19 +95,19 @@
             "page": ""
           }
         },
-        "tab_ip7DD8": {
-          "type": "tab",
-          "settings": {
-            "title": "Shipping information",
-            "content": "<p>{{ product.metafields.custom.prefix_shipping.value }}</p><p>{{ product.metafields.custom.prefix_carton_weight.value }}<br/>{{ product.metafields.custom.prefix_carton_height.value }}<br/>{{ product.metafields.custom.prefix_carton_length.value }}<br/>{{ product.metafields.custom.prefix_carton_width.value }}</p>",
-            "page": ""
-          }
-        },
         "tab_6WfjbQ": {
           "type": "tab",
           "settings": {
             "title": "Certifications",
             "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p><p>{{ product.metafields.custom.cETL_Logo.value }}</p><p>{{ product.metafields.custom.CCT_logo.value }}</p><p>{{ product.metafields.custom.ELT_logo.value }}</p><p>{{ product.metafields.custom.ELT_logo.value }}</p><p>{{ product.metafields.custom.ghost_logo.value }}</p>",
+            "page": ""
+          }
+        },
+        "tab_ip7DD8": {
+          "type": "tab",
+          "settings": {
+            "title": "Shipping information",
+            "content": "<p>{{ product.metafields.custom.prefix_shipping.value }}</p><p>{{ product.metafields.custom.prefix_carton_weight.value }}<br/>{{ product.metafields.custom.prefix_carton_height.value }}<br/>{{ product.metafields.custom.prefix_carton_length.value }}<br/>{{ product.metafields.custom.prefix_carton_width.value }}</p>",
             "page": ""
           }
         },
@@ -137,14 +137,14 @@
         "tab_HAmQP6",
         "tab_zFza3D",
         "tab",
-        "tab_ip7DD8",
         "tab_6WfjbQ",
+        "tab_ip7DD8",
         "contact",
         "share"
       ],
       "settings": {
         "sku_enable": true,
-        "image_position": "right",
+        "image_position": "left",
         "image_size": "small",
         "product_zoom_enable": true,
         "thumbnail_position": "beside",

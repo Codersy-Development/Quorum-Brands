@@ -233,7 +233,7 @@
         "tab_9AjKC6": {
           "type": "tab",
           "settings": {
-            "title": "Product Downloads",
+            "title": "Downloads",
             "content": "<p>{{ product.metafields.custom.button_cutsheet.value }}</p><p>{{ product.metafields.custom.button_revit.value }}</p><p>{{ product.metafields.custom.button_ies.value }}</p><p>{{ product.metafields.custom.button_instructions.value }}</p><p>{{ product.metafields.custom.button_photo_metrics.value }}</p>",
             "page": ""
           }
