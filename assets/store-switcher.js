@@ -1,26 +1,25 @@
 const setCollectionsFilters = () => {
-  // 1) pull + capitalize your store name
-  const store = getStoreSentenceCase();
-  // 2) for each link whose href *contains* “/collections/”
+  const VENDOR_KEY = 'filter.p.vendor';
+  const store      = getStoreSentenceCase();
   document.querySelectorAll('a[href*="/collections/"]').forEach((aTag) => {
     try {
-      // aTag.href is always an absolute URL string
-      const url = new URL(aTag.href);
-
-      // 3) only add if it’s missing
-      if (!url.searchParams.has("filter.p.vendor")) {
-        url.searchParams.set("filter.p.vendor", store);
-        aTag.href = url.toString();
+      const url = new URL(aTag.href);          // always absolute in browsers
+      if (store === 'Shop all brands') {
+        // remove every vendor filter so *all* brands show
+        url.searchParams.delete(VENDOR_KEY);
       } else {
-        url.searchParams.set("filter.p.vendor", store);
-        aTag.href = url.toString();
+        // .set() already overwrites if the key exists, so one line is enough
+        url.searchParams.set(VENDOR_KEY, store);
       }
-    } catch (e) {
-      // this should almost never fire, since aTag.href is absolute
-      console.warn("Skipping invalid URL:", aTag.href);
+      // write the revised URL back to the link
+      aTag.href = url.toString();
+    } catch (err) {
+      // only triggers for malformed hrefs (rare, but nice to log)
+      console.warn('Skipping invalid URL:', aTag.href, err);
     }
   });
 };
+
 
 class StoreSwitcher extends HTMLElement {
   constructor() {
@@ -49,7 +48,6 @@ class StoreSwitcher extends HTMLElement {
         if (!input.checked) {
           return;
         }
-        console.log(input);
         this.inputs.forEach((otherInput) => {
           if (input.name === otherInput.name && input.id !== otherInput.id) {
             console.log("FOUND: ", otherInput);
@@ -63,8 +61,14 @@ class StoreSwitcher extends HTMLElement {
         const current = new URL(window.location.href);
         if (/\/(?:collections|products)\//.test(current.pathname)) {
           if (current.pathname.includes("/collections/")) {
-            current.searchParams.set("filter.p.vendor", getStoreSentenceCase());
-            window.location.replace(current.toString());
+            console.log(input.value)
+            if(input.value.includes("shop all brands")) {
+              current.searchParams.delete("filter.p.vendor");
+              window.location.replace(current.toString());
+            } else {
+              current.searchParams.set("filter.p.vendor", getStoreSentenceCase());
+              window.location.replace(current.toString());
+            }
           } else {
             window.location.reload();
           }
