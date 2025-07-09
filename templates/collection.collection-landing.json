@@ -64,8 +64,8 @@
       "settings": {
         "title": "Jason Brewer, MOD",
         "home_featured_products": "jason-brewer-mod",
-        "per_row": 4,
-        "rows": 1,
+        "per_row": 5,
+        "rows": 2,
         "mobile_scrollable": true,
         "view_all": true,
         "divider": false
@@ -74,10 +74,10 @@
     "featured-collection2": {
       "type": "featured-collection",
       "settings": {
-        "title": "Sconces",
-        "home_featured_products": "tamara-day-sconces",
-        "per_row": 4,
-        "rows": 1,
+        "title": "Sergio Orozco",
+        "home_featured_products": "sergio-orozco",
+        "per_row": 5,
+        "rows": 2,
         "mobile_scrollable": true,
         "view_all": true,
         "divider": false
