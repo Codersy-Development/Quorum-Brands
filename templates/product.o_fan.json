@@ -95,6 +95,14 @@
             "page": ""
           }
         },
+        "tab_HNGgCY": {
+          "type": "tab",
+          "settings": {
+            "title": "Certifications",
+            "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p><p>{{ product.metafields.custom.cETL_Logo.value }}</p><p>{{ product.metafields.custom.CCT_logo.value }}</p><p>{{ product.metafields.custom.ELT_logo.value }}</p><p>{{ product.metafields.custom.ELT_logo.value }}</p><p>{{ product.metafields.custom.ghost_logo.value }}</p>",
+            "page": ""
+          }
+        },
         "tab_wDhBGe": {
           "type": "tab",
           "settings": {
@@ -121,6 +129,7 @@
         "tab_zFza3D",
         "tab",
         "tab_dMML88",
+        "tab_HNGgCY",
         "tab_wDhBGe",
         "share"
       ],
