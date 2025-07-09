@@ -14,30 +14,11 @@
       "blocks": {
         "price": {
           "type": "price",
-          "disabled": true,
           "settings": {}
         },
         "separator": {
           "type": "separator",
           "settings": {}
-        },
-        "variant_picker": {
-          "type": "variant_picker",
-          "disabled": true,
-          "settings": {
-            "variant_labels": true,
-            "picker_type": "button",
-            "product_dynamic_variants_enable": true,
-            "color_swatches": false
-          }
-        },
-        "sales_point": {
-          "type": "sales_point",
-          "disabled": true,
-          "settings": {
-            "icon": "checkmark",
-            "text": "Free worldwide shipping"
-          }
         },
         "inventory_status": {
           "type": "inventory_status",
@@ -96,16 +77,8 @@
           "type": "tab",
           "settings": {
             "title": "Certifications",
-            "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p><p>{{ product.metafields.custom.cETL_Logo.value }}</p><p>{{ product.metafields.custom.CCT_logo.value }}</p><p>{{ product.metafields.custom.ELT_logo.value }}</p><p>{{ product.metafields.custom.ELT_logo.value }}</p><p>{{ product.metafields.custom.ghost_logo.value }}</p>",
+            "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p>",
             "page": ""
-          }
-        },
-        "contact": {
-          "type": "contact",
-          "disabled": true,
-          "settings": {
-            "title": "Ask a question",
-            "phone": false
           }
         },
         "custom_zme3Yt": {
@@ -122,8 +95,6 @@
       "block_order": [
         "price",
         "separator",
-        "variant_picker",
-        "sales_point",
         "inventory_status",
         "buy_buttons",
         "description",
@@ -132,7 +103,6 @@
         "tab",
         "tab_nbjTFY",
         "tab_TizhYg",
-        "contact",
         "custom_zme3Yt",
         "share"
       ],
