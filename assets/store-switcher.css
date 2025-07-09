@@ -22,7 +22,7 @@ store-switcher {
   column-gap: 0.8rem;
   row-gap: 0;
   align-items: center;
-  justify-content: center;
+  justify-content: end;
   height: 100%;
   & * {
     margin: 0;
