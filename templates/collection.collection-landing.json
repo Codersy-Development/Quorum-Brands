@@ -61,9 +61,9 @@
     "featured-collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Fans",
-        "home_featured_products": "tamara-day",
-        "per_row": 5,
+        "title": "Chandeliers",
+        "home_featured_products": "tamara-day-chandeliers",
+        "per_row": 4,
         "rows": 1,
         "mobile_scrollable": true,
         "view_all": true,
