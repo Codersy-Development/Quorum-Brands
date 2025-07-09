@@ -95,6 +95,14 @@
             "page": ""
           }
         },
+        "tab_wDhBGe": {
+          "type": "tab",
+          "settings": {
+            "title": "Shipping information",
+            "content": "<p>{{ product.metafields.custom.prefix_shipping.value }}</p><p>{{ product.metafields.custom.prefix_carton_weight.value }}<br/>{{ product.metafields.custom.prefix_carton_height.value }}<br/>{{ product.metafields.custom.prefix_carton_length.value }}<br/>{{ product.metafields.custom.prefix_carton_width.value }}</p>",
+            "page": ""
+          }
+        },
         "contact_36dV9j": {
           "type": "contact",
           "settings": {
@@ -120,6 +128,7 @@
         "tab_zFza3D",
         "tab",
         "tab_dMML88",
+        "tab_wDhBGe",
         "contact_36dV9j",
         "share"
       ],
@@ -169,22 +178,6 @@
     "sub": {
       "type": "product-full-width",
       "blocks": {
-        "tab_hLUUEA": {
-          "type": "tab",
-          "settings": {
-            "title": "Mounting | Installation",
-            "content": "",
-            "page": ""
-          }
-        },
-        "tab_FHmb4f": {
-          "type": "tab",
-          "settings": {
-            "title": "Certifications",
-            "content": "<p><strong>{{ product.metafields.custom.safety_ratings.value }}</strong></p><p><strong>{{ product.metafields.custom.prefix_manufacturer_warranty.value }}</strong></p>",
-            "page": ""
-          }
-        },
         "tab_CpMWjw": {
           "type": "tab",
           "settings": {
@@ -203,8 +196,6 @@
         }
       },
       "block_order": [
-        "tab_hLUUEA",
-        "tab_FHmb4f",
         "tab_CpMWjw",
         "tab_9AjKC6"
       ],
