@@ -12,13 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "text_yRHbFB": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "{{ product.metafields.custom.cUL_logo.value }} {{ product.metafields.custom.cETL_Logo.value }}"
-          }
-        },
         "price": {
           "type": "price",
           "settings": {}
@@ -44,7 +37,6 @@
         },
         "description": {
           "type": "description",
-          "disabled": true,
           "settings": {
             "is_tab": false
           }
@@ -95,6 +87,14 @@
             "page": ""
           }
         },
+        "tab_dMML88": {
+          "type": "tab",
+          "settings": {
+            "title": "Mounting | Installation",
+            "content": "<p>{{ product.metafields.custom.prefix_downrod_length_1.value }}<br/>{{ product.metafields.custom.prefix_downrod_diameter_1.value }}<br/>{{ product.metafields.custom.prefix_downrod_length_2.value }}<br/>{{ product.metafields.custom.prefix_downrod_diameter_2.value }}</p><p>{{ product.metafields.custom.prefix_ceiling_blade_height_1.value }}<br/>{{ product.metafields.custom.prefix_ceiling_bottom_height_1.value }}<br/>{{ product.metafields.custom.prefix_ceiling_blade_height_2.value }}<br/>{{ product.metafields.custom.prefix_ceiling_bottom_height_2.value }}</p><p>{{ product.metafields.custom.prefix_sloped_ceiling_adaptable.value }}<br/>{{ product.metafields.custom.prefix_standard_sloped_ceiling.value }}<br/>{{ product.metafields.custom.prefix_extended_sloped_ceiling.value }}</p><p>{{ product.metafields.custom.prefix_canopy_width.value }}<br/>{{ product.metafields.custom.prefix_canopy_height.value }}<br/>{{ product.metafields.custom.prefix_canopy_length.value }}<br/>{{ product.metafields.custom.prefix_canopy_finish.value }}</p><p>{{ product.metafields.custom.prefix_leadwire_length.value }}</p>",
+            "page": ""
+          }
+        },
         "contact_36dV9j": {
           "type": "contact",
           "settings": {
@@ -108,7 +108,6 @@
         }
       },
       "block_order": [
-        "text_yRHbFB",
         "price",
         "text_fUUVDY",
         "inventory_status",
@@ -120,6 +119,7 @@
         "tab_HAmQP6",
         "tab_zFza3D",
         "tab",
+        "tab_dMML88",
         "contact_36dV9j",
         "share"
       ],
@@ -173,7 +173,7 @@
           "type": "tab",
           "settings": {
             "title": "Mounting | Installation",
-            "content": "<p>{{ product.metafields.custom.prefix_downrod_length_1.value }}<br/>{{ product.metafields.custom.prefix_downrod_diameter_1.value }}<br/>{{ product.metafields.custom.prefix_downrod_length_2.value }}<br/>{{ product.metafields.custom.prefix_downrod_diameter_2.value }}</p><p>{{ product.metafields.custom.prefix_ceiling_blade_height_1.value }}<br/>{{ product.metafields.custom.prefix_ceiling_bottom_height_1.value }}<br/>{{ product.metafields.custom.prefix_ceiling_blade_height_2.value }}<br/>{{ product.metafields.custom.prefix_ceiling_bottom_height_2.value }}</p><p>{{ product.metafields.custom.prefix_sloped_ceiling_adaptable.value }}<br/>{{ product.metafields.custom.prefix_standard_sloped_ceiling.value }}<br/>{{ product.metafields.custom.prefix_extended_sloped_ceiling.value }}</p><p>{{ product.metafields.custom.prefix_canopy_width.value }}<br/>{{ product.metafields.custom.prefix_canopy_height.value }}<br/>{{ product.metafields.custom.prefix_canopy_length.value }}<br/>{{ product.metafields.custom.prefix_canopy_finish.value }}</p><p>{{ product.metafields.custom.prefix_leadwire_length.value }}</p>",
+            "content": "",
             "page": ""
           }
         },
