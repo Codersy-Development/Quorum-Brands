@@ -47,9 +47,9 @@
 
 <section
     class="index-section--hero"
-    {% unless section.settings.store == "all" %}
-        data-store="{{ section.settings.store }}"
-    {% endunless %}
+    {% if section.settings.store != blank %}
+      data-store="{{ section.settings.store }}"
+    {% endif %}
 >
 
 <div
@@ -172,6 +172,7 @@
       "info": "Populate this to show only on specific store",
       "options": [
         { "value": "all", "label": "Show On Both" },
+        { "value": "shop all brands", "label": "Shop All Brands" },
         { "value": "quorum", "label": "Quorum" },
         { "value": "oxygen", "label": "Oxygen" }
       ],
