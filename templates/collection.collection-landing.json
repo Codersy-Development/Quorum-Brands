@@ -86,10 +86,10 @@
     "featured-collection3": {
       "type": "featured-collection",
       "settings": {
-        "title": "Vanities",
-        "home_featured_products": "tamara-day-vanities",
-        "per_row": 4,
-        "rows": 1,
+        "title": "Smyth & Picket",
+        "home_featured_products": "smyth-pickett",
+        "per_row": 5,
+        "rows": 2,
         "mobile_scrollable": true,
         "view_all": true,
         "divider": false
