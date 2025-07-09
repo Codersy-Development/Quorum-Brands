@@ -102,20 +102,20 @@
             "page": ""
           }
         },
+        "tab_BwXVcq": {
+          "type": "tab",
+          "settings": {
+            "title": "Certifications",
+            "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p><p>{{ product.metafields.custom.cETL_Logo.value }}</p><p>{{ product.metafields.custom.CCT_logo.value }}</p><p>{{ product.metafields.custom.ELT_logo.value }}</p><p>{{ product.metafields.custom.ELT_logo.value }}</p><p>{{ product.metafields.custom.ghost_logo.value }}</p>",
+            "page": ""
+          }
+        },
         "tab_nbjTFY": {
           "type": "tab",
           "settings": {
             "title": "Additional Information",
             "content": "<p>{{ product.metafields.custom.special_attribute.value }}</p>",
             "page": ""
-          }
-        },
-        "contact": {
-          "type": "contact",
-          "disabled": true,
-          "settings": {
-            "title": "Ask a question",
-            "phone": false
           }
         },
         "share": {
@@ -137,8 +137,8 @@
         "tab",
         "tab_TThRxK",
         "tab_7j4iiH",
+        "tab_BwXVcq",
         "tab_nbjTFY",
-        "contact",
         "share"
       ],
       "settings": {
@@ -185,14 +185,6 @@
     "sub": {
       "type": "product-full-width",
       "blocks": {
-        "tab_ECWDQp": {
-          "type": "tab",
-          "settings": {
-            "title": "Shipping",
-            "content": "<p>{{ product.metafields.custom.prefix_shipping.value }}</p><p>{{ product.metafields.custom.prefix_carton_weight.value }}<br/>{{ product.metafields.custom.prefix_carton_length.value }}<br/>{{ product.metafields.custom.prefix_carton_width.value }}<br/>{{ product.metafields.custom.prefix_carton_height.value }}</p>",
-            "page": ""
-          }
-        },
         "tab_9AjKC6": {
           "type": "tab",
           "settings": {
@@ -208,12 +200,11 @@
         }
       },
       "block_order": [
-        "tab_ECWDQp",
         "tab_9AjKC6",
         "share_tb8VYQ"
       ],
       "settings": {
-        "max_width": false
+        "max_width": true
       }
     },
     "hero_video_yDnEgm": {
