@@ -63,7 +63,7 @@
       "type": "featured-collection",
       "settings": {
         "title": "Fans",
-        "home_featured_products": "fans",
+        "home_featured_products": "tamara-day",
         "per_row": 5,
         "rows": 1,
         "mobile_scrollable": true,

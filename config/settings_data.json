@@ -65,7 +65,7 @@
     "collection_grid_style": "below",
     "collection_grid_shape": "square",
     "collection_grid_image": "product",
-    "collection_grid_text_align": "bottom-right",
+    "collection_grid_text_align": "bottom-center",
     "collection_grid_tint": "#000000",
     "collection_grid_opacity": 20,
     "collection_grid_gutter": true,
