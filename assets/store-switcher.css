@@ -17,7 +17,10 @@
 
 store-switcher {
   display: flex;
-  gap: 0.8rem;
+  flex-wrap: wrap;
+  max-width: 90%;
+  column-gap: 0.8rem;
+  row-gap: 0;
   align-items: center;
   height: 100%;
   & * {
@@ -49,6 +52,9 @@ store-switcher {
   }
   & .store-switcher__btn:has(input:checked) .store-switcher-title {
     color: var(--selected-store-switch-btn-text-color);
+  }
+  @media only screen and (max-width: 768px) {
+    flex-wrap: wrap;
   }
 }
 
