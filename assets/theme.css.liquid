@@ -13049,7 +13049,49 @@ html[dir=rtl] .product-single__meta .rte{
   }
 }
 
+/* Target the main product images based on your theme structure */
+.product__photos img,
+.product-image-main img,
+.product-main-slide img {
+  max-height: 800px;
+  width: auto !important;
+  height: auto;
+  object-fit: contain;
+}
 
+/* Ensure main photo containers accommodate the height limit */
+.product__main-photos,
+.product-image-main,
+.product-main-slide {
+  max-height: 800px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Keep thumbnail images small */
+.product__thumb-item img {
+  max-height: 80px;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Ensure responsive behavior on mobile */
+@media screen and (max-width: 768px) {
+  .product__media img,
+  .product__photo img,
+  .product-single__photo img,
+  .product-image img,
+  .featured-product__photo img,
+  .product-gallery img {
+    max-height: 60vh; /* Use viewport height on mobile for better UX */
+    max-width: 100%;
+  }
+}
+
+  
 /* Wholesale APP Sytles */
 .wpd-ext-compare-at-price, .wcp-original-cart-total, #wpdNetCrossOutTotalValue {
   display: none !important;
