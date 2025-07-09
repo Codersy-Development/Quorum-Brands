@@ -38,21 +38,6 @@
             "inventory_transfers_enable": true
           }
         },
-        "sales_point": {
-          "type": "sales_point",
-          "disabled": true,
-          "settings": {
-            "icon": "checkmark",
-            "text": "Free worldwide shipping"
-          }
-        },
-        "text_cEWGf8": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "{{ product.metafields.custom.cUL_logo.value }}   {{ product.metafields.custom.cETL_Logo.value }}{{ product.metafields.custom.CCT_logo.value }}{{ product.metafields.custom.ELT_logo.value }}{{ product.metafields.custom.ghost_logo.value }}"
-          }
-        },
         "custom_khQKRQ": {
           "type": "custom",
           "settings": {
@@ -62,6 +47,12 @@
         "separator": {
           "type": "separator",
           "settings": {}
+        },
+        "description_EDWRCJ": {
+          "type": "description",
+          "settings": {
+            "is_tab": false
+          }
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -91,7 +82,7 @@
           "type": "tab",
           "settings": {
             "title": "Performance | Features",
-            "content": "<p>{{ product.metafields.custom.prefix_remote_adaptable.value }}<br/>{{ product.metafields.custom.prefix_smart_bond.value }}<br/>{{ product.metafields.custom.prefix_ghost_frame.value }}<br/>{{ product.metafields.custom.prefix_ghost_light.value }}<br/>{{ product.metafields.custom.prefix_dimmable.value }}<br/>{{ product.metafields.custom.prefix_infered.value }}<br/><br/>{{ product.metafields.custom.prefix_wireless_charging.value }}<br/>{{ product.metafields.custom.prefix_modular_system.value }}</p><p>{{ product.metafields.custom.prefix_manufacturer_warranty.value }}</p>",
+            "content": "<p>{{ product.metafields.custom.prefix_remote_adaptable.value }}<br/>{{ product.metafields.custom.prefix_smart_bond.value }}<br/>{{ product.metafields.custom.prefix_ghost_frame.value }}<br/>{{ product.metafields.custom.prefix_ghost_light.value }}<br/>{{ product.metafields.custom.prefix_dimmable.value }}<br/>{{ product.metafields.custom.prefix_infered.value }}<br/><br/><br/>{{ product.metafields.custom.prefix_modular_system.value }}</p><p>{{ product.metafields.custom.prefix_manufacturer_warranty.value }}</p>",
             "page": ""
           }
         },
@@ -122,10 +113,9 @@
         "text_Hn6GpR",
         "variant_picker",
         "inventory_status",
-        "sales_point",
-        "text_cEWGf8",
         "custom_khQKRQ",
         "separator",
+        "description_EDWRCJ",
         "buy_buttons",
         "tab_HAmQP6",
         "tab_zFza3D",
@@ -229,11 +219,13 @@
     },
     "hero_video_yDnEgm": {
       "type": "hero-video",
+      "disabled": true,
       "custom_css": [
         "div {margin-bottom: 50px;}"
       ],
       "name": "t:sections.hero-video.presets.video_hero.name",
       "settings": {
+        "store": "all",
         "title": "",
         "title_size": 80,
         "subheading": "",
@@ -241,7 +233,7 @@
         "link": "",
         "color_accent": "#ff00fb",
         "text_align": "vertical-center horizontal-center",
-        "video_url": "{{ product.metafields.custom.vimeo_link_url.value }}",
+        "video_url": "",
         "overlay_opacity": 0,
         "section_height": "550px",
         "mobile_height": "300px"
