@@ -129,7 +129,7 @@
           "settings": {
             "text": "Shop Exclusive Designers",
             "link_text": "",
-            "link": ""
+            "link": "shopify://collections/shop-by-designer"
           }
         }
       },
