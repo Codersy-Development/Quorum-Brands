@@ -123,10 +123,19 @@
             "link_text": "",
             "link": ""
           }
+        },
+        "announcement_kHWDbH": {
+          "type": "announcement",
+          "settings": {
+            "text": "Shop Exclusive Designers",
+            "link_text": "",
+            "link": ""
+          }
         }
       },
       "block_order": [
-        "announcement-0"
+        "announcement-0",
+        "announcement_kHWDbH"
       ],
       "settings": {
         "announcement_compact": true

@@ -143,6 +143,19 @@
         "divider": false
       }
     },
+    "featured_collection_iqGQrh": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.featured_collection.name",
+      "settings": {
+        "title": "Pendants",
+        "home_featured_products": "tamara-day-pendants",
+        "per_row": 4,
+        "rows": 1,
+        "mobile_scrollable": true,
+        "view_all": true,
+        "divider": false
+      }
+    },
     "featured-collections": {
       "type": "featured-collections",
       "blocks": {
@@ -185,6 +198,7 @@
         "collection3",
         "collection4"
       ],
+      "disabled": true,
       "settings": {
         "title": "You may also like",
         "divider": false,
@@ -237,6 +251,7 @@
     "featured-collection2",
     "promo-grid2",
     "featured-collection3",
+    "featured_collection_iqGQrh",
     "featured-collections",
     "main-collection"
   ]
