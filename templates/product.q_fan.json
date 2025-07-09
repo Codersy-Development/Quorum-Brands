@@ -41,16 +41,6 @@
             "code": "<div class=\"logo-row\">\n  {{ product.metafields.custom.cUL_logo.value }}\n  {{ product.metafields.custom.cETL_Logo.value }}\n  {{ product.metafields.custom.CCT_logo.value }}\n  {{ product.metafields.custom.ELT_logo.value }}\n  {{ product.metafields.custom.ghost_logo.value }}\n</div>\n\n<style>\n  .logo-row {\n    display: flex;\n    gap: 20px;\n    align-items: center;\n  }\n</style>"
           }
         },
-        "variant_picker": {
-          "type": "variant_picker",
-          "disabled": true,
-          "settings": {
-            "variant_labels": true,
-            "picker_type": "button",
-            "product_dynamic_variants_enable": true,
-            "color_swatches": false
-          }
-        },
         "separator": {
           "type": "separator",
           "settings": {}
@@ -123,14 +113,6 @@
             "code": "<a class=\"btn\" \n       href=\"https://cdn.shopify.com/s/files/1/0740/2668/0533/files/Quorum_Fan_Data_Sheets_2025_LR.pdf?v=1749244114\" \n       download=\"Quorum_Fan_Data_Sheets_2025.pdf\"\n       target=\"_blank\"\n       \">\n        QUOURM FAN DATASHEET\n    </a>"
           }
         },
-        "contact_36dV9j": {
-          "type": "contact",
-          "disabled": true,
-          "settings": {
-            "title": "Ask a question",
-            "phone": false
-          }
-        },
         "share": {
           "type": "share",
           "settings": {}
@@ -142,7 +124,6 @@
         "text_fUUVDY",
         "inventory_status",
         "custom_dE4wYQ",
-        "variant_picker",
         "separator",
         "description",
         "buy_buttons",
@@ -153,7 +134,6 @@
         "tab_Bj364y",
         "tab_MV7TVN",
         "custom_hFAeGk",
-        "contact_36dV9j",
         "share"
       ],
       "custom_css": [],
@@ -168,36 +148,6 @@
         "mobile_layout": "partial",
         "enable_video_looping": true,
         "product_video_style": "muted"
-      }
-    },
-    "rich_text_Fcfdk3": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_bCrdnr": {
-          "type": "heading",
-          "settings": {
-            "title": ""
-          }
-        },
-        "text_7PtDXT": {
-          "type": "text",
-          "settings": {
-            "enlarge_text": true,
-            "text": "{{ product.description }}"
-          }
-        }
-      },
-      "block_order": [
-        "heading_bCrdnr",
-        "text_7PtDXT"
-      ],
-      "disabled": true,
-      "custom_css": [],
-      "name": "t:sections.rich-text.presets.rich_text.name",
-      "settings": {
-        "align_text": "left",
-        "narrow_column": false,
-        "divider": false
       }
     },
     "sub": {
@@ -286,7 +236,6 @@
   },
   "order": [
     "main",
-    "rich_text_Fcfdk3",
     "sub",
     "testimonials",
     "product-recommendations",
