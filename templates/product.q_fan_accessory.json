@@ -73,7 +73,7 @@
           "type": "tab",
           "settings": {
             "title": "Performance | Features",
-            "content": "<p>{{ product.metafields.custom.prefix_dark_sky_compliant.value }}<br/>{{ product.metafields.custom.prefix_coastal_grade.value }}<br/>{{ product.metafields.custom.prefix_dimmable.value }}</p><p>{{ product.metafields.custom.special_attribute.value }}</p><p>{{ product.metafields.custom.prefix_manufacturer_warranty.value }}</p>",
+            "content": "<p>{{ product.metafields.custom.prefix_dark_sky_compliant.value }}<br/>{{ product.metafields.custom.prefix_coastal_grade.value }}<br/>{{ product.metafields.custom.prefix_dimmable.value }}</p><p>{{ product.metafields.custom.prefix_manufacturer_warranty.value }}</p>",
             "page": ""
           }
         },
