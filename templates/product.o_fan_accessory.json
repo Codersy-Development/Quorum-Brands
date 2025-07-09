@@ -49,6 +49,12 @@
           "type": "separator",
           "settings": {}
         },
+        "description_cLFPAT": {
+          "type": "description",
+          "settings": {
+            "is_tab": false
+          }
+        },
         "sales_point": {
           "type": "sales_point",
           "disabled": true,
@@ -89,6 +95,14 @@
             "page": ""
           }
         },
+        "tab_DMwcBQ": {
+          "type": "tab",
+          "settings": {
+            "title": "Shipping information",
+            "content": "<p>{{ product.metafields.custom.prefix_shipping.value }}</p><p>{{ product.metafields.custom.prefix_carton_weight.value }}<br/>{{ product.metafields.custom.prefix_carton_height.value }}<br/>{{ product.metafields.custom.prefix_carton_length.value }}<br/>{{ product.metafields.custom.prefix_carton_width.value }}</p>",
+            "page": ""
+          }
+        },
         "contact": {
           "type": "contact",
           "settings": {
@@ -108,11 +122,13 @@
         "inventory_status",
         "custom_YXn4Qg",
         "separator_DnBBew",
+        "description_cLFPAT",
         "sales_point",
         "buy_buttons",
         "tab_HAmQP6",
         "tab_zFza3D",
         "tab",
+        "tab_DMwcBQ",
         "contact",
         "share"
       ],
