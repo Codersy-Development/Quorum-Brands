@@ -79,7 +79,7 @@
           "type": "tab",
           "settings": {
             "title": "Performance | Features",
-            "content": "<p>{{ product.metafields.custom.prefix_remote_adaptable.value }}<br/>{{ product.metafields.custom.prefix_smart_bond.value }}</p><p>{{ product.metafields.custom.prefix_switch_type.value }}<br/>{{ product.metafields.custom.prefix_reverse_switch_type.value }}</p><p>{{ product.metafields.custom.prefix_wattage.value }}<br/>{{ product.metafields.custom.prefix_RPM_speed_1.value }}<br/>{{ product.metafields.custom.prefix_RPM_speed_3.value }}<br/>{{ product.metafields.custom.prefix_CFM_speed_1.value }}<br/>{{ product.metafields.custom.prefix_CFM_speed_3.value }}<br/>{{ product.metafields.custom.prefix_CFM_watts_1.value }}{{ product.metafields.custom.prefix_CFM_watts_3.value }}</p>",
+            "content": "<p>{{ product.metafields.custom.prefix_remote_adaptable.value }}<br/>{{ product.metafields.custom.prefix_smart_bond.value }}</p><p>{{ product.metafields.custom.prefix_switch_type.value }}<br/>{{ product.metafields.custom.prefix_reverse_switch_type.value }}</p><p>{{ product.metafields.custom.prefix_wattage.value }}<br/>{{ product.metafields.custom.prefix_RPM_speed_1.value }}<br/>{{ product.metafields.custom.prefix_RPM_speed_3.value }}<br/>{{ product.metafields.custom.prefix_CFM_speed_1.value }}<br/>{{ product.metafields.custom.prefix_CFM_speed_3.value }}<br/>{{ product.metafields.custom.prefix_CFM_watts_1.value }}{{ product.metafields.custom.prefix_CFM_watts_3.value }}</p><p>{{ product.metafields.custom.special_attribute.value }}</p>",
             "page": ""
           }
         },
