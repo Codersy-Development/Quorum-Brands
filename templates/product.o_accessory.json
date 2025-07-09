@@ -22,16 +22,6 @@
             "text": "{{ product.metafields.custom.prefix_item_series.value }}"
           }
         },
-        "variant_picker": {
-          "type": "variant_picker",
-          "disabled": true,
-          "settings": {
-            "variant_labels": true,
-            "picker_type": "button",
-            "product_dynamic_variants_enable": true,
-            "color_swatches": false
-          }
-        },
         "inventory_status": {
           "type": "inventory_status",
           "settings": {
@@ -49,12 +39,10 @@
           "type": "separator",
           "settings": {}
         },
-        "sales_point": {
-          "type": "sales_point",
-          "disabled": true,
+        "description_aCJeAL": {
+          "type": "description",
           "settings": {
-            "icon": "checkmark",
-            "text": "Free worldwide shipping"
+            "is_tab": false
           }
         },
         "buy_buttons": {
@@ -89,11 +77,12 @@
             "page": ""
           }
         },
-        "contact": {
-          "type": "contact",
+        "tab_kjJBRG": {
+          "type": "tab",
           "settings": {
-            "title": "Ask a question",
-            "phone": false
+            "title": "Shipping information",
+            "content": "<p>{{ product.metafields.custom.prefix_shipping.value }}</p><p>{{ product.metafields.custom.prefix_carton_weight.value }}<br/>{{ product.metafields.custom.prefix_carton_height.value }}<br/>{{ product.metafields.custom.prefix_carton_length.value }}<br/>{{ product.metafields.custom.prefix_carton_width.value }}</p>",
+            "page": ""
           }
         },
         "share": {
@@ -104,16 +93,15 @@
       "block_order": [
         "price",
         "text_wG7MLT",
-        "variant_picker",
         "inventory_status",
         "custom_YXn4Qg",
         "separator",
-        "sales_point",
+        "description_aCJeAL",
         "buy_buttons",
         "tab_HAmQP6",
         "tab_zFza3D",
         "tab",
-        "contact",
+        "tab_kjJBRG",
         "share"
       ],
       "settings": {
@@ -168,14 +156,6 @@
             "page": ""
           }
         },
-        "tab_9AjKC6": {
-          "type": "tab",
-          "settings": {
-            "title": "Shipping",
-            "content": "<p>{{ product.metafields.custom.prefix_shipping.value }}</p><p>{{ product.metafields.custom.prefix_carton_weight.value }}<br/>{{ product.metafields.custom.prefix_carton_height.value }}<br/>{{ product.metafields.custom.prefix_carton_length.value }}<br/>{{ product.metafields.custom.prefix_carton_width.value }}</p>",
-            "page": ""
-          }
-        },
         "tab_NGgmHF": {
           "type": "tab",
           "settings": {
@@ -187,7 +167,6 @@
       },
       "block_order": [
         "tab_VKwJHy",
-        "tab_9AjKC6",
         "tab_NGgmHF"
       ],
       "settings": {
