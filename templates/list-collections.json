@@ -15,7 +15,7 @@
         "collection_J37fbq": {
           "type": "collection",
           "settings": {
-            "collection": "ceiling-mounts",
+            "collection": "jason-brewer-mod",
             "title": "",
             "focal_point": "center center"
           }
@@ -23,7 +23,7 @@
         "collection_MYFKnP": {
           "type": "collection",
           "settings": {
-            "collection": "chandeliers",
+            "collection": "smyth-pickett",
             "title": "",
             "focal_point": "center center"
           }
@@ -31,7 +31,7 @@
         "collection_jDLYTd": {
           "type": "collection",
           "settings": {
-            "collection": "dual-mount",
+            "collection": "sergio-orozco",
             "title": "",
             "focal_point": "center center"
           }
@@ -39,55 +39,7 @@
         "collection_kfnWfP": {
           "type": "collection",
           "settings": {
-            "collection": "islands-linear",
-            "title": "",
-            "focal_point": "center center"
-          }
-        },
-        "collection_xacDpX": {
-          "type": "collection",
-          "settings": {
-            "collection": "nook",
-            "title": "",
-            "focal_point": "center center"
-          }
-        },
-        "collection_M4QVRJ": {
-          "type": "collection",
-          "settings": {
-            "collection": "pendants",
-            "title": "",
-            "focal_point": "center center"
-          }
-        },
-        "collection_3Azxkf": {
-          "type": "collection",
-          "settings": {
-            "collection": "under-cabinet",
-            "title": "",
-            "focal_point": "center center"
-          }
-        },
-        "collection_nq8rza": {
-          "type": "collection",
-          "settings": {
-            "collection": "vanities",
-            "title": "",
-            "focal_point": "center center"
-          }
-        },
-        "collection_3a87mp": {
-          "type": "collection",
-          "settings": {
-            "collection": "wall-mounts",
-            "title": "",
-            "focal_point": "center center"
-          }
-        },
-        "collection_BpUANm": {
-          "type": "collection",
-          "settings": {
-            "collection": "picture-lights",
+            "collection": "tamara-day",
             "title": "",
             "focal_point": "center center"
           }
@@ -97,108 +49,11 @@
         "collection_J37fbq",
         "collection_MYFKnP",
         "collection_jDLYTd",
-        "collection_kfnWfP",
-        "collection_xacDpX",
-        "collection_M4QVRJ",
-        "collection_3Azxkf",
-        "collection_nq8rza",
-        "collection_3a87mp",
-        "collection_BpUANm"
+        "collection_kfnWfP"
       ],
       "name": "t:sections.featured-collections.presets.collection_list.name",
       "settings": {
         "title": "Shop by Designer",
-        "divider": false,
-        "per_row": 6,
-        "enable_gutter": true
-      }
-    },
-    "featured_collections_thhakh": {
-      "type": "featured-collections",
-      "blocks": {
-        "collection_CKPjAr": {
-          "type": "collection",
-          "settings": {
-            "collection": "outdoor-wall-mount",
-            "title": "",
-            "focal_point": "center center"
-          }
-        },
-        "collection_Jk3x8T": {
-          "type": "collection",
-          "settings": {
-            "collection": "post",
-            "title": "",
-            "focal_point": "center center"
-          }
-        },
-        "collection_VVAN6c": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": "Pendants",
-            "focal_point": "center center"
-          }
-        }
-      },
-      "block_order": [
-        "collection_CKPjAr",
-        "collection_Jk3x8T",
-        "collection_VVAN6c"
-      ],
-      "name": "t:sections.featured-collections.presets.collection_list.name",
-      "settings": {
-        "title": "Outdoor Lighting",
-        "divider": false,
-        "per_row": 5,
-        "enable_gutter": true
-      }
-    },
-    "featured_collections_hnARn7": {
-      "type": "featured-collections",
-      "blocks": {
-        "collection_j3QkGb": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": "",
-            "focal_point": "center center"
-          }
-        },
-        "collection_CCeUhf": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": "",
-            "focal_point": "center center"
-          }
-        },
-        "collection_WTth89": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": "",
-            "focal_point": "center center"
-          }
-        },
-        "collection_PJmCGT": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": "",
-            "focal_point": "center center"
-          }
-        }
-      },
-      "block_order": [
-        "collection_j3QkGb",
-        "collection_CCeUhf",
-        "collection_WTth89",
-        "collection_PJmCGT"
-      ],
-      "name": "t:sections.featured-collections.presets.collection_list.name",
-      "settings": {
-        "title": "",
         "divider": false,
         "per_row": 5,
         "enable_gutter": true
@@ -206,8 +61,6 @@
     }
   },
   "order": [
-    "featured_collections_aAYwW4",
-    "featured_collections_thhakh",
-    "featured_collections_hnARn7"
+    "featured_collections_aAYwW4"
   ]
 }
