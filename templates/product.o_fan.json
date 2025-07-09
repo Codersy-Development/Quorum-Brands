@@ -103,13 +103,6 @@
             "page": ""
           }
         },
-        "contact_36dV9j": {
-          "type": "contact",
-          "settings": {
-            "title": "Ask a question",
-            "phone": false
-          }
-        },
         "share": {
           "type": "share",
           "settings": {}
@@ -129,7 +122,6 @@
         "tab",
         "tab_dMML88",
         "tab_wDhBGe",
-        "contact_36dV9j",
         "share"
       ],
       "custom_css": [],
@@ -146,46 +138,9 @@
         "product_video_style": "muted"
       }
     },
-    "rich_text_Fcfdk3": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_bCrdnr": {
-          "type": "heading",
-          "settings": {
-            "title": ""
-          }
-        },
-        "text_7PtDXT": {
-          "type": "text",
-          "settings": {
-            "enlarge_text": true,
-            "text": "{{ product.description }}"
-          }
-        }
-      },
-      "block_order": [
-        "heading_bCrdnr",
-        "text_7PtDXT"
-      ],
-      "custom_css": [],
-      "name": "t:sections.rich-text.presets.rich_text.name",
-      "settings": {
-        "align_text": "left",
-        "narrow_column": false,
-        "divider": false
-      }
-    },
     "sub": {
       "type": "product-full-width",
       "blocks": {
-        "tab_CpMWjw": {
-          "type": "tab",
-          "settings": {
-            "title": "Shipping information",
-            "content": "<p>{{ product.metafields.custom.prefix_shipping.value }}</p><p>{{ product.metafields.custom.prefix_carton_weight.value }}<br/>{{ product.metafields.custom.prefix_carton_height.value }}<br/>{{ product.metafields.custom.prefix_carton_length.value }}<br/>{{ product.metafields.custom.prefix_carton_width.value }}</p>",
-            "page": ""
-          }
-        },
         "tab_9AjKC6": {
           "type": "tab",
           "settings": {
@@ -196,12 +151,11 @@
         }
       },
       "block_order": [
-        "tab_CpMWjw",
         "tab_9AjKC6"
       ],
       "custom_css": [],
       "settings": {
-        "max_width": false
+        "max_width": true
       }
     },
     "testimonials": {
@@ -270,7 +224,6 @@
   },
   "order": [
     "main",
-    "rich_text_Fcfdk3",
     "sub",
     "testimonials",
     "product-recommendations",
