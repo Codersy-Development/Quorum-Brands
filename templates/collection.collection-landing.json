@@ -156,6 +156,19 @@
         "divider": false
       }
     },
+    "featured_collection_BwhNzj": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.featured_collection.name",
+      "settings": {
+        "title": "Picture Lights",
+        "home_featured_products": "tamara-day-picture-lights",
+        "per_row": 4,
+        "rows": 1,
+        "mobile_scrollable": true,
+        "view_all": true,
+        "divider": false
+      }
+    },
     "featured-collections": {
       "type": "featured-collections",
       "blocks": {
@@ -252,6 +265,7 @@
     "promo-grid2",
     "featured-collection3",
     "featured_collection_iqGQrh",
+    "featured_collection_BwhNzj",
     "featured-collections",
     "main-collection"
   ]
