@@ -62,7 +62,6 @@
         },
         "tab_HAmQP6": {
           "type": "tab",
-          "disabled": true,
           "settings": {
             "title": "Colors & Materials",
             "content": "<p>Use collapsible tabs for more detailed information that will help customers make a purchasing decision.</p><p>Ex: Shipping and return policies, size guides, and other common questions.</p>",
@@ -71,7 +70,6 @@
         },
         "tab_zFza3D": {
           "type": "tab",
-          "disabled": true,
           "settings": {
             "title": "Lighting Specs",
             "content": "<p>Use collapsible tabs for more detailed information that will help customers make a purchasing decision.</p><p>Ex: Shipping and return policies, size guides, and other common questions.</p>",
@@ -80,7 +78,6 @@
         },
         "tab": {
           "type": "tab",
-          "disabled": true,
           "settings": {
             "title": " Dimensions & Mounting",
             "content": "<p>Use collapsible tabs for more detailed information that will help customers make a purchasing decision.</p><p>Ex: Shipping and return policies, size guides, and other common questions.</p>",
@@ -89,7 +86,6 @@
         },
         "tab_nbjTFY": {
           "type": "tab",
-          "disabled": true,
           "settings": {
             "title": "Additional Information",
             "content": "<p>Use collapsible tabs for more detailed information that will help customers make a purchasing decision.</p><p>Ex: Shipping and return policies, size guides, and other common questions.</p>",
@@ -98,9 +94,16 @@
         },
         "contact": {
           "type": "contact",
+          "disabled": true,
           "settings": {
             "title": "Ask a question",
             "phone": false
+          }
+        },
+        "custom_zme3Yt": {
+          "type": "custom",
+          "settings": {
+            "code": "{%- assign current_variant = product.selected_or_first_available_variant -%}\n<div class=\"variant-button\" data-variant-id=\"{{ current_variant.id }}\">\n  {%- if current_variant.metafields.lavin.variant_url != blank -%}\n<p>\nAre you a Retail Customer?</p>\n    <a href=\"{{ current_variant.metafields.lavin.variant_url }}\" \n       class=\"btn btn--full\" \n\n       target=\"_blank\" \n       rel=\"noopener noreferrer\">\n      <span>Buy Online</span>\n    </a>\n  {%- endif -%}\n</div>\n<script>\n  var variantData = {\n    {%- for variant in product.variants -%}\n      \"{{ variant.id }}\": {\n        url: \"{{ variant.metafields.lavin.variant_url }}\",\n        size: \"{{ variant.metafields.lavin.filter_nominal-size }}\"\n      }{%- unless forloop.last -%},{%- endunless -%}\n    {%- endfor -%}\n  };\n  \n  document.addEventListener('variant:change', function(event) {\n    const variant = event.detail.variant;\n    const buttonContainer = document.querySelector('.variant-button');\n    const variantInfo = variantData[variant.id];\n    \n    if (variant && variantInfo && variantInfo.url) {\n      buttonContainer.innerHTML = `\n        <a href=\"${variantInfo.url}\" \n           class=\"btn btn--full\" \n           target=\"_blank\" \n           rel=\"noopener noreferrer\">\n          <span>Buy Online</span>\n        </a>\n      `;\n    } else {\n      buttonContainer.innerHTML = '';\n    }\n  });\n</script>"
           }
         },
         "share": {
@@ -122,6 +125,7 @@
         "tab",
         "tab_nbjTFY",
         "contact",
+        "custom_zme3Yt",
         "share"
       ],
       "settings": {
@@ -184,6 +188,7 @@
         "tab_9AjKC6",
         "share_tb8VYQ"
       ],
+      "disabled": true,
       "settings": {
         "max_width": false
       }
@@ -192,6 +197,7 @@
       "type": "background-image-text",
       "disabled": true,
       "settings": {
+        "store": "all",
         "subtitle": "Impressive",
         "title": "About your brand",
         "text": "<p>Pair large text with a full-width image to draw attention to an important detail of your brand or product line.</p>",
@@ -200,13 +206,12 @@
         "layout": "left",
         "height": 550,
         "framed": false,
-        "parallax": false,
-        "parallax_direction": "top",
         "lazyload_images": true
       }
     },
     "text-and-image2": {
       "type": "text-and-image",
+      "disabled": true,
       "settings": {
         "image": "{{ product.featured_image }}",
         "image_mask": "none",
