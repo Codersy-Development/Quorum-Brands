@@ -561,13 +561,7 @@
         "product_card_Ldkmt9": {
           "type": "product_card",
           "settings": {
-            "product": ""
-          }
-        },
-        "product_card_UpKUhE": {
-          "type": "product_card",
-          "settings": {
-            "product": ""
+            "product": "5240-2-47"
           }
         }
       },
@@ -577,8 +571,7 @@
         "product_card_UaxBh4",
         "product_card_phf77m",
         "product_card_U8RLq9",
-        "product_card_Ldkmt9",
-        "product_card_UpKUhE"
+        "product_card_Ldkmt9"
       ],
       "disabled": true,
       "name": "Featured Products",
