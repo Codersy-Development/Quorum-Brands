@@ -519,6 +519,7 @@
         "product_card_UqJEDX",
         "product_card_yqFPJB"
       ],
+      "disabled": true,
       "name": "Featured Products",
       "settings": {
         "store": "quorum",
@@ -573,6 +574,7 @@
         "product_card_U8RLq9",
         "product_card_UpKUhE"
       ],
+      "disabled": true,
       "name": "Featured Products",
       "settings": {
         "store": "oxygen",
