@@ -477,13 +477,13 @@
         "product_card_PTfiQ8": {
           "type": "product_card",
           "settings": {
-            "product": "4525-03159-draft"
+            "product": "7311-36"
           }
         },
         "product_card_FhLh8Q": {
           "type": "product_card",
           "settings": {
-            "product": "1375-886-draft"
+            "product": "3-111-24"
           }
         },
         "product_card_9tbLgg": {
@@ -519,7 +519,6 @@
         "product_card_UqJEDX",
         "product_card_yqFPJB"
       ],
-      "disabled": true,
       "name": "Featured Products",
       "settings": {
         "store": "quorum",
