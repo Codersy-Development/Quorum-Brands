@@ -35,9 +35,19 @@
             "code": "<div class=\"logo-row\">\n  {{ product.metafields.custom.cUL_logo.value }}\n  {{ product.metafields.custom.cETL_Logo.value }}\n  {{ product.metafields.custom.CCT_logo.value }}\n  {{ product.metafields.custom.ELT_logo.value }}\n  {{ product.metafields.custom.ghost_logo.value }}\n</div>\n\n<style>\n  .logo-row {\n    display: flex;\n    gap: 20px;\n    align-items: center;\n  }\n</style>"
           }
         },
+        "sa_variants_product_swatch_block_b8Kx6y": {
+          "type": "shopify://apps/sa-variants/blocks/product-swatch-block/ff68b20f-8c8f-491e-92bf-3e5b8f17ef88",
+          "settings": {}
+        },
         "separator": {
           "type": "separator",
           "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "is_tab": false
+          }
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -45,12 +55,6 @@
             "show_dynamic_checkout": false,
             "surface_pickup_enable": false,
             "show_gift_card_recipient": false
-          }
-        },
-        "description": {
-          "type": "description",
-          "settings": {
-            "is_tab": false
           }
         },
         "tab_HAmQP6": {
@@ -109,9 +113,10 @@
         "text_Ghiaqx",
         "inventory_status",
         "custom_LKDrRE",
+        "sa_variants_product_swatch_block_b8Kx6y",
         "separator",
-        "buy_buttons",
         "description",
+        "buy_buttons",
         "tab_HAmQP6",
         "tab_zFza3D",
         "tab",
