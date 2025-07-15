@@ -202,6 +202,7 @@ reqJquery(function($){
       localStorage.setItem('wpd_integration_fbt_bundle','');
       console.log(window.wcp_data);     
       window.wcp_data.market_country = window.Shopify.country;
+      window.wcp_data.channel = "storefront";
       $.ajax({
         contentType: "application/json; charset=utf-8", 
         dataType: "json",
@@ -761,6 +762,7 @@ var fnCalled = false;
       }
 	 localStorage.setItem('wpd_integration_fbt_bundle','');
     //change button to loading or spinner
+    wcp_data.channel = "storefront";
     $.ajax({
       contentType: "application/json; charset=utf-8",
       
