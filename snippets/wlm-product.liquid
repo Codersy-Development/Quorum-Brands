@@ -1,12 +1,12 @@
 {%- assign w_continue = 'no' -%}
-{% assign wlmHideItem_Product = false %}{% assign wlmLockedTags305826 = false %}
-{% assign wlmLockedTags305828 = false %}
-{% assign wlmLockedTags305827 = false %}
+{% assign wlmHideItem_Product = false %}{% assign wlmLockedTags314364 = false %}
+{% assign wlmLockedTags314365 = false %}
+{% assign wlmLockedTags314366 = false %}
 {% assign wlmLockedTags305829 = false %}
 {% for tag in customer.tags %}
-{% if tag == 'Wholesale' %}{% assign wlmLockedTags305826 = true %}{% endif %}
-{% if tag == 'Editor' %}{% assign wlmLockedTags305828 = true %}{% endif %}
-{% if tag == 'Designer' %}{% assign wlmLockedTags305827 = true %}{% endif %}
+{% if tag == 'DN-Price' %}{% assign wlmLockedTags314364 = true %}{% endif %}
+{% if tag == 'Designer' %}{% assign wlmLockedTags314365 = true %}{% endif %}
+{% if tag == 'Editor' %}{% assign wlmLockedTags314366 = true %}{% endif %}
 {% if tag == 'WLMTest' %}{% assign wlmLockedTags305829 = true %}{% endif %}
 {% endfor %}
 

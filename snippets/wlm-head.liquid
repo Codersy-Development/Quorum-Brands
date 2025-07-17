@@ -17,14 +17,14 @@
 {% if wlmEnabled %}
 <style type="text/css">.wlm-message-pnf{text-align:center}#wlm-pwd-form{padding:30px 0;text-align:center}#wlm-wrapper{display:inline-block}#wlm-pwd-error{display:none;color:#FB8077;text-align:left;margin-top:10px;font-size:1.3rem}#wlm-pwd-error.wlm-error{border:1px solid #FB8077}#wlm-pwd-form-button{display:inline-block !important;height:auto !important;padding:8px 15px !important;background:black;border-radius:0 !important;color:#fff !important;text-decoration:none !important;vertical-align:top}.wlm-instantclick-fix,.wlm-item-selector{position:absolute;z-index:-999;display:none;height:0;width:0;font-size:0;line-height:0}#wlm-pwd-msg{margin-bottom:20px;text-align:left}#wlm-pwd-msg>p{margin-top:0;margin-bottom:0}.wlm-form-holder{display:flex}#wlm-pwd{border-color:black;border-width:1px;border-right:0;padding:0 10px}#wlm-pwd:focus-visible{outline:0}</style>
 
-{% assign wlmLockedTags305826 = false %}
-{% assign wlmLockedTags305828 = false %}
-{% assign wlmLockedTags305827 = false %}
+{% assign wlmLockedTags314364 = false %}
+{% assign wlmLockedTags314365 = false %}
+{% assign wlmLockedTags314366 = false %}
 {% assign wlmLockedTags305829 = false %}
 {% for tag in customer.tags %}
-{% if tag == 'Wholesale' %}{% assign wlmLockedTags305826 = true %}{% endif %}
-{% if tag == 'Editor' %}{% assign wlmLockedTags305828 = true %}{% endif %}
-{% if tag == 'Designer' %}{% assign wlmLockedTags305827 = true %}{% endif %}
+{% if tag == 'DN-Price' %}{% assign wlmLockedTags314364 = true %}{% endif %}
+{% if tag == 'Designer' %}{% assign wlmLockedTags314365 = true %}{% endif %}
+{% if tag == 'Editor' %}{% assign wlmLockedTags314366 = true %}{% endif %}
 {% if tag == 'WLMTest' %}{% assign wlmLockedTags305829 = true %}{% endif %}
 {% endfor %}
 
@@ -39,7 +39,7 @@
 {% capture wlmPnfMsg %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
 {% capture wlmRedirectURL %}/pages/registration-request{% endcapture %}
 {% else %}
-{% unless wlmLockedTags305826 or wlmLockedTags305827 or wlmLockedTags305828 %}{% assign wlmLockON = true %}{% endunless %}
+{% unless wlmLockedTags314364 or wlmLockedTags314365 or wlmLockedTags314366 %}{% assign wlmLockON = true %}{% endunless %}
 {% if wlmLockON %}
 {% capture wlmPnfHead %}Page not found{% endcapture %}
 {% capture wlmPnfMsg %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
