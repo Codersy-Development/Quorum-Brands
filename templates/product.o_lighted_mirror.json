@@ -31,7 +31,7 @@
             "is_new_icon_settings": true,
             "icon_type": "fill",
             "icon_size": 16,
-            "icon_background_type": "icon_square_background",
+            "icon_background_type": "icon_round_background",
             "icon_background_color": "#ec008c",
             "icon_fill_color": "#ffffff",
             "icon_border_color": "#ffffff",
