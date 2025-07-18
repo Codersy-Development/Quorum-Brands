@@ -124,6 +124,27 @@ const getStoreSentenceCase = () => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("=== STORE SWITCHER DEBUG ===");
+  console.log("DOMContentLoaded triggered");
+  console.log("Current URL:", window.location.href);
+  console.log("Current store:", getStoreSentenceCase());
+  console.log("Is product page:", window.location.pathname.includes("/products/"));
+  
+  // Monitor for any redirects
+  const originalReplace = window.location.replace;
+  window.location.replace = function(url) {
+    console.log("🚨 REDIRECT DETECTED by location.replace:", url);
+    console.trace("Redirect called from:");
+    return originalReplace.call(this, url);
+  };
+  
+  const originalAssign = window.location.assign;
+  window.location.assign = function(url) {
+    console.log("🚨 REDIRECT DETECTED by location.assign:", url);
+    console.trace("Redirect called from:");
+    return originalAssign.call(this, url);
+  };
+  
   setCollectionsFilters();
 
   const current = new URL(window.location.href);
@@ -134,6 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
       current.searchParams.has("filter.p.vendor") &&
       currentStore &&
       currentStore.toLowerCase().includes("shop all")) {
+    console.log("Removing vendor filter from product page");
     current.searchParams.delete("filter.p.vendor");
     window.location.replace(current.toString());
     return;
@@ -148,10 +170,14 @@ document.addEventListener("DOMContentLoaded", () => {
     currentStore &&
     !currentStore.toLowerCase().includes("shop all")
   ) {
+    console.log("Adding vendor filter to collection page");
     current.searchParams.set("filter.p.vendor", currentStore);
     window.location.replace(current.toString());
     return;
   }
+  
+  console.log("No URL changes needed");
+  console.log("=== END STORE SWITCHER DEBUG ===");
 });
 
 class StoreSwitchMenus extends HTMLElement {
