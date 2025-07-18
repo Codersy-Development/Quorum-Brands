@@ -26,6 +26,13 @@ document.addEventListener('DOMContentLoaded', function() {
     svgIconPaths.forEach(function(path) {
       path.style.color = '#ec008c';
     });
+
+    // Style specific icons with white fill
+    const whiteIcons = document.querySelectorAll('.icon-chevron-right, .icon-chevron-left, .icon-close');
+    whiteIcons.forEach(function(icon) {
+      icon.style.fill = 'white';
+    });
+
     
     // Style the footer background and text
     const footer = document.querySelector('footer');
