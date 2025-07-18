@@ -26,7 +26,7 @@
             "button_background": "#84754e",
             "border_color": "#ffffff",
             "hover_button_text_color": "#84754e",
-            "hover_button_background_color": "#e8e8e1",
+            "hover_button_background_color": "#ffffff",
             "hover_button_border_color": "#84754e",
             "is_new_icon_settings": true,
             "icon_type": "fill",
@@ -36,8 +36,8 @@
             "icon_fill_color": "#ffffff",
             "icon_border_color": "#ffffff",
             "icon_hover_color": "#e8e8e1",
-            "selected_icon_fill_color": "#5c6ac4",
-            "selected_icon_border_color": "#5c6ac4"
+            "selected_icon_fill_color": "#84754e",
+            "selected_icon_border_color": "#ffffff"
           }
         },
         "price": {
