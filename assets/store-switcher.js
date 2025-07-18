@@ -22,15 +22,40 @@ const setCollectionsFilters = () => {
 
 // NEW: Function to extract vendor from product page
 const getProductVendor = () => {
-  // Try multiple methods to find the vendor on the product page
+  // Method 1: Check the specific vendor element on your site
+  const gridVendor = document.querySelector('.grid-product__vendor');
+  if (gridVendor && gridVendor.textContent?.trim()) {
+    return gridVendor.textContent.trim();
+  }
   
-  // Method 1: Look for vendor in meta tags
+  // Method 2: Look for vendor in other common Shopify selectors (fallback)
+  const vendorSelectors = [
+    '.product-vendor',
+    '.product__vendor', 
+    '[data-vendor]',
+    '.vendor',
+    '.brand',
+    '.product-brand',
+    '.product__brand'
+  ];
+  
+  for (const selector of vendorSelectors) {
+    const element = document.querySelector(selector);
+    if (element && element.textContent?.trim()) {
+      return element.textContent.trim();
+    }
+    if (element && element.dataset.vendor) {
+      return element.dataset.vendor;
+    }
+  }
+  
+  // Method 3: Look for vendor in meta tags
   const vendorMeta = document.querySelector('meta[property="product:brand"]');
   if (vendorMeta && vendorMeta.content) {
     return vendorMeta.content;
   }
   
-  // Method 2: Look for vendor in JSON-LD structured data
+  // Method 4: Look for vendor in JSON-LD structured data
   const jsonLdScript = document.querySelector('script[type="application/ld+json"]');
   if (jsonLdScript) {
     try {
@@ -40,31 +65,6 @@ const getProductVendor = () => {
       }
     } catch (e) {
       // Continue to next method
-    }
-  }
-  
-  // Method 3: Look for vendor in common Shopify selectors
-  const vendorSelectors = [
-    '.product-vendor',
-    '.product__vendor', 
-    '[data-vendor]',
-    '.vendor',
-    '.brand'
-  ];
-  
-  for (const selector of vendorSelectors) {
-    const element = document.querySelector(selector);
-    if (element) {
-      return element.textContent?.trim() || element.dataset.vendor;
-    }
-  }
-  
-  // Method 4: Try to extract from product form data
-  const productForm = document.querySelector('form[action*="/cart/add"]');
-  if (productForm) {
-    const vendorInput = productForm.querySelector('input[name*="vendor"], input[data-vendor]');
-    if (vendorInput && vendorInput.value) {
-      return vendorInput.value;
     }
   }
   
@@ -99,11 +99,19 @@ const autoSwitchToProductVendor = () => {
   let matchingInput = null;
   
   // Look for exact match or case-insensitive match
+  console.log('Available store options:', Array.from(inputs).map(input => input.value));
+  
   for (const input of inputs) {
-    if (input.value.toLowerCase() === productVendor.toLowerCase() ||
-        input.value.toLowerCase().includes(productVendor.toLowerCase()) ||
-        productVendor.toLowerCase().includes(input.value.toLowerCase())) {
+    const inputValue = input.value.toLowerCase();
+    const vendorValue = productVendor.toLowerCase();
+    
+    console.log(`Checking: "${input.value}" against vendor "${productVendor}"`);
+    
+    if (inputValue === vendorValue ||
+        inputValue.includes(vendorValue) ||
+        vendorValue.includes(inputValue)) {
       matchingInput = input;
+      console.log(`Match found: "${input.value}"`);
       break;
     }
   }
