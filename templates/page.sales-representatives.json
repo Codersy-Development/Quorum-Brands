@@ -77,10 +77,23 @@
             "email": "aj@myhouselighting.com",
             "phone": "612-123-5678"
           }
+        },
+        "rep_X64rjt": {
+          "type": "rep",
+          "settings": {
+            "name": "Quorum",
+            "rep_group": "Showroom",
+            "position": "Quorum International",
+            "territory": "",
+            "territory_detail": "",
+            "email": "fbradford@quorumintl.com",
+            "phone": "817-682-6323"
+          }
         }
       },
       "block_order": [
-        "rep_EzJNBT"
+        "rep_EzJNBT",
+        "rep_X64rjt"
       ],
       "custom_css": [
         "@media screen and (min-width: 750px) {div {margin-top: 50px; }}"
