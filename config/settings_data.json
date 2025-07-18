@@ -57,6 +57,7 @@
     "icon_weight": "4px",
     "icon_linecaps": "miter",
     "product_save_amount": true,
+    "product_save_type": "percent",
     "vendor_enable": true,
     "quick_shop_enable": false,
     "quick_shop_text": "View",
@@ -97,17 +98,6 @@
     },
     "content_for_index": [],
     "blocks": {
-      "11989592277864780042": {
-        "type": "shopify://apps/wholesale-pricing-discount/blocks/app-embed/94cbfa01-7191-4bb2-bcd8-b519b9b3bd06",
-        "disabled": false,
-        "settings": {
-          "showCrossOutPrice": true,
-          "showCurrencyCodes": false,
-          "priceColor": "#000000",
-          "crossOutPriceColor": "#E9330C",
-          "appProxy": "/apps/wpdapp"
-        }
-      },
       "1744347199190486471": {
         "type": "shopify://apps/advanced-wishlist/blocks/app/330d9272-08ea-4193-b3e0-475a69fa65fa",
         "disabled": false,
@@ -153,6 +143,22 @@
           "collection_count_layout": "top_count",
           "collection_count_background_color": "#5c6ac4",
           "collection_count_color": "#ffffff"
+        }
+      },
+      "3824936769257688723": {
+        "type": "shopify://apps/sami-product-labels/blocks/app-embed-block/b9b44663-5d51-4be1-8104-faedd68da8c5",
+        "disabled": false,
+        "settings": {}
+      },
+      "11989592277864780042": {
+        "type": "shopify://apps/wholesale-pricing-discount/blocks/app-embed/94cbfa01-7191-4bb2-bcd8-b519b9b3bd06",
+        "disabled": false,
+        "settings": {
+          "showCrossOutPrice": true,
+          "showCurrencyCodes": false,
+          "priceColor": "#000000",
+          "crossOutPriceColor": "#e9330c",
+          "appProxy": "/apps/wpdapp"
         }
       }
     }
