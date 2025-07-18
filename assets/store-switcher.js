@@ -20,6 +20,116 @@ const setCollectionsFilters = () => {
   });
 };
 
+// NEW: Function to extract vendor from product page
+const getProductVendor = () => {
+  // Try multiple methods to find the vendor on the product page
+  
+  // Method 1: Look for vendor in meta tags
+  const vendorMeta = document.querySelector('meta[property="product:brand"]');
+  if (vendorMeta && vendorMeta.content) {
+    return vendorMeta.content;
+  }
+  
+  // Method 2: Look for vendor in JSON-LD structured data
+  const jsonLdScript = document.querySelector('script[type="application/ld+json"]');
+  if (jsonLdScript) {
+    try {
+      const data = JSON.parse(jsonLdScript.textContent);
+      if (data.brand && data.brand.name) {
+        return data.brand.name;
+      }
+    } catch (e) {
+      // Continue to next method
+    }
+  }
+  
+  // Method 3: Look for vendor in common Shopify selectors
+  const vendorSelectors = [
+    '.product-vendor',
+    '.product__vendor', 
+    '[data-vendor]',
+    '.vendor',
+    '.brand'
+  ];
+  
+  for (const selector of vendorSelectors) {
+    const element = document.querySelector(selector);
+    if (element) {
+      return element.textContent?.trim() || element.dataset.vendor;
+    }
+  }
+  
+  // Method 4: Try to extract from product form data
+  const productForm = document.querySelector('form[action*="/cart/add"]');
+  if (productForm) {
+    const vendorInput = productForm.querySelector('input[name*="vendor"], input[data-vendor]');
+    if (vendorInput && vendorInput.value) {
+      return vendorInput.value;
+    }
+  }
+  
+  return null;
+};
+
+// NEW: Function to auto-switch store based on product vendor
+const autoSwitchToProductVendor = () => {
+  const current = new URL(window.location.href);
+  
+  // Only run on product pages
+  if (!current.pathname.includes('/products/')) {
+    return false;
+  }
+  
+  const productVendor = getProductVendor();
+  if (!productVendor) {
+    console.log('Could not determine product vendor');
+    return false;
+  }
+  
+  console.log('Product vendor detected:', productVendor);
+  
+  // Find the store switcher input that matches this vendor
+  const storeSwitcher = document.querySelector('store-switcher');
+  if (!storeSwitcher) {
+    console.log('Store switcher not found');
+    return false;
+  }
+  
+  const inputs = storeSwitcher.querySelectorAll('input');
+  let matchingInput = null;
+  
+  // Look for exact match or case-insensitive match
+  for (const input of inputs) {
+    if (input.value.toLowerCase() === productVendor.toLowerCase() ||
+        input.value.toLowerCase().includes(productVendor.toLowerCase()) ||
+        productVendor.toLowerCase().includes(input.value.toLowerCase())) {
+      matchingInput = input;
+      break;
+    }
+  }
+  
+  if (matchingInput && matchingInput.value !== localStorage.getItem("store-selected")) {
+    console.log('Auto-switching to store:', matchingInput.value);
+    
+    // Update the store selection
+    localStorage.setItem("store-selected", matchingInput.value);
+    document.querySelector("html").dataset.storeSelected = matchingInput.value;
+    
+    // Update the UI
+    inputs.forEach(input => input.checked = false);
+    matchingInput.checked = true;
+    
+    // Update filters and navigation
+    setCollectionsFilters();
+    if (typeof theme !== 'undefined' && theme.headerNav) {
+      theme.headerNav.init();
+    }
+    
+    return true;
+  }
+  
+  return false;
+};
 
 class StoreSwitcher extends HTMLElement {
   constructor() {
@@ -57,10 +167,12 @@ class StoreSwitcher extends HTMLElement {
         this.htmlEL.dataset.storeSelected = input.value;
         localStorage.setItem("store-selected", input.value);
         setCollectionsFilters();
-        theme.headerNav.init();
+        if (typeof theme !== 'undefined' && theme.headerNav) {
+          theme.headerNav.init();
+        }
         const current = new URL(window.location.href);
         if (/\/(?:collections|products)\//.test(current.pathname)) {
-          if (current.pathname.includes("/collections/")) {
+          if (current.pathname.includes("/collections/") && !current.pathname.includes("/products/")) {
             console.log(input.value)
             if(input.value.includes("shop all brands")) {
               current.searchParams.delete("filter.p.vendor");
@@ -79,7 +191,9 @@ class StoreSwitcher extends HTMLElement {
     if (!localStorage.getItem("store-selected")) {
       localStorage.setItem("store-selected", this.inputs[0].value);
       this.htmlEL.dataset.storeSelected = this.inputs[0].value;
-      theme.headerNav.init();
+      if (typeof theme !== 'undefined' && theme.headerNav) {
+        theme.headerNav.init();
+      }
       const current = new URL(window.location.href);
       if (/\/(?:collections|products)\//.test(current.pathname)) {
         window.location.reload();
@@ -97,24 +211,26 @@ const getStoreSentenceCase = () => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+  // NEW: Try to auto-switch to product vendor first
+  const switched = autoSwitchToProductVendor();
+  
   setCollectionsFilters();
 
   const current = new URL(window.location.href);
   const currentStore = getStoreSentenceCase();
   
-  // FIX: Only apply to actual collections pages, not product pages
-  // Also respect "Shop All" selection
+  // Only apply collection filtering logic to actual collections pages (not product pages)
+  // and respect "Shop All" selection
   if (
     current.pathname.includes("/collections/") &&
-    !current.pathname.includes("/products/") &&  // ← NEW: Exclude product pages
+    !current.pathname.includes("/products/") &&
     !current.searchParams.has("filter.p.vendor") &&
     currentStore &&
-    !currentStore.toLowerCase().includes("shop all brands")  // ← NEW: Respect "Shop All"
+    !currentStore.toLowerCase().includes("shop all brands")
   ) {
-    current.searchParams.set("filter.p.vendor", currentStore);  // ← FIXED: Use currentStore instead of undefined 'store'
-    // replace current history entry so back-button won't bounce you endlessly
+    current.searchParams.set("filter.p.vendor", currentStore);
     window.location.replace(current.toString());
-    return; // stop running the rest until after reload
+    return;
   }
 });
 
