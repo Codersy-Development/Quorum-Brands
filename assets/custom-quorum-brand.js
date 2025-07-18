@@ -27,12 +27,18 @@ document.addEventListener('DOMContentLoaded', function() {
       path.style.color = '#84754E';
     });
   
-  // Style specific icons with white fill
-    const whiteIcons = document.querySelectorAll('.icon-chevron-right, .icon-chevron-left, .icon-X');
+    // Style specific icons with white fill
+    const whiteIcons = document.querySelectorAll('.icon-chevron-right, .icon-chevron-left, .icon-close');
     whiteIcons.forEach(function(icon) {
-      icon.style.fill = 'white';
+      icon.style.fill = 'white !important';
     });
-
+    
+    // Style specific SVG icon paths with white color
+    const whiteIconPaths = document.querySelectorAll('svg.icon-chevron-right path, svg.icon-chevron-left path, svg.icon-close path');
+    whiteIconPaths.forEach(function(path) {
+      path.style.color = 'white !important';
+      path.style.fill = 'white !important';
+    });
     
     // Style the footer background and text
     const footer = document.querySelector('footer');
