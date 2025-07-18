@@ -37,13 +37,13 @@
             "is_new_icon_settings": true,
             "icon_type": "fill",
             "icon_size": 16,
-            "icon_background_type": "icon_square_background",
+            "icon_background_type": "icon_round_background",
             "icon_background_color": "#84754e",
             "icon_fill_color": "#ffffff",
             "icon_border_color": "#84754e",
-            "icon_hover_color": "#5e5336",
-            "selected_icon_fill_color": "#514931",
-            "selected_icon_border_color": "#514931"
+            "icon_hover_color": "#565041",
+            "selected_icon_fill_color": "#565041",
+            "selected_icon_border_color": "#565041"
           }
         },
         "price": {
