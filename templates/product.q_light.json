@@ -43,6 +43,12 @@
           "type": "separator",
           "settings": {}
         },
+        "description_xJwzFy": {
+          "type": "description",
+          "settings": {
+            "is_tab": false
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -55,12 +61,6 @@
           "type": "custom",
           "settings": {
             "code": "<div class=\"variant-button\">\n  {%- if product.metafields.custom.buy_now_button != blank -%}\n\n    <a href=\"{{ product.metafields.custom.buy_now_button }}\" \n       class=\"btn btn--full\" \n       target=\"_blank\" \n       rel=\"noopener noreferrer\">\n      <span>Buy Online</span>\n    </a>\n  {%- endif -%}\n</div>"
-          }
-        },
-        "description_xJwzFy": {
-          "type": "description",
-          "settings": {
-            "is_tab": false
           }
         },
         "tab_HAmQP6": {
@@ -115,9 +115,9 @@
         "custom_YXn4Qg",
         "sa_variants_product_swatch_block_MHQYFL",
         "separator",
+        "description_xJwzFy",
         "buy_buttons",
         "custom_3fgC6G",
-        "description_xJwzFy",
         "tab_HAmQP6",
         "tab_zFza3D",
         "tab",
