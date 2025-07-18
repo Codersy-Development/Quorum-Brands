@@ -15,14 +15,14 @@
         "advanced_wishlist_wishlist_btn_mLUQ78": {
           "type": "shopify://apps/advanced-wishlist/blocks/wishlist-btn/330d9272-08ea-4193-b3e0-475a69fa65fa",
           "settings": {
-            "button_style": "style_3",
-            "button_border": 5,
+            "button_style": "style_4",
+            "button_border": 0,
             "button_font_size": 16,
             "button_font_weight": "500",
             "button_border_radius": 5,
             "button_vertical_space": 9,
             "button_horizontal_space": 0,
-            "button_text_color": "#ffffff",
+            "button_text_color": "#84754e",
             "button_background": "#ffffff",
             "border_color": "#ffffff",
             "hover_button_text_color": "#84754e",
