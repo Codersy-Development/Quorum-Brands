@@ -63,6 +63,7 @@ class StoreSwitcher extends HTMLElement {
         const current = new URL(window.location.href);
         if (/\/(?:collections|products)\//.test(current.pathname)) {
           if (current.pathname.includes("/collections/") && !current.pathname.includes("/products/")) {
+            // This is a collections page
             console.log(input.value)
             if(input.value.includes("shop all brands")) {
               current.searchParams.delete("filter.p.vendor");
@@ -72,7 +73,13 @@ class StoreSwitcher extends HTMLElement {
               window.location.replace(current.toString());
             }
           } else {
-            window.location.reload();
+            // This is a product page - also handle vendor filter removal for "Shop All"
+            if(input.value.includes("shop all brands")) {
+              current.searchParams.delete("filter.p.vendor");
+              window.location.replace(current.toString());
+            } else {
+              window.location.reload();
+            }
           }
         }
       });
@@ -105,6 +112,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const current = new URL(window.location.href);
   const currentStore = getStoreSentenceCase();
+  
+  // Handle product pages with vendor filters when "Shop All" is selected
+  if (current.pathname.includes("/products/") && 
+      current.searchParams.has("filter.p.vendor") &&
+      currentStore &&
+      currentStore.toLowerCase().includes("shop all brands")) {
+    current.searchParams.delete("filter.p.vendor");
+    window.location.replace(current.toString());
+    return;
+  }
   
   // Only apply collection filtering logic to actual collections pages (not product pages)
   // and respect "Shop All" selection
