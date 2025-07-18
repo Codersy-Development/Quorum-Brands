@@ -20,124 +20,6 @@ const setCollectionsFilters = () => {
   });
 };
 
-// NEW: Function to extract vendor from product page
-const getProductVendor = () => {
-  // Method 1: Check the specific vendor element on your site
-  const gridVendor = document.querySelector('.grid-product__vendor');
-  if (gridVendor && gridVendor.textContent?.trim()) {
-    return gridVendor.textContent.trim();
-  }
-  
-  // Method 2: Look for vendor in other common Shopify selectors (fallback)
-  const vendorSelectors = [
-    '.product-vendor',
-    '.product__vendor', 
-    '[data-vendor]',
-    '.vendor',
-    '.brand',
-    '.product-brand',
-    '.product__brand'
-  ];
-  
-  for (const selector of vendorSelectors) {
-    const element = document.querySelector(selector);
-    if (element && element.textContent?.trim()) {
-      return element.textContent.trim();
-    }
-    if (element && element.dataset.vendor) {
-      return element.dataset.vendor;
-    }
-  }
-  
-  // Method 3: Look for vendor in meta tags
-  const vendorMeta = document.querySelector('meta[property="product:brand"]');
-  if (vendorMeta && vendorMeta.content) {
-    return vendorMeta.content;
-  }
-  
-  // Method 4: Look for vendor in JSON-LD structured data
-  const jsonLdScript = document.querySelector('script[type="application/ld+json"]');
-  if (jsonLdScript) {
-    try {
-      const data = JSON.parse(jsonLdScript.textContent);
-      if (data.brand && data.brand.name) {
-        return data.brand.name;
-      }
-    } catch (e) {
-      // Continue to next method
-    }
-  }
-  
-  return null;
-};
-
-// NEW: Function to auto-switch store based on product vendor
-const autoSwitchToProductVendor = () => {
-  const current = new URL(window.location.href);
-  
-  // Only run on product pages
-  if (!current.pathname.includes('/products/')) {
-    return false;
-  }
-  
-  const productVendor = getProductVendor();
-  if (!productVendor) {
-    console.log('Could not determine product vendor');
-    return false;
-  }
-  
-  console.log('Product vendor detected:', productVendor);
-  
-  // Find the store switcher input that matches this vendor
-  const storeSwitcher = document.querySelector('store-switcher');
-  if (!storeSwitcher) {
-    console.log('Store switcher not found');
-    return false;
-  }
-  
-  const inputs = storeSwitcher.querySelectorAll('input');
-  let matchingInput = null;
-  
-  // Look for exact match or case-insensitive match
-  console.log('Available store options:', Array.from(inputs).map(input => input.value));
-  
-  for (const input of inputs) {
-    const inputValue = input.value.toLowerCase();
-    const vendorValue = productVendor.toLowerCase();
-    
-    console.log(`Checking: "${input.value}" against vendor "${productVendor}"`);
-    
-    if (inputValue === vendorValue ||
-        inputValue.includes(vendorValue) ||
-        vendorValue.includes(inputValue)) {
-      matchingInput = input;
-      console.log(`Match found: "${input.value}"`);
-      break;
-    }
-  }
-  
-  if (matchingInput && matchingInput.value !== localStorage.getItem("store-selected")) {
-    console.log('Auto-switching to store:', matchingInput.value);
-    
-    // Update the store selection
-    localStorage.setItem("store-selected", matchingInput.value);
-    document.querySelector("html").dataset.storeSelected = matchingInput.value;
-    
-    // Update the UI
-    inputs.forEach(input => input.checked = false);
-    matchingInput.checked = true;
-    
-    // Update filters and navigation
-    setCollectionsFilters();
-    if (typeof theme !== 'undefined' && theme.headerNav) {
-      theme.headerNav.init();
-    }
-    
-    return true;
-  }
-  
-  return false;
-};
 
 class StoreSwitcher extends HTMLElement {
   constructor() {
@@ -219,9 +101,6 @@ const getStoreSentenceCase = () => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  // NEW: Try to auto-switch to product vendor first
-  const switched = autoSwitchToProductVendor();
-  
   setCollectionsFilters();
 
   const current = new URL(window.location.href);
