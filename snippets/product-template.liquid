@@ -190,7 +190,20 @@
                       {%- render 'product-description', id: id, product: product, is_tab: block.settings.is_tab -%}
                     </div>
                   {%- when 'price' -%}
-                    <div class="product-block product-block--price" {{ block.shopify_attributes }}>
+  {%- comment -%} Price prefix logic based on customer tags {%- endcomment -%}
+  {%- assign price_prefix = 'Price' -%}
+  {%- if customer -%}
+    {%- if customer.tags contains 'Designer' -%}
+      {%- assign price_prefix = 'Designer Price' -%}
+    {%- elsif customer.tags contains 'DN-Price' -%}
+      {%- assign price_prefix = 'Dealer Network Price' -%}
+    {%- endif -%}
+  {%- endif -%}
+
+  <div class="product-block product-block--price" {{ block.shopify_attributes }}>
+    {%- comment -%} Add the price prefix {%- endcomment -%}
+    <span class="price-prefix">{{ price_prefix }}:</span>
+                   
                       {%- assign hide_sale_price = true -%}
                       {%- if product.compare_at_price_max > product.price -%}
                         {%- if current_variant.compare_at_price > current_variant.price -%}
