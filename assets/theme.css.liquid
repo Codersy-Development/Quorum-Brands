@@ -13144,6 +13144,27 @@ html[dir=rtl] .product-single__meta .rte{
 }
 
 /* Wishlist icons and heart */
+.wishlist-btn {
+    display: inline-block !important;
+}
+
+/* Ensure buttons are visible on product pages */
+[class*="shopify-block"][class*="advanced_wishlist"] .wishlist-btn {
+    display: inline-block !important;
+}
+
+/* Specific fix for your wishlist buttons */
+.icon-wishlist-heart-empty.wishlist-btn {
+    display: inline-block !important;
+}
+
+/* Alternative: Target by data attributes */
+a[data-wishlist][style*="display: none"] {
+    display: inline-block !important;
+}
+
+
+
 .is-light .heart-hulk-animation {
     color: #fff;
 }
