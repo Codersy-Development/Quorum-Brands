@@ -30,14 +30,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Style specific icons with white fill
     const whiteIcons = document.querySelectorAll('.icon-chevron-right, .icon-chevron-left, .icon-close');
     whiteIcons.forEach(function(icon) {
-      icon.style.fill = 'white !important';
+      icon.style.fill = 'white';
     });
     
     // Style specific SVG icon paths with white color
     const whiteIconPaths = document.querySelectorAll('svg.icon-chevron-right path, svg.icon-chevron-left path, svg.icon-close path');
     whiteIconPaths.forEach(function(path) {
-      path.style.color = 'white !important';
-      path.style.fill = 'white !important';
+      path.style.color = 'white';
+      path.style.fill = 'white';
     });
     
     // Style the footer background and text
