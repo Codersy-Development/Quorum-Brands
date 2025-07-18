@@ -1,16 +1,32 @@
 const setCollectionsFilters = () => {
   const VENDOR_KEY = 'filter.p.vendor';
   const store      = getStoreSentenceCase();
+  console.log('setCollectionsFilters called with store:', store);
+  
   document.querySelectorAll('a[href*="/collections/"]').forEach((aTag) => {
     try {
       const url = new URL(aTag.href);          // always absolute in browsers
-      if (store === 'Shop all brands') {
-        // remove every vendor filter so *all* brands show
-        url.searchParams.delete(VENDOR_KEY);
+      const originalHref = aTag.href;
+      
+      // IMPORTANT: Only modify actual collections pages, not product pages
+      if (url.pathname.includes('/products/')) {
+        // This is a product page - don't modify the main URL structure, just handle filters
+        if (store === 'Shop all brands' || store === 'Shop All Brands') {
+          url.searchParams.delete(VENDOR_KEY);
+        } else {
+          url.searchParams.set(VENDOR_KEY, store);
+        }
+        console.log('Updated product link:', originalHref, '→', url.toString());
       } else {
-        // .set() already overwrites if the key exists, so one line is enough
-        url.searchParams.set(VENDOR_KEY, store);
+        // This is a collections page - apply normal filtering
+        if (store === 'Shop all brands' || store === 'Shop All Brands') {
+          url.searchParams.delete(VENDOR_KEY);
+        } else {
+          url.searchParams.set(VENDOR_KEY, store);
+        }
+        console.log('Updated collection link:', originalHref, '→', url.toString());
       }
+      
       // write the revised URL back to the link
       aTag.href = url.toString();
     } catch (err) {
@@ -65,7 +81,7 @@ class StoreSwitcher extends HTMLElement {
           if (current.pathname.includes("/collections/") && !current.pathname.includes("/products/")) {
             // This is a collections page
             console.log(input.value)
-            if(input.value.includes("shop all brands")) {
+            if(input.value.toLowerCase().includes("shop all")) {
               current.searchParams.delete("filter.p.vendor");
               window.location.replace(current.toString());
             } else {
@@ -74,7 +90,7 @@ class StoreSwitcher extends HTMLElement {
             }
           } else {
             // This is a product page - also handle vendor filter removal for "Shop All"
-            if(input.value.includes("shop all brands")) {
+            if(input.value.toLowerCase().includes("shop all")) {
               current.searchParams.delete("filter.p.vendor");
               window.location.replace(current.toString());
             } else {
@@ -117,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (current.pathname.includes("/products/") && 
       current.searchParams.has("filter.p.vendor") &&
       currentStore &&
-      currentStore.toLowerCase().includes("shop all brands")) {
+      currentStore.toLowerCase().includes("shop all")) {
     current.searchParams.delete("filter.p.vendor");
     window.location.replace(current.toString());
     return;
@@ -130,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
     !current.pathname.includes("/products/") &&
     !current.searchParams.has("filter.p.vendor") &&
     currentStore &&
-    !currentStore.toLowerCase().includes("shop all brands")
+    !currentStore.toLowerCase().includes("shop all")
   ) {
     current.searchParams.set("filter.p.vendor", currentStore);
     window.location.replace(current.toString());
