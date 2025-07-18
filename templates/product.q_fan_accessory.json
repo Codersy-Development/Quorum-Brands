@@ -28,7 +28,7 @@
             "hover_button_text_color": "#ffffff",
             "hover_button_background_color": "#5c6ac4",
             "hover_button_border_color": "#5c6ac4",
-            "is_new_icon_settings": false,
+            "is_new_icon_settings": true,
             "icon_type": "outline",
             "icon_size": 16,
             "icon_background_type": "icon_round_background",
