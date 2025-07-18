@@ -65,7 +65,7 @@
         "title": "Jason Brewer, MOD",
         "home_featured_products": "jason-brewer-mod",
         "per_row": 5,
-        "rows": 2,
+        "rows": 1,
         "mobile_scrollable": true,
         "view_all": true,
         "divider": false
@@ -77,7 +77,7 @@
         "title": "Sergio Orozco",
         "home_featured_products": "sergio-orozco",
         "per_row": 5,
-        "rows": 2,
+        "rows": 1,
         "mobile_scrollable": true,
         "view_all": true,
         "divider": false
@@ -138,7 +138,7 @@
         "title": "Smyth & Picket",
         "home_featured_products": "smyth-pickett",
         "per_row": 5,
-        "rows": 2,
+        "rows": 1,
         "mobile_scrollable": true,
         "view_all": true,
         "divider": false
