@@ -13066,9 +13066,23 @@ html[dir=rtl] .product-single__meta .rte{
   display: none !important;
 }
 
-.product__price::before {
-    content: "Price: ";
-    font-weight: normal;
+.price-prefix {
+  font-weight: 600;
+  margin-right: 5px;
+  color: #333;
+  display: inline-block;
+}
+
+/* Ensure proper spacing between prefix and price */
+.product-block--price .price-prefix {
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .price-prefix {
+    font-size: 0.9em;
+  }
 }
 
 /* Custom Hulkapps Wishlist Styles - Start */
