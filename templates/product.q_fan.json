@@ -69,6 +69,12 @@
             "show_gift_card_recipient": false
           }
         },
+        "custom_3kN9VW": {
+          "type": "custom",
+          "settings": {
+            "code": "<h4>Custom code block</h4><p>Use this advanced section to add custom HTML, app scripts, or liquid.</p>"
+          }
+        },
         "tab_HAmQP6": {
           "type": "tab",
           "settings": {
@@ -133,6 +139,7 @@
         "separator",
         "description",
         "buy_buttons",
+        "custom_3kN9VW",
         "tab_HAmQP6",
         "tab_zFza3D",
         "tab",
