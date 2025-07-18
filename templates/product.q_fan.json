@@ -45,6 +45,12 @@
           "type": "shopify://apps/sa-variants/blocks/product-swatch-block/ff68b20f-8c8f-491e-92bf-3e5b8f17ef88",
           "settings": {}
         },
+        "custom_hFAeGk": {
+          "type": "custom",
+          "settings": {
+            "code": "<a class=\"btn\" \n       href=\"https://cdn.shopify.com/s/files/1/0740/2668/0533/files/Quorum_Fan_Data_Sheets_2025_LR.pdf?v=1749244114\" \n       download=\"Quorum_Fan_Data_Sheets_2025.pdf\"\n       target=\"_blank\"\n       \">\n        QUOURM FAN DATASHEET\n    </a>"
+          }
+        },
         "separator": {
           "type": "separator",
           "settings": {}
@@ -111,12 +117,6 @@
             "page": ""
           }
         },
-        "custom_hFAeGk": {
-          "type": "custom",
-          "settings": {
-            "code": "<a class=\"btn\" \n       href=\"https://cdn.shopify.com/s/files/1/0740/2668/0533/files/Quorum_Fan_Data_Sheets_2025_LR.pdf?v=1749244114\" \n       download=\"Quorum_Fan_Data_Sheets_2025.pdf\"\n       target=\"_blank\"\n       \">\n        QUOURM FAN DATASHEET\n    </a>"
-          }
-        },
         "share": {
           "type": "share",
           "settings": {}
@@ -129,6 +129,7 @@
         "inventory_status",
         "custom_dE4wYQ",
         "sa_variants_product_swatch_block_Cfq4YC",
+        "custom_hFAeGk",
         "separator",
         "description",
         "buy_buttons",
@@ -138,7 +139,6 @@
         "tab_HTXfHc",
         "tab_Bj364y",
         "tab_MV7TVN",
-        "custom_hFAeGk",
         "share"
       ],
       "custom_css": [],
