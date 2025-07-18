@@ -19,7 +19,7 @@
             "button_border": 0,
             "button_font_size": 16,
             "button_font_weight": "500",
-            "button_border_radius": 0,
+            "button_border_radius": 5,
             "button_vertical_space": 9,
             "button_horizontal_space": 0,
             "button_text_color": "#ffffff",
@@ -37,7 +37,7 @@
             "icon_border_color": "#ffffff",
             "icon_hover_color": "#565041",
             "selected_icon_fill_color": "#565041",
-            "selected_icon_border_color": "#ffffff"
+            "selected_icon_border_color": "#565041"
           }
         },
         "price": {
