@@ -72,7 +72,7 @@
         "custom_3kN9VW": {
           "type": "custom",
           "settings": {
-            "code": "<h4>Custom code block</h4><p>Use this advanced section to add custom HTML, app scripts, or liquid.</p>"
+            "code": "<div class=\"variant-button\">\n  {%- if product.metafields.custom.buy_now_button != blank -%}\n\n    <a href=\"{{ product.metafields.custom.buy_now_button }}\" \n       class=\"btn btn--full\" \n       target=\"_blank\" \n       rel=\"noopener noreferrer\">\n      <span>Buy Online</span>\n    </a>\n  {%- endif -%}\n</div>"
           }
         },
         "tab_HAmQP6": {
@@ -154,8 +154,8 @@
         "image_position": "left",
         "image_size": "medium",
         "product_zoom_enable": true,
-        "thumbnail_position": "beside",
-        "thumbnail_height": "flexible",
+        "thumbnail_position": "below",
+        "thumbnail_height": "fixed",
         "thumbnail_arrows": false,
         "mobile_layout": "partial",
         "enable_video_looping": true,
