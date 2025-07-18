@@ -11,11 +11,10 @@
   "sections": {
     "collection-header": {
       "type": "collection-header",
-      "disabled": true,
       "settings": {
-        "enable": true,
-        "collection_image_enable": true,
-        "parallax": true,
+        "enable": false,
+        "collection_image_enable": false,
+        "parallax": false,
         "parallax_direction": "top"
       }
     },
