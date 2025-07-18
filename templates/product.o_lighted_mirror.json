@@ -57,6 +57,12 @@
             "show_gift_card_recipient": false
           }
         },
+        "custom_dKMnPF": {
+          "type": "custom",
+          "settings": {
+            "code": "<div class=\"variant-button\">\n  {%- if product.metafields.custom.buy_now_button != blank -%}\n\n    <a href=\"{{ product.metafields.custom.buy_now_button }}\" \n       class=\"btn btn--full\" \n       target=\"_blank\" \n       rel=\"noopener noreferrer\">\n      <span>Buy Online</span>\n    </a>\n  {%- endif -%}\n</div>"
+          }
+        },
         "tab_HAmQP6": {
           "type": "tab",
           "settings": {
@@ -127,6 +133,7 @@
         "separator",
         "description_EDWRCJ",
         "buy_buttons",
+        "custom_dKMnPF",
         "tab_HAmQP6",
         "tab_zFza3D",
         "tab",
@@ -141,9 +148,9 @@
         "image_position": "left",
         "image_size": "medium",
         "product_zoom_enable": true,
-        "thumbnail_position": "beside",
+        "thumbnail_position": "below",
         "thumbnail_height": "flexible",
-        "thumbnail_arrows": false,
+        "thumbnail_arrows": true,
         "mobile_layout": "partial",
         "enable_video_looping": true,
         "product_video_style": "muted"
