@@ -12,6 +12,12 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "yotpo_product_reviews_star_rating_hFdRde": {
+          "type": "shopify://apps/yotpo-product-reviews/blocks/star-rating/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
         "advanced_wishlist_wishlist_btn_xaMgeV": {
           "type": "shopify://apps/advanced-wishlist/blocks/wishlist-btn/330d9272-08ea-4193-b3e0-475a69fa65fa",
           "settings": {
@@ -137,6 +143,7 @@
         }
       },
       "block_order": [
+        "yotpo_product_reviews_star_rating_hFdRde",
         "advanced_wishlist_wishlist_btn_xaMgeV",
         "price",
         "text_wG7MLT",
