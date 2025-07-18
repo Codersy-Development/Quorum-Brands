@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const icons = document.querySelectorAll('.icon');
     icons.forEach(function(icon) {
       icon.style.fill = '#84754E';
+      icon icon-chevron-right.fill = '#fff';
     });
     
     // Style all SVG icon paths
