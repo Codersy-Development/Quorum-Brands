@@ -54,7 +54,7 @@
         "custom_3fgC6G": {
           "type": "custom",
           "settings": {
-            "code": "<div class=\"variant-button\">\n  {%- if product.metafields.custom.buy_now_button != blank -%}\n<p>\nAre you a Retail Customer?</p>\n    <a href=\"{{ product.metafields.custom.buy_now_button }}\" \n       class=\"btn btn--full\" \n       target=\"_blank\" \n       rel=\"noopener noreferrer\">\n      <span>Buy Online</span>\n    </a>\n  {%- endif -%}\n</div>"
+            "code": "<div class=\"variant-button\">\n  {%- if product.metafields.custom.buy_now_button != blank -%}\n\n    <a href=\"{{ product.metafields.custom.buy_now_button }}\" \n       class=\"btn btn--full\" \n       target=\"_blank\" \n       rel=\"noopener noreferrer\">\n      <span>Buy Online</span>\n    </a>\n  {%- endif -%}\n</div>"
           }
         },
         "description_xJwzFy": {
