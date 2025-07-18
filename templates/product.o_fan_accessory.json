@@ -12,6 +12,34 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "advanced_wishlist_wishlist_btn_cXU97i": {
+          "type": "shopify://apps/advanced-wishlist/blocks/wishlist-btn/330d9272-08ea-4193-b3e0-475a69fa65fa",
+          "settings": {
+            "button_style": "style_4",
+            "button_border": 0,
+            "button_font_size": 16,
+            "button_font_weight": "500",
+            "button_border_radius": 0,
+            "button_vertical_space": 9,
+            "button_horizontal_space": 0,
+            "button_text_color": "#0f0f0f",
+            "button_background": "#ffffff",
+            "border_color": "#ffffff",
+            "hover_button_text_color": "#ffffff",
+            "hover_button_background_color": "#ffffff",
+            "hover_button_border_color": "#ffffff",
+            "is_new_icon_settings": true,
+            "icon_type": "fill",
+            "icon_size": 16,
+            "icon_background_type": "icon_square_background",
+            "icon_background_color": "#ec008c",
+            "icon_fill_color": "#ffffff",
+            "icon_border_color": "#ffffff",
+            "icon_hover_color": "#f47dc3",
+            "selected_icon_fill_color": "#f47dc3",
+            "selected_icon_border_color": "#f47dc3"
+          }
+        },
         "price": {
           "type": "price",
           "settings": {}
@@ -109,6 +137,7 @@
         }
       },
       "block_order": [
+        "advanced_wishlist_wishlist_btn_cXU97i",
         "price",
         "text_wG7MLT",
         "inventory_status",
