@@ -1,12 +1,10 @@
 const setCollectionsFilters = () => {
   const VENDOR_KEY = 'filter.p.vendor';
   const store      = getStoreSentenceCase();
-  console.log('setCollectionsFilters called with store:', store);
   
   document.querySelectorAll('a[href*="/collections/"]').forEach((aTag) => {
     try {
       const url = new URL(aTag.href);          // always absolute in browsers
-      const originalHref = aTag.href;
       
       // IMPORTANT: Only modify actual collections pages, not product pages
       if (url.pathname.includes('/products/')) {
@@ -16,7 +14,6 @@ const setCollectionsFilters = () => {
         } else {
           url.searchParams.set(VENDOR_KEY, store);
         }
-        console.log('Updated product link:', originalHref, '→', url.toString());
       } else {
         // This is a collections page - apply normal filtering
         if (store === 'Shop all brands' || store === 'Shop All Brands') {
@@ -24,7 +21,6 @@ const setCollectionsFilters = () => {
         } else {
           url.searchParams.set(VENDOR_KEY, store);
         }
-        console.log('Updated collection link:', originalHref, '→', url.toString());
       }
       
       // write the revised URL back to the link
@@ -66,7 +62,6 @@ class StoreSwitcher extends HTMLElement {
         }
         this.inputs.forEach((otherInput) => {
           if (input.name === otherInput.name && input.id !== otherInput.id) {
-            console.log("FOUND: ", otherInput);
             otherInput.removeAttribute("checked");
           }
         });
@@ -80,7 +75,6 @@ class StoreSwitcher extends HTMLElement {
         if (/\/(?:collections|products)\//.test(current.pathname)) {
           if (current.pathname.includes("/collections/") && !current.pathname.includes("/products/")) {
             // This is a collections page
-            console.log(input.value)
             if(input.value.toLowerCase().includes("shop all")) {
               current.searchParams.delete("filter.p.vendor");
               window.location.replace(current.toString());
@@ -124,27 +118,6 @@ const getStoreSentenceCase = () => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("=== STORE SWITCHER DEBUG ===");
-  console.log("DOMContentLoaded triggered");
-  console.log("Current URL:", window.location.href);
-  console.log("Current store:", getStoreSentenceCase());
-  console.log("Is product page:", window.location.pathname.includes("/products/"));
-  
-  // Monitor for any redirects
-  const originalReplace = window.location.replace;
-  window.location.replace = function(url) {
-    console.log("🚨 REDIRECT DETECTED by location.replace:", url);
-    console.trace("Redirect called from:");
-    return originalReplace.call(this, url);
-  };
-  
-  const originalAssign = window.location.assign;
-  window.location.assign = function(url) {
-    console.log("🚨 REDIRECT DETECTED by location.assign:", url);
-    console.trace("Redirect called from:");
-    return originalAssign.call(this, url);
-  };
-  
   setCollectionsFilters();
 
   const current = new URL(window.location.href);
@@ -155,7 +128,6 @@ document.addEventListener("DOMContentLoaded", () => {
       current.searchParams.has("filter.p.vendor") &&
       currentStore &&
       currentStore.toLowerCase().includes("shop all")) {
-    console.log("Removing vendor filter from product page");
     current.searchParams.delete("filter.p.vendor");
     window.location.replace(current.toString());
     return;
@@ -170,14 +142,10 @@ document.addEventListener("DOMContentLoaded", () => {
     currentStore &&
     !currentStore.toLowerCase().includes("shop all")
   ) {
-    console.log("Adding vendor filter to collection page");
     current.searchParams.set("filter.p.vendor", currentStore);
     window.location.replace(current.toString());
     return;
   }
-  
-  console.log("No URL changes needed");
-  console.log("=== END STORE SWITCHER DEBUG ===");
 });
 
 class StoreSwitchMenus extends HTMLElement {
@@ -247,8 +215,6 @@ class StoreSwitchMenus extends HTMLElement {
           menu.style.left = -triggerRect.left + "px";
           menu.style.transform = "none";
         }
-
-        console.log(menuRect);
       }
 
       trigger.addEventListener("mouseenter", positionMenu);
@@ -266,7 +232,6 @@ class StoreSwitchMenus extends HTMLElement {
             megaMenu.querySelectorAll(".ssm__mega-menu-container > div")
           ).map((menu) => menu.offsetHeight)
         ) + 30;
-      console.log("MAx height: ", menusMaxHeight);
       container.style.maxHeight = Math.max(250, menusMaxHeight) + "px";
     });
   }
