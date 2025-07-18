@@ -33,12 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
       icon.style.fill = 'white !important';
     });
     
-    // Style specific SVG icon paths with white color
-    const whiteIconPaths = document.querySelectorAll('svg.icon-chevron-right path, svg.icon-chevron-left path, svg.icon-close path');
-    whiteIconPaths.forEach(function(path) {
-      path.style.color = 'white !important';
-      path.style.fill = 'white !important';
-    });
+
 
     
     // Style the footer background and text
