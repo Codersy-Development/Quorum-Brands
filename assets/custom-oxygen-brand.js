@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Style specific icons with white fill
     const whiteIcons = document.querySelectorAll('.icon-chevron-right, .icon-chevron-left, .icon-close');
     whiteIcons.forEach(function(icon) {
-      icon.style.fill = 'white !important';
+      icon.style.fill = 'white';
     });
     
 
