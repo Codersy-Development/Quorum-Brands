@@ -32,7 +32,12 @@ document.addEventListener('DOMContentLoaded', function() {
     whiteIcons.forEach(function(icon) {
       icon.style.fill = 'white';
     });
-    
+    // Style specific SVG icon paths with white color
+    const whiteIconPaths = document.querySelectorAll('svg.icon-chevron-right path, svg.icon-chevron-left path, svg.icon-close path');
+    whiteIconPaths.forEach(function(path) {
+      path.style.color = 'white';
+      path.style.fill = 'white';
+    });    
 
 
     
