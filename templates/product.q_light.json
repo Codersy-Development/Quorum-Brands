@@ -32,7 +32,7 @@
             "button_background": "#84754e",
             "border_color": "#ffffff",
             "hover_button_text_color": "#a9a088",
-            "hover_button_background_color": "#e8e8e1",
+            "hover_button_background_color": "#a9a088",
             "hover_button_border_color": "#84754e",
             "is_new_icon_settings": false,
             "icon_type": "fill",
