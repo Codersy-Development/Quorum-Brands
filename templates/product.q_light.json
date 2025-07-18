@@ -51,6 +51,12 @@
             "show_gift_card_recipient": false
           }
         },
+        "custom_3fgC6G": {
+          "type": "custom",
+          "settings": {
+            "code": "{%- assign current_variant = product.selected_or_first_available_variant -%}\n<div class=\"variant-button\" data-variant-id=\"{{ current_variant.id }}\">\n  {%- if current_variant.metafields.custom.buy_now_button != blank -%}\n<p>\nAre you a Retail Customer?</p>\n    <a href=\"{{ current_variant.metafields.custom.buy_now_button }}\" \n       class=\"btn btn--full\" \n       target=\"_blank\" \n       rel=\"noopener noreferrer\">\n      <span>Buy Online</span>\n    </a>\n  {%- endif -%}\n</div>\n<script>\n  var variantData = {\n    {%- for variant in product.variants -%}\n      \"{{ variant.id }}\": {\n        url: \"{{ variant.metafields.custom.buy_now_button }}\"\n      }{%- unless forloop.last -%},{%- endunless -%}\n    {%- endfor -%}\n  };\n  \n  document.addEventListener('variant:change', function(event) {\n    const variant = event.detail.variant;\n    const buttonContainer = document.querySelector('.variant-button');\n    const variantInfo = variantData[variant.id];\n    \n    if (variant && variantInfo && variantInfo.url) {\n      buttonContainer.innerHTML = `\n        <p>Are you a Retail Customer?</p>\n        <a href=\"${variantInfo.url}\" \n           class=\"btn btn--full\" \n           target=\"_blank\" \n           rel=\"noopener noreferrer\">\n          <span>Buy Online</span>\n        </a>\n      `;\n    } else {\n      buttonContainer.innerHTML = '';\n    }\n  });\n</script>"
+          }
+        },
         "description_xJwzFy": {
           "type": "description",
           "settings": {
@@ -110,6 +116,7 @@
         "sa_variants_product_swatch_block_MHQYFL",
         "separator",
         "buy_buttons",
+        "custom_3fgC6G",
         "description_xJwzFy",
         "tab_HAmQP6",
         "tab_zFza3D",
