@@ -81,10 +81,10 @@
         "rep_X64rjt": {
           "type": "rep",
           "settings": {
-            "name": "Quorum",
-            "rep_group": "Showroom",
+            "name": "Quorum International",
+            "rep_group": "Primary Showroom",
             "position": "Quorum International",
-            "territory": "",
+            "territory": "Corporate Head Quarters",
             "territory_detail": "",
             "email": "fbradford@quorumintl.com",
             "phone": "817-682-6323"
