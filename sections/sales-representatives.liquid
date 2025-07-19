@@ -223,7 +223,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
+    gap: 20px;
     margin-top: 40px;
     flex-wrap: wrap;
   }
@@ -232,36 +232,29 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 44px;
-    min-height: 44px;
-    padding: 0;
-    border: 1px solid #e8e8e8;
-    background-color: #ffffff;
-    text-decoration: none;
-    transition: all 0.3s ease;
+    min-width: auto;
+    min-height: auto;
+    padding: 8px 12px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    line-height: 1;
   }
 
   .pagination .page a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    padding: 12px;
-    text-decoration: none;
     color: #121212;
-    font-weight: 500;
+    text-decoration: none;
+    font-weight: normal;
+    transition: opacity 0.3s ease;
   }
 
-  .pagination .page:hover {
-    border-color: #121212;
+  .pagination .page a:hover {
+    opacity: 0.7;
   }
 
   .pagination .page.current {
-    background-color: #121212;
-    border-color: #121212;
-    color: #ffffff;
-    font-weight: 500;
+    color: #999999;
+    font-weight: normal;
   }
 
   .pagination .prev,
@@ -269,11 +262,17 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 44px;
-    min-height: 44px;
-    border: 1px solid #e8e8e8;
-    background-color: #ffffff;
-    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    background-color: #121212;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+
+  .pagination .prev:hover,
+  .pagination .next:hover {
+    opacity: 0.8;
   }
 
   .pagination .prev a,
@@ -283,25 +282,13 @@
     justify-content: center;
     width: 100%;
     height: 100%;
-    padding: 12px;
+    color: #ffffff;
     text-decoration: none;
-    color: #121212;
-  }
-
-  .pagination .prev:hover,
-  .pagination .next:hover {
-    border-color: #121212;
-  }
-
-  .pagination .prev.disabled,
-  .pagination .next.disabled {
-    opacity: 0.5;
-    pointer-events: none;
   }
 
   .pagination .icon {
-    width: 12px;
-    height: 12px;
+    width: 16px;
+    height: 16px;
     fill: currentColor;
   }
 
@@ -309,22 +296,25 @@
     display: none;
   }
 
+  /* Ellipsis styling */
+  .pagination .page:has-text('…') {
+    padding: 8px 4px;
+  }
+
   @media screen and (max-width: 749px) {
     .pagination {
-      gap: 4px;
+      gap: 15px;
     }
 
-    .pagination .page,
     .pagination .prev,
     .pagination .next {
-      min-width: 40px;
-      min-height: 40px;
+      width: 36px;
+      height: 36px;
     }
 
-    .pagination .page a,
-    .pagination .prev a,
-    .pagination .next a {
-      padding: 10px;
+    .pagination .icon {
+      width: 14px;
+      height: 14px;
     }
   }
   
@@ -371,7 +361,6 @@
   const pageNumbers = document.getElementById('pageNumbers');
   const prevPage = document.getElementById('prevPage');
   const nextPage = document.getElementById('nextPage');
-  const pageInfo = document.getElementById('pageInfo');
   const resultsCount = document.getElementById('resultsCount');
   const repCards = document.querySelectorAll('.sales-rep-card');
   
@@ -423,7 +412,10 @@
     }
 
     noResults.style.display = 'none';
-    paginationContainer.style.display = 'block';
+    
+    // Only show pagination if there are multiple pages
+    const totalPages = Math.ceil(filteredCards.length / ITEMS_PER_PAGE);
+    paginationContainer.style.display = totalPages > 1 ? 'flex' : 'none';
 
     // Calculate start and end indices for current page
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -544,13 +536,15 @@
   repSearch.addEventListener('input', filterAndPaginate);
   territoryFilter.addEventListener('change', filterAndPaginate);
 
-  prevPage.addEventListener('click', () => {
+  prevPage.addEventListener('click', (e) => {
+    e.preventDefault();
     if (currentPage > 1) {
       goToPage(currentPage - 1);
     }
   });
 
-  nextPage.addEventListener('click', () => {
+  nextPage.addEventListener('click', (e) => {
+    e.preventDefault();
     const totalPages = Math.ceil(filteredCards.length / ITEMS_PER_PAGE);
     if (currentPage < totalPages) {
       goToPage(currentPage + 1);
