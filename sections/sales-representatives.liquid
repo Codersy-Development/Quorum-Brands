@@ -28,64 +28,56 @@
 
   <!-- Sales rep cards -->
   <div class="sales-reps-grid" id="repsContainer">
-    {% comment %} Get all customers with Sales_Rep tag {% endcomment %}
-    {% assign sales_reps = collections.all.products | where: 'tags', 'Sales_Rep' %}
-    {% if sales_reps.size == 0 %}
-      {% assign sales_reps = shop.customers | where: 'tags', 'Sales_Rep' %}
-    {% endif %}
-    
-    {% comment %} Alternative method using paginate for large datasets {% endcomment %}
-    {% paginate shop.customers by 250 %}
-      {% for customer in shop.customers %}
-        {% if customer.tags contains 'Sales_Rep' %}
-          <div class="sales-rep-card" 
-               data-territories="{{ customer.metafields.custom.sr_territory | default: '' | replace: '.', ',' | replace: '/', ',' | escape }}"
-               data-name="{{ customer.metafields.custom.sr_name | default: customer.first_name | append: ' ' | append: customer.last_name | strip | escape }}"
-               data-group="{{ customer.metafields.custom.sr_rep_group | default: '' | strip | escape }}">
-            
-            <h3>{{ customer.metafields.custom.sr_name | default: customer.first_name | append: ' ' | append: customer.last_name }}</h3>
-            
-            {% if customer.metafields.custom.sr_rep_group != blank %}
-              <p class="rep-group">{{ customer.metafields.custom.sr_rep_group }}</p>
+    {% comment %} Loop through all customers with Sales_Rep tag {% endcomment %}
+    {% for customer in shop.customers %}
+      {% if customer.tags contains 'Sales_Rep' %}
+        <div class="sales-rep-card" 
+             data-territories="{{ customer.metafields.custom.sr_territory | default: '' | replace: '.', ',' | replace: '/', ',' | escape }}"
+             data-name="{{ customer.metafields.custom.sr_name | default: customer.first_name | append: ' ' | append: customer.last_name | strip | escape }}"
+             data-group="{{ customer.metafields.custom.sr_rep_group | default: '' | strip | escape }}">
+          
+          <h3>{{ customer.metafields.custom.sr_name | default: customer.first_name | append: ' ' | append: customer.last_name }}</h3>
+          
+          {% if customer.metafields.custom.sr_rep_group != blank %}
+            <p class="rep-group">{{ customer.metafields.custom.sr_rep_group }}</p>
+          {% endif %}
+          
+          <div class="rep-details">
+            {% if customer.metafields.custom.sr_territory != blank %}
+              <p class="territory">
+                Territory: {{ customer.metafields.custom.sr_territory }}
+                {% if customer.metafields.custom.sr_territory_detail != blank %}
+                  <span class="territory-detail">{{ customer.metafields.custom.sr_territory_detail }}</span>
+                {% endif %}
+              </p>
             {% endif %}
             
-            <div class="rep-details">
-              {% if customer.metafields.custom.sr_territory != blank %}
-                <p class="territory">
-                  Territory: {{ customer.metafields.custom.sr_territory }}
-                  {% if customer.metafields.custom.sr_territory_detail != blank %}
-                    <span class="territory-detail">{{ customer.metafields.custom.sr_territory_detail }}</span>
-                  {% endif %}
-                </p>
-              {% endif %}
-              
-              {% assign rep_email = customer.metafields.custom.sr_email | default: customer.email %}
-              {% if rep_email != blank %}
-                <p class="email">
-                  <a href="mailto:{{ rep_email }}">{{ rep_email }}</a>
-                </p>
-              {% endif %}
-              
-              {% if customer.metafields.custom.sr_phone != blank %}
-                <p class="phone"><strong>Phone:</strong> {{ customer.metafields.custom.sr_phone }}</p>
-              {% endif %}
-              
-              {% if customer.metafields.custom.sr_cell_phone != blank %}
-                <p class="cell-phone"><strong>Cell:</strong> {{ customer.metafields.custom.sr_cell_phone }}</p>
-              {% endif %}
-              
-              {% if customer.metafields.custom.sr_website != blank %}
-                <p class="website">
-                  <a href="{{ customer.metafields.custom.sr_website }}" target="_blank" rel="noopener">
-                    {{ customer.metafields.custom.sr_website | remove: 'https://' | remove: 'http://' | remove: 'www.' }}
-                  </a>
-                </p>
-              {% endif %}
-            </div>
+            {% assign rep_email = customer.metafields.custom.sr_email | default: customer.email %}
+            {% if rep_email != blank %}
+              <p class="email">
+                <a href="mailto:{{ rep_email }}">{{ rep_email }}</a>
+              </p>
+            {% endif %}
+            
+            {% if customer.metafields.custom.sr_phone != blank %}
+              <p class="phone"><strong>Phone:</strong> {{ customer.metafields.custom.sr_phone }}</p>
+            {% endif %}
+            
+            {% if customer.metafields.custom.sr_cell_phone != blank %}
+              <p class="cell-phone"><strong>Cell:</strong> {{ customer.metafields.custom.sr_cell_phone }}</p>
+            {% endif %}
+            
+            {% if customer.metafields.custom.sr_website != blank %}
+              <p class="website">
+                <a href="{{ customer.metafields.custom.sr_website }}" target="_blank" rel="noopener">
+                  {{ customer.metafields.custom.sr_website | remove: 'https://' | remove: 'http://' | remove: 'www.' }}
+                </a>
+              </p>
+            {% endif %}
           </div>
-        {% endif %}
-      {% endfor %}
-    {% endpaginate %}
+        </div>
+      {% endif %}
+    {% endfor %}
   </div>
 
   <div id="noResults" class="no-results" style="display: none;">
