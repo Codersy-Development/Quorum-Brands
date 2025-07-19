@@ -789,97 +789,11 @@
         "description": "<p>Contact our professional sales team for assistance</p>",
         "items_per_page": 15
       }
-    },
-    "sales_rep_metafields_mGGjxQ": {
-      "type": "sales-rep-metafields",
-      "blocks": {
-        "rep_iztFKz": {
-          "type": "rep",
-          "settings": {
-            "name": "",
-            "rep_group": "",
-            "position": "",
-            "territory": "",
-            "territory_detail": "",
-            "email": "",
-            "phone": "",
-            "website": ""
-          }
-        },
-        "rep_rpVhVJ": {
-          "type": "rep",
-          "settings": {
-            "name": "Representative Name",
-            "rep_group": "",
-            "position": "",
-            "territory": "",
-            "territory_detail": "",
-            "email": "",
-            "phone": "",
-            "website": ""
-          }
-        },
-        "rep_Ng88ac": {
-          "type": "rep",
-          "settings": {
-            "name": "Representative Name",
-            "rep_group": "",
-            "position": "",
-            "territory": "",
-            "territory_detail": "",
-            "email": "",
-            "phone": "",
-            "website": ""
-          }
-        },
-        "rep_BzBWGi": {
-          "type": "rep",
-          "settings": {
-            "name": "Representative Name",
-            "rep_group": "",
-            "position": "",
-            "territory": "",
-            "territory_detail": "",
-            "email": "",
-            "phone": "",
-            "website": ""
-          }
-        },
-        "rep_THnbFi": {
-          "type": "rep",
-          "settings": {
-            "name": "Representative Name",
-            "rep_group": "",
-            "position": "",
-            "territory": "",
-            "territory_detail": "",
-            "email": "",
-            "phone": "",
-            "website": ""
-          }
-        }
-      },
-      "block_order": [
-        "rep_iztFKz",
-        "rep_rpVhVJ",
-        "rep_Ng88ac",
-        "rep_BzBWGi",
-        "rep_THnbFi"
-      ],
-      "name": "Sales Rep Meta",
-      "settings": {
-        "show_search_controls": true,
-        "include_customer_reps": true,
-        "title": "Sales Representatives",
-        "description": "<p>Contact our professional sales team for assistance</p>",
-        "items_per_page": 25
-      }
     }
   },
   "order": [
     "hero",
     "rich_text_aXTKfx",
-    "sales_representatives_zFym6A",
-    "sales_rep_metafields_mGGjxQ"
+    "sales_representatives_zFym6A"
   ]
 }
