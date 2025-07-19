@@ -32,7 +32,6 @@
         },
         "image_JxBCMM": {
           "type": "image",
-          "disabled": true,
           "settings": {
             "top_subheading": "",
             "title": "Authorized\nSales\nRepresentatives",
@@ -59,7 +58,7 @@
         "mobile_height": "auto",
         "parallax": true,
         "style": "bars",
-        "autoplay": false,
+        "autoplay": true,
         "autoplay_speed": 7,
         "lazyload_images": true
       }
