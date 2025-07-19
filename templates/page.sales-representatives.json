@@ -32,6 +32,7 @@
         },
         "image_JxBCMM": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "top_subheading": "",
             "title": "Authorized\nSales\nRepresentatives",
@@ -61,16 +62,6 @@
         "autoplay": false,
         "autoplay_speed": 7,
         "lazyload_images": true
-      }
-    },
-    "rich_text_aXTKfx": {
-      "type": "rich-text",
-      "disabled": true,
-      "name": "t:sections.rich-text.presets.rich_text.name",
-      "settings": {
-        "align_text": "center",
-        "narrow_column": true,
-        "divider": false
       }
     },
     "sales_representatives_zFym6A": {
@@ -793,7 +784,6 @@
   },
   "order": [
     "hero",
-    "rich_text_aXTKfx",
     "sales_representatives_zFym6A"
   ]
 }
