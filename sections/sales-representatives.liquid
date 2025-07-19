@@ -1,4 +1,4 @@
-{% comment %}sections/sales-representatives.liquid{% endcomment %}
+{% comment %}sections/sales-representatives-csv.liquid{% endcomment %}
 
 <div class="page-width">
   <div class="sales-reps-header text-center margin-bottom-3">
@@ -16,76 +16,50 @@
       >
       <select id="territoryFilter" class="territory-select">
         <option value="">All Territories</option>
-        {% assign all_territories = '' %}
-        {% for block in section.blocks %}
-          {% if block.type == 'rep' and block.settings.territory != blank %}
-            {% assign territories = block.settings.territory | replace: '.', ',' | replace: '/', ',' | split: ',' %}
-            {% for territory in territories %}
-              {% assign cleaned_territory = territory | strip %}
-              {% if cleaned_territory != '' %}
-                {% assign all_territories = all_territories | append: '^' | append: cleaned_territory %}
-              {% endif %}
-            {% endfor %}
-          {% endif %}
-        {% endfor %}
-        
-        {% assign territory_array = all_territories | split: '^' %}
-        {% assign unique_sorted_territories = territory_array | uniq | sort %}
-        
-        {% for territory in unique_sorted_territories %}
-          {% if territory != '' %}
-            <option value="{{ territory | strip | escape }}">{{ territory | strip }}</option>
-          {% endif %}
-        {% endfor %}
       </select>
     </div>
   </div>
 
-  <div class="sales-reps-grid" id="repsContainer">
-    {% for block in section.blocks %}
-      {% if block.type == 'rep' %}
-        <div class="sales-rep-card" 
-          data-territories="{{ block.settings.territory | replace: '.', ',' | replace: '/', ',' | escape }}"
-          data-name="{{ block.settings.name | strip | escape }}"
-          data-group="{{ block.settings.rep_group | strip | escape }}"
-          {{ block.shopify_attributes }}>
-          <h3>{{ block.settings.name }}</h3>
-          {% if block.settings.rep_group != blank %}
-            <p class="rep-group">{{ block.settings.rep_group }}</p>
-          {% endif %}
-              <div class="rep-details">
-                {% if block.settings.position != blank %}
-                  <p class="position">{{ block.settings.position }}</p>
-                {% endif %}
-                 {% if block.settings.territory != blank %}
-                  <p class="territory">
-                    Territory: {{ block.settings.territory }}
-                    {% if block.settings.territory_detail != blank %}
-                      <span class="territory-detail">{{ block.settings.territory_detail }}</span>
-                    {% endif %}
-                  </p>
-                {% endif %}
-                {% if block.settings.email != blank %}
-                  <p class="email">
-                    <a href="mailto:{{ block.settings.email }}">{{ block.settings.email }}</a>
-                  </p>
-                {% endif %}
-                {% if block.settings.phone != blank %}
-                  <p class="phone">{{ block.settings.phone }}</p>
-                {% endif %}
-                {% if block.settings.website != blank %}
-                  <p class="website">
-                    <a href="{{ block.settings.website }}" target="_blank" rel="noopener">{{ block.settings.website | remove: 'https://' | remove: 'http://' | remove: 'www.' }}</a>
-                  </p>
-                {% endif %}
-              </div>
-        </div>
-      {% endif %}
-    {% endfor %}
+  <!-- Results count -->
+  <div class="results-info margin-bottom-2">
+    <p id="resultsCount"></p>
   </div>
+
+  <!-- Loading indicator -->
+  <div id="loadingIndicator" class="loading">
+    <p>Loading representatives...</p>
+  </div>
+
+  <!-- Dynamic rep cards will be inserted here -->
+  <div class="sales-reps-grid" id="repsContainer"></div>
 
   <div id="noResults" class="no-results" style="display: none;">
     <p>No sales representatives found matching your search criteria.</p>
+  </div>
+
+  <!-- Pagination Controls -->
+  <div class="pagination" id="paginationContainer" style="display: none;">
+    <span class="prev" id="prevPage" style="display: none;">
+      <a href="#" title="Previous">
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-left" viewBox="0 0 284.49 498.98">
+          <title>icon-chevron</title>
+          <path d="M249.49 0a35 35 0 0 1 24.75 59.75L84.5 249.49l189.74 189.74a35.002 35.002 0 0 1-49.5 49.5L10.25 274.24a35 35 0 0 1 0-49.5L224.74 10.25A34.89 34.89 0 0 1 249.49 0Z"></path>
+        </svg>
+        <span class="icon__fallback-text">Previous</span>
+      </a>
+    </span>
+    
+    <div id="pageNumbers"></div>
+    
+    <span class="next" id="nextPage" style="display: none;">
+      <a href="#" title="Next">
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-right" viewBox="0 0 284.49 498.98">
+          <title>icon-chevron</title>
+          <path d="M35 498.98a35 35 0 0 1-24.75-59.75l189.74-189.74L10.25 59.75a35.002 35.002 0 0 1 49.5-49.5l214.49 214.49a35 35 0 0 1 0 49.5L59.75 488.73A34.89 34.89 0 0 1 35 498.98Z"></path>
+        </svg>
+        <span class="icon__fallback-text">Next</span>
+      </a>
+    </span>
   </div>
 </div>
 
@@ -115,6 +89,22 @@
     border-radius: 4px;
     font-size: 16px;
     min-width: 200px;
+  }
+
+  .results-info {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .results-info p {
+    color: #666;
+    font-size: 14px;
+  }
+
+  .loading {
+    text-align: center;
+    padding: 40px;
+    color: #666;
   }
 
   .sales-rep-card {
@@ -168,7 +158,6 @@
     text-decoration: underline;
   }
   
-  /* New styles for territory section */
   .territory {
     position: relative;
     padding: 15px 0;
@@ -177,7 +166,7 @@
     border-bottom: 1px solid #998542;
   }
 
- .territory-detail {
+  .territory-detail {
     display: block;
     font-style: italic;
     color: #666;
@@ -190,6 +179,86 @@
     padding: 40px;
     font-size: 18px;
     color: #666;
+  }
+
+  /* Pagination Styles */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+
+  .pagination .page {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 4px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    line-height: 40px;
+    height: 40px;
+  }
+
+  .pagination .page a {
+    color: #121212;
+    text-decoration: none;
+    font-weight: normal;
+    transition: opacity 0.3s ease;
+    line-height: 1;
+  }
+
+  .pagination .page a:hover {
+    opacity: 0.7;
+  }
+
+  .pagination .page.current {
+    color: #999999;
+    font-weight: normal;
+    line-height: 1;
+  }
+
+  .pagination .prev,
+  .pagination .next {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #121212;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .pagination .prev:hover,
+  .pagination .next:hover {
+    opacity: 0.8;
+  }
+
+  .pagination .prev a,
+  .pagination .next a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .pagination .icon {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+  }
+
+  .pagination .icon__fallback-text {
+    display: none;
   }
   
   @media screen and (min-width: 750px) {
@@ -214,44 +283,276 @@
     .territory-select {
       width: 100%;
     }
+
+    .pagination {
+      gap: 15px;
+    }
+
+    .pagination .page {
+      height: 36px;
+      line-height: 36px;
+    }
+
+    .pagination .prev,
+    .pagination .next {
+      width: 36px;
+      height: 36px;
+    }
+
+    .pagination .icon {
+      width: 14px;
+      height: 14px;
+    }
   }
 </style>
 
 <script>
+document.addEventListener('DOMContentLoaded', function() {
   const repSearch = document.getElementById('repSearch');
   const territoryFilter = document.getElementById('territoryFilter');
   const repsContainer = document.getElementById('repsContainer');
   const noResults = document.getElementById('noResults');
-  const repCards = document.querySelectorAll('.sales-rep-card');
+  const loadingIndicator = document.getElementById('loadingIndicator');
+  const paginationContainer = document.getElementById('paginationContainer');
+  const pageNumbers = document.getElementById('pageNumbers');
+  const prevPage = document.getElementById('prevPage');
+  const nextPage = document.getElementById('nextPage');
+  const resultsCount = document.getElementById('resultsCount');
+  
+  const ITEMS_PER_PAGE = {{ section.settings.items_per_page | default: 25 }};
+  let currentPage = 1;
+  let filteredReps = [];
+  let allReps = [];
 
-  function filterReps() {
-    const searchTerm = repSearch.value.toLowerCase();
-    const selectedTerritory = territoryFilter.value.toLowerCase();
-    let hasVisibleReps = false;
+  // CSV data - Replace this with your actual rep data
+  const csvData = `name,rep_group,position,territory,territory_detail,email,phone,website
+"Quorum Showroom","Rep #024-Q","Sales Representative","","","fbradford@quorumintl.com","817-682-6323",""
+"Adam Barri","Rep #1164-Q","Sales Representative","","","303lighting@gmail.com","(720) 984-5442",""
+"HCL High Country Lighting","Rep #1167-Q","Sales Representative","","","Kurt@highcountrylighting.com"," (406) 599-5884",""
+"Rich Andrews","Rep #123","Sales Representative","","","randrews@imcdi.com","5613137702",""
+"Scott Rosenberg","Rep #14-Q","Sales Representative","Eugene, OR","","scottrosenberg@pnwrs.com","541-914-8086",""`;
 
-    repCards.forEach(card => {
-      const territories = card.dataset.territories.toLowerCase().split(',').map(t => t.trim());
-      const name = card.dataset.name.toLowerCase();
-      const group = card.dataset.group.toLowerCase();
+  function parseCSV(csv) {
+    const lines = csv.trim().split('\n');
+    const headers = lines[0].split(',').map(h => h.replace(/"/g, '').trim());
+    
+    return lines.slice(1).map(line => {
+      const values = line.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g) || [];
+      const rep = {};
       
-      const matchesSearch = name.includes(searchTerm) || 
-                           group.includes(searchTerm);
-      const matchesTerritory = selectedTerritory === '' || 
-                              territories.some(t => t.includes(selectedTerritory));
-
-      if (matchesSearch && matchesTerritory) {
-        card.style.display = '';
-        hasVisibleReps = true;
-      } else {
-        card.style.display = 'none';
-      }
+      headers.forEach((header, index) => {
+        rep[header] = values[index] ? values[index].replace(/"/g, '').trim() : '';
+      });
+      
+      return rep;
     });
-
-    noResults.style.display = hasVisibleReps ? 'none' : 'block';
   }
 
-  repSearch.addEventListener('input', filterReps);
-  territoryFilter.addEventListener('change', filterReps);
+  function createRepCard(rep) {
+    const territories = rep.territory ? rep.territory.split(',').map(t => t.trim()) : [];
+    
+    return `
+      <div class="sales-rep-card" 
+           data-territories="${territories.join(',')}"
+           data-name="${rep.name}"
+           data-group="${rep.rep_group}">
+        <h3>${rep.name}</h3>
+        ${rep.rep_group ? `<p class="rep-group">${rep.rep_group}</p>` : ''}
+        <div class="rep-details">
+          ${rep.position ? `<p class="position">${rep.position}</p>` : ''}
+          ${rep.territory ? `
+            <p class="territory">
+              Territory: ${rep.territory}
+              ${rep.territory_detail ? `<span class="territory-detail">${rep.territory_detail}</span>` : ''}
+            </p>
+          ` : ''}
+          ${rep.email ? `<p class="email"><a href="mailto:${rep.email}">${rep.email}</a></p>` : ''}
+          ${rep.phone ? `<p class="phone">${rep.phone}</p>` : ''}
+          ${rep.website ? `<p class="website"><a href="${rep.website}" target="_blank" rel="noopener">${rep.website.replace(/https?:\/\//, '').replace(/www\./, '')}</a></p>` : ''}
+        </div>
+      </div>
+    `;
+  }
+
+  function populateTerritoryFilter() {
+    const territories = new Set();
+    allReps.forEach(rep => {
+      if (rep.territory) {
+        rep.territory.split(',').forEach(t => {
+          const territory = t.trim();
+          if (territory) territories.add(territory);
+        });
+      }
+    });
+    
+    const sortedTerritories = Array.from(territories).sort();
+    territoryFilter.innerHTML = '<option value="">All Territories</option>';
+    sortedTerritories.forEach(territory => {
+      territoryFilter.innerHTML += `<option value="${territory}">${territory}</option>`;
+    });
+  }
+
+  function getFilteredReps() {
+    const searchTerm = repSearch.value.toLowerCase();
+    const selectedTerritory = territoryFilter.value.toLowerCase();
+    
+    return allReps.filter(rep => {
+      const territories = rep.territory ? rep.territory.toLowerCase().split(',').map(t => t.trim()) : [];
+      const name = rep.name.toLowerCase();
+      const group = rep.rep_group.toLowerCase();
+      
+      const matchesSearch = name.includes(searchTerm) || group.includes(searchTerm);
+      const matchesTerritory = selectedTerritory === '' || territories.some(t => t.includes(selectedTerritory));
+
+      return matchesSearch && matchesTerritory;
+    });
+  }
+
+  function updateResultsCount() {
+    const totalResults = filteredReps.length;
+    const startItem = totalResults > 0 ? (currentPage - 1) * ITEMS_PER_PAGE + 1 : 0;
+    const endItem = Math.min(currentPage * ITEMS_PER_PAGE, totalResults);
+    
+    if (totalResults === 0) {
+      resultsCount.textContent = 'No representatives found';
+    } else if (totalResults <= ITEMS_PER_PAGE) {
+      resultsCount.textContent = `Showing all ${totalResults} representatives`;
+    } else {
+      resultsCount.textContent = `Showing ${startItem}-${endItem} of ${totalResults} representatives`;
+    }
+  }
+
+  function displayPage() {
+    if (filteredReps.length === 0) {
+      repsContainer.innerHTML = '';
+      noResults.style.display = 'block';
+      paginationContainer.style.display = 'none';
+      updateResultsCount();
+      return;
+    }
+
+    noResults.style.display = 'none';
+    
+    const totalPages = Math.ceil(filteredReps.length / ITEMS_PER_PAGE);
+    paginationContainer.style.display = totalPages > 1 ? 'flex' : 'none';
+
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const endIndex = startIndex + ITEMS_PER_PAGE;
+    const pageReps = filteredReps.slice(startIndex, endIndex);
+
+    repsContainer.innerHTML = pageReps.map(rep => createRepCard(rep)).join('');
+
+    updateResultsCount();
+    updatePaginationControls();
+  }
+
+  function updatePaginationControls() {
+    const totalPages = Math.ceil(filteredReps.length / ITEMS_PER_PAGE);
+    
+    if (currentPage === 1) {
+      prevPage.style.display = 'none';
+    } else {
+      prevPage.style.display = 'inline-flex';
+    }
+    
+    if (currentPage === totalPages || totalPages === 0) {
+      nextPage.style.display = 'none';
+    } else {
+      nextPage.style.display = 'inline-flex';
+    }
+
+    pageNumbers.innerHTML = '';
+
+    if (totalPages <= 1) return;
+
+    const maxVisiblePages = 7;
+    let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+    let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+
+    if (endPage - startPage < maxVisiblePages - 1) {
+      startPage = Math.max(1, endPage - maxVisiblePages + 1);
+    }
+
+    if (startPage > 1) {
+      addPageNumber(1);
+      if (startPage > 2) addEllipsis();
+    }
+
+    for (let i = startPage; i <= endPage; i++) {
+      addPageNumber(i);
+    }
+
+    if (endPage < totalPages) {
+      if (endPage < totalPages - 1) addEllipsis();
+      addPageNumber(totalPages);
+    }
+  }
+
+  function addPageNumber(pageNum) {
+    const pageSpan = document.createElement('span');
+    pageSpan.className = 'page';
+    
+    if (pageNum === currentPage) {
+      pageSpan.classList.add('current');
+      pageSpan.textContent = pageNum;
+    } else {
+      const pageLink = document.createElement('a');
+      pageLink.href = '#';
+      pageLink.textContent = pageNum;
+      pageLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        goToPage(pageNum);
+      });
+      pageSpan.appendChild(pageLink);
+    }
+    
+    pageNumbers.appendChild(pageSpan);
+  }
+
+  function addEllipsis() {
+    const ellipsis = document.createElement('span');
+    ellipsis.className = 'page';
+    ellipsis.textContent = '…';
+    pageNumbers.appendChild(ellipsis);
+  }
+
+  function goToPage(pageNum) {
+    currentPage = pageNum;
+    displayPage();
+    repsContainer.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function filterAndPaginate() {
+    filteredReps = getFilteredReps();
+    currentPage = 1;
+    displayPage();
+  }
+
+  // Initialize
+  function init() {
+    allReps = parseCSV(csvData);
+    populateTerritoryFilter();
+    filterAndPaginate();
+    loadingIndicator.style.display = 'none';
+  }
+
+  // Event listeners
+  repSearch.addEventListener('input', filterAndPaginate);
+  territoryFilter.addEventListener('change', filterAndPaginate);
+
+  prevPage.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (currentPage > 1) goToPage(currentPage - 1);
+  });
+
+  nextPage.addEventListener('click', (e) => {
+    e.preventDefault();
+    const totalPages = Math.ceil(filteredReps.length / ITEMS_PER_PAGE);
+    if (currentPage < totalPages) goToPage(currentPage + 1);
+  });
+
+  init();
+});
 </script>
 
 {% schema %}
@@ -269,62 +570,18 @@
       "id": "description",
       "label": "Description",
       "default": "<p>Contact our professional sales team for assistance</p>"
-    }
-  ],
-  "blocks": [
+    },
     {
-      "type": "rep",
-      "name": "Sales Representative",
-      "settings": [
-        {
-          "type": "text",
-          "id": "name",
-          "label": "Name",
-          "default": "Representative Name"
-        },
-        {
-          "type": "text",
-          "id": "rep_group",
-          "label": "Rep Group"
-        },
-        {
-          "type": "text",
-          "id": "position",
-          "label": "Position"
-        },
-        {
-          "type": "text",
-          "id": "territory",
-          "label": "Territory"
-        },
-        {
-          "type": "text",
-          "id": "territory_detail",
-          "label": "Territory Detail",
-          "info": "Will display in italics below territory"
-        },
-        {
-          "type": "text",
-          "id": "email",
-          "label": "Email"
-        },
-        {
-          "type": "text",
-          "id": "phone",
-          "label": "Phone"
-        },
-        {
-          "type": "url",
-          "id": "website",
-          "label": "Website",
-          "info": "Include https:// for external links"
-        }
-      ]
+      "type": "number",
+      "id": "items_per_page",
+      "label": "Representatives per page",
+      "default": 25,
+      "info": "Number of representatives to show per page"
     }
   ],
   "presets": [
     {
-      "name": "Sales Representatives"
+      "name": "Sales Representatives (CSV)"
     }
   ]
 }
