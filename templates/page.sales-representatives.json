@@ -65,6 +65,7 @@
     },
     "rich_text_aXTKfx": {
       "type": "rich-text",
+      "disabled": true,
       "name": "t:sections.rich-text.presets.rich_text.name",
       "settings": {
         "align_text": "center",
@@ -92,7 +93,9 @@
       "block_order": [
         "rep_39aeQb"
       ],
-      "custom_css": [],
+      "custom_css": [
+        "@media screen and (min-width: 750px) {.sales-reps-header {margin-top: 50px;}}"
+      ],
       "name": "Sales Representatives",
       "settings": {
         "show_search_controls": true,
