@@ -145,7 +145,7 @@
     text-decoration: underline;
   }
 
-  .email, .phone, .website {
+  .email, .phone, .cell-phone, .website {
     margin: 5px 0;
   }
 
@@ -156,6 +156,10 @@
 
   .website a:hover {
     text-decoration: underline;
+  }
+
+  .phone, .cell-phone {
+    font-family: monospace;
   }
   
   .territory {
@@ -325,13 +329,12 @@ document.addEventListener('DOMContentLoaded', function() {
   let allReps = [];
 
   // CSV data - Replace this with your actual rep data
-  const csvData = `name,rep_group,position,territory,territory_detail,email,phone,website
-"Quorum Showroom","Rep #024-Q","Sales Representative","","","fbradford@quorumintl.com","817-682-6323",""
-"Adam Barri","Rep #1164-Q","Sales Representative","","","303lighting@gmail.com","(720) 984-5442",""
-"HCL High Country Lighting","Rep #1167-Q","Sales Representative","","","Kurt@highcountrylighting.com"," (406) 599-5884",""
-"Rich Andrews","Rep #123","Sales Representative","","","randrews@imcdi.com","5613137702",""
-"Scott Rosenberg","Rep #14-Q","Sales Representative","Eugene, OR","","scottrosenberg@pnwrs.com","541-914-8086",""`;
-
+  const csvData = `name,rep_group,position,territory,territory_detail,email,phone,cell_phone,website
+"Quorum Showroom","Rep #024-Q","Sales Representative","","","fbradford@quorumintl.com","817-682-6323","","https://quorumintl.com"
+"Adam Barri","Rep #1164-Q","Sales Representative","","","303lighting@gmail.com","(720) 984-5442","(720) 555-0123","https://303lighting.com"
+"HCL High Country Lighting","Rep #1167-Q","Sales Representative","","","Kurt@highcountrylighting.com"," (406) 599-5884","(406) 555-0124","https://highcountrylighting.com"
+"Rich Andrews","Rep #123","Sales Representative","","","randrews@imcdi.com","5613137702","5613137701","https://imcdi.com"
+"Scott Rosenberg","Rep #14-Q","Sales Representative","Eugene, OR","","scottrosenberg@pnwrs.com","541-914-8086","541-555-0125","https://pnwrs.com"`;
   function parseCSV(csv) {
     const lines = csv.trim().split('\n');
     const headers = lines[0].split(',').map(h => h.replace(/"/g, '').trim());
@@ -367,7 +370,8 @@ document.addEventListener('DOMContentLoaded', function() {
             </p>
           ` : ''}
           ${rep.email ? `<p class="email"><a href="mailto:${rep.email}">${rep.email}</a></p>` : ''}
-          ${rep.phone ? `<p class="phone">${rep.phone}</p>` : ''}
+          ${rep.phone ? `<p class="phone"><strong>Phone:</strong> ${rep.phone}</p>` : ''}
+          ${rep.cell_phone ? `<p class="cell-phone"><strong>Cell:</strong> ${rep.cell_phone}</p>` : ''}
           ${rep.website ? `<p class="website"><a href="${rep.website}" target="_blank" rel="noopener">${rep.website.replace(/https?:\/\//, '').replace(/www\./, '')}</a></p>` : ''}
         </div>
       </div>
@@ -557,7 +561,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 {% schema %}
 {
-  "name": "Sales Representatives",
+  "name": "Sales Rep CSV",
   "settings": [
     {
       "type": "text",
