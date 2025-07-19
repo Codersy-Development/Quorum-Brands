@@ -85,6 +85,11 @@
                 {% if block.settings.phone != blank %}
                   <p class="phone">{{ block.settings.phone }}</p>
                 {% endif %}
+                {% if block.settings.website != blank %}
+                  <p class="website">
+                    <a href="{{ block.settings.website }}" target="_blank" rel="noopener">{{ block.settings.website | remove: 'https://' | remove: 'http://' | remove: 'www.' }}</a>
+                  </p>
+                {% endif %}
               </div>
         </div>
       {% endif %}
@@ -201,8 +206,17 @@
     text-decoration: underline;
   }
 
-  .email, .phone {
+  .email, .phone, .website {
     margin: 5px 0;
+  }
+
+  .website a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+
+  .website a:hover {
+    text-decoration: underline;
   }
 
   /* Territory section styles */
@@ -640,6 +654,12 @@
           "type": "text",
           "id": "phone",
           "label": "Phone"
+        },
+        {
+          "type": "url",
+          "id": "website",
+          "label": "Website",
+          "info": "Include https:// for external links"
         }
       ]
     }
