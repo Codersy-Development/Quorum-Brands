@@ -855,11 +855,24 @@
             "button_label": "Search",
             "button_link": "shopify://pages/sales-representative-locator"
           }
+        },
+        "text_block_3beVV9": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": false,
+            "image_mask": "none",
+            "image_width": 60,
+            "title": "Western States",
+            "text": "<p>Search for Sales Representatives in the Western Region</p>",
+            "button_label": "Search",
+            "button_link": "shopify://pages/sales-representative-locator"
+          }
         }
       },
       "block_order": [
         "text_block_kXVDip",
-        "text_block_MEePPP"
+        "text_block_MEePPP",
+        "text_block_3beVV9"
       ],
       "name": "t:sections.text-columns.presets.text_columns_with_images.name",
       "settings": {
