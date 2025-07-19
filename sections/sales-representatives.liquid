@@ -18,8 +18,6 @@
       <select id="territoryFilter" class="territory-select">
         <option value="">All Territories</option>
         {% assign all_territories = '' %}
-        
-        <!-- Collect territories from manual blocks -->
         {% for section_check in template.sections %}
           {% if section_check.type == 'sales-representatives' %}
             {% for block in section_check.blocks %}
@@ -31,20 +29,6 @@
                     {% assign all_territories = all_territories | append: '^' | append: cleaned_territory %}
                   {% endif %}
                 {% endfor %}
-              {% endif %}
-            {% endfor %}
-          {% endif %}
-        {% endfor %}
-        
-        <!-- Collect territories from customer metafields -->
-        {% assign customers_with_reps = shop.customers | where: 'metafields.custom.sr_name', 'ne', blank %}
-        {% for customer in customers_with_reps %}
-          {% if customer.metafields.custom.sr_territory != blank %}
-            {% assign territories = customer.metafields.custom.sr_territory | replace: '.', ',' | replace: '/', ',' | split: ',' %}
-            {% for territory in territories %}
-              {% assign cleaned_territory = territory | strip %}
-              {% if cleaned_territory != '' %}
-                {% assign all_territories = all_territories | append: '^' | append: cleaned_territory %}
               {% endif %}
             {% endfor %}
           {% endif %}
@@ -68,109 +52,48 @@
   </div>
   {% endif %}
 
-  <!-- All rep cards container -->
+  <!-- All rep cards from this section -->
   <div class="sales-reps-grid" id="repsContainer{{ section.id }}">
-    
-    <!-- Manual rep cards from section blocks -->
     {% for block in section.blocks %}
       {% if block.type == 'rep' %}
         <div class="sales-rep-card" 
           data-territories="{{ block.settings.territory | replace: '.', ',' | replace: '/', ',' | escape }}"
           data-name="{{ block.settings.name | strip | escape }}"
           data-group="{{ block.settings.rep_group | strip | escape }}"
-          data-source="manual"
           {{ block.shopify_attributes }}>
           <h3>{{ block.settings.name }}</h3>
           {% if block.settings.rep_group != blank %}
             <p class="rep-group">{{ block.settings.rep_group }}</p>
           {% endif %}
-          <div class="rep-details">
-            {% if block.settings.position != blank %}
-              <p class="position">{{ block.settings.position }}</p>
-            {% endif %}
-            {% if block.settings.territory != blank %}
-              <p class="territory">
-                Territory: {{ block.settings.territory }}
-                {% if block.settings.territory_detail != blank %}
-                  <span class="territory-detail">{{ block.settings.territory_detail }}</span>
+              <div class="rep-details">
+                {% if block.settings.position != blank %}
+                  <p class="position">{{ block.settings.position }}</p>
                 {% endif %}
-              </p>
-            {% endif %}
-            {% if block.settings.email != blank %}
-              <p class="email">
-                <a href="mailto:{{ block.settings.email }}">{{ block.settings.email }}</a>
-              </p>
-            {% endif %}
-            {% if block.settings.phone != blank %}
-              <p class="phone">{{ block.settings.phone }}</p>
-            {% endif %}
-            {% if block.settings.website != blank %}
-              <p class="website">
-                <a href="{{ block.settings.website }}" target="_blank" rel="noopener">{{ block.settings.website | remove: 'https://' | remove: 'http://' | remove: 'www.' }}</a>
-              </p>
-            {% endif %}
-          </div>
+                 {% if block.settings.territory != blank %}
+                  <p class="territory">
+                    Territory: {{ block.settings.territory }}
+                    {% if block.settings.territory_detail != blank %}
+                      <span class="territory-detail">{{ block.settings.territory_detail }}</span>
+                    {% endif %}
+                  </p>
+                {% endif %}
+                {% if block.settings.email != blank %}
+                  <p class="email">
+                    <a href="mailto:{{ block.settings.email }}">{{ block.settings.email }}</a>
+                  </p>
+                {% endif %}
+                {% if block.settings.phone != blank %}
+                  <p class="phone">{{ block.settings.phone }}</p>
+                {% endif %}
+                {% if block.settings.website != blank %}
+                  <p class="website">
+                    <a href="{{ block.settings.website }}" target="_blank" rel="noopener">{{ block.settings.website | remove: 'https://' | remove: 'http://' | remove: 'www.' }}</a>
+                  </p>
+                {% endif %}
+              </div>
         </div>
       {% endif %}
     {% endfor %}
-
-    <!-- Rep cards from customer metafields -->
-    {% if section.settings.include_customer_reps %}
-      {% assign customers_with_reps = shop.customers | where: 'metafields.custom.sr_name', 'ne', blank %}
-      {% assign processed_reps = '' %}
-      
-      {% for customer in customers_with_reps %}
-        {% assign rep_name = customer.metafields.custom.sr_name | strip %}
-        {% assign rep_email = customer.metafields.custom.sr_email | strip %}
-        
-        <!-- Create unique identifier for rep to avoid duplicates -->
-        {% assign rep_identifier = rep_name | append: '|' | append: rep_email %}
-        
-        {% unless processed_reps contains rep_identifier %}
-          {% assign processed_reps = processed_reps | append: '^' | append: rep_identifier %}
-          
-          <div class="sales-rep-card" 
-            data-territories="{{ customer.metafields.custom.sr_territory | replace: '.', ',' | replace: '/', ',' | escape }}"
-            data-name="{{ rep_name | escape }}"
-            data-group="{{ customer.metafields.custom.sr_rep_group | strip | escape }}"
-            data-source="customer">
-            <h3>{{ rep_name }}</h3>
-            {% if customer.metafields.custom.sr_rep_group != blank %}
-              <p class="rep-group">{{ customer.metafields.custom.sr_rep_group }}</p>
-            {% endif %}
-            <div class="rep-details">
-              {% if customer.metafields.custom.sr_position != blank %}
-                <p class="position">{{ customer.metafields.custom.sr_position }}</p>
-              {% endif %}
-              {% if customer.metafields.custom.sr_territory != blank %}
-                <p class="territory">
-                  Territory: {{ customer.metafields.custom.sr_territory }}
-                  {% if customer.metafields.custom.sr_territory_detail != blank %}
-                    <span class="territory-detail">{{ customer.metafields.custom.sr_territory_detail }}</span>
-                  {% endif %}
-                </p>
-              {% endif %}
-              {% if customer.metafields.custom.sr_email != blank %}
-                <p class="email">
-                  <a href="mailto:{{ customer.metafields.custom.sr_email }}">{{ customer.metafields.custom.sr_email }}</a>
-                </p>
-              {% endif %}
-              {% if customer.metafields.custom.sr_phone != blank %}
-                <p class="phone">{{ customer.metafields.custom.sr_phone }}</p>
-              {% endif %}
-              {% if customer.metafields.custom.sr_cell_phone != blank %}
-                <p class="phone cell-phone">Cell: {{ customer.metafields.custom.sr_cell_phone }}</p>
-              {% endif %}
-              {% if customer.metafields.custom.sr_website != blank %}
-                <p class="website">
-                  <a href="{{ customer.metafields.custom.sr_website }}" target="_blank" rel="noopener">{{ customer.metafields.custom.sr_website | remove: 'https://' | remove: 'http://' | remove: 'www.' }}</a>
-                </p>
-              {% endif %}
-            </div>
-          </div>
-        {% endunless %}
-      {% endfor %}
-    {% endif %}
   </div>
 </div>
 
@@ -251,27 +174,10 @@
     border: 1px solid #ddd;
     border-radius: 8px;
     transition: all 0.3s ease;
-    position: relative;
   }
   
   .sales-rep-card:hover {
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
-
-  /* Badge for customer-sourced reps */
-  .sales-rep-card[data-source="customer"]::before {
-    content: "Customer Data";
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #e3f2fd;
-    color: #1976d2;
-    padding: 2px 8px;
-    border-radius: 12px;
-    font-size: 10px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
   }
 
   .sales-rep-card h3 {
@@ -302,11 +208,6 @@
 
   .email, .phone, .website {
     margin: 5px 0;
-  }
-
-  .cell-phone {
-    font-style: italic;
-    color: #666;
   }
 
   .website a {
@@ -481,7 +382,7 @@
 <script>
   const repSearch = document.getElementById('repSearch');
   const territoryFilter = document.getElementById('territoryFilter');
-  const repsContainer = document.getElementById('repsContainer{{ section.id }}');
+  const repsContainer = document.getElementById('repsContainer');
   const noResults = document.getElementById('noResults');
   const paginationContainer = document.getElementById('paginationContainer');
   const pageNumbers = document.getElementById('pageNumbers');
@@ -691,13 +592,6 @@
       "label": "Show search controls",
       "default": true,
       "info": "Only check this for ONE section per page. This section will control search/pagination for all rep sections on the page."
-    },
-    {
-      "type": "checkbox",
-      "id": "include_customer_reps",
-      "label": "Include representatives from customer data",
-      "default": true,
-      "info": "Pull sales rep information from customer metafields (sr_name, sr_email, etc.)"
     },
     {
       "type": "text",
