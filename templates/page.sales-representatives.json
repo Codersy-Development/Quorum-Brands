@@ -792,6 +792,24 @@
     },
     "sales_rep_metafields_mGGjxQ": {
       "type": "sales-rep-metafields",
+      "blocks": {
+        "rep_iztFKz": {
+          "type": "rep",
+          "settings": {
+            "name": "",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "website": ""
+          }
+        }
+      },
+      "block_order": [
+        "rep_iztFKz"
+      ],
       "name": "Sales Rep Meta",
       "settings": {
         "show_search_controls": true,
