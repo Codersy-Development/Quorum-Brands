@@ -1,12 +1,10 @@
 {% comment %}sections/sales-representatives.liquid{% endcomment %}
-
 <div class="page-width">
-  {% if section.settings.show_search_controls %}
   <div class="sales-reps-header text-center margin-bottom-3">
     <h1>{{ section.settings.title }}</h1>
     <div class="rte">{{ section.settings.description }}</div>
   </div>
-
+  
   <div class="search-filters margin-bottom-3">
     <div class="search-container">
       <input 
@@ -18,17 +16,13 @@
       <select id="territoryFilter" class="territory-select">
         <option value="">All Territories</option>
         {% assign all_territories = '' %}
-        {% for section_check in template.sections %}
-          {% if section_check.type == 'sales-representatives' %}
-            {% for block in section_check.blocks %}
-              {% if block.type == 'rep' and block.settings.territory != blank %}
-                {% assign territories = block.settings.territory | replace: '.', ',' | replace: '/', ',' | split: ',' %}
-                {% for territory in territories %}
-                  {% assign cleaned_territory = territory | strip %}
-                  {% if cleaned_territory != '' %}
-                    {% assign all_territories = all_territories | append: '^' | append: cleaned_territory %}
-                  {% endif %}
-                {% endfor %}
+        {% for block in section.blocks %}
+          {% if block.type == 'rep' and block.settings.territory != blank %}
+            {% assign territories = block.settings.territory | replace: '.', ',' | replace: '/', ',' | split: ',' %}
+            {% for territory in territories %}
+              {% assign cleaned_territory = territory | strip %}
+              {% if cleaned_territory != '' %}
+                {% assign all_territories = all_territories | append: '^' | append: cleaned_territory %}
               {% endif %}
             {% endfor %}
           {% endif %}
@@ -50,10 +44,8 @@
   <div class="results-info margin-bottom-2">
     <p id="resultsCount"></p>
   </div>
-  {% endif %}
 
-  <!-- All rep cards from this section -->
-  <div class="sales-reps-grid" id="repsContainer{{ section.id }}">
+  <div class="sales-reps-grid" id="repsContainer">
     {% for block in section.blocks %}
       {% if block.type == 'rep' %}
         <div class="sales-rep-card" 
@@ -65,40 +57,40 @@
           {% if block.settings.rep_group != blank %}
             <p class="rep-group">{{ block.settings.rep_group }}</p>
           {% endif %}
-              <div class="rep-details">
-                {% if block.settings.position != blank %}
-                  <p class="position">{{ block.settings.position }}</p>
+          <div class="rep-details">
+            {% if block.settings.position != blank %}
+              <p class="position">{{ block.settings.position }}</p>
+            {% endif %}
+            {% if block.settings.territory != blank %}
+              <p class="territory">
+                Territory: {{ block.settings.territory }}
+                {% if block.settings.territory_detail != blank %}
+                  <span class="territory-detail">{{ block.settings.territory_detail }}</span>
                 {% endif %}
-                 {% if block.settings.territory != blank %}
-                  <p class="territory">
-                    Territory: {{ block.settings.territory }}
-                    {% if block.settings.territory_detail != blank %}
-                      <span class="territory-detail">{{ block.settings.territory_detail }}</span>
-                    {% endif %}
-                  </p>
-                {% endif %}
-                {% if block.settings.email != blank %}
-                  <p class="email">
-                    <a href="mailto:{{ block.settings.email }}">{{ block.settings.email }}</a>
-                  </p>
-                {% endif %}
-                {% if block.settings.phone != blank %}
-                  <p class="phone">{{ block.settings.phone }}</p>
-                {% endif %}
-                {% if block.settings.website != blank %}
-                  <p class="website">
-                    <a href="{{ block.settings.website }}" target="_blank" rel="noopener">{{ block.settings.website | remove: 'https://' | remove: 'http://' | remove: 'www.' }}</a>
-                  </p>
-                {% endif %}
-              </div>
+              </p>
+            {% endif %}
+            {% if block.settings.email != blank %}
+              <p class="email">
+                <a href="mailto:{{ block.settings.email }}">{{ block.settings.email }}</a>
+              </p>
+            {% endif %}
+            {% if block.settings.phone != blank %}
+              <p class="phone">{{ block.settings.phone }}</p>
+            {% endif %}
+            {% if block.settings.cellphone != blank %}
+              <p class="phone cell-phone">Cell: {{ block.settings.cellphone }}</p>
+            {% endif %}
+            {% if block.settings.website != blank %}
+              <p class="website">
+                <a href="{{ block.settings.website }}" target="_blank" rel="noopener">{{ block.settings.website | remove: 'https://' | remove: 'http://' | remove: 'www.' }}</a>
+              </p>
+            {% endif %}
+          </div>
         </div>
       {% endif %}
     {% endfor %}
   </div>
-</div>
 
-{% if section.settings.show_search_controls %}
-<div class="page-width">
   <div id="noResults" class="no-results" style="display: none;">
     <p>No sales representatives found matching your search criteria.</p>
   </div>
@@ -128,7 +120,6 @@
     </span>
   </div>
 </div>
-{% endif %}
 
 <style>
   .search-filters {
@@ -208,6 +199,11 @@
 
   .email, .phone, .website {
     margin: 5px 0;
+  }
+
+  .cell-phone {
+    font-style: italic;
+    color: #666;
   }
 
   .website a {
@@ -391,7 +387,7 @@
   const resultsCount = document.getElementById('resultsCount');
   const repCards = document.querySelectorAll('.sales-rep-card');
   
-  const ITEMS_PER_PAGE = {{ section.settings.items_per_page | default: 25 }};
+  const ITEMS_PER_PAGE = {{ section.settings.items_per_page | default: 12 }};
   let currentPage = 1;
   let filteredCards = [];
 
@@ -587,13 +583,6 @@
   "name": "Sales Representatives",
   "settings": [
     {
-      "type": "checkbox",
-      "id": "show_search_controls",
-      "label": "Show search controls",
-      "default": true,
-      "info": "Only check this for ONE section per page. This section will control search/pagination for all rep sections on the page."
-    },
-    {
       "type": "text",
       "id": "title",
       "label": "Title",
@@ -609,8 +598,8 @@
       "type": "number",
       "id": "items_per_page",
       "label": "Representatives per page",
-      "default": 25,
-      "info": "Number of representatives to show per page (recommended: 10-50)"
+      "default": 12,
+      "info": "Number of representatives to show per page (recommended: 6-24)"
     }
   ],
   "blocks": [
@@ -654,6 +643,11 @@
           "type": "text",
           "id": "phone",
           "label": "Phone"
+        },
+        {
+          "type": "text",
+          "id": "cellphone",
+          "label": "Cell Phone"
         },
         {
           "type": "url",
