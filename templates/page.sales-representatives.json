@@ -63,6 +63,61 @@
         "lazyload_images": true
       }
     },
+    "text_columns_3c6Ygi": {
+      "type": "text-columns",
+      "blocks": {
+        "text_block_kXVDip": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": false,
+            "image_mask": "none",
+            "image_width": 60,
+            "title": "Eastern States",
+            "text": "<p>Search for Sales Representatives in the Eastern Region.</p>",
+            "button_label": "Search",
+            "button_link": "shopify://pages/sales-representative-locator"
+          }
+        },
+        "text_block_MEePPP": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": false,
+            "image_mask": "none",
+            "image_width": 60,
+            "title": "Mid West",
+            "text": "<p>Search for Sales Representatives in the Mid-Western Region</p>",
+            "button_label": "Search",
+            "button_link": "shopify://pages/sales-representative-locator"
+          }
+        },
+        "text_block_3beVV9": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": false,
+            "image_mask": "none",
+            "image_width": 60,
+            "title": "Western States",
+            "text": "<p>Search for Sales Representatives in the Western Region</p>",
+            "button_label": "Search",
+            "button_link": "shopify://pages/sales-representative-locator"
+          }
+        }
+      },
+      "block_order": [
+        "text_block_kXVDip",
+        "text_block_MEePPP",
+        "text_block_3beVV9"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 750px) {div {margin-top: 50px; }}"
+      ],
+      "name": "t:sections.text-columns.presets.text_columns_with_images.name",
+      "settings": {
+        "title": "",
+        "align_text": "center",
+        "divider": false
+      }
+    },
     "sales_representatives_zFym6A": {
       "type": "sales-representatives",
       "blocks": {
@@ -828,63 +883,11 @@
         "description": "<p>Contact our professional sales team for assistance</p>",
         "items_per_page": 15
       }
-    },
-    "text_columns_3c6Ygi": {
-      "type": "text-columns",
-      "blocks": {
-        "text_block_kXVDip": {
-          "type": "text_block",
-          "settings": {
-            "enable_image": false,
-            "image_mask": "none",
-            "image_width": 60,
-            "title": "East Coast",
-            "text": "<p>Search for Sales Representatives in the Eastern Region</p>",
-            "button_label": "Search",
-            "button_link": "shopify://pages/sales-representative-locator"
-          }
-        },
-        "text_block_MEePPP": {
-          "type": "text_block",
-          "settings": {
-            "enable_image": false,
-            "image_mask": "none",
-            "image_width": 60,
-            "title": "Mid West",
-            "text": "<p>Search for Sales Representatives in the Mid-Western Region</p>",
-            "button_label": "Search",
-            "button_link": "shopify://pages/sales-representative-locator"
-          }
-        },
-        "text_block_3beVV9": {
-          "type": "text_block",
-          "settings": {
-            "enable_image": false,
-            "image_mask": "none",
-            "image_width": 60,
-            "title": "Western States",
-            "text": "<p>Search for Sales Representatives in the Western Region</p>",
-            "button_label": "Search",
-            "button_link": "shopify://pages/sales-representative-locator"
-          }
-        }
-      },
-      "block_order": [
-        "text_block_kXVDip",
-        "text_block_MEePPP",
-        "text_block_3beVV9"
-      ],
-      "name": "t:sections.text-columns.presets.text_columns_with_images.name",
-      "settings": {
-        "title": "",
-        "align_text": "center",
-        "divider": false
-      }
     }
   },
   "order": [
     "hero",
-    "sales_representatives_zFym6A",
-    "text_columns_3c6Ygi"
+    "text_columns_3c6Ygi",
+    "sales_representatives_zFym6A"
   ]
 }
