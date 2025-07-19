@@ -108,9 +108,7 @@
         "text_block_MEePPP",
         "text_block_3beVV9"
       ],
-      "custom_css": [
-        "@media screen and (min-width: 750px) {div {margin-top: 50px; }}"
-      ],
+      "custom_css": [],
       "name": "t:sections.text-columns.presets.text_columns_with_images.name",
       "settings": {
         "title": "",
