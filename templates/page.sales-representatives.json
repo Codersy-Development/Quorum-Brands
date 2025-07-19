@@ -108,6 +108,7 @@
         "text_block_MEePPP",
         "text_block_3beVV9"
       ],
+      "disabled": true,
       "custom_css": [],
       "name": "t:sections.text-columns.presets.text_columns_with_images.name",
       "settings": {
@@ -873,7 +874,7 @@
         "rep_RX34Az"
       ],
       "custom_css": [
-        "@media screen and (min-width: 750px) {.sales-reps-header {margin-top: 50px; }}"
+        "@media screen and (min-width: 750px) {.sales-reps-header {margin-top: 75px; }}"
       ],
       "name": "Sales Representatives",
       "settings": {
