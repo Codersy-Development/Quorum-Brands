@@ -729,10 +729,10 @@
         "items_per_page": 10
       }
     },
-    "sales_representatives_tbkbk9": {
+    "sales_representatives_iGQfCj": {
       "type": "sales-representatives",
       "blocks": {
-        "rep_mJrgEx": {
+        "rep_iQJdeY": {
           "type": "rep",
           "settings": {
             "name": "Representative Name",
@@ -744,7 +744,7 @@
             "phone": ""
           }
         },
-        "rep_nHkzmt": {
+        "rep_UzRHbK": {
           "type": "rep",
           "settings": {
             "name": "Representative Name",
@@ -756,7 +756,7 @@
             "phone": ""
           }
         },
-        "rep_8BXrLz": {
+        "rep_MfLTp4": {
           "type": "rep",
           "settings": {
             "name": "Representative Name",
@@ -768,7 +768,7 @@
             "phone": ""
           }
         },
-        "rep_NXd8XN": {
+        "rep_yEj8zw": {
           "type": "rep",
           "settings": {
             "name": "Representative Name",
@@ -780,7 +780,7 @@
             "phone": ""
           }
         },
-        "rep_akMERn": {
+        "rep_HyXWPm": {
           "type": "rep",
           "settings": {
             "name": "Representative Name",
@@ -794,16 +794,16 @@
         }
       },
       "block_order": [
-        "rep_mJrgEx",
-        "rep_nHkzmt",
-        "rep_8BXrLz",
-        "rep_NXd8XN",
-        "rep_akMERn"
+        "rep_iQJdeY",
+        "rep_UzRHbK",
+        "rep_MfLTp4",
+        "rep_yEj8zw",
+        "rep_HyXWPm"
       ],
       "name": "Sales Representatives",
       "settings": {
-        "title": "Sales Representatives",
-        "description": "<p>Contact our professional sales team for assistance</p>",
+        "title": "",
+        "description": "",
         "items_per_page": 25
       }
     }
@@ -811,6 +811,6 @@
   "order": [
     "hero",
     "sales_representatives_Y84jdX",
-    "sales_representatives_tbkbk9"
+    "sales_representatives_iGQfCj"
   ]
 }

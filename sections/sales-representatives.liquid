@@ -1,6 +1,20 @@
 {% comment %}sections/sales-representatives.liquid{% endcomment %}
 
+{% assign is_first_section = true %}
+{% assign current_section_found = false %}
+{% for section_item in template.sections %}
+  {% if section_item.type == 'sales-representatives' %}
+    {% if section_item.id == section.id %}
+      {% assign current_section_found = true %}
+      {% break %}
+    {% else %}
+      {% assign is_first_section = false %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
 <div class="page-width">
+  {% if is_first_section %}
   <div class="sales-reps-header text-center margin-bottom-3">
     <h1>{{ section.settings.title }}</h1>
     <div class="rte">{{ section.settings.description }}</div>
@@ -17,13 +31,17 @@
       <select id="territoryFilter" class="territory-select">
         <option value="">All Territories</option>
         {% assign all_territories = '' %}
-        {% for block in section.blocks %}
-          {% if block.type == 'rep' and block.settings.territory != blank %}
-            {% assign territories = block.settings.territory | replace: '.', ',' | replace: '/', ',' | split: ',' %}
-            {% for territory in territories %}
-              {% assign cleaned_territory = territory | strip %}
-              {% if cleaned_territory != '' %}
-                {% assign all_territories = all_territories | append: '^' | append: cleaned_territory %}
+        {% for section_check in template.sections %}
+          {% if section_check.type == 'sales-representatives' %}
+            {% for block in section_check.blocks %}
+              {% if block.type == 'rep' and block.settings.territory != blank %}
+                {% assign territories = block.settings.territory | replace: '.', ',' | replace: '/', ',' | split: ',' %}
+                {% for territory in territories %}
+                  {% assign cleaned_territory = territory | strip %}
+                  {% if cleaned_territory != '' %}
+                    {% assign all_territories = all_territories | append: '^' | append: cleaned_territory %}
+                  {% endif %}
+                {% endfor %}
               {% endif %}
             {% endfor %}
           {% endif %}
@@ -45,8 +63,9 @@
   <div class="results-info margin-bottom-2">
     <p id="resultsCount"></p>
   </div>
+  {% endif %}
 
-  <div class="sales-reps-grid" id="repsContainer">
+  <div class="sales-reps-grid" id="repsContainer{{ section.id }}">
     {% for block in section.blocks %}
       {% if block.type == 'rep' %}
         <div class="sales-rep-card" 
@@ -84,6 +103,7 @@
     {% endfor %}
   </div>
 
+  {% if is_first_section %}
   <div id="noResults" class="no-results" style="display: none;">
     <p>No sales representatives found matching your search criteria.</p>
   </div>
@@ -112,6 +132,7 @@
       </a>
     </span>
   </div>
+  {% endif %}
 </div>
 
 <style>
