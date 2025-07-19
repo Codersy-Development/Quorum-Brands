@@ -63,12 +63,39 @@
         "lazyload_images": true
       }
     },
+    "rich_text_aXTKfx": {
+      "type": "rich-text",
+      "name": "t:sections.rich-text.presets.rich_text.name",
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false
+      }
+    },
     "sales_representatives_zFym6A": {
       "type": "sales-representatives",
+      "blocks": {
+        "rep_39aeQb": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "website": ""
+          }
+        }
+      },
+      "block_order": [
+        "rep_39aeQb"
+      ],
+      "custom_css": [],
       "name": "Sales Representatives",
       "settings": {
         "show_search_controls": true,
-        "include_customer_reps": true,
         "title": "Sales Representatives",
         "description": "<p>Contact our professional sales team for assistance</p>",
         "items_per_page": 25
@@ -77,6 +104,7 @@
   },
   "order": [
     "hero",
+    "rich_text_aXTKfx",
     "sales_representatives_zFym6A"
   ]
 }
