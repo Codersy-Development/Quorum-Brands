@@ -77,36 +77,10 @@
             "email": "aj@myhouselighting.com",
             "phone": "612-123-5678"
           }
-        },
-        "rep_X64rjt": {
-          "type": "rep",
-          "settings": {
-            "name": "Quorum International",
-            "rep_group": "Primary Showroom",
-            "position": "Quorum International",
-            "territory": "Corporate Head Quarters",
-            "territory_detail": "",
-            "email": "fbradford@quorumintl.com",
-            "phone": "817-682-6323"
-          }
-        },
-        "rep_W7FjCU": {
-          "type": "rep",
-          "settings": {
-            "name": "Adam  Barri",
-            "rep_group": "?",
-            "position": "",
-            "territory": "?",
-            "territory_detail": "?",
-            "email": "303lighting@gmail.com",
-            "phone": "(720) 984-5442"
-          }
         }
       },
       "block_order": [
-        "rep_EzJNBT",
-        "rep_X64rjt",
-        "rep_W7FjCU"
+        "rep_EzJNBT"
       ],
       "custom_css": [
         "@media screen and (min-width: 750px) {div {margin-top: 50px; }}"
