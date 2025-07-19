@@ -725,7 +725,8 @@
       "name": "Sales Representatives",
       "settings": {
         "title": "Sales Representatives",
-        "description": "<p>Contact our professional sales team for assistance</p>"
+        "description": "<p>Contact our professional sales team for assistance</p>",
+        "items_per_page": 10
       }
     }
   },
