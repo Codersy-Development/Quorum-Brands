@@ -80,12 +80,12 @@
             "menu": "shop-all-menu",
             "is_mega_menu": true,
             "buttons_color": "#e8e8e1",
-            "store_button_color": "#000000",
-            "buttons_text_color": "#000000",
+            "store_button_color": "#80807c",
+            "buttons_text_color": "#80807c",
             "store_button_text_color": "#e8e8e1",
             "color_header": "#e8e8e1",
             "color_header_text": "#000000",
-            "color_announcement": "#1c1d1d",
+            "color_announcement": "#80807c",
             "color_announcement_text": "#ffffff"
           }
         }
