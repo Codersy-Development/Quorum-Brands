@@ -329,12 +329,69 @@ document.addEventListener('DOMContentLoaded', function() {
   let allReps = [];
 
   // CSV data - Replace this with your actual rep data
-  const csvData = `name,rep_group,position,territory,territory_detail,email,phone,cell_phone,website
-"Quorum Showroom","Rep #024-Q","Sales Representative","","","fbradford@quorumintl.com","817-682-6323","","https://quorumintl.com"
-"Adam Barri","Rep #1164-Q","Sales Representative","","","303lighting@gmail.com","(720) 984-5442","(720) 555-0123","https://303lighting.com"
-"HCL High Country Lighting","Rep #1167-Q","Sales Representative","","","Kurt@highcountrylighting.com"," (406) 599-5884","(406) 555-0124","https://highcountrylighting.com"
-"Rich Andrews","Rep #123","Sales Representative","","","randrews@imcdi.com","5613137702","5613137701","https://imcdi.com"
-"Scott Rosenberg","Rep #14-Q","Sales Representative","Eugene, OR","","scottrosenberg@pnwrs.com","541-914-8086","541-555-0125","https://pnwrs.com"`;
+  const csvData = `name,rep-group,position,territory,territory_details,email,phone,cell_phone,website
+Quorum,Quorum Showroom,Showroom,024-Q,USA,fbradford@quorumintl.com,817-682-6323,,
+Adam,Adam Barri,Barri,1164-Q,USA,303lighting@gmail.com,(720) 984-5442,,
+HCL,HCL High Country Lighting,High Country Lighting,1167-Q,USA,Kurt@highcountrylighting.com, (406) 599-5884,,
+Rich,Rich Andrews,Andrews,123,USA,randrews@imcdi.com,5613137702,5613137702,
+Scott,Scott Rosenberg,Rosenberg,14-Q,USA,scottrosenberg@pnwrs.com,541-914-8086,,
+Sarah,Sarah Yeganhe,Yeganhe,14-Q,USA,sarahyeganhe@gmail.com,714-351-3810,,
+Sebastian,Sebastian Castrillon,Castrillon,22-Q,USA,sebastian@lightingreps.net,786-306-0865,,
+Alejandro,Alejandro Franco,Franco,22-Q,USA,alejandro@lightingreps.net,7864889721,,
+CARLOS,CARLOS LEON,LEON,22-Q,USA,carlos@lightingreps.net,7877081532,,
+Joe,Joe Ortiz,Ortiz,23-Q,USA,joe@ortizlightingsales.com,407-556-4644,,
+Bill,Bill Lincoln,Lincoln,24-Q,USA,WLincolnTLG@gmail.com,(229)881-0530,(229)881-0530,
+Todd,Todd Tracy,Tracy,24-Q,USA,ttracy1@bellsouth.net,404-402-8320,,
+John,John Patsey,Patsey,25-Q,USA,ed@jpsinc.net,859-621-3322,,
+Benezech-Striklin,Benezech-Striklin Sales Team,Sales Team,28-Q,USA,office@bassales.net,2258929520,,
+Benezech,Benezech Stricklin,Stricklin,28-Q,USA,hstricklin@yahoo.com,985-893-1860,,
+Benezech,Benezech Stricklin,Stricklin,28-Q,USA,ebenezech@yahoo.com,985-893-1860,,
+Mark,Mark Vinson,Vinson,30-Q,USA,mark@luminalightingsales.com,8034098211,8034098211,
+Roberta,Roberta Misicka,Misicka,31-Q,USA,misicka@me.com,312-217-3115,,
+Aaron,Aaron Ward,Ward,32-Q,USA,award7@horizonlightingsales.com,512-736-9434,,
+Shelby,Shelby Meister,Meister,33-Q,USA,meistershelby@gmail.com,314-878-5166,,
+Dan,Dan Adelberger,Adelberger,34-Q,USA,dan@adelbergerassociates.com,12152628810,,
+Metrolight,Metrolight Sales Corp,Sales Corp,35-Q,USA,rachel@metrolightsales.com,973-912-9565,,
+Barry,Barry Troy,Troy,35-Q,USA,barrytroy@mac.com,908-419-8775,,
+Katie,Katie Katona,Katona,37-Q,USA,katie.katona@gmail.com,6144046788,6144046788,
+Gilda,Gilda Rabinovitz,Rabinovitz,39-Q,USA,gildarabi@gmail.com,(577)090-1135,,
+Alejandro,Alejandro Rabinovitz,Rabinovitz,39-Q,USA,alejandro@multimueble.com.mx,(577)090-1135,,
+Kirk,Kirk Martin,Martin,40-Q,USA,Kirk@ZayaMartin.com,508-292-6771,,
+Chris,Chris Zaya,Zaya,40-Q,USA,Chris@zayamartin.com,6177500677,,
+Mishir,Mishir Fernandez,Fernandez,47-Q,USA,mishir@lightingreps.net,787-586-1903,,
+Nancy,Nancy Jensen,Jensen,50-Q,USA,Nancy@JensenLtg.com,612-209-3827,612-209-3827,
+Dave/Nancy,Dave/Nancy Jensen,Jensen,50-Q,USA,info@jensenlighting.com,952-996-9466,,
+Mike,Mike Jensen,Jensen,50-Q,USA,Mike@jensenLighting.com,952-292-9213,,
+Bret,Bret Devine,Devine,63-Q,USA,devinesales@aol.com,8167288222,8167288222,
+Dulanski,Dulanski Group,Group,708-Q,USA,lighting@dulanski.com,914-328-5557,,
+Quantum,Quantum Lighting Group,Lighting Group,758-Q,USA,sstraw@quantumltg.com,801-270-0010  ,,
+Creighton,Creighton Bostrom,Bostrom,79-Q,USA,Creighton@Southernglowsales.com,9196040412,,
+Rebecca,Rebecca Cunningham,Cunningham,79-Q,USA,Rebecca@southernglowsales.com,5704048699,,
+Dan,Dan Donavan,Donavan,79-Q,USA,dandon@comcast.net,0000000000,,
+Carrie,Carrie Gonzales,Gonzales,79-Q,USA,carrie@southernglowsales.com,803-409-8211,,
+Rachel,Rachel Lynch,Lynch,79-Q,USA,rachel@southernglowsales.com,6034910510,,
+Jeff,Jeff Norris,Norris,79-Q,USA,jeff@southernglowsales.com,9193493700,,
+Mark,Mark Vinson,Vinson,79-Q,USA,mark@southernglowsales.com,803-409-8211,,
+Stephen,Stephen Katona,Katona,80-Q,USA,stephenkatona@gmail.com,8476443176,8476443176,
+Karli,Karli Khan,Khan,830-Q,USA,sales@jlwlighting.com,8598150004,,
+Jackie,Jackie Doug,Doug,833-Q,USA,dbaa@telus.net,6049706598,,
+Patrick,Patrick Marineau,Marineau,99-Q,USA,Patrick@Lesventespm.com,514-206-4684,,
+Dan,Dan McIntosh,McIntosh,99-Q,USA,daan@norlite.sa,416-567-5661,,
+House,House Account,Account,House,USA,customersupport@quorumintl.com,555-555-5555,,
+Halle,Halle Nealy,Nealy,House,USA,hnealy@quorumintl.com,1111111111,,
+Halle,Halle Nealy,Nealy,House,USA,hnealy.cyan@gmail.com,9728492583,,
+House,House Rep,Rep,House,USA,jalopez@quorumintl.com,8172010157,,
+Rich,Rich Andrews,Andrews,REPZIO,USA,randrews@junipercommerce.com,9542572988,9542572988,
+Michael,Michael Clemmer,Clemmer,REPZIO,USA,phil@repzio.com,4107704901,,
+Adam,Adam Clinard,Clinard,REPZIO,USA,aclinard@andmore.com,336-703-8720,,
+Mackenzie,Mackenzie Harris,Harris,REPZIO,USA,maharris@imcdi.com,1234567890,,
+Jacki,Jacki Huelsenbeck,Huelsenbeck,REPZIO,USA,bivauveddeussi-1865@yopmail.com,319-213-0070,,
+Melissa,Melissa jara,jara,REPZIO,USA,mjara@andmore.com,123,,
+Bill,Bill Summa,Summa,REPZIO,USA,bill@repzio.com,8554387379,9144695330,
+Ben,Ben Wineland,Wineland,REPZIO,USA,bwineland@junipercommerce.com,6157053708,,
+Scott,Scott Beane,Beane,SB-test,USA,sbeane@andmore.com,7029311737,,
+Dimitrius,Dimitrius Samudio,Samudio,Test2-Q,USA,dsamudio@quorumintl.com,1111111111,,
+;
   function parseCSV(csv) {
     const lines = csv.trim().split('\n');
     const headers = lines[0].split(',').map(h => h.replace(/"/g, '').trim());
