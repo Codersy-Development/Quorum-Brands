@@ -111,7 +111,7 @@
       "custom_css": [],
       "name": "t:sections.text-columns.presets.text_columns_with_images.name",
       "settings": {
-        "title": "",
+        "title": "Sales Representatives",
         "align_text": "center",
         "divider": false
       }
@@ -877,7 +877,7 @@
       ],
       "name": "Sales Representatives",
       "settings": {
-        "title": "Sales Representatives",
+        "title": "",
         "description": "<p>Contact our professional sales team for assistance</p>",
         "items_per_page": 15
       }
