@@ -89,15 +89,28 @@
   </div>
 
   <!-- Pagination Controls -->
-  <div class="pagination-container" id="paginationContainer">
-    <div class="pagination-controls">
-      <button id="prevPage" class="pagination-btn">&lt; Previous</button>
-      <div class="page-numbers" id="pageNumbers"></div>
-      <button id="nextPage" class="pagination-btn">Next &gt;</button>
-    </div>
-    <div class="pagination-info">
-      <span id="pageInfo"></span>
-    </div>
+  <div class="pagination" id="paginationContainer">
+    <span class="prev" id="prevPage" style="display: none;">
+      <a href="#" title="Previous">
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-left" viewBox="0 0 284.49 498.98">
+          <title>icon-chevron</title>
+          <path d="M249.49 0a35 35 0 0 1 24.75 59.75L84.5 249.49l189.74 189.74a35.002 35.002 0 0 1-49.5 49.5L10.25 274.24a35 35 0 0 1 0-49.5L224.74 10.25A34.89 34.89 0 0 1 249.49 0Z"></path>
+        </svg>
+        <span class="icon__fallback-text">Previous</span>
+      </a>
+    </span>
+    
+    <div id="pageNumbers"></div>
+    
+    <span class="next" id="nextPage" style="display: none;">
+      <a href="#" title="Next">
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-right" viewBox="0 0 284.49 498.98">
+          <title>icon-chevron</title>
+          <path d="M35 498.98a35 35 0 0 1-24.75-59.75l189.74-189.74L10.25 59.75a35.002 35.002 0 0 1 49.5-49.5l214.49 214.49a35 35 0 0 1 0 49.5L59.75 488.73A34.89 34.89 0 0 1 35 498.98Z"></path>
+        </svg>
+        <span class="icon__fallback-text">Next</span>
+      </a>
+    </span>
   </div>
 </div>
 
@@ -205,7 +218,115 @@
     color: #666;
   }
 
+  /* Pagination Styles */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
 
+  .pagination .page {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0;
+    border: 1px solid #e8e8e8;
+    background-color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .pagination .page a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+    text-decoration: none;
+    color: #121212;
+    font-weight: 500;
+  }
+
+  .pagination .page:hover {
+    border-color: #121212;
+  }
+
+  .pagination .page.current {
+    background-color: #121212;
+    border-color: #121212;
+    color: #ffffff;
+    font-weight: 500;
+  }
+
+  .pagination .prev,
+  .pagination .next {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    border: 1px solid #e8e8e8;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+  }
+
+  .pagination .prev a,
+  .pagination .next a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+    text-decoration: none;
+    color: #121212;
+  }
+
+  .pagination .prev:hover,
+  .pagination .next:hover {
+    border-color: #121212;
+  }
+
+  .pagination .prev.disabled,
+  .pagination .next.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .pagination .icon {
+    width: 12px;
+    height: 12px;
+    fill: currentColor;
+  }
+
+  .pagination .icon__fallback-text {
+    display: none;
+  }
+
+  @media screen and (max-width: 749px) {
+    .pagination {
+      gap: 4px;
+    }
+
+    .pagination .page,
+    .pagination .prev,
+    .pagination .next {
+      min-width: 40px;
+      min-height: 40px;
+    }
+
+    .pagination .page a,
+    .pagination .prev a,
+    .pagination .next a {
+      padding: 10px;
+    }
+  }
   
   @media screen and (min-width: 750px) {
     .sales-reps-grid {
@@ -320,15 +441,28 @@
   function updatePaginationControls() {
     const totalPages = Math.ceil(filteredCards.length / ITEMS_PER_PAGE);
     
-    // Update previous/next buttons
-    prevPage.disabled = currentPage === 1;
-    nextPage.disabled = currentPage === totalPages || totalPages === 0;
+    // Update previous/next buttons visibility
+    const prevButton = document.getElementById('prevPage');
+    const nextButton = document.getElementById('nextPage');
+    
+    if (currentPage === 1) {
+      prevButton.style.display = 'none';
+    } else {
+      prevButton.style.display = 'inline-flex';
+      prevButton.classList.remove('disabled');
+    }
+    
+    if (currentPage === totalPages || totalPages === 0) {
+      nextButton.style.display = 'none';
+    } else {
+      nextButton.style.display = 'inline-flex';
+      nextButton.classList.remove('disabled');
+    }
 
     // Clear page numbers
     pageNumbers.innerHTML = '';
 
     if (totalPages <= 1) {
-      pageInfo.textContent = '';
       return;
     }
 
@@ -362,23 +496,33 @@
       }
       addPageNumber(totalPages);
     }
-
-    // Update page info
-    pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
   }
 
   function addPageNumber(pageNum) {
-    const pageButton = document.createElement('div');
-    pageButton.className = `page-number ${pageNum === currentPage ? 'active' : ''}`;
-    pageButton.textContent = pageNum;
-    pageButton.addEventListener('click', () => goToPage(pageNum));
-    pageNumbers.appendChild(pageButton);
+    const pageSpan = document.createElement('span');
+    pageSpan.className = 'page';
+    
+    if (pageNum === currentPage) {
+      pageSpan.classList.add('current');
+      pageSpan.textContent = pageNum;
+    } else {
+      const pageLink = document.createElement('a');
+      pageLink.href = '#';
+      pageLink.textContent = pageNum;
+      pageLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        goToPage(pageNum);
+      });
+      pageSpan.appendChild(pageLink);
+    }
+    
+    pageNumbers.appendChild(pageSpan);
   }
 
   function addEllipsis() {
-    const ellipsis = document.createElement('div');
-    ellipsis.className = 'page-number ellipsis';
-    ellipsis.textContent = '...';
+    const ellipsis = document.createElement('span');
+    ellipsis.className = 'page';
+    ellipsis.textContent = '…';
     pageNumbers.appendChild(ellipsis);
   }
 
