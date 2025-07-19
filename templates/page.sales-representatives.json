@@ -789,11 +789,23 @@
         "description": "<p>Contact our professional sales team for assistance</p>",
         "items_per_page": 15
       }
+    },
+    "sales_rep_metafields_mGGjxQ": {
+      "type": "sales-rep-metafields",
+      "name": "Sales Rep Meta",
+      "settings": {
+        "show_search_controls": true,
+        "include_customer_reps": true,
+        "title": "Sales Representatives",
+        "description": "<p>Contact our professional sales team for assistance</p>",
+        "items_per_page": 25
+      }
     }
   },
   "order": [
     "hero",
     "rich_text_aXTKfx",
-    "sales_representatives_zFym6A"
+    "sales_representatives_zFym6A",
+    "sales_rep_metafields_mGGjxQ"
   ]
 }
