@@ -80,13 +80,13 @@
           "type": "rep",
           "settings": {
             "name": "AJ Howard",
-            "rep_group": "",
-            "position": "",
-            "territory": "",
-            "territory_detail": "",
-            "email": "",
-            "phone": "",
-            "website": ""
+            "rep_group": "My House Lighting",
+            "position": "Owner",
+            "territory": "Washington, Oregon, Utah, Montana,",
+            "territory_detail": "E-commerce only",
+            "email": "aj@myhouselighting.com",
+            "phone": "6121234567",
+            "website": "https://myhouselighting.com"
           }
         },
         "rep_9FNFk3": {
@@ -805,10 +805,66 @@
             "phone": "",
             "website": ""
           }
+        },
+        "rep_rpVhVJ": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "website": ""
+          }
+        },
+        "rep_Ng88ac": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "website": ""
+          }
+        },
+        "rep_BzBWGi": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "website": ""
+          }
+        },
+        "rep_THnbFi": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "website": ""
+          }
         }
       },
       "block_order": [
-        "rep_iztFKz"
+        "rep_iztFKz",
+        "rep_rpVhVJ",
+        "rep_Ng88ac",
+        "rep_BzBWGi",
+        "rep_THnbFi"
       ],
       "name": "Sales Rep Meta",
       "settings": {
