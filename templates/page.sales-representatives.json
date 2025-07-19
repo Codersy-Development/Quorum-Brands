@@ -728,10 +728,89 @@
         "description": "<p>Contact our professional sales team for assistance</p>",
         "items_per_page": 10
       }
+    },
+    "sales_representatives_tbkbk9": {
+      "type": "sales-representatives",
+      "blocks": {
+        "rep_mJrgEx": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": ""
+          }
+        },
+        "rep_nHkzmt": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": ""
+          }
+        },
+        "rep_8BXrLz": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": ""
+          }
+        },
+        "rep_NXd8XN": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": ""
+          }
+        },
+        "rep_akMERn": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": ""
+          }
+        }
+      },
+      "block_order": [
+        "rep_mJrgEx",
+        "rep_nHkzmt",
+        "rep_8BXrLz",
+        "rep_NXd8XN",
+        "rep_akMERn"
+      ],
+      "name": "Sales Representatives",
+      "settings": {
+        "title": "Sales Representatives",
+        "description": "<p>Contact our professional sales team for assistance</p>",
+        "items_per_page": 25
+      }
     }
   },
   "order": [
     "hero",
-    "sales_representatives_Y84jdX"
+    "sales_representatives_Y84jdX",
+    "sales_representatives_tbkbk9"
   ]
 }
