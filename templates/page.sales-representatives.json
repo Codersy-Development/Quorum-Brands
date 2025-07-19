@@ -779,95 +779,10 @@
         "description": "<p>Contact our professional sales team for assistance</p>",
         "items_per_page": 10
       }
-    },
-    "sales_representatives_iGQfCj": {
-      "type": "sales-representatives",
-      "blocks": {
-        "rep_iQJdeY": {
-          "type": "rep",
-          "settings": {
-            "name": "Chris Svenrud",
-            "rep_group": "Filament Lighting",
-            "position": "Owner",
-            "territory": "Minnesota",
-            "territory_detail": "Online Only",
-            "email": "",
-            "phone": "310-775-7127",
-            "website": ""
-          }
-        },
-        "rep_UzRHbK": {
-          "type": "rep",
-          "settings": {
-            "name": "Representative Name",
-            "rep_group": "",
-            "position": "",
-            "territory": "",
-            "territory_detail": "",
-            "email": "",
-            "phone": "",
-            "website": ""
-          }
-        },
-        "rep_MfLTp4": {
-          "type": "rep",
-          "settings": {
-            "name": "Representative Name",
-            "rep_group": "",
-            "position": "",
-            "territory": "",
-            "territory_detail": "",
-            "email": "",
-            "phone": "",
-            "website": ""
-          }
-        },
-        "rep_yEj8zw": {
-          "type": "rep",
-          "settings": {
-            "name": "Representative Name",
-            "rep_group": "",
-            "position": "",
-            "territory": "",
-            "territory_detail": "",
-            "email": "",
-            "phone": "",
-            "website": ""
-          }
-        },
-        "rep_HyXWPm": {
-          "type": "rep",
-          "settings": {
-            "name": "Representative Name",
-            "rep_group": "",
-            "position": "",
-            "territory": "",
-            "territory_detail": "",
-            "email": "",
-            "phone": "",
-            "website": ""
-          }
-        }
-      },
-      "block_order": [
-        "rep_iQJdeY",
-        "rep_UzRHbK",
-        "rep_MfLTp4",
-        "rep_yEj8zw",
-        "rep_HyXWPm"
-      ],
-      "name": "Sales Representatives",
-      "settings": {
-        "show_search_controls": true,
-        "title": "",
-        "description": "",
-        "items_per_page": 25
-      }
     }
   },
   "order": [
     "hero",
-    "sales_representatives_Y84jdX",
-    "sales_representatives_iGQfCj"
+    "sales_representatives_Y84jdX"
   ]
 }
