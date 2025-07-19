@@ -82,7 +82,7 @@
         "rep_r8npxJ": {
           "type": "rep",
           "settings": {
-            "name": "Representative Name",
+            "name": "",
             "rep_group": "",
             "position": "",
             "territory": "",
@@ -774,8 +774,11 @@
       ],
       "name": "Sales Representatives",
       "settings": {
+        "show_search_controls": true,
+        "include_customer_reps": true,
         "title": "Sales Representatives",
-        "description": "<p>Contact one of our location professional sales team for assistance</p>"
+        "description": "<p>Contact one of our location professional sales team for assistance</p>",
+        "items_per_page": 25
       }
     }
   },
