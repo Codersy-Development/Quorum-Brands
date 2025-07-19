@@ -654,7 +654,7 @@
             "phone": ""
           }
         },
-        "rep_bxkTf8": {
+        "rep_U9gm7P": {
           "type": "rep",
           "settings": {
             "name": "Representative Name",
@@ -717,7 +717,7 @@
         "rep_zXeYU8",
         "rep_yjbfGe",
         "rep_39yhAF",
-        "rep_bxkTf8"
+        "rep_U9gm7P"
       ],
       "custom_css": [
         "@media screen and (min-width: 750px) {div {margin-top: 50px; }}"
@@ -735,13 +735,13 @@
         "rep_iQJdeY": {
           "type": "rep",
           "settings": {
-            "name": "Representative Name",
-            "rep_group": "",
-            "position": "",
-            "territory": "",
+            "name": "Chris Svenrud",
+            "rep_group": "Filament Lighting",
+            "position": "Owner",
+            "territory": "Minnesota",
             "territory_detail": "",
             "email": "",
-            "phone": ""
+            "phone": "310-775-7127"
           }
         },
         "rep_UzRHbK": {
