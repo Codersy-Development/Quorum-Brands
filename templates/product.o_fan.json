@@ -139,6 +139,14 @@
             "page": ""
           }
         },
+        "tab_gmPfdr": {
+          "type": "tab",
+          "settings": {
+            "title": "Downloads",
+            "content": "<p>{{ product.metafields.custom.button_cutsheet.value }}</p><p>{{ product.metafields.custom.button_ies.value }}</p><p>{{ product.metafields.custom.button_revit.value }}</p><p>{{ product.metafields.custom.button_instructions.value }}</p><p>{{ product.metafields.custom.button_photo_metrics.value }}</p>",
+            "page": ""
+          }
+        },
         "share": {
           "type": "share",
           "settings": {}
@@ -161,6 +169,7 @@
         "tab_dMML88",
         "tab_HNGgCY",
         "tab_wDhBGe",
+        "tab_gmPfdr",
         "share"
       ],
       "custom_css": [],
