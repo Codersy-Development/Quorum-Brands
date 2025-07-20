@@ -761,7 +761,7 @@
             "heading": "Shop by Room: Outdoor",
             "text": "Bring beauty and functionality to your outdoor spaces with durable, weather-resistant lighting and fans that create a comfortable and inviting atmosphere.",
             "button_label": "Explore Products",
-            "button_link": "#"
+            "button_link": "shopify://collections/quorum-outdoor-lights"
           }
         }
       },
