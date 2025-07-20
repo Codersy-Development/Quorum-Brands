@@ -275,13 +275,13 @@
             "subcategory_4": "Stadium",
             "subcategory_5": "Capsule",
             "subcategory_6": "Hexagon",
-            "category_link": "",
-            "subcategory_1_link": "",
-            "subcategory_2_link": "",
-            "subcategory_3_link": "",
-            "subcategory_4_link": "",
-            "subcategory_5_link": "",
-            "subcategory_6_link": ""
+            "category_link": "/collections/quorum-mirrors",
+            "subcategory_1_link": "/collections/round-mirror",
+            "subcategory_2_link": "/collections/arch-mirror",
+            "subcategory_3_link": "/collections/rectangle-mirror",
+            "subcategory_4_link": "/collections/stadium-mirror",
+            "subcategory_5_link": "/collections/capsule-mirror",
+            "subcategory_6_link": "/collections/hexagon-mirror"
           }
         }
       },
