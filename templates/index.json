@@ -506,8 +506,8 @@
           "type": "product_card",
           "settings": {
             "product": "840-8-5947",
-            "custom_link": "",
-            "open_in_new_tab": false
+            "custom_link": "shopify://products/840-8-5947",
+            "open_in_new_tab": true
           }
         },
         "product_card_aPcfaF": {
