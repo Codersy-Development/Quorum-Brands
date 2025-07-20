@@ -129,6 +129,14 @@
             "page": ""
           }
         },
+        "tab_rATNWd": {
+          "type": "tab",
+          "settings": {
+            "title": "additional information",
+            "content": "<p>{{ product.metafields.custom.special_attribute.value }}</p>",
+            "page": ""
+          }
+        },
         "tab_CWf8ci": {
           "type": "tab",
           "settings": {
@@ -158,6 +166,7 @@
         "tab_zFza3D",
         "tab",
         "tab_8btMxN",
+        "tab_rATNWd",
         "tab_CWf8ci",
         "share"
       ],
@@ -189,6 +198,7 @@
       "block_order": [
         "tab_NGgmHF"
       ],
+      "disabled": true,
       "settings": {
         "max_width": true
       }
