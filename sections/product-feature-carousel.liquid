@@ -8,7 +8,14 @@
     <div class="container">
         <div class="feature-grid">
             <div class="feature-left">
-                <img id="mainImageDynamic" src="{{ section.blocks[0].settings.main_image | img_url: 'master' }}" alt="Main Room Image" class="main-image fade-in">
+                {% assign first_block = section.blocks[0] %}
+                {% if first_block.settings.product_url %}
+                    <a href="{{ first_block.settings.product_url }}" target="_blank" rel="noopener" class="main-image-link">
+                        <img id="mainImageDynamic" src="{{ first_block.settings.main_image | img_url: 'master' }}" alt="Main Room Image" class="main-image fade-in">
+                    </a>
+                {% else %}
+                    <img id="mainImageDynamic" src="{{ first_block.settings.main_image | img_url: 'master' }}" alt="Main Room Image" class="main-image fade-in">
+                {% endif %}
             </div>
 
             <div class="feature-right">
@@ -16,9 +23,17 @@
                     <div class="card-swiper swiper">
                         <div class="swiper-wrapper">
                             {% for block in section.blocks %}
-                                <div class="swiper-slide" data-main-image="{{ block.settings.main_image | img_url: 'master' }}">
+                                <div class="swiper-slide" 
+                                     data-main-image="{{ block.settings.main_image | img_url: 'master' }}"
+                                     data-product-url="{{ block.settings.product_url }}">
                                     {% if block.settings.card_image %}
-                                        <img src="{{ block.settings.card_image | img_url: 'master' }}" alt="Slide Image" class="card-image">
+                                        {% if block.settings.product_url %}
+                                            <a href="{{ block.settings.product_url }}" target="_blank" rel="noopener" class="card-image-link">
+                                                <img src="{{ block.settings.card_image | img_url: 'master' }}" alt="Slide Image" class="card-image">
+                                            </a>
+                                        {% else %}
+                                            <img src="{{ block.settings.card_image | img_url: 'master' }}" alt="Slide Image" class="card-image">
+                                        {% endif %}
                                     {% endif %}
                                     {% if block.settings.heading %}
                                         <h2 class="card-title">{{ block.settings.heading }}</h2>
@@ -51,9 +66,26 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
+<style>
+.main-image-link, .card-image-link {
+    display: block;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.main-image-link:hover, .card-image-link:hover {
+    opacity: 0.9;
+}
+
+.card-image-link {
+    margin-bottom: 1rem;
+}
+</style>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const mainImage = document.getElementById('mainImageDynamic');
+        const mainImageContainer = document.querySelector('.feature-left');
 
         const swiper = new Swiper('.card-swiper', {
             slidesPerView: 1,
@@ -66,6 +98,7 @@
                 slideChange: function () {
                     const currentSlide = swiper.slides[swiper.activeIndex];
                     const newSrc = currentSlide.getAttribute('data-main-image');
+                    const newProductUrl = currentSlide.getAttribute('data-product-url');
 
                     if (newSrc && mainImage.src !== newSrc) {
                         // Hide before changing src
@@ -79,6 +112,34 @@
 
                         mainImage.addEventListener('load', onLoadHandler);
                         mainImage.src = newSrc;
+
+                        // Update the main image link
+                        const existingLink = mainImageContainer.querySelector('.main-image-link');
+                        
+                        if (newProductUrl) {
+                            if (existingLink) {
+                                // Update existing link
+                                existingLink.href = newProductUrl;
+                            } else {
+                                // Create new link wrapper
+                                const link = document.createElement('a');
+                                link.href = newProductUrl;
+                                link.target = '_blank';
+                                link.rel = 'noopener';
+                                link.className = 'main-image-link';
+                                
+                                // Wrap the image
+                                mainImage.parentNode.insertBefore(link, mainImage);
+                                link.appendChild(mainImage);
+                            }
+                        } else {
+                            if (existingLink) {
+                                // Remove link wrapper, keep image
+                                const parent = existingLink.parentNode;
+                                parent.insertBefore(mainImage, existingLink);
+                                parent.removeChild(existingLink);
+                            }
+                        }
                     }
                 }
             }
@@ -129,6 +190,12 @@
           "type": "image_picker",
           "id": "card_image",
           "label": "Card Image"
+        },
+        {
+          "type": "url",
+          "id": "product_url",
+          "label": "Product URL",
+          "info": "Make both images clickable - opens in new tab"
         },
         {
           "type": "text",
