@@ -514,8 +514,8 @@
           "type": "product_card",
           "settings": {
             "product": "8905-6-59",
-            "custom_link": "",
-            "open_in_new_tab": false
+            "custom_link": "shopify://products/8905-6-59",
+            "open_in_new_tab": true
           }
         },
         "product_card_UqJEDX": {
