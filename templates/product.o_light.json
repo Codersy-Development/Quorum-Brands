@@ -131,6 +131,14 @@
             "page": ""
           }
         },
+        "tab_6yQEbd": {
+          "type": "tab",
+          "settings": {
+            "title": "downloads",
+            "content": "<p>{{ product.metafields.custom.button_cutsheet.value }}</p><p>{{ product.metafields.custom.button_ies.value }}</p><p>{{ product.metafields.custom.button_revit.value }}</p><p>{{ product.metafields.custom.button_instructions.value }}</p><p>{{ product.metafields.custom.button_photo_metrics.value }}</p>",
+            "page": ""
+          }
+        },
         "custom_zme3Yt": {
           "type": "custom",
           "settings": {
@@ -158,6 +166,7 @@
         "tab",
         "tab_nbjTFY",
         "tab_TizhYg",
+        "tab_6yQEbd",
         "custom_zme3Yt",
         "share"
       ],
@@ -189,6 +198,7 @@
       "block_order": [
         "tab_9AjKC6"
       ],
+      "disabled": true,
       "settings": {
         "max_width": true
       }
