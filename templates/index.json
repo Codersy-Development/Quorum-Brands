@@ -667,7 +667,7 @@
             "heading": "Shop by Room: Dining",
             "text": "Set the perfect tone for your dining area with lighting fixtures that enhance the atmosphere, making every meal feel special.",
             "button_label": "Explore Products",
-            "button_link": "#"
+            "button_link": "shopify://collections/chandelier"
           }
         },
         "card_slide_gz7fGt": {
@@ -680,7 +680,7 @@
             "heading": "Shop by Room: Outdoor",
             "text": "Bring beauty and functionality to your outdoor spaces with durable, weather-resistant lighting and fans that create a comfortable and inviting atmosphere.",
             "button_label": "Explore Products",
-            "button_link": "#"
+            "button_link": "shopify://collections/outdoor"
           }
         }
       },
