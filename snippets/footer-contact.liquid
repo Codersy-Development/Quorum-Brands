@@ -2,7 +2,6 @@
   Renders the contact information block for the footer.
   Expects a `block` object passed into the snippet.
 {% endcomment %}
-
 <div class="footer-contact">
     <div>
         <div class="footer-contact-icon-wrapper">
@@ -10,7 +9,11 @@
         </div>
         <div class="footer-contact-content-wrapper">
             <div class="footer-contact-title">ADDRESS</div>
-            <p class="footer-contact-desc">{{ block.settings.address_line_1 }}<br>{{ block.settings.address_line_2 }}</p>
+            <p class="footer-contact-desc">
+                <a href="https://maps.google.com/maps?q={{ block.settings.address_line_1 | url_encode }}%20{{ block.settings.address_line_2 | url_encode }}" target="_blank" rel="noopener">
+                    {{ block.settings.address_line_1 }}<br>{{ block.settings.address_line_2 }}
+                </a>
+            </p>
         </div>
     </div>
     <div>
@@ -19,7 +22,11 @@
         </div>
         <div class="footer-contact-content-wrapper">
             <div class="footer-contact-title">PHONE</div>
-            <p class="footer-contact-desc">{{ block.settings.phone_number }}</p>
+            <p class="footer-contact-desc">
+                <a href="tel:{{ block.settings.phone_number | replace: ' ', '' | replace: '-', '' | replace: '(', '' | replace: ')', '' }}">
+                    {{ block.settings.phone_number }}
+                </a>
+            </p>
         </div>
     </div>
     <div>
@@ -28,7 +35,11 @@
         </div>
         <div class="footer-contact-content-wrapper">
             <div class="footer-contact-title">EMAIL</div>
-            <p class="footer-contact-desc">{{ block.settings.email_address }}</p>
+            <p class="footer-contact-desc">
+                <a href="mailto:{{ block.settings.email_address }}">
+                    {{ block.settings.email_address }}
+                </a>
+            </p>
         </div>
     </div>
 </div>
