@@ -82,7 +82,7 @@
         "menu_NhFiUt": {
           "type": "menu",
           "settings": {
-            "show_footer_title": true,
+            "show_footer_title": false,
             "menu": "professional-resources",
             "container_width": 27
           }
@@ -90,7 +90,7 @@
         "menu_kE8b83": {
           "type": "menu",
           "settings": {
-            "show_footer_title": true,
+            "show_footer_title": false,
             "menu": "where-to-buy",
             "container_width": 25
           }
