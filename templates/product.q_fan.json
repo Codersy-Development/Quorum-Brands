@@ -137,6 +137,14 @@
             "page": ""
           }
         },
+        "tab_FqWVYh": {
+          "type": "tab",
+          "settings": {
+            "title": "additional information",
+            "content": "<p>{{ product.metafields.custom.special_attribute.value }}</p>",
+            "page": ""
+          }
+        },
         "tab_MV7TVN": {
           "type": "tab",
           "settings": {
@@ -167,6 +175,7 @@
         "tab",
         "tab_HTXfHc",
         "tab_Bj364y",
+        "tab_FqWVYh",
         "tab_MV7TVN",
         "share"
       ],
@@ -199,6 +208,7 @@
       "block_order": [
         "tab_9AjKC6"
       ],
+      "disabled": true,
       "custom_css": [],
       "settings": {
         "max_width": true
