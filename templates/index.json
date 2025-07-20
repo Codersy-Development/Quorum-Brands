@@ -803,7 +803,7 @@
             "heading": "Shop by Room: Bathroom",
             "text": "Elevate bathroom styling with our curated selection  of lighting and mirrors, designed to add a touch of luxury and  functionality to your space.",
             "button_label": "Explore Products",
-            "button_link": "#"
+            "button_link": "shopify://collections/oxygen-vanities"
           }
         },
         "card_slide_yPEAWh": {
@@ -816,7 +816,7 @@
             "heading": "Shop by Room: Hallways & Entries",
             "text": "Illuminate any hallways and entries with stylish lighting that sets the tone for your home, creating a  welcoming and sophisticated first impression",
             "button_label": "Explore Products",
-            "button_link": "#"
+            "button_link": "shopify://collections/oxygen-wall-lights"
           }
         },
         "card_slide_xgmhVR": {
