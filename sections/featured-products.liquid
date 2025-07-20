@@ -22,8 +22,11 @@
                     {% if product %}
                         {% assign first_image = product.images[0] %}
                         {% assign second_image = product.images[1] %}
+                        {% comment %} Use custom link if provided, otherwise use product URL {% endcomment %}
+                        {% assign card_url = block.settings.custom_link | default: product.url %}
                         <div class="swiper-slide">
-                            <a href="{{ product.url }}" class="product-card">
+                            <a href="{{ card_url }}" class="product-card"
+                               {% if block.settings.custom_link and block.settings.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>
                                 <div class="product-image">
                                     {% if first_image %}
                                         <img
@@ -149,6 +152,19 @@
           "type": "product",
           "id": "product",
           "label": "Select Product"
+        },
+        {
+          "type": "url",
+          "id": "custom_link",
+          "label": "Custom Link (Optional)",
+          "info": "Override the default product link. Leave empty to use the product's default URL."
+        },
+        {
+          "type": "checkbox",
+          "id": "open_in_new_tab",
+          "label": "Open custom link in new tab",
+          "default": false,
+          "info": "Only applies when using a custom link"
         }
       ]
     }
