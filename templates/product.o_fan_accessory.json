@@ -123,6 +123,14 @@
             "page": ""
           }
         },
+        "tab_t9MK3c": {
+          "type": "tab",
+          "settings": {
+            "title": "additional information",
+            "content": "<p>{{ product.metafields.custom.special_attribute.value }}</p>",
+            "page": ""
+          }
+        },
         "tab_DMwcBQ": {
           "type": "tab",
           "settings": {
@@ -159,6 +167,7 @@
         "tab_zFza3D",
         "tab",
         "tab_xifNL9",
+        "tab_t9MK3c",
         "tab_DMwcBQ",
         "tab_aMR4wc",
         "share"
