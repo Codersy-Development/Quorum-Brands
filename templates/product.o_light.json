@@ -131,6 +131,14 @@
             "page": ""
           }
         },
+        "tab_ehCYKV": {
+          "type": "tab",
+          "settings": {
+            "title": "Additional Informaton",
+            "content": "<p>{{ product.metafields.custom.special_attribute.value }}</p>",
+            "page": ""
+          }
+        },
         "tab_6yQEbd": {
           "type": "tab",
           "settings": {
@@ -166,6 +174,7 @@
         "tab",
         "tab_nbjTFY",
         "tab_TizhYg",
+        "tab_ehCYKV",
         "tab_6yQEbd",
         "custom_zme3Yt",
         "share"
