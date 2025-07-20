@@ -84,7 +84,7 @@
           "settings": {
             "show_footer_title": true,
             "menu": "professional-resources",
-            "container_width": 25
+            "container_width": 27
           }
         },
         "menu_kE8b83": {
@@ -101,9 +101,9 @@
             "contact_button_label": "CONTACT US",
             "contact_button_link": "#",
             "facebook_url": "https://www.facebook.com/quoruminternational",
-            "linkedin_url": "#",
+            "linkedin_url": "https://www.linkedin.com/company/quorum-lighting",
             "instagram_url": "https://www.instagram.com/quoruminternational",
-            "vimeo_url": "#"
+            "vimeo_url": "https://vimeo.com/quoruminternational"
           }
         }
       },
