@@ -9,8 +9,8 @@
         <div class="feature-grid">
             <div class="feature-left">
                 {% assign first_block = section.blocks[0] %}
-                {% if first_block.settings.product_url %}
-                    <a href="{{ first_block.settings.product_url }}" target="_blank" rel="noopener" class="main-image-link">
+                {% if first_block.settings.main_image_url %}
+                    <a href="{{ first_block.settings.main_image_url }}" target="_blank" rel="noopener" class="main-image-link">
                         <img id="mainImageDynamic" src="{{ first_block.settings.main_image | img_url: 'master' }}" alt="Main Room Image" class="main-image fade-in">
                     </a>
                 {% else %}
@@ -25,10 +25,10 @@
                             {% for block in section.blocks %}
                                 <div class="swiper-slide" 
                                      data-main-image="{{ block.settings.main_image | img_url: 'master' }}"
-                                     data-product-url="{{ block.settings.product_url }}">
+                                     data-main-image-url="{{ block.settings.main_image_url }}">
                                     {% if block.settings.card_image %}
-                                        {% if block.settings.product_url %}
-                                            <a href="{{ block.settings.product_url }}" target="_blank" rel="noopener" class="card-image-link">
+                                        {% if block.settings.card_image_url %}
+                                            <a href="{{ block.settings.card_image_url }}" target="_blank" rel="noopener" class="card-image-link">
                                                 <img src="{{ block.settings.card_image | img_url: 'master' }}" alt="Slide Image" class="card-image">
                                             </a>
                                         {% else %}
@@ -98,7 +98,7 @@
                 slideChange: function () {
                     const currentSlide = swiper.slides[swiper.activeIndex];
                     const newSrc = currentSlide.getAttribute('data-main-image');
-                    const newProductUrl = currentSlide.getAttribute('data-product-url');
+                    const newMainImageUrl = currentSlide.getAttribute('data-main-image-url');
 
                     if (newSrc && mainImage.src !== newSrc) {
                         // Hide before changing src
@@ -116,14 +116,14 @@
                         // Update the main image link
                         const existingLink = mainImageContainer.querySelector('.main-image-link');
                         
-                        if (newProductUrl) {
+                        if (newMainImageUrl) {
                             if (existingLink) {
                                 // Update existing link
-                                existingLink.href = newProductUrl;
+                                existingLink.href = newMainImageUrl;
                             } else {
                                 // Create new link wrapper
                                 const link = document.createElement('a');
-                                link.href = newProductUrl;
+                                link.href = newMainImageUrl;
                                 link.target = '_blank';
                                 link.rel = 'noopener';
                                 link.className = 'main-image-link';
@@ -187,15 +187,21 @@
           "label": "Main Large Image"
         },
         {
+          "type": "url",
+          "id": "main_image_url",
+          "label": "Main Image URL",
+          "info": "Make the main large image clickable - opens in new tab"
+        },
+        {
           "type": "image_picker",
           "id": "card_image",
           "label": "Card Image"
         },
         {
           "type": "url",
-          "id": "product_url",
-          "label": "Product URL",
-          "info": "Make both images clickable - opens in new tab"
+          "id": "card_image_url",
+          "label": "Card Image URL",
+          "info": "Make the card image clickable - opens in new tab"
         },
         {
           "type": "text",
