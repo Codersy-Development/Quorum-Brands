@@ -523,15 +523,15 @@
           "settings": {
             "product": "593-4-47",
             "custom_link": "shopify://products/593-4-47",
-            "open_in_new_tab": false
+            "open_in_new_tab": true
           }
         },
         "product_card_yqFPJB": {
           "type": "product_card",
           "settings": {
             "product": "5240-2-47",
-            "custom_link": "",
-            "open_in_new_tab": false
+            "custom_link": "shopify://products/5240-2-47",
+            "open_in_new_tab": true
           }
         }
       },
