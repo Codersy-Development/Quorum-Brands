@@ -423,37 +423,49 @@
         "product_card_VUEjV4": {
           "type": "product_card",
           "settings": {
-            "product": "5391-69"
+            "product": "5391-69",
+            "custom_link": "",
+            "open_in_new_tab": true
           }
         },
         "product_card_LmMFmB": {
           "type": "product_card",
           "settings": {
-            "product": "38-13-69"
+            "product": "38-13-69",
+            "custom_link": "",
+            "open_in_new_tab": false
           }
         },
         "product_card_B3p7pL": {
           "type": "product_card",
           "settings": {
-            "product": "60523-59"
+            "product": "60523-59",
+            "custom_link": "",
+            "open_in_new_tab": false
           }
         },
         "product_card_FErbDU": {
           "type": "product_card",
           "settings": {
-            "product": "344-14-80"
+            "product": "344-14-80",
+            "custom_link": "",
+            "open_in_new_tab": false
           }
         },
         "product_card_akWdCY": {
           "type": "product_card",
           "settings": {
-            "product": "713-22-69"
+            "product": "713-22-69",
+            "custom_link": "",
+            "open_in_new_tab": false
           }
         },
         "product_card_k6Lgpw": {
           "type": "product_card",
           "settings": {
-            "product": "5403-1-095"
+            "product": "5403-1-095",
+            "custom_link": "",
+            "open_in_new_tab": false
           }
         }
       },
@@ -477,37 +489,49 @@
         "product_card_PTfiQ8": {
           "type": "product_card",
           "settings": {
-            "product": "866-8-0880"
+            "product": "866-8-0880",
+            "custom_link": "",
+            "open_in_new_tab": false
           }
         },
         "product_card_FhLh8Q": {
           "type": "product_card",
           "settings": {
-            "product": "6123-8-59"
+            "product": "6123-8-59",
+            "custom_link": "",
+            "open_in_new_tab": false
           }
         },
         "product_card_9tbLgg": {
           "type": "product_card",
           "settings": {
-            "product": "840-8-5947"
+            "product": "840-8-5947",
+            "custom_link": "",
+            "open_in_new_tab": false
           }
         },
         "product_card_aPcfaF": {
           "type": "product_card",
           "settings": {
-            "product": "8905-6-59"
+            "product": "8905-6-59",
+            "custom_link": "",
+            "open_in_new_tab": false
           }
         },
         "product_card_UqJEDX": {
           "type": "product_card",
           "settings": {
-            "product": "593-4-47"
+            "product": "593-4-47",
+            "custom_link": "",
+            "open_in_new_tab": false
           }
         },
         "product_card_yqFPJB": {
           "type": "product_card",
           "settings": {
-            "product": "5240-2-47"
+            "product": "5240-2-47",
+            "custom_link": "",
+            "open_in_new_tab": false
           }
         }
       },
@@ -531,37 +555,49 @@
         "product_card_DcTWKW": {
           "type": "product_card",
           "settings": {
-            "product": "3-586-15"
+            "product": "3-586-15",
+            "custom_link": "",
+            "open_in_new_tab": false
           }
         },
         "product_card_XGxtbP": {
           "type": "product_card",
           "settings": {
-            "product": "3-80-56"
+            "product": "3-80-56",
+            "custom_link": "",
+            "open_in_new_tab": false
           }
         },
         "product_card_UaxBh4": {
           "type": "product_card",
           "settings": {
-            "product": "3-216-650"
+            "product": "3-216-650",
+            "custom_link": "",
+            "open_in_new_tab": false
           }
         },
         "product_card_phf77m": {
           "type": "product_card",
           "settings": {
-            "product": "3-697-56"
+            "product": "3-697-56",
+            "custom_link": "",
+            "open_in_new_tab": false
           }
         },
         "product_card_U8RLq9": {
           "type": "product_card",
           "settings": {
-            "product": "3-878-15"
+            "product": "3-878-15",
+            "custom_link": "",
+            "open_in_new_tab": false
           }
         },
         "product_card_Ldkmt9": {
           "type": "product_card",
           "settings": {
-            "product": "5240-2-47"
+            "product": "5240-2-47",
+            "custom_link": "",
+            "open_in_new_tab": false
           }
         }
       },
