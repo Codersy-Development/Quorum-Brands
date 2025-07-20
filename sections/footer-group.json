@@ -72,6 +72,7 @@
         },
         "menu_AdxKpD": {
           "type": "menu",
+          "disabled": true,
           "settings": {
             "show_footer_title": false,
             "menu": "footer-1",
