@@ -33,10 +33,18 @@
                 <div class="social-grid" id="gallery-{{ block.id }}" style="display: none;">
                     {% for i in (1..8) %}
                         {% assign key = "image_" | append: i %}
+                        {% assign url_key = "url_" | append: i %}
                         {% assign image = block.settings[key] %}
+                        {% assign image_url = block.settings[url_key] %}
                         {% if image %}
                             <div class="social-item">
-                                <img src="{{ image | img_url: '1024x1024' }}" alt="Social Image {{ i }}">
+                                {% if image_url %}
+                                    <a href="{{ image_url }}" target="_blank" rel="noopener" class="image-link">
+                                        <img src="{{ image | img_url: '1024x1024' }}" alt="Social Image {{ i }}">
+                                    </a>
+                                {% else %}
+                                    <img src="{{ image | img_url: '1024x1024' }}" alt="Social Image {{ i }}">
+                                {% endif %}
                             </div>
                         {% endif %}
                     {% endfor %}
@@ -51,6 +59,31 @@
         {% endif %}
     </div>
 </section>
+
+<style>
+.image-link {
+    display: block;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.image-link:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+.social-item {
+    cursor: pointer;
+}
+
+.social-item img {
+    transition: transform 0.3s ease;
+}
+
+.image-link img {
+    width: 100%;
+    height: auto;
+}
+</style>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -127,7 +160,7 @@
       "type": "textarea",
       "id": "subtitle",
       "label": "Subtitle Paragraph",
-      "default": "Our lighting, fans, and mirrors are the finishing touches that turn any room into a place you’ll love. Each piece is crafted to be the color, shape, and style that brings your space to life. Explore some of our favorites below."
+      "default": "Our lighting, fans, and mirrors are the finishing touches that turn any room into a place you'll love. Each piece is crafted to be the color, shape, and style that brings your space to life. Explore some of our favorites below."
     },
     {
       "type": "text",
@@ -162,9 +195,21 @@
           "label": "Image 1"
         },
         {
+          "type": "url",
+          "id": "url_1",
+          "label": "Image 1 URL",
+          "info": "Optional link for Image 1 - opens in new tab"
+        },
+        {
           "type": "image_picker",
           "id": "image_2",
           "label": "Image 2"
+        },
+        {
+          "type": "url",
+          "id": "url_2",
+          "label": "Image 2 URL",
+          "info": "Optional link for Image 2 - opens in new tab"
         },
         {
           "type": "image_picker",
@@ -172,9 +217,21 @@
           "label": "Image 3"
         },
         {
+          "type": "url",
+          "id": "url_3",
+          "label": "Image 3 URL",
+          "info": "Optional link for Image 3 - opens in new tab"
+        },
+        {
           "type": "image_picker",
           "id": "image_4",
           "label": "Image 4"
+        },
+        {
+          "type": "url",
+          "id": "url_4",
+          "label": "Image 4 URL",
+          "info": "Optional link for Image 4 - opens in new tab"
         },
         {
           "type": "image_picker",
@@ -182,9 +239,21 @@
           "label": "Image 5"
         },
         {
+          "type": "url",
+          "id": "url_5",
+          "label": "Image 5 URL",
+          "info": "Optional link for Image 5 - opens in new tab"
+        },
+        {
           "type": "image_picker",
           "id": "image_6",
           "label": "Image 6"
+        },
+        {
+          "type": "url",
+          "id": "url_6",
+          "label": "Image 6 URL",
+          "info": "Optional link for Image 6 - opens in new tab"
         },
         {
           "type": "image_picker",
@@ -192,9 +261,21 @@
           "label": "Image 7"
         },
         {
+          "type": "url",
+          "id": "url_7",
+          "label": "Image 7 URL",
+          "info": "Optional link for Image 7 - opens in new tab"
+        },
+        {
           "type": "image_picker",
           "id": "image_8",
           "label": "Image 8"
+        },
+        {
+          "type": "url",
+          "id": "url_8",
+          "label": "Image 8 URL",
+          "info": "Optional link for Image 8 - opens in new tab"
         }
       ]
     }
