@@ -144,7 +144,7 @@
         "disabled": false,
         "settings": {
           "is_added_selector": true,
-          "collection_icon_selector": ".card__heading",
+          "collection_icon_selector": ".grid-product_content",
           "collection_icon_type": "fill",
           "collection_icon_background_type": "icon_round_background",
           "collection_icon_size": 16,
