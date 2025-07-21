@@ -192,6 +192,13 @@ Arguments
           {%- if settings.vendor_enable -%}
             <div class="grid-product__vendor">{{ product.vendor }}</div>
           {%- endif -%}
+          {%- comment -%} Add SKU display here {%- endcomment -%}
+          {%- if product.selected_or_first_available_variant.sku != blank -%}
+            <div class="grid-product__sku">
+              <span class="sku-label">SKU: </span>
+              <span class="sku-value">{{ product.selected_or_first_available_variant.sku }}</span>
+            </div>
+          {%- endif -%}     
           <div class="grid-product__price" data-wpd-product-handle="{{ product.handle }}"         
             data-wpd-variant-id="{{ product.selected_or_first_available_variant.id }}"         
             data-wpd-variant-price="{{ product.selected_or_first_available_variant.price }}"        
