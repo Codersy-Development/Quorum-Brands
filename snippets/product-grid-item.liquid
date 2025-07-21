@@ -147,7 +147,14 @@ Arguments
           </div>
 {%- endif -%}
 
-
+<a href="#" class="icon-wishlist-heart-empty wishlist-btn grid-wishlist-btn heart-wishlist-animation" 
+   data-wishList 
+   data-added="false" 
+   data-proID="{{ product.id }}" 
+   data-varID="{{ product.selected_or_first_available_variant.id }}" 
+   style="position: absolute; top: 10px; right: 10px; z-index: 2;">
+    <i class="icon-wishlist-heart-empty"></i>
+</a>
 
 {%- if settings.enable_swatches -%}
           {%- assign swatch_trigger = 'products.general.color_swatch_trigger' | t | downcase -%}
