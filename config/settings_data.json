@@ -141,7 +141,7 @@
       },
       "384495262013941155": {
         "type": "shopify://apps/advanced-wishlist/blocks/collection-btn/330d9272-08ea-4193-b3e0-475a69fa65fa",
-        "disabled": false,
+        "disabled": true,
         "settings": {
           "is_added_selector": false,
           "collection_icon_selector": ".grid-product__Image",
