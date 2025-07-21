@@ -12,60 +12,9 @@
       assign has_content = true
       
       comment
-        FIRST: Format colons BEFORE any cleaning - dynamic approach
+        Aggressive content cleaning
       endcomment
       assign cleaned_content = content
-      
-      if cleaned_content contains ':'
-        comment
-          Convert all newlines to br tags first for consistent processing
-        endcomment
-        assign cleaned_content = cleaned_content | newline_to_br
-        
-        comment
-          Split into lines and process each one
-        endcomment
-        assign lines = cleaned_content | split: '<br>'
-        assign processed_content = ''
-        
-        for line in lines
-          assign current_line = line | strip
-          
-          if current_line contains ':' and current_line.size > 2
-            comment
-              Find the first colon position
-            endcomment
-            assign parts = current_line | split: ':'
-            assign before_colon = parts[0] | strip
-            
-            comment
-              Get everything after the first colon by removing the first part and first colon
-            endcomment
-            assign temp_line = current_line | replace_first: before_colon, ''
-            assign after_colon = temp_line | replace_first: ':', ''
-            
-            comment
-              Rebuild the line with bold formatting
-            endcomment
-            assign current_line = '<strong>' | append: before_colon | append: '</strong>:' | append: after_colon
-          endif
-          
-          comment
-            Add line to processed content
-          endcomment
-          if processed_content == ''
-            assign processed_content = current_line
-          else
-            assign processed_content = processed_content | append: '<br>' | append: current_line
-          endif
-        endfor
-        
-        assign cleaned_content = processed_content
-      endif
-      
-      comment
-        NOW do the aggressive content cleaning on the pre-formatted content
-      endcomment
       
       comment
         First pass: normalize all br variants
