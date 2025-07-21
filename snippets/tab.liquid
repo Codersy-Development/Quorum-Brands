@@ -12,9 +12,60 @@
       assign has_content = true
       
       comment
-        Aggressive content cleaning
+        FIRST: Format colons BEFORE any cleaning - dynamic approach
       endcomment
       assign cleaned_content = content
+      
+      if cleaned_content contains ':'
+        comment
+          Convert all newlines to br tags first for consistent processing
+        endcomment
+        assign cleaned_content = cleaned_content | newline_to_br
+        
+        comment
+          Split into lines and process each one
+        endcomment
+        assign lines = cleaned_content | split: '<br>'
+        assign processed_content = ''
+        
+        for line in lines
+          assign current_line = line | strip
+          
+          if current_line contains ':' and current_line.size > 2
+            comment
+              Find the first colon position
+            endcomment
+            assign parts = current_line | split: ':'
+            assign before_colon = parts[0] | strip
+            
+            comment
+              Get everything after the first colon by removing the first part and first colon
+            endcomment
+            assign temp_line = current_line | replace_first: before_colon, ''
+            assign after_colon = temp_line | replace_first: ':', ''
+            
+            comment
+              Rebuild the line with bold formatting
+            endcomment
+            assign current_line = '<strong>' | append: before_colon | append: '</strong>:' | append: after_colon
+          endif
+          
+          comment
+            Add line to processed content
+          endcomment
+          if processed_content == ''
+            assign processed_content = current_line
+          else
+            assign processed_content = processed_content | append: '<br>' | append: current_line
+          endif
+        endfor
+        
+        assign cleaned_content = processed_content
+      endif
+      
+      comment
+        NOW do the aggressive content cleaning on the pre-formatted content
+      endcomment
       
       comment
         First pass: normalize all br variants
@@ -119,51 +170,6 @@
       assign cleaned_content = cleaned_content | replace: '<div></div>', ''
       assign cleaned_content = cleaned_content | replace: '<div> </div>', ''
       assign cleaned_content = cleaned_content | strip
-      
-      comment
-        Format text before colons to be bold - fixed version
-      endcomment
-      if cleaned_content contains ':'
-        comment
-          Process each line individually - only add non-empty lines
-        endcomment
-        assign temp_content = cleaned_content
-        assign content_lines = temp_content | split: '<br>'
-        assign formatted_lines = ''
-        
-        for line in content_lines
-          assign processed_line = line | strip
-          
-          comment
-            Only process lines that actually have content
-          endcomment
-          if processed_line != ''
-            if processed_line contains ':'
-              comment
-                Split on first colon only
-              endcomment
-              assign split_parts = processed_line | split: ':'
-              assign before_colon = split_parts[0] | strip
-              comment
-                Get everything after first colon by reconstructing
-              endcomment
-              assign after_colon = processed_line | remove_first: before_colon | remove_first: ':'
-              assign processed_line = '<strong>' | append: before_colon | append: '</strong>:' | append: after_colon
-            endif
-            
-            comment
-              Add to formatted content - only non-empty lines
-            endcomment
-            if formatted_lines == ''
-              assign formatted_lines = processed_line
-            else
-              assign formatted_lines = formatted_lines | append: '<br>' | append: processed_line
-            endif
-          endif
-        endfor
-        
-        assign cleaned_content = formatted_lines
-      endif
     endif
   endif
 -%}
