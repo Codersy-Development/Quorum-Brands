@@ -13,10 +13,10 @@
                 <div class="main-image-container">
                     {% if first_block.settings.main_image_url %}
                         <a href="{{ first_block.settings.main_image_url }}" target="_blank" rel="noopener" class="main-image-link" id="mainImageLink">
-                            <img id="mainImageDynamic" src="{{ first_block.settings.main_image | img_url: 'master' }}" alt="Main Room Image" class="main-image fade-in">
+                            <img id="mainImageDynamic" src="{{ first_block.settings.main_image | img_url: 'master' }}" alt="Main Room Image" class="main-image">
                         </a>
                     {% else %}
-                        <img id="mainImageDynamic" src="{{ first_block.settings.main_image | img_url: 'master' }}" alt="Main Room Image" class="main-image fade-in">
+                        <img id="mainImageDynamic" src="{{ first_block.settings.main_image | img_url: 'master' }}" alt="Main Room Image" class="main-image">
                     {% endif %}
                 </div>
             </div>
@@ -30,7 +30,7 @@
                                 <div class="swiper-slide product-card" 
                                      data-main-image="{{ block.settings.main_image | img_url: 'master' }}"
                                      data-main-image-url="{{ block.settings.main_image_url }}"
-                                     data-block-id="{{ block.id }}">
+                                     data-slide-number="{{ forloop.index }}">
                                     
                                     <!-- Card Image Section -->
                                     {% if block.settings.card_image %}
@@ -57,21 +57,16 @@
                                             <a href="{{ block.settings.button_link }}" class="card-button">{{ block.settings.button_label }}</a>
                                         {% endif %}
                                     </div>
-
-                                    <!-- Debug info - remove after testing -->
-                                    <div style="font-size: 10px; color: #999; margin-top: 10px;">
-                                        Debug: {{ block.settings.main_image | img_url: 'master' }}
-                                    </div>
                                 </div>
                             {% endfor %}
                         </div>
 
                         <!-- Navigation Controls -->
                         <div class="product-button-wrapper">
-                            <div class="product-button-prev">
+                            <div class="product-button-prev" onclick="changeMainImage('prev')">
                                 <img src="{{ 'ico-arrow-right.svg' | asset_url }}" alt="Previous">
                             </div>
-                            <div class="product-button-next">
+                            <div class="product-button-next" onclick="changeMainImage('next')">
                                 <img src="{{ 'ico-arrow-right.svg' | asset_url }}" alt="Next">
                             </div>
                         </div>
@@ -103,7 +98,7 @@
     width: 100%;
     height: auto;
     display: block;
-    transition: transform 0.3s ease;
+    transition: opacity 0.5s ease;
 }
 
 .main-image-link, .card-image-link {
@@ -133,29 +128,6 @@
     flex-grow: 1;
 }
 
-/* Visual Connection Between Images */
-.card-connection {
-    display: flex;
-    align-items: center;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid #e0e0e0;
-    opacity: 0.7;
-    font-size: 0.8rem;
-    color: #666;
-}
-
-.connection-line {
-    width: 20px;
-    height: 1px;
-    background: #ccc;
-    margin-right: 8px;
-}
-
-.connection-text {
-    font-style: italic;
-}
-
 /* Slide Counter */
 .slide-counter {
     text-align: center;
@@ -177,210 +149,160 @@
     box-shadow: 0 4px 12px rgba(0, 123, 255, 0.15);
 }
 
+/* Navigation button styling */
+.product-button-wrapper div {
+    cursor: pointer;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .feature-grid {
         flex-direction: column;
     }
-    
-    .card-connection {
-        display: none;
-    }
 }
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const mainImage = document.getElementById('mainImageDynamic');
-        const mainImageContainer = document.querySelector('.feature-left');
-        const currentSlideElement = document.querySelector('.current-slide');
-        const totalSlidesElement = document.querySelector('.total-slides');
+let mySwiper = null;
+let slideData = [];
 
-        const swiper = new Swiper('.card-swiper', {
-            slidesPerView: 1,
-            navigation: {
-                nextEl: '.product-button-next',
-                prevEl: '.product-button-prev',
-            },
-            loop: false,
-            effect: 'slide',
-            speed: 500,
-            on: {
-                slideChange: function () {
-                    const currentSlide = swiper.slides[swiper.activeIndex];
-                    const newSrc = currentSlide.getAttribute('data-main-image');
-                    const newMainImageUrl = currentSlide.getAttribute('data-main-image-url');
-                    const slideIndex = parseInt(currentSlide.getAttribute('data-slide-index'));
+document.addEventListener('DOMContentLoaded', function () {
+    console.log('=== CAROUSEL INITIALIZATION ===');
+    
+    const mainImage = document.getElementById('mainImageDynamic');
+    const mainImageContainer = document.querySelector('.feature-left');
+    
+    if (!mainImage) {
+        console.error('Main image element not found');
+        return;
+    }
 
-                    // Update slide counter
-                    if (currentSlideElement) {
-                        currentSlideElement.textContent = slideIndex + 1;
-                    }
-
-                    // Always update main image with enhanced transition
-                    if (newSrc) {
-                        updateMainImage(newSrc, newMainImageUrl);
-                    }
-
-                    // Add visual feedback
-                    animateConnection();
-                },
-                slideChangeTransitionStart: function() {
-                    // Start fading out the current main image immediately
-                    mainImage.classList.remove('visible');
-                    mainImage.classList.add('loading');
-                }
-            }
+    // Collect slide data from the DOM
+    const slides = document.querySelectorAll('.swiper-slide[data-main-image]');
+    slides.forEach((slide, index) => {
+        const imageUrl = slide.getAttribute('data-main-image');
+        const linkUrl = slide.getAttribute('data-main-image-url');
+        slideData.push({
+            imageUrl: imageUrl,
+            linkUrl: linkUrl,
+            slideNumber: index + 1
         });
-
-        // Function to update main image with smooth transition
-        function updateMainImage(newSrc, newUrl) {
-            const container = document.querySelector('.main-image-container');
-            
-            // Only update if the image source is actually different
-            if (mainImage.src === newSrc) {
-                // Even if same image, update the link
-                updateMainImageLink(newUrl);
-                return;
-            }
-
-            // Add loading state to container
-            container.classList.add('loading');
-
-            // Create a new image to preload
-            const newImage = new Image();
-            
-            newImage.onload = function() {
-                // Once new image is loaded, update the main image
-                mainImage.src = newSrc;
-                mainImage.classList.remove('loading');
-                mainImage.classList.add('visible');
-                container.classList.remove('loading');
-                
-                // Update the link
-                updateMainImageLink(newUrl);
-                
-                // Add a subtle pulse effect to show the change
-                mainImage.style.transform = 'scale(1.02)';
-                setTimeout(() => {
-                    mainImage.style.transform = 'scale(1)';
-                }, 200);
-                
-                console.log('Main image updated to:', newSrc);
-            };
-            
-            newImage.onerror = function() {
-                // If image fails to load, remove loading state
-                mainImage.classList.remove('loading');
-                container.classList.remove('loading');
-                console.error('Failed to load main image:', newSrc);
-            };
-            
-            // Start loading the new image
-            newImage.src = newSrc;
-        }
-
-        // Function to update main image link
-        function updateMainImageLink(newUrl) {
-            const existingLink = mainImageContainer.querySelector('.main-image-link');
-            
-            if (newUrl) {
-                if (existingLink) {
-                    // Update existing link
-                    existingLink.href = newUrl;
-                } else {
-                    // Create new link wrapper
-                    const link = document.createElement('a');
-                    link.href = newUrl;
-                    link.target = '_blank';
-                    link.rel = 'noopener';
-                    link.className = 'main-image-link';
-                    link.id = 'mainImageLink';
-                    
-                    // Wrap the image
-                    mainImage.parentNode.insertBefore(link, mainImage);
-                    link.appendChild(mainImage);
-                }
-            } else {
-                if (existingLink) {
-                    // Remove link wrapper, keep image
-                    const parent = existingLink.parentNode;
-                    parent.insertBefore(mainImage, existingLink);
-                    parent.removeChild(existingLink);
-                }
-            }
-        }
-
-        // Function to animate connection between images
-        function animateConnection() {
-            const connectionElements = document.querySelectorAll('.card-connection');
-            const activeCard = document.querySelector('.swiper-slide-active');
-            
-            // Pulse the connection indicator
-            connectionElements.forEach(el => {
-                el.style.opacity = '0.3';
-                setTimeout(() => {
-                    el.style.opacity = '0.7';
-                }, 200);
-            });
-            
-            // Add a visual indicator that images are connected
-            if (activeCard) {
-                activeCard.style.boxShadow = '0 4px 20px rgba(0, 123, 255, 0.3)';
-                setTimeout(() => {
-                    activeCard.style.boxShadow = '0 4px 12px rgba(0, 123, 255, 0.15)';
-                }, 300);
-            }
-            
-            // Add a brief highlight to the main image container
-            const mainContainer = document.querySelector('.main-image-container');
-            mainContainer.style.boxShadow = '0 4px 20px rgba(0, 123, 255, 0.2)';
-            setTimeout(() => {
-                mainContainer.style.boxShadow = 'none';
-            }, 500);
-        }
-
-        // Initial load fade-in
-        function initializeMainImage() {
-            if (mainImage.complete && mainImage.src) {
-                requestAnimationFrame(() => {
-                    mainImage.classList.add('visible');
-                    console.log('Initial main image loaded:', mainImage.src);
-                });
-            } else {
-                mainImage.addEventListener('load', () => {
-                    requestAnimationFrame(() => {
-                        mainImage.classList.add('visible');
-                        console.log('Initial main image loaded:', mainImage.src);
-                    });
-                });
-            }
-        }
-
-        // Initialize everything
-        initializeMainImage();
-
-        // Initialize slide counter
-        if (totalSlidesElement) {
-            totalSlidesElement.textContent = swiper.slides.length;
-        }
-
-        // Log initial setup for debugging
-        console.log('Carousel initialized with', swiper.slides.length, 'slides');
-        swiper.slides.forEach((slide, index) => {
-            const mainImageSrc = slide.getAttribute('data-main-image');
-            console.log(`Slide ${index + 1} main image:`, mainImageSrc);
-        });
-
-        // Keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'ArrowLeft') {
-                swiper.slidePrev();
-            } else if (e.key === 'ArrowRight') {
-                swiper.slideNext();
-            }
-        });
+        console.log(`Slide ${index + 1}: Image = ${imageUrl}`);
     });
+
+    // Initialize Swiper WITHOUT slideChange event
+    mySwiper = new Swiper('.card-swiper', {
+        slidesPerView: 1,
+        navigation: {
+            nextEl: '.product-button-next',
+            prevEl: '.product-button-prev',
+        },
+        loop: false,
+        effect: 'slide',
+        speed: 500,
+        // NO ON EVENTS - avoiding conflicts
+    });
+
+    console.log('Swiper initialized with', slideData.length, 'slides');
+    console.log('Initial main image:', mainImage.src);
+});
+
+// Global function to change main image
+function changeMainImage(direction) {
+    console.log('=== MANUAL IMAGE CHANGE ===');
+    console.log('Direction:', direction);
+    
+    const mainImage = document.getElementById('mainImageDynamic');
+    const currentSlideElement = document.querySelector('.current-slide');
+    
+    if (!mySwiper || !mainImage) {
+        console.error('Swiper or main image not found');
+        return;
+    }
+
+    // Move the swiper
+    if (direction === 'next') {
+        mySwiper.slideNext();
+    } else if (direction === 'prev') {
+        mySwiper.slidePrev();
+    }
+
+    // Get the current active slide index
+    const activeIndex = mySwiper.activeIndex;
+    console.log('Active slide index:', activeIndex);
+    
+    // Update counter
+    if (currentSlideElement) {
+        currentSlideElement.textContent = activeIndex + 1;
+    }
+
+    // Get the slide data
+    const currentSlideData = slideData[activeIndex];
+    if (!currentSlideData) {
+        console.error('No slide data found for index:', activeIndex);
+        return;
+    }
+
+    console.log('Changing to:', currentSlideData.imageUrl);
+    
+    // Change the main image
+    if (currentSlideData.imageUrl) {
+        mainImage.style.opacity = '0.5';
+        
+        setTimeout(() => {
+            mainImage.src = currentSlideData.imageUrl;
+            mainImage.style.opacity = '1';
+            console.log('Main image changed successfully');
+            
+            // Update the link
+            updateMainImageLink(currentSlideData.linkUrl);
+        }, 250);
+    }
+}
+
+// Function to update main image link
+function updateMainImageLink(newUrl) {
+    const mainImage = document.getElementById('mainImageDynamic');
+    const mainImageContainer = document.querySelector('.feature-left');
+    const existingLink = mainImageContainer.querySelector('.main-image-link');
+    
+    if (newUrl) {
+        if (existingLink) {
+            existingLink.href = newUrl;
+            console.log('Updated link to:', newUrl);
+        } else {
+            // Create new link wrapper
+            const link = document.createElement('a');
+            link.href = newUrl;
+            link.target = '_blank';
+            link.rel = 'noopener';
+            link.className = 'main-image-link';
+            link.id = 'mainImageLink';
+            
+            // Wrap the image
+            mainImage.parentNode.insertBefore(link, mainImage);
+            link.appendChild(mainImage);
+            console.log('Created new link:', newUrl);
+        }
+    } else {
+        if (existingLink) {
+            // Remove link wrapper, keep image
+            const parent = existingLink.parentNode;
+            parent.insertBefore(mainImage, existingLink);
+            parent.removeChild(existingLink);
+            console.log('Removed link wrapper');
+        }
+    }
+}
+
+// Test function
+function testSlide(slideNumber) {
+    console.log('Testing slide:', slideNumber);
+    if (mySwiper) {
+        mySwiper.slideTo(slideNumber - 1);
+        changeMainImage();
+    }
+}
 </script>
 
 {% schema %}
