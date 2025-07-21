@@ -716,9 +716,9 @@
           "type": "card_slide",
           "settings": {
             "main_image": "shopify://shop_images/Bathroom_1.jpg",
-            "main_image_url": "",
+            "main_image_url": "shopify://collections/quorum-vanities",
             "card_image": "shopify://shop_images/Bathroom_2.jpg",
-            "card_image_url": "",
+            "card_image_url": "shopify://collections/quorum-vanities",
             "heading": "Shop by Room: Bathroom",
             "text": "Elevate your bathroom with our curated selection of lighting and mirrors, designed to add a touch of luxury and functionality to your space.",
             "button_label": "Explore Products",
