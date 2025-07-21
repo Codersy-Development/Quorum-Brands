@@ -891,9 +891,9 @@
           "type": "card_slide",
           "settings": {
             "main_image": "shopify://shop_images/Hallway_1_fa07f335-112e-42fc-9de5-6caf3ef4846d.png",
-            "main_image_url": "",
+            "main_image_url": "shopify://collections/oxygen-wall-lights",
             "card_image": "shopify://shop_images/Hallway_2.jpg",
-            "card_image_url": "",
+            "card_image_url": "shopify://collections/oxygen-sconces",
             "heading": "Shop by Room: Hallways & Entries",
             "text": "Illuminate any hallways and entries with stylish lighting that sets the tone for your home, creating a  welcoming and sophisticated first impression",
             "button_label": "Explore Products",
