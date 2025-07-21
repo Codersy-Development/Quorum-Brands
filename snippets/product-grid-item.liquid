@@ -188,6 +188,8 @@ Arguments
 
       <a href="{{ product.url | within: collection }}" class="grid-product__link">
         <div class="grid-product__meta">
+          {% render ‘hulkapps-wishlist-collection-btn’, productId: product.id, variantId: product.selected_or_first_available_variant.id %}
+
           <div class="grid-product__title grid-product__title--{{ settings.type_product_style }}">{{ product.title }}</div>
           {%- if settings.vendor_enable -%}
             <div class="grid-product__vendor">{{ product.vendor }}</div>
