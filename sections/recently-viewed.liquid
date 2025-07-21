@@ -7,14 +7,6 @@
   capture sizes
     render 'sizes-explicit', sizeVariable: gridView, fallback: '39vw'
   endcapture
-  
-  # Determine vendor based on template name
-  assign current_vendor = ''
-  if template.name contains 'q_'
-    assign current_vendor = 'Quorum'
-  elsif template.name contains 'o_'
-    assign current_vendor = 'Oxygen'
-  endif
 -%}
 <div
   data-subsection
@@ -25,8 +17,7 @@
   data-grid-item-class="{{ gridView }}"
   data-row-of="{{ row_of }}"
   data-image-sizes="{{ sizes }}"
-  data-vendor-filter="{{ current_vendor }}"
-  data-current-product-vendor="{{ product.vendor | escape }}"
+  data-vendor-filter="{{ product.vendor | escape }}"
 >
   <hr class="hr--large">
   <div class="index-section index-section--small">
@@ -48,30 +39,27 @@ document.addEventListener('DOMContentLoaded', function() {
   const recentlyViewedSection = document.querySelector('[data-section-type="recently-viewed"]');
   if (!recentlyViewedSection) return;
   
-  const vendorFilter = recentlyViewedSection.dataset.vendorFilter;
-  const currentProductVendor = recentlyViewedSection.dataset.currentProductVendor;
+  const currentProductVendor = recentlyViewedSection.dataset.vendorFilter;
   
   // Override the recently viewed filtering logic
-  if (window.recentlyViewed && vendorFilter) {
+  if (window.recentlyViewed && currentProductVendor) {
     const originalGetRecentProducts = window.recentlyViewed.getRecentProducts;
     
     window.recentlyViewed.getRecentProducts = function() {
       const allRecentProducts = originalGetRecentProducts.call(this);
       
-      // Filter products by vendor
+      // Filter products to only show items from the same vendor as current product
       return allRecentProducts.filter(product => {
-        return product.vendor === vendorFilter;
+        return product.vendor === currentProductVendor;
       });
     };
   }
   
   // If there's a custom recently viewed handler, apply vendor filtering
   const recentlyViewedContainer = document.getElementById('RecentlyViewed-{{ section.id }}');
-  if (recentlyViewedContainer) {
+  if (recentlyViewedContainer && currentProductVendor) {
     // Add vendor-specific class for styling if needed
-    if (vendorFilter) {
-      recentlyViewedContainer.classList.add('recently-viewed--' + vendorFilter.toLowerCase());
-    }
+    recentlyViewedContainer.classList.add('recently-viewed--' + currentProductVendor.toLowerCase().replace(/\s+/g, '-'));
   }
 });
 </script>
