@@ -6885,19 +6885,19 @@ details[open]>.site-nav__dropdown{
 .megamenu--flex .megamenu-grid {
   display: flex !important;
   flex-wrap: wrap;
-  justify-content: space-evenly; /* Changed from center to space-evenly */
+  justify-content: center; /* Center the columns */
   align-items: flex-start;
-  gap: 0; /* Remove gap, let justify-content handle spacing */
+  gap: 40px; /* Add consistent gap between columns */
   width: 100%;
 }
 
-/* Make columns evenly distributed like Quorum */
+/* Make columns have consistent width but not stretched */
 .megamenu--flex .grid__item {
-  flex: 1 1 0;
-  max-width: none;
-  min-width: 0;
+  flex: 0 0 auto; /* Don't grow or shrink */
+  width: 200px; /* Fixed width for consistency */
+  max-width: 200px;
+  min-width: 180px;
   text-align: left;
-  padding: 0 15px; /* Add internal padding instead of gap */
 }
 
 /* Responsive adjustments */
