@@ -878,9 +878,9 @@
           "type": "card_slide",
           "settings": {
             "main_image": "shopify://shop_images/Bathroom_1.png",
-            "main_image_url": "",
+            "main_image_url": "shopify://collections/oxygen-lighted-mirrors",
             "card_image": "shopify://shop_images/Bathroom_2_6835cefb-61a2-4820-ab11-e437b72888e3.jpg",
-            "card_image_url": "",
+            "card_image_url": "shopify://collections/oxygen-vanities",
             "heading": "Shop by Room: Bathroom",
             "text": "Elevate bathroom styling with our curated selection  of lighting and mirrors, designed to add a touch of luxury and  functionality to your space.",
             "button_label": "Explore Products",
