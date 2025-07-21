@@ -102,14 +102,16 @@
         for line in content_lines
           assign current_line = line | strip
           if current_line != ''
-            if current_line contains ':' and current_line contains '</strong>' == false
-              comment
-                Only format if not already formatted
-              endcomment
-              assign first_colon_pos = current_line | split: ':' | first | size
-              assign text_before = current_line | slice: 0, first_colon_pos
-              assign text_after = current_line | slice: first_colon_pos
-              assign current_line = '<strong>' | append: text_before | append: '</strong>' | append: text_after
+            if current_line contains ':'
+              unless current_line contains '</strong>'
+                comment
+                  Only format if not already formatted
+                endcomment
+                assign first_colon_pos = current_line | split: ':' | first | size
+                assign text_before = current_line | slice: 0, first_colon_pos
+                assign text_after = current_line | slice: first_colon_pos
+                assign current_line = '<strong>' | append: text_before | append: '</strong>' | append: text_after
+              endunless
             endif
             
             if final_content == ''
