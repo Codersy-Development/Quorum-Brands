@@ -128,16 +128,27 @@ store-switch-menus {
     opacity: 1;
     pointer-events: auto;
   }
+  /* ===== UPDATED MEGA MENU CONTAINER ===== */
   & .ssm__mega-menu-container {
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
     line-height: 2;
     width: 100%;
     flex-direction: row;
-    justify-content: space-between;
-    max-width: 1440px;
+    justify-content: center;
+    max-width: 1200px;
     margin: auto;
+    padding: 0 2rem;
   }
+
+  /* Ensure columns don't stretch too wide */
+  & .ssm__mega-menu-container > * {
+    flex: 0 0 auto;
+    min-width: 150px;
+    max-width: 200px;
+  }
+  /* ===== END UPDATED SECTION ===== */
+  
   & .ssm__menu-link--title {
     text-transform: uppercase;
     font-weight: 600;
@@ -159,8 +170,60 @@ store-switch-menus {
     & .ssm__mega-menu.ssm__menu-link {
       font-size: 14px;
     }
+    & .ssm__mega-menu-container {
+      gap: 1rem;
+      padding: 0 1rem;
+    }
   }
 }
+/* Brand-specific adjustments */
+html[data-store-selected="oxygen"] .ssm__mega-menu-container {
+  max-width: 900px !important;
+  gap: 3rem !important;
+}
+
+html[data-store-selected="quorum"] .ssm__mega-menu-container {
+  max-width: 1200px !important;
+  gap: 2rem !important;
+}
+
+/* Additional responsive adjustments */
+@media only screen and (max-width: 1350px) {
+  html[data-store-selected="oxygen"] .ssm__mega-menu-container {
+    max-width: 800px !important;
+    gap: 2rem !important;
+  }
+  
+  html[data-store-selected="quorum"] .ssm__mega-menu-container {
+    max-width: 1000px !important;
+    gap: 1.5rem !important;
+  }
+}
+
+@media only screen and (max-width: 1250px) {
+  html[data-store-selected="oxygen"] .ssm__mega-menu-container {
+    max-width: 700px !important;
+  }
+  
+  html[data-store-selected="quorum"] .ssm__mega-menu-container {
+    max-width: 900px !important;
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .ssm__mega-menu-container {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 1rem !important;
+  }
+  
+  .ssm__mega-menu-container > * {
+    flex: 1 1 200px !important;
+    min-width: 150px !important;
+  }
+}
+
+/* END OF MODIFICATIONS */
 
 #PBarNextFrameWrapper {
   display: none !important;
