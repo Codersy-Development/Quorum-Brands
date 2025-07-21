@@ -12,9 +12,47 @@
       assign has_content = true
       
       comment
-        Aggressive content cleaning
+        FIRST: Format colons before any other processing
       endcomment
       assign cleaned_content = content
+      
+      if cleaned_content contains ':'
+        comment
+          Simple pattern matching for any text followed by colon
+        endcomment
+        assign temp_content = cleaned_content
+        
+        comment
+          Split on newlines and br tags to catch all line variations
+        endcomment
+        assign lines_newline = temp_content | newline_to_br | split: '<br>'
+        assign lines_br = temp_content | split: '<br>'
+        assign all_possible_lines = lines_newline | concat: lines_br
+        
+        assign processed_content = temp_content
+        
+        for line in all_possible_lines
+          assign clean_line = line | strip
+          if clean_line contains ':' and clean_line.size > 3
+            comment
+              Extract text before first colon
+            endcomment
+            assign colon_parts = clean_line | split: ':'
+            assign before_colon = colon_parts[0] | strip
+            if before_colon.size > 0
+              assign search_pattern = before_colon | append: ':'
+              assign replace_pattern = '<strong>' | append: before_colon | append: '</strong>:'
+              assign processed_content = processed_content | replace: search_pattern, replace_pattern
+            endif
+          endif
+        endfor
+        
+        assign cleaned_content = processed_content
+      endif
+      
+      comment
+        NOW do the aggressive content cleaning
+      endcomment
       
       comment
         First pass: normalize all br variants
@@ -88,46 +126,6 @@
         Remove leading/trailing br tags from entire content
       endcomment
       assign cleaned_content = cleaned_content | strip
-      
-      comment
-        Format ALL text before colons to be bold - simple string replacement method
-      endcomment
-      if cleaned_content contains ':'
-        comment
-          Use simple string replacement to make any text before colon bold
-          This will catch every instance regardless of line structure
-        endcomment
-        
-        comment
-          Split the entire content on br tags and process each line
-        endcomment
-        assign all_lines = cleaned_content | split: '<br>'
-        assign rebuilt_content = ''
-        
-        for line in all_lines
-          assign current_line = line | strip
-          if current_line != '' and current_line contains ':'
-            comment
-              Split only on the FIRST colon
-            endcomment
-            assign colon_split = current_line | split: ':'
-            assign before_colon = colon_split[0] | strip
-            comment
-              Rebuild everything after the first colon
-            endcomment
-            assign after_colon = current_line | replace_first: before_colon, '' | replace_first: ':', '' | strip
-            assign current_line = '<strong>' | append: before_colon | append: '</strong>: ' | append: after_colon
-          endif
-          
-          if rebuilt_content == ''
-            assign rebuilt_content = current_line
-          else
-            assign rebuilt_content = rebuilt_content | append: '<br>' | append: current_line
-          endif
-        endfor
-        
-        assign cleaned_content = rebuilt_content
-      endif
       
       comment
         Remove br at very beginning
