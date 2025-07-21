@@ -30,7 +30,8 @@
                                 <div class="swiper-slide product-card" 
                                      data-main-image="{{ block.settings.main_image | img_url: 'master' }}"
                                      data-main-image-url="{{ block.settings.main_image_url }}"
-                                     data-slide-number="{{ forloop.index }}">
+                                     data-slide-number="{{ forloop.index }}"
+                                     {{ block.shopify_attributes }}>
                                     
                                     <!-- Card Image Section -->
                                     {% if block.settings.card_image %}
@@ -63,10 +64,10 @@
 
                         <!-- Navigation Controls -->
                         <div class="product-button-wrapper">
-                            <div class="product-button-prev" onclick="changeMainImage('prev')">
+                            <div class="product-button-prev">
                                 <img src="{{ 'ico-arrow-right.svg' | asset_url }}" alt="Previous">
                             </div>
-                            <div class="product-button-next" onclick="changeMainImage('next')">
+                            <div class="product-button-next">
                                 <img src="{{ 'ico-arrow-right.svg' | asset_url }}" alt="Next">
                             </div>
                         </div>
@@ -163,14 +164,14 @@
 </style>
 
 <script>
-let mySwiper = null;
+let currentSlideIndex = 0;
 let slideData = [];
+let totalSlides = 0;
 
 document.addEventListener('DOMContentLoaded', function () {
     console.log('=== CAROUSEL INITIALIZATION ===');
     
     const mainImage = document.getElementById('mainImageDynamic');
-    const mainImageContainer = document.querySelector('.feature-left');
     
     if (!mainImage) {
         console.error('Main image element not found');
@@ -179,6 +180,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Collect slide data from the DOM
     const slides = document.querySelectorAll('.swiper-slide[data-main-image]');
+    totalSlides = slides.length;
+    
     slides.forEach((slide, index) => {
         const imageUrl = slide.getAttribute('data-main-image');
         const linkUrl = slide.getAttribute('data-main-image-url');
@@ -190,8 +193,8 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log(`Slide ${index + 1}: Image = ${imageUrl}`);
     });
 
-    // Initialize Swiper WITHOUT slideChange event
-    mySwiper = new Swiper('.card-swiper', {
+    // Initialize Swiper with basic settings only
+    const swiper = new Swiper('.card-swiper', {
         slidesPerView: 1,
         navigation: {
             nextEl: '.product-button-next',
@@ -200,63 +203,64 @@ document.addEventListener('DOMContentLoaded', function () {
         loop: false,
         effect: 'slide',
         speed: 500,
-        // NO ON EVENTS - avoiding conflicts
+        allowTouchMove: true,
+        on: {
+            slideChange: function() {
+                // Update our manual tracking
+                currentSlideIndex = this.activeIndex;
+                updateMainImageFromIndex(currentSlideIndex);
+                updateSlideCounter();
+                console.log('Swiper moved to slide:', currentSlideIndex + 1);
+            }
+        }
     });
 
-    console.log('Swiper initialized with', slideData.length, 'slides');
+    // Store swiper globally for manual control
+    window.mySwiper = swiper;
+
+    console.log('Carousel initialized with', totalSlides, 'slides');
     console.log('Initial main image:', mainImage.src);
+    updateSlideCounter();
 });
 
-// Global function to change main image
-function changeMainImage(direction) {
-    console.log('=== MANUAL IMAGE CHANGE ===');
-    console.log('Direction:', direction);
+// Function to update main image based on index
+function updateMainImageFromIndex(index) {
+    console.log('Updating main image for index:', index);
     
     const mainImage = document.getElementById('mainImageDynamic');
-    const currentSlideElement = document.querySelector('.current-slide');
-    
-    if (!mySwiper || !mainImage) {
-        console.error('Swiper or main image not found');
+    if (!mainImage) {
+        console.error('Main image element not found');
         return;
     }
 
-    // Move the swiper
-    if (direction === 'next') {
-        mySwiper.slideNext();
-    } else if (direction === 'prev') {
-        mySwiper.slidePrev();
-    }
-
-    // Get the current active slide index
-    const activeIndex = mySwiper.activeIndex;
-    console.log('Active slide index:', activeIndex);
-    
-    // Update counter
-    if (currentSlideElement) {
-        currentSlideElement.textContent = activeIndex + 1;
-    }
-
-    // Get the slide data
-    const currentSlideData = slideData[activeIndex];
-    if (!currentSlideData) {
-        console.error('No slide data found for index:', activeIndex);
+    const slideInfo = slideData[index];
+    if (!slideInfo) {
+        console.error('No slide data found for index:', index);
         return;
     }
 
-    console.log('Changing to:', currentSlideData.imageUrl);
+    console.log('Changing to:', slideInfo.imageUrl);
     
-    // Change the main image
-    if (currentSlideData.imageUrl) {
-        mainImage.style.opacity = '0.5';
+    // Change the main image with fade effect
+    if (slideInfo.imageUrl) {
+        mainImage.style.opacity = '0.3';
         
         setTimeout(() => {
-            mainImage.src = currentSlideData.imageUrl;
+            mainImage.src = slideInfo.imageUrl;
             mainImage.style.opacity = '1';
             console.log('Main image changed successfully');
             
             // Update the link
-            updateMainImageLink(currentSlideData.linkUrl);
-        }, 250);
+            updateMainImageLink(slideInfo.linkUrl);
+        }, 200);
+    }
+}
+
+// Function to update slide counter
+function updateSlideCounter() {
+    const currentSlideElement = document.querySelector('.current-slide');
+    if (currentSlideElement) {
+        currentSlideElement.textContent = currentSlideIndex + 1;
     }
 }
 
@@ -295,12 +299,18 @@ function updateMainImageLink(newUrl) {
     }
 }
 
-// Test function
-function testSlide(slideNumber) {
-    console.log('Testing slide:', slideNumber);
-    if (mySwiper) {
-        mySwiper.slideTo(slideNumber - 1);
-        changeMainImage();
+// Test function for debugging
+function goToSlide(slideNumber) {
+    console.log('Going to slide:', slideNumber);
+    const index = slideNumber - 1;
+    if (index >= 0 && index < totalSlides) {
+        currentSlideIndex = index;
+        if (window.mySwiper && typeof window.mySwiper.slideTo === 'function') {
+            window.mySwiper.slideTo(index);
+        } else {
+            updateMainImageFromIndex(index);
+            updateSlideCounter();
+        }
     }
 }
 </script>
