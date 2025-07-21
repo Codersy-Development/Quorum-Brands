@@ -45,7 +45,7 @@ Arguments
     endfor
   endif
 -%}
-
+         <a href=“/apps/advanced-wishlist” class=“site-header__icon icon-wishlist-heart-empty” style=“font-size: x-large;“></a>
 <div class="grid__item grid-product {{ gridView }} {% if quick_shop_enable %} grid-product__has-quick-shop{% endif %}" data-aos="row-of-{{ per_row }}" data-product-handle="{{ product.handle }}" data-product-id="{{ product.id }}">
   <div class="grid-product__content">
     {%- if has_custom_label -%}
@@ -199,7 +199,8 @@ Arguments
               <span class="sku-value">{{ product.selected_or_first_available_variant.sku }}</span>
             </div>
           {%- endif -%}     
-          <a href=“/apps/advanced-wishlist” class=“site-header__icon icon-wishlist-heart-empty” style=“font-size: x-large;“></a>
+          {% render ‘hulkapps-wishlist-collection-btn’, productId: product.id, variantId: product.selected_or_first_available_variant.id %}
+ 
           <div class="grid-product__price" data-wpd-product-handle="{{ product.handle }}"         
             data-wpd-variant-id="{{ product.selected_or_first_available_variant.id }}"         
             data-wpd-variant-price="{{ product.selected_or_first_available_variant.price }}"        
