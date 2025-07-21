@@ -121,64 +121,35 @@
       assign cleaned_content = cleaned_content | strip
       
       comment
-        Format text before colons to be bold
+        Format text before colons to be bold using replace method
       endcomment
-      comment
-        Handle both br-separated and paragraph-wrapped content
-      endcomment
-      
-      if cleaned_content contains '<p>'
+      if cleaned_content contains ':'
         comment
-          Content is in paragraphs
+          Simple approach: process each line and use string replacement
         endcomment
-        assign content_paragraphs = cleaned_content | split: '<p>'
-        assign formatted_paragraphs = ''
-        
-        for paragraph in content_paragraphs
-          if paragraph contains '</p>'
-            assign paragraph_content = paragraph | split: '</p>' | first | strip
-            if paragraph_content contains ':'
-              assign line_parts = paragraph_content | split: ':'
-              assign text_before_colon = line_parts[0] | strip
-              assign text_after_colon = line_parts[1] | strip
-              assign formatted_paragraph = '<strong>' | append: text_before_colon | append: '</strong>: ' | append: text_after_colon
-            else
-              assign formatted_paragraph = paragraph_content
-            endif
-            
-            if formatted_paragraph != ''
-              if formatted_paragraphs == ''
-                assign formatted_paragraphs = '<p>' | append: formatted_paragraph | append: '</p>'
-              else
-                assign formatted_paragraphs = formatted_paragraphs | append: '<p>' | append: formatted_paragraph | append: '</p>'
-              endif
-            endif
-          endif
-        endfor
-        
-        assign cleaned_content = formatted_paragraphs
-      else
-        comment
-          Content is br-separated
-        endcomment
-        assign content_lines = cleaned_content | split: '<br>'
+        assign temp_content = cleaned_content
+        assign content_lines = temp_content | split: '<br>'
         assign formatted_lines = ''
         
         for line in content_lines
-          assign trimmed_line = line | strip
-          if trimmed_line contains ':'
-            assign line_parts = trimmed_line | split: ':'
-            assign text_before_colon = line_parts[0] | strip
-            assign text_after_colon = line_parts[1] | strip
-            assign formatted_line = '<strong>' | append: text_before_colon | append: '</strong>: ' | append: text_after_colon
-          else
-            assign formatted_line = trimmed_line
+          assign processed_line = line | strip
+          if processed_line contains ':'
+            comment
+              Split on first colon only
+            endcomment
+            assign split_parts = processed_line | split: ':'
+            assign before_colon = split_parts[0] | strip
+            comment
+              Get everything after first colon by reconstructing
+            endcomment
+            assign after_colon = processed_line | remove_first: before_colon | remove_first: ':'
+            assign processed_line = '<strong>' | append: before_colon | append: '</strong>:' | append: after_colon
           endif
           
-          if formatted_lines == ''
-            assign formatted_lines = formatted_line
+          if forloop.first
+            assign formatted_lines = processed_line
           else
-            assign formatted_lines = formatted_lines | append: '<br>' | append: formatted_line
+            assign formatted_lines = formatted_lines | append: '<br>' | append: processed_line
           endif
         endfor
         
