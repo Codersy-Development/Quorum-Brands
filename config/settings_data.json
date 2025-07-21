@@ -144,8 +144,8 @@
         "disabled": false,
         "settings": {
           "is_added_selector": true,
-          "collection_icon_selector": ".grid-product__content",
-          "collection_icon_type": "both",
+          "collection_icon_selector": ".grid-product__image-wrapper",
+          "collection_icon_type": "fill",
           "collection_icon_background_type": "icon_round_background",
           "collection_icon_size": 16,
           "collection_icon_background_color": "#999166",
