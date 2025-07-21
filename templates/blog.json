@@ -21,9 +21,48 @@
         "blog_show_excerpt": false,
         "blog_image_size": "portrait"
       }
+    },
+    "newsletter_G7y7An": {
+      "type": "newsletter",
+      "blocks": {
+        "title_TEj3jR": {
+          "type": "title",
+          "settings": {
+            "title": "Sign up and save",
+            "heading_size": "h2"
+          }
+        },
+        "text_LPzM48": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>"
+          }
+        },
+        "form_xrrgHU": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title_TEj3jR",
+        "text_LPzM48",
+        "form_xrrgHU"
+      ],
+      "name": "t:sections.newsletter.presets.email_signup.name",
+      "settings": {
+        "align_text": "center",
+        "image_width": "33",
+        "image_mask": "none",
+        "image_position": "right",
+        "color_background": "#f9f9f9",
+        "color_text": "#1c1d1d",
+        "top_padding": true,
+        "bottom_padding": true
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "newsletter_G7y7An"
   ]
 }
