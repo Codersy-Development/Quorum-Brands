@@ -90,40 +90,6 @@
       assign cleaned_content = cleaned_content | strip
       
       comment
-        Format text before colons to be bold - final step after cleaning
-      endcomment
-      if cleaned_content contains ':'
-        comment
-          Split content into lines and process each one
-        endcomment
-        assign content_lines = cleaned_content | split: '<br>'
-        assign final_content = ''
-        
-        for line in content_lines
-          assign current_line = line | strip
-          if current_line != ''
-            if current_line contains ':' and current_line contains '</strong>' == false
-              comment
-                Only format if not already formatted
-              endcomment
-              assign first_colon_pos = current_line | split: ':' | first | size
-              assign text_before = current_line | slice: 0, first_colon_pos
-              assign text_after = current_line | slice: first_colon_pos
-              assign current_line = '<strong>' | append: text_before | append: '</strong>' | append: text_after
-            endif
-            
-            if final_content == ''
-              assign final_content = current_line
-            else
-              assign final_content = final_content | append: '<br>' | append: current_line
-            endif
-          endif
-        endfor
-        
-        assign cleaned_content = final_content
-      endif
-      
-      comment
         Remove br at very beginning
       endcomment
       assign content_start = cleaned_content | slice: 0, 4
@@ -153,6 +119,42 @@
       assign cleaned_content = cleaned_content | replace: '<div></div>', ''
       assign cleaned_content = cleaned_content | replace: '<div> </div>', ''
       assign cleaned_content = cleaned_content | strip
+      
+      comment
+        Format text before colons to be bold using replace method
+      endcomment
+      if cleaned_content contains ':'
+        comment
+          Simple approach: process each line and use string replacement
+        endcomment
+        assign temp_content = cleaned_content
+        assign content_lines = temp_content | split: '<br>'
+        assign formatted_lines = ''
+        
+        for line in content_lines
+          assign processed_line = line | strip
+          if processed_line contains ':'
+            comment
+              Split on first colon only
+            endcomment
+            assign split_parts = processed_line | split: ':'
+            assign before_colon = split_parts[0] | strip
+            comment
+              Get everything after first colon by reconstructing
+            endcomment
+            assign after_colon = processed_line | remove_first: before_colon | remove_first: ':'
+            assign processed_line = '<strong>' | append: before_colon | append: '</strong>:' | append: after_colon
+          endif
+          
+          if forloop.first
+            assign formatted_lines = processed_line
+          else
+            assign formatted_lines = formatted_lines | append: '<br>' | append: processed_line
+          endif
+        endfor
+        
+        assign cleaned_content = formatted_lines
+      endif
     endif
   endif
   
