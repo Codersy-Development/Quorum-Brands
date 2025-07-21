@@ -143,8 +143,8 @@
         "type": "shopify://apps/advanced-wishlist/blocks/collection-btn/330d9272-08ea-4193-b3e0-475a69fa65fa",
         "disabled": true,
         "settings": {
-          "is_added_selector": false,
-          "collection_icon_selector": ".grid-product__image-mask",
+          "is_added_selector": true,
+          "collection_icon_selector": ".grid-product",
           "collection_icon_type": "fill",
           "collection_icon_background_type": "icon_round_background",
           "collection_icon_size": 16,
