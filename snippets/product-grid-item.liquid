@@ -146,7 +146,7 @@ Arguments
             -%}
           </div>
 {%- endif -%}
-
+{% render ‘hulkapps-wishlist-collection-btn’ %}
 {%- if settings.enable_swatches -%}
           {%- assign swatch_trigger = 'products.general.color_swatch_trigger' | t | downcase -%}
           {%- for option in product.options_with_values -%}
