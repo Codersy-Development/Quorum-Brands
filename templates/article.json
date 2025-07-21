@@ -20,21 +20,6 @@
         "social_sharing_blog": true
       }
     },
-    "blog-posts": {
-      "type": "blog-posts",
-      "settings": {
-        "title": "Past Blog Posts",
-        "blog": "design-blog",
-        "post_limit": 3,
-        "blog_show_tags": false,
-        "blog_show_date": true,
-        "blog_show_comments": false,
-        "blog_show_author": false,
-        "view_all": true,
-        "blog_image_size": "natural",
-        "divider": true
-      }
-    },
     "newsletter_3fbchg": {
       "type": "newsletter",
       "blocks": {
@@ -76,7 +61,6 @@
   },
   "order": [
     "main",
-    "blog-posts",
     "newsletter_3fbchg"
   ]
 }
