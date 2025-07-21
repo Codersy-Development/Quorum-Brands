@@ -674,9 +674,9 @@
           "type": "card_slide",
           "settings": {
             "main_image": "shopify://shop_images/Outdoor_Lighting_87a2c8d2-8be5-42ea-9961-df597c4da4c5.jpg",
-            "main_image_url": "",
+            "main_image_url": "shopify://collections/outdoor-wall-mount",
             "card_image": "shopify://shop_images/Outdoor2.jpg",
-            "card_image_url": "",
+            "card_image_url": "shopify://collections/outdoor-wall-mount",
             "heading": "Shop by Room: Outdoor",
             "text": "Bring beauty and functionality to your outdoor spaces with durable, weather-resistant lighting and fans that create a comfortable and inviting atmosphere.",
             "button_label": "Explore Products",
