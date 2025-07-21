@@ -95,6 +95,7 @@
         "subcollections",
         "product_grid"
       ],
+      "custom_css": [],
       "settings": {
         "enable_sidebar": true,
         "collapsed": true,
