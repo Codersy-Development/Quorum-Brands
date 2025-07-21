@@ -696,6 +696,87 @@
         "store": "shop all brands"
       }
     },
+    "product_feature_carousel_GDqwrm": {
+      "type": "product-feature-carousel",
+      "blocks": {
+        "card_slide_QrJGBN": {
+          "type": "card_slide",
+          "settings": {
+            "main_image": "shopify://shop_images/Living.jpg",
+            "main_image_url": "shopify://collections/pendant",
+            "card_image": "shopify://shop_images/LivingRoom2.jpg",
+            "card_image_url": "shopify://collections/chandelier",
+            "heading": "Shop by Room: Living Room",
+            "text": "Discover stylish lighting and fans that bring comfort and elegance to your living room, creating the perfect ambiance for relaxation and entertaining.",
+            "button_label": "Explore Products",
+            "button_link": "shopify://collections/ceiling-mount"
+          }
+        },
+        "card_slide_mnpF4d": {
+          "type": "card_slide",
+          "settings": {
+            "main_image": "shopify://shop_images/Bathroom_1.jpg",
+            "main_image_url": "",
+            "card_image": "shopify://shop_images/Bathroom_2.jpg",
+            "card_image_url": "",
+            "heading": "Shop by Room: Bathroom",
+            "text": "Elevate your bathroom with our curated selection of lighting and mirrors, designed to add a touch of luxury and functionality to your space.",
+            "button_label": "Explore Products",
+            "button_link": "shopify://collections/vanity"
+          }
+        },
+        "card_slide_KUTyUQ": {
+          "type": "card_slide",
+          "settings": {
+            "main_image": "shopify://shop_images/Kitchen.jpg",
+            "main_image_url": "shopify://collections/island",
+            "card_image": "shopify://shop_images/Kitchen_2.jpg",
+            "card_image_url": "shopify://collections/pendant",
+            "heading": "Shop by Room: Kitchen",
+            "text": "Transform your kitchen with modern lighting and ceiling fans that combine style and performance, making it the heart of your home.",
+            "button_label": "Explore Products",
+            "button_link": "shopify://collections/island"
+          }
+        },
+        "card_slide_XhX4jx": {
+          "type": "card_slide",
+          "settings": {
+            "main_image": "shopify://shop_images/DIning_17bcd4ca-5470-4e32-b797-2cd3be95a3a6.jpg",
+            "main_image_url": "shopify://collections/chandelier",
+            "card_image": "shopify://shop_images/Dining_2_03b47df6-1fcf-4e42-9a1c-f09755adec16.jpg",
+            "card_image_url": "shopify://collections/chandelier",
+            "heading": "Shop by Room: Dining",
+            "text": "Set the perfect tone for your dining area with lighting fixtures that enhance the atmosphere, making every meal feel special.",
+            "button_label": "Explore Products",
+            "button_link": "shopify://collections/chandelier"
+          }
+        },
+        "card_slide_UQg8Bt": {
+          "type": "card_slide",
+          "settings": {
+            "main_image": "shopify://shop_images/Outdoor_Lighting_87a2c8d2-8be5-42ea-9961-df597c4da4c5.jpg",
+            "main_image_url": "shopify://collections/outdoor-wall-mount",
+            "card_image": "shopify://shop_images/Outdoor2.jpg",
+            "card_image_url": "shopify://collections/outdoor-wall-mount",
+            "heading": "Shop by Room: Outdoor",
+            "text": "Bring beauty and functionality to your outdoor spaces with durable, weather-resistant lighting and fans that create a comfortable and inviting atmosphere.",
+            "button_label": "Explore Products",
+            "button_link": "shopify://collections/outdoor"
+          }
+        }
+      },
+      "block_order": [
+        "card_slide_QrJGBN",
+        "card_slide_mnpF4d",
+        "card_slide_KUTyUQ",
+        "card_slide_XhX4jx",
+        "card_slide_UQg8Bt"
+      ],
+      "name": "Product Feature Carousel",
+      "settings": {
+        "store": "quorum"
+      }
+    },
     "product_feature_carousel_FMKU9b": {
       "type": "product-feature-carousel",
       "blocks": {
@@ -1281,6 +1362,7 @@
     "featured_products_UP4fnw",
     "featured_products_jFKX9w",
     "product_feature_carousel_Kqzf77",
+    "product_feature_carousel_GDqwrm",
     "product_feature_carousel_FMKU9b",
     "product_feature_carousel_ThxpUR",
     "image_with_text_6hFVYh",
