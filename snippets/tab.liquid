@@ -12,48 +12,9 @@
       assign has_content = true
       
       comment
-        FIRST: Format colons before any other processing
+        Aggressive content cleaning
       endcomment
       assign cleaned_content = content
-      
-      if cleaned_content contains ':'
-        comment
-          Process line by line to catch ALL instances
-        endcomment
-        assign temp_content = cleaned_content | newline_to_br
-        assign content_lines = temp_content | split: '<br>'
-        assign rebuilt_content = ''
-        
-        for line in content_lines
-          assign processed_line = line | strip
-          
-          if processed_line contains ':' and processed_line != ''
-            comment
-              Split on first colon and rebuild with bold
-            endcomment
-            assign colon_parts = processed_line | split: ':'
-            assign text_before_colon = colon_parts[0] | strip
-            
-            comment
-              Get everything after the first colon
-            endcomment
-            assign remaining_text = processed_line | replace_first: text_before_colon, '' | replace_first: ':', ''
-            assign processed_line = '<strong>' | append: text_before_colon | append: '</strong>:' | append: remaining_text
-          endif
-          
-          if rebuilt_content == ''
-            assign rebuilt_content = processed_line
-          else
-            assign rebuilt_content = rebuilt_content | append: '<br>' | append: processed_line
-          endif
-        endfor
-        
-        assign cleaned_content = rebuilt_content
-      endif
-      
-      comment
-        NOW do the aggressive content cleaning
-      endcomment
       
       comment
         First pass: normalize all br variants
@@ -127,6 +88,40 @@
         Remove leading/trailing br tags from entire content
       endcomment
       assign cleaned_content = cleaned_content | strip
+      
+      comment
+        Format text before colons to be bold - final step after cleaning
+      endcomment
+      if cleaned_content contains ':'
+        comment
+          Split content into lines and process each one
+        endcomment
+        assign content_lines = cleaned_content | split: '<br>'
+        assign final_content = ''
+        
+        for line in content_lines
+          assign current_line = line | strip
+          if current_line != ''
+            if current_line contains ':' and current_line contains '</strong>' == false
+              comment
+                Only format if not already formatted
+              endcomment
+              assign first_colon_pos = current_line | split: ':' | first | size
+              assign text_before = current_line | slice: 0, first_colon_pos
+              assign text_after = current_line | slice: first_colon_pos
+              assign current_line = '<strong>' | append: text_before | append: '</strong>' | append: text_after
+            endif
+            
+            if final_content == ''
+              assign final_content = current_line
+            else
+              assign final_content = final_content | append: '<br>' | append: current_line
+            endif
+          endif
+        endfor
+        
+        assign cleaned_content = final_content
+      endif
       
       comment
         Remove br at very beginning
