@@ -1,85 +1,40 @@
 {{ 'custom-product-slider-carousel.css' | asset_url | stylesheet_tag }}
-<section
-    class="product-feature-carousel room-feature"
-    {% unless section.settings.store == "all" %}
-        data-store="{{ section.settings.store }}"
-    {% endunless %}
->
+<section class="product-feature-carousel room-feature">
     <div class="container">
         <div class="feature-grid">
-            <!-- Main Large Image - Changes with carousel -->
             <div class="feature-left">
-                {% assign first_block = section.blocks[0] %}
-                <div class="main-image-container">
-                    {% if first_block.settings.main_image_url %}
-                        <a href="{{ first_block.settings.main_image_url }}" target="_blank" rel="noopener" class="main-image-link" id="mainImageLink">
-                            <img id="mainImageDynamic" src="{{ first_block.settings.main_image | img_url: 'master' }}" alt="Main Room Image" class="main-image fade-in">
-                        </a>
-                    {% else %}
-                        <img id="mainImageDynamic" src="{{ first_block.settings.main_image | img_url: 'master' }}" alt="Main Room Image" class="main-image fade-in">
-                    {% endif %}
-                </div>
+                <img id="mainImageDynamic" src="{{ section.blocks[0].settings.main_image | img_url: 'master' }}" alt="Main Room Image" class="main-image fade-in">
             </div>
 
-            <!-- Product Card Carousel -->
             <div class="feature-right">
                 <div class="feature-card">
                     <div class="card-swiper swiper">
                         <div class="swiper-wrapper">
                             {% for block in section.blocks %}
-                                <div class="swiper-slide product-card" 
-                                     data-main-image="{{ block.settings.main_image | img_url: 'master' }}"
-                                     data-main-image-url="{{ block.settings.main_image_url }}"
-                                     data-slide-index="{{ forloop.index0 }}">
-                                    
-                                    <!-- Card Image Section -->
+                                <div class="swiper-slide" data-main-image="{{ block.settings.main_image | img_url: 'master' }}">
                                     {% if block.settings.card_image %}
-                                        <div class="card-image-section">
-                                            {% if block.settings.card_image_url %}
-                                                <a href="{{ block.settings.card_image_url }}" target="_blank" rel="noopener" class="card-image-link">
-                                                    <img src="{{ block.settings.card_image | img_url: 'master' }}" alt="Product Image" class="card-image">
-                                                </a>
-                                            {% else %}
-                                                <img src="{{ block.settings.card_image | img_url: 'master' }}" alt="Product Image" class="card-image">
-                                            {% endif %}
-                                        </div>
+                                        <img src="{{ block.settings.card_image | img_url: 'master' }}" alt="Slide Image" class="card-image">
                                     {% endif %}
-
-                                    <!-- Card Content Section -->
-                                    <div class="card-content">
-                                        {% if block.settings.heading %}
-                                            <h2 class="card-title">{{ block.settings.heading }}</h2>
-                                        {% endif %}
-                                        {% if block.settings.text %}
-                                            <p class="card-text">{{ block.settings.text }}</p>
-                                        {% endif %}
-                                        {% if block.settings.button_label and block.settings.button_link %}
-                                            <a href="{{ block.settings.button_link }}" class="card-button">{{ block.settings.button_label }}</a>
-                                        {% endif %}
-                                    </div>
-
-                                    <!-- Visual Connection Indicator -->
-                                    <div class="card-connection">
-                                        <span class="connection-line"></span>
-                                        <span class="connection-text">Connected to main image</span>
-                                    </div>
+                                    {% if block.settings.heading %}
+                                        <h2 class="card-title">{{ block.settings.heading }}</h2>
+                                    {% endif %}
+                                    {% if block.settings.text %}
+                                        <p class="card-text">{{ block.settings.text }}</p>
+                                    {% endif %}
+                                    {% if block.settings.button_label and block.settings.button_link %}
+                                        <a href="{{ block.settings.button_link }}" class="card-button">{{ block.settings.button_label }}</a>
+                                    {% endif %}
                                 </div>
                             {% endfor %}
                         </div>
 
-                        <!-- Navigation Controls -->
                         <div class="product-button-wrapper">
                             <div class="product-button-prev">
-                                <img src="{{ 'ico-arrow-right.svg' | asset_url }}" alt="Previous">
+                                <img src="{{ 'ico-arrow-right.svg' | asset_url }}" alt="Icon">
                             </div>
                             <div class="product-button-next">
-                                <img src="{{ 'ico-arrow-right.svg' | asset_url }}" alt="Next">
+                                <img src="{{ 'ico-arrow-right.svg' | asset_url }}" alt="Icon">
                             </div>
-                        </div>
-
-                        <!-- Slide Counter -->
-                        <div class="slide-counter">
-                            <span class="current-slide">1</span> / <span class="total-slides">{{ section.blocks.size }}</span>
                         </div>
                     </div>
                 </div>
@@ -91,101 +46,9 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
-<style>
-/* Main Image Styling */
-.main-image-container {
-    position: relative;
-}
-
-.main-image-link, .card-image-link {
-    display: block;
-    cursor: pointer;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.main-image-link:hover, .card-image-link:hover {
-    opacity: 0.9;
-    transform: scale(1.02);
-}
-
-/* Product Card Styling */
-.product-card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    position: relative;
-}
-
-.card-image-section {
-    margin-bottom: 1.5rem;
-}
-
-.card-content {
-    flex-grow: 1;
-}
-
-/* Visual Connection Between Images */
-.card-connection {
-    display: flex;
-    align-items: center;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid #e0e0e0;
-    opacity: 0.7;
-    font-size: 0.8rem;
-    color: #666;
-}
-
-.connection-line {
-    width: 20px;
-    height: 1px;
-    background: #ccc;
-    margin-right: 8px;
-}
-
-.connection-text {
-    font-style: italic;
-}
-
-/* Slide Counter */
-.slide-counter {
-    text-align: center;
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    color: #666;
-}
-
-.current-slide {
-    font-weight: bold;
-    color: #333;
-}
-
-/* Active State for Product Cards */
-.swiper-slide-active.product-card {
-    border: 2px solid #007bff;
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.15);
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .feature-grid {
-        flex-direction: column;
-    }
-    
-    .card-connection {
-        display: none;
-    }
-}
-</style>
-
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const mainImage = document.getElementById('mainImageDynamic');
-        const mainImageContainer = document.querySelector('.feature-left');
-        const currentSlideElement = document.querySelector('.current-slide');
-        const totalSlidesElement = document.querySelector('.total-slides');
 
         const swiper = new Swiper('.card-swiper', {
             slidesPerView: 1,
@@ -194,87 +57,27 @@
                 prevEl: '.product-button-prev',
             },
             loop: false,
-            effect: 'slide',
-            speed: 500,
             on: {
                 slideChange: function () {
                     const currentSlide = swiper.slides[swiper.activeIndex];
                     const newSrc = currentSlide.getAttribute('data-main-image');
-                    const newMainImageUrl = currentSlide.getAttribute('data-main-image-url');
-                    const slideIndex = parseInt(currentSlide.getAttribute('data-slide-index'));
 
-                    // Update slide counter
-                    if (currentSlideElement) {
-                        currentSlideElement.textContent = slideIndex + 1;
-                    }
-
-                    // Update main image and its link
                     if (newSrc && mainImage.src !== newSrc) {
-                        // Add loading state
+                        // Hide before changing src
                         mainImage.classList.remove('visible');
-                        mainImage.classList.add('loading');
 
                         // Wait for image to fully load before showing again
                         const onLoadHandler = () => {
                             mainImage.classList.add('visible');
-                            mainImage.classList.remove('loading');
                             mainImage.removeEventListener('load', onLoadHandler);
                         };
 
                         mainImage.addEventListener('load', onLoadHandler);
                         mainImage.src = newSrc;
-
-                        // Update the main image link
-                        updateMainImageLink(newMainImageUrl);
                     }
-
-                    // Add visual feedback
-                    animateConnection();
                 }
             }
         });
-
-        // Function to update main image link
-        function updateMainImageLink(newUrl) {
-            const existingLink = mainImageContainer.querySelector('.main-image-link');
-            
-            if (newUrl) {
-                if (existingLink) {
-                    // Update existing link
-                    existingLink.href = newUrl;
-                } else {
-                    // Create new link wrapper
-                    const link = document.createElement('a');
-                    link.href = newUrl;
-                    link.target = '_blank';
-                    link.rel = 'noopener';
-                    link.className = 'main-image-link';
-                    link.id = 'mainImageLink';
-                    
-                    // Wrap the image
-                    mainImage.parentNode.insertBefore(link, mainImage);
-                    link.appendChild(mainImage);
-                }
-            } else {
-                if (existingLink) {
-                    // Remove link wrapper, keep image
-                    const parent = existingLink.parentNode;
-                    parent.insertBefore(mainImage, existingLink);
-                    parent.removeChild(existingLink);
-                }
-            }
-        }
-
-        // Function to animate connection between images
-        function animateConnection() {
-            const connectionElements = document.querySelectorAll('.card-connection');
-            connectionElements.forEach(el => {
-                el.style.opacity = '0.3';
-                setTimeout(() => {
-                    el.style.opacity = '0.7';
-                }, 200);
-            });
-        }
 
         // Initial load fade-in
         if (mainImage.complete) {
@@ -284,20 +87,6 @@
                 requestAnimationFrame(() => mainImage.classList.add('visible'));
             });
         }
-
-        // Initialize slide counter
-        if (totalSlidesElement) {
-            totalSlidesElement.textContent = swiper.slides.length;
-        }
-
-        // Keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'ArrowLeft') {
-                swiper.slidePrev();
-            } else if (e.key === 'ArrowRight') {
-                swiper.slideNext();
-            }
-        });
     });
 </script>
 
@@ -306,61 +95,21 @@
   "name": "Product Feature Carousel",
   "tag": "section",
   "class": "room-feature-carousel",
-  "settings": [
-    {
-      "type": "select",
-      "id": "store",
-      "label": "Store",
-      "info": "Populate this to show only on specific store",
-      "options": [
-        { "value": "all", "label": "Show On Both" },
-        { "value": "shop all brands", "label": "Shop All Brands" },
-        { "value": "quorum", "label": "Quorum" },
-        { "value": "oxygen", "label": "Oxygen" }
-      ],
-      "default": "all"
-    }
-  ],
+  "settings": [],
   "blocks": [
     {
       "type": "card_slide",
-      "name": "Product Card",
+      "name": "Card Slide",
       "settings": [
-        {
-          "type": "header",
-          "content": "Main Large Image (Left Side)"
-        },
         {
           "type": "image_picker",
           "id": "main_image",
-          "label": "Main Large Image",
-          "info": "This image displays on the left and changes with each card"
-        },
-        {
-          "type": "url",
-          "id": "main_image_url",
-          "label": "Main Image URL",
-          "info": "Make the main large image clickable - opens in new tab"
-        },
-        {
-          "type": "header",
-          "content": "Card Image (Right Side)"
+          "label": "Main Large Image"
         },
         {
           "type": "image_picker",
           "id": "card_image",
-          "label": "Card Image",
-          "info": "This image displays in the card on the right side"
-        },
-        {
-          "type": "url",
-          "id": "card_image_url",
-          "label": "Card Image URL",
-          "info": "Make the card image clickable - opens in new tab"
-        },
-        {
-          "type": "header",
-          "content": "Card Content"
+          "label": "Card Image"
         },
         {
           "type": "text",
