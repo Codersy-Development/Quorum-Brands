@@ -622,9 +622,9 @@
           "type": "card_slide",
           "settings": {
             "main_image": "shopify://shop_images/Living.jpg",
-            "main_image_url": "shopify://products/5150-4-70",
+            "main_image_url": "shopify://collections/pendant",
             "card_image": "shopify://shop_images/LivingRoom2.jpg",
-            "card_image_url": "shopify://products/6377-6-80",
+            "card_image_url": "shopify://collections/chandelier",
             "heading": "Shop by Room: Living Room",
             "text": "Discover stylish lighting and fans that bring comfort and elegance to your living room, creating the perfect ambiance for relaxation and entertaining.",
             "button_label": "Explore Products",
