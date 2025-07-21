@@ -62,6 +62,7 @@ Arguments
           {{ 'products.general.sale' | t }}
         </div>
       {%- endif -%}
+      {% render ‘hulkapps-wishlist-collection-btn’, productId: product.id, variantId: product.selected_or_first_available_variant.id %}
     {%- endif -%}
 
     {%- liquid
@@ -196,9 +197,6 @@ Arguments
             <div class="grid-product__sku">
               <span class="sku-label">SKU: </span>
               <span class="sku-value">{{ product.selected_or_first_available_variant.sku }}</span>
-              {% render ‘hulkapps-wishlist-collection-btn’, productId: product.id, variantId: product.selected_or_first_available_variant.id %}
-
-
 
             </div>
           {%- endif -%}      
