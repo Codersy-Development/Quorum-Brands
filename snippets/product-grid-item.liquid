@@ -146,11 +146,9 @@ Arguments
             -%}
           </div>
 {%- endif -%}
-{%- comment -%} Add wishlist button here {%- endcomment -%}
-<div class="grid-product__wishlist">
-{% render 'hulkapps-wishlist-collection-btn', product_id: product.id, variant_id: product.selected_or_first_available_variant.id %}
-</div>
 
+{%- comment -%} Add wishlist button here {%- endcomment -%}
+{% render 'hulkapps-wishlist-collection-btn' %}
 
 {%- if settings.enable_swatches -%}
           {%- assign swatch_trigger = 'products.general.color_swatch_trigger' | t | downcase -%}
