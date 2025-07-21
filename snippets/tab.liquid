@@ -121,12 +121,23 @@
       assign cleaned_content = cleaned_content | strip
     endif
   endif
+  
+  comment
+    Format title with bold text before colon
+  endcomment
+  assign formatted_title = title | strip
+  if title contains ':'
+    assign title_parts = title | split: ':'
+    assign title_before_colon = title_parts[0] | strip
+    assign title_after_colon = title_parts[1] | strip
+    assign formatted_title = '<strong>' | append: title_before_colon | append: '</strong>: ' | append: title_after_colon
+  endif
 -%}
 
 {%- if has_content -%}
 <div class="collapsibles-wrapper collapsibles-wrapper--border-bottom">
   <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height{%- if force_open %} is-open{%- endif -%}" aria-controls="Product-content-{{ id }}"{%- if force_open %} aria-expanded="true"{%- endif -%}>
-    {{- title | strip -}}
+    {{- formatted_title -}}
     {%- render 'collapsible-icons' -%}
   </button>
   <div id="Product-content-{{ id }}" class="collapsible-content collapsible-content--all{%- if force_open %} is-open{%- endif -%}"{%- if force_open %} style="height: auto;"{%- endif -%}>
