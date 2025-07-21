@@ -109,8 +109,9 @@
                 endcomment
                 assign first_colon_pos = current_line | split: ':' | first | size
                 assign text_before = current_line | slice: 0, first_colon_pos
-                assign text_after = current_line | slice: first_colon_pos
-                assign current_line = '<strong>' | append: text_before | append: '</strong>' | append: text_after
+                assign text_after_pos = first_colon_pos | plus: 1
+                assign text_after = current_line | slice: text_after_pos, 999
+                assign current_line = '<strong>' | append: text_before | append: '</strong>: ' | append: text_after
               endunless
             endif
             
