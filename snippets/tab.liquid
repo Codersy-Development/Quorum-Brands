@@ -18,36 +18,37 @@
       
       if cleaned_content contains ':'
         comment
-          Simple pattern matching for any text followed by colon
+          Process line by line to catch ALL instances
         endcomment
-        assign temp_content = cleaned_content
+        assign temp_content = cleaned_content | newline_to_br
+        assign content_lines = temp_content | split: '<br>'
+        assign rebuilt_content = ''
         
-        comment
-          Split on newlines and br tags to catch all line variations
-        endcomment
-        assign lines_newline = temp_content | newline_to_br | split: '<br>'
-        assign lines_br = temp_content | split: '<br>'
-        assign all_possible_lines = lines_newline | concat: lines_br
-        
-        assign processed_content = temp_content
-        
-        for line in all_possible_lines
-          assign clean_line = line | strip
-          if clean_line contains ':' and clean_line.size > 3
+        for line in content_lines
+          assign processed_line = line | strip
+          
+          if processed_line contains ':' and processed_line != ''
             comment
-              Extract text before first colon
+              Split on first colon and rebuild with bold
             endcomment
-            assign colon_parts = clean_line | split: ':'
-            assign before_colon = colon_parts[0] | strip
-            if before_colon.size > 0
-              assign search_pattern = before_colon | append: ':'
-              assign replace_pattern = '<strong>' | append: before_colon | append: '</strong>:'
-              assign processed_content = processed_content | replace: search_pattern, replace_pattern
-            endif
+            assign colon_parts = processed_line | split: ':'
+            assign text_before_colon = colon_parts[0] | strip
+            
+            comment
+              Get everything after the first colon
+            endcomment
+            assign remaining_text = processed_line | replace_first: text_before_colon, '' | replace_first: ':', ''
+            assign processed_line = '<strong>' | append: text_before_colon | append: '</strong>:' | append: remaining_text
+          endif
+          
+          if rebuilt_content == ''
+            assign rebuilt_content = processed_line
+          else
+            assign rebuilt_content = rebuilt_content | append: '<br>' | append: processed_line
           endif
         endfor
         
-        assign cleaned_content = processed_content
+        assign cleaned_content = rebuilt_content
       endif
       
       comment
