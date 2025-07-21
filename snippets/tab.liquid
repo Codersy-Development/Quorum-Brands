@@ -121,11 +121,11 @@
       assign cleaned_content = cleaned_content | strip
       
       comment
-        Format text before colons to be bold using replace method
+        Format text before colons to be bold - fixed version
       endcomment
       if cleaned_content contains ':'
         comment
-          Simple approach: process each line and use string replacement
+          Process each line individually - only add non-empty lines
         endcomment
         assign temp_content = cleaned_content
         assign content_lines = temp_content | split: '<br>'
@@ -133,23 +133,32 @@
         
         for line in content_lines
           assign processed_line = line | strip
-          if processed_line contains ':'
-            comment
-              Split on first colon only
-            endcomment
-            assign split_parts = processed_line | split: ':'
-            assign before_colon = split_parts[0] | strip
-            comment
-              Get everything after first colon by reconstructing
-            endcomment
-            assign after_colon = processed_line | remove_first: before_colon | remove_first: ':'
-            assign processed_line = '<strong>' | append: before_colon | append: '</strong>:' | append: after_colon
-          endif
           
-          if forloop.first
-            assign formatted_lines = processed_line
-          else
-            assign formatted_lines = formatted_lines | append: '<br>' | append: processed_line
+          comment
+            Only process lines that actually have content
+          endcomment
+          if processed_line != ''
+            if processed_line contains ':'
+              comment
+                Split on first colon only
+              endcomment
+              assign split_parts = processed_line | split: ':'
+              assign before_colon = split_parts[0] | strip
+              comment
+                Get everything after first colon by reconstructing
+              endcomment
+              assign after_colon = processed_line | remove_first: before_colon | remove_first: ':'
+              assign processed_line = '<strong>' | append: before_colon | append: '</strong>:' | append: after_colon
+            endif
+            
+            comment
+              Add to formatted content - only non-empty lines
+            endcomment
+            if formatted_lines == ''
+              assign formatted_lines = processed_line
+            else
+              assign formatted_lines = formatted_lines | append: '<br>' | append: processed_line
+            endif
           endif
         endfor
         
@@ -157,8 +166,6 @@
       endif
     endif
   endif
-  
-
 -%}
 
 {%- if has_content -%}
