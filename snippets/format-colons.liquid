@@ -1,0 +1,39 @@
+{%- comment -%}
+  Snippet: format-colons.liquid
+  Purpose: Format text before colons to be bold
+  Usage: {% render 'format-colons', content: your_content %}
+  Returns: formatted_content
+{%- endcomment -%}
+
+{%- liquid
+  assign formatted_content = content
+  
+  if formatted_content contains ':'
+    comment
+      Replace known field labels with bold versions
+    endcomment
+    assign formatted_content = formatted_content | replace: 'Material 1:', '<strong>Material 1</strong>:'
+    assign formatted_content = formatted_content | replace: 'Material 2:', '<strong>Material 2</strong>:'
+    assign formatted_content = formatted_content | replace: 'Material 3:', '<strong>Material 3</strong>:'
+    assign formatted_content = formatted_content | replace: 'Finish:', '<strong>Finish</strong>:'
+    assign formatted_content = formatted_content | replace: 'Width (inch):', '<strong>Width (inch)</strong>:'
+    assign formatted_content = formatted_content | replace: 'Height (inch):', '<strong>Height (inch)</strong>:'
+    assign formatted_content = formatted_content | replace: 'Extension (inch):', '<strong>Extension (inch)</strong>:'
+    assign formatted_content = formatted_content | replace: 'Weight (lbs):', '<strong>Weight (lbs)</strong>:'
+    assign formatted_content = formatted_content | replace: 'Diffuser Material:', '<strong>Diffuser Material</strong>:'
+    assign formatted_content = formatted_content | replace: 'UL Type:', '<strong>UL Type</strong>:'
+    assign formatted_content = formatted_content | replace: 'Number of Lights:', '<strong>Number of Lights</strong>:'
+    assign formatted_content = formatted_content | replace: 'Socket Base:', '<strong>Socket Base</strong>:'
+    assign formatted_content = formatted_content | replace: 'Watts:', '<strong>Watts</strong>:'
+    assign formatted_content = formatted_content | replace: 'Shipping Via:', '<strong>Shipping Via</strong>:'
+    assign formatted_content = formatted_content | replace: 'Carton Height (inch):', '<strong>Carton Height (inch)</strong>:'
+    assign formatted_content = formatted_content | replace: 'Carton Length (inch):', '<strong>Carton Length (inch)</strong>:'
+    assign formatted_content = formatted_content | replace: 'Carton Width (inch):', '<strong>Carton Width (inch)</strong>:'
+    
+    comment
+      Add more field replacements as needed
+    endcomment
+  endif
+  
+  echo formatted_content
+-%}
