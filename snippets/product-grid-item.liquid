@@ -148,7 +148,7 @@ Arguments
 {%- endif -%}
 {%- comment -%} Add wishlist button here {%- endcomment -%}
 <div class="grid-product__wishlist">
-  {% render 'hulkapps-wishlist-collection-btn', productId: product.id, variantId: product.selected_or_first_available_variant.id %}
+{% render 'hulkapps-wishlist-collection-btn', product_id: product.id, variant_id: product.selected_or_first_available_variant.id %}
 </div>
 
 
