@@ -30,7 +30,7 @@
                                 <div class="swiper-slide product-card" 
                                      data-main-image="{{ block.settings.main_image | img_url: 'master' }}"
                                      data-main-image-url="{{ block.settings.main_image_url }}"
-                                     data-slide-index="{{ forloop.index0 }}">
+                                     data-block-id="{{ block.id }}">
                                     
                                     <!-- Card Image Section -->
                                     {% if block.settings.card_image %}
@@ -58,10 +58,9 @@
                                         {% endif %}
                                     </div>
 
-                                    <!-- Visual Connection Indicator -->
-                                    <div class="card-connection">
-                                        <span class="connection-line"></span>
-                                        <span class="connection-text">Connected to main image</span>
+                                    <!-- Debug info - remove after testing -->
+                                    <div style="font-size: 10px; color: #999; margin-top: 10px;">
+                                        Debug: {{ block.settings.main_image | img_url: 'master' }}
                                     </div>
                                 </div>
                             {% endfor %}
