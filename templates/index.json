@@ -904,9 +904,9 @@
           "type": "card_slide",
           "settings": {
             "main_image": "shopify://shop_images/Dining_Room_1.jpg",
-            "main_image_url": "",
+            "main_image_url": "shopify://collections/oxygen-chandeliers",
             "card_image": "shopify://shop_images/Dining_Room_2.png",
-            "card_image_url": "",
+            "card_image_url": "shopify://collections/oxygen-chandeliers",
             "heading": "Shop by Room: Dining",
             "text": "Set the perfect tone for a dining area with lighting  fixtures that enhance the atmosphere, making every meal feel  special.",
             "button_label": "Explore Products",
