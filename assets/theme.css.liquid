@@ -6874,11 +6874,40 @@ details[open]>.site-nav__dropdown{
   transition: all 0.3s ease;
 }
 
-/* Fix for very wide menus */
+/* Add larger margins to bring columns closer together */
+.megamenu--flex .page-width {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+/* Adjust margins based on screen size */
 @media screen and (min-width: 1400px) {
   .megamenu--flex .page-width {
-    max-width: 1200px;
-    margin: 0 auto;
+    margin-left: 15%;
+    margin-right: 15%;
+    max-width: none;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .megamenu--flex .page-width {
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+}
+
+/* For smaller screens, reduce margins */
+@media screen and (max-width: 1200px) {
+  .megamenu--flex .page-width {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .megamenu--flex .page-width {
+    margin-left: 2%;
+    margin-right: 2%;
   }
 }
 
