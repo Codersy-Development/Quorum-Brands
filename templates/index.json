@@ -615,81 +615,81 @@
         "heading": "Featured Products"
       }
     },
-    "product_feature_carousel_Kqzf77": {
+    "product_feature_carousel_ThxpUR": {
       "type": "product-feature-carousel",
       "blocks": {
-        "card_slide_i4j3Mf": {
+        "card_slide_mqAfjm": {
           "type": "card_slide",
           "settings": {
-            "main_image": "shopify://shop_images/Living.jpg",
-            "main_image_url": "shopify://collections/pendant",
-            "card_image": "shopify://shop_images/LivingRoom2.jpg",
-            "card_image_url": "shopify://collections/chandelier",
+            "main_image": "shopify://shop_images/Living_Room_1.jpg",
+            "main_image_url": "shopify://collections/oxygen-chandeliers",
+            "card_image": "shopify://shop_images/Living_Room_1.jpg",
+            "card_image_url": "shopify://collections/oxygen-chandeliers",
             "heading": "Shop by Room: Living Room",
-            "text": "Discover stylish lighting and fans that bring comfort and elegance to your living room, creating the perfect ambiance for relaxation and entertaining.",
+            "text": "Discover stylish lighting and fans that bring \ncomfort and elegance to any living space, creating the perfect ambiance for relaxation and entertaining.",
             "button_label": "Explore Products",
-            "button_link": "shopify://collections/ceiling-mount"
+            "button_link": "shopify://collections/oxygen-chandeliers"
           }
         },
-        "card_slide_cQ9MY3": {
+        "card_slide_tipKqt": {
           "type": "card_slide",
           "settings": {
-            "main_image": "shopify://shop_images/Bathroom_1.jpg",
-            "main_image_url": "",
-            "card_image": "shopify://shop_images/Bathroom_2.jpg",
-            "card_image_url": "",
+            "main_image": "shopify://shop_images/Bathroom_1.png",
+            "main_image_url": "shopify://collections/oxygen-lighted-mirrors",
+            "card_image": "shopify://shop_images/Bathroom_2_6835cefb-61a2-4820-ab11-e437b72888e3.jpg",
+            "card_image_url": "shopify://collections/oxygen-vanities",
             "heading": "Shop by Room: Bathroom",
-            "text": "Elevate your bathroom with our curated selection of lighting and mirrors, designed to add a touch of luxury and functionality to your space.",
+            "text": "Elevate bathroom styling with our curated selection  of lighting and mirrors, designed to add a touch of luxury and  functionality to your space.",
             "button_label": "Explore Products",
-            "button_link": "shopify://collections/vanity"
+            "button_link": "shopify://collections/oxygen-vanities"
           }
         },
-        "card_slide_q7x7Q6": {
+        "card_slide_yPEAWh": {
           "type": "card_slide",
           "settings": {
-            "main_image": "shopify://shop_images/Kitchen.jpg",
-            "main_image_url": "shopify://collections/island",
-            "card_image": "shopify://shop_images/Kitchen_2.jpg",
-            "card_image_url": "shopify://collections/pendant",
-            "heading": "Shop by Room: Kitchen",
-            "text": "Transform your kitchen with modern lighting and ceiling fans that combine style and performance, making it the heart of your home.",
+            "main_image": "shopify://shop_images/Hallway_1_fa07f335-112e-42fc-9de5-6caf3ef4846d.png",
+            "main_image_url": "shopify://collections/oxygen-wall-lights",
+            "card_image": "shopify://shop_images/Hallway_2.jpg",
+            "card_image_url": "shopify://collections/oxygen-sconces",
+            "heading": "Shop by Room: Hallways & Entries",
+            "text": "Illuminate any hallways and entries with stylish lighting that sets the tone for your home, creating a  welcoming and sophisticated first impression",
             "button_label": "Explore Products",
-            "button_link": "shopify://collections/island"
+            "button_link": "shopify://collections/oxygen-wall-lights"
           }
         },
-        "card_slide_Bx6f7c": {
+        "card_slide_xgmhVR": {
           "type": "card_slide",
           "settings": {
-            "main_image": "shopify://shop_images/DIning_17bcd4ca-5470-4e32-b797-2cd3be95a3a6.jpg",
-            "main_image_url": "shopify://collections/chandelier",
-            "card_image": "shopify://shop_images/Dining_2_03b47df6-1fcf-4e42-9a1c-f09755adec16.jpg",
-            "card_image_url": "shopify://collections/chandelier",
+            "main_image": "shopify://shop_images/Dining_Room_1.jpg",
+            "main_image_url": "shopify://collections/oxygen-chandeliers",
+            "card_image": "shopify://shop_images/Dining_Room_2.png",
+            "card_image_url": "shopify://collections/oxygen-chandeliers",
             "heading": "Shop by Room: Dining",
-            "text": "Set the perfect tone for your dining area with lighting fixtures that enhance the atmosphere, making every meal feel special.",
+            "text": "Set the perfect tone for a dining area with lighting  fixtures that enhance the atmosphere, making every meal feel  special.",
             "button_label": "Explore Products",
-            "button_link": "shopify://collections/chandelier"
+            "button_link": "shopify://collections/oxygen-chandeliers"
           }
         },
-        "card_slide_gz7fGt": {
+        "card_slide_7iH8Hg": {
           "type": "card_slide",
           "settings": {
-            "main_image": "shopify://shop_images/Outdoor_Lighting_87a2c8d2-8be5-42ea-9961-df597c4da4c5.jpg",
-            "main_image_url": "shopify://collections/outdoor-wall-mount",
-            "card_image": "shopify://shop_images/Outdoor2.jpg",
-            "card_image_url": "shopify://collections/outdoor-wall-mount",
+            "main_image": "shopify://shop_images/Outdoor_1.png",
+            "main_image_url": "shopify://collections/oxygen-patio-fan-light-kits",
+            "card_image": "shopify://shop_images/Outdoor_2_c251dd41-65f7-4e44-b14c-1abfdb57e5fc.jpg",
+            "card_image_url": "shopify://collections/quorum-outdoor-wall-lights",
             "heading": "Shop by Room: Outdoor",
-            "text": "Bring beauty and functionality to your outdoor spaces with durable, weather-resistant lighting and fans that create a comfortable and inviting atmosphere.",
+            "text": "Bring beauty and functionality to an outdoor spaces  with durable, weather-resistant lighting and fans that create a  comfortable and inviting atmosphere.",
             "button_label": "Explore Products",
-            "button_link": "shopify://collections/outdoor"
+            "button_link": "shopify://collections/oxygen-outdoor-lights"
           }
         }
       },
       "block_order": [
-        "card_slide_i4j3Mf",
-        "card_slide_cQ9MY3",
-        "card_slide_q7x7Q6",
-        "card_slide_Bx6f7c",
-        "card_slide_gz7fGt"
+        "card_slide_mqAfjm",
+        "card_slide_tipKqt",
+        "card_slide_yPEAWh",
+        "card_slide_xgmhVR",
+        "card_slide_7iH8Hg"
       ],
       "name": "Product Feature Carousel",
       "settings": {
@@ -856,87 +856,6 @@
       "name": "Product Feature Carousel",
       "settings": {
         "store": "quorum"
-      }
-    },
-    "product_feature_carousel_ThxpUR": {
-      "type": "product-feature-carousel",
-      "blocks": {
-        "card_slide_mqAfjm": {
-          "type": "card_slide",
-          "settings": {
-            "main_image": "shopify://shop_images/Living_Room_1.jpg",
-            "main_image_url": "shopify://collections/oxygen-chandeliers",
-            "card_image": "shopify://shop_images/Living_Room_1.jpg",
-            "card_image_url": "shopify://collections/oxygen-chandeliers",
-            "heading": "Shop by Room: Living Room",
-            "text": "Discover stylish lighting and fans that bring \ncomfort and elegance to any living space, creating the perfect ambiance for relaxation and entertaining.",
-            "button_label": "Explore Products",
-            "button_link": "shopify://collections/oxygen-chandeliers"
-          }
-        },
-        "card_slide_tipKqt": {
-          "type": "card_slide",
-          "settings": {
-            "main_image": "shopify://shop_images/Bathroom_1.png",
-            "main_image_url": "shopify://collections/oxygen-lighted-mirrors",
-            "card_image": "shopify://shop_images/Bathroom_2_6835cefb-61a2-4820-ab11-e437b72888e3.jpg",
-            "card_image_url": "shopify://collections/oxygen-vanities",
-            "heading": "Shop by Room: Bathroom",
-            "text": "Elevate bathroom styling with our curated selection  of lighting and mirrors, designed to add a touch of luxury and  functionality to your space.",
-            "button_label": "Explore Products",
-            "button_link": "shopify://collections/oxygen-vanities"
-          }
-        },
-        "card_slide_yPEAWh": {
-          "type": "card_slide",
-          "settings": {
-            "main_image": "shopify://shop_images/Hallway_1_fa07f335-112e-42fc-9de5-6caf3ef4846d.png",
-            "main_image_url": "shopify://collections/oxygen-wall-lights",
-            "card_image": "shopify://shop_images/Hallway_2.jpg",
-            "card_image_url": "shopify://collections/oxygen-sconces",
-            "heading": "Shop by Room: Hallways & Entries",
-            "text": "Illuminate any hallways and entries with stylish lighting that sets the tone for your home, creating a  welcoming and sophisticated first impression",
-            "button_label": "Explore Products",
-            "button_link": "shopify://collections/oxygen-wall-lights"
-          }
-        },
-        "card_slide_xgmhVR": {
-          "type": "card_slide",
-          "settings": {
-            "main_image": "shopify://shop_images/Dining_Room_1.jpg",
-            "main_image_url": "shopify://collections/oxygen-chandeliers",
-            "card_image": "shopify://shop_images/Dining_Room_2.png",
-            "card_image_url": "shopify://collections/oxygen-chandeliers",
-            "heading": "Shop by Room: Dining",
-            "text": "Set the perfect tone for a dining area with lighting  fixtures that enhance the atmosphere, making every meal feel  special.",
-            "button_label": "Explore Products",
-            "button_link": "shopify://collections/oxygen-chandeliers"
-          }
-        },
-        "card_slide_7iH8Hg": {
-          "type": "card_slide",
-          "settings": {
-            "main_image": "shopify://shop_images/Outdoor_1.png",
-            "main_image_url": "shopify://collections/oxygen-patio-fan-light-kits",
-            "card_image": "shopify://shop_images/Outdoor_2_c251dd41-65f7-4e44-b14c-1abfdb57e5fc.jpg",
-            "card_image_url": "shopify://collections/quorum-outdoor-wall-lights",
-            "heading": "Shop by Room: Outdoor",
-            "text": "Bring beauty and functionality to an outdoor spaces  with durable, weather-resistant lighting and fans that create a  comfortable and inviting atmosphere.",
-            "button_label": "Explore Products",
-            "button_link": "shopify://collections/oxygen-outdoor-lights"
-          }
-        }
-      },
-      "block_order": [
-        "card_slide_mqAfjm",
-        "card_slide_tipKqt",
-        "card_slide_yPEAWh",
-        "card_slide_xgmhVR",
-        "card_slide_7iH8Hg"
-      ],
-      "name": "Product Feature Carousel",
-      "settings": {
-        "store": "oxygen"
       }
     },
     "image_with_text_6hFVYh": {
@@ -1361,10 +1280,9 @@
     "featured_products_4iHgi6",
     "featured_products_UP4fnw",
     "featured_products_jFKX9w",
-    "product_feature_carousel_Kqzf77",
+    "product_feature_carousel_ThxpUR",
     "product_feature_carousel_GDqwrm",
     "product_feature_carousel_FMKU9b",
-    "product_feature_carousel_ThxpUR",
     "image_with_text_6hFVYh",
     "image_with_text_Vi83Re",
     "background_image_text_HPadbT",
