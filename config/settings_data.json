@@ -154,7 +154,7 @@
           "collection_icon_hover_color": "#e8e8e1",
           "collection_selected_icon_fill_color": "#5e5e3f",
           "collection_selected_icon_border_color": "#ffffff",
-          "custom_wishlist_icon": false,
+          "custom_wishlist_icon": true,
           "custom_wishlist_icon_right": "true",
           "collection_count_layout": "top_count",
           "collection_count_background_color": "#999166",
