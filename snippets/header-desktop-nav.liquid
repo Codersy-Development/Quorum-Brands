@@ -50,11 +50,27 @@
         {%- if is_megamenu -%}
           {%- assign previous_column_type = '' -%}
           {%- assign animation_column = 1 -%}
+          
+          {%- comment -%} SOLUTION #1: Dynamic Column Calculation {%- endcomment -%}
+          {%- assign column_count = link.links.size -%}
+          {%- assign column_class = 'medium-up--one-quarter' -%}
+          
+          {%- if column_count <= 3 -%}
+            {%- assign column_class = 'medium-up--one-third' -%}
+          {%- elsif column_count <= 4 -%}
+            {%- assign column_class = 'medium-up--one-quarter' -%}
+          {%- elsif column_count <= 5 -%}
+            {%- assign column_class = 'medium-up--one-fifth' -%}
+          {%- elsif column_count <= 6 -%}
+            {%- assign column_class = 'medium-up--one-sixth' -%}
+          {%- else -%}
+            {%- assign column_class = 'medium-up--one-eighth' -%}
+          {%- endif -%}
 
-          <div class="site-nav__dropdown megamenu text-left">
+          <div class="site-nav__dropdown megamenu megamenu--flex text-left">
             <div class="page-width">
-              <div class="grid{% if dropdown_alignment == 'center' %} grid--center{% endif %}">
-                <div class="grid__item medium-up--one-fifth appear-animation appear-delay-{{ animation_column }}">
+              <div class="grid megamenu-grid{% if dropdown_alignment == 'center' %} grid--center{% endif %}">
+                <div class="grid__item {{ column_class }} appear-animation appear-delay-{{ animation_column }}">
                   {%- assign animation_column = animation_column | plus: 1 -%}
 
                   {%- for childlink in link.links -%}
@@ -71,7 +87,7 @@
                     -%}
 
                     {%- if create_new_column -%}
-                      </div><div class="grid__item medium-up--one-fifth appear-animation appear-delay-{{ animation_column }}">
+                      </div><div class="grid__item {{ column_class }} appear-animation appear-delay-{{ animation_column }}">
                       {%- assign animation_column = animation_column | plus: 1 -%}
                     {%- endif -%}
 
