@@ -48,7 +48,19 @@ Arguments
 
 <div class="grid__item grid-product {{ gridView }} {% if quick_shop_enable %} grid-product__has-quick-shop{% endif %}" data-aos="row-of-{{ per_row }}" data-product-handle="{{ product.handle }}" data-product-id="{{ product.id }}">
   <div class="grid-product__content">
-              {% render ‘hulkapps-wishlist-collection-btn’, productId: product.id, variantId: product.selected_or_first_available_variant.id %}
+ <a href="#" class="icon-wishlist-heart-empty wishlist-btn grid-wishlist-btn heart-wishlist-animation" data-wishList data-added="false" data-proID="{{ product.id }}" data-varID="{{ product.selected_or_first_available_variant.id }}" data-button-layout="{{ button_layout }}" style="display:none !important;">
+    <div class="hulk_wl_icon-text" hulk-wl-custom-style data-count="{{ shop.metafields.hulkapps_wishlist.hulkapps_wishlist_general.public_wishlist_count }}">
+        <div class="hulk_wl_icon">
+            <i class="heart-hulk-animation"><i class="icon-wishlist-heart-empty"></i></i>
+            <span>Add to wishlist</span>
+        </div>
+    </div>
+    {% if button_layout == 'multi_color_button' and shop.metafields.hulkapps_wishlist.hulkapps_wishlist_buttonstyle.button_style == 'style_2' or shop.metafields.hulkapps_wishlist.hulkapps_wishlist_buttonstyle.button_style == 'style_4' %}
+        <span class="count" hulk-wl-custom-style>0</span>
+    {% else %}
+        <span class="count" hulk-wl-custom-style>(0)</span>
+    {% endif %}
+</a>
 
     {%- if has_custom_label -%}
       <div class="grid-product__tag grid-product__tag--custom">
