@@ -90,40 +90,43 @@
       assign cleaned_content = cleaned_content | strip
       
       comment
-        Format text before colons to be bold - final step after cleaning
+        Format ALL text before colons to be bold - simple string replacement method
       endcomment
       if cleaned_content contains ':'
         comment
-          Split content into lines and process each one
+          Use simple string replacement to make any text before colon bold
+          This will catch every instance regardless of line structure
         endcomment
-        assign content_lines = cleaned_content | split: '<br>'
-        assign final_content = ''
         
-        for line in content_lines
+        comment
+          Split the entire content on br tags and process each line
+        endcomment
+        assign all_lines = cleaned_content | split: '<br>'
+        assign rebuilt_content = ''
+        
+        for line in all_lines
           assign current_line = line | strip
-          if current_line != ''
-            if current_line contains ':'
-              unless current_line contains '</strong>'
-                comment
-                  Only format if not already formatted
-                endcomment
-                assign first_colon_pos = current_line | split: ':' | first | size
-                assign text_before = current_line | slice: 0, first_colon_pos
-                assign text_after_pos = first_colon_pos | plus: 1
-                assign text_after = current_line | slice: text_after_pos, 999
-                assign current_line = '<strong>' | append: text_before | append: '</strong>: ' | append: text_after
-              endunless
-            endif
-            
-            if final_content == ''
-              assign final_content = current_line
-            else
-              assign final_content = final_content | append: '<br>' | append: current_line
-            endif
+          if current_line != '' and current_line contains ':'
+            comment
+              Split only on the FIRST colon
+            endcomment
+            assign colon_split = current_line | split: ':'
+            assign before_colon = colon_split[0] | strip
+            comment
+              Rebuild everything after the first colon
+            endcomment
+            assign after_colon = current_line | replace_first: before_colon, '' | replace_first: ':', '' | strip
+            assign current_line = '<strong>' | append: before_colon | append: '</strong>: ' | append: after_colon
+          endif
+          
+          if rebuilt_content == ''
+            assign rebuilt_content = current_line
+          else
+            assign rebuilt_content = rebuilt_content | append: '<br>' | append: current_line
           endif
         endfor
         
-        assign cleaned_content = final_content
+        assign cleaned_content = rebuilt_content
       endif
       
       comment
