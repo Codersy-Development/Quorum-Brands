@@ -12226,11 +12226,10 @@ html[dir=rtl] .product-single__meta .rte{
 {% endcomment %}
 @media only screen and (min-width: 769px) {
   .product-image-main {
-    position: relative !important;
-    max-height: 600px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+    position: relative;
+    max-height: 600px;
+    text-align: center;
+    line-height: 600px;
     overflow: hidden;
   }
   
@@ -12238,7 +12237,8 @@ html[dir=rtl] .product-single__meta .rte{
     max-height: 500px;
     max-width: 100%;
     object-fit: contain;
-    flex-shrink: 0;
+    vertical-align: middle;
+    line-height: normal;
   }
 }
 
