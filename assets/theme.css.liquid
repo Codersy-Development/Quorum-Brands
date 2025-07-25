@@ -12233,52 +12233,44 @@ html[dir=rtl] .product-single__meta .rte{
     margin: 0 95px;
   }
   
-  /* Grid product image styling for large screens */
-  .grid-product__image-mask {
+  /* Product page image container */
+  .product-image-main {
     position: relative;
     max-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
   }
   
-  /* For fixed aspect ratio images */
-  .grid__image-ratio {
-    max-height: 600px !important;
+  /* Override the inline padding-bottom and center the image */
+  .product-image-main .image-wrap {
+    height: auto !important;
+    padding-bottom: 0 !important;
+    max-height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
   }
   
-  .grid__image-ratio img {
+  /* Style the actual image */
+  .product-image-main .image-wrap img {
     max-height: 500px !important;
     max-width: 100%;
     object-fit: contain;
     width: auto;
     height: auto;
+    position: static !important;
   }
   
-  /* For natural aspect ratio images */
-  .image-wrap {
-    max-height: 600px;
+  /* Ensure the image-element wrapper doesn't interfere */
+  .product-image-main image-element {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-  }
-  
-  .image-wrap img {
-    max-height: 500px !important;
-    max-width: 100%;
-    object-fit: contain;
-    width: auto;
-    height: auto;
-    position: static;
-  }
-  
-  /* Secondary hover images */
-  .grid-product__secondary-image img {
-    max-height: 500px !important;
-    max-width: 100%;
-    object-fit: contain;
+    max-height: 500px;
+    width: 100%;
   }
 }
 
@@ -12300,7 +12292,6 @@ html[dir=rtl] .product-single__meta .rte{
   position: absolute;
   top: 50%;
 }
-
 
 .product__video-wrapper{
   background-color:var(--colorSmallImageBg);
