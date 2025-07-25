@@ -12210,23 +12210,12 @@ html[dir=rtl] .product-single__meta .rte{
 }
 
 .product-image-main{
-  position: absolute;
-  
-   display: block;
-   width: auto;
-   max-width: 100%;
-   height: auto;
-   
-
-
-{% comment %}   
   position:relative;
   object-fit: contain;
-  {% endcomment %} 
 }
 
 [data-button_style=angled] .product-image-main .btn:not(.product__photo-zoom){
-{% comment %} 
+ 
   display:inline-block;;
   overflow: hidden;
   display: flex;
@@ -12234,7 +12223,7 @@ html[dir=rtl] .product-single__meta .rte{
   justify-content: center;
   position:absolute;
   top:50%;
-{% endcomment %} 
+{% comment %} 
   position: absolute;
    top: 50%;
    left: 50%;
@@ -12245,7 +12234,7 @@ html[dir=rtl] .product-single__meta .rte{
    max-height: 500px;
    margin: 0 auto;
    transform: translate(-50%, -50%);
-
+{% endcomment %}
   
 }
 
