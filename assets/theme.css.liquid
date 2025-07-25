@@ -12233,8 +12233,8 @@ html[dir=rtl] .product-single__meta .rte{
     margin: 0 95px;
   }
   
-  /* Product page image container */
-  .product-image-main {
+  /* Product page ONLY - not grid items */
+  .product-single__sticky .product-image-main {
     position: relative;
     max-height: 600px;
     display: flex;
@@ -12244,7 +12244,7 @@ html[dir=rtl] .product-single__meta .rte{
   }
   
   /* Override the inline padding-bottom and center the image */
-  .product-image-main .image-wrap {
+  .product-single__sticky .product-image-main .image-wrap {
     height: auto !important;
     padding-bottom: 0 !important;
     max-height: 500px;
@@ -12255,7 +12255,7 @@ html[dir=rtl] .product-single__meta .rte{
   }
   
   /* Style the actual image */
-  .product-image-main .image-wrap img {
+  .product-single__sticky .product-image-main .image-wrap img {
     max-height: 500px !important;
     max-width: 100%;
     object-fit: contain;
@@ -12265,13 +12265,32 @@ html[dir=rtl] .product-single__meta .rte{
   }
   
   /* Ensure the image-element wrapper doesn't interfere */
-  .product-image-main image-element {
+  .product-single__sticky .product-image-main image-element {
     display: flex;
     align-items: center;
     justify-content: center;
     max-height: 500px;
     width: 100%;
   }
+}
+
+.product-single__variants {
+  display: none;
+}
+
+.no-js .product-single__variants {
+  display: block;
+  margin-bottom: 30px;
+}
+
+[data-button_style=angled] .product-image-main .btn:not(.product__photo-zoom) {
+  display: inline-block;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
 }
 
 .product-single__variants {
