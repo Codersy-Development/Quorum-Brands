@@ -29,15 +29,15 @@
     when 'small'
       assign product_image_width = 'medium-up--two-fifths'
       assign product_description_width = 'medium-up--three-fifths'
-      assign product_image_size = '480x'
+      assign product_image_size = '250x'
     when 'medium'
       assign product_image_width = 'medium-up--one-half'
       assign product_description_width = 'medium-up--one-half'
-      assign product_image_size = '620x'
+      assign product_image_size = '350x'
     when 'large'
       assign product_image_width = 'medium-up--three-fifths'
       assign product_description_width = 'medium-up--two-fifths'
-      assign product_image_size = '740x'
+      assign product_image_size = '450x'
   endcase
 
   assign product_img_structure = product.featured_media | img_url: '1x1' | replace: '_1x1.', '_{width}x.'
