@@ -12224,16 +12224,15 @@ html[dir=rtl] .product-single__meta .rte{
   top:50%;  
 }
 {% endcomment %}
-@media only screen and (min-width: 769px) {
-  .product-single__description-full {
-    margin: 30px 95px;
+@media only screen and (min-width:769px){
+  .product-single__description-full{
+    margin:30px 95px;
+  }
+  .product-single__description-full+.collapsibles-wrapper{
+    margin:0 95px;
   }
   
-  .product-single__description-full + .collapsibles-wrapper {
-    margin: 0 95px;
-  }
-  
-  /* Product page ONLY - not grid items */
+  /* Product page image styling - 500px max height centered in 600px container */
   .product-single__sticky .product-image-main {
     position: relative;
     max-height: 600px;
@@ -12243,7 +12242,6 @@ html[dir=rtl] .product-single__meta .rte{
     overflow: hidden;
   }
   
-  /* Override the inline padding-bottom and center the image */
   .product-single__sticky .product-image-main .image-wrap {
     height: auto !important;
     padding-bottom: 0 !important;
@@ -12254,7 +12252,6 @@ html[dir=rtl] .product-single__meta .rte{
     width: 100%;
   }
   
-  /* Style the actual image */
   .product-single__sticky .product-image-main .image-wrap img {
     max-height: 500px !important;
     max-width: 100%;
@@ -12264,7 +12261,6 @@ html[dir=rtl] .product-single__meta .rte{
     position: static !important;
   }
   
-  /* Ensure the image-element wrapper doesn't interfere */
   .product-single__sticky .product-image-main image-element {
     display: flex;
     align-items: center;
@@ -12274,42 +12270,25 @@ html[dir=rtl] .product-single__meta .rte{
   }
 }
 
-.product-single__variants {
-  display: none;
+.product-single__variants{
+  display:none;
 }
-
-.no-js .product-single__variants {
-  display: block;
-  margin-bottom: 30px;
+.no-js .product-single__variants{
+  display:block;
+  margin-bottom:30px;
 }
-
-[data-button_style=angled] .product-image-main .btn:not(.product__photo-zoom) {
-  display: inline-block;
+.product-image-main{
+  position:relative;
+  object-fit: contain;
+}
+[data-button_style=angled] .product-image-main .btn:not(.product__photo-zoom){
+  display:inline-block;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  top: 50%;
-}
-
-.product-single__variants {
-  display: none;
-}
-
-.no-js .product-single__variants {
-  display: block;
-  margin-bottom: 30px;
-}
-
-[data-button_style=angled] .product-image-main .btn:not(.product__photo-zoom) {
-  display: inline-block;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 50%;
+  position:absolute;
+  top:50%;  
 }
 
 .product__video-wrapper{
