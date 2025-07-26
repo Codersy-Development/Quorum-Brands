@@ -3,12 +3,12 @@
   assign toolbar_menu = linklists[section.settings.toolbar_menu]
 
   assign logo_alignment = 'left'
-  if section.settings.main_menu_alignment == 'center-left' or section.settings.main_menu_alignment == 'center-split' or section.settings.main_menu_alignment == 'center' or section.settings.main_menu_alignment == 'center-drawer' or section.settings.main_menu_alignment == 'center-all'
+  if section.settings.main_menu_alignment == 'center-left' or section.settings.main_menu_alignment == 'center-split' or section.settings.main_menu_alignment == 'center' or section.settings.main_menu_alignment == 'center-drawer' or section.settings.main_menu_alignment == 'center-all' or section.settings.main_menu_alignment == 'center-below'
     assign logo_alignment = 'center'
   endif
 
   assign dropdown_alignment = 'left'
-  if section.settings.main_menu_alignment == 'left-center' or section.settings.main_menu_alignment == 'center-split' or section.settings.main_menu_alignment == 'center' or section.settings.main_menu_alignment == 'center-all'
+  if section.settings.main_menu_alignment == 'left-center' or section.settings.main_menu_alignment == 'center-split' or section.settings.main_menu_alignment == 'center' or section.settings.main_menu_alignment == 'center-all' or section.settings.main_menu_alignment == 'center-below'
     assign dropdown_alignment = 'center'
   endif
 
@@ -143,13 +143,55 @@
       flex: 1;
     }
   {% endif %}
+
+  /* Styles for center-below layout */
+  {% if section.settings.main_menu_alignment == 'center-below' %}
+    .header-layout--center-below {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .header-layout--center-below .header-item--logo {
+      margin-bottom: 15px;
+    }
+
+    .header-layout--center-below .header-nav-below {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      padding-top: 15px;
+    }
+
+    .header-layout--center-below .site-nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+
+    .header-layout--center-below .site-nav > li {
+      display: inline-flex;
+    }
+
+    .header-layout--center-below .site-nav__link {
+      white-space: nowrap;
+      padding: 12px 20px;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .header-layout--center-below .header-nav-below {
+        display: none;
+      }
+    }
+  {% endif %}
 </style>
 
 {% capture hamburger_menu %}
   <div class="header-item header-item--left header-item--navigation">
               {%- if section.settings.main_menu_alignment == 'center'
                 or section.settings.main_menu_alignment == 'center-split'
-                
+                or section.settings.main_menu_alignment == 'center-below'
               -%}
                 {%- if settings.search_enable -%}
                   <div class="site-nav small--hide">
@@ -177,7 +219,7 @@
                 -%}
               {%- endif -%}
 
-              <div class="site-nav{% unless section.settings.main_menu_alignment == 'center-drawer' %} medium-up--hide{% endunless %}">
+              <div class="site-nav{% unless section.settings.main_menu_alignment == 'center-drawer' or section.settings.main_menu_alignment == 'center-below' %} medium-up--hide{% endunless %}">
                 <button
                   type="button"
                   class="site-nav__link site-nav__link--icon js-drawer-open-nav"
@@ -297,6 +339,23 @@
             </div>
           </div>
 
+          {%- if section.settings.main_menu_alignment == 'center-below' -%}
+            <div class="header-nav-below medium-down--hide">
+              <div
+                class="header-item header-item--navigation text-center"
+                {% unless disable_aria %}
+                  role="navigation" aria-label="Primary"
+                {% endunless %}
+              >
+                {%- render 'header-desktop-nav',
+                  main_menu: main_menu,
+                  dropdown_alignment: dropdown_alignment,
+                  hover_menu: section.settings.hover_menu
+                -%}
+              </div>
+            </div>
+          {%- endif -%}
+
           <div class="header-nav--second-row medium-down--hide">
             {{ hamburger_menu }}
             <div class="store-switch-navigations">
@@ -400,6 +459,10 @@
         {
           "value": "center-all",
           "label": "Logo center, menu center"
+        },
+        {
+          "value": "center-below",
+          "label": "Logo center, menu below"
         }
       ]
     },
