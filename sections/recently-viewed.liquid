@@ -10,7 +10,7 @@
     redirectFromSearchPage: false,
     clearPredictiveSearch: true,
     updatePlaceholders: true,
-    filterProducts: true,        // NEW: Filter products on page
+    filterProducts: true,
     logActions: false
   };
   
@@ -26,7 +26,7 @@
     const selectedStore = localStorage.getItem("store-selected") || "";
     log(`Filtering products for store: ${selectedStore}`);
     
-    // Find all product elements (adjust selectors for your theme)
+    // Find all product elements
     const productSelectors = [
       '.grid-product',
       '.product-item', 
@@ -88,33 +88,6 @@
     });
     
     log(`Product filtering complete: ${visibleCount} visible, ${hiddenCount} hidden`);
-    
-    // Handle product sections that might need hiding
-    hideEmptyProductSections(visibleCount);
-  }
-  
-  function hideEmptyProductSections(visibleCount) {
-    // Hide product sections if no products are visible
-    const productSections = document.querySelectorAll(
-      '.results--products, [data-type-products], .product-grid, .search-results'
-    );
-    
-    productSections.forEach(section => {
-      const visibleProductsInSection = section.querySelectorAll(
-        '[style*="display: none"]'
-      ).length;
-      
-      const totalProductsInSection = section.querySelectorAll(
-        '.grid-product, .product-item, .predictive-product-wrapper'
-      ).length;
-      
-      if (totalProductsInSection > 0 && visibleProductsInSection === totalProductsInSection) {
-        section.style.display = 'none';
-        log('Hid empty product section');
-      } else if (totalProductsInSection > 0) {
-        section.style.display = '';
-      }
-    });
   }
   
   function resetSearchInputs() {
