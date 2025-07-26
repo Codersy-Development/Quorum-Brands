@@ -33,25 +33,6 @@
   </div>
 </div>
 
-<style>
-.recently-viewed-vendor {
-  font-size: 0.85em;
-  color: #666;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 4px;
-  font-weight: 500;
-}
-
-.recently-viewed-vendor--oxygen {
-  color: #0066cc;
-}
-
-.recently-viewed-vendor--quorum {
-  color: #cc6600;
-}
-</style>
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const recentlyViewedSection = document.querySelector('[data-section-type="recently-viewed"]');
@@ -77,110 +58,6 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('✓ Original getRecentProducts function found');
   } else {
     console.log('❌ Recently viewed system not found or no getRecentProducts method');
-  }
-  
-  function addVendorToProducts() {
-    if (!recentlyViewedContainer) {
-      console.log('❌ Container not found for vendor addition');
-      return;
-    }
-    
-    const productItems = recentlyViewedContainer.querySelectorAll(
-      '.grid-product, .product-item, [data-product-id], [class*="product"], .grid__item'
-    );
-    
-    console.log(`Adding vendor display to ${productItems.length} products`);
-    
-    productItems.forEach((item, index) => {
-      // Skip if vendor already added
-      if (item.querySelector('.recently-viewed-vendor')) {
-        return;
-      }
-      
-      let productVendor = '';
-      
-      // Try multiple methods to get vendor
-      if (item.dataset.vendor) {
-        productVendor = item.dataset.vendor;
-      } else {
-        // Look for vendor element
-        const vendorElement = item.querySelector('.grid-product__vendor, [class*="vendor"]');
-        if (vendorElement) {
-          productVendor = vendorElement.textContent.trim();
-        } else {
-          // Try to get from recently viewed data
-          if (window.recentlyViewed && originalGetRecentProducts) {
-            try {
-              const recentProducts = originalGetRecentProducts();
-              const productHandle = item.dataset.productHandle || 
-                                  item.querySelector('[data-product-handle]')?.dataset.productHandle;
-              
-              if (productHandle) {
-                const matchingProduct = recentProducts.find(p => 
-                  p.handle === productHandle || p.url?.includes(productHandle)
-                );
-                if (matchingProduct && matchingProduct.vendor) {
-                  productVendor = matchingProduct.vendor;
-                }
-              }
-            } catch (error) {
-              console.log('Error getting vendor from recently viewed data:', error);
-            }
-          }
-          
-          // Fallback: scan text for known vendors
-          if (!productVendor) {
-            const itemText = item.textContent.toLowerCase();
-            if (itemText.includes('oxygen')) {
-              productVendor = 'Oxygen';
-            } else if (itemText.includes('quorum')) {
-              productVendor = 'Quorum';
-            }
-          }
-        }
-      }
-      
-      // Add vendor display if we found one
-      if (productVendor) {
-        // Find the best place to insert vendor
-        let insertTarget = null;
-        
-        // Look for product title or name element
-        const titleElement = item.querySelector(
-          '.grid-product__title, .product-item__title, .product__title, h3, h4, .product-title, [class*="title"]'
-        );
-        
-        if (titleElement) {
-          insertTarget = titleElement;
-        } else {
-          // Look for product content area
-          const contentElement = item.querySelector(
-            '.grid-product__content, .product-item__info, .product__info, .product-content'
-          );
-          if (contentElement) {
-            insertTarget = contentElement.firstElementChild || contentElement;
-          } else {
-            // Fallback to item itself
-            insertTarget = item.firstElementChild;
-          }
-        }
-        
-        if (insertTarget) {
-          const vendorElement = document.createElement('div');
-          vendorElement.className = `recently-viewed-vendor recently-viewed-vendor--${productVendor.toLowerCase()}`;
-          vendorElement.textContent = productVendor;
-          
-          // Insert before the target element
-          insertTarget.parentNode.insertBefore(vendorElement, insertTarget);
-          
-          console.log(`✓ Added vendor "${productVendor}" to product ${index + 1}`);
-        } else {
-          console.log(`❌ Could not find insertion point for product ${index + 1}`);
-        }
-      } else {
-        console.log(`❌ No vendor found for product ${index + 1}`);
-      }
-    });
   }
   
   function debugRecentlyViewedState() {
@@ -222,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
       
       // Look for vendor info
-      const vendorElement = item.querySelector('.grid-product__vendor, [class*="vendor"], .recently-viewed-vendor');
+      const vendorElement = item.querySelector('.grid-product__vendor, [class*="vendor"]');
       if (vendorElement) {
         console.log('Vendor element found:', vendorElement.textContent.trim());
       } else {
@@ -281,6 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (productItems.length === 0) {
       console.log('❌ No product items found - recently viewed might not be loaded yet');
+      // Don't hide the section, just wait
       return;
     }
     
@@ -295,8 +173,8 @@ document.addEventListener('DOMContentLoaded', function() {
         productVendor = item.dataset.vendor.toLowerCase();
         console.log(`Product ${index + 1} vendor from data-vendor:`, productVendor);
       } else {
-        // Look for vendor element (including our added one)
-        const vendorElement = item.querySelector('.grid-product__vendor, [class*="vendor"], .recently-viewed-vendor');
+        // Look for vendor element
+        const vendorElement = item.querySelector('.grid-product__vendor, [class*="vendor"]');
         if (vendorElement) {
           productVendor = vendorElement.textContent.trim().toLowerCase();
           console.log(`Product ${index + 1} vendor from element:`, productVendor);
@@ -315,23 +193,23 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
       
-      // Determine visibility
+      // Determine visibility - be more permissive for debugging
       let shouldShow = false;
       
       if (!selectedStore || selectedStore === '') {
-        shouldShow = true;
+        shouldShow = true; // Show all if no store selected
         console.log(`Product ${index + 1}: Showing (no store selected)`);
       } else if (selectedStore.toLowerCase().includes("shop all")) {
-        shouldShow = true;
+        shouldShow = true; // Show all for "shop all"
         console.log(`Product ${index + 1}: Showing (shop all selected)`);
       } else if (productVendor === selectedStore.toLowerCase()) {
-        shouldShow = true;
+        shouldShow = true; // Show matching vendor
         console.log(`Product ${index + 1}: Showing (vendor matches: ${productVendor})`);
       } else if (!productVendor) {
-        shouldShow = true; // Show if vendor unknown
-        console.log(`Product ${index + 1}: Showing (unknown vendor)`);
+        shouldShow = true; // Show if vendor unknown (for debugging)
+        console.log(`Product ${index + 1}: Showing (unknown vendor - debug mode)`);
       } else {
-        shouldShow = false;
+        shouldShow = false; // Hide non-matching vendor
         console.log(`Product ${index + 1}: Hiding (vendor mismatch: ${productVendor} vs ${selectedStore.toLowerCase()})`);
       }
       
@@ -346,7 +224,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log(`Filtering complete: ${visibleCount} visible, ${hiddenCount} hidden`);
     
-    // Hide section if no visible products and store is selected
+    // Only hide section if we're sure there are no products AND we have a store selected
     const sectionElement = recentlyViewedSection.querySelector('.index-section');
     if (sectionElement) {
       if (visibleCount === 0 && selectedStore && !selectedStore.toLowerCase().includes("shop all")) {
@@ -357,15 +235,6 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('✓ Section visible');
       }
     }
-  }
-  
-  function handleRecentlyViewedUpdate() {
-    console.log('🔄 Recently viewed updated, adding vendors and filtering...');
-    setTimeout(function() {
-      addVendorToProducts();
-      debugRecentlyViewedState();
-      filterRecentlyViewedProducts();
-    }, 100);
   }
   
   // Listen for store changes
@@ -382,17 +251,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // Initial setup
+  // Initial debug and setup
   setTimeout(function() {
-    handleRecentlyViewedUpdate();
-  }, 1000);
+    debugRecentlyViewedState();
+    filterRecentlyViewedProducts();
+  }, 1000); // Wait longer for recently viewed to load
   
   // Monitor for changes to recently viewed container
   const observer = new MutationObserver(function(mutations) {
     mutations.forEach(function(mutation) {
       if (mutation.type === 'childList' && mutation.target === recentlyViewedContainer) {
         console.log('🔄 Recently viewed container updated');
-        handleRecentlyViewedUpdate();
+        setTimeout(function() {
+          debugRecentlyViewedState();
+          filterRecentlyViewedProducts();
+        }, 100);
       }
     });
   });
@@ -402,9 +275,8 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('✓ Observer attached to recently viewed container');
   }
   
-  // Expose debug functions
+  // Expose debug function
   window.debugRecentlyViewed = debugRecentlyViewedState;
-  window.addVendorToRecentlyViewed = addVendorToProducts;
 });
 </script>
 
@@ -424,12 +296,6 @@ document.addEventListener('DOMContentLoaded', function() {
       "min": 2,
       "max": 10,
       "step": 1
-    },
-    {
-      "type": "checkbox",
-      "id": "show_vendor",
-      "label": "Show vendor name",
-      "default": true
     }
   ],
   "disabled_on": {
