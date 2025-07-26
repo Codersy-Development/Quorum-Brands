@@ -1,12 +1,11 @@
 {%- unless search_btn_style -%}
   {%- assign search_btn_style = 'btn' -%}
 {%- endunless -%}
-<form action="{{ routes.search_url }}" method="get" class="input-group search-bar {{ search_bar_location }}" role="search" id="brand-search-form">
+<form action="{{ routes.search_url }}" method="get" class="input-group search-bar {{ search_bar_location }}" role="search">
   <label for="search-bar-icon" class="hidden-label">{{ 'general.search.submit' | t }}</label>
   <input type="hidden" name="type" value="{{ settings.search_type }}">
   <input type="hidden" name="options[prefix]" value="last">
-  <input type="hidden" id="vendor-filter" name="q" value="">
-  <input type="search" id="search-input" name="q" value="{{ search.terms | escape | replace: '*', '' }}" placeholder="{{ 'general.search.placeholder' | t }}" class="input-group-field" aria-label="{{ 'general.search.placeholder' | t }}">
+  <input type="search" name="q" value="{{ search.terms | escape | replace: '*', '' }}" placeholder="{{ 'general.search.placeholder' | t }}" class="input-group-field" aria-label="{{ 'general.search.placeholder' | t }}">
   <div class="input-group-btn">
     <button type="submit" id="search-bar-icon" class="{{ search_btn_style }}">
       <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-search" viewBox="0 0 64 64"><title>icon-search</title><path d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58ZM54 54 41.94 42"/></svg>
@@ -17,102 +16,86 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const searchForm = document.getElementById('brand-search-form');
-  const searchInput = document.getElementById('search-input');
   let selectedStore = '';
 
-  // Debug: Check if elements exist
-  console.log('Search form found:', !!searchForm);
-  console.log('Search input found:', !!searchInput);
-  console.log('Store switcher found:', !!document.querySelector('store-switcher'));
+  console.log('Store switcher script loaded');
 
   // Function to get selected store from store switcher
   function getSelectedStore() {
-    // More specific selector for your store switcher structure
     const checkedStoreRadio = document.querySelector('store-switcher input[type="radio"]:checked');
-    
-    console.log('Checked radio found:', !!checkedStoreRadio);
     if (checkedStoreRadio) {
-      console.log('Selected store value:', checkedStoreRadio.value);
+      console.log('Found selected store:', checkedStoreRadio.value);
       return checkedStoreRadio.value;
     }
-    
-    // Fallback: get first store if none selected
-    const firstStoreRadio = document.querySelector('store-switcher input[type="radio"]');
-    if (firstStoreRadio) {
-      console.log('Using first store as fallback:', firstStoreRadio.value);
-      return firstStoreRadio.value;
-    }
-    
-    console.log('No store radios found');
     return '';
   }
 
-  // Function to update search query with store filter
-  function updateSearchQuery() {
+  // Function to check/uncheck vendor filter based on selected store
+  function updateVendorFilter() {
     selectedStore = getSelectedStore();
-    console.log('Updating search query for store:', selectedStore);
+    console.log('Updating vendor filter for store:', selectedStore);
     
-    if (selectedStore && selectedStore !== '') {
-      // Get the original user query without any existing vendor filters
-      let currentQuery = searchInput.value.trim();
-      
-      // Remove any existing vendor filters from previous searches
-      currentQuery = currentQuery.replace(/vendor:\S+/g, '').trim();
-      
-      // Capitalize first letter of store name for vendor filter
+    if (selectedStore) {
+      // Uncheck all vendor filters first
+      const vendorCheckboxes = document.querySelectorAll('input[name="filter.p.vendor"]');
+      vendorCheckboxes.forEach(checkbox => {
+        checkbox.checked = false;
+      });
+
+      // Check the vendor filter that matches the selected store
       const capitalizedStore = selectedStore.charAt(0).toUpperCase() + selectedStore.slice(1);
-      const storeFilter = `vendor:${capitalizedStore}`;
+      const targetVendorCheckbox = document.querySelector(`input[name="filter.p.vendor"][value="${capitalizedStore}"]`);
       
-      console.log('Adding vendor filter:', storeFilter);
-      
-      // Combine user query with store filter
-      if (currentQuery) {
-        searchInput.value = `${currentQuery} ${storeFilter}`;
-      } else {
-        searchInput.value = storeFilter;
+      if (targetVendorCheckbox) {
+        targetVendorCheckbox.checked = true;
+        console.log('Checked vendor filter for:', capitalizedStore);
+        
+        // Trigger change event to update the search results
+        targetVendorCheckbox.dispatchEvent(new Event('change', { bubbles: true }));
       }
-      
-      console.log('Final search query:', searchInput.value);
     }
+  }
+
+  // Function to update search placeholder
+  function updateSearchPlaceholder() {
+    const searchInputs = document.querySelectorAll('input[type="search"][name="q"]');
+    const capitalizedStore = selectedStore.charAt(0).toUpperCase() + selectedStore.slice(1);
+    
+    searchInputs.forEach(input => {
+      if (selectedStore) {
+        input.placeholder = `Search ${capitalizedStore} products...`;
+      } else {
+        input.placeholder = "{{ 'general.search.placeholder' | t }}";
+      }
+    });
   }
 
   // Listen for store switcher changes
   document.addEventListener('change', function(e) {
-    console.log('Change event detected on:', e.target);
-    
     // Check if the changed element is a store switcher radio
     if (e.target.matches('store-switcher input[type="radio"]') || 
-        e.target.closest('store-switcher') && e.target.type === 'radio') {
+        (e.target.type === 'radio' && e.target.closest('store-switcher'))) {
       
       selectedStore = e.target.value;
       console.log('Store changed to:', selectedStore);
       
-      // Update search placeholder to show selected store
-      const capitalizedStore = selectedStore.charAt(0).toUpperCase() + selectedStore.slice(1);
-      searchInput.placeholder = `Search ${capitalizedStore} products...`;
+      // Update vendor filter and search placeholder
+      updateVendorFilter();
+      updateSearchPlaceholder();
       
       // Store selected store for persistence
       localStorage.setItem('selectedStore', selectedStore);
     }
   });
 
-  // Update search query before form submission
-  if (searchForm) {
-    searchForm.addEventListener('submit', function(e) {
-      console.log('Form submitting, updating query...');
-      updateSearchQuery();
-    });
-  }
-
   // Initialize with selected store
   setTimeout(function() {
     selectedStore = getSelectedStore();
-    if (selectedStore && selectedStore !== '') {
-      const capitalizedStore = selectedStore.charAt(0).toUpperCase() + selectedStore.slice(1);
-      searchInput.placeholder = `Search ${capitalizedStore} products...`;
-      console.log('Initialized with store:', selectedStore);
+    if (selectedStore) {
+      console.log('Initializing with store:', selectedStore);
+      updateVendorFilter();
+      updateSearchPlaceholder();
     }
-  }, 100);
+  }, 200);
 });
 </script>
