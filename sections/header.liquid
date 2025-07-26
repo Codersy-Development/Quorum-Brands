@@ -155,12 +155,25 @@
       margin-bottom: 15px;
     }
 
-    .header-layout--center-below .header-nav-below {
+    .header-layout--center-below .header-nav--second-row {
       width: 100%;
       display: flex;
       justify-content: center;
+      align-items: center;
       border-top: 1px solid rgba(0,0,0,0.1);
       padding-top: 15px;
+      gap: 30px;
+    }
+
+    .header-layout--center-below .store-switch-navigations {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .header-layout--center-below .main-nav-center-below {
+      display: flex;
+      align-items: center;
     }
 
     .header-layout--center-below .site-nav {
@@ -180,7 +193,7 @@
     }
 
     @media only screen and (max-width: 768px) {
-      .header-layout--center-below .header-nav-below {
+      .header-layout--center-below .header-nav--second-row {
         display: none;
       }
     }
@@ -339,27 +352,26 @@
             </div>
           </div>
 
-          {%- if section.settings.main_menu_alignment == 'center-below' -%}
-            <div class="header-nav-below medium-down--hide">
-              <div
-                class="header-item header-item--navigation text-center"
-                {% unless disable_aria %}
-                  role="navigation" aria-label="Primary"
-                {% endunless %}
-              >
-                {%- render 'header-desktop-nav',
-                  main_menu: main_menu,
-                  dropdown_alignment: dropdown_alignment,
-                  hover_menu: section.settings.hover_menu
-                -%}
-              </div>
-            </div>
-          {%- endif -%}
-
           <div class="header-nav--second-row medium-down--hide">
             {{ hamburger_menu }}
             <div class="store-switch-navigations">
               {% render 'store-switch-menus', section %}
+              
+              {%- if section.settings.main_menu_alignment == 'center-below' -%}
+                <div
+                  class="main-nav-center-below"
+                  {% unless disable_aria %}
+                    role="navigation" aria-label="Primary"
+                  {% endunless %}
+                >
+                  {%- render 'header-desktop-nav',
+                    main_menu: main_menu,
+                    dropdown_alignment: dropdown_alignment,
+                    hover_menu: section.settings.hover_menu
+                  -%}
+                </div>
+              {%- endif -%}
+              
               {%- if section.settings.main_menu_alignment == 'center-all' -%}
                 <div
                   class="header-item header-item--navigation{% if section.settings.main_menu_alignment == 'center-all' %} text-center{% endif %} medium-down--hide navigation-cenetered-bottom"
