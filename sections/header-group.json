@@ -101,8 +101,8 @@
       "settings": {
         "main_menu_link_list": "main-menu",
         "hover_menu": true,
-        "mega_menu_images": true,
-        "main_menu_alignment": "center-all",
+        "mega_menu_images": false,
+        "main_menu_alignment": "center-drawer",
         "header_style": "sticky",
         "sticky_index": false,
         "sticky_collection": false,
