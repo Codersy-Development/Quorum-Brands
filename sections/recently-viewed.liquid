@@ -85,11 +85,35 @@ document.addEventListener('DOMContentLoaded', function() {
       return;
     }
     
+    // Try to get vendor context from current page
+    let pageVendorContext = '';
+    
+    // Check URL for vendor filter
+    const urlParams = new URLSearchParams(window.location.search);
+    const vendorFilter = urlParams.get('filter.p.vendor');
+    if (vendorFilter) {
+      pageVendorContext = vendorFilter.toLowerCase();
+      console.log('🔍 Found vendor context from URL:', pageVendorContext);
+    }
+    
+    // Check for vendor breadcrumbs or page titles
+    if (!pageVendorContext) {
+      const breadcrumbs = document.querySelector('.breadcrumb, .breadcrumbs');
+      if (breadcrumbs) {
+        const breadcrumbText = breadcrumbs.textContent.toLowerCase();
+        if (breadcrumbText.includes('quorum')) {
+          pageVendorContext = 'quorum';
+        } else if (breadcrumbText.includes('oxygen')) {
+          pageVendorContext = 'oxygen';
+        }
+      }
+    }
+    
     const productItems = recentlyViewedContainer.querySelectorAll(
-      '.grid-product, .product-item, [data-product-id], [class*="product"], .grid__item'
+      '.grid__item.grid-product'
     );
     
-    console.log(`Adding vendor display to ${productItems.length} products`);
+    console.log(`Adding vendor display to ${productItems.length} products (context: ${pageVendorContext})`);
     
     productItems.forEach((item, index) => {
       // Skip if vendor already added
@@ -98,70 +122,98 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       
       let productVendor = '';
+      let productUrl = '';
       
-      // Try multiple methods to get vendor
+      // Try to get product URL for vendor inference
+      const productLink = item.querySelector('.grid-product__link, a[href*="/products/"]');
+      if (productLink) {
+        productUrl = productLink.href || productLink.getAttribute('href');
+        console.log(`Product ${index + 1} URL:`, productUrl);
+      }
+      
+      // Method 1: Check data attributes
       if (item.dataset.vendor) {
         productVendor = item.dataset.vendor;
-      } else {
-        // Look for vendor element
+        console.log(`Product ${index + 1} vendor from data-vendor:`, productVendor);
+      }
+      
+      // Method 2: Look for existing vendor element
+      if (!productVendor) {
         const vendorElement = item.querySelector('.grid-product__vendor, [class*="vendor"]');
         if (vendorElement) {
           productVendor = vendorElement.textContent.trim();
-        } else {
-          // Try to get from recently viewed data
-          if (window.recentlyViewed && originalGetRecentProducts) {
-            try {
-              const recentProducts = originalGetRecentProducts();
-              const productHandle = item.dataset.productHandle || 
-                                  item.querySelector('[data-product-handle]')?.dataset.productHandle;
-              
-              if (productHandle) {
-                const matchingProduct = recentProducts.find(p => 
-                  p.handle === productHandle || p.url?.includes(productHandle)
-                );
-                if (matchingProduct && matchingProduct.vendor) {
-                  productVendor = matchingProduct.vendor;
-                }
-              }
-            } catch (error) {
-              console.log('Error getting vendor from recently viewed data:', error);
-            }
-          }
-          
-          // Fallback: scan text for known vendors
-          if (!productVendor) {
-            const itemText = item.textContent.toLowerCase();
-            if (itemText.includes('oxygen')) {
-              productVendor = 'Oxygen';
-            } else if (itemText.includes('quorum')) {
-              productVendor = 'Quorum';
-            }
-          }
+          console.log(`Product ${index + 1} vendor from element:`, productVendor);
         }
+      }
+      
+      // Method 3: Try recently viewed system data
+      if (!productVendor && window.recentlyViewed && originalGetRecentProducts) {
+        try {
+          const recentProducts = originalGetRecentProducts();
+          console.log('Recent products data:', recentProducts);
+          
+          // Try to match by URL or handle
+          const matchingProduct = recentProducts.find(p => {
+            if (productUrl && p.url) {
+              return productUrl.includes(p.url) || p.url.includes(productUrl);
+            }
+            if (p.handle && productUrl) {
+              return productUrl.includes(p.handle);
+            }
+            return false;
+          });
+          
+          if (matchingProduct && matchingProduct.vendor) {
+            productVendor = matchingProduct.vendor;
+            console.log(`Product ${index + 1} vendor from recent data:`, productVendor);
+          }
+        } catch (error) {
+          console.log('Error getting vendor from recently viewed data:', error);
+        }
+      }
+      
+      // Method 4: Infer from URL pattern
+      if (!productVendor && productUrl) {
+        if (productUrl.includes('/products/') && pageVendorContext) {
+          productVendor = pageVendorContext.charAt(0).toUpperCase() + pageVendorContext.slice(1);
+          console.log(`Product ${index + 1} vendor inferred from context:`, productVendor);
+        }
+      }
+      
+      // Method 5: Text scanning fallback
+      if (!productVendor) {
+        const itemText = item.textContent.toLowerCase();
+        if (itemText.includes('oxygen')) {
+          productVendor = 'Oxygen';
+          console.log(`Product ${index + 1} vendor from text scan: Oxygen`);
+        } else if (itemText.includes('quorum')) {
+          productVendor = 'Quorum';
+          console.log(`Product ${index + 1} vendor from text scan: Quorum`);
+        }
+      }
+      
+      // Method 6: Use page context as last resort
+      if (!productVendor && pageVendorContext) {
+        productVendor = pageVendorContext.charAt(0).toUpperCase() + pageVendorContext.slice(1);
+        console.log(`Product ${index + 1} vendor from page context:`, productVendor);
       }
       
       // Add vendor display if we found one
       if (productVendor) {
-        // Find the best place to insert vendor
+        // Store vendor in data attribute for filtering
+        item.dataset.inferredVendor = productVendor;
+        
+        // Find the best place to insert vendor - look for product meta area
         let insertTarget = null;
         
-        // Look for product title or name element
-        const titleElement = item.querySelector(
-          '.grid-product__title, .product-item__title, .product__title, h3, h4, .product-title, [class*="title"]'
-        );
-        
-        if (titleElement) {
-          insertTarget = titleElement;
+        const metaElement = item.querySelector('.grid-product__meta');
+        if (metaElement) {
+          insertTarget = metaElement.firstElementChild;
         } else {
-          // Look for product content area
-          const contentElement = item.querySelector(
-            '.grid-product__content, .product-item__info, .product__info, .product-content'
-          );
-          if (contentElement) {
-            insertTarget = contentElement.firstElementChild || contentElement;
-          } else {
-            // Fallback to item itself
-            insertTarget = item.firstElementChild;
+          // Fallback to title element
+          const titleElement = item.querySelector('.grid-product__title');
+          if (titleElement) {
+            insertTarget = titleElement;
           }
         }
         
@@ -179,6 +231,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       } else {
         console.log(`❌ No vendor found for product ${index + 1}`);
+        
+        // Debug: Show what we found
+        console.log(`  - URL: ${productUrl}`);
+        console.log(`  - Page context: ${pageVendorContext}`);
+        console.log(`  - Text content preview: ${item.textContent.substring(0, 100)}`);
       }
     });
   }
@@ -205,7 +262,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Find all potential product items
     const productItems = recentlyViewedContainer.querySelectorAll(
-      '.grid-product, .product-item, [data-product-id], [class*="product"], .grid__item'
+      '.grid__item.grid-product'
     );
     console.log('Product items found:', productItems.length);
     
@@ -274,7 +331,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Find all product items
     const productItems = recentlyViewedContainer.querySelectorAll(
-      '.grid-product, .product-item, [data-product-id], [class*="product"], .grid__item'
+      '.grid__item.grid-product'
     );
     
     console.log(`Found ${productItems.length} product items to filter`);
@@ -294,6 +351,9 @@ document.addEventListener('DOMContentLoaded', function() {
       if (item.dataset.vendor) {
         productVendor = item.dataset.vendor.toLowerCase();
         console.log(`Product ${index + 1} vendor from data-vendor:`, productVendor);
+      } else if (item.dataset.inferredVendor) {
+        productVendor = item.dataset.inferredVendor.toLowerCase();
+        console.log(`Product ${index + 1} vendor from inferred data:`, productVendor);
       } else {
         // Look for vendor element (including our added one)
         const vendorElement = item.querySelector('.grid-product__vendor, [class*="vendor"], .recently-viewed-vendor');
@@ -327,12 +387,13 @@ document.addEventListener('DOMContentLoaded', function() {
       } else if (productVendor === selectedStore.toLowerCase()) {
         shouldShow = true;
         console.log(`Product ${index + 1}: Showing (vendor matches: ${productVendor})`);
-      } else if (!productVendor) {
-        shouldShow = true; // Show if vendor unknown
-        console.log(`Product ${index + 1}: Showing (unknown vendor)`);
       } else {
         shouldShow = false;
-        console.log(`Product ${index + 1}: Hiding (vendor mismatch: ${productVendor} vs ${selectedStore.toLowerCase()})`);
+        if (!productVendor) {
+          console.log(`Product ${index + 1}: Hiding (unknown vendor - ${selectedStore.toLowerCase()} store selected)`);
+        } else {
+          console.log(`Product ${index + 1}: Hiding (vendor mismatch: ${productVendor} vs ${selectedStore.toLowerCase()})`);
+        }
       }
       
       if (shouldShow) {
