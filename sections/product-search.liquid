@@ -2,7 +2,7 @@
 <products-download-search>
   <section class="sku-search-section">
     <div class="sku-search-container">
-      <form method="GET" action="/search">
+      <form method="GET" action="/search" id="product-download-search-form">
         <input
           type="text"
           name="q"
@@ -11,6 +11,8 @@
           required
         >
         <input type="hidden" name="type" value="product">
+        <!-- Hidden input for vendor filter - will be populated by JavaScript -->
+        <input type="hidden" name="filter.p.vendor" value="" id="vendor-filter-input">
         <button type="submit" class="sku-button">Search</button>
       </form>
     </div>
@@ -130,6 +132,54 @@
     </div>
   </div>
 </products-download-search>
+
+<script>
+// Add vendor filtering to product download search
+document.addEventListener('DOMContentLoaded', function() {
+  const downloadSearchForm = document.getElementById('product-download-search-form');
+  const vendorFilterInput = document.getElementById('vendor-filter-input');
+  
+  if (!downloadSearchForm || !vendorFilterInput) return;
+  
+  function updateDownloadSearchVendorFilter() {
+    const selectedStore = localStorage.getItem("store-selected") || "";
+    
+    console.log('=== UPDATING DOWNLOAD SEARCH VENDOR FILTER ===');
+    console.log('Selected store:', selectedStore);
+    
+    // Only add vendor filter if a specific store is selected (not "shop all")
+    if (selectedStore && !selectedStore.toLowerCase().includes("shop all")) {
+      const capitalizedStore = selectedStore.charAt(0).toUpperCase() + selectedStore.slice(1);
+      vendorFilterInput.value = capitalizedStore;
+      console.log('Set vendor filter for download search:', capitalizedStore);
+    } else {
+      vendorFilterInput.value = '';
+      console.log('Cleared vendor filter for download search (shop all or no selection)');
+    }
+  }
+  
+  // Update vendor filter before form submission
+  downloadSearchForm.addEventListener('submit', function(e) {
+    console.log('Download search form submitting, updating vendor filter...');
+    updateDownloadSearchVendorFilter();
+  });
+  
+  // Update vendor filter when store changes
+  document.addEventListener('change', function(e) {
+    if (e.target.matches('store-switcher input[type="radio"]') || 
+        (e.target.type === 'radio' && e.target.closest('store-switcher')) ||
+        (e.target.type === 'radio' && e.target.name && e.target.name.startsWith('store-switcher-'))) {
+      
+      console.log('Store changed, updating download search vendor filter...');
+      updateDownloadSearchVendorFilter();
+    }
+  });
+  
+  // Initialize vendor filter on page load
+  updateDownloadSearchVendorFilter();
+});
+</script>
+
 <script src="{{ 'file-downloads.js' |  asset_url }}" async></script>
 {% schema %}
 {
