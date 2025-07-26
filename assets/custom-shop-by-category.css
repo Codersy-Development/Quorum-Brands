@@ -102,15 +102,17 @@
         margin-bottom: 10px;
     }
 
-    & .card-title {
-        position: absolute;
-        bottom: 20px;
-        left: 20px;
-        color: #fff;
-        font-size: 18px;
-        font-weight: 600;
-        z-index: 2;
-    }
+& .card-title {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    z-index: 2;
+    text-align: center;
+}
 
     & .category-button-wrapper {
         display: flex;
