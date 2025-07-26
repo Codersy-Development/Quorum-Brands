@@ -106,7 +106,7 @@
         "header_style": "sticky",
         "sticky_index": false,
         "sticky_collection": false,
-        "toolbar_menu": "",
+        "toolbar_menu": "main-menu",
         "toolbar_social": true,
         "show_locale_selector": true,
         "show_currency_selector": true,
