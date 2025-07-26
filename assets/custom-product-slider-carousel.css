@@ -16,13 +16,11 @@
         max-width: 1400px;
         margin: 0 auto;
         padding: 0 20px;
-        overflow: visible; /* Prevent clipping */
     }
     & .feature-grid {
         display: flex;
         align-items: center;
         gap: 20px;
-        overflow: visible; /* Prevent clipping */
     }
     & .feature-left {
         flex: 0 0 50%;
@@ -69,7 +67,6 @@
         align-items: center;
         background: #f9f9f9;
         height: 821px;
-        overflow: visible; /* Prevent clipping of arrows */
     }
     & .feature-card {
         padding: 30px;
@@ -81,16 +78,12 @@
         flex-direction: column;
         align-items: stretch;
         height: 100%;
-        overflow: visible; /* Prevent clipping of arrows */
-        position: relative;
     }
     & .card-swiper {
         width: 100%;
         height: 100%;
         display: flex;
         flex-direction: column;
-        overflow: visible; /* Prevent clipping of arrows */
-        position: relative;
     }
     & .swiper-wrapper {
         flex-grow: 1;
@@ -166,12 +159,7 @@
         display: flex;
         gap: 12px;
         justify-content: flex-end;
-        margin-top: 0px; /* Moved up 20px from original 20px */
-        flex-shrink: 0;
-        position: relative;
-        z-index: 100; /* Higher z-index to ensure visibility */
-        padding-bottom: 10px; /* Add padding to prevent clipping */
-        min-height: 50px; /* Ensure enough space for buttons */
+        /* margin-top: 20px; */
     }
     & .product-button-prev {
         transform: rotate(180deg);
@@ -182,46 +170,34 @@
         height: 40px;
         background: #f1f1f1;
         border-radius: 50%;
-        display: flex !important; /* Force display */
+        display: flex;
         justify-content: center;
         align-items: center;
         cursor: pointer;
         transition: all 0.3s ease;
         border: 1px solid #e0e0e0;
-        position: relative;
-        z-index: 11; /* Ensure individual buttons are visible */
-        opacity: 1 !important; /* Force opacity */
-        visibility: visible !important; /* Force visibility */
     }
     & .product-button-prev:hover,
     & .product-button-next:hover {
         background: #e0e0e0;
         transform: translateY(-1px);
     }
-    
-    /* Fix for prev button hover to maintain rotation */
     & .product-button-prev:hover {
         transform: rotate(180deg) translateY(-1px);
     }
-    
-    /* SVG image styling */
-    & .product-button-prev img,
-    & .product-button-next img {
-        width: 16px;
-        height: 16px;
+    & .product-button-prev::after,
+    & .product-button-next::after {
+        content: '';
+        width: 8px;
+        height: 8px;
+        border-right: 2px solid #333;
+        border-bottom: 2px solid #333;
+        transform: rotate(-45deg);
         display: block;
-        opacity: 1;
-        visibility: visible;
-        transition: filter 0.3s ease;
     }
-    
-    /* Ensure SVGs are visible and properly sized */
-    & .product-button-wrapper img {
-        max-width: 16px;
-        max-height: 16px;
-        object-fit: contain;
+    & .product-button-prev::after {
+        transform: rotate(135deg);
     }
-    
     & .swiper-button-disabled {
         opacity: 0.5;
         cursor: not-allowed;
@@ -230,8 +206,6 @@
         background: #f1f1f1;
         transform: none;
     }
-    
-    /* Fix for disabled prev button */
     & .product-button-prev.swiper-button-disabled:hover {
         transform: rotate(180deg);
     }
@@ -270,32 +244,6 @@
     /* Subtle highlight for active slide */
     background: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
-}
-
-/* Universal overrides to ensure arrows always show */
-.product-feature-carousel .product-button-wrapper,
-.product-feature-carousel[data-store] .product-button-wrapper,
-.product-feature-carousel[data-store="all"] .product-button-wrapper,
-.product-feature-carousel[data-store="explore all brands"] .product-button-wrapper,
-.product-feature-carousel[data-store="quorum"] .product-button-wrapper,
-.product-feature-carousel[data-store="oxygen"] .product-button-wrapper {
-    display: flex !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    overflow: visible !important;
-    position: relative !important;
-    z-index: 999 !important;
-}
-
-.product-feature-carousel .product-button-prev,
-.product-feature-carousel .product-button-next,
-.product-feature-carousel[data-store] .product-button-prev,
-.product-feature-carousel[data-store] .product-button-next {
-    display: flex !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    position: relative !important;
-    z-index: 1000 !important;
 }
 
 /* Mobile Responsive */
