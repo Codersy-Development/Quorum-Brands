@@ -191,26 +191,95 @@
   {% endif %}
 {%- endif -%}
 
+<!-- Add this script to your search.liquid template, right before the closing </body> tag or in the search template -->
+
 {% unless request.design_mode %}
 <script>
-  // Filter predictive search results based on selected store
-  function filterPredictiveSearchResults() {
+  // Filter main search results page based on selected store
+  function filterSearchPageResults() {
     const selectedStore = localStorage.getItem("store-selected") || "";
-    const productItems = document.querySelectorAll('.predictive-product-item');
     
-    console.log('=== FILTERING PREDICTIVE SEARCH RESULTS ===');
+    // Look for product items on search page - adjust selectors as needed for your theme
+    const productItems = document.querySelectorAll(
+      '.grid-product, .product-item, .search-product, [data-product-id], .product-grid-item'
+    );
+    
+    console.log('=== FILTERING SEARCH PAGE RESULTS ===');
     console.log('Selected store:', selectedStore);
     console.log('Product items found:', productItems.length);
+    
+    if (productItems.length === 0) {
+      // Try alternative selectors
+      const altProductItems = document.querySelectorAll(
+        '.product, .item, [class*="product"], [class*="grid"]'
+      );
+      console.log('Alternative product items found:', altProductItems.length);
+      
+      // If still no products found, let's look for vendor info in the page
+      const vendorElements = document.querySelectorAll('[class*="vendor"], .grid-product__vendor');
+      console.log('Vendor elements found:', vendorElements.length);
+      
+      if (vendorElements.length > 0) {
+        vendorElements.forEach((vendorEl, index) => {
+          const productContainer = vendorEl.closest('[class*="product"], [class*="grid"], .item');
+          if (productContainer) {
+            const vendorText = vendorEl.textContent.trim().toLowerCase();
+            
+            const shouldShow = selectedStore.toLowerCase().includes("shop all") || 
+                              vendorText === selectedStore.toLowerCase();
+            
+            if (shouldShow) {
+              productContainer.style.display = '';
+              console.log(`✓ Showing product ${index + 1} (vendor: ${vendorText})`);
+            } else {
+              productContainer.style.display = 'none';
+              console.log(`✗ Hiding product ${index + 1} (vendor: ${vendorText})`);
+            }
+          }
+        });
+        return;
+      }
+    }
     
     let visibleCount = 0;
     let hiddenCount = 0;
     
     productItems.forEach((item, index) => {
-      const productVendor = item.dataset.vendor || "";
+      // Try to find vendor information in various ways
+      let productVendor = '';
+      
+      // Method 1: data-vendor attribute
+      if (item.dataset.vendor) {
+        productVendor = item.dataset.vendor.toLowerCase();
+      }
+      // Method 2: look for vendor class/element within the item
+      else {
+        const vendorElement = item.querySelector('.grid-product__vendor, [class*="vendor"], .product-vendor');
+        if (vendorElement) {
+          productVendor = vendorElement.textContent.trim().toLowerCase();
+        }
+        // Method 3: look for vendor in product URL or data attributes
+        else {
+          const productLink = item.querySelector('a[href*="/products/"]');
+          if (productLink) {
+            // Try to extract vendor from other data attributes
+            const allDataAttrs = Array.from(item.attributes).filter(attr => attr.name.startsWith('data-'));
+            for (let attr of allDataAttrs) {
+              if (attr.value.toLowerCase() === 'oxygen' || attr.value.toLowerCase() === 'quorum') {
+                productVendor = attr.value.toLowerCase();
+                break;
+              }
+            }
+          }
+        }
+      }
+      
+      console.log(`Product ${index + 1} vendor:`, productVendor);
       
       // Allow products to show when "Shop All Brands" is selected
       const shouldShow = selectedStore.toLowerCase().includes("shop all") || 
-                        productVendor.toLowerCase() === selectedStore.toLowerCase();
+                        productVendor === selectedStore.toLowerCase() ||
+                        selectedStore === ''; // Show all if no store selected
       
       if (shouldShow) {
         item.style.display = '';
@@ -223,51 +292,48 @@
       }
     });
     
-    console.log(`Results: ${visibleCount} visible, ${hiddenCount} hidden`);
+    console.log(`Search page results: ${visibleCount} visible, ${hiddenCount} hidden`);
     
-    // Update the products section visibility
-    const productsSection = document.querySelector('.results--products');
-    if (productsSection) {
-      if (visibleCount === 0) {
-        productsSection.style.display = 'none';
-        console.log('Hiding entire products section - no matching products');
+    // Update no results message if needed
+    updateSearchResultsDisplay(visibleCount);
+  }
+  
+  function updateSearchResultsDisplay(visibleCount) {
+    // Show/hide "no results" message
+    const noResultsMessage = document.querySelector('.no-results, .search-no-results, [class*="no-results"]');
+    const resultsContainer = document.querySelector('.search-results, .product-grid, [class*="search-results"]');
+    
+    if (visibleCount === 0) {
+      if (noResultsMessage) {
+        noResultsMessage.style.display = 'block';
       } else {
-        productsSection.style.display = '';
-        console.log('Showing products section');
+        // Create a no results message if none exists
+        const selectedStore = localStorage.getItem("store-selected") || "";
+        const storeName = selectedStore.charAt(0).toUpperCase() + selectedStore.slice(1);
+        const message = document.createElement('div');
+        message.className = 'custom-no-results';
+        message.innerHTML = `<p>No ${storeName} products found for this search.</p>`;
+        if (resultsContainer) {
+          resultsContainer.appendChild(message);
+        }
+      }
+    } else {
+      if (noResultsMessage) {
+        noResultsMessage.style.display = 'none';
+      }
+      // Remove custom no results message
+      const customMessage = document.querySelector('.custom-no-results');
+      if (customMessage) {
+        customMessage.remove();
       }
     }
-    
-    // Update the results count if needed
-    updateResultsCount();
   }
   
-  function updateResultsCount() {
-    // Update total count display if you have one
-    const visibleProducts = document.querySelectorAll('.predictive-product-item:not([style*="display: none"])');
-    console.log('Updated visible product count:', visibleProducts.length);
-  }
-  
-  // Filter results when page loads
+  // Run filtering when page loads
   document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(filterPredictiveSearchResults, 100);
+    console.log('Search page loaded, filtering results...');
+    setTimeout(filterSearchPageResults, 200);
   });
-  
-  // Filter results when predictive search results update
-  const observer = new MutationObserver(function(mutations) {
-    mutations.forEach(function(mutation) {
-      if (mutation.type === 'childList' && 
-          mutation.target.id === 'predictive-search-results') {
-        console.log('Predictive search results updated, re-filtering...');
-        setTimeout(filterPredictiveSearchResults, 50);
-      }
-    });
-  });
-  
-  // Start observing changes to predictive search results
-  const searchResults = document.getElementById('predictive-search-results');
-  if (searchResults) {
-    observer.observe(searchResults, { childList: true, subtree: true });
-  }
   
   // Listen for store changes and re-filter
   document.addEventListener('change', function(e) {
@@ -275,8 +341,17 @@
         (e.target.type === 'radio' && e.target.closest('store-switcher')) ||
         (e.target.type === 'radio' && e.target.name && e.target.name.startsWith('store-switcher-'))) {
       
-      console.log('Store changed, re-filtering predictive search results...');
-      setTimeout(filterPredictiveSearchResults, 100);
+      console.log('Store changed on search page, re-filtering...');
+      setTimeout(filterSearchPageResults, 100);
+    }
+  });
+  
+  // Also listen for clicks on store switcher labels
+  document.addEventListener('click', function(e) {
+    const storeLabel = e.target.closest('store-switcher label');
+    if (storeLabel) {
+      console.log('Store switcher clicked on search page, re-filtering...');
+      setTimeout(filterSearchPageResults, 150);
     }
   });
 </script>
