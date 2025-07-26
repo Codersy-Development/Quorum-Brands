@@ -58,17 +58,16 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (!vendorFilterInput) return;
     
-    console.log('=== UPDATING PREDICTIVE SEARCH VENDOR FILTER ===');
-    console.log('Selected store:', selectedStore);
+
     
     // Only add vendor filter if a specific store is selected (not "shop all")
     if (selectedStore && !selectedStore.toLowerCase().includes("shop all")) {
       const capitalizedStore = selectedStore.charAt(0).toUpperCase() + selectedStore.slice(1);
       vendorFilterInput.value = capitalizedStore;
-      console.log('Set vendor filter for predictive search form:', capitalizedStore);
+
     } else {
       vendorFilterInput.value = '';
-      console.log('Cleared vendor filter for predictive search form (shop all or no selection)');
+
     }
     
     // Update search placeholder to show selected store
@@ -85,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Update vendor filter before form submission
   predictiveSearchForm.addEventListener('submit', function(e) {
-    console.log('Predictive search form submitting, updating vendor filter...');
+
     updatePredictiveSearchVendorFilter();
   });
   
@@ -95,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
         (e.target.type === 'radio' && e.target.closest('store-switcher')) ||
         (e.target.type === 'radio' && e.target.name && e.target.name.startsWith('store-switcher-'))) {
       
-      console.log('Store changed, updating predictive search form vendor filter...');
+
       setTimeout(updatePredictiveSearchVendorFilter, 50);
     }
   });
@@ -104,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.addEventListener('click', function(e) {
     const storeLabel = e.target.closest('store-switcher label');
     if (storeLabel) {
-      console.log('Store switcher clicked, updating predictive search form...');
+
       setTimeout(updatePredictiveSearchVendorFilter, 100);
     }
   });
