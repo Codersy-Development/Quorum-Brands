@@ -76,7 +76,7 @@
         "store_selector_frpr4e": {
           "type": "store_selector",
           "settings": {
-            "title": "Shop All Brands",
+            "title": "All Brands",
             "menu": "shop-all-menu",
             "is_mega_menu": true,
             "buttons_color": "#e8e8e1",
