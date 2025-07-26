@@ -35,7 +35,7 @@
         "logo_egy4GC": {
           "type": "logo",
           "settings": {
-            "logo_for_store": "Shop All Brands",
+            "logo_for_store": "All Brands",
             "logo": "shopify://shop_images/QO_B.png",
             "desktop_logo_width": 300,
             "mobile_logo_width": 100
