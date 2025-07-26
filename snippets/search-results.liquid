@@ -80,9 +80,9 @@
             <h3 class="h4" id="predictive-search-products">
               {{ 'general.search.products' | t }}
             </h3>
-            <ul role="listbox" aria-labelledby="predictive-search-products">
+            <ul role="listbox" aria-labelledby="predictive-search-products" id="predictive-products-list">
               {%- for product in predictive_search.resources.products -%}
-                <li role="option">
+                <li role="option" class="predictive-product-item" data-vendor="{{ product.vendor | downcase }}">
                   <a href="{{ product.url }}">
                     <div class="results-products__image grid__image-ratio">
                       {% if product.media != blank %}
@@ -190,3 +190,94 @@
     </button>
   {% endif %}
 {%- endif -%}
+
+{% unless request.design_mode %}
+<script>
+  // Filter predictive search results based on selected store
+  function filterPredictiveSearchResults() {
+    const selectedStore = localStorage.getItem("store-selected") || "";
+    const productItems = document.querySelectorAll('.predictive-product-item');
+    
+    console.log('=== FILTERING PREDICTIVE SEARCH RESULTS ===');
+    console.log('Selected store:', selectedStore);
+    console.log('Product items found:', productItems.length);
+    
+    let visibleCount = 0;
+    let hiddenCount = 0;
+    
+    productItems.forEach((item, index) => {
+      const productVendor = item.dataset.vendor || "";
+      
+      // Allow products to show when "Shop All Brands" is selected
+      const shouldShow = selectedStore.toLowerCase().includes("shop all") || 
+                        productVendor.toLowerCase() === selectedStore.toLowerCase();
+      
+      if (shouldShow) {
+        item.style.display = '';
+        visibleCount++;
+        console.log(`✓ Showing product ${index + 1} (vendor: ${productVendor})`);
+      } else {
+        item.style.display = 'none';
+        hiddenCount++;
+        console.log(`✗ Hiding product ${index + 1} (vendor: ${productVendor})`);
+      }
+    });
+    
+    console.log(`Results: ${visibleCount} visible, ${hiddenCount} hidden`);
+    
+    // Update the products section visibility
+    const productsSection = document.querySelector('.results--products');
+    if (productsSection) {
+      if (visibleCount === 0) {
+        productsSection.style.display = 'none';
+        console.log('Hiding entire products section - no matching products');
+      } else {
+        productsSection.style.display = '';
+        console.log('Showing products section');
+      }
+    }
+    
+    // Update the results count if needed
+    updateResultsCount();
+  }
+  
+  function updateResultsCount() {
+    // Update total count display if you have one
+    const visibleProducts = document.querySelectorAll('.predictive-product-item:not([style*="display: none"])');
+    console.log('Updated visible product count:', visibleProducts.length);
+  }
+  
+  // Filter results when page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(filterPredictiveSearchResults, 100);
+  });
+  
+  // Filter results when predictive search results update
+  const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.type === 'childList' && 
+          mutation.target.id === 'predictive-search-results') {
+        console.log('Predictive search results updated, re-filtering...');
+        setTimeout(filterPredictiveSearchResults, 50);
+      }
+    });
+  });
+  
+  // Start observing changes to predictive search results
+  const searchResults = document.getElementById('predictive-search-results');
+  if (searchResults) {
+    observer.observe(searchResults, { childList: true, subtree: true });
+  }
+  
+  // Listen for store changes and re-filter
+  document.addEventListener('change', function(e) {
+    if (e.target.matches('store-switcher input[type="radio"]') || 
+        (e.target.type === 'radio' && e.target.closest('store-switcher')) ||
+        (e.target.type === 'radio' && e.target.name && e.target.name.startsWith('store-switcher-'))) {
+      
+      console.log('Store changed, re-filtering predictive search results...');
+      setTimeout(filterPredictiveSearchResults, 100);
+    }
+  });
+</script>
+{% endunless %}
