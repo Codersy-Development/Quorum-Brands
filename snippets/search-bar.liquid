@@ -21,26 +21,37 @@ document.addEventListener('DOMContentLoaded', function() {
   const searchInput = document.getElementById('search-input');
   let selectedStore = '';
 
+  // Debug: Check if elements exist
+  console.log('Search form found:', !!searchForm);
+  console.log('Search input found:', !!searchInput);
+  console.log('Store switcher found:', !!document.querySelector('store-switcher'));
+
   // Function to get selected store from store switcher
   function getSelectedStore() {
-    // Find the checked radio button in the store switcher
+    // More specific selector for your store switcher structure
     const checkedStoreRadio = document.querySelector('store-switcher input[type="radio"]:checked');
+    
+    console.log('Checked radio found:', !!checkedStoreRadio);
     if (checkedStoreRadio) {
+      console.log('Selected store value:', checkedStoreRadio.value);
       return checkedStoreRadio.value;
     }
     
     // Fallback: get first store if none selected
     const firstStoreRadio = document.querySelector('store-switcher input[type="radio"]');
     if (firstStoreRadio) {
+      console.log('Using first store as fallback:', firstStoreRadio.value);
       return firstStoreRadio.value;
     }
     
+    console.log('No store radios found');
     return '';
   }
 
   // Function to update search query with store filter
   function updateSearchQuery() {
     selectedStore = getSelectedStore();
+    console.log('Updating search query for store:', selectedStore);
     
     if (selectedStore && selectedStore !== '') {
       // Get the original user query without any existing vendor filters
@@ -53,19 +64,29 @@ document.addEventListener('DOMContentLoaded', function() {
       const capitalizedStore = selectedStore.charAt(0).toUpperCase() + selectedStore.slice(1);
       const storeFilter = `vendor:${capitalizedStore}`;
       
+      console.log('Adding vendor filter:', storeFilter);
+      
       // Combine user query with store filter
       if (currentQuery) {
         searchInput.value = `${currentQuery} ${storeFilter}`;
       } else {
         searchInput.value = storeFilter;
       }
+      
+      console.log('Final search query:', searchInput.value);
     }
   }
 
   // Listen for store switcher changes
   document.addEventListener('change', function(e) {
-    if (e.target.matches('store-switcher input[type="radio"]')) {
+    console.log('Change event detected on:', e.target);
+    
+    // Check if the changed element is a store switcher radio
+    if (e.target.matches('store-switcher input[type="radio"]') || 
+        e.target.closest('store-switcher') && e.target.type === 'radio') {
+      
       selectedStore = e.target.value;
+      console.log('Store changed to:', selectedStore);
       
       // Update search placeholder to show selected store
       const capitalizedStore = selectedStore.charAt(0).toUpperCase() + selectedStore.slice(1);
@@ -77,15 +98,21 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Update search query before form submission
-  searchForm.addEventListener('submit', function(e) {
-    updateSearchQuery();
-  });
+  if (searchForm) {
+    searchForm.addEventListener('submit', function(e) {
+      console.log('Form submitting, updating query...');
+      updateSearchQuery();
+    });
+  }
 
   // Initialize with selected store
-  selectedStore = getSelectedStore();
-  if (selectedStore && selectedStore !== '') {
-    const capitalizedStore = selectedStore.charAt(0).toUpperCase() + selectedStore.slice(1);
-    searchInput.placeholder = `Search ${capitalizedStore} products...`;
-  }
+  setTimeout(function() {
+    selectedStore = getSelectedStore();
+    if (selectedStore && selectedStore !== '') {
+      const capitalizedStore = selectedStore.charAt(0).toUpperCase() + selectedStore.slice(1);
+      searchInput.placeholder = `Search ${capitalizedStore} products...`;
+      console.log('Initialized with store:', selectedStore);
+    }
+  }, 100);
 });
 </script>
