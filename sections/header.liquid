@@ -149,28 +149,27 @@
     .header-layout--center-below {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
+      position: relative;
     }
 
     .header-layout--center-below .header-item--logo {
-      flex: 1;
       display: flex;
       justify-content: center;
     }
 
-    .header-layout--center-below .header-item--left {
-      flex: 1;
-      display: flex;
-      justify-content: flex-start;
-    }
-
     .header-layout--center-below .header-item--icons {
-      flex: 1;
-      display: flex;
-      justify-content: flex-end;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
     }
 
     .store-buttons-top {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
       display: flex;
       gap: 10px;
       align-items: center;
@@ -190,6 +189,7 @@
       justify-content: center;
       align-items: center;
       gap: 0;
+      flex-wrap: wrap;
     }
 
     .header-nav-below-all .site-nav > li {
@@ -209,6 +209,11 @@
       
       .store-buttons-top {
         display: none;
+      }
+      
+      .header-layout--center-below .header-item--icons {
+        position: static;
+        transform: none;
       }
     }
   {% endif %}
@@ -323,13 +328,16 @@
 
             {%- if logo_alignment == 'center' -%}
               {%- if section.settings.main_menu_alignment == 'center-below' -%}
-                <div class="header-item header-item--left">
-                  <div class="store-buttons-top medium-down--hide">
-                    {% render 'store-switch-buttons', section: section %}
-                  </div>
-                  <div class="medium-up--hide hamburger-menu">
-                    {{ hamburger_menu }}
-                  </div>
+                <div class="store-buttons-top medium-down--hide">
+                  {% render 'store-switch-buttons', section: section %}
+                </div>
+                
+                <div class="header-item header-item--logo">
+                  {%- render 'header-logo-block', section: section -%}
+                </div>
+                
+                <div class="medium-up--hide hamburger-menu">
+                  {{ hamburger_menu }}
                 </div>
               {%- else -%}
                 {%- unless section.settings.main_menu_alignment == 'center-below' -%}
@@ -340,36 +348,36 @@
                 <div class="medium-up--hide hamburger-menu">
                   {{ hamburger_menu }}
                 </div>
-              {%- endif -%}
 
-              {%- if section.settings.main_menu_alignment == 'center-split' -%}
-                {%- render 'header-split-nav',
-                  main_menu: main_menu,
-                  section: section,
-                  dropdown_alignment: dropdown_alignment,
-                  hover_menu: section.settings.hover_menu
-                -%}
-              {%- endif -%}
-
-              {%- if section.settings.main_menu_alignment != 'center-split' -%}
-                <div class="header-item header-item--logo">
-                  {%- render 'header-logo-block', section: section -%}
-                </div>
-              {%- endif -%}
-
-              {%- if section.settings.main_menu_alignment == 'center-all' -%}
-                <div
-                  class="header-item header-item--navigation{% if section.settings.main_menu_alignment == 'center-all' %} text-center{% endif %} medium-down--hide navigation-cenetered-top"
-                  {% unless disable_aria %}
-                    role="navigation" aria-label="Primary"
-                  {% endunless %}
-                >
-                  {%- render 'header-desktop-nav',
+                {%- if section.settings.main_menu_alignment == 'center-split' -%}
+                  {%- render 'header-split-nav',
                     main_menu: main_menu,
+                    section: section,
                     dropdown_alignment: dropdown_alignment,
                     hover_menu: section.settings.hover_menu
                   -%}
-                </div>
+                {%- endif -%}
+
+                {%- if section.settings.main_menu_alignment != 'center-split' -%}
+                  <div class="header-item header-item--logo">
+                    {%- render 'header-logo-block', section: section -%}
+                  </div>
+                {%- endif -%}
+
+                {%- if section.settings.main_menu_alignment == 'center-all' -%}
+                  <div
+                    class="header-item header-item--navigation{% if section.settings.main_menu_alignment == 'center-all' %} text-center{% endif %} medium-down--hide navigation-cenetered-top"
+                    {% unless disable_aria %}
+                      role="navigation" aria-label="Primary"
+                    {% endunless %}
+                  >
+                    {%- render 'header-desktop-nav',
+                      main_menu: main_menu,
+                      dropdown_alignment: dropdown_alignment,
+                      hover_menu: section.settings.hover_menu
+                    -%}
+                  </div>
+                {%- endif -%}
               {%- endif -%}
             {%- endif -%}
 
