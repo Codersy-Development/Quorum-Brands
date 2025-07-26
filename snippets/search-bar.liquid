@@ -77,18 +77,45 @@ document.addEventListener('DOMContentLoaded', function() {
         checkbox.checked = true;
         console.log(`✓ Checked vendor filter ${index + 1} for:`, capitalizedStore);
         
-        // Trigger change event on each checkbox
+        // Trigger multiple types of events to ensure filtering system responds
         checkbox.dispatchEvent(new Event('change', { bubbles: true }));
-        console.log(`✓ Triggered change event on checkbox ${index + 1}`);
+        checkbox.dispatchEvent(new Event('input', { bubbles: true }));
+        checkbox.dispatchEvent(new Event('click', { bubbles: true }));
+        console.log(`✓ Triggered change/input/click events on checkbox ${index + 1}`);
       });
       
-      // Force form submission or filter update if needed
-      const form = document.querySelector('form[action*="search"]');
-      if (form) {
-        console.log('Found search form, considering triggering update...');
-        // Uncomment the next line if you need to force form submission
-        // form.requestSubmit();
-      }
+      // Try to trigger any filter update functions that might exist
+      setTimeout(function() {
+        // Look for common filter update functions
+        if (window.updateFilters && typeof window.updateFilters === 'function') {
+          console.log('Calling window.updateFilters()');
+          window.updateFilters();
+        }
+        
+        if (window.applyFilters && typeof window.applyFilters === 'function') {
+          console.log('Calling window.applyFilters()');
+          window.applyFilters();
+        }
+        
+        // Look for filter forms and trigger submission
+        const filterForm = document.querySelector('form[action*="search"], form.filter-form, .search-form form');
+        if (filterForm) {
+          console.log('Found filter form, triggering update...');
+          // Trigger form change event
+          filterForm.dispatchEvent(new Event('change', { bubbles: true }));
+          
+          // If nothing else works, uncomment this to force form submission:
+          // filterForm.requestSubmit();
+        }
+        
+        // Look for search/filter buttons and click them
+        const filterButton = document.querySelector('button[type="submit"]');
+        if (filterButton && filterButton.closest('form')) {
+          console.log('Found filter submit button, considering click...');
+          // Uncomment if you want to auto-submit:
+          // filterButton.click();
+        }
+      }, 100);
     }
     console.log('=== VENDOR FILTER UPDATE COMPLETE ===');
   }
@@ -141,6 +168,56 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log('📦 VENDOR FILTER CHANGED:', e.target.value, 'checked:', e.target.checked);
     }
   });
+
+  // More aggressive approach - listen for clicks on store switcher labels
+  document.addEventListener('click', function(e) {
+    console.log('=== CLICK EVENT DETECTED ===');
+    console.log('Clicked element:', e.target);
+    
+    // Check if clicking on store switcher label or radio
+    const storeLabel = e.target.closest('store-switcher label');
+    const storeRadio = e.target.closest('store-switcher input[type="radio"]');
+    
+    if (storeLabel || storeRadio) {
+      console.log('🎯 STORE SWITCHER CLICKED!');
+      
+      // Find the associated radio button
+      let targetRadio = null;
+      if (storeLabel) {
+        const forAttr = storeLabel.getAttribute('for');
+        targetRadio = document.getElementById(forAttr);
+      } else if (storeRadio) {
+        targetRadio = storeRadio;
+      }
+      
+      if (targetRadio) {
+        console.log('Target radio found:', targetRadio.value);
+        
+        // Wait a moment for the radio to be checked, then update
+        setTimeout(function() {
+          selectedStore = targetRadio.value;
+          console.log('Updating to store:', selectedStore);
+          updateVendorFilter();
+          updateSearchPlaceholder();
+          localStorage.setItem('selectedStore', selectedStore);
+        }, 50);
+      }
+    }
+  });
+
+  // Polling approach as backup - check for store changes every 500ms
+  let lastSelectedStore = '';
+  setInterval(function() {
+    const currentStore = getSelectedStore();
+    if (currentStore !== lastSelectedStore && currentStore !== '') {
+      console.log('🔄 POLLING DETECTED STORE CHANGE:', lastSelectedStore, '→', currentStore);
+      selectedStore = currentStore;
+      lastSelectedStore = currentStore;
+      updateVendorFilter();
+      updateSearchPlaceholder();
+      localStorage.setItem('selectedStore', selectedStore);
+    }
+  }, 500);
 
   // Initialize with selected store
   setTimeout(function() {
