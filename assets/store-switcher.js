@@ -16,7 +16,7 @@ const setCollectionsFilters = () => {
         }
       } else {
         // This is a collections page - apply normal filtering
-        if (store === 'All brands' || store === 'All Brands') {
+        if (store === 'Shop all brands' || store === 'Shop All Brands') {
           url.searchParams.delete(VENDOR_KEY);
         } else {
           url.searchParams.set(VENDOR_KEY, store);
