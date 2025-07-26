@@ -3,15 +3,16 @@
     <div data-type-products>
       {%- for product in predictive_search.resources.products -%}
         {%- capture wlm_check -%}{%- render 'wlm-product' with product , wlm_is_render:'yes' -%}{%- endcapture -%}{%- if wlm_check == blank -%}{%continue%}{%- endif -%}
-        {%- render 'product-grid-item',
-          product: product,
-          per_row: 4,
-          quick_shop_enable: settings.quick_shop_enable
-        -%}
+        <div class="predictive-product-wrapper" data-vendor="{{ product.vendor | downcase }}" data-product-id="{{ product.id }}">
+          {%- render 'product-grid-item',
+            product: product,
+            per_row: 4,
+            quick_shop_enable: settings.quick_shop_enable
+          -%}
+        </div>
       {%- endfor -%}
     </div>
   {% endif %}
-
   {%- if predictive_search.resources.collections.size > 0 -%}
     <div data-type-collections>
       <p class="h6 predictive__label">{{ 'general.search.collections' | t }}</p>
@@ -27,7 +28,6 @@
       </ul>
     </div>
   {% endif %}
-
   {%- if predictive_search.resources.pages.size > 0 -%}
     <div data-type-pages>
       <p class="h6 predictive__label">{{ 'general.search.pages' | t }}</p>
@@ -42,7 +42,6 @@
       </ul>
     </div>
   {% endif %}
-
   {%- if predictive_search.resources.articles.size > 0 -%}
     <div data-type-articles="{{ predictive_search.resources.articles.size }}">
       <p class="h6 predictive__label">{{ 'general.search.articles' | t }}</p>
@@ -68,3 +67,114 @@
     </div>
   {% endif %}
 {%- endif -%}
+
+{% unless request.design_mode %}
+<script>
+  // Filter predictive search products based on selected store
+  function filterPredictiveSearchProducts() {
+    const selectedStore = localStorage.getItem("store-selected") || "";
+    
+    // Target the products container in predictive search
+    const productsContainer = document.querySelector('[data-type-products]');
+    if (!productsContainer) {
+      console.log('Predictive products container not found');
+      return;
+    }
+    
+    // Look for product wrappers with vendor data
+    const productWrappers = productsContainer.querySelectorAll('.predictive-product-wrapper');
+    
+    console.log('=== FILTERING PREDICTIVE SEARCH PRODUCTS ===');
+    console.log('Selected store:', selectedStore);
+    console.log('Product wrappers found:', productWrappers.length);
+    
+    let visibleCount = 0;
+    let hiddenCount = 0;
+    
+    productWrappers.forEach((wrapper, index) => {
+      const productVendor = wrapper.dataset.vendor || "";
+      
+      console.log(`Product ${index + 1} vendor:`, productVendor);
+      
+      // Allow products to show when "Shop All Brands" is selected
+      const shouldShow = selectedStore.toLowerCase().includes("shop all") || 
+                        productVendor === selectedStore.toLowerCase() ||
+                        selectedStore === ''; // Show all if no store selected
+      
+      if (shouldShow) {
+        wrapper.style.display = '';
+        visibleCount++;
+        console.log(`✓ Showing predictive product ${index + 1} (vendor: ${productVendor})`);
+      } else {
+        wrapper.style.display = 'none';
+        hiddenCount++;
+        console.log(`✗ Hiding predictive product ${index + 1} (vendor: ${productVendor})`);
+      }
+    });
+    
+    console.log(`Predictive search results: ${visibleCount} visible, ${hiddenCount} hidden`);
+    
+    // Hide the entire products section if no products match
+    if (visibleCount === 0) {
+      productsContainer.style.display = 'none';
+      console.log('Hiding entire predictive products section - no matches');
+    } else {
+      productsContainer.style.display = '';
+    }
+  }
+  
+  // Monitor for predictive search results appearing
+  const predictiveObserver = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+        // Check if products were added to predictive search
+        const hasProducts = Array.from(mutation.addedNodes).some(node => 
+          node.nodeType === 1 && (
+            (node.querySelector && node.querySelector('[data-type-products]')) ||
+            (node.dataset && node.dataset.typeProducts !== undefined) ||
+            node.classList.contains('predictive-product-wrapper')
+          )
+        );
+        
+        if (hasProducts) {
+          console.log('Predictive search products detected, filtering...');
+          setTimeout(filterPredictiveSearchProducts, 50);
+        }
+      }
+    });
+  });
+  
+  // Start observing the predictive search container
+  const predictiveContainer = document.getElementById('predictive-search');
+  if (predictiveContainer) {
+    predictiveObserver.observe(predictiveContainer, { 
+      childList: true, 
+      subtree: true 
+    });
+    console.log('Started observing predictive search for product changes');
+  }
+  
+  // Also listen for store changes
+  document.addEventListener('change', function(e) {
+    if (e.target.matches('store-switcher input[type="radio"]') || 
+        (e.target.type === 'radio' && e.target.closest('store-switcher')) ||
+        (e.target.type === 'radio' && e.target.name && e.target.name.startsWith('store-switcher-'))) {
+      
+      console.log('Store changed, re-filtering predictive search...');
+      setTimeout(filterPredictiveSearchProducts, 100);
+    }
+  });
+  
+  // Listen for clicks on store switcher as backup
+  document.addEventListener('click', function(e) {
+    const storeLabel = e.target.closest('store-switcher label');
+    if (storeLabel) {
+      console.log('Store switcher clicked, re-filtering predictive search...');
+      setTimeout(filterPredictiveSearchProducts, 150);
+    }
+  });
+  
+  // Initial filter attempt on page load
+  setTimeout(filterPredictiveSearchProducts, 200);
+</script>
+{% endunless %}
