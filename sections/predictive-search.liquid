@@ -77,16 +77,11 @@
     // Target the products container in predictive search
     const productsContainer = document.querySelector('[data-type-products]');
     if (!productsContainer) {
-      console.log('Predictive products container not found');
       return;
     }
     
     // Look for product wrappers with vendor data
     const productWrappers = productsContainer.querySelectorAll('.predictive-product-wrapper');
-    
-    console.log('=== FILTERING PREDICTIVE SEARCH PRODUCTS ===');
-    console.log('Selected store:', selectedStore);
-    console.log('Product wrappers found:', productWrappers.length);
     
     let visibleCount = 0;
     let hiddenCount = 0;
@@ -94,7 +89,6 @@
     productWrappers.forEach((wrapper, index) => {
       const productVendor = wrapper.dataset.vendor || "";
       
-      console.log(`Product ${index + 1} vendor:`, productVendor);
       
       // Allow products to show when "Shop All Brands" is selected
       const shouldShow = selectedStore.toLowerCase().includes("shop all") || 
@@ -104,20 +98,16 @@
       if (shouldShow) {
         wrapper.style.display = '';
         visibleCount++;
-        console.log(`✓ Showing predictive product ${index + 1} (vendor: ${productVendor})`);
       } else {
         wrapper.style.display = 'none';
         hiddenCount++;
-        console.log(`✗ Hiding predictive product ${index + 1} (vendor: ${productVendor})`);
       }
     });
     
-    console.log(`Predictive search results: ${visibleCount} visible, ${hiddenCount} hidden`);
     
     // Hide the entire products section if no products match
     if (visibleCount === 0) {
       productsContainer.style.display = 'none';
-      console.log('Hiding entire predictive products section - no matches');
     } else {
       productsContainer.style.display = '';
     }
@@ -137,7 +127,7 @@
         );
         
         if (hasProducts) {
-          console.log('Predictive search products detected, filtering...');
+ 
           setTimeout(filterPredictiveSearchProducts, 50);
         }
       }
@@ -151,7 +141,7 @@
       childList: true, 
       subtree: true 
     });
-    console.log('Started observing predictive search for product changes');
+ 
   }
   
   // Also listen for store changes
@@ -160,7 +150,7 @@
         (e.target.type === 'radio' && e.target.closest('store-switcher')) ||
         (e.target.type === 'radio' && e.target.name && e.target.name.startsWith('store-switcher-'))) {
       
-      console.log('Store changed, re-filtering predictive search...');
+
       setTimeout(filterPredictiveSearchProducts, 100);
     }
   });
@@ -169,7 +159,7 @@
   document.addEventListener('click', function(e) {
     const storeLabel = e.target.closest('store-switcher label');
     if (storeLabel) {
-      console.log('Store switcher clicked, re-filtering predictive search...');
+
       setTimeout(filterPredictiveSearchProducts, 150);
     }
   });
