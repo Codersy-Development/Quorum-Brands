@@ -170,9 +170,8 @@
       display: flex;
       justify-content: center;
       padding-top: 20px;
-      border-top: 1px solid rgba(0,0,0,0.1);
       margin-top: 15px;
-      gap: 40px;
+      gap: 0;
       align-items: center;
     }
 
@@ -192,7 +191,7 @@
       justify-content: center;
       align-items: center;
       gap: 0;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
     }
 
     .header-nav-below-all .site-nav > li {
@@ -203,6 +202,17 @@
       white-space: nowrap;
       padding: 12px 25px;
       text-decoration: none;
+    }
+
+    /* Ensure all navigation items are on same line */
+    .header-nav-below-all .store-switch-navigations .ssm__menu {
+      display: flex;
+      gap: 0;
+      align-items: center;
+    }
+
+    .header-nav-below-all .store-switch-navigations .ssm__menu > li {
+      display: inline-flex;
     }
 
     @media only screen and (max-width: 768px) {
