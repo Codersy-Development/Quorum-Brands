@@ -1,239 +1,237 @@
-const setCollectionsFilters = () => {
-  const VENDOR_KEY = 'filter.p.vendor';
-  const store      = getStoreSentenceCase();
+/**
+ * Search Store Reset & Product Filtering
+ * Resets search and filters products when store switcher changes
+ */
+(function() {
+  'use strict';
   
-  document.querySelectorAll('a[href*="/collections/"]').forEach((aTag) => {
-    try {
-      const url = new URL(aTag.href);          // always absolute in browsers
+  // Configuration
+  const CONFIG = {
+    redirectFromSearchPage: false,
+    clearPredictiveSearch: true,
+    updatePlaceholders: true,
+    filterProducts: true,
+    logActions: false
+  };
+  
+  function log(message) {
+    if (CONFIG.logActions) {
+      console.log('[Search & Filter]', message);
+    }
+  }
+  
+  function filterProductsOnPage() {
+    if (!CONFIG.filterProducts) return;
+    
+    const selectedStore = localStorage.getItem("store-selected") || "";
+    log(`Filtering products for store: ${selectedStore}`);
+    
+    // Find all product elements
+    const productSelectors = [
+      '.grid-product',
+      '.product-item', 
+      '.search-product',
+      '[data-product-id]',
+      '.product-grid-item',
+      '.predictive-product-wrapper',
+      '[data-vendor]'
+    ];
+    
+    let allProducts = [];
+    productSelectors.forEach(selector => {
+      const products = document.querySelectorAll(selector);
+      allProducts = allProducts.concat(Array.from(products));
+    });
+    
+    // Remove duplicates
+    allProducts = allProducts.filter((item, index, self) => 
+      self.indexOf(item) === index
+    );
+    
+    let visibleCount = 0;
+    let hiddenCount = 0;
+    
+    allProducts.forEach((item) => {
+      let productVendor = '';
       
-      // IMPORTANT: Only modify actual collections pages, not product pages
-      if (url.pathname.includes('/products/')) {
-        // This is a product page - don't modify the main URL structure, just handle filters
-        if (store === 'explore all brands' || store === 'Explore All Brands') {
-          url.searchParams.delete(VENDOR_KEY);
-        } else {
-          url.searchParams.set(VENDOR_KEY, store);
-        }
+      // Try multiple ways to get vendor info
+      if (item.dataset.vendor) {
+        productVendor = item.dataset.vendor.toLowerCase();
       } else {
-        // This is a collections page - apply normal filtering
-        if (store === 'explore all brands' || store === 'Explore All Brands') {
-          url.searchParams.delete(VENDOR_KEY);
+        // Look for vendor in text content
+        const vendorElement = item.querySelector('.grid-product__vendor, [class*="vendor"]');
+        if (vendorElement) {
+          productVendor = vendorElement.textContent.trim().toLowerCase();
         } else {
-          url.searchParams.set(VENDOR_KEY, store);
+          // Scan text content for vendor names
+          const itemText = item.textContent.toLowerCase();
+          if (itemText.includes('oxygen')) {
+            productVendor = 'oxygen';
+          } else if (itemText.includes('quorum')) {
+            productVendor = 'quorum';
+          }
         }
       }
       
-      // write the revised URL back to the link
-      aTag.href = url.toString();
-    } catch (err) {
-      // only triggers for malformed hrefs (rare, but nice to log)
-      console.warn('Skipping invalid URL:', aTag.href, err);
-    }
-  });
-};
-
-
-class StoreSwitcher extends HTMLElement {
-  constructor() {
-    super();
-    this.htmlEL = document.querySelector("html");
-    this.inputs = this.querySelectorAll("input");
-
-    this._init();
-  }
-  connectedCallback() {
-    this.htmlEL = document.querySelector("html");
-    this.inputs = this.querySelectorAll("input");
-  }
-
-  _init() {
-    if (localStorage.getItem("store-selected")) {
-      this.inputs.forEach((input) => {
-        if (input.value === localStorage.getItem("store-selected")) {
-          input.checked = true;
-        }
-      });
-    }
-
-    this.inputs.forEach((input) => {
-      input.addEventListener("change", () => {
-        if (!input.checked) {
-          return;
-        }
-        this.inputs.forEach((otherInput) => {
-          if (input.name === otherInput.name && input.id !== otherInput.id) {
-            otherInput.removeAttribute("checked");
-          }
-        });
-        this.htmlEL.dataset.storeSelected = input.value;
-        localStorage.setItem("store-selected", input.value);
-        setCollectionsFilters();
-        if (typeof theme !== 'undefined' && theme.headerNav) {
-          theme.headerNav.init();
-        }
-        const current = new URL(window.location.href);
-        if (/\/(?:collections|products)\//.test(current.pathname)) {
-          if (current.pathname.includes("/collections/") && !current.pathname.includes("/products/")) {
-            // This is a collections page
-            if(input.value.toLowerCase().includes("shop all")) {
-              current.searchParams.delete("filter.p.vendor");
-              window.location.replace(current.toString());
-            } else {
-              current.searchParams.set("filter.p.vendor", getStoreSentenceCase());
-              window.location.replace(current.toString());
-            }
-          } else {
-            // This is a product page - also handle vendor filter removal for "Shop All"
-            if(input.value.toLowerCase().includes("shop all")) {
-              current.searchParams.delete("filter.p.vendor");
-              window.location.replace(current.toString());
-            } else {
-              window.location.reload();
-            }
-          }
-        }
-      });
+      // Determine if product should be shown
+      const shouldShow = selectedStore.toLowerCase().includes("shop all") || 
+                        productVendor === selectedStore.toLowerCase() ||
+                        selectedStore === '';
+      
+      if (shouldShow) {
+        item.style.display = '';
+        visibleCount++;
+      } else {
+        item.style.display = 'none';
+        hiddenCount++;
+      }
     });
-
-    if (!localStorage.getItem("store-selected")) {
-      localStorage.setItem("store-selected", this.inputs[0].value);
-      this.htmlEL.dataset.storeSelected = this.inputs[0].value;
-      if (typeof theme !== 'undefined' && theme.headerNav) {
-        theme.headerNav.init();
-      }
-      const current = new URL(window.location.href);
-      if (/\/(?:collections|products)\//.test(current.pathname)) {
-        window.location.reload();
-      }
-    }
-  }
-}
-
-customElements.define("store-switcher", StoreSwitcher);
-
-const getStoreSentenceCase = () => {
-  const rawStore = localStorage.getItem("store-selected");
-  if (!rawStore) return;
-  return rawStore[0].toUpperCase() + rawStore.slice(1);
-};
-
-document.addEventListener("DOMContentLoaded", () => {
-  setCollectionsFilters();
-
-  const current = new URL(window.location.href);
-  const currentStore = getStoreSentenceCase();
-  
-  // Handle product pages with vendor filters when "Shop All" is selected
-  if (current.pathname.includes("/products/") && 
-      current.searchParams.has("filter.p.vendor") &&
-      currentStore &&
-      currentStore.toLowerCase().includes("shop all")) {
-    current.searchParams.delete("filter.p.vendor");
-    window.location.replace(current.toString());
-    return;
+    
+    log(`Product filtering complete: ${visibleCount} visible, ${hiddenCount} hidden`);
   }
   
-  // Only apply collection filtering logic to actual collections pages (not product pages)
-  // and respect "Shop All" selection
-  if (
-    current.pathname.includes("/collections/") &&
-    !current.pathname.includes("/products/") &&
-    !current.searchParams.has("filter.p.vendor") &&
-    currentStore &&
-    !currentStore.toLowerCase().includes("shop all")
-  ) {
-    current.searchParams.set("filter.p.vendor", currentStore);
-    window.location.replace(current.toString());
-    return;
-  }
-});
-
-class StoreSwitchMenus extends HTMLElement {
-  constructor() {
-    super();
-
-    // this.initMegaMenuPos();
-    this.initMegaMenuHeight();
-    this.initShowingLogic();
-    this.initResizeListener();
-  }
-
-  initShowingLogic() {
-    const header = document.getElementById("SiteHeader");
-    const itemsWithMega = this.querySelectorAll(
-      ".ssm__menu li:has(.ssm__mega-menu)"
-    );
-    const hideAllMegas = () => {
-      itemsWithMega.forEach((li) => {
-        li.querySelector(".ssm__mega-menu").classList.remove("visible");
-      });
-    };
-
-    header.querySelectorAll("li:not(:has(.ssm__mega-menu))").forEach((el) => {
-      el.addEventListener("mouseover", () => {
-        hideAllMegas();
-      });
+  function resetSearchInputs() {
+    log('Resetting search inputs due to store change');
+    
+    // Clear all search input fields
+    const searchInputs = document.querySelectorAll('input[type="search"], input[name="q"]');
+    searchInputs.forEach(input => {
+      input.value = '';
     });
-
-    header.addEventListener("mouseleave", () => {
-      hideAllMegas();
-    });
-
-    this.querySelectorAll(".ssm__menu li:has(.ssm__mega-menu)").forEach(
-      (link) => {
-        link.addEventListener("mouseover", () => {
-          hideAllMegas();
-          this.initMegaMenuHeight();
-          link.querySelector(".ssm__mega-menu").classList.add("visible");
-        });
+    
+    // Clear predictive search results
+    if (CONFIG.clearPredictiveSearch) {
+      const predictiveContainer = document.getElementById('predictive-search');
+      if (predictiveContainer) {
+        predictiveContainer.innerHTML = '';
+        predictiveContainer.style.display = 'none';
       }
-    );
+    }
+    
+    // Close search overlays
+    const searchOverlay = document.querySelector('.search-overlay, .predictive__screen');
+    if (searchOverlay) {
+      searchOverlay.style.display = 'none';
+    }
+    
+    // Update search placeholders
+    if (CONFIG.updatePlaceholders) {
+      updateSearchPlaceholders();
+    }
+    
+    // Filter products on the current page
+    filterProductsOnPage();
+    
+    // Handle search results page
+    if (window.location.pathname.includes('/search')) {
+      if (CONFIG.redirectFromSearchPage) {
+        log('Redirecting from search page to home');
+        window.location.href = '/';
+      }
+    }
   }
-
-  initResizeListener() {
-    let resizeTimeout;
-    window.addEventListener("resize", () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(() => {
-        this.initMegaMenuHeight();
-      }, 100);
+  
+  function updateSearchPlaceholders() {
+    const selectedStore = localStorage.getItem("store-selected") || "";
+    const searchInputs = document.querySelectorAll('input[type="search"], input[name="q"]');
+    
+    searchInputs.forEach(input => {
+      let placeholder = 'Search';
+      
+      if (selectedStore && !selectedStore.toLowerCase().includes("shop all")) {
+        const capitalizedStore = selectedStore.charAt(0).toUpperCase() + selectedStore.slice(1);
+        placeholder = `Search ${capitalizedStore} products...`;
+      }
+      
+      input.placeholder = placeholder;
     });
   }
-  initMegaMenuPos() {
-    this.querySelectorAll(".ssm__menu-link").forEach((item) => {
-      const trigger = item;
-      const menu = item.parentElement.querySelector(".ssm__mega-menu");
-
-      if (!menu) {
-        return;
-      }
-      function positionMenu() {
-        const menuRect = menu.getBoundingClientRect();
-        const triggerRect = trigger.getBoundingClientRect();
-
-        if (menuRect.left < 0) {
-          menu.style.left = -triggerRect.left + "px";
-          menu.style.transform = "none";
+  
+  function updateFormVendorFilters() {
+    const selectedStore = localStorage.getItem("store-selected") || "";
+    const searchForms = document.querySelectorAll('form[action*="search"]');
+    
+    searchForms.forEach(form => {
+      const vendorInput = form.querySelector('input[name="filter.p.vendor"], .vendor-filter-input');
+      if (vendorInput) {
+        if (selectedStore && !selectedStore.toLowerCase().includes("shop all")) {
+          const capitalizedStore = selectedStore.charAt(0).toUpperCase() + selectedStore.slice(1);
+          vendorInput.value = capitalizedStore;
+        } else {
+          vendorInput.value = '';
         }
       }
-
-      trigger.addEventListener("mouseenter", positionMenu);
-
-      window.addEventListener("resize", positionMenu);
     });
   }
-  initMegaMenuHeight() {
-    const megaMenus = this.querySelectorAll(".ssm__mega-menu");
-    megaMenus.forEach((megaMenu) => {
-      const container = megaMenu.querySelector(".ssm__mega-menu-container");
-      const menusMaxHeight =
-        Math.max(
-          ...Array.from(
-            megaMenu.querySelectorAll(".ssm__mega-menu-container > div")
-          ).map((menu) => menu.offsetHeight)
-        ) + 30;
-      container.style.maxHeight = Math.max(250, menusMaxHeight) + "px";
-    });
+  
+  function isStoreRadio(element) {
+    return (
+      element.matches('store-switcher input[type="radio"]') || 
+      (element.type === 'radio' && element.closest('store-switcher')) ||
+      (element.type === 'radio' && element.name && element.name.startsWith('store-switcher-'))
+    );
   }
-}
-customElements.define("store-switch-menus", StoreSwitchMenus);
+  
+  function handleStoreChange() {
+    log('Store changed - executing full reset and filter');
+    
+    // Update form vendor filters first
+    updateFormVendorFilters();
+    
+    // Then reset search and filter products
+    setTimeout(resetSearchInputs, 100);
+  }
+  
+  function initializeSearchReset() {
+    log('Initializing search reset and product filtering');
+    
+    // Method 1: Listen for custom store change event (most reliable)
+    document.addEventListener('storeChanged', function(e) {
+      log('Custom storeChanged event detected');
+      handleStoreChange();
+    });
+    
+    // Method 2: Listen for store switcher changes (backup)
+    document.addEventListener('change', function(e) {
+      if (isStoreRadio(e.target)) {
+        log('Store radio change detected');
+        handleStoreChange();
+      }
+    });
+    
+    // Method 3: Listen for clicks as backup
+    document.addEventListener('click', function(e) {
+      const storeLabel = e.target.closest('store-switcher label');
+      if (storeLabel) {
+        log('Store switcher label clicked');
+        setTimeout(handleStoreChange, 150);
+      }
+    });
+    
+    // Initial setup
+    setTimeout(function() {
+      updateSearchPlaceholders();
+      updateFormVendorFilters();
+      filterProductsOnPage();
+    }, 100);
+    
+    log('All event listeners attached');
+  }
+  
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeSearchReset);
+  } else {
+    initializeSearchReset();
+  }
+  
+  // Expose methods for debugging/manual control
+  window.SearchStoreReset = {
+    config: CONFIG,
+    reset: resetSearchInputs,
+    filterProducts: filterProductsOnPage,
+    updatePlaceholders: updateSearchPlaceholders,
+    updateForms: updateFormVendorFilters
+  };
+  
+})();
