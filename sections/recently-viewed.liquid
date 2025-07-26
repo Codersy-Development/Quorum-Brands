@@ -17,13 +17,12 @@
   data-grid-item-class="{{ gridView }}"
   data-row-of="{{ row_of }}"
   data-image-sizes="{{ sizes }}"
-  data-vendor-filter="{{ product.vendor | escape }}"
 >
   <hr class="hr--large">
   <div class="index-section index-section--small">
     <div class="page-width">
       <header class="section-header">
-        <h3 class="section-header__title">{{ 'products.general.recent_products' | t }}</h3>
+        <h3 class="section-header__title" id="recently-viewed-title-{{ section.id }}">{{ 'products.general.recent_products' | t }}</h3>
       </header>
     </div>
     <div class="page-width page-width--flush-small">
@@ -39,27 +38,194 @@ document.addEventListener('DOMContentLoaded', function() {
   const recentlyViewedSection = document.querySelector('[data-section-type="recently-viewed"]');
   if (!recentlyViewedSection) return;
   
-  const currentProductVendor = recentlyViewedSection.dataset.vendorFilter;
+  const sectionId = '{{ section.id }}';
+  const recentlyViewedContainer = document.getElementById('RecentlyViewed-' + sectionId);
+  const titleElement = document.getElementById('recently-viewed-title-' + sectionId);
   
-  // Override the recently viewed filtering logic
-  if (window.recentlyViewed && currentProductVendor) {
-    const originalGetRecentProducts = window.recentlyViewed.getRecentProducts;
-    
-    window.recentlyViewed.getRecentProducts = function() {
-      const allRecentProducts = originalGetRecentProducts.call(this);
-      
-      // Filter products to only show items from the same vendor as current product
-      return allRecentProducts.filter(product => {
-        return product.vendor === currentProductVendor;
-      });
-    };
+  // Store original recently viewed function if it exists
+  let originalGetRecentProducts = null;
+  if (window.recentlyViewed && window.recentlyViewed.getRecentProducts) {
+    originalGetRecentProducts = window.recentlyViewed.getRecentProducts.bind(window.recentlyViewed);
   }
   
-  // If there's a custom recently viewed handler, apply vendor filtering
-  const recentlyViewedContainer = document.getElementById('RecentlyViewed-{{ section.id }}');
-  if (recentlyViewedContainer && currentProductVendor) {
-    // Add vendor-specific class for styling if needed
-    recentlyViewedContainer.classList.add('recently-viewed--' + currentProductVendor.toLowerCase().replace(/\s+/g, '-'));
+  function filterRecentlyViewedProducts() {
+    const selectedStore = localStorage.getItem("store-selected") || "";
+    
+    if (!recentlyViewedContainer) return;
+    
+    console.log('Filtering recently viewed products for store:', selectedStore);
+    
+    // Update section title based on selected store
+    if (titleElement) {
+      let titleText = "{{ 'products.general.recent_products' | t }}";
+      if (selectedStore && !selectedStore.toLowerCase().includes("shop all")) {
+        const capitalizedStore = selectedStore.charAt(0).toUpperCase() + selectedStore.slice(1);
+        titleText = `Recently Viewed ${capitalizedStore} Products`;
+      }
+      titleElement.textContent = titleText;
+    }
+    
+    // Find all recently viewed product items
+    const productItems = recentlyViewedContainer.querySelectorAll(
+      '.grid-product, .product-item, [data-product-id], [class*="product"]'
+    );
+    
+    let visibleCount = 0;
+    let hiddenCount = 0;
+    
+    productItems.forEach((item, index) => {
+      let productVendor = '';
+      
+      // Try to get vendor from various sources
+      if (item.dataset.vendor) {
+        productVendor = item.dataset.vendor.toLowerCase();
+      } else {
+        // Look for vendor in product data or text
+        const vendorElement = item.querySelector('.grid-product__vendor, [class*="vendor"]');
+        if (vendorElement) {
+          productVendor = vendorElement.textContent.trim().toLowerCase();
+        } else {
+          // Try to extract from product URL or other attributes
+          const productLink = item.querySelector('a[href*="/products/"]');
+          if (productLink) {
+            // Check if there's vendor info in data attributes
+            const allAttrs = Array.from(item.attributes);
+            for (let attr of allAttrs) {
+              if (attr.name.includes('vendor') || 
+                  (attr.value && (attr.value.toLowerCase().includes('oxygen') || attr.value.toLowerCase().includes('quorum')))) {
+                productVendor = attr.value.toLowerCase();
+                break;
+              }
+            }
+          }
+          
+          // Last resort: scan text content
+          if (!productVendor) {
+            const itemText = item.textContent.toLowerCase();
+            if (itemText.includes('oxygen')) {
+              productVendor = 'oxygen';
+            } else if (itemText.includes('quorum')) {
+              productVendor = 'quorum';
+            }
+          }
+        }
+      }
+      
+      // Determine if product should be shown
+      const shouldShow = selectedStore.toLowerCase().includes("shop all") || 
+                        productVendor === selectedStore.toLowerCase() ||
+                        selectedStore === '';
+      
+      if (shouldShow) {
+        item.style.display = '';
+        visibleCount++;
+        console.log(`✓ Showing recently viewed product ${index + 1} (vendor: ${productVendor})`);
+      } else {
+        item.style.display = 'none';
+        hiddenCount++;
+        console.log(`✗ Hiding recently viewed product ${index + 1} (vendor: ${productVendor})`);
+      }
+    });
+    
+    console.log(`Recently viewed filtering: ${visibleCount} visible, ${hiddenCount} hidden`);
+    
+    // Hide the entire section if no products are visible
+    const sectionElement = recentlyViewedSection.querySelector('.index-section');
+    if (sectionElement) {
+      if (visibleCount === 0) {
+        sectionElement.style.display = 'none';
+        console.log('Hiding recently viewed section - no matching products');
+      } else {
+        sectionElement.style.display = '';
+      }
+    }
+    
+    // Update vendor-specific class
+    if (recentlyViewedContainer) {
+      // Remove old vendor classes
+      recentlyViewedContainer.classList.remove('recently-viewed--oxygen', 'recently-viewed--quorum', 'recently-viewed--all');
+      
+      // Add new vendor class
+      if (selectedStore && !selectedStore.toLowerCase().includes("shop all")) {
+        const cleanVendor = selectedStore.toLowerCase().replace(/\s+/g, '-');
+        recentlyViewedContainer.classList.add('recently-viewed--' + cleanVendor);
+      } else {
+        recentlyViewedContainer.classList.add('recently-viewed--all');
+      }
+    }
+  }
+  
+  // Override recently viewed function to filter by selected store instead of current product vendor
+  function setupRecentlyViewedFiltering() {
+    if (window.recentlyViewed && originalGetRecentProducts) {
+      window.recentlyViewed.getRecentProducts = function() {
+        const allRecentProducts = originalGetRecentProducts();
+        const selectedStore = localStorage.getItem("store-selected") || "";
+        
+        // If "shop all" is selected, return all products
+        if (!selectedStore || selectedStore.toLowerCase().includes("shop all")) {
+          return allRecentProducts;
+        }
+        
+        // Filter products by selected store
+        return allRecentProducts.filter(product => {
+          return product.vendor && product.vendor.toLowerCase() === selectedStore.toLowerCase();
+        });
+      };
+      
+      console.log('Recently viewed filtering function updated for store-based filtering');
+    }
+  }
+  
+  // Listen for store changes
+  document.addEventListener('change', function(e) {
+    if (e.target.matches('store-switcher input[type="radio"]') || 
+        (e.target.type === 'radio' && e.target.closest('store-switcher')) ||
+        (e.target.type === 'radio' && e.target.name && e.target.name.startsWith('store-switcher-'))) {
+      
+      console.log('Store changed, re-filtering recently viewed products...');
+      setTimeout(function() {
+        setupRecentlyViewedFiltering();
+        filterRecentlyViewedProducts();
+        
+        // Trigger recently viewed to refresh if possible
+        if (window.recentlyViewed && window.recentlyViewed.showRecentlyViewed) {
+          window.recentlyViewed.showRecentlyViewed();
+        }
+      }, 100);
+    }
+  });
+  
+  // Listen for clicks as backup
+  document.addEventListener('click', function(e) {
+    const storeLabel = e.target.closest('store-switcher label');
+    if (storeLabel) {
+      console.log('Store switcher clicked, updating recently viewed...');
+      setTimeout(function() {
+        setupRecentlyViewedFiltering();
+        filterRecentlyViewedProducts();
+      }, 150);
+    }
+  });
+  
+  // Initial setup
+  setTimeout(function() {
+    setupRecentlyViewedFiltering();
+    filterRecentlyViewedProducts();
+  }, 500); // Wait a bit longer for recently viewed to load
+  
+  // Also filter when recently viewed products are loaded/updated
+  const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.type === 'childList' && mutation.target === recentlyViewedContainer) {
+        console.log('Recently viewed products updated, re-filtering...');
+        setTimeout(filterRecentlyViewedProducts, 100);
+      }
+    });
+  });
+  
+  if (recentlyViewedContainer) {
+    observer.observe(recentlyViewedContainer, { childList: true, subtree: true });
   }
 });
 </script>
