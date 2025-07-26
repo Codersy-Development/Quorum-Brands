@@ -682,17 +682,6 @@
             "button_label": "Explore Products",
             "button_link": "shopify://collections/oxygen-outdoor-lights"
           }
-        },
-        "card_slide_A3cdGF": {
-          "type": "card_slide",
-          "settings": {
-            "main_image_url": "",
-            "card_image_url": "",
-            "heading": "Shop by Room: Dining",
-            "text": "Designed to enhance every meal, our dining selection combines timeless style with thoughtful functionality.",
-            "button_label": "Explore Products",
-            "button_link": ""
-          }
         }
       },
       "block_order": [
@@ -700,8 +689,7 @@
         "card_slide_tipKqt",
         "card_slide_yPEAWh",
         "card_slide_xgmhVR",
-        "card_slide_7iH8Hg",
-        "card_slide_A3cdGF"
+        "card_slide_7iH8Hg"
       ],
       "name": "Product Feature Carousel",
       "settings": {
