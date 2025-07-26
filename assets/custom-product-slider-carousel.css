@@ -149,8 +149,10 @@
         display: flex;
         gap: 12px;
         justify-content: flex-end;
-        margin-top: 20px;
+        margin-top: 0px; /* Moved up 20px from original 20px */
         flex-shrink: 0;
+        position: relative;
+        z-index: 10; /* Ensure arrows are always visible */
     }
     & .product-button-prev {
         transform: rotate(180deg);
@@ -161,13 +163,16 @@
         height: 40px;
         background: #f1f1f1;
         border-radius: 50%;
-        display: flex;
+        display: flex !important; /* Force display */
         justify-content: center;
         align-items: center;
         cursor: pointer;
         transition: all 0.3s ease;
         border: 1px solid #e0e0e0;
         position: relative;
+        z-index: 11; /* Ensure individual buttons are visible */
+        opacity: 1 !important; /* Force opacity */
+        visibility: visible !important; /* Force visibility */
     }
     & .product-button-prev:hover,
     & .product-button-next:hover {
