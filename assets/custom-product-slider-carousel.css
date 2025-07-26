@@ -176,9 +176,9 @@
         transform: translateY(-1px);
     }
     
-    /* CSS Arrow styling */
-    & .product-button-prev::after,
-    & .product-button-next::after {
+    /* CSS Arrow styling - only shows when no SVG is present */
+    & .product-button-prev:not(.has-svg)::after,
+    & .product-button-next:not(.has-svg)::after {
         content: '';
         width: 8px;
         height: 8px;
@@ -188,11 +188,11 @@
         display: block;
     }
     
-    & .product-button-prev::after {
+    & .product-button-prev:not(.has-svg)::after {
         transform: rotate(135deg);
     }
     
-    /* SVG styling if you choose to use SVG icons instead */
+    /* SVG styling */
     & .product-button-prev img,
     & .product-button-next img {
         width: 16px;
@@ -200,12 +200,19 @@
         transition: filter 0.3s ease;
         position: relative;
         z-index: 2;
+        display: block;
     }
     
-    /* When using SVG, hide the CSS arrows by adding this class */
-    & .product-button-prev.has-svg::after,
-    & .product-button-next.has-svg::after {
-        display: none;
+    /* Ensure SVG is visible */
+    & .product-button-prev.has-svg,
+    & .product-button-next.has-svg {
+        background: #f1f1f1;
+    }
+    
+    & .product-button-prev.has-svg img,
+    & .product-button-next.has-svg img {
+        opacity: 1;
+        visibility: visible;
     }
     & .swiper-button-disabled {
         opacity: 0.5;
