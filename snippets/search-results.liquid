@@ -100,25 +100,15 @@
                       {% if settings.predictive_search_show_price %}
                         {%- if on_sale -%}
                           <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
-                          <span class="grid-product__price--original data-wpd-hide">{{ product.compare_at_price | money }}</span>
+                          <span class="grid-product__price--original">{{ product.compare_at_price | money }}</span>
                           <span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
                         {%- endif -%}
 
                         {%- if product.price_varies -%}
                           {%- assign price = product.price_min | money -%}
-                          <span class="grid-product__price" data-wpd-product-handle="{{ product.handle }}"         
-            data-wpd-variant-id="{{ product.selected_or_first_available_variant.id }}"         
-            data-wpd-variant-price="{{ product.selected_or_first_available_variant.price }}"        
-            data-wpd-variant-compare-at-price="{{ product.selected_or_first_available_variant.compare_at_price }}"
-            data-wpd-product-collection-ids="{% assign wpdProductCollectionIds = product.collections | map:'id' %}{{ wpdProductCollectionIds | join:',' }}"        
-            data-wpd-product-id="{{ product.id }}">{{ 'products.general.from_text_html' | t: price: price }}</span>
+                          <span class="grid-product__price">{{ 'products.general.from_text_html' | t: price: price }}</span>
                         {%- else -%}
-                          <span class="grid-product__price" data-wpd-product-handle="{{ product.handle }}"         
-            data-wpd-variant-id="{{ product.selected_or_first_available_variant.id }}"         
-            data-wpd-variant-price="{{ product.selected_or_first_available_variant.price }}"        
-            data-wpd-variant-compare-at-price="{{ product.selected_or_first_available_variant.compare_at_price }}"
-            data-wpd-product-collection-ids="{% assign wpdProductCollectionIds = product.collections | map:'id' %}{{ wpdProductCollectionIds | join:',' }}"        
-            data-wpd-product-id="{{ product.id }}">{{ product.price | money }}</span>
+                          <span class="grid-product__price">{{ product.price | money }}</span>
                         {%- endif -%}
                         {%- if on_sale -%}
                           {%- if settings.product_save_amount -%}
