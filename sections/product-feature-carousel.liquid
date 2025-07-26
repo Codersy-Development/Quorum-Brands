@@ -95,13 +95,57 @@ let swiperInstance = null;
 document.addEventListener('DOMContentLoaded', function () {
     console.log('=== CAROUSEL INITIALIZATION ===');
     
+    // Debug store selection
+    const carouselSection = document.querySelector('.product-feature-carousel');
+    const storeSelection = carouselSection ? carouselSection.getAttribute('data-store') : 'none';
+    const htmlStoreSelected = document.documentElement.getAttribute('data-store-selected');
+    console.log('Carousel section store setting:', storeSelection);
+    console.log('HTML store selected:', htmlStoreSelected);
+    
+    // Check for any competing carousel scripts
+    const existingSwippers = document.querySelectorAll('.swiper-initialized');
+    console.log('Existing Swiper instances found:', existingSwippers.length);
+    
     // Wait a bit for DOM to be fully ready
     setTimeout(initializeCarousel, 100);
+});
+
+// Listen for store change events from the store switcher
+document.addEventListener('storeChanged', function(event) {
+    console.log('Store changed event received:', event.detail.selectedStore);
+    
+    // Force re-initialize carousel after store change
+    setTimeout(() => {
+        console.log('Re-initializing carousel after store change...');
+        if (swiperInstance) {
+            swiperInstance.destroy(true, true);
+            swiperInstance = null;
+        }
+        initializeCarousel();
+    }, 200);
+});
+
+// Also listen for the backup event
+document.addEventListener('storeUpdate', function(event) {
+    console.log('Store update event received:', event.detail.store);
+    
+    // Force re-initialize carousel after store change
+    setTimeout(() => {
+        console.log('Re-initializing carousel after store update...');
+        if (swiperInstance) {
+            swiperInstance.destroy(true, true);
+            swiperInstance = null;
+        }
+        initializeCarousel();
+    }, 200);
 });
 
 function initializeCarousel() {
     const mainImage = document.getElementById('mainImageDynamic');
     const swiperContainer = document.querySelector('.card-swiper');
+    
+    console.log('Main image found:', !!mainImage);
+    console.log('Swiper container found:', !!swiperContainer);
     
     if (!mainImage) {
         console.error('Main image element not found');
@@ -113,15 +157,41 @@ function initializeCarousel() {
         return;
     }
 
+    // Force carousel section to be visible
+    const carouselSection = document.querySelector('.product-feature-carousel');
+    if (carouselSection) {
+        carouselSection.style.display = 'block';
+        carouselSection.style.visibility = 'visible';
+        carouselSection.style.opacity = '1';
+        console.log('Forced carousel section to be visible');
+    }
+
     // Collect slide data from the DOM
     const slides = document.querySelectorAll('.swiper-slide[data-main-image]');
     totalSlides = slides.length;
     
     console.log('Found', totalSlides, 'slides');
+    console.log('Slides:', slides);
     
     if (totalSlides === 0) {
         console.error('No slides found with data-main-image attribute');
         return;
+    }
+    
+    // Force all slides to be visible to Swiper regardless of store selection
+    slides.forEach((slide, index) => {
+        slide.style.display = 'block';
+        slide.style.visibility = 'visible';
+        slide.style.opacity = '1';
+        console.log(`Slide ${index + 1} made visible`);
+    });
+    
+    // Force wrapper to be visible
+    const wrapper = swiperContainer.querySelector('.swiper-wrapper');
+    if (wrapper) {
+        wrapper.style.display = 'flex';
+        wrapper.style.visibility = 'visible';
+        wrapper.style.opacity = '1';
     }
     
     slideData = [];
@@ -136,7 +206,14 @@ function initializeCarousel() {
         console.log(`Slide ${index + 1}: Image = ${imageUrl}, Link = ${linkUrl}`);
     });
 
-    // Initialize Swiper
+    // Destroy existing instance if it exists
+    if (swiperInstance && typeof swiperInstance.destroy === 'function') {
+        console.log('Destroying existing Swiper instance');
+        swiperInstance.destroy(true, true);
+        swiperInstance = null;
+    }
+
+    // Initialize Swiper with force settings
     swiperInstance = new Swiper('.card-swiper', {
         slidesPerView: 1,
         spaceBetween: 0,
@@ -149,9 +226,16 @@ function initializeCarousel() {
         speed: 400,
         allowTouchMove: true,
         watchSlidesProgress: true,
+        // Force Swiper to work with all slides
+        watchOverflow: true,
+        observer: true,
+        observeParents: true,
+        // Additional settings to handle dynamic content
+        autoHeight: false,
+        centeredSlides: false,
         on: {
             init: function() {
-                console.log('Swiper initialized');
+                console.log('Swiper initialized with', this.slides.length, 'slides');
                 updateMainImageFromIndex(0);
                 updateSlideCounter();
             },
