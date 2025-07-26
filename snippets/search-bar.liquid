@@ -18,68 +18,114 @@
 document.addEventListener('DOMContentLoaded', function() {
   let selectedStore = '';
 
-  console.log('Store switcher script loaded');
+  console.log('=== STORE SWITCHER DEBUG SCRIPT LOADED ===');
+
+  // Debug: Check what elements exist
+  setTimeout(function() {
+    const storeSwitcher = document.querySelector('store-switcher');
+    const storeRadios = document.querySelectorAll('store-switcher input[type="radio"]');
+    const vendorCheckboxes = document.querySelectorAll('input[name="filter.p.vendor"]');
+    
+    console.log('Store switcher element found:', !!storeSwitcher);
+    console.log('Store radio buttons found:', storeRadios.length);
+    console.log('Vendor filter checkboxes found:', vendorCheckboxes.length);
+    
+    storeRadios.forEach((radio, index) => {
+      console.log(`Radio ${index + 1}:`, radio.value, 'checked:', radio.checked);
+    });
+    
+    vendorCheckboxes.forEach((checkbox, index) => {
+      console.log(`Vendor checkbox ${index + 1}:`, checkbox.value, 'checked:', checkbox.checked);
+    });
+  }, 500);
 
   // Function to get selected store from store switcher
   function getSelectedStore() {
     const checkedStoreRadio = document.querySelector('store-switcher input[type="radio"]:checked');
     if (checkedStoreRadio) {
-      console.log('Found selected store:', checkedStoreRadio.value);
+      console.log('✓ Found selected store:', checkedStoreRadio.value);
       return checkedStoreRadio.value;
     }
+    console.log('✗ No selected store found');
     return '';
   }
 
   // Function to check/uncheck vendor filter based on selected store
   function updateVendorFilter() {
     selectedStore = getSelectedStore();
-    console.log('Updating vendor filter for store:', selectedStore);
+    console.log('=== UPDATING VENDOR FILTER ===');
+    console.log('Selected store:', selectedStore);
     
     if (selectedStore) {
       // Uncheck ALL vendor filters first (handle duplicates)
       const vendorCheckboxes = document.querySelectorAll('input[name="filter.p.vendor"]');
-      vendorCheckboxes.forEach(checkbox => {
+      console.log('Found', vendorCheckboxes.length, 'vendor checkboxes to uncheck');
+      
+      vendorCheckboxes.forEach((checkbox, index) => {
         checkbox.checked = false;
+        console.log(`Unchecked vendor checkbox ${index + 1}:`, checkbox.value);
       });
 
       // Check ALL vendor filters that match the selected store (handle duplicates)
       const capitalizedStore = selectedStore.charAt(0).toUpperCase() + selectedStore.slice(1);
       const targetVendorCheckboxes = document.querySelectorAll(`input[name="filter.p.vendor"][value="${capitalizedStore}"]`);
       
-      console.log(`Found ${targetVendorCheckboxes.length} vendor checkboxes for ${capitalizedStore}`);
+      console.log(`Looking for vendor checkboxes with value "${capitalizedStore}"`);
+      console.log(`Found ${targetVendorCheckboxes.length} matching vendor checkboxes`);
       
       targetVendorCheckboxes.forEach((checkbox, index) => {
         checkbox.checked = true;
-        console.log(`Checked vendor filter ${index + 1} for:`, capitalizedStore);
+        console.log(`✓ Checked vendor filter ${index + 1} for:`, capitalizedStore);
         
         // Trigger change event on each checkbox
         checkbox.dispatchEvent(new Event('change', { bubbles: true }));
+        console.log(`✓ Triggered change event on checkbox ${index + 1}`);
       });
+      
+      // Force form submission or filter update if needed
+      const form = document.querySelector('form[action*="search"]');
+      if (form) {
+        console.log('Found search form, considering triggering update...');
+        // Uncomment the next line if you need to force form submission
+        // form.requestSubmit();
+      }
     }
+    console.log('=== VENDOR FILTER UPDATE COMPLETE ===');
   }
 
   // Function to update search placeholder
   function updateSearchPlaceholder() {
     const searchInputs = document.querySelectorAll('input[type="search"][name="q"]');
-    const capitalizedStore = selectedStore.charAt(0).toUpperCase() + selectedStore.slice(1);
+    const capitalizedStore = selectedStore ? selectedStore.charAt(0).toUpperCase() + selectedStore.slice(1) : '';
     
-    searchInputs.forEach(input => {
+    console.log('Updating', searchInputs.length, 'search input placeholders');
+    
+    searchInputs.forEach((input, index) => {
       if (selectedStore) {
         input.placeholder = `Search ${capitalizedStore} products...`;
+        console.log(`Updated search input ${index + 1} placeholder to: Search ${capitalizedStore} products...`);
       } else {
         input.placeholder = "{{ 'general.search.placeholder' | t }}";
       }
     });
   }
 
-  // Listen for store switcher changes
+  // Listen for ALL change events and log them
   document.addEventListener('change', function(e) {
+    console.log('=== CHANGE EVENT DETECTED ===');
+    console.log('Element that changed:', e.target);
+    console.log('Element type:', e.target.type);
+    console.log('Element name:', e.target.name);
+    console.log('Element value:', e.target.value);
+    console.log('Is inside store-switcher:', !!e.target.closest('store-switcher'));
+    
     // Check if the changed element is a store switcher radio
     if (e.target.matches('store-switcher input[type="radio"]') || 
         (e.target.type === 'radio' && e.target.closest('store-switcher'))) {
       
+      console.log('🎯 STORE SWITCHER RADIO CHANGED!');
       selectedStore = e.target.value;
-      console.log('Store changed to:', selectedStore);
+      console.log('New selected store:', selectedStore);
       
       // Update vendor filter and search placeholder
       updateVendorFilter();
@@ -87,17 +133,26 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Store selected store for persistence
       localStorage.setItem('selectedStore', selectedStore);
+      console.log('Stored in localStorage:', selectedStore);
+    }
+    
+    // Also log vendor checkbox changes
+    if (e.target.name === 'filter.p.vendor') {
+      console.log('📦 VENDOR FILTER CHANGED:', e.target.value, 'checked:', e.target.checked);
     }
   });
 
   // Initialize with selected store
   setTimeout(function() {
+    console.log('=== INITIALIZING ===');
     selectedStore = getSelectedStore();
     if (selectedStore) {
       console.log('Initializing with store:', selectedStore);
       updateVendorFilter();
       updateSearchPlaceholder();
+    } else {
+      console.log('No store selected during initialization');
     }
-  }, 200);
+  }, 300);
 });
 </script>
