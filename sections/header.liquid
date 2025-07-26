@@ -56,7 +56,8 @@
   section: section,
   main_menu: main_menu,
   toolbar_menu: toolbar_menu,
-  logo_alignment: logo_alignment
+  logo_alignment: logo_alignment,
+  show_store_switcher_top: section.settings.main_menu_alignment == 'center-below'
 -%}
 {%- render 'cart-drawer' -%}
 
@@ -262,6 +263,34 @@
       
       .store-buttons-wrapper {
         display: none;
+      }
+      
+      /* Move store switcher to top of mobile drawer for center-below layout */
+      .header-layout--center-below ~ * .store-switch-buttons--drawer {
+        position: static;
+        bottom: auto;
+        top: 0;
+        order: -1;
+        margin-bottom: 20px;
+        padding: 20px 20px 20px 20px;
+        border-top: none;
+        border-bottom: 1px solid var(--colorDrawerBorder);
+        background: var(--colorDrawers);
+      }
+      
+      .header-layout--center-below ~ * #mobile-nav:has(.store-switch-buttons--drawer) {
+        padding-bottom: 0;
+        padding-top: 0;
+      }
+      
+      /* Ensure mobile nav container allows proper ordering */
+      .header-layout--center-below ~ * #mobile-nav {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .header-layout--center-below ~ * .mobile-nav {
+        order: 1;
       }
     }
   {% endif %}
