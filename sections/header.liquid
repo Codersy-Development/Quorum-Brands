@@ -147,32 +147,22 @@
   /* Styles for center-below layout */
   {% if section.settings.main_menu_alignment == 'center-below' %}
     .header-layout--center-below {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      justify-content: center;
-      position: relative;
+      gap: 20px;
+    }
+
+    .header-layout--center-below .store-buttons-wrapper {
+      justify-self: start;
     }
 
     .header-layout--center-below .header-item--logo {
-      display: flex;
-      justify-content: center;
+      justify-self: center;
     }
 
     .header-layout--center-below .header-item--icons {
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    .store-buttons-top {
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      display: flex;
-      gap: 10px;
-      align-items: center;
+      justify-self: end;
     }
 
     .header-nav-below-all {
@@ -182,6 +172,19 @@
       padding-top: 20px;
       border-top: 1px solid rgba(0,0,0,0.1);
       margin-top: 15px;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .header-nav-below-all .store-switch-navigations {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header-nav-below-all .main-nav-wrapper {
+      display: flex;
+      align-items: center;
     }
 
     .header-nav-below-all .site-nav {
@@ -203,17 +206,17 @@
     }
 
     @media only screen and (max-width: 768px) {
+      .header-layout--center-below {
+        grid-template-columns: auto 1fr auto;
+        gap: 10px;
+      }
+      
       .header-nav-below-all {
         display: none;
       }
       
-      .store-buttons-top {
+      .store-buttons-wrapper {
         display: none;
-      }
-      
-      .header-layout--center-below .header-item--icons {
-        position: static;
-        transform: none;
       }
     }
   {% endif %}
@@ -328,7 +331,7 @@
 
             {%- if logo_alignment == 'center' -%}
               {%- if section.settings.main_menu_alignment == 'center-below' -%}
-                <div class="store-buttons-top medium-down--hide">
+                <div class="store-buttons-wrapper medium-down--hide">
                   {% render 'store-switch-buttons', section: section %}
                 </div>
                 
@@ -389,8 +392,11 @@
 
           {%- if section.settings.main_menu_alignment == 'center-below' -%}
             <div class="header-nav-below-all medium-down--hide">
+              <div class="store-switch-navigations">
+                {% render 'store-switch-menus', section %}
+              </div>
               <div
-                class="header-item header-item--navigation text-center"
+                class="main-nav-wrapper"
                 {% unless disable_aria %}
                   role="navigation" aria-label="Primary"
                 {% endunless %}
