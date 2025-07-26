@@ -479,7 +479,7 @@
       ],
       "name": "Featured Products",
       "settings": {
-        "store": "shop all brands",
+        "store": "explore all brands",
         "heading": "Featured Products"
       }
     },
@@ -693,7 +693,7 @@
       ],
       "name": "Product Feature Carousel",
       "settings": {
-        "store": "shop all brands"
+        "store": "explore all brands"
       }
     },
     "product_feature_carousel_GDqwrm": {
