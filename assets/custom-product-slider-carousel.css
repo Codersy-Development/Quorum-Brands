@@ -1,4 +1,4 @@
-/* Product Feature Carousel - Enhanced with existing design */
+/* Product Feature Carousel - Based on original structure */
 .product-feature-carousel {
     padding: 80px 0;
     background: #fff;
@@ -25,7 +25,6 @@
         width: 100%;
         height: 821px;
         object-fit: cover;
-        transition: opacity 0.3s ease;
     }
     & .main-image {
         transition: opacity 0.5s ease-in-out;
@@ -176,44 +175,29 @@
         transform: translateY(-1px);
     }
     
-    /* CSS Arrow styling - only shows when no SVG is present */
-    & .product-button-prev:not(.has-svg)::after,
-    & .product-button-next:not(.has-svg)::after {
-        content: '';
-        width: 8px;
-        height: 8px;
-        border-right: 2px solid #333;
-        border-bottom: 2px solid #333;
-        transform: rotate(-45deg);
-        display: block;
+    /* Fix for prev button hover to maintain rotation */
+    & .product-button-prev:hover {
+        transform: rotate(180deg) translateY(-1px);
     }
     
-    & .product-button-prev:not(.has-svg)::after {
-        transform: rotate(135deg);
-    }
-    
-    /* SVG styling */
+    /* SVG image styling */
     & .product-button-prev img,
     & .product-button-next img {
         width: 16px;
         height: 16px;
-        transition: filter 0.3s ease;
-        position: relative;
-        z-index: 2;
         display: block;
-    }
-    
-    /* Ensure SVG is visible */
-    & .product-button-prev.has-svg,
-    & .product-button-next.has-svg {
-        background: #f1f1f1;
-    }
-    
-    & .product-button-prev.has-svg img,
-    & .product-button-next.has-svg img {
         opacity: 1;
         visibility: visible;
+        transition: filter 0.3s ease;
     }
+    
+    /* Ensure SVGs are visible and properly sized */
+    & .product-button-wrapper img {
+        max-width: 16px;
+        max-height: 16px;
+        object-fit: contain;
+    }
+    
     & .swiper-button-disabled {
         opacity: 0.5;
         cursor: not-allowed;
@@ -222,6 +206,12 @@
         background: #f1f1f1;
         transform: none;
     }
+    
+    /* Fix for disabled prev button */
+    & .product-button-prev.swiper-button-disabled:hover {
+        transform: rotate(180deg);
+    }
+    
     & .slide-counter {
         text-align: center;
         margin-top: 16px;
