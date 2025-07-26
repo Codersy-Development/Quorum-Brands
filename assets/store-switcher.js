@@ -9,14 +9,14 @@ const setCollectionsFilters = () => {
       // IMPORTANT: Only modify actual collections pages, not product pages
       if (url.pathname.includes('/products/')) {
         // This is a product page - don't modify the main URL structure, just handle filters
-        if (store === 'Shop All Brands' || store === 'Shop All Brands') {
+        if (store === 'shop all brands' || store === 'Shop All Brands') {
           url.searchParams.delete(VENDOR_KEY);
         } else {
           url.searchParams.set(VENDOR_KEY, store);
         }
       } else {
         // This is a collections page - apply normal filtering
-        if (store === 'Shop All Brands' || store === 'Shop All Brands') {
+        if (store === 'shop all brands' || store === 'Shop All Brands') {
           url.searchParams.delete(VENDOR_KEY);
         } else {
           url.searchParams.set(VENDOR_KEY, store);
