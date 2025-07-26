@@ -112,7 +112,7 @@
           "settings": {
             "title": "Mounting | Installation",
             "content": "<p>{{ product.metafields.custom.prefix_downrod_length_1.value }}<br/>{{ product.metafields.custom.prefix_downrod_diameter_1.value }}<br/>{{ product.metafields.custom.prefix_downrod_length_2.value }}<br/>{{ product.metafields.custom.prefix_downrod_diameter_2.value }}</p><p>{{ product.metafields.custom.prefix_ceiling_blade_height_1.value }}<br/>{{ product.metafields.custom.prefix_ceiling_bottom_height_1.value }}<br/>{{ product.metafields.custom.prefix_ceiling_blade_height_2.value }}<br/>{{ product.metafields.custom.prefix_ceiling_bottom_height_2.value }}</p><p>{{ product.metafields.custom.prefix_sloped_ceiling_adaptable.value }}<br/>{{ product.metafields.custom.prefix_standard_sloped_ceiling.value }}<br/>{{ product.metafields.custom.prefix_extended_sloped_ceiling.value }}</p><p>{{ product.metafields.custom.prefix_canopy_width.value }}<br/>{{ product.metafields.custom.prefix_canopy_height.value }}<br/>{{ product.metafields.custom.prefix_canopy_length.value }}<br/>{{ product.metafields.custom.prefix_canopy_finish.value }}</p><p>{{ product.metafields.custom.prefix_leadwire_length.value }}</p>",
-            "page": ""
+            "page": "lighting-mount"
           }
         },
         "tab": {
