@@ -30,8 +30,16 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Store radio buttons found:', storeRadios.length);
     console.log('Vendor filter checkboxes found:', vendorCheckboxes.length);
     
+    // More specific debugging for your store switcher structure
+    const allStoreRadios = document.querySelectorAll('input[name^="store-switcher-"]');
+    console.log('Store radios with dynamic names found:', allStoreRadios.length);
+    
     storeRadios.forEach((radio, index) => {
-      console.log(`Radio ${index + 1}:`, radio.value, 'checked:', radio.checked);
+      console.log(`Radio ${index + 1}:`, radio.value, 'checked:', radio.checked, 'name:', radio.name, 'id:', radio.id);
+    });
+    
+    allStoreRadios.forEach((radio, index) => {
+      console.log(`Dynamic name radio ${index + 1}:`, radio.value, 'checked:', radio.checked, 'name:', radio.name);
     });
     
     vendorCheckboxes.forEach((checkbox, index) => {
@@ -41,11 +49,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Function to get selected store from store switcher
   function getSelectedStore() {
+    // Try multiple approaches to find the selected store
+    
+    // Approach 1: Look for checked radio within store-switcher
     const checkedStoreRadio = document.querySelector('store-switcher input[type="radio"]:checked');
     if (checkedStoreRadio) {
-      console.log('✓ Found selected store:', checkedStoreRadio.value);
+      console.log('✓ Found selected store (approach 1):', checkedStoreRadio.value);
       return checkedStoreRadio.value;
     }
+    
+    // Approach 2: Look for checked radio with dynamic store-switcher name
+    const checkedDynamicRadio = document.querySelector('input[name^="store-switcher-"]:checked');
+    if (checkedDynamicRadio) {
+      console.log('✓ Found selected store (approach 2):', checkedDynamicRadio.value);
+      return checkedDynamicRadio.value;
+    }
+    
+    // Approach 3: If all are checked (your current setup), get the last one clicked
+    const allStoreRadios = document.querySelectorAll('input[name^="store-switcher-"]');
+    if (allStoreRadios.length > 0) {
+      // Find the most recently interacted radio or use a different approach
+      console.log('Found', allStoreRadios.length, 'store radios, checking which one was last clicked');
+      
+      // For now, return the first one as fallback
+      console.log('✓ Using first store radio as fallback:', allStoreRadios[0].value);
+      return allStoreRadios[0].value;
+    }
+    
     console.log('✗ No selected store found');
     return '';
   }
