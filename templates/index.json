@@ -176,7 +176,7 @@
       ],
       "name": "Shop by Category",
       "settings": {
-        "store": "shop all brands",
+        "store": "explore all brands",
         "title": "Shop by Category",
         "description": "Browse our extensive product selection, from stylish furniture to unique accessories that elevate any space."
       }
