@@ -1,0 +1,439 @@
+{%- liquid
+  assign row_of = section.settings.recent_count
+  capture gridView
+    render 'products_per_row', products_per_row: row_of, style: 'fractions'
+  endcapture
+  # On smaller screen sizes, 39vw is used for grid items in the CSS
+  capture sizes
+    render 'sizes-explicit', sizeVariable: gridView, fallback: '39vw'
+  endcapture
+-%}
+<div
+  data-subsection
+  data-section-id="{{ section.id }}"
+  data-section-type="recently-viewed"
+  data-product-handle="{{ product.handle }}"
+  data-recent-count="{{ section.settings.recent_count }}"
+  data-grid-item-class="{{ gridView }}"
+  data-row-of="{{ row_of }}"
+  data-image-sizes="{{ sizes }}"
+>
+  <hr class="hr--large">
+  <div class="index-section index-section--small">
+    <div class="page-width">
+      <header class="section-header">
+        <h3 class="section-header__title" id="recently-viewed-title-{{ section.id }}">{{ 'products.general.recent_products' | t }}</h3>
+      </header>
+    </div>
+    <div class="page-width page-width--flush-small">
+      <div class="grid-overflow-wrapper">
+        <div id="RecentlyViewed-{{ section.id }}" class="grid grid--uniform" data-aos="overflow__animation"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.recently-viewed-vendor {
+  font-size: 0.85em;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.recently-viewed-vendor--oxygen {
+  color: #0066cc;
+}
+
+.recently-viewed-vendor--quorum {
+  color: #cc6600;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const recentlyViewedSection = document.querySelector('[data-section-type="recently-viewed"]');
+  if (!recentlyViewedSection) {
+    console.log('❌ Recently viewed section not found');
+    return;
+  }
+  
+  const sectionId = '{{ section.id }}';
+  const recentlyViewedContainer = document.getElementById('RecentlyViewed-' + sectionId);
+  const titleElement = document.getElementById('recently-viewed-title-' + sectionId);
+  
+  console.log('=== RECENTLY VIEWED DEBUG ===');
+  console.log('Section found:', !!recentlyViewedSection);
+  console.log('Container found:', !!recentlyViewedContainer);
+  console.log('Title element found:', !!titleElement);
+  console.log('Recently viewed system exists:', !!window.recentlyViewed);
+  
+  // Store original recently viewed function if it exists
+  let originalGetRecentProducts = null;
+  if (window.recentlyViewed && window.recentlyViewed.getRecentProducts) {
+    originalGetRecentProducts = window.recentlyViewed.getRecentProducts.bind(window.recentlyViewed);
+    console.log('✓ Original getRecentProducts function found');
+  } else {
+    console.log('❌ Recently viewed system not found or no getRecentProducts method');
+  }
+  
+  function addVendorToProducts() {
+    if (!recentlyViewedContainer) {
+      console.log('❌ Container not found for vendor addition');
+      return;
+    }
+    
+    const productItems = recentlyViewedContainer.querySelectorAll(
+      '.grid-product, .product-item, [data-product-id], [class*="product"], .grid__item'
+    );
+    
+    console.log(`Adding vendor display to ${productItems.length} products`);
+    
+    productItems.forEach((item, index) => {
+      // Skip if vendor already added
+      if (item.querySelector('.recently-viewed-vendor')) {
+        return;
+      }
+      
+      let productVendor = '';
+      
+      // Try multiple methods to get vendor
+      if (item.dataset.vendor) {
+        productVendor = item.dataset.vendor;
+      } else {
+        // Look for vendor element
+        const vendorElement = item.querySelector('.grid-product__vendor, [class*="vendor"]');
+        if (vendorElement) {
+          productVendor = vendorElement.textContent.trim();
+        } else {
+          // Try to get from recently viewed data
+          if (window.recentlyViewed && originalGetRecentProducts) {
+            try {
+              const recentProducts = originalGetRecentProducts();
+              const productHandle = item.dataset.productHandle || 
+                                  item.querySelector('[data-product-handle]')?.dataset.productHandle;
+              
+              if (productHandle) {
+                const matchingProduct = recentProducts.find(p => 
+                  p.handle === productHandle || p.url?.includes(productHandle)
+                );
+                if (matchingProduct && matchingProduct.vendor) {
+                  productVendor = matchingProduct.vendor;
+                }
+              }
+            } catch (error) {
+              console.log('Error getting vendor from recently viewed data:', error);
+            }
+          }
+          
+          // Fallback: scan text for known vendors
+          if (!productVendor) {
+            const itemText = item.textContent.toLowerCase();
+            if (itemText.includes('oxygen')) {
+              productVendor = 'Oxygen';
+            } else if (itemText.includes('quorum')) {
+              productVendor = 'Quorum';
+            }
+          }
+        }
+      }
+      
+      // Add vendor display if we found one
+      if (productVendor) {
+        // Find the best place to insert vendor
+        let insertTarget = null;
+        
+        // Look for product title or name element
+        const titleElement = item.querySelector(
+          '.grid-product__title, .product-item__title, .product__title, h3, h4, .product-title, [class*="title"]'
+        );
+        
+        if (titleElement) {
+          insertTarget = titleElement;
+        } else {
+          // Look for product content area
+          const contentElement = item.querySelector(
+            '.grid-product__content, .product-item__info, .product__info, .product-content'
+          );
+          if (contentElement) {
+            insertTarget = contentElement.firstElementChild || contentElement;
+          } else {
+            // Fallback to item itself
+            insertTarget = item.firstElementChild;
+          }
+        }
+        
+        if (insertTarget) {
+          const vendorElement = document.createElement('div');
+          vendorElement.className = `recently-viewed-vendor recently-viewed-vendor--${productVendor.toLowerCase()}`;
+          vendorElement.textContent = productVendor;
+          
+          // Insert before the target element
+          insertTarget.parentNode.insertBefore(vendorElement, insertTarget);
+          
+          console.log(`✓ Added vendor "${productVendor}" to product ${index + 1}`);
+        } else {
+          console.log(`❌ Could not find insertion point for product ${index + 1}`);
+        }
+      } else {
+        console.log(`❌ No vendor found for product ${index + 1}`);
+      }
+    });
+  }
+  
+  function debugRecentlyViewedState() {
+    console.log('=== DEBUGGING RECENTLY VIEWED STATE ===');
+    
+    const selectedStore = localStorage.getItem("store-selected") || "";
+    console.log('Selected store from localStorage:', selectedStore);
+    
+    if (!recentlyViewedContainer) {
+      console.log('❌ Recently viewed container not found');
+      return;
+    }
+    
+    // Check what's in the container
+    const allChildren = recentlyViewedContainer.children;
+    console.log('Children in recently viewed container:', allChildren.length);
+    
+    for (let i = 0; i < allChildren.length; i++) {
+      const child = allChildren[i];
+      console.log(`Child ${i + 1}:`, child.tagName, child.className, 'Style:', child.style.display);
+    }
+    
+    // Find all potential product items
+    const productItems = recentlyViewedContainer.querySelectorAll(
+      '.grid-product, .product-item, [data-product-id], [class*="product"], .grid__item'
+    );
+    console.log('Product items found:', productItems.length);
+    
+    productItems.forEach((item, index) => {
+      console.log(`=== Product Item ${index + 1} ===`);
+      console.log('Element:', item.tagName, item.className);
+      console.log('Display style:', item.style.display);
+      console.log('All data attributes:');
+      
+      Array.from(item.attributes).forEach(attr => {
+        if (attr.name.startsWith('data-')) {
+          console.log(`  ${attr.name}: ${attr.value}`);
+        }
+      });
+      
+      // Look for vendor info
+      const vendorElement = item.querySelector('.grid-product__vendor, [class*="vendor"], .recently-viewed-vendor');
+      if (vendorElement) {
+        console.log('Vendor element found:', vendorElement.textContent.trim());
+      } else {
+        console.log('No vendor element found');
+      }
+      
+      // Check text content for vendor names
+      const itemText = item.textContent.toLowerCase();
+      console.log('Contains "oxygen":', itemText.includes('oxygen'));
+      console.log('Contains "quorum":', itemText.includes('quorum'));
+      console.log('First 100 chars of text:', itemText.substring(0, 100));
+    });
+    
+    // Check recently viewed data if available
+    if (window.recentlyViewed && originalGetRecentProducts) {
+      try {
+        const recentProducts = originalGetRecentProducts();
+        console.log('Recently viewed products from system:', recentProducts.length);
+        recentProducts.forEach((product, index) => {
+          console.log(`Recent product ${index + 1}:`, product.title || product.name, 'Vendor:', product.vendor);
+        });
+      } catch (error) {
+        console.log('Error getting recent products:', error);
+      }
+    }
+  }
+  
+  function filterRecentlyViewedProducts() {
+    const selectedStore = localStorage.getItem("store-selected") || "";
+    
+    console.log('=== FILTERING RECENTLY VIEWED ===');
+    console.log('Selected store:', selectedStore);
+    
+    if (!recentlyViewedContainer) {
+      console.log('❌ Container not found, skipping filter');
+      return;
+    }
+    
+    // Update section title
+    if (titleElement) {
+      let titleText = "{{ 'products.general.recent_products' | t }}";
+      if (selectedStore && !selectedStore.toLowerCase().includes("shop all")) {
+        const capitalizedStore = selectedStore.charAt(0).toUpperCase() + selectedStore.slice(1);
+        titleText = `Recently Viewed ${capitalizedStore} Products`;
+      }
+      titleElement.textContent = titleText;
+      console.log('Updated title to:', titleText);
+    }
+    
+    // Find all product items
+    const productItems = recentlyViewedContainer.querySelectorAll(
+      '.grid-product, .product-item, [data-product-id], [class*="product"], .grid__item'
+    );
+    
+    console.log(`Found ${productItems.length} product items to filter`);
+    
+    if (productItems.length === 0) {
+      console.log('❌ No product items found - recently viewed might not be loaded yet');
+      return;
+    }
+    
+    let visibleCount = 0;
+    let hiddenCount = 0;
+    
+    productItems.forEach((item, index) => {
+      let productVendor = '';
+      
+      // Try multiple methods to get vendor
+      if (item.dataset.vendor) {
+        productVendor = item.dataset.vendor.toLowerCase();
+        console.log(`Product ${index + 1} vendor from data-vendor:`, productVendor);
+      } else {
+        // Look for vendor element (including our added one)
+        const vendorElement = item.querySelector('.grid-product__vendor, [class*="vendor"], .recently-viewed-vendor');
+        if (vendorElement) {
+          productVendor = vendorElement.textContent.trim().toLowerCase();
+          console.log(`Product ${index + 1} vendor from element:`, productVendor);
+        } else {
+          // Scan text for vendor names
+          const itemText = item.textContent.toLowerCase();
+          if (itemText.includes('oxygen')) {
+            productVendor = 'oxygen';
+            console.log(`Product ${index + 1} vendor from text scan: oxygen`);
+          } else if (itemText.includes('quorum')) {
+            productVendor = 'quorum';
+            console.log(`Product ${index + 1} vendor from text scan: quorum`);
+          } else {
+            console.log(`Product ${index + 1} vendor: UNKNOWN`);
+          }
+        }
+      }
+      
+      // Determine visibility
+      let shouldShow = false;
+      
+      if (!selectedStore || selectedStore === '') {
+        shouldShow = true;
+        console.log(`Product ${index + 1}: Showing (no store selected)`);
+      } else if (selectedStore.toLowerCase().includes("shop all")) {
+        shouldShow = true;
+        console.log(`Product ${index + 1}: Showing (shop all selected)`);
+      } else if (productVendor === selectedStore.toLowerCase()) {
+        shouldShow = true;
+        console.log(`Product ${index + 1}: Showing (vendor matches: ${productVendor})`);
+      } else if (!productVendor) {
+        shouldShow = true; // Show if vendor unknown
+        console.log(`Product ${index + 1}: Showing (unknown vendor)`);
+      } else {
+        shouldShow = false;
+        console.log(`Product ${index + 1}: Hiding (vendor mismatch: ${productVendor} vs ${selectedStore.toLowerCase()})`);
+      }
+      
+      if (shouldShow) {
+        item.style.display = '';
+        visibleCount++;
+      } else {
+        item.style.display = 'none';
+        hiddenCount++;
+      }
+    });
+    
+    console.log(`Filtering complete: ${visibleCount} visible, ${hiddenCount} hidden`);
+    
+    // Hide section if no visible products and store is selected
+    const sectionElement = recentlyViewedSection.querySelector('.index-section');
+    if (sectionElement) {
+      if (visibleCount === 0 && selectedStore && !selectedStore.toLowerCase().includes("shop all")) {
+        sectionElement.style.display = 'none';
+        console.log('❌ Hiding section - no matching products for selected store');
+      } else {
+        sectionElement.style.display = '';
+        console.log('✓ Section visible');
+      }
+    }
+  }
+  
+  function handleRecentlyViewedUpdate() {
+    console.log('🔄 Recently viewed updated, adding vendors and filtering...');
+    setTimeout(function() {
+      addVendorToProducts();
+      debugRecentlyViewedState();
+      filterRecentlyViewedProducts();
+    }, 100);
+  }
+  
+  // Listen for store changes
+  document.addEventListener('change', function(e) {
+    if (e.target.matches('store-switcher input[type="radio"]') || 
+        (e.target.type === 'radio' && e.target.closest('store-switcher')) ||
+        (e.target.type === 'radio' && e.target.name && e.target.name.startsWith('store-switcher-'))) {
+      
+      console.log('🔄 Store changed, re-filtering recently viewed...');
+      setTimeout(function() {
+        debugRecentlyViewedState();
+        filterRecentlyViewedProducts();
+      }, 100);
+    }
+  });
+  
+  // Initial setup
+  setTimeout(function() {
+    handleRecentlyViewedUpdate();
+  }, 1000);
+  
+  // Monitor for changes to recently viewed container
+  const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.type === 'childList' && mutation.target === recentlyViewedContainer) {
+        console.log('🔄 Recently viewed container updated');
+        handleRecentlyViewedUpdate();
+      }
+    });
+  });
+  
+  if (recentlyViewedContainer) {
+    observer.observe(recentlyViewedContainer, { childList: true, subtree: true });
+    console.log('✓ Observer attached to recently viewed container');
+  }
+  
+  // Expose debug functions
+  window.debugRecentlyViewed = debugRecentlyViewedState;
+  window.addVendorToRecentlyViewed = addVendorToProducts;
+});
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.recently-viewed.name",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.recently-viewed.settings.content"
+    },
+    {
+      "type": "range",
+      "id": "recent_count",
+      "label": "t:sections.recently-viewed.settings.recent_count.label",
+      "default": 5,
+      "min": 2,
+      "max": 10,
+      "step": 1
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Show vendor name",
+      "default": true
+    }
+  ],
+  "disabled_on": {
+    "groups": ["footer", "header", "custom.popups"]
+  }
+}
+{% endschema %}
