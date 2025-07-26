@@ -64,17 +64,11 @@
 
                         <!-- Navigation Controls -->
                         <div class="product-button-wrapper">
-                            <div class="product-button-prev" id="prevButton">
-                                <!-- Option 1: CSS Arrows (currently active) -->
-                                
-                                <!-- Option 2: SVG Icons (uncomment if you have the SVG file) -->
-                                <!-- <img src="{{ 'ico-arrow-right.svg' | asset_url }}" alt="Previous" style="transform: rotate(180deg);"> -->
+                            <div class="product-button-prev has-svg" id="prevButton">
+                                <img src="{{ 'ico-arrow-right.svg' | asset_url }}" alt="Previous" style="transform: rotate(180deg);">
                             </div>
-                            <div class="product-button-next" id="nextButton">
-                                <!-- Option 1: CSS Arrows (currently active) -->
-                                
-                                <!-- Option 2: SVG Icons (uncomment if you have the SVG file) -->
-                                <!-- <img src="{{ 'ico-arrow-right.svg' | asset_url }}" alt="Next"> -->
+                            <div class="product-button-next has-svg" id="nextButton">
+                                <img src="{{ 'ico-arrow-right.svg' | asset_url }}" alt="Next">
                             </div>
                         </div>
 
@@ -182,9 +176,13 @@ function initializeCarousel() {
     const nextButton = document.querySelector('.product-button-next');
     const prevButton = document.querySelector('.product-button-prev');
     
+    console.log('Navigation buttons found:', { nextButton, prevButton });
+    
     if (nextButton) {
-        nextButton.addEventListener('click', function() {
+        nextButton.addEventListener('click', function(e) {
             console.log('Next button clicked manually');
+            e.preventDefault();
+            e.stopPropagation();
             if (swiperInstance) {
                 swiperInstance.slideNext();
             }
@@ -192,8 +190,10 @@ function initializeCarousel() {
     }
     
     if (prevButton) {
-        prevButton.addEventListener('click', function() {
+        prevButton.addEventListener('click', function(e) {
             console.log('Prev button clicked manually');
+            e.preventDefault();
+            e.stopPropagation();
             if (swiperInstance) {
                 swiperInstance.slidePrev();
             }
