@@ -1,361 +1,237 @@
-{%- liquid
-  assign row_of = section.settings.recent_count
-  capture gridView
-    render 'products_per_row', products_per_row: row_of, style: 'fractions'
-  endcapture
-  # On smaller screen sizes, 39vw is used for grid items in the CSS
-  capture sizes
-    render 'sizes-explicit', sizeVariable: gridView, fallback: '39vw'
-  endcapture
--%}
-<div
-  data-subsection
-  data-section-id="{{ section.id }}"
-  data-section-type="recently-viewed"
-  data-product-handle="{{ product.handle }}"
-  data-recent-count="{{ section.settings.recent_count }}"
-  data-grid-item-class="{{ gridView }}"
-  data-row-of="{{ row_of }}"
-  data-image-sizes="{{ sizes }}"
->
-  <hr class="hr--large">
-  <div class="index-section index-section--small">
-    <div class="page-width">
-      <header class="section-header">
-        <h3 class="section-header__title" id="recently-viewed-title-{{ section.id }}">{{ 'products.general.recent_products' | t }}</h3>
-      </header>
-    </div>
-    <div class="page-width page-width--flush-small">
-      <div class="grid-overflow-wrapper">
-        <div id="RecentlyViewed-{{ section.id }}" class="grid grid--uniform" data-aos="overflow__animation"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const recentlyViewedSection = document.querySelector('[data-section-type="recently-viewed"]');
-  if (!recentlyViewedSection) return;
+/**
+ * Search Store Reset & Product Filtering
+ * Resets search and filters products when store switcher changes
+ */
+(function() {
+  'use strict';
   
-  const sectionId = '{{ section.id }}';
-  const recentlyViewedContainer = document.getElementById('RecentlyViewed-' + sectionId);
-  const titleElement = document.getElementById('recently-viewed-title-' + sectionId);
+  // Configuration
+  const CONFIG = {
+    redirectFromSearchPage: false,
+    clearPredictiveSearch: true,
+    updatePlaceholders: true,
+    filterProducts: true,
+    logActions: false
+  };
   
-  // Store original recently viewed function if it exists
-  let originalGetRecentProducts = null;
-  if (window.recentlyViewed && window.recentlyViewed.getRecentProducts) {
-    originalGetRecentProducts = window.recentlyViewed.getRecentProducts.bind(window.recentlyViewed);
-  }
-  
-  // Function to switch store and navigate to product
-  function switchStoreAndNavigate(productUrl, productVendor) {
-    console.log('Switching to store:', productVendor, 'for product:', productUrl);
-    
-    // Update localStorage
-    localStorage.setItem('store-selected', productVendor.toLowerCase());
-    
-    // Update store switcher radio buttons
-    const storeRadios = document.querySelectorAll('store-switcher input[type="radio"]');
-    storeRadios.forEach(radio => {
-      if (radio.value.toLowerCase() === productVendor.toLowerCase()) {
-        radio.checked = true;
-      } else {
-        radio.checked = false;
-      }
-    });
-    
-    // Update HTML dataset
-    const htmlEl = document.querySelector('html');
-    if (htmlEl) {
-      htmlEl.dataset.storeSelected = productVendor.toLowerCase();
+  function log(message) {
+    if (CONFIG.logActions) {
+      console.log('[Search & Filter]', message);
     }
-    
-    // Dispatch store change event
-    const storeChangedEvent = new CustomEvent('storeChanged', {
-      detail: { 
-        selectedStore: productVendor.toLowerCase(),
-        triggeredBy: 'recently-viewed-click'
-      },
-      bubbles: true
-    });
-    document.dispatchEvent(storeChangedEvent);
-    
-    // Navigate to product with vendor filter
-    const url = new URL(productUrl, window.location.origin);
-    if (!productVendor.toLowerCase().includes('shop all')) {
-      // Capitalize first letter for vendor filter
-      const capitalizedVendor = productVendor.charAt(0).toUpperCase() + productVendor.slice(1);
-      url.searchParams.set('filter.p.vendor', capitalizedVendor);
-    }
-    
-    // Navigate to the product
-    window.location.href = url.toString();
   }
   
-  // Function to add click handlers to recently viewed products
-  function addProductClickHandlers() {
-    if (!recentlyViewedContainer) return;
+  function filterProductsOnPage() {
+    if (!CONFIG.filterProducts) return;
     
-    const productItems = recentlyViewedContainer.querySelectorAll(
-      '.grid-product, .product-item, .grid__item, [data-product-id], [class*="product"]'
-    );
-    
-    productItems.forEach((item) => {
-      // Find the product link
-      const productLink = item.querySelector('a[href*="/products/"]');
-      if (!productLink) return;
-      
-      // Get vendor information
-      let productVendor = '';
-      if (item.dataset.vendor) {
-        productVendor = item.dataset.vendor;
-      } else {
-        // Try to find vendor from text content or other sources
-        const vendorElement = item.querySelector('.grid-product__vendor, [class*="vendor"]');
-        if (vendorElement) {
-          productVendor = vendorElement.textContent.trim();
-        } else {
-          // Check text content for vendor names
-          const itemText = item.textContent.toLowerCase();
-          if (itemText.includes('oxygen')) {
-            productVendor = 'oxygen';
-          } else if (itemText.includes('quorum')) {
-            productVendor = 'quorum';
-          }
-        }
-      }
-      
-      // Add vendor as data attribute if not already present
-      if (productVendor && !item.dataset.vendor) {
-        item.dataset.vendor = productVendor.toLowerCase();
-      }
-      
-      // Add click handler
-      productLink.addEventListener('click', function(e) {
-        if (!productVendor) {
-          // No vendor detected, proceed normally
-          return;
-        }
-        
-        const currentStore = localStorage.getItem('store-selected') || '';
-        const targetVendor = productVendor.toLowerCase();
-        
-        console.log('Recently viewed product clicked:', productLink.href);
-        console.log('Current store:', currentStore, 'Product vendor:', targetVendor);
-        
-        // Check if we need to switch stores
-        if (currentStore !== targetVendor && !currentStore.includes('shop all')) {
-          e.preventDefault(); // Prevent default navigation
-          
-          // Switch store and then navigate
-          switchStoreAndNavigate(productLink.href, targetVendor);
-        }
-        // If stores match or "shop all" is selected, proceed normally
-      });
-      
-      // Add visual indicator for different vendors
-      const currentStore = localStorage.getItem('store-selected') || '';
-      if (productVendor && currentStore && !currentStore.includes('shop all')) {
-        if (productVendor.toLowerCase() !== currentStore.toLowerCase()) {
-          item.classList.add('different-vendor');
-          // Add a small indicator
-          if (!item.querySelector('.vendor-indicator')) {
-            const indicator = document.createElement('div');
-            indicator.className = 'vendor-indicator';
-            indicator.textContent = productVendor;
-            indicator.style.cssText = `
-              position: absolute;
-              top: 5px;
-              right: 5px;
-              background: rgba(0,0,0,0.7);
-              color: white;
-              padding: 2px 6px;
-              font-size: 10px;
-              border-radius: 3px;
-              z-index: 1;
-            `;
-            item.style.position = 'relative';
-            item.appendChild(indicator);
-          }
-        } else {
-          item.classList.remove('different-vendor');
-          const indicator = item.querySelector('.vendor-indicator');
-          if (indicator) {
-            indicator.remove();
-          }
-        }
-      }
-    });
-  }
-  
-  function filterRecentlyViewedProducts() {
     const selectedStore = localStorage.getItem("store-selected") || "";
+    log(`Filtering products for store: ${selectedStore}`);
     
-    if (!recentlyViewedContainer) return;
+    // Find all product elements
+    const productSelectors = [
+      '.grid-product',
+      '.product-item', 
+      '.search-product',
+      '[data-product-id]',
+      '.product-grid-item',
+      '.predictive-product-wrapper',
+      '[data-vendor]'
+    ];
     
-    // Update section title
-    if (titleElement) {
-      let titleText = "{{ 'products.general.recent_products' | t }}";
-      if (selectedStore && !selectedStore.toLowerCase().includes("shop all")) {
-        const capitalizedStore = selectedStore.charAt(0).toUpperCase() + selectedStore.slice(1);
-        titleText = `Recently Viewed ${capitalizedStore} Products`;
-      }
-      titleElement.textContent = titleText;
-    }
+    let allProducts = [];
+    productSelectors.forEach(selector => {
+      const products = document.querySelectorAll(selector);
+      allProducts = allProducts.concat(Array.from(products));
+    });
     
-    // Find all product items
-    const productItems = recentlyViewedContainer.querySelectorAll(
-      '.grid-product, .product-item, .grid__item, [data-product-id], [class*="product"]'
+    // Remove duplicates
+    allProducts = allProducts.filter((item, index, self) => 
+      self.indexOf(item) === index
     );
     
     let visibleCount = 0;
+    let hiddenCount = 0;
     
-    productItems.forEach((item) => {
+    allProducts.forEach((item) => {
       let productVendor = '';
       
-      // Try to get vendor from various sources
+      // Try multiple ways to get vendor info
       if (item.dataset.vendor) {
         productVendor = item.dataset.vendor.toLowerCase();
       } else {
-        // Look for vendor in product text/elements
+        // Look for vendor in text content
         const vendorElement = item.querySelector('.grid-product__vendor, [class*="vendor"]');
         if (vendorElement) {
           productVendor = vendorElement.textContent.trim().toLowerCase();
-          // Store for future use
-          item.dataset.vendor = productVendor;
         } else {
-          // Check product title/text for vendor names
+          // Scan text content for vendor names
           const itemText = item.textContent.toLowerCase();
           if (itemText.includes('oxygen')) {
             productVendor = 'oxygen';
-            item.dataset.vendor = 'oxygen';
           } else if (itemText.includes('quorum')) {
             productVendor = 'quorum';
-            item.dataset.vendor = 'quorum';
           }
         }
       }
       
       // Determine if product should be shown
-      const shouldShow = !selectedStore || 
-                        selectedStore === '' ||
-                        selectedStore.toLowerCase().includes("shop all") || 
-                        productVendor === selectedStore.toLowerCase();
+      const shouldShow = selectedStore.toLowerCase().includes("shop all") || 
+                        productVendor === selectedStore.toLowerCase() ||
+                        selectedStore === '';
       
       if (shouldShow) {
         item.style.display = '';
         visibleCount++;
       } else {
         item.style.display = 'none';
+        hiddenCount++;
       }
     });
     
-    // Add click handlers after filtering
-    setTimeout(addProductClickHandlers, 100);
+    log(`Product filtering complete: ${visibleCount} visible, ${hiddenCount} hidden`);
+  }
+  
+  function resetSearchInputs() {
+    log('Resetting search inputs due to store change');
     
-    // Only hide section if we have a specific store selected and no matching products
-    const sectionElement = recentlyViewedSection.querySelector('.index-section');
-    if (sectionElement) {
-      if (visibleCount === 0 && selectedStore && !selectedStore.toLowerCase().includes("shop all")) {
-        sectionElement.style.display = 'none';
-      } else {
-        sectionElement.style.display = '';
+    // Clear all search input fields
+    const searchInputs = document.querySelectorAll('input[type="search"], input[name="q"]');
+    searchInputs.forEach(input => {
+      input.value = '';
+    });
+    
+    // Clear predictive search results
+    if (CONFIG.clearPredictiveSearch) {
+      const predictiveContainer = document.getElementById('predictive-search');
+      if (predictiveContainer) {
+        predictiveContainer.innerHTML = '';
+        predictiveContainer.style.display = 'none';
+      }
+    }
+    
+    // Close search overlays
+    const searchOverlay = document.querySelector('.search-overlay, .predictive__screen');
+    if (searchOverlay) {
+      searchOverlay.style.display = 'none';
+    }
+    
+    // Update search placeholders
+    if (CONFIG.updatePlaceholders) {
+      updateSearchPlaceholders();
+    }
+    
+    // Filter products on the current page
+    filterProductsOnPage();
+    
+    // Handle search results page
+    if (window.location.pathname.includes('/search')) {
+      if (CONFIG.redirectFromSearchPage) {
+        log('Redirecting from search page to home');
+        window.location.href = '/';
       }
     }
   }
   
-  // Enhanced recently viewed function to include vendor data
-  function setupRecentlyViewedFiltering() {
-    if (window.recentlyViewed && originalGetRecentProducts) {
-      window.recentlyViewed.getRecentProducts = function() {
-        const allRecentProducts = originalGetRecentProducts();
-        const selectedStore = localStorage.getItem("store-selected") || "";
-        
-        // Add vendor data to products if missing and filter
-        const enhancedProducts = allRecentProducts.map(product => {
-          if (!product.vendor && product.title) {
-            // Try to determine vendor from product title or other data
-            const titleLower = product.title.toLowerCase();
-            if (titleLower.includes('oxygen')) {
-              product.vendor = 'Oxygen';
-            } else if (titleLower.includes('quorum')) {
-              product.vendor = 'Quorum';
-            }
-          }
-          return product;
-        });
-        
-        // Filter by selected store if not "shop all"
-        if (!selectedStore || selectedStore.toLowerCase().includes("shop all")) {
-          return enhancedProducts;
-        }
-        
-        return enhancedProducts.filter(product => {
-          return product.vendor && product.vendor.toLowerCase() === selectedStore.toLowerCase();
-        });
-      };
-    }
-  }
-  
-  // Listen for store changes
-  document.addEventListener('storeChanged', function(e) {
-    console.log('Store changed, re-filtering recently viewed...');
-    setTimeout(function() {
-      setupRecentlyViewedFiltering();
-      filterRecentlyViewedProducts();
+  function updateSearchPlaceholders() {
+    const selectedStore = localStorage.getItem("store-selected") || "";
+    const searchInputs = document.querySelectorAll('input[type="search"], input[name="q"]');
+    
+    searchInputs.forEach(input => {
+      let placeholder = 'Search';
       
-      // Trigger recently viewed to refresh if possible
-      if (window.recentlyViewed && window.recentlyViewed.showRecentlyViewed) {
-        window.recentlyViewed.showRecentlyViewed();
+      if (selectedStore && !selectedStore.toLowerCase().includes("shop all")) {
+        const capitalizedStore = selectedStore.charAt(0).toUpperCase() + selectedStore.slice(1);
+        placeholder = `Search ${capitalizedStore} products...`;
       }
-    }, 100);
-  });
+      
+      input.placeholder = placeholder;
+    });
+  }
   
-  // Initial setup
-  setTimeout(function() {
-    setupRecentlyViewedFiltering();
-    filterRecentlyViewedProducts();
-  }, 500);
-  
-  // Monitor for changes to recently viewed container
-  const observer = new MutationObserver(function(mutations) {
-    mutations.forEach(function(mutation) {
-      if (mutation.type === 'childList' && mutation.target === recentlyViewedContainer) {
-        console.log('Recently viewed products updated, re-filtering...');
-        setTimeout(function() {
-          filterRecentlyViewedProducts();
-        }, 100);
+  function updateFormVendorFilters() {
+    const selectedStore = localStorage.getItem("store-selected") || "";
+    const searchForms = document.querySelectorAll('form[action*="search"]');
+    
+    searchForms.forEach(form => {
+      const vendorInput = form.querySelector('input[name="filter.p.vendor"], .vendor-filter-input');
+      if (vendorInput) {
+        if (selectedStore && !selectedStore.toLowerCase().includes("shop all")) {
+          const capitalizedStore = selectedStore.charAt(0).toUpperCase() + selectedStore.slice(1);
+          vendorInput.value = capitalizedStore;
+        } else {
+          vendorInput.value = '';
+        }
       }
     });
-  });
+  }
   
-  if (recentlyViewedContainer) {
-    observer.observe(recentlyViewedContainer, { childList: true, subtree: true });
+  function isStoreRadio(element) {
+    return (
+      element.matches('store-switcher input[type="radio"]') || 
+      (element.type === 'radio' && element.closest('store-switcher')) ||
+      (element.type === 'radio' && element.name && element.name.startsWith('store-switcher-'))
+    );
   }
-});
-</script>
-
-{% schema %}
-{
-  "name": "t:sections.recently-viewed.name",
-  "settings": [
-    {
-      "type": "paragraph",
-      "content": "t:sections.recently-viewed.settings.content"
-    },
-    {
-      "type": "range",
-      "id": "recent_count",
-      "label": "t:sections.recently-viewed.settings.recent_count.label",
-      "default": 5,
-      "min": 2,
-      "max": 10,
-      "step": 1
-    }
-  ],
-  "disabled_on": {
-    "groups": ["footer", "header", "custom.popups"]
+  
+  function handleStoreChange() {
+    log('Store changed - executing full reset and filter');
+    
+    // Update form vendor filters first
+    updateFormVendorFilters();
+    
+    // Then reset search and filter products
+    setTimeout(resetSearchInputs, 100);
   }
-}
-{% endschema %}
+  
+  function initializeSearchReset() {
+    log('Initializing search reset and product filtering');
+    
+    // Method 1: Listen for custom store change event (most reliable)
+    document.addEventListener('storeChanged', function(e) {
+      log('Custom storeChanged event detected');
+      handleStoreChange();
+    });
+    
+    // Method 2: Listen for store switcher changes (backup)
+    document.addEventListener('change', function(e) {
+      if (isStoreRadio(e.target)) {
+        log('Store radio change detected');
+        handleStoreChange();
+      }
+    });
+    
+    // Method 3: Listen for clicks as backup
+    document.addEventListener('click', function(e) {
+      const storeLabel = e.target.closest('store-switcher label');
+      if (storeLabel) {
+        log('Store switcher label clicked');
+        setTimeout(handleStoreChange, 150);
+      }
+    });
+    
+    // Initial setup
+    setTimeout(function() {
+      updateSearchPlaceholders();
+      updateFormVendorFilters();
+      filterProductsOnPage();
+    }, 100);
+    
+    log('All event listeners attached');
+  }
+  
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeSearchReset);
+  } else {
+    initializeSearchReset();
+  }
+  
+  // Expose methods for debugging/manual control
+  window.SearchStoreReset = {
+    config: CONFIG,
+    reset: resetSearchInputs,
+    filterProducts: filterProductsOnPage,
+    updatePlaceholders: updateSearchPlaceholders,
+    updateForms: updateFormVendorFilters
+  };
+  
+})();
