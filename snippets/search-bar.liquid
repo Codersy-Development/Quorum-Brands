@@ -36,23 +36,25 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Updating vendor filter for store:', selectedStore);
     
     if (selectedStore) {
-      // Uncheck all vendor filters first
+      // Uncheck ALL vendor filters first (handle duplicates)
       const vendorCheckboxes = document.querySelectorAll('input[name="filter.p.vendor"]');
       vendorCheckboxes.forEach(checkbox => {
         checkbox.checked = false;
       });
 
-      // Check the vendor filter that matches the selected store
+      // Check ALL vendor filters that match the selected store (handle duplicates)
       const capitalizedStore = selectedStore.charAt(0).toUpperCase() + selectedStore.slice(1);
-      const targetVendorCheckbox = document.querySelector(`input[name="filter.p.vendor"][value="${capitalizedStore}"]`);
+      const targetVendorCheckboxes = document.querySelectorAll(`input[name="filter.p.vendor"][value="${capitalizedStore}"]`);
       
-      if (targetVendorCheckbox) {
-        targetVendorCheckbox.checked = true;
-        console.log('Checked vendor filter for:', capitalizedStore);
+      console.log(`Found ${targetVendorCheckboxes.length} vendor checkboxes for ${capitalizedStore}`);
+      
+      targetVendorCheckboxes.forEach((checkbox, index) => {
+        checkbox.checked = true;
+        console.log(`Checked vendor filter ${index + 1} for:`, capitalizedStore);
         
-        // Trigger change event to update the search results
-        targetVendorCheckbox.dispatchEvent(new Event('change', { bubbles: true }));
-      }
+        // Trigger change event on each checkbox
+        checkbox.dispatchEvent(new Event('change', { bubbles: true }));
+      });
     }
   }
 
