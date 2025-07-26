@@ -188,8 +188,8 @@
                  {% include 'wcp_cart' %}
                {% endif %}  {% endcomment %}
                <!-- WPD End -->
-
+{{ 'search-store-reset.js' | asset_url | script_tag }}
 {% include 'wpd-custom' %}
-<script src="{{ 'search-store-reset.js' | asset_url }}" async></script>
+
   </body>
 </html>
