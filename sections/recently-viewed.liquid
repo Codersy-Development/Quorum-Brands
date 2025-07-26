@@ -85,35 +85,11 @@ document.addEventListener('DOMContentLoaded', function() {
       return;
     }
     
-    // Try to get vendor context from current page
-    let pageVendorContext = '';
-    
-    // Check URL for vendor filter
-    const urlParams = new URLSearchParams(window.location.search);
-    const vendorFilter = urlParams.get('filter.p.vendor');
-    if (vendorFilter) {
-      pageVendorContext = vendorFilter.toLowerCase();
-      console.log('🔍 Found vendor context from URL:', pageVendorContext);
-    }
-    
-    // Check for vendor breadcrumbs or page titles
-    if (!pageVendorContext) {
-      const breadcrumbs = document.querySelector('.breadcrumb, .breadcrumbs');
-      if (breadcrumbs) {
-        const breadcrumbText = breadcrumbs.textContent.toLowerCase();
-        if (breadcrumbText.includes('quorum')) {
-          pageVendorContext = 'quorum';
-        } else if (breadcrumbText.includes('oxygen')) {
-          pageVendorContext = 'oxygen';
-        }
-      }
-    }
-    
     const productItems = recentlyViewedContainer.querySelectorAll(
       '.grid__item.grid-product'
     );
     
-    console.log(`Adding vendor display to ${productItems.length} products (context: ${pageVendorContext})`);
+    console.log(`Adding vendor display to ${productItems.length} products`);
     
     productItems.forEach((item, index) => {
       // Skip if vendor already added
@@ -150,52 +126,63 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!productVendor && window.recentlyViewed && originalGetRecentProducts) {
         try {
           const recentProducts = originalGetRecentProducts();
-          console.log('Recent products data:', recentProducts);
+          console.log('Recent products data available:', recentProducts.length > 0);
           
           // Try to match by URL or handle
-          const matchingProduct = recentProducts.find(p => {
-            if (productUrl && p.url) {
-              return productUrl.includes(p.url) || p.url.includes(productUrl);
+          if (productUrl) {
+            const matchingProduct = recentProducts.find(p => {
+              // Extract product handle from URL
+              const urlHandle = productUrl.split('/products/')[1]?.split('?')[0]?.split('#')[0];
+              
+              if (p.handle && urlHandle) {
+                return p.handle === urlHandle;
+              }
+              if (p.url) {
+                return productUrl.includes(p.url) || p.url.includes(productUrl);
+              }
+              return false;
+            });
+            
+            if (matchingProduct && matchingProduct.vendor) {
+              productVendor = matchingProduct.vendor;
+              console.log(`Product ${index + 1} vendor from recent data:`, productVendor);
             }
-            if (p.handle && productUrl) {
-              return productUrl.includes(p.handle);
-            }
-            return false;
-          });
-          
-          if (matchingProduct && matchingProduct.vendor) {
-            productVendor = matchingProduct.vendor;
-            console.log(`Product ${index + 1} vendor from recent data:`, productVendor);
           }
         } catch (error) {
           console.log('Error getting vendor from recently viewed data:', error);
         }
       }
       
-      // Method 4: Infer from URL pattern
+      // Method 4: Check product URL for vendor patterns
       if (!productVendor && productUrl) {
-        if (productUrl.includes('/products/') && pageVendorContext) {
-          productVendor = pageVendorContext.charAt(0).toUpperCase() + pageVendorContext.slice(1);
-          console.log(`Product ${index + 1} vendor inferred from context:`, productVendor);
+        // Look for vendor patterns in the URL path
+        if (productUrl.includes('/collections/oxygen') || productUrl.includes('vendor=oxygen')) {
+          productVendor = 'Oxygen';
+          console.log(`Product ${index + 1} vendor from URL pattern: Oxygen`);
+        } else if (productUrl.includes('/collections/quorum') || productUrl.includes('vendor=quorum')) {
+          productVendor = 'Quorum';
+          console.log(`Product ${index + 1} vendor from URL pattern: Quorum`);
         }
       }
       
-      // Method 5: Text scanning fallback
+      // Method 5: Text scanning in product title and content
       if (!productVendor) {
-        const itemText = item.textContent.toLowerCase();
-        if (itemText.includes('oxygen')) {
+        const titleElement = item.querySelector('.grid-product__title');
+        const metaElement = item.querySelector('.grid-product__meta');
+        
+        let searchText = '';
+        if (titleElement) searchText += titleElement.textContent.toLowerCase() + ' ';
+        if (metaElement) searchText += metaElement.textContent.toLowerCase() + ' ';
+        
+        console.log(`Product ${index + 1} text content:`, searchText.substring(0, 100));
+        
+        if (searchText.includes('oxygen')) {
           productVendor = 'Oxygen';
           console.log(`Product ${index + 1} vendor from text scan: Oxygen`);
-        } else if (itemText.includes('quorum')) {
+        } else if (searchText.includes('quorum')) {
           productVendor = 'Quorum';
           console.log(`Product ${index + 1} vendor from text scan: Quorum`);
         }
-      }
-      
-      // Method 6: Use page context as last resort
-      if (!productVendor && pageVendorContext) {
-        productVendor = pageVendorContext.charAt(0).toUpperCase() + pageVendorContext.slice(1);
-        console.log(`Product ${index + 1} vendor from page context:`, productVendor);
       }
       
       // Add vendor display if we found one
@@ -234,7 +221,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Debug: Show what we found
         console.log(`  - URL: ${productUrl}`);
-        console.log(`  - Page context: ${pageVendorContext}`);
         console.log(`  - Text content preview: ${item.textContent.substring(0, 100)}`);
       }
     });
