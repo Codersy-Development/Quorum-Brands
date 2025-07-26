@@ -204,15 +204,30 @@
       text-decoration: none;
     }
 
-    /* Ensure all navigation items are on same line */
+    /* Properly space store menu items */
     .header-nav-below-all .store-switch-navigations .ssm__menu {
       display: flex;
-      gap: 0;
+      gap: 1.5rem;
       align-items: center;
     }
 
     .header-nav-below-all .store-switch-navigations .ssm__menu > li {
       display: inline-flex;
+    }
+
+    .header-nav-below-all .store-switch-navigations .ssm__menu-link {
+      padding: 12px 0;
+      white-space: nowrap;
+    }
+
+    /* Ensure store switcher buttons are horizontal */
+    .header-layout--center-below store-switcher {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      gap: 0.8rem;
+      align-items: center;
+      justify-content: flex-start;
     }
 
     @media only screen and (max-width: 768px) {
