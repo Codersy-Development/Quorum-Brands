@@ -1,15 +1,13 @@
 {%- liquid
   assign dark_search_bg = false
   assign lightness = settings.color_header_search | color_brightness
-
   if lightness <= 100
     assign dark_search_bg = true
   endif
 -%}
-
 <predictive-search data-context="{{ context }}" data-enabled="{{ settings.predictive_search_enabled }}" data-dark="{{ dark_search_bg }}">
   <div class="predictive__screen" data-screen></div>
-  <form action="{{ routes.search_url }}" method="get" role="search">
+  <form action="{{ routes.search_url }}" method="get" role="search" id="predictive-search-form-{{ context }}">
     <label for="Search" class="hidden-label">Search</label>
     <div class="search__input-wrap">
       <input
@@ -32,15 +30,87 @@
         tabindex="0"
       >
       <input name="options[prefix]" type="hidden" value="last">
+      <!-- Hidden input for vendor filter - will be populated by JavaScript -->
+      <input type="hidden" name="filter.p.vendor" value="" class="vendor-filter-input">
       <button class="btn--search" type="submit">
         <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-search" viewBox="0 0 64 64"><defs><style>.cls-1{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:2px}</style></defs><path class="cls-1" d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42"/></svg>
         <span class="icon__fallback-text">{{ 'general.search.submit' | t }}</span>
       </button>
     </div>
-
     <button class="btn--close-search">
       <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64"><defs><style>.cls-1{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:2px}</style></defs><path class="cls-1" d="M19 17.61l27.12 27.13m0-27.13L19 44.74"/></svg>
     </button>
     <div id="predictive-search" class="search__results" tabindex="-1"></div>
   </form>
 </predictive-search>
+
+{% unless request.design_mode %}
+<script>
+// Add vendor filtering to predictive search form submission
+document.addEventListener('DOMContentLoaded', function() {
+  const predictiveSearchForm = document.getElementById('predictive-search-form-{{ context }}');
+  
+  if (!predictiveSearchForm) return;
+  
+  function updatePredictiveSearchVendorFilter() {
+    const selectedStore = localStorage.getItem("store-selected") || "";
+    const vendorFilterInput = predictiveSearchForm.querySelector('.vendor-filter-input');
+    
+    if (!vendorFilterInput) return;
+    
+    console.log('=== UPDATING PREDICTIVE SEARCH VENDOR FILTER ===');
+    console.log('Selected store:', selectedStore);
+    
+    // Only add vendor filter if a specific store is selected (not "shop all")
+    if (selectedStore && !selectedStore.toLowerCase().includes("shop all")) {
+      const capitalizedStore = selectedStore.charAt(0).toUpperCase() + selectedStore.slice(1);
+      vendorFilterInput.value = capitalizedStore;
+      console.log('Set vendor filter for predictive search form:', capitalizedStore);
+    } else {
+      vendorFilterInput.value = '';
+      console.log('Cleared vendor filter for predictive search form (shop all or no selection)');
+    }
+    
+    // Update search placeholder to show selected store
+    const searchInput = predictiveSearchForm.querySelector('.search__input');
+    if (searchInput) {
+      if (selectedStore && !selectedStore.toLowerCase().includes("shop all")) {
+        const capitalizedStore = selectedStore.charAt(0).toUpperCase() + selectedStore.slice(1);
+        searchInput.placeholder = `Search ${capitalizedStore} products...`;
+      } else {
+        searchInput.placeholder = "{{ 'general.search.placeholder' | t }}";
+      }
+    }
+  }
+  
+  // Update vendor filter before form submission
+  predictiveSearchForm.addEventListener('submit', function(e) {
+    console.log('Predictive search form submitting, updating vendor filter...');
+    updatePredictiveSearchVendorFilter();
+  });
+  
+  // Update vendor filter when store changes
+  document.addEventListener('change', function(e) {
+    if (e.target.matches('store-switcher input[type="radio"]') || 
+        (e.target.type === 'radio' && e.target.closest('store-switcher')) ||
+        (e.target.type === 'radio' && e.target.name && e.target.name.startsWith('store-switcher-'))) {
+      
+      console.log('Store changed, updating predictive search form vendor filter...');
+      setTimeout(updatePredictiveSearchVendorFilter, 50);
+    }
+  });
+  
+  // Listen for clicks on store switcher as backup
+  document.addEventListener('click', function(e) {
+    const storeLabel = e.target.closest('store-switcher label');
+    if (storeLabel) {
+      console.log('Store switcher clicked, updating predictive search form...');
+      setTimeout(updatePredictiveSearchVendorFilter, 100);
+    }
+  });
+  
+  // Initialize vendor filter on page load
+  setTimeout(updatePredictiveSearchVendorFilter, 100);
+});
+</script>
+{% endunless %}
