@@ -16,11 +16,13 @@
         max-width: 1400px;
         margin: 0 auto;
         padding: 0 20px;
+        overflow: visible; /* Prevent clipping */
     }
     & .feature-grid {
         display: flex;
         align-items: center;
         gap: 20px;
+        overflow: visible; /* Prevent clipping */
     }
     & .feature-left {
         flex: 0 0 50%;
@@ -67,6 +69,7 @@
         align-items: center;
         background: #f9f9f9;
         height: 821px;
+        overflow: visible; /* Prevent clipping of arrows */
     }
     & .feature-card {
         padding: 30px;
@@ -78,12 +81,16 @@
         flex-direction: column;
         align-items: stretch;
         height: 100%;
+        overflow: visible; /* Prevent clipping of arrows */
+        position: relative;
     }
     & .card-swiper {
         width: 100%;
         height: 100%;
         display: flex;
         flex-direction: column;
+        overflow: visible; /* Prevent clipping of arrows */
+        position: relative;
     }
     & .swiper-wrapper {
         flex-grow: 1;
@@ -162,7 +169,9 @@
         margin-top: 0px; /* Moved up 20px from original 20px */
         flex-shrink: 0;
         position: relative;
-        z-index: 10; /* Ensure arrows are always visible */
+        z-index: 100; /* Higher z-index to ensure visibility */
+        padding-bottom: 10px; /* Add padding to prevent clipping */
+        min-height: 50px; /* Ensure enough space for buttons */
     }
     & .product-button-prev {
         transform: rotate(180deg);
@@ -261,6 +270,32 @@
     /* Subtle highlight for active slide */
     background: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
+}
+
+/* Universal overrides to ensure arrows always show */
+.product-feature-carousel .product-button-wrapper,
+.product-feature-carousel[data-store] .product-button-wrapper,
+.product-feature-carousel[data-store="all"] .product-button-wrapper,
+.product-feature-carousel[data-store="explore all brands"] .product-button-wrapper,
+.product-feature-carousel[data-store="quorum"] .product-button-wrapper,
+.product-feature-carousel[data-store="oxygen"] .product-button-wrapper {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    overflow: visible !important;
+    position: relative !important;
+    z-index: 999 !important;
+}
+
+.product-feature-carousel .product-button-prev,
+.product-feature-carousel .product-button-next,
+.product-feature-carousel[data-store] .product-button-prev,
+.product-feature-carousel[data-store] .product-button-next {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative !important;
+    z-index: 1000 !important;
 }
 
 /* Mobile Responsive */
