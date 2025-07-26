@@ -32,6 +32,27 @@ const setCollectionsFilters = () => {
   });
 };
 
+// NEW: Function to dispatch custom events for other scripts
+const dispatchStoreChangeEvent = (selectedStore) => {
+  // Dispatch custom event for recently viewed and other scripts
+  const storeChangedEvent = new CustomEvent('storeChanged', {
+    detail: { 
+      selectedStore: selectedStore,
+      timestamp: Date.now()
+    },
+    bubbles: true
+  });
+  
+  document.dispatchEvent(storeChangedEvent);
+  console.log('Dispatched storeChanged event for:', selectedStore);
+  
+  // Also dispatch backup event name
+  const storeUpdateEvent = new CustomEvent('storeUpdate', {
+    detail: { store: selectedStore }
+  });
+  
+  document.dispatchEvent(storeUpdateEvent);
+};
 
 class StoreSwitcher extends HTMLElement {
   constructor() {
@@ -67,6 +88,10 @@ class StoreSwitcher extends HTMLElement {
         });
         this.htmlEL.dataset.storeSelected = input.value;
         localStorage.setItem("store-selected", input.value);
+        
+        // NEW: Dispatch custom event for other scripts to listen to
+        dispatchStoreChangeEvent(input.value);
+        
         setCollectionsFilters();
         if (typeof theme !== 'undefined' && theme.headerNav) {
           theme.headerNav.init();
@@ -98,12 +123,24 @@ class StoreSwitcher extends HTMLElement {
     if (!localStorage.getItem("store-selected")) {
       localStorage.setItem("store-selected", this.inputs[0].value);
       this.htmlEL.dataset.storeSelected = this.inputs[0].value;
+      
+      // NEW: Dispatch event for initial store selection
+      if (this.inputs[0].value) {
+        dispatchStoreChangeEvent(this.inputs[0].value);
+      }
+      
       if (typeof theme !== 'undefined' && theme.headerNav) {
         theme.headerNav.init();
       }
       const current = new URL(window.location.href);
       if (/\/(?:collections|products)\//.test(current.pathname)) {
         window.location.reload();
+      }
+    } else {
+      // NEW: Dispatch event for restored store selection on page load
+      const currentStore = localStorage.getItem("store-selected");
+      if (currentStore) {
+        dispatchStoreChangeEvent(currentStore);
       }
     }
   }
