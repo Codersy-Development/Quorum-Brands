@@ -144,23 +144,18 @@ document.addEventListener('DOMContentLoaded', function() {
   function updateDownloadSearchVendorFilter() {
     const selectedStore = localStorage.getItem("store-selected") || "";
     
-    console.log('=== UPDATING DOWNLOAD SEARCH VENDOR FILTER ===');
-    console.log('Selected store:', selectedStore);
     
     // Only add vendor filter if a specific store is selected (not "shop all")
     if (selectedStore && !selectedStore.toLowerCase().includes("shop all")) {
       const capitalizedStore = selectedStore.charAt(0).toUpperCase() + selectedStore.slice(1);
       vendorFilterInput.value = capitalizedStore;
-      console.log('Set vendor filter for download search:', capitalizedStore);
     } else {
       vendorFilterInput.value = '';
-      console.log('Cleared vendor filter for download search (shop all or no selection)');
     }
   }
   
   // Update vendor filter before form submission
   downloadSearchForm.addEventListener('submit', function(e) {
-    console.log('Download search form submitting, updating vendor filter...');
     updateDownloadSearchVendorFilter();
   });
   
@@ -170,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function() {
         (e.target.type === 'radio' && e.target.closest('store-switcher')) ||
         (e.target.type === 'radio' && e.target.name && e.target.name.startsWith('store-switcher-'))) {
       
-      console.log('Store changed, updating download search vendor filter...');
+
       updateDownloadSearchVendorFilter();
     }
   });
