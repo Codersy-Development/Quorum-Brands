@@ -72,31 +72,41 @@
         "product_card_krentJ": {
           "type": "product_card",
           "settings": {
-            "product": "5391-80"
+            "product": "5391-80",
+            "custom_link": "",
+            "open_in_new_tab": false
           }
         },
         "product_card_VpN4eg": {
           "type": "product_card",
           "settings": {
-            "product": "582-1-59"
+            "product": "582-1-59",
+            "custom_link": "",
+            "open_in_new_tab": false
           }
         },
         "product_card_iwDMqC": {
           "type": "product_card",
           "settings": {
-            "product": "912-69"
+            "product": "912-69",
+            "custom_link": "",
+            "open_in_new_tab": false
           }
         },
         "product_card_HAjpFr": {
           "type": "product_card",
           "settings": {
-            "product": "5669-1-80"
+            "product": "5669-1-80",
+            "custom_link": "",
+            "open_in_new_tab": false
           }
         },
         "product_card_R3BDUG": {
           "type": "product_card",
           "settings": {
-            "product": "633-5-0881"
+            "product": "633-5-0881",
+            "custom_link": "",
+            "open_in_new_tab": false
           }
         }
       },
