@@ -12,28 +12,32 @@
             {% if section.settings.main_image %}
               <img src="{{ section.settings.main_image | image_url: width: 1000 }}" alt="Bathroom Image">
             {% endif %}
-        </div>
-        <div class="right-box">
-            {% content_for 'blocks' %}
+            
+            <!-- Designer Tips under the main image -->
             {% if section.settings.tip != blank %}
-                <div class="guide-designer-tip-box">
-                    <p class="guide-designer-tip-title">Designer Tip:</p>
-                    <p>{{ section.settings.tip }}</p>
+                <div class="under-image-tip">
+                    <div class="guide-designer-tip-box">
+                        <p class="guide-designer-tip-title">{{ section.settings.tip_1_heading | default: "Designer Tip" }}:</p>
+                        <p>{{ section.settings.tip }}</p>
+                    </div>
+                </div>
+            {% endif %}
+            
+            {% if section.settings.tip_2 != blank %}
+                <div class="under-image-tip">
+                    <div class="guide-designer-tip-box">
+                        <p class="guide-designer-tip-title">{{ section.settings.tip_2_heading | default: "Designer Tip" }}:</p>
+                        <p>{{ section.settings.tip_2 }}</p>
+                    </div>
                 </div>
             {% endif %}
         </div>
+        <div class="right-box">
+            {% content_for 'blocks' %}
+        </div>
     </div>
     
-    <!-- Additional Designer Tip Sections -->
-    {% if section.settings.tip_2 != blank %}
-        <div class="additional-tip-section">
-            <div class="guide-designer-tip-box">
-                <p class="guide-designer-tip-title">Designer Tip:</p>
-                <p>{{ section.settings.tip_2 }}</p>
-            </div>
-        </div>
-    {% endif %}
-    
+    <!-- Additional Designer Tip Section -->
     {% if section.settings.tip_3 != blank %}
         <div class="additional-tip-section">
             <div class="guide-designer-tip-box">
@@ -53,29 +57,31 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
-        align-items: stretch; /* 👈 makes both columns same height */
+        align-items: flex-start; /* Changed from stretch to flex-start */
     }
-    .guide-text,
-    .right-box {
-        height: 100%; /* 👈 ensures both sides fill the row */
+    .guide-text {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+    }
+    .right-box {
+        width: 100%;
     }
     .guide-text img {
         width: 100%;
-        height: 100%;
         display: block;
         border-radius: 8px;
-        margin-top: auto; /* pushes image to bottom */
+        margin-bottom: 1rem; /* Add margin for tips below */
         object-fit: cover;
-    }
-    .right-box {
-        width: 100%;
     }
     .title-colored-box {
         margin-bottom: 1rem;
         border-radius: 4px;
+    }
+    .under-image-tip {
+        margin-bottom: 1rem;
+    }
+    .under-image-tip:last-of-type {
+        margin-bottom: 0;
     }
     .guide-designer-tip-box {
         display: flex;
@@ -88,7 +94,6 @@
         line-height: 1.6;
         width: 100%;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-        margin-top: auto; /* aligns to bottom of the column */
     }
     .guide-designer-tip-title {
         font-weight: bold;
@@ -101,19 +106,9 @@
         margin-top: 2rem;
         max-width: 100%;
     }
-    .additional-tip-section .guide-designer-tip-box {
-        margin-top: 0;
-    }
     @media (max-width: 1024px) {
         .guide-layout {
             grid-template-columns: 1fr;
-        }
-        .guide-text,
-        .right-box {
-            height: auto;
-        }
-        .guide-designer-tip-box {
-            margin-top: 1rem;
         }
         .additional-tip-section {
             margin-top: 1rem;
@@ -180,22 +175,36 @@
       "content": "Designer Tips"
     },
     {
+      "type": "text",
+      "id": "tip_1_heading",
+      "label": "Designer Tip 1 Heading",
+      "default": "Lighting Level and Quality",
+      "info": "Custom heading for the first tip (e.g., 'Pro Tip', 'Expert Advice')"
+    },
+    {
       "type": "textarea",
       "id": "tip",
-      "label": "Designer Tip 1 (Right Side)",
-      "info": "Appears in the right column next to the image"
+      "label": "Designer Tip 1 (Under Image)",
+      "info": "Appears under the main image in the left column"
+    },
+    {
+      "type": "text",
+      "id": "tip_2_heading",
+      "label": "Designer Tip 2 Heading",
+      "default": "Size and Scale",
+      "info": "Custom heading for the second tip"
     },
     {
       "type": "textarea",
       "id": "tip_2",
-      "label": "Designer Tip 2 (Below Image)",
-      "info": "Appears below the main layout"
+      "label": "Designer Tip 2 (Under Image)",
+      "info": "Appears under Designer Tip 1 in the left column"
     },
     {
       "type": "textarea",
       "id": "tip_3",
-      "label": "Designer Tip 3 (Below Image)",
-      "info": "Appears below Designer Tip 2"
+      "label": "Designer Tip 3 (Below Section)",
+      "info": "Appears below the entire main layout (full width)"
     }
   ],
   "blocks": [{ "type": "@theme" }, { "type": "@app" }],
