@@ -206,6 +206,54 @@
         "store": "oxygen"
       }
     },
+    "brand_feature_grid_bhGpgU": {
+      "type": "brand-feature-grid",
+      "blocks": {
+        "image_LWwTdA": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/3-878-56_7.jpg"
+          }
+        },
+        "text_887LPy": {
+          "type": "text",
+          "settings": {
+            "title": "",
+            "text_style": "pink",
+            "content": "<p>Oxygen provides statement-making lighting and ceiling fan solutions for any commercial or multi-family application. We take pride in bringing a sleek and sophisticated aesthetic to any setting. As a division of Quorum International, an industry leader for over 40 years, Oxygen has carved its own path in differentiating its unique style of products. </p><p>The brand’s vision is to create refreshing, modern fixtures that stand out as uniquely ours. Over the years, our designs have shared consistent characteristics that keep our fixtures entirely in line with our signature look—the use of sharp angles, clean lines, geometric styling, and monochromatic finishes. These highlights have allowed us to remain firmly grounded in modern/minimalistic design in all of our indoor and outdoor pendants, vanities, ceiling, and wall mounts.</p>"
+          }
+        },
+        "image_DBiWXE": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/3-80-56_5.jpg"
+          }
+        },
+        "image_jnJTyp": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/3-647-56_5.jpg"
+          }
+        },
+        "image_h3pzVA": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/3-892-15_4.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_LWwTdA",
+        "text_887LPy",
+        "image_DBiWXE",
+        "image_jnJTyp",
+        "image_h3pzVA"
+      ],
+      "name": "Brand Feature Grid",
+      "settings": {
+        "store": "explore all brands"
+      }
+    },
     "brand_feature_grid_f8E3iR": {
       "type": "brand-feature-grid",
       "blocks": {
@@ -274,54 +322,6 @@
       "settings": {
         "store": "quorum"
       }
-    },
-    "brand_feature_grid_RXXhQm": {
-      "type": "brand-feature-grid",
-      "blocks": {
-        "image_kRpWxg": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/3-80-56_5.jpg"
-          }
-        },
-        "text_GAQaTb": {
-          "type": "text",
-          "settings": {
-            "title": "",
-            "text_style": "pink",
-            "content": "<p>Oxygen provides statement-making lighting and ceiling fan solutions for any commercial or multi-family application. We take pride in bringing a sleek and sophisticated aesthetic to any setting. As a division of Quorum International, an industry leader for over 40 years, Oxygen has carved its own path in differentiating its unique style of products. </p><p>The brand’s vision is to create refreshing, modern fixtures that stand out as uniquely ours. Over the years, our designs have shared consistent characteristics that keep our fixtures entirely in line with our signature look—the use of sharp angles, clean lines, geometric styling, and monochromatic finishes. These highlights have allowed us to remain firmly grounded in modern/minimalistic design in all of our indoor and outdoor pendants, vanities, ceiling, and wall mounts.</p>"
-          }
-        },
-        "image_PGV6Wh": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/3-647-56_5.jpg"
-          }
-        },
-        "image_kqwYmj": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/3-892-15_4.jpg"
-          }
-        },
-        "image_DKBhRp": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/3-878-56_7.jpg"
-          }
-        }
-      },
-      "block_order": [
-        "image_kRpWxg",
-        "text_GAQaTb",
-        "image_PGV6Wh",
-        "image_kqwYmj",
-        "image_DKBhRp"
-      ],
-      "name": "Brand Feature Grid",
-      "settings": {
-        "store": "explore all brands"
-      }
     }
   },
   "order": [
@@ -333,7 +333,7 @@
     "team_section_7PJ7pU",
     "advanced_content_zt73H9",
     "brand_feature_grid_wXTtBN",
-    "brand_feature_grid_f8E3iR",
-    "brand_feature_grid_RXXhQm"
+    "brand_feature_grid_bhGpgU",
+    "brand_feature_grid_f8E3iR"
   ]
 }
