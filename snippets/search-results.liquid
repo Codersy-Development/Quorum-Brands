@@ -97,38 +97,6 @@
                       {% if settings.predictive_search_show_vendor %}
                       <span class="grid-product__vendor">{{ product.vendor }}</span>
                       {% endif %}
-                      
-                      {%- comment -%} Display Variant SKUs {%- endcomment -%}
-                      {% if product.variants.size > 0 %}
-                        <div class="grid-product__skus">
-                          {% if product.variants.size == 1 %}
-                            {%- assign first_variant = product.variants.first -%}
-                            {% if first_variant.sku != blank %}
-                              <span class="grid-product__sku">SKU: {{ first_variant.sku }}</span>
-                            {% endif %}
-                          {% else %}
-                            {%- assign sku_count = 0 -%}
-                            {%- assign display_skus = '' -%}
-                            {%- for variant in product.variants -%}
-                              {%- if variant.sku != blank -%}
-                                {%- assign sku_count = sku_count | plus: 1 -%}
-                                {%- if sku_count <= 2 -%}
-                                  {%- if display_skus != '' -%}
-                                    {%- assign display_skus = display_skus | append: ', ' -%}
-                                  {%- endif -%}
-                                  {%- assign display_skus = display_skus | append: variant.sku -%}
-                                {%- endif -%}
-                              {%- endif -%}
-                            {%- endfor -%}
-                            {% if sku_count > 0 %}
-                              <span class="grid-product__sku">
-                                SKU: {{ display_skus }}{% if sku_count > 2 %} +{{ sku_count | minus: 2 }} more{% endif %}
-                              </span>
-                            {% endif %}
-                          {% endif %}
-                        </div>
-                      {% endif %}
-                      
                       {% if settings.predictive_search_show_price %}
                         {%- if on_sale -%}
                           <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
@@ -236,15 +204,20 @@
       '.grid-product, .product-item, .search-product, [data-product-id], .product-grid-item'
     );
     
+    console.log('=== FILTERING SEARCH PAGE RESULTS ===');
+    console.log('Selected store:', selectedStore);
+    console.log('Product items found:', productItems.length);
     
     if (productItems.length === 0) {
       // Try alternative selectors
       const altProductItems = document.querySelectorAll(
         '.product, .item, [class*="product"], [class*="grid"]'
       );
+      console.log('Alternative product items found:', altProductItems.length);
       
       // If still no products found, let's look for vendor info in the page
       const vendorElements = document.querySelectorAll('[class*="vendor"], .grid-product__vendor');
+      console.log('Vendor elements found:', vendorElements.length);
       
       if (vendorElements.length > 0) {
         vendorElements.forEach((vendorEl, index) => {
@@ -257,8 +230,10 @@
             
             if (shouldShow) {
               productContainer.style.display = '';
+              console.log(`✓ Showing product ${index + 1} (vendor: ${vendorText})`);
             } else {
               productContainer.style.display = 'none';
+              console.log(`✗ Hiding product ${index + 1} (vendor: ${vendorText})`);
             }
           }
         });
@@ -299,6 +274,7 @@
         }
       }
       
+      console.log(`Product ${index + 1} vendor:`, productVendor);
       
       // Allow products to show when "Shop All Brands" is selected
       const shouldShow = selectedStore.toLowerCase().includes("shop all") || 
@@ -308,12 +284,15 @@
       if (shouldShow) {
         item.style.display = '';
         visibleCount++;
+        console.log(`✓ Showing product ${index + 1} (vendor: ${productVendor})`);
       } else {
         item.style.display = 'none';
         hiddenCount++;
+        console.log(`✗ Hiding product ${index + 1} (vendor: ${productVendor})`);
       }
     });
     
+    console.log(`Search page results: ${visibleCount} visible, ${hiddenCount} hidden`);
     
     // Update no results message if needed
     updateSearchResultsDisplay(visibleCount);
@@ -352,6 +331,7 @@
   
   // Run filtering when page loads
   document.addEventListener('DOMContentLoaded', function() {
+    console.log('Search page loaded, filtering results...');
     setTimeout(filterSearchPageResults, 200);
   });
   
@@ -361,6 +341,7 @@
         (e.target.type === 'radio' && e.target.closest('store-switcher')) ||
         (e.target.type === 'radio' && e.target.name && e.target.name.startsWith('store-switcher-'))) {
       
+      console.log('Store changed on search page, re-filtering...');
       setTimeout(filterSearchPageResults, 100);
     }
   });
@@ -369,6 +350,7 @@
   document.addEventListener('click', function(e) {
     const storeLabel = e.target.closest('store-switcher label');
     if (storeLabel) {
+      console.log('Store switcher clicked on search page, re-filtering...');
       setTimeout(filterSearchPageResults, 150);
     }
   });
