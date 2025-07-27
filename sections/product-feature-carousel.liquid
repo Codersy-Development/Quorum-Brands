@@ -83,12 +83,10 @@
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
 <script>
-// Ultra-simple approach - just force arrows to show and work
 (function() {
     'use strict';
     
     function makeAllArrowsWork() {
-        // Find all carousel sections
         const carousels = document.querySelectorAll('.product-feature-carousel');
         console.log('Found', carousels.length, 'carousels');
         
@@ -101,6 +99,7 @@
             const prevBtn = carousel.querySelector('.product-button-prev');
             const nextBtn = carousel.querySelector('.product-button-next');
             const swiperContainer = carousel.querySelector('.card-swiper');
+            const slideCounter = carousel.querySelector('.slide-counter');
             
             if (card) {
                 card.style.setProperty('display', 'flex', 'important');
@@ -137,7 +136,6 @@
             }
             
             // Make sure slide counter is visible
-            const slideCounter = carousel.querySelector('.slide-counter');
             if (slideCounter) {
                 slideCounter.style.setProperty('display', 'block', 'important');
                 slideCounter.style.setProperty('visibility', 'visible', 'important');
@@ -161,12 +159,10 @@
                         on: {
                             init: function() {
                                 console.log('Swiper', index + 1, 'initialized');
-                                // Update counter on init
                                 updateCounter(carousel, 0);
                             },
                             slideChange: function() {
                                 console.log('Swiper', index + 1, 'slide changed to:', this.activeIndex);
-                                // Update main image if needed
                                 updateMainImage(carousel, this.activeIndex);
                                 updateCounter(carousel, this.activeIndex);
                             }
@@ -227,151 +223,6 @@
     document.addEventListener('storeUpdate', () => {
         setTimeout(makeAllArrowsWork, 200);
     });
-    
-    // Run periodically to catch any issues
-    setInterval(makeAllArrowsWork, 2000);
-})();
-</script>
-(function() {
-    'use strict';
-    
-    // Namespace to avoid conflicts
-    window.ProductCarousel = window.ProductCarousel || {};
-    
-    if (window.ProductCarousel.initialized) {
-        return; // Already initialized
-    }
-    
-    let carousels = [];
-
-    function initCarousel(carouselElement, index) {
-        console.log('Initializing carousel', index + 1);
-        
-        const mainImage = carouselElement.querySelector('.main-image');
-        const swiperContainer = carouselElement.querySelector('.card-swiper');
-        const slides = carouselElement.querySelectorAll('.swiper-slide[data-main-image]');
-        
-        if (!mainImage || !swiperContainer || slides.length === 0) {
-            console.log('Carousel', index + 1, 'missing required elements');
-            return;
-        }
-
-        // Force visibility
-        carouselElement.style.display = 'block';
-        carouselElement.style.visibility = 'visible';
-        carouselElement.style.opacity = '1';
-
-        // Collect slide data
-        const slideData = Array.from(slides).map((slide, i) => ({
-            imageUrl: slide.getAttribute('data-main-image'),
-            linkUrl: slide.getAttribute('data-main-image-url'),
-            slideNumber: i + 1
-        }));
-
-        // Initialize Swiper
-        const swiper = new Swiper(swiperContainer, {
-            slidesPerView: 1,
-            spaceBetween: 0,
-            navigation: {
-                nextEl: carouselElement.querySelector('.product-button-next'),
-                prevEl: carouselElement.querySelector('.product-button-prev'),
-            },
-            loop: false,
-            effect: 'slide',
-            speed: 400,
-            allowTouchMove: true,
-            on: {
-                init: function() {
-                    updateMainImage(0);
-                    updateCounter(0);
-                },
-                slideChange: function() {
-                    updateMainImage(this.activeIndex);
-                    updateCounter(this.activeIndex);
-                }
-            }
-        });
-
-        function updateMainImage(index) {
-            const slideInfo = slideData[index];
-            if (slideInfo && slideInfo.imageUrl && slideInfo.imageUrl !== mainImage.src) {
-                mainImage.style.opacity = '0.3';
-                setTimeout(() => {
-                    mainImage.src = slideInfo.imageUrl;
-                    mainImage.style.opacity = '1';
-                    updateLink(slideInfo.linkUrl);
-                }, 150);
-            }
-        }
-
-        function updateCounter(index) {
-            const counterEl = carouselElement.querySelector('.current-slide');
-            if (counterEl) {
-                counterEl.textContent = index + 1;
-            }
-        }
-
-        function updateLink(url) {
-            const container = carouselElement.querySelector('.main-image-container');
-            const existingLink = container.querySelector('.main-image-link');
-            
-            if (url && url.trim()) {
-                if (existingLink) {
-                    existingLink.href = url;
-                } else {
-                    const link = document.createElement('a');
-                    link.href = url;
-                    link.target = '_blank';
-                    link.rel = 'noopener';
-                    link.className = 'main-image-link';
-                    mainImage.parentNode.insertBefore(link, mainImage);
-                    link.appendChild(mainImage);
-                }
-            } else if (existingLink) {
-                existingLink.parentNode.insertBefore(mainImage, existingLink);
-                existingLink.remove();
-            }
-        }
-
-        carousels.push({ element: carouselElement, swiper, slideData });
-        console.log('Carousel', index + 1, 'initialized successfully');
-    }
-
-    function initAllCarousels() {
-        // Clear existing carousels
-        carousels.forEach(carousel => {
-            if (carousel.swiper && carousel.swiper.destroy) {
-                carousel.swiper.destroy(true, true);
-            }
-        });
-        carousels = [];
-
-        // Initialize all carousel instances
-        const carouselElements = document.querySelectorAll('.product-feature-carousel');
-        carouselElements.forEach((element, index) => {
-            initCarousel(element, index);
-        });
-    }
-
-    // Initialize on DOM ready
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initAllCarousels);
-    } else {
-        initAllCarousels();
-    }
-
-    // Re-initialize on store changes
-    document.addEventListener('storeChanged', () => {
-        setTimeout(initAllCarousels, 200);
-    });
-
-    document.addEventListener('storeUpdate', () => {
-        setTimeout(initAllCarousels, 200);
-    });
-
-    window.ProductCarousel.initialized = true;
-    window.ProductCarousel.carousels = carousels;
-    window.ProductCarousel.init = initAllCarousels;
 })();
 </script>
 
