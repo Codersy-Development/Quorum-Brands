@@ -272,6 +272,54 @@
       ],
       "name": "Brand Feature Grid",
       "settings": {
+        "store": "explore all brands"
+      }
+    },
+    "brand_feature_grid_wXTtBN": {
+      "type": "brand-feature-grid",
+      "blocks": {
+        "image_RaJHAB": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/3-878-56_7.jpg"
+          }
+        },
+        "text_hHin4f": {
+          "type": "text",
+          "settings": {
+            "title": "",
+            "text_style": "pink",
+            "content": "<p>Oxygen provides statement-making lighting and ceiling fan solutions for any commercial or multi-family application. We take pride in bringing a sleek and sophisticated<br/>aesthetic to any setting. As a division of Quorum International, an industry leader for<br/>over 40 years, Oxygen has carved its own path in differentiating its unique style of<br/>products. The brand’s vision is to create refreshing, modern fixtures that stand out as<br/>uniquely ours.<br/>Over the years, our designs have shared consistent characteristics that keep our fixtures entirely in line with our signature look—the use of sharp angles, clean lines, geometric styling, and monochromatic finishes. These highlights have allowed us to remain firmly grounded in modern/minimalistic design in all of our indoor and outdoor<br/>pendants, vanities, ceiling, and wall mounts.</p>"
+          }
+        },
+        "image_3qmnBb": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/3-80-56_5.jpg"
+          }
+        },
+        "image_AwWper": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/3-647-56_5.jpg"
+          }
+        },
+        "image_4h8pFV": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/3-892-15_4.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_RaJHAB",
+        "text_hHin4f",
+        "image_3qmnBb",
+        "image_AwWper",
+        "image_4h8pFV"
+      ],
+      "name": "Brand Feature Grid",
+      "settings": {
         "store": "oxygen"
       }
     }
@@ -285,6 +333,7 @@
     "team_section_7PJ7pU",
     "advanced_content_zt73H9",
     "brand_feature_grid_f8E3iR",
-    "brand_feature_grid_RXXhQm"
+    "brand_feature_grid_RXXhQm",
+    "brand_feature_grid_wXTtBN"
   ]
 }
