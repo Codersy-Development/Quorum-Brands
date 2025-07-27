@@ -1159,12 +1159,12 @@
           "name": "Global Image",
           "settings": {
             "image": "shopify://shop_images/715-10-69_lit_1.jpg",
-            "image_border_radius": 0,
+            "image_border_radius": 10,
             "image_width": 100,
-            "image_height": 400,
-            "image_fit": "contain",
+            "image_height": 350,
+            "image_fit": "cover",
             "image_margin_top": 0,
-            "image_margin_bottom": 0,
+            "image_margin_bottom": 15,
             "tip_heading": "Designer Tip",
             "tip": "",
             "tip_background_color": "#7b675c",
@@ -1212,17 +1212,16 @@
                       "name": "Info Block with Image",
                       "settings": {
                         "heading": "Above an Exterior Door",
-                        "text": "<p>Select a hanging fixture that is proportionate to the size of your outdoor entryway.<br/>A fixture that is too small may get lost in the space, while one that is too large may overwhelm it.<br/><strong>Aim for a size that provides adequate illumination without obstructing the entryway or door.</strong></p>",
-                        "image": "shopify://shop_images/Sconce_Garage.png",
-                        "image_position": "left",
+                        "text": "<p>Select a hanging fixture that is proportionate to the size of your outdoor entryway. A fixture that is too small may get lost in the space, while one that is too large may overwhelm it. <strong>Aim for a size that provides adequate illumination without obstructing the entryway or door.</strong></p>",
+                        "image_position": "bottom",
                         "image_border_radius": 0,
-                        "heading_font_size": 24,
-                        "heading_line_height": 1.2,
-                        "text_font_size": 16,
-                        "text_line_height": 1.5
+                        "heading_font_size": 15,
+                        "heading_line_height": 2.5,
+                        "text_font_size": 12,
+                        "text_line_height": 1.2
                       },
                       "blocks": {
-                        "global_image_JGY3Yb": {
+                        "global_image_JaKifT": {
                           "type": "global-image",
                           "name": "Global Image",
                           "settings": {
@@ -1230,7 +1229,7 @@
                             "image_border_radius": 0,
                             "image_width": 100,
                             "image_height": 400,
-                            "image_fit": "contain",
+                            "image_fit": "cover",
                             "image_margin_top": 0,
                             "image_margin_bottom": 0,
                             "tip_heading": "Designer Tip",
@@ -1244,7 +1243,7 @@
                         }
                       },
                       "block_order": [
-                        "global_image_JGY3Yb"
+                        "global_image_JaKifT"
                       ]
                     }
                   },
@@ -1258,15 +1257,16 @@
                   "settings": {
                     "heading": "Sides of an Exterior Door",
                     "text": "<p>Ensure that the fixtures are installed at a <strong>height and position</strong> that provide ample illumination for safety and security — without obstructing the door’s operation or interfering with any architectural features.</p>",
+                    "image": "shopify://shop_images/3-523-295.jpg",
                     "image_position": "bottom",
                     "image_border_radius": 0,
-                    "heading_font_size": 24,
-                    "heading_line_height": 1.2,
-                    "text_font_size": 16,
-                    "text_line_height": 1.5
+                    "heading_font_size": 15,
+                    "heading_line_height": 2.5,
+                    "text_font_size": 12,
+                    "text_line_height": 1.2
                   },
                   "blocks": {
-                    "global_image_Cq7WAG": {
+                    "global_image_Ah9PRq": {
                       "type": "global-image",
                       "name": "Global Image",
                       "settings": {
@@ -1274,7 +1274,7 @@
                         "image_border_radius": 0,
                         "image_width": 100,
                         "image_height": 400,
-                        "image_fit": "contain",
+                        "image_fit": "cover",
                         "image_margin_top": 0,
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
@@ -1288,7 +1288,7 @@
                     }
                   },
                   "block_order": [
-                    "global_image_Cq7WAG"
+                    "global_image_Ah9PRq"
                   ]
                 }
               },
@@ -1309,22 +1309,22 @@
       ],
       "name": "Guide Section",
       "settings": {
-        "title_box_color": "",
-        "title_box_height": 40,
-        "title_box_width": 50,
+        "title_box_color": "#0f0f0f",
+        "title_box_height": 20,
+        "title_box_width": 15,
         "heading": "Foyers & Exteriors",
         "description": "HOW TO CREATE A WELCOMING ENTRY",
-        "main_image": "shopify://shop_images/715-10-69_lit_1.jpg",
+        "main_image": "shopify://shop_images/Outdoor_01503878-4dc6-4821-a63f-eb7c96bd8975.jpg",
         "image_width": 100,
-        "image_height": 400,
+        "image_height": 740,
         "image_fit": "cover",
-        "tip_1_heading": "Lighting Level and Quality",
-        "tip": "Since the fixture will be exposed to the elements, choose a wet or damp rated product.\nCoastal Grade weather-resistant materials are a great choice as well.",
+        "tip_1_heading": "",
+        "tip": "",
         "tip_1_background_color": "#7b675c",
         "tip_2_heading": "Size and Scale",
         "tip_2": "",
         "tip_2_background_color": "#7b675c",
-        "tip_3": ""
+        "tip_3": "Since the fixture will be exposed to the elements, choose a wet or damp rated product. Coastal Grade weather-resistant materials are a great choice as well."
       }
     },
     "advanced_content_jqLn3e": {
