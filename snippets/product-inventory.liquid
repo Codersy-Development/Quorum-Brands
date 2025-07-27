@@ -111,7 +111,5 @@ endif
   incoming: {{ current_variant.incoming }}<br>
   inventory_transfers_enable: {{ block.settings.inventory_transfers_enable }}<br>
   show_incoming_inventory_message: {{ show_incoming_inventory_message }}<br>
-  inventory_policy: {{ current_variant.inventory_policy }}<br>
-  <strong>SOLD OUT TRANSLATION:</strong> "{{ 'products.product.sold_out' | t }}"<br>
-  <strong>CONDITION CHECK:</strong> inventory_quantity <= 0 = {{ current_variant.inventory_quantity <= 0 }}
+  inventory_policy: {{ current_variant.inventory_policy }}
 </div>
