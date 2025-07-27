@@ -7,6 +7,13 @@
             style="border-radius: {{ block.settings.image_border_radius }}px;"
         >
     {% endif %}
+    
+    {% if block.settings.tip != blank %}
+        <div class="designer-tip-box">
+            <p class="designer-tip-title">Designer Tip:</p>
+            <p>{{ block.settings.tip }}</p>
+        </div>
+    {% endif %}
 </section>
 <style>
 .image-full-wrapper {
@@ -21,6 +28,26 @@
     height: 100%;
     display: block;
     object-fit: contain;
+}
+.designer-tip-box {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    background: #7B675C;
+    color: #ffffff;
+    padding: 1rem 1.5rem;
+    font-size: 10px;
+    line-height: 1.6;
+    width: 100%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    margin-top: 1rem;
+}
+.designer-tip-title {
+    font-weight: bold;
+    color: #ffffff;
+    border-right: 1px solid #ffffff;
+    font-size: 12px;
+    padding-right: 16px;
 }
 </style>
 {% schema %}
@@ -41,6 +68,16 @@
       "step": 1,
       "unit": "px",
       "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Designer Tip"
+    },
+    {
+      "type": "textarea",
+      "id": "tip",
+      "label": "Designer Tip Text",
+      "info": "Add a helpful tip that will appear below the image"
     }
   ],
   "presets": [

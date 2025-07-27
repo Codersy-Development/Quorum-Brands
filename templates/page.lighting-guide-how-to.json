@@ -499,16 +499,6 @@
                 "layout": "horizontal"
               },
               "blocks": {
-                "global_image_FKwkry": {
-                  "type": "global-image",
-                  "name": "Global Image",
-                  "disabled": true,
-                  "settings": {
-                    "image": "shopify://shop_images/6123-4-47_4.jpg",
-                    "image_border_radius": 0
-                  },
-                  "blocks": {}
-                },
                 "ai_gen_block_627cee1_aNB3Ak": {
                   "type": "ai_gen_block_627cee1",
                   "settings": {
@@ -567,7 +557,6 @@
                 }
               },
               "block_order": [
-                "global_image_FKwkry",
                 "ai_gen_block_627cee1_aNB3Ak",
                 "info_block_4Nb9w9"
               ]
@@ -801,7 +790,7 @@
                   "name": "Global Image",
                   "settings": {
                     "image": "shopify://shop_images/3-403-15_LS.jpg",
-                    "image_border_radius": 0
+                    "image_border_radius": 10
                   },
                   "blocks": {}
                 }
