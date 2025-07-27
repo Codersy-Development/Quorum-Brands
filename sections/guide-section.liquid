@@ -10,7 +10,8 @@
             <h2 class="h2">{{ section.settings.heading }}</h2>
             <p class="guide-desc">{{ section.settings.description }}</p>
             {% if section.settings.main_image %}
-              <img src="{{ section.settings.main_image | image_url: width: 1000 }}" alt="Bathroom Image">
+              <img src="{{ section.settings.main_image | image_url: width: 1000 }}" alt="Bathroom Image"
+                   style="width: {{ section.settings.image_width }}%; height: {{ section.settings.image_height }}px; object-fit: {{ section.settings.image_fit }};">
             {% endif %}
             
             <!-- Designer Tips under the main image -->
@@ -169,6 +170,45 @@
       "type": "image_picker",
       "id": "main_image",
       "label": "Main Image"
+    },
+    {
+      "type": "header",
+      "content": "Image Size Settings"
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "label": "Image Width",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100,
+      "info": "Width of the image relative to its container"
+    },
+    {
+      "type": "range",
+      "id": "image_height",
+      "label": "Image Height",
+      "min": 200,
+      "max": 800,
+      "step": 25,
+      "unit": "px",
+      "default": 400,
+      "info": "Fixed height for the image in pixels"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image Fit",
+      "options": [
+        { "value": "cover", "label": "Cover (fill space)" },
+        { "value": "contain", "label": "Contain (fit within)" },
+        { "value": "fill", "label": "Fill (stretch)" },
+        { "value": "none", "label": "Original size" }
+      ],
+      "default": "cover",
+      "info": "How the image should fit within its dimensions"
     },
     {
       "type": "header",
