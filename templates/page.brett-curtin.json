@@ -22,7 +22,7 @@
           "settings": {
             "image": "shopify://shop_images/Brett_Curtin_Profile_Photo.jpg",
             "button_text": "Meet Our Designers",
-            "button_url": "pages/meet-our-designers"
+            "button_url": "/meet-our-designers"
           }
         },
         "image_XdnEcj": {
