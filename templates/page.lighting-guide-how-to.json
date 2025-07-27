@@ -104,7 +104,7 @@
                       "name": "Global Image",
                       "settings": {
                         "image": "shopify://shop_images/548-1-65.jpg",
-                        "image_border_radius": 0,
+                        "image_border_radius": 10,
                         "image_margin_top": 0,
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
@@ -156,7 +156,7 @@
                         "image": "shopify://shop_images/Vanity_bathroom.png",
                         "image_border_radius": 0,
                         "image_margin_top": 0,
-                        "image_margin_bottom": 0,
+                        "image_margin_bottom": 10,
                         "tip_heading": "Designer Tip",
                         "tip": "",
                         "tip_background_color": "#7b675c",
@@ -171,15 +171,15 @@
                       "name": "Global Image",
                       "settings": {
                         "image": "shopify://shop_images/5169-3-47_4.jpg",
-                        "image_border_radius": 0,
+                        "image_border_radius": 10,
                         "image_margin_top": 0,
-                        "image_margin_bottom": 0,
+                        "image_margin_bottom": 15,
                         "tip_heading": "Designer Tip",
                         "tip": "",
                         "tip_background_color": "#7b675c",
-                        "tip_horizontal_position": 50,
+                        "tip_horizontal_position": 0,
                         "tip_vertical_position": 0,
-                        "tip_box_width": 80
+                        "tip_box_width": 20
                       },
                       "blocks": {}
                     }
