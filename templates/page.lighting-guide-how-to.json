@@ -715,8 +715,8 @@
                 "tip": "A 12'L x 10'H room calls for a suggested chandelier height of 25-30 inches and a diameter of 24 inches.",
                 "tip_background_color": "#352b26",
                 "tip_horizontal_position": 0,
-                "tip_vertical_position": 35,
-                "tip_box_width": 70
+                "tip_vertical_position": 25,
+                "tip_box_width": 65
               },
               "blocks": {}
             }
