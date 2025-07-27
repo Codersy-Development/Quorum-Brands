@@ -1,5 +1,8 @@
 <div class="split-content-section" 
-     style="margin-top: {{ block.settings.section_margin_top }}px; margin-bottom: {{ block.settings.section_margin_bottom }}px;">
+     style="margin-top: {{ block.settings.section_margin_top }}px; 
+            margin-bottom: {{ block.settings.section_margin_bottom }}px;
+            margin-left: {{ block.settings.section_margin_left }}px; 
+            margin-right: {{ block.settings.section_margin_right }}px;">
     <div class="split-content-container {% if block.settings.layout == 'vertical' %}vertical{% endif %}">
         {% content_for 'blocks' %}
     </div>
@@ -7,8 +10,6 @@
 <style>
     .split-content-section {
         width: 100%;
-        margin-left: auto;
-        margin-right: auto;
     }
     .split-content-container {
         display: flex;
@@ -75,6 +76,28 @@
       "unit": "px",
       "default": 0,
       "info": "Space below this split section"
+    },
+    {
+      "type": "range",
+      "id": "section_margin_left",
+      "label": "Left Margin",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0,
+      "info": "Space to the left of this split section"
+    },
+    {
+      "type": "range",
+      "id": "section_margin_right",
+      "label": "Right Margin",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0,
+      "info": "Space to the right of this split section"
     }
   ],
   "blocks": [{ "type": "@theme" }, { "type": "@app" }],
