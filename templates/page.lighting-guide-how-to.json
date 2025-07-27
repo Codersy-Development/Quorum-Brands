@@ -1826,13 +1826,13 @@
                   "name": "Info Block with Image",
                   "settings": {
                     "heading": "Ceiling Fan Installation Guide",
-                    "text": "<p>For proper installation, make sure the ceiling fan is:<br/>18 inches from walls<br/>7 feet from the ground to the base of the fan<br/><strong>Mounting Types:<br/></strong> — for <strong>7½’–9’ ceilings</strong><br/> — for <strong>8’–9’ ceilings</strong><br/> — recommended for <strong>9’+ ceilings</strong></p>",
+                    "text": "<p>For proper installation, make sure the ceiling fan is 18 inches from walls7 feet from the ground to the base of the fan</p>",
                     "image_position": "bottom",
                     "image_border_radius": 0,
-                    "heading_font_size": 24,
-                    "heading_line_height": 1.2,
-                    "text_font_size": 16,
-                    "text_line_height": 1.5
+                    "heading_font_size": 15,
+                    "heading_line_height": 2.5,
+                    "text_font_size": 12,
+                    "text_line_height": 1.2
                   },
                   "blocks": {
                     "global_image_XemANm": {
@@ -1842,8 +1842,8 @@
                         "image": "shopify://shop_images/Fan_Mounting_1.png",
                         "image_border_radius": 0,
                         "image_width": 100,
-                        "image_height": 400,
-                        "image_fit": "contain",
+                        "image_height": 325,
+                        "image_fit": "cover",
                         "image_margin_top": 0,
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
@@ -1897,13 +1897,13 @@
                   "name": "Info Block with Image",
                   "settings": {
                     "heading": "Ceiling Fan Control Choices",
-                    "text": "<p>You can control your ceiling fan using various methods to suit your convenience and lifestyle. <br/><strong>Wall controls</strong> <br/>Allow you to operate the fan and light directly from a switch integrated into your existing wall plate. For added flexibility. <br/><strong>Remote controls</strong> <br/>Offer the convenience of adjusting your fan settings from a distance. Additionally. <br/><strong>Smart home integration<br/></strong>Lets you manage your fan and lighting using your smartphone or connected smart device.</p>",
+                    "text": "<p>Choose the right control to meet your everyday lifestyle.</p>",
                     "image_position": "bottom",
                     "image_border_radius": 0,
-                    "heading_font_size": 24,
-                    "heading_line_height": 1.2,
-                    "text_font_size": 16,
-                    "text_line_height": 1.5
+                    "heading_font_size": 15,
+                    "heading_line_height": 2.5,
+                    "text_font_size": 12,
+                    "text_line_height": 1.2
                   },
                   "blocks": {
                     "global_image_4nmaeU": {
@@ -1913,8 +1913,8 @@
                         "image": "shopify://shop_images/ceiling_fan_controls_high_quality.png",
                         "image_border_radius": 0,
                         "image_width": 100,
-                        "image_height": 400,
-                        "image_fit": "contain",
+                        "image_height": 275,
+                        "image_fit": "cover",
                         "image_margin_top": 0,
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
@@ -1948,22 +1948,22 @@
       ],
       "name": "Guide Section",
       "settings": {
-        "title_box_color": "",
-        "title_box_height": 40,
-        "title_box_width": 50,
+        "title_box_color": "#0f0f0f",
+        "title_box_height": 20,
+        "title_box_width": 15,
         "heading": "Ceiling Fan",
         "description": "MOUNTING & CONTROLS",
         "main_image": "shopify://shop_images/3-129-15_LS.jpg",
         "image_width": 100,
-        "image_height": 400,
+        "image_height": 620,
         "image_fit": "cover",
         "tip_1_heading": "Lighting Level and Quality",
-        "tip": "Consider Blade Finish:\nPay attention to the finish and material of the fan blades.\n\t•\tWood blades add warmth and texture\n\t•\tMetal blades provide a sleek, modern look\n\nChoose a finish that complements other room elements such as furniture, flooring, and lighting fixtures.",
+        "tip": "",
         "tip_1_background_color": "#7b675c",
         "tip_2_heading": "Size and Scale",
         "tip_2": "",
         "tip_2_background_color": "#7b675c",
-        "tip_3": ""
+        "tip_3": "Consider Blade Finish:\nPay attention to the finish and material of the fan blades.\n\t•\tWood blades add warmth and texture\n\t•\tMetal blades provide a sleek, modern look\n\nChoose a finish that complements other room elements such as furniture, flooring, and lighting fixtures."
       }
     }
   },
