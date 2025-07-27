@@ -7,6 +7,7 @@
     &[data-store="explore all brands"] .product-button-wrapper,
     &[data-store="quorum"] .product-button-wrapper,
     &[data-store="oxygen"] .product-button-wrapper,
+    &[data-store="all"] .product-button-wrapper,
     & .product-button-wrapper {
         display: flex !important;
         opacity: 1 !important;
@@ -221,6 +222,49 @@
         font-weight: 700;
         color: #333;
     }
+}
+
+/* Force arrows to show regardless of store-based CSS conflicts */
+html[data-store-selected] .product-feature-carousel .product-button-wrapper {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+html[data-store-selected] .product-feature-carousel .product-button-prev,
+html[data-store-selected] .product-feature-carousel .product-button-next {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Specific store overrides */
+html[data-store-selected="oxygen"] .product-feature-carousel .product-button-wrapper,
+html[data-store-selected="quorum"] .product-feature-carousel .product-button-wrapper,
+html[data-store-selected="explore all brands"] .product-feature-carousel .product-button-wrapper,
+html[data-store-selected="Oxygen"] .product-feature-carousel .product-button-wrapper,
+html[data-store-selected="Quorum"] .product-feature-carousel .product-button-wrapper,
+html[data-store-selected="Explore All Brands"] .product-feature-carousel .product-button-wrapper {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+html[data-store-selected="oxygen"] .product-feature-carousel .product-button-prev,
+html[data-store-selected="oxygen"] .product-feature-carousel .product-button-next,
+html[data-store-selected="quorum"] .product-feature-carousel .product-button-prev,
+html[data-store-selected="quorum"] .product-feature-carousel .product-button-next,
+html[data-store-selected="explore all brands"] .product-feature-carousel .product-button-prev,
+html[data-store-selected="explore all brands"] .product-feature-carousel .product-button-next,
+html[data-store-selected="Oxygen"] .product-feature-carousel .product-button-prev,
+html[data-store-selected="Oxygen"] .product-feature-carousel .product-button-next,
+html[data-store-selected="Quorum"] .product-feature-carousel .product-button-prev,
+html[data-store-selected="Quorum"] .product-feature-carousel .product-button-next,
+html[data-store-selected="Explore All Brands"] .product-feature-carousel .product-button-prev,
+html[data-store-selected="Explore All Brands"] .product-feature-carousel .product-button-next {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 /* Specific styling for main image elements */
