@@ -404,14 +404,14 @@
         "heading_pw7wxc": {
           "type": "heading",
           "settings": {
-            "title": "Blade finishes"
+            "title": "Fan Blades"
           }
         },
         "text_FHq6Vx": {
           "type": "text",
           "settings": {
-            "enlarge_text": false,
-            "text": "<p>We understand that the finish of a product can transform its entire look and feel. That’s why we offer a diverse collection of high-quality finishes that complement every style, from modern elegance to classic charm. Whether you’re looking to create a bold statement or add a subtle touch of sophis-</p>"
+            "enlarge_text": true,
+            "text": "<p>With a wide range of materials and finishes, our fan blades are designed to complement any interior style. From sleek and modern to classic and rustic, each blade offers the perfect combination of durability and design. Choose the ideal fan blades to enhance both the performance and aesthetics of your space.</p>"
           }
         }
       },
