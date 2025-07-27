@@ -104,6 +104,20 @@ endif
 
 
 {% comment %} DEBUG - Remove after testing {% endcomment %}
+{%- assign qty_check = false -%}
+{%- if current_variant.inventory_quantity <= 0 -%}
+  {%- assign qty_check = true -%}
+{%- endif -%}
+
+{%- if current_variant.inventory_quantity <= 0 -%}
+  {{ 'products.product.sold_out' | t | default: 'SOLD OUT - FALLBACK' }}
+{%- elsif show_low_inventory_message -%}
+  {{ 'products.product.stock_label' | t: count: current_variant.inventory_quantity }}
+{%- else -%}
+  {{ 'products.product.in_stock_label' | t: count: current_variant.inventory_quantity }}
+{%- endif -%}
+
+
 <div style="background: #ffeb3b; padding: 10px; margin: 10px 0; font-size: 12px;">
   <strong>DEBUG INFO:</strong><br>
   inventory_quantity: {{ current_variant.inventory_quantity }}<br>
@@ -113,5 +127,5 @@ endif
   show_incoming_inventory_message: {{ show_incoming_inventory_message }}<br>
   inventory_policy: {{ current_variant.inventory_policy }}<br>
   <strong>SOLD OUT TRANSLATION:</strong> "{{ 'products.product.sold_out' | t }}"<br>
-  <strong>CONDITION CHECK:</strong> inventory_quantity <= 0 = {{ current_variant.inventory_quantity <= 0 }}
+  <strong>CONDITION CHECK:</strong> inventory_quantity <= 0 = {{ qty_check }}
 </div>
