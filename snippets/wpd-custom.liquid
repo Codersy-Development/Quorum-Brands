@@ -53,6 +53,14 @@ li.sales-point.hide {
     visibility: visible !important;
     opacity: 1 !important;
 }
+.sales-point[data-incoming-inventory] {
+    display: none;
+}
+
+/* Only show backordered when explicitly not hidden */
+.sales-point[data-incoming-inventory]:not(.hide) {
+    display: list-item;
+}
   
 </style>
 <!-- CSS for not logged-in -->  
