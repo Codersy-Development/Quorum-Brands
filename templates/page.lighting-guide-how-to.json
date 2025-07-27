@@ -593,7 +593,7 @@
                         "image": "shopify://shop_images/Chandelier_square_table.png",
                         "image_border_radius": 0,
                         "image_width": 100,
-                        "image_height": 400,
+                        "image_height": 350,
                         "image_fit": "contain",
                         "image_margin_top": 0,
                         "image_margin_bottom": 0,
@@ -671,7 +671,7 @@
                     "tip": "A 48 inch round table calls for a chandelier diameter of 30-36 inches.",
                     "tip_background_color": "#352b26",
                     "tip_horizontal_position": 0,
-                    "tip_vertical_position": 10,
+                    "tip_vertical_position": 0,
                     "tip_box_width": 100
                   },
                   "blocks": {}
@@ -697,7 +697,7 @@
                         "image": "shopify://shop_images/Chandelier_round_table.png",
                         "image_border_radius": 0,
                         "image_width": 100,
-                        "image_height": 400,
+                        "image_height": 325,
                         "image_fit": "contain",
                         "image_margin_top": 0,
                         "image_margin_bottom": 0,
