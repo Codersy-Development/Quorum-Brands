@@ -207,7 +207,7 @@
     
     & .slide-counter {
         text-align: center;
-        margin-top: 16px;
+        margin-top: -15px;
         font-size: 14px;
         color: #666;
         font-weight: 500;
