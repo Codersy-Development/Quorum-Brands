@@ -60,7 +60,7 @@
         height: 821px;
     }
     & .feature-card {
-        padding: 30px 30px 60px 30px; /* Extra bottom padding for navigation */
+        padding: 15px; /* Reduced padding to ensure arrows are visible */
         border-radius: 8px;
         width: 100%;
         max-width: 480px;
@@ -278,7 +278,7 @@ html[data-store-selected] .product-feature-carousel .feature-card {
         & .feature-card {
             margin: 0 16px;
             background: #f9f9f9;
-            padding: 24px;
+            padding: 15px; /* Consistent with desktop */
             border-radius: 12px;
         }
         & .card-image {
@@ -307,7 +307,7 @@ html[data-store-selected] .product-feature-carousel .feature-card {
         }
         & .feature-card {
             margin: 0 12px;
-            padding: 20px;
+            padding: 15px; /* Consistent padding */
         }
         & .card-image {
             height: 250px;
