@@ -92,7 +92,10 @@
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
                         "tip": "",
-                        "tip_background_color": "#7b675c"
+                        "tip_background_color": "#7b675c",
+                        "tip_horizontal_position": 50,
+                        "tip_vertical_position": 0,
+                        "tip_box_width": 80
                       },
                       "blocks": {}
                     },
@@ -106,7 +109,10 @@
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
                         "tip": "",
-                        "tip_background_color": "#7b675c"
+                        "tip_background_color": "#7b675c",
+                        "tip_horizontal_position": 50,
+                        "tip_vertical_position": 0,
+                        "tip_box_width": 80
                       },
                       "blocks": {}
                     }
@@ -153,7 +159,10 @@
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
                         "tip": "",
-                        "tip_background_color": "#7b675c"
+                        "tip_background_color": "#7b675c",
+                        "tip_horizontal_position": 50,
+                        "tip_vertical_position": 0,
+                        "tip_box_width": 80
                       },
                       "blocks": {}
                     },
@@ -167,7 +176,10 @@
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
                         "tip": "",
-                        "tip_background_color": "#7b675c"
+                        "tip_background_color": "#7b675c",
+                        "tip_horizontal_position": 50,
+                        "tip_vertical_position": 0,
+                        "tip_box_width": 80
                       },
                       "blocks": {}
                     }
@@ -250,7 +262,10 @@
                 "image_margin_bottom": 0,
                 "tip_heading": "Designer Tip",
                 "tip": "",
-                "tip_background_color": "#7b675c"
+                "tip_background_color": "#7b675c",
+                "tip_horizontal_position": 50,
+                "tip_vertical_position": 0,
+                "tip_box_width": 80
               },
               "blocks": {}
             }
@@ -335,7 +350,10 @@
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
                         "tip": "",
-                        "tip_background_color": "#7b675c"
+                        "tip_background_color": "#7b675c",
+                        "tip_horizontal_position": 50,
+                        "tip_vertical_position": 0,
+                        "tip_box_width": 80
                       },
                       "blocks": {}
                     },
@@ -349,7 +367,10 @@
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
                         "tip": "",
-                        "tip_background_color": "#7b675c"
+                        "tip_background_color": "#7b675c",
+                        "tip_horizontal_position": 50,
+                        "tip_vertical_position": 0,
+                        "tip_box_width": 80
                       },
                       "blocks": {}
                     }
@@ -395,7 +416,10 @@
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
                         "tip": "",
-                        "tip_background_color": "#7b675c"
+                        "tip_background_color": "#7b675c",
+                        "tip_horizontal_position": 50,
+                        "tip_vertical_position": 0,
+                        "tip_box_width": 80
                       },
                       "blocks": {}
                     },
@@ -409,7 +433,10 @@
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
                         "tip": "",
-                        "tip_background_color": "#7b675c"
+                        "tip_background_color": "#7b675c",
+                        "tip_horizontal_position": 50,
+                        "tip_vertical_position": 0,
+                        "tip_box_width": 80
                       },
                       "blocks": {}
                     }
@@ -506,7 +533,10 @@
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
                         "tip": "",
-                        "tip_background_color": "#7b675c"
+                        "tip_background_color": "#7b675c",
+                        "tip_horizontal_position": 50,
+                        "tip_vertical_position": 0,
+                        "tip_box_width": 80
                       },
                       "blocks": {}
                     }
@@ -530,7 +560,10 @@
                 "image_margin_bottom": 0,
                 "tip_heading": "Example",
                 "tip": "A 48 inch square table calls for a chandelier diameter of 36 inches.",
-                "tip_background_color": "#352b26"
+                "tip_background_color": "#352b26",
+                "tip_horizontal_position": 100,
+                "tip_vertical_position": 0,
+                "tip_box_width": 100
               },
               "blocks": {}
             }
@@ -564,7 +597,10 @@
                     "image_margin_bottom": 0,
                     "tip_heading": "Example",
                     "tip": "A 48 inch round table calls for a chandelier diameter of 30-36 inches.",
-                    "tip_background_color": "#352b26"
+                    "tip_background_color": "#352b26",
+                    "tip_horizontal_position": 0,
+                    "tip_vertical_position": 0,
+                    "tip_box_width": 100
                   },
                   "blocks": {}
                 },
@@ -592,7 +628,10 @@
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
                         "tip": "",
-                        "tip_background_color": "#7b675c"
+                        "tip_background_color": "#7b675c",
+                        "tip_horizontal_position": 50,
+                        "tip_vertical_position": 0,
+                        "tip_box_width": 80
                       },
                       "blocks": {}
                     }
@@ -674,7 +713,10 @@
                 "image_margin_bottom": 0,
                 "tip_heading": "Example",
                 "tip": "A 12'L x 10'H room calls for a suggested chandelier height of 25-30 inches and a diameter of 24 inches.",
-                "tip_background_color": "#352b26"
+                "tip_background_color": "#352b26",
+                "tip_horizontal_position": 50,
+                "tip_vertical_position": 0,
+                "tip_box_width": 80
               },
               "blocks": {}
             }
@@ -765,7 +807,10 @@
                             "image_margin_bottom": 0,
                             "tip_heading": "Designer Tip",
                             "tip": "",
-                            "tip_background_color": "#7b675c"
+                            "tip_background_color": "#7b675c",
+                            "tip_horizontal_position": 50,
+                            "tip_vertical_position": 0,
+                            "tip_box_width": 80
                           },
                           "blocks": {}
                         }
@@ -789,7 +834,10 @@
                     "image_margin_bottom": 0,
                     "tip_heading": "Designer Tip",
                     "tip": "",
-                    "tip_background_color": "#7b675c"
+                    "tip_background_color": "#7b675c",
+                    "tip_horizontal_position": 50,
+                    "tip_vertical_position": 0,
+                    "tip_box_width": 80
                   },
                   "blocks": {}
                 }
@@ -837,7 +885,10 @@
                             "image_margin_bottom": 0,
                             "tip_heading": "Designer Tip",
                             "tip": "",
-                            "tip_background_color": "#7b675c"
+                            "tip_background_color": "#7b675c",
+                            "tip_horizontal_position": 50,
+                            "tip_vertical_position": 0,
+                            "tip_box_width": 80
                           },
                           "blocks": {}
                         }
@@ -861,7 +912,10 @@
                     "image_margin_bottom": 0,
                     "tip_heading": "Designer Tip",
                     "tip": "",
-                    "tip_background_color": "#7b675c"
+                    "tip_background_color": "#7b675c",
+                    "tip_horizontal_position": 50,
+                    "tip_vertical_position": 0,
+                    "tip_box_width": 80
                   },
                   "blocks": {}
                 }
@@ -924,7 +978,10 @@
             "image_margin_bottom": 0,
             "tip_heading": "Designer Tip",
             "tip": "",
-            "tip_background_color": "#7b675c"
+            "tip_background_color": "#7b675c",
+            "tip_horizontal_position": 50,
+            "tip_vertical_position": 0,
+            "tip_box_width": 80
           },
           "blocks": {}
         },
@@ -974,7 +1031,10 @@
                             "image_margin_bottom": 0,
                             "tip_heading": "Designer Tip",
                             "tip": "",
-                            "tip_background_color": "#7b675c"
+                            "tip_background_color": "#7b675c",
+                            "tip_horizontal_position": 50,
+                            "tip_vertical_position": 0,
+                            "tip_box_width": 80
                           },
                           "blocks": {}
                         }
@@ -1012,7 +1072,10 @@
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
                         "tip": "",
-                        "tip_background_color": "#7b675c"
+                        "tip_background_color": "#7b675c",
+                        "tip_horizontal_position": 50,
+                        "tip_vertical_position": 0,
+                        "tip_box_width": 80
                       },
                       "blocks": {}
                     }
@@ -1116,7 +1179,10 @@
                             "image_margin_bottom": 0,
                             "tip_heading": "Designer Tip",
                             "tip": "",
-                            "tip_background_color": "#7b675c"
+                            "tip_background_color": "#7b675c",
+                            "tip_horizontal_position": 50,
+                            "tip_vertical_position": 0,
+                            "tip_box_width": 80
                           },
                           "blocks": {}
                         }
@@ -1154,7 +1220,10 @@
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
                         "tip": "",
-                        "tip_background_color": "#7b675c"
+                        "tip_background_color": "#7b675c",
+                        "tip_horizontal_position": 50,
+                        "tip_vertical_position": 0,
+                        "tip_box_width": 80
                       },
                       "blocks": {}
                     }
@@ -1184,7 +1253,10 @@
             "image_margin_bottom": 0,
             "tip_heading": "Designer Tip",
             "tip": "",
-            "tip_background_color": "#7b675c"
+            "tip_background_color": "#7b675c",
+            "tip_horizontal_position": 50,
+            "tip_vertical_position": 0,
+            "tip_box_width": 80
           },
           "blocks": {}
         }
@@ -1272,7 +1344,10 @@
                             "image_margin_bottom": 0,
                             "tip_heading": "Designer Tip",
                             "tip": "",
-                            "tip_background_color": "#7b675c"
+                            "tip_background_color": "#7b675c",
+                            "tip_horizontal_position": 50,
+                            "tip_vertical_position": 0,
+                            "tip_box_width": 80
                           },
                           "blocks": {}
                         }
@@ -1310,7 +1385,10 @@
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
                         "tip": "",
-                        "tip_background_color": "#7b675c"
+                        "tip_background_color": "#7b675c",
+                        "tip_horizontal_position": 50,
+                        "tip_vertical_position": 0,
+                        "tip_box_width": 80
                       },
                       "blocks": {}
                     }
@@ -1368,7 +1446,10 @@
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
                         "tip": "",
-                        "tip_background_color": "#7b675c"
+                        "tip_background_color": "#7b675c",
+                        "tip_horizontal_position": 50,
+                        "tip_vertical_position": 0,
+                        "tip_box_width": 80
                       },
                       "blocks": {}
                     }
@@ -1463,7 +1544,10 @@
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
                         "tip": "",
-                        "tip_background_color": "#7b675c"
+                        "tip_background_color": "#7b675c",
+                        "tip_horizontal_position": 50,
+                        "tip_vertical_position": 0,
+                        "tip_box_width": 80
                       },
                       "blocks": {}
                     }
@@ -1520,7 +1604,10 @@
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
                         "tip": "",
-                        "tip_background_color": "#7b675c"
+                        "tip_background_color": "#7b675c",
+                        "tip_horizontal_position": 50,
+                        "tip_vertical_position": 0,
+                        "tip_box_width": 80
                       },
                       "blocks": {}
                     }
