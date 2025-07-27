@@ -1,6 +1,12 @@
 <div class="guide-section">
     <div class="guide-layout">
         <div class="guide-text">
+            {% if section.settings.title_box_color != blank %}
+                <div class="title-colored-box" 
+                     style="background-color: {{ section.settings.title_box_color }}; 
+                            height: {{ section.settings.title_box_height }}px; 
+                            width: {{ section.settings.title_box_width }}%;"></div>
+            {% endif %}
             <h2 class="h2">{{ section.settings.heading }}</h2>
             <p class="guide-desc">{{ section.settings.description }}</p>
             {% if section.settings.main_image %}
@@ -17,6 +23,25 @@
             {% endif %}
         </div>
     </div>
+    
+    <!-- Additional Designer Tip Sections -->
+    {% if section.settings.tip_2 != blank %}
+        <div class="additional-tip-section">
+            <div class="guide-designer-tip-box">
+                <p class="guide-designer-tip-title">Designer Tip:</p>
+                <p>{{ section.settings.tip_2 }}</p>
+            </div>
+        </div>
+    {% endif %}
+    
+    {% if section.settings.tip_3 != blank %}
+        <div class="additional-tip-section">
+            <div class="guide-designer-tip-box">
+                <p class="guide-designer-tip-title">Designer Tip:</p>
+                <p>{{ section.settings.tip_3 }}</p>
+            </div>
+        </div>
+    {% endif %}
 </div>
 <style>
     .guide-section {
@@ -48,6 +73,10 @@
     .right-box {
         width: 100%;
     }
+    .title-colored-box {
+        margin-bottom: 1rem;
+        border-radius: 4px;
+    }
     .guide-designer-tip-box {
         display: flex;
         flex-direction: row;
@@ -68,6 +97,13 @@
         font-size: 12px;
         padding-right: 16px;
     }
+    .additional-tip-section {
+        margin-top: 2rem;
+        max-width: 100%;
+    }
+    .additional-tip-section .guide-designer-tip-box {
+        margin-top: 0;
+    }
     @media (max-width: 1024px) {
         .guide-layout {
             grid-template-columns: 1fr;
@@ -79,6 +115,9 @@
         .guide-designer-tip-box {
             margin-top: 1rem;
         }
+        .additional-tip-section {
+            margin-top: 1rem;
+        }
     }
 </style>
 {% schema %}
@@ -87,6 +126,40 @@
   "tag": "section",
   "class": "guide-section",
   "settings": [
+    {
+      "type": "header",
+      "content": "Title Colored Box"
+    },
+    {
+      "type": "color",
+      "id": "title_box_color",
+      "label": "Title Box Color",
+      "info": "Leave empty to hide the colored box"
+    },
+    {
+      "type": "range",
+      "id": "title_box_height",
+      "label": "Title Box Height",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "title_box_width",
+      "label": "Title Box Width",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Main Content"
+    },
     {
       "type": "text",
       "id": "heading",
@@ -103,9 +176,26 @@
       "label": "Main Image"
     },
     {
+      "type": "header",
+      "content": "Designer Tips"
+    },
+    {
       "type": "textarea",
       "id": "tip",
-      "label": "Designer Tip"
+      "label": "Designer Tip 1 (Right Side)",
+      "info": "Appears in the right column next to the image"
+    },
+    {
+      "type": "textarea",
+      "id": "tip_2",
+      "label": "Designer Tip 2 (Below Image)",
+      "info": "Appears below the main layout"
+    },
+    {
+      "type": "textarea",
+      "id": "tip_3",
+      "label": "Designer Tip 3 (Below Image)",
+      "info": "Appears below Designer Tip 2"
     }
   ],
   "blocks": [{ "type": "@theme" }, { "type": "@app" }],
