@@ -1,18 +1,8 @@
-/* Product Feature Carousel - Based on original structure */
+/* Product Feature Carousel - Simplified approach matching featured-products */
 .product-feature-carousel {
     padding: 80px 0;
     background: #fff;
     
-    /* Ensure arrows are visible for all store selections */
-    &[data-store="explore all brands"] .product-button-wrapper,
-    &[data-store="quorum"] .product-button-wrapper,
-    &[data-store="oxygen"] .product-button-wrapper,
-    &[data-store="all"] .product-button-wrapper,
-    & .product-button-wrapper {
-        display: flex !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
     & .container {
         max-width: 1400px;
         margin: 0 auto;
@@ -156,11 +146,12 @@
         color: #fff;
         transform: translateY(-1px);
     }
+    
+    /* Simple navigation - matches featured-products pattern */
     & .product-button-wrapper {
         display: flex;
         gap: 12px;
         justify-content: flex-end;
-        /* margin-top: 20px; */
     }
     & .product-button-prev {
         transform: rotate(180deg);
@@ -224,58 +215,15 @@
     }
 }
 
-/* Force arrows to show regardless of store-based CSS conflicts */
-html[data-store-selected] .product-feature-carousel .product-button-wrapper {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-
-html[data-store-selected] .product-feature-carousel .product-button-prev,
-html[data-store-selected] .product-feature-carousel .product-button-next {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-
-/* Specific store overrides */
-html[data-store-selected="oxygen"] .product-feature-carousel .product-button-wrapper,
-html[data-store-selected="quorum"] .product-feature-carousel .product-button-wrapper,
-html[data-store-selected="explore all brands"] .product-feature-carousel .product-button-wrapper,
-html[data-store-selected="Oxygen"] .product-feature-carousel .product-button-wrapper,
-html[data-store-selected="Quorum"] .product-feature-carousel .product-button-wrapper,
-html[data-store-selected="Explore All Brands"] .product-feature-carousel .product-button-wrapper {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-
-html[data-store-selected="oxygen"] .product-feature-carousel .product-button-prev,
-html[data-store-selected="oxygen"] .product-feature-carousel .product-button-next,
-html[data-store-selected="quorum"] .product-feature-carousel .product-button-prev,
-html[data-store-selected="quorum"] .product-feature-carousel .product-button-next,
-html[data-store-selected="explore all brands"] .product-feature-carousel .product-button-prev,
-html[data-store-selected="explore all brands"] .product-feature-carousel .product-button-next,
-html[data-store-selected="Oxygen"] .product-feature-carousel .product-button-prev,
-html[data-store-selected="Oxygen"] .product-feature-carousel .product-button-next,
-html[data-store-selected="Quorum"] .product-feature-carousel .product-button-prev,
-html[data-store-selected="Quorum"] .product-feature-carousel .product-button-next,
-html[data-store-selected="Explore All Brands"] .product-feature-carousel .product-button-prev,
-html[data-store-selected="Explore All Brands"] .product-feature-carousel .product-button-next {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-
 /* Specific styling for main image elements */
-[id^="mainImageDynamic"] {
+.product-feature-carousel .main-image {
     transition: opacity 0.3s ease;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-[id^="mainImageDynamic"].visible {
+.product-feature-carousel .main-image.visible {
     opacity: 1;
 }
 
