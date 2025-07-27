@@ -1,44 +1,36 @@
 <div class="split-content-section">
-    <div class="split-content-container {% if block.settings.layout == 'vertical' %}vertical{% endif %}">
+    <div class="split-content-container {% if block.settings.layout == 'vertical' %}vertical{% endif %}"
+         style="gap: {{ block.settings.section_gap }}px;">
         {% content_for 'blocks' %}
     </div>
 </div>
-
 <style>
     .split-content-section {
         width: 100%;
         margin: 0 auto;
     }
-
     .split-content-container {
         display: flex;
-        gap: 0;
         flex-direction: row;
     }
-
     .split-content-container.vertical {
         flex-direction: column;
-        gap: 1rem;
     }
-
     .split-content-column img {
         width: 100%;
         height: auto;
         display: block;
         border-radius: 8px;
     }
-
     .designer-tip strong {
         display: block;
     }
-
     @media (max-width: 768px) {
         .split-content-container {
             flex-direction: column !important;
         }
     }
 </style>
-
 {% schema %}
 {
   "name": "Split Content Section",
@@ -54,6 +46,17 @@
         { "value": "vertical", "label": "Vertical (Stacked)" }
       ],
       "default": "horizontal"
+    },
+    {
+      "type": "range",
+      "id": "section_gap",
+      "label": "Gap Between Sections",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0,
+      "info": "Space between split content sections"
     }
   ],
   "blocks": [{ "type": "@theme" }, { "type": "@app" }],
