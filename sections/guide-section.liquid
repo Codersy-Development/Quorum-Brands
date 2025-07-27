@@ -38,7 +38,7 @@
         </div>
     </div>
     
-    <!-- Additional Designer Tip Section -->
+    <!-- Designer Tip 3 - appears below the entire split section content -->
     {% if section.settings.tip_3 != blank %}
         <div class="additional-tip-section">
             <div class="guide-designer-tip-box">
@@ -104,6 +104,7 @@
     .additional-tip-section {
         margin-top: 2rem;
         max-width: 100%;
+        clear: both;
     }
     @media (max-width: 1024px) {
         .guide-layout {
@@ -254,7 +255,7 @@
       "type": "textarea",
       "id": "tip_3",
       "label": "Designer Tip 3 (Under Split Section)",
-      "info": "Appears below the entire split section layout (full width)"
+      "info": "Appears below the entire section layout, including any split content blocks (full width)"
     }
   ],
   "blocks": [{ "type": "@theme" }, { "type": "@app" }],

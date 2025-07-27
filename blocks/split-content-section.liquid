@@ -1,267 +1,65 @@
-<div class="guide-section">
-    <div class="guide-layout">
-        <div class="guide-text">
-            {% if section.settings.title_box_color != blank %}
-                <div class="title-colored-box" 
-                     style="background-color: {{ section.settings.title_box_color }}; 
-                            height: {{ section.settings.title_box_height }}px; 
-                            width: {{ section.settings.title_box_width }}%;"></div>
-            {% endif %}
-            <h2 class="h2">{{ section.settings.heading }}</h2>
-            <p class="guide-desc">{{ section.settings.description }}</p>
-            {% if section.settings.main_image %}
-              <img src="{{ section.settings.main_image | image_url: width: 1000 }}" alt="Bathroom Image"
-                   style="width: {{ section.settings.image_width }}%; height: {{ section.settings.image_height }}px; object-fit: {{ section.settings.image_fit }};">
-            {% endif %}
-            
-            <!-- Designer Tips under the main image -->
-            {% if section.settings.tip != blank %}
-                <div class="under-image-tip">
-                    <div class="guide-designer-tip-box" style="background-color: {{ section.settings.tip_1_background_color | default: '#7B675C' }};">
-                        <p class="guide-designer-tip-title">{{ section.settings.tip_1_heading | default: "Designer Tip" }}:</p>
-                        <p>{{ section.settings.tip }}</p>
-                    </div>
-                </div>
-            {% endif %}
-            
-            {% if section.settings.tip_2 != blank %}
-                <div class="under-image-tip">
-                    <div class="guide-designer-tip-box" style="background-color: {{ section.settings.tip_2_background_color | default: '#7B675C' }};">
-                        <p class="guide-designer-tip-title">{{ section.settings.tip_2_heading | default: "Designer Tip" }}:</p>
-                        <p>{{ section.settings.tip_2 }}</p>
-                    </div>
-                </div>
-            {% endif %}
-        </div>
-        <div class="right-box">
-            {% content_for 'blocks' %}
-        </div>
+<div class="split-content-section">
+    <div class="split-content-container {% if block.settings.layout == 'vertical' %}vertical{% endif %}">
+        {% content_for 'blocks' %}
     </div>
-    
-    <!-- Designer Tip 3 - appears below the entire split section content -->
-    {% if section.settings.tip_3 != blank %}
-        <div class="additional-tip-section">
-            <div class="guide-designer-tip-box">
-                <p class="guide-designer-tip-title">Designer Tip:</p>
-                <p>{{ section.settings.tip_3 }}</p>
-            </div>
-        </div>
-    {% endif %}
 </div>
+
 <style>
-    .guide-section {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 4rem 1rem;
-    }
-    .guide-layout {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-        align-items: flex-start; /* Changed from stretch to flex-start */
-    }
-    .guide-text {
-        display: flex;
-        flex-direction: column;
-    }
-    .right-box {
+    .split-content-section {
         width: 100%;
+        margin: 0 auto;
     }
-    .guide-text img {
+
+    .split-content-container {
+        display: flex;
+        gap: 0;
+        flex-direction: row;
+    }
+
+    .split-content-container.vertical {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .split-content-column img {
+        width: 100%;
+        height: auto;
         display: block;
         border-radius: 8px;
-        margin-bottom: 1rem;
     }
-    .title-colored-box {
-        margin-bottom: 1rem;
-        border-radius: 4px;
+
+    .designer-tip strong {
+        display: block;
     }
-    .under-image-tip {
-        margin-bottom: 1rem;
-    }
-    .under-image-tip:last-of-type {
-        margin-bottom: 0;
-    }
-    .guide-designer-tip-box {
-        display: flex;
-        flex-direction: row;
-        gap: 16px;
-        background: #7B675C;
-        color: #ffffff;
-        padding: 1rem 1.5rem;
-        font-size: 10px;
-        line-height: 1.6;
-        width: 100%;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-    }
-    .guide-designer-tip-title {
-        font-weight: bold;
-        color: #ffffff;
-        border-right: 1px solid #ffffff;
-        font-size: 12px;
-        padding-right: 16px;
-    }
-    .additional-tip-section {
-        margin-top: 2rem;
-        max-width: 100%;
-        clear: both;
-    }
-    @media (max-width: 1024px) {
-        .guide-layout {
-            grid-template-columns: 1fr;
-        }
-        .additional-tip-section {
-            margin-top: 1rem;
+
+    @media (max-width: 768px) {
+        .split-content-container {
+            flex-direction: column !important;
         }
     }
 </style>
+
 {% schema %}
 {
-  "name": "Guide Section",
+  "name": "Split Content Section",
   "tag": "section",
-  "class": "guide-section",
+  "class": "split-content-section",
   "settings": [
     {
-      "type": "header",
-      "content": "Title Colored Box"
-    },
-    {
-      "type": "color",
-      "id": "title_box_color",
-      "label": "Title Box Color",
-      "info": "Leave empty to hide the colored box"
-    },
-    {
-      "type": "range",
-      "id": "title_box_height",
-      "label": "Title Box Height",
-      "min": 10,
-      "max": 100,
-      "step": 5,
-      "unit": "px",
-      "default": 40
-    },
-    {
-      "type": "range",
-      "id": "title_box_width",
-      "label": "Title Box Width",
-      "min": 10,
-      "max": 100,
-      "step": 5,
-      "unit": "%",
-      "default": 50
-    },
-    {
-      "type": "header",
-      "content": "Main Content"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Title"
-    },
-    {
-      "type": "textarea",
-      "id": "description",
-      "label": "Description"
-    },
-    {
-      "type": "image_picker",
-      "id": "main_image",
-      "label": "Main Image"
-    },
-    {
-      "type": "header",
-      "content": "Image Size Settings"
-    },
-    {
-      "type": "range",
-      "id": "image_width",
-      "label": "Image Width",
-      "min": 20,
-      "max": 100,
-      "step": 5,
-      "unit": "%",
-      "default": 100,
-      "info": "Width of the image relative to its container"
-    },
-    {
-      "type": "range",
-      "id": "image_height",
-      "label": "Image Height",
-      "min": 200,
-      "max": 800,
-      "step": 25,
-      "unit": "px",
-      "default": 400,
-      "info": "Fixed height for the image in pixels"
-    },
-    {
       "type": "select",
-      "id": "image_fit",
-      "label": "Image Fit",
+      "id": "layout",
+      "label": "Split Layout",
       "options": [
-        { "value": "cover", "label": "Cover (fill space)" },
-        { "value": "contain", "label": "Contain (fit within)" },
-        { "value": "fill", "label": "Fill (stretch)" },
-        { "value": "none", "label": "Original size" }
+        { "value": "horizontal", "label": "Horizontal (Side-by-side)" },
+        { "value": "vertical", "label": "Vertical (Stacked)" }
       ],
-      "default": "cover",
-      "info": "How the image should fit within its dimensions"
-    },
-    {
-      "type": "header",
-      "content": "Designer Tips"
-    },
-    {
-      "type": "text",
-      "id": "tip_1_heading",
-      "label": "Designer Tip 1 Heading",
-      "default": "Lighting Level and Quality",
-      "info": "Custom heading for the first tip (e.g., 'Pro Tip', 'Expert Advice')"
-    },
-    {
-      "type": "textarea",
-      "id": "tip",
-      "label": "Designer Tip 1 (Under Image)",
-      "info": "Appears under the main image in the left column"
-    },
-    {
-      "type": "color",
-      "id": "tip_1_background_color",
-      "label": "Designer Tip 1 Background Color",
-      "default": "#7B675C"
-    },
-    {
-      "type": "text",
-      "id": "tip_2_heading",
-      "label": "Designer Tip 2 Heading",
-      "default": "Size and Scale",
-      "info": "Custom heading for the second tip"
-    },
-    {
-      "type": "textarea",
-      "id": "tip_2",
-      "label": "Designer Tip 2 (Under Image)",
-      "info": "Appears under Designer Tip 1 in the left column"
-    },
-    {
-      "type": "color",
-      "id": "tip_2_background_color",
-      "label": "Designer Tip 2 Background Color",
-      "default": "#7B675C"
-    },
-    {
-      "type": "textarea",
-      "id": "tip_3",
-      "label": "Designer Tip 3 (Under Split Section)",
-      "info": "Appears below the entire section layout, including any split content blocks (full width)"
+      "default": "horizontal"
     }
   ],
   "blocks": [{ "type": "@theme" }, { "type": "@app" }],
   "presets": [
     {
-      "name": "Guide Section"
+      "name": "Split Content Section"
     }
   ]
 }
