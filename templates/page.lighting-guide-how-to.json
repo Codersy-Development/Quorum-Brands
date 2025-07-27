@@ -1390,14 +1390,14 @@
                       "name": "Info Block with Image",
                       "settings": {
                         "heading": "Garage Door Side Sconces",
-                        "text": "<p>For garage door side sconces, place exterior wall sconces around <strong>5 to 6 feet from the ground</strong>.<br/>As a general rule, the <strong>size of the fixture should be about 1/4 of the height of the garage door</strong>.</p>",
+                        "text": "<p>For garage door side sconces, place exterior wall sconces around <strong>5 to 6 feet from the ground</strong>. As a general rule, the <strong>size of the fixture should be about 1/4 of the height of the garage door</strong>.</p>",
                         "image": "shopify://shop_images/Sconce_Garage.png",
                         "image_position": "left",
                         "image_border_radius": 0,
-                        "heading_font_size": 24,
-                        "heading_line_height": 1.2,
-                        "text_font_size": 16,
-                        "text_line_height": 1.5
+                        "heading_font_size": 15,
+                        "heading_line_height": 2.5,
+                        "text_font_size": 12,
+                        "text_line_height": 1.2
                       },
                       "blocks": {
                         "global_image_VnRy6Q": {
@@ -1435,13 +1435,13 @@
                   "name": "Info Block with Image",
                   "settings": {
                     "heading": "Garage Door Above Sconce",
-                    "text": "<p>Sconces above the garage door should be installed <strong>8 to 12 inches above it</strong>, ensuring that the bottom of the shade <strong>does not hang lower than the garage frame</strong>.</p>",
+                    "text": "<p>Sconces above the garage door should be installed <strong>8 to 12 inches above it</strong>, ensuring that the bottom of the shade <strong>does not hang lower than the garage frame</strong>.</p><p></p>",
                     "image_position": "bottom",
                     "image_border_radius": 0,
-                    "heading_font_size": 24,
-                    "heading_line_height": 1.2,
-                    "text_font_size": 16,
-                    "text_line_height": 1.5
+                    "heading_font_size": 15,
+                    "heading_line_height": 2.5,
+                    "text_font_size": 12,
+                    "text_line_height": 1.2
                   },
                   "blocks": {
                     "global_image_A8eL3c": {
@@ -1485,10 +1485,10 @@
           "name": "Global Image",
           "settings": {
             "image": "shopify://shop_images/736-15-69_1.jpg",
-            "image_border_radius": 0,
+            "image_border_radius": 10,
             "image_width": 100,
             "image_height": 400,
-            "image_fit": "contain",
+            "image_fit": "cover",
             "image_margin_top": 0,
             "image_margin_bottom": 0,
             "tip_heading": "Designer Tip",
@@ -1507,14 +1507,14 @@
       ],
       "name": "Guide Section",
       "settings": {
-        "title_box_color": "",
-        "title_box_height": 40,
-        "title_box_width": 50,
+        "title_box_color": "#0f0f0f",
+        "title_box_height": 20,
+        "title_box_width": 15,
         "heading": "Garage Doors",
         "description": "HOW TO CREATE A STYLES DRIVEWAY",
         "main_image": "shopify://shop_images/917-24-69_lit-tif.jpg",
         "image_width": 100,
-        "image_height": 400,
+        "image_height": 800,
         "image_fit": "cover",
         "tip_1_heading": "Lighting Level and Quality",
         "tip": "",
