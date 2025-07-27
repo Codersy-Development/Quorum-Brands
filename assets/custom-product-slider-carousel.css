@@ -157,7 +157,7 @@
         justify-content: flex-end;
     }
     & .product-button-prev {
-        transform: rotate(180deg);
+        transform: rotate(0deg);
     }
     & .product-button-prev,
     & .product-button-next {
@@ -178,7 +178,7 @@
         transform: translateY(-1px);
     }
     & .product-button-prev:hover {
-        transform: rotate(180deg) translateY(-1px);
+        transform: rotate(0deg) translateY(-1px);
     }
     & .product-button-prev::after,
     & .product-button-next::after {
@@ -202,7 +202,7 @@
         transform: none;
     }
     & .product-button-prev.swiper-button-disabled:hover {
-        transform: rotate(180deg);
+        transform: rotate(0deg);
     }
     
     & .slide-counter {
