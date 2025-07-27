@@ -88,6 +88,9 @@
                       "settings": {
                         "image": "shopify://shop_images/Sconce_bathroom_1.png",
                         "image_border_radius": 0,
+                        "image_width": 100,
+                        "image_height": 400,
+                        "image_fit": "contain",
                         "image_margin_top": 0,
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
@@ -105,6 +108,9 @@
                       "settings": {
                         "image": "shopify://shop_images/548-1-65.jpg",
                         "image_border_radius": 10,
+                        "image_width": 100,
+                        "image_height": 400,
+                        "image_fit": "contain",
                         "image_margin_top": 0,
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
@@ -155,6 +161,9 @@
                       "settings": {
                         "image": "shopify://shop_images/Vanity_bathroom.png",
                         "image_border_radius": 0,
+                        "image_width": 100,
+                        "image_height": 400,
+                        "image_fit": "contain",
                         "image_margin_top": 0,
                         "image_margin_bottom": 10,
                         "tip_heading": "Designer Tip",
@@ -172,6 +181,9 @@
                       "settings": {
                         "image": "shopify://shop_images/5169-3-47_4.jpg",
                         "image_border_radius": 10,
+                        "image_width": 100,
+                        "image_height": 400,
+                        "image_fit": "contain",
                         "image_margin_top": 0,
                         "image_margin_bottom": 15,
                         "tip_heading": "Designer Tip",
@@ -270,6 +282,9 @@
               "settings": {
                 "image": "shopify://shop_images/Mirrors_bathroom.png",
                 "image_border_radius": 0,
+                "image_width": 100,
+                "image_height": 400,
+                "image_fit": "contain",
                 "image_margin_top": 0,
                 "image_margin_bottom": 0,
                 "tip_heading": "Designer Tip",
@@ -370,6 +385,9 @@
                       "settings": {
                         "image": "shopify://shop_images/3077-3-59_Lit_LS.jpg",
                         "image_border_radius": 10,
+                        "image_width": 100,
+                        "image_height": 400,
+                        "image_fit": "contain",
                         "image_margin_top": 0,
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
@@ -387,6 +405,9 @@
                       "settings": {
                         "image": "shopify://shop_images/Pendants_kitchen.png",
                         "image_border_radius": 0,
+                        "image_width": 100,
+                        "image_height": 400,
+                        "image_fit": "contain",
                         "image_margin_top": 0,
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
@@ -436,6 +457,9 @@
                       "settings": {
                         "image": "shopify://shop_images/Linear_kitchen.png",
                         "image_border_radius": 0,
+                        "image_width": 100,
+                        "image_height": 400,
+                        "image_fit": "contain",
                         "image_margin_top": 0,
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
@@ -453,6 +477,9 @@
                       "settings": {
                         "image": "shopify://shop_images/6863-16-5980_5.jpg",
                         "image_border_radius": 10,
+                        "image_width": 100,
+                        "image_height": 400,
+                        "image_fit": "contain",
                         "image_margin_top": 0,
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
@@ -565,6 +592,9 @@
                       "settings": {
                         "image": "shopify://shop_images/Chandelier_square_table.png",
                         "image_border_radius": 0,
+                        "image_width": 100,
+                        "image_height": 400,
+                        "image_fit": "contain",
                         "image_margin_top": 0,
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
@@ -592,13 +622,16 @@
               "settings": {
                 "image": "shopify://shop_images/6021-6-59_Location_Alt_2.jpg",
                 "image_border_radius": 10,
+                "image_width": 100,
+                "image_height": 400,
+                "image_fit": "cover",
                 "image_margin_top": 0,
                 "image_margin_bottom": 0,
                 "tip_heading": "Example",
                 "tip": "A 48 inch square table calls for a chandelier diameter of 36 inches.",
                 "tip_background_color": "#352b26",
                 "tip_horizontal_position": 100,
-                "tip_vertical_position": 0,
+                "tip_vertical_position": 10,
                 "tip_box_width": 100
               },
               "blocks": {}
@@ -629,13 +662,16 @@
                   "settings": {
                     "image": "shopify://shop_images/6123-4-59_4.jpg",
                     "image_border_radius": 10,
+                    "image_width": 100,
+                    "image_height": 400,
+                    "image_fit": "cover",
                     "image_margin_top": 0,
                     "image_margin_bottom": 0,
                     "tip_heading": "Example",
                     "tip": "A 48 inch round table calls for a chandelier diameter of 30-36 inches.",
                     "tip_background_color": "#352b26",
                     "tip_horizontal_position": 0,
-                    "tip_vertical_position": 0,
+                    "tip_vertical_position": 10,
                     "tip_box_width": 100
                   },
                   "blocks": {}
@@ -660,6 +696,9 @@
                       "settings": {
                         "image": "shopify://shop_images/Chandelier_round_table.png",
                         "image_border_radius": 0,
+                        "image_width": 100,
+                        "image_height": 400,
+                        "image_fit": "contain",
                         "image_margin_top": 0,
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
@@ -701,7 +740,7 @@
         "description": "HOW TO HANG OVER A TABLE",
         "main_image": "shopify://shop_images/Dining_2_71a33cd0-89e4-4887-993f-8262d2dc05b1.jpg",
         "image_width": 100,
-        "image_height": 775,
+        "image_height": 800,
         "image_fit": "cover",
         "tip_1_heading": "Lighting Level and Quality",
         "tip": "",
@@ -757,6 +796,9 @@
               "settings": {
                 "image": "shopify://shop_images/892-3-80_6.jpg",
                 "image_border_radius": 10,
+                "image_width": 100,
+                "image_height": 400,
+                "image_fit": "contain",
                 "image_margin_top": 0,
                 "image_margin_bottom": 10,
                 "tip_heading": "Example",
@@ -863,6 +905,9 @@
                           "settings": {
                             "image": "shopify://shop_images/Pendant_Bedroom.png",
                             "image_border_radius": 0,
+                            "image_width": 100,
+                            "image_height": 400,
+                            "image_fit": "contain",
                             "image_margin_top": 0,
                             "image_margin_bottom": 0,
                             "tip_heading": "Designer Tip",
@@ -890,6 +935,9 @@
                   "settings": {
                     "image": "shopify://shop_images/Peloton_10051_beauty_alternative_v1_1.jpg",
                     "image_border_radius": 10,
+                    "image_width": 100,
+                    "image_height": 400,
+                    "image_fit": "contain",
                     "image_margin_top": 0,
                     "image_margin_bottom": 10,
                     "tip_heading": "Designer Tip",
@@ -941,6 +989,9 @@
                           "settings": {
                             "image": "shopify://shop_images/Sconce_Bedroom.png",
                             "image_border_radius": 0,
+                            "image_width": 100,
+                            "image_height": 400,
+                            "image_fit": "contain",
                             "image_margin_top": 0,
                             "image_margin_bottom": 0,
                             "tip_heading": "Designer Tip",
@@ -968,6 +1019,9 @@
                   "settings": {
                     "image": "shopify://shop_images/3-403-15_LS.jpg",
                     "image_border_radius": 10,
+                    "image_width": 100,
+                    "image_height": 400,
+                    "image_fit": "contain",
                     "image_margin_top": 0,
                     "image_margin_bottom": 0,
                     "tip_heading": "Designer Tip",
@@ -1046,6 +1100,9 @@
           "settings": {
             "image": "shopify://shop_images/715-10-69_lit_1.jpg",
             "image_border_radius": 0,
+            "image_width": 100,
+            "image_height": 400,
+            "image_fit": "contain",
             "image_margin_top": 0,
             "image_margin_bottom": 0,
             "tip_heading": "Designer Tip",
@@ -1099,6 +1156,9 @@
                           "settings": {
                             "image": "shopify://shop_images/OutdoorPendant_Entry.png",
                             "image_border_radius": 0,
+                            "image_width": 100,
+                            "image_height": 400,
+                            "image_fit": "contain",
                             "image_margin_top": 0,
                             "image_margin_bottom": 0,
                             "tip_heading": "Designer Tip",
@@ -1140,6 +1200,9 @@
                       "settings": {
                         "image": "shopify://shop_images/OutdoorSconce_Entry.png",
                         "image_border_radius": 0,
+                        "image_width": 100,
+                        "image_height": 400,
+                        "image_fit": "contain",
                         "image_margin_top": 0,
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
@@ -1259,6 +1322,9 @@
                           "settings": {
                             "image": "shopify://shop_images/Sconces_Garage.png",
                             "image_border_radius": 0,
+                            "image_width": 100,
+                            "image_height": 400,
+                            "image_fit": "contain",
                             "image_margin_top": 0,
                             "image_margin_bottom": 0,
                             "tip_heading": "Designer Tip",
@@ -1300,6 +1366,9 @@
                       "settings": {
                         "image": "shopify://shop_images/Sconce_Garage.png",
                         "image_border_radius": 0,
+                        "image_width": 100,
+                        "image_height": 400,
+                        "image_fit": "contain",
                         "image_margin_top": 0,
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
@@ -1333,6 +1402,9 @@
           "settings": {
             "image": "shopify://shop_images/736-15-69_1.jpg",
             "image_border_radius": 0,
+            "image_width": 100,
+            "image_height": 400,
+            "image_fit": "contain",
             "image_margin_top": 0,
             "image_margin_bottom": 0,
             "tip_heading": "Designer Tip",
@@ -1436,6 +1508,9 @@
                           "settings": {
                             "image": "shopify://shop_images/10656-80_LS.jpg",
                             "image_border_radius": 0,
+                            "image_width": 100,
+                            "image_height": 400,
+                            "image_fit": "contain",
                             "image_margin_top": 0,
                             "image_margin_bottom": 0,
                             "tip_heading": "Designer Tip",
@@ -1477,6 +1552,9 @@
                       "settings": {
                         "image": "shopify://shop_images/Fan_Ceiling-Height_1.png",
                         "image_border_radius": 0,
+                        "image_width": 100,
+                        "image_height": 400,
+                        "image_fit": "contain",
                         "image_margin_top": 0,
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
@@ -1538,6 +1616,9 @@
                       "settings": {
                         "image": "shopify://shop_images/Fan_SqFt_1.png",
                         "image_border_radius": 0,
+                        "image_width": 100,
+                        "image_height": 400,
+                        "image_fit": "contain",
                         "image_margin_top": 0,
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
@@ -1648,6 +1729,9 @@
                       "settings": {
                         "image": "shopify://shop_images/Fan_Mounting_1.png",
                         "image_border_radius": 0,
+                        "image_width": 100,
+                        "image_height": 400,
+                        "image_fit": "contain",
                         "image_margin_top": 0,
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
@@ -1708,6 +1792,9 @@
                       "settings": {
                         "image": "shopify://shop_images/ceiling_fan_controls_high_quality.png",
                         "image_border_radius": 0,
+                        "image_width": 100,
+                        "image_height": 400,
+                        "image_fit": "contain",
                         "image_margin_top": 0,
                         "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
