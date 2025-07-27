@@ -48,14 +48,10 @@
   .hulk__wishlist-wrap .hulk-price .compare_price {
     display: none !important;
 }
-
-.sales-point[data-incoming-inventory] {
-    display: none;
-}
-
-/* Only show backordered when explicitly not hidden */
-.sales-point[data-incoming-inventory]:not(.hide) {
-    display: list-item;
+li.sales-point.hide {
+    display: list-item !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
   
 </style>
