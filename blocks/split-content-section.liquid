@@ -1,6 +1,6 @@
-<div class="split-content-section">
-    <div class="split-content-container {% if block.settings.layout == 'vertical' %}vertical{% endif %}"
-         style="gap: {{ block.settings.section_gap }}px;">
+<div class="split-content-section" 
+     style="margin-top: {{ block.settings.section_margin_top }}px; margin-bottom: {{ block.settings.section_margin_bottom }}px;">
+    <div class="split-content-container {% if block.settings.layout == 'vertical' %}vertical{% endif %}">
         {% content_for 'blocks' %}
     </div>
 </div>
@@ -11,10 +11,12 @@
     }
     .split-content-container {
         display: flex;
+        gap: 0;
         flex-direction: row;
     }
     .split-content-container.vertical {
         flex-direction: column;
+        gap: 1rem;
     }
     .split-content-column img {
         width: 100%;
@@ -48,15 +50,30 @@
       "default": "horizontal"
     },
     {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
       "type": "range",
-      "id": "section_gap",
-      "label": "Gap Between Sections",
+      "id": "section_margin_top",
+      "label": "Top Margin",
       "min": 0,
       "max": 100,
       "step": 5,
       "unit": "px",
       "default": 0,
-      "info": "Space between split content sections"
+      "info": "Space above this split section"
+    },
+    {
+      "type": "range",
+      "id": "section_margin_bottom",
+      "label": "Bottom Margin",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0,
+      "info": "Space below this split section"
     }
   ],
   "blocks": [{ "type": "@theme" }, { "type": "@app" }],
