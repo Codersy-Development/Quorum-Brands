@@ -290,18 +290,18 @@
             "label": "Amber Scavo"
           }
         },
+        "item_Pz9TzV": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Clear.png",
+            "label": "Clear"
+          }
+        },
         "item_hQ3AHb": {
           "type": "item",
           "settings": {
             "image": "shopify://shop_images/Clear_Crackle.png",
             "label": "Clear Crackle"
-          }
-        },
-        "item_kCpA3N": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Clear_Ribbed.png",
-            "label": "Clear Ribbed"
           }
         },
         "item_dpJLqY": {
@@ -311,18 +311,18 @@
             "label": "Clear Hammered"
           }
         },
+        "item_kCpA3N": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Clear_Ribbed.png",
+            "label": "Clear Ribbed"
+          }
+        },
         "item_AVBwjC": {
           "type": "item",
           "settings": {
             "image": "shopify://shop_images/Clear_Seeded.png",
             "label": "Clear Seeded"
-          }
-        },
-        "item_Pz9TzV": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Clear.png",
-            "label": "Clear"
           }
         },
         "item_7bTi7L": {
@@ -377,11 +377,11 @@
       },
       "block_order": [
         "item_PcJfAb",
-        "item_hQ3AHb",
-        "item_kCpA3N",
-        "item_dpJLqY",
-        "item_AVBwjC",
         "item_Pz9TzV",
+        "item_hQ3AHb",
+        "item_dpJLqY",
+        "item_kCpA3N",
+        "item_AVBwjC",
         "item_7bTi7L",
         "item_xDXBBM",
         "item_eeMeVP",
