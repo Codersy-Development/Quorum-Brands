@@ -1,93 +1,303 @@
+{% liquid
+  assign resources = predictive_search.resources
+  assign columnCount = resources.queries.size | plus: resources.pages.size | plus: resources.articles.size | plus: resources.collections.size
+  assign totalCount = resources.queries.size | plus: resources.pages.size | plus: resources.articles.size | plus: resources.collections.size | plus: resources.products.size
+%}
+
 {%- if predictive_search.performed -%}
-  {%- if predictive_search.resources.products.size > 0 -%}
-    <div data-type-products>
-      {%- for product in predictive_search.resources.products -%}
-        {%- capture wlm_check -%}{%- render 'wlm-product' with product , wlm_is_render:'yes' -%}{%- endcapture -%}{%- if wlm_check == blank -%}{%continue%}{%- endif -%}
-        <div class="predictive-product-wrapper" data-vendor="{{ product.vendor | downcase }}" data-product-id="{{ product.id }}">
-          {%- render 'product-grid-item',
-            product: product,
-            per_row: 4,
-            quick_shop_enable: settings.quick_shop_enable
-          -%}
-        </div>
-      {%- endfor -%}
-    </div>
-  {% endif %}
-  {%- if predictive_search.resources.collections.size > 0 -%}
-    <div data-type-collections>
-      <p class="h6 predictive__label">{{ 'general.search.collections' | t }}</p>
-      <ul class="no-bullets">
-        {% for collection in predictive_search.resources.collections %}
-          {%- capture wlm_check -%}{%- render 'wlm-collection' with collection , wlm_is_render:'yes' -%}{%- endcapture -%}{%- if wlm_check == blank -%}{%continue%}{%- endif -%}
-          <li>
-            <a href="{{ collection.url }}">
-              {{ collection.title }}
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-  {% endif %}
-  {%- if predictive_search.resources.pages.size > 0 -%}
-    <div data-type-pages>
-      <p class="h6 predictive__label">{{ 'general.search.pages' | t }}</p>
-      <ul class="no-bullets">
-        {%- for page in predictive_search.resources.pages -%}
-          <li>
-            <a href="{{ page.url }}">
-              {{ page.title }}
-            </a>
-          </li>
-        {%- endfor -%}
-      </ul>
-    </div>
-  {% endif %}
-  {%- if predictive_search.resources.articles.size > 0 -%}
-    <div data-type-articles="{{ predictive_search.resources.articles.size }}">
-      <p class="h6 predictive__label">{{ 'general.search.articles' | t }}</p>
-      {%- for article in predictive_search.resources.articles -%}
-        <div class="grid__item grid-product small--one-half medium-up--one-quarter" data-aos="row-of-4">
-          <a href="{{ article.url }}" class="grid-product__link grid-product__link--inline">
-            <div class="image-wrap">
-              <div
-                class="grid__image-ratio grid__image-ratio--square">
-                {%- render 'image-element',
-                  img: article.image,
-                  widths: '360, 540, 720, 900, 1080',
-                  sizes: '80px',
-                -%}
-              </div>
-            </div>
-            <div class="grid-product__meta">
-              {{ article.title }}
-            </div>
-          </a>
-        </div>
-      {%- endfor -%}
-    </div>
+  <div class="predictive-search-results {% if totalCount == 0 %}predictive-search-results--none{% endif %}" id="predictive-search-results">
+    {% if totalCount > 0 %}
+      <div class="results__group-1" {% if columnCount == 0 %}style="display: none"{% endif %}>
+        {%- if predictive_search.resources.queries.size > 0 -%}
+          <div class="results results--queries">
+            <h3 class="h4" id="predictive-search-suggestions">
+              {{ 'general.search.suggestions' | t }}
+            </h3>
+            <ul role="listbox" aria-labelledby="predictive-search-queries">
+              {%- for query in predictive_search.resources.queries -%}
+                <li role="option">
+                  <a href="{{ query.url }}">
+                    <span>{{ query.styled_text }}</span>
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+        {%- if predictive_search.resources.pages.size > 0 -%}
+          <div class="results results--pages">
+            <h3 class="h4" id="predictive-search-pages">
+              {{ 'general.search.pages' | t }}
+            </h3>
+            <ul role="listbox" aria-labelledby="predictive-search-pages">
+              {%- for page in predictive_search.resources.pages -%}
+                <li role="option">
+                  <a href="{{ page.url }}">
+                    <span>{{ page.title }}</span>
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+        {%- if predictive_search.resources.articles.size > 0 -%}
+          <div class="results results--articles">
+            <h3 class="h4" id="predictive-search-articles">
+              {{ 'general.search.articles' | t }}
+            </h3>
+            <ul role="listbox" aria-labelledby="predictive-search-articles">
+              {%- for article in predictive_search.resources.articles -%}
+                <li role="option">
+                  <a href="{{ article.url }}">
+                    <span>{{ article.title }}</span>
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+        {%- if predictive_search.resources.collections.size > 0 -%}
+          <div class="results results--collections">
+            <h3 class="h4" id="predictive-search-collections">
+              {{ 'general.search.collections' | t }}
+            </h3>
+            <ul role="listbox" aria-labelledby="predictive-search-collections">
+              {%- for collection in predictive_search.resources.collections -%}
+                <li role="option">
+                  <a href="{{ collection.url }}">
+                    <span>{{ collection.title }}</span>
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="results__group-2">
+        {%- if predictive_search.resources.products.size > 0 -%}
+          <div class="results results--products">
+            <h3 class="h4" id="predictive-search-products">
+              {{ 'general.search.products' | t }}
+            </h3>
+            <ul role="listbox" aria-labelledby="predictive-search-products" id="predictive-products-list">
+              {%- for product in predictive_search.resources.products -%}
+                <li role="option" class="predictive-product-item" data-vendor="{{ product.vendor | downcase }}">
+                  <a href="{{ product.url }}">
+                    <div class="results-products__image grid__image-ratio">
+                      {% if product.media != blank %}
+                        {%- render 'image-element',
+                          img: product.featured_media,
+                          widths: '80, 160, 240',
+                        -%}
+                      {% endif %}
+                    </div>
+                    <div class="results-products__info">
+                      <span>{{ product.title }}</span>
+                      {% if settings.predictive_search_show_vendor %}
+                      <span class="grid-product__vendor">{{ product.vendor }}</span>
+                      {% endif %}
+                      
+                      {%- comment -%} Display Variant SKUs {%- endcomment -%}
+                      {% if product.variants.size > 0 %}
+                        <div class="grid-product__skus">
+                          {% if product.variants.size == 1 %}
+                            {%- assign first_variant = product.variants.first -%}
+                            {% if first_variant.sku != blank %}
+                              <span class="grid-product__sku">SKU: {{ first_variant.sku }}</span>
+                            {% endif %}
+                          {% else %}
+                            {%- assign sku_count = 0 -%}
+                            {%- assign display_skus = '' -%}
+                            {%- for variant in product.variants -%}
+                              {%- if variant.sku != blank -%}
+                                {%- assign sku_count = sku_count | plus: 1 -%}
+                                {%- if sku_count <= 2 -%}
+                                  {%- if display_skus != '' -%}
+                                    {%- assign display_skus = display_skus | append: ', ' -%}
+                                  {%- endif -%}
+                                  {%- assign display_skus = display_skus | append: variant.sku -%}
+                                {%- endif -%}
+                              {%- endif -%}
+                            {%- endfor -%}
+                            {% if sku_count > 0 %}
+                              <span class="grid-product__sku">
+                                SKU: {{ display_skus }}{% if sku_count > 2 %} +{{ sku_count | minus: 2 }} more{% endif %}
+                              </span>
+                            {% endif %}
+                          {% endif %}
+                        </div>
+                      {% endif %}
+                      
+                      {% if settings.predictive_search_show_price %}
+                        {%- if on_sale -%}
+                          <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+                          <span class="grid-product__price--original">{{ product.compare_at_price | money }}</span>
+                          <span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
+                        {%- endif -%}
+
+                        {%- if product.price_varies -%}
+                          {%- assign price = product.price_min | money -%}
+                          <span class="grid-product__price">{{ 'products.general.from_text_html' | t: price: price }}</span>
+                        {%- else -%}
+                          <span class="grid-product__price">{{ product.price | money }}</span>
+                        {%- endif -%}
+                        {%- if on_sale -%}
+                          {%- if settings.product_save_amount -%}
+                            {%- if settings.product_save_type == 'dollar' -%}
+                              {%- capture saved_amount -%}{{ product.compare_at_price | minus: product.price | money }}{%- endcapture -%}
+                            {%- else -%}
+                              {%- capture saved_amount -%}{{ product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round }}%{%- endcapture -%}
+                            {%- endif -%}
+                            <span class="grid-product__price--savings">
+                              {{ 'products.general.save_html' | t: saved_amount: saved_amount }}
+                            </span>
+                          {%- endif -%}
+                        {%- endif -%}
+                      {% endif %}
+                    </div>
+
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+        {%- if predictive_search.resources.pages.size > 0 -%}
+          <div class="results results--pages">
+            <h3 class="h4" id="predictive-search-pages">
+              {{ 'general.search.pages' | t }}
+            </h3>
+            <ul role="listbox" aria-labelledby="predictive-search-pages">
+              {%- for page in predictive_search.resources.pages -%}
+                <li role="option">
+                  <a href="{{ page.url }}">
+                    <span>{{ page.title }}</span>
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+        {%- if predictive_search.resources.articles.size > 0 -%}
+          <div class="results results--articles">
+            <h3 class="h4" id="predictive-search-articles">
+              {{ 'general.search.articles' | t }}
+            </h3>
+            <ul role="listbox" aria-labelledby="predictive-search-articles">
+              {%- for article in predictive_search.resources.articles -%}
+                <li role="option">
+                  <a href="{{ article.url }}">
+                    <span>{{ article.title }}</span>
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+        {%- if predictive_search.resources.collections.size > 0 -%}
+          <div class="results results--collections">
+            <h3 class="h4" id="predictive-search-collections">
+              {{ 'general.search.collections' | t }}
+            </h3>
+            <ul role="listbox" aria-labelledby="predictive-search-collections">
+              {%- for collection in predictive_search.resources.collections -%}
+                <li role="option">
+                  <a href="{{ collection.url }}">
+                    <span>{{ collection.title }}</span>
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+      </div>
+    {% else %}
+      <div class="results"><a class="predictive-search__no-results" href="{{ routes.search_url }}?q={{ predictive_search.terms | escape }}">{{ 'general.search.no_results_html' | t: terms: predictive_search.terms }}</a></div>
+    {% endif %}
+  </div>
+  {% if totalCount > 0 %}
+    <button class="results__search-btn">
+      {{ 'general.search.view_more' | t: terms: predictive_search.terms }} <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 5H12.5M12.5 5L8.5 1M12.5 5L8.5 9" stroke="currentColor"/></svg>
+    </button>
   {% endif %}
 {%- endif -%}
 
+<!-- Add this script to your search.liquid template, right before the closing </body> tag or in the search template -->
+
 {% unless request.design_mode %}
 <script>
-  // Filter predictive search products based on selected store
-  function filterPredictiveSearchProducts() {
+  // Filter main search results page based on selected store
+  function filterSearchPageResults() {
     const selectedStore = localStorage.getItem("store-selected") || "";
     
-    // Target the products container in predictive search
-    const productsContainer = document.querySelector('[data-type-products]');
-    if (!productsContainer) {
-      return;
-    }
+    // Look for product items on search page - adjust selectors as needed for your theme
+    const productItems = document.querySelectorAll(
+      '.grid-product, .product-item, .search-product, [data-product-id], .product-grid-item'
+    );
     
-    // Look for product wrappers with vendor data
-    const productWrappers = productsContainer.querySelectorAll('.predictive-product-wrapper');
+    
+    if (productItems.length === 0) {
+      // Try alternative selectors
+      const altProductItems = document.querySelectorAll(
+        '.product, .item, [class*="product"], [class*="grid"]'
+      );
+      
+      // If still no products found, let's look for vendor info in the page
+      const vendorElements = document.querySelectorAll('[class*="vendor"], .grid-product__vendor');
+      
+      if (vendorElements.length > 0) {
+        vendorElements.forEach((vendorEl, index) => {
+          const productContainer = vendorEl.closest('[class*="product"], [class*="grid"], .item');
+          if (productContainer) {
+            const vendorText = vendorEl.textContent.trim().toLowerCase();
+            
+            const shouldShow = selectedStore.toLowerCase().includes("shop all") || 
+                              vendorText === selectedStore.toLowerCase();
+            
+            if (shouldShow) {
+              productContainer.style.display = '';
+            } else {
+              productContainer.style.display = 'none';
+            }
+          }
+        });
+        return;
+      }
+    }
     
     let visibleCount = 0;
     let hiddenCount = 0;
     
-    productWrappers.forEach((wrapper, index) => {
-      const productVendor = wrapper.dataset.vendor || "";
+    productItems.forEach((item, index) => {
+      // Try to find vendor information in various ways
+      let productVendor = '';
+      
+      // Method 1: data-vendor attribute
+      if (item.dataset.vendor) {
+        productVendor = item.dataset.vendor.toLowerCase();
+      }
+      // Method 2: look for vendor class/element within the item
+      else {
+        const vendorElement = item.querySelector('.grid-product__vendor, [class*="vendor"], .product-vendor');
+        if (vendorElement) {
+          productVendor = vendorElement.textContent.trim().toLowerCase();
+        }
+        // Method 3: look for vendor in product URL or data attributes
+        else {
+          const productLink = item.querySelector('a[href*="/products/"]');
+          if (productLink) {
+            // Try to extract vendor from other data attributes
+            const allDataAttrs = Array.from(item.attributes).filter(attr => attr.name.startsWith('data-'));
+            for (let attr of allDataAttrs) {
+              if (attr.value.toLowerCase() === 'oxygen' || attr.value.toLowerCase() === 'quorum') {
+                productVendor = attr.value.toLowerCase();
+                break;
+              }
+            }
+          }
+        }
+      }
       
       
       // Allow products to show when "Shop All Brands" is selected
@@ -96,75 +306,71 @@
                         selectedStore === ''; // Show all if no store selected
       
       if (shouldShow) {
-        wrapper.style.display = '';
+        item.style.display = '';
         visibleCount++;
       } else {
-        wrapper.style.display = 'none';
+        item.style.display = 'none';
         hiddenCount++;
       }
     });
     
     
-    // Hide the entire products section if no products match
+    // Update no results message if needed
+    updateSearchResultsDisplay(visibleCount);
+  }
+  
+  function updateSearchResultsDisplay(visibleCount) {
+    // Show/hide "no results" message
+    const noResultsMessage = document.querySelector('.no-results, .search-no-results, [class*="no-results"]');
+    const resultsContainer = document.querySelector('.search-results, .product-grid, [class*="search-results"]');
+    
     if (visibleCount === 0) {
-      productsContainer.style.display = 'none';
+      if (noResultsMessage) {
+        noResultsMessage.style.display = 'block';
+      } else {
+        // Create a no results message if none exists
+        const selectedStore = localStorage.getItem("store-selected") || "";
+        const storeName = selectedStore.charAt(0).toUpperCase() + selectedStore.slice(1);
+        const message = document.createElement('div');
+        message.className = 'custom-no-results';
+        message.innerHTML = `<p>No ${storeName} products found for this search.</p>`;
+        if (resultsContainer) {
+          resultsContainer.appendChild(message);
+        }
+      }
     } else {
-      productsContainer.style.display = '';
+      if (noResultsMessage) {
+        noResultsMessage.style.display = 'none';
+      }
+      // Remove custom no results message
+      const customMessage = document.querySelector('.custom-no-results');
+      if (customMessage) {
+        customMessage.remove();
+      }
     }
   }
   
-  // Monitor for predictive search results appearing
-  const predictiveObserver = new MutationObserver(function(mutations) {
-    mutations.forEach(function(mutation) {
-      if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-        // Check if products were added to predictive search
-        const hasProducts = Array.from(mutation.addedNodes).some(node => 
-          node.nodeType === 1 && (
-            (node.querySelector && node.querySelector('[data-type-products]')) ||
-            (node.dataset && node.dataset.typeProducts !== undefined) ||
-            node.classList.contains('predictive-product-wrapper')
-          )
-        );
-        
-        if (hasProducts) {
- 
-          setTimeout(filterPredictiveSearchProducts, 50);
-        }
-      }
-    });
+  // Run filtering when page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(filterSearchPageResults, 200);
   });
   
-  // Start observing the predictive search container
-  const predictiveContainer = document.getElementById('predictive-search');
-  if (predictiveContainer) {
-    predictiveObserver.observe(predictiveContainer, { 
-      childList: true, 
-      subtree: true 
-    });
- 
-  }
-  
-  // Also listen for store changes
+  // Listen for store changes and re-filter
   document.addEventListener('change', function(e) {
     if (e.target.matches('store-switcher input[type="radio"]') || 
         (e.target.type === 'radio' && e.target.closest('store-switcher')) ||
         (e.target.type === 'radio' && e.target.name && e.target.name.startsWith('store-switcher-'))) {
       
-
-      setTimeout(filterPredictiveSearchProducts, 100);
+      setTimeout(filterSearchPageResults, 100);
     }
   });
   
-  // Listen for clicks on store switcher as backup
+  // Also listen for clicks on store switcher labels
   document.addEventListener('click', function(e) {
     const storeLabel = e.target.closest('store-switcher label');
     if (storeLabel) {
-
-      setTimeout(filterPredictiveSearchProducts, 150);
+      setTimeout(filterSearchPageResults, 150);
     }
   });
-  
-  // Initial filter attempt on page load
-  setTimeout(filterPredictiveSearchProducts, 200);
 </script>
 {% endunless %}
