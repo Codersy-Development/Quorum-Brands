@@ -22,7 +22,7 @@
           "settings": {
             "image": "shopify://shop_images/Julee-Owens_Web.jpg",
             "button_text": "Meet Our Designers",
-            "button_url": "https://jhzyjf-km.myshopify.com/pages/meet-our-designers"
+            "button_url": "/meet-our-designers"
           }
         },
         "image_XdnEcj": {
