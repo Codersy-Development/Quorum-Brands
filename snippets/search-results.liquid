@@ -82,7 +82,8 @@
             </h3>
             <ul role="listbox" aria-labelledby="predictive-search-products" id="predictive-products-list">
               {%- for product in predictive_search.resources.products -%}
-                <li role="option" class="predictive-product-item" data-vendor="{{ product.vendor | downcase }}">
+                <li role="option" class="predictive-product-item" data-vendor="{{ product.vendor | downcase }}" 
+                    data-skus="{% for variant in product.variants %}{% if variant.sku != blank %}{{ variant.sku | downcase }}{% unless forloop.last %},{% endunless %}{% endif %}{% endfor %}">
                   <a href="{{ product.url }}">
                     <div class="results-products__image grid__image-ratio">
                       {% if product.media != blank %}
@@ -98,13 +99,13 @@
                       <span class="grid-product__vendor">{{ product.vendor }}</span>
                       {% endif %}
                       
-                      {%- comment -%} Display Variant SKUs {%- endcomment -%}
+                      {%- comment -%} Display Variant SKUs with highlighting {%- endcomment -%}
                       {% if product.variants.size > 0 %}
                         <div class="grid-product__skus">
                           {% if product.variants.size == 1 %}
                             {%- assign first_variant = product.variants.first -%}
                             {% if first_variant.sku != blank %}
-                              <span class="grid-product__sku">SKU: {{ first_variant.sku }}</span>
+                              <span class="grid-product__sku" data-sku="{{ first_variant.sku | downcase }}">SKU: {{ first_variant.sku }}</span>
                             {% endif %}
                           {% else %}
                             {%- assign sku_count = 0 -%}
@@ -121,7 +122,7 @@
                               {%- endif -%}
                             {%- endfor -%}
                             {% if sku_count > 0 %}
-                              <span class="grid-product__sku">
+                              <span class="grid-product__sku" data-all-skus="{% for variant in product.variants %}{% if variant.sku != blank %}{{ variant.sku | downcase }}{% unless forloop.last %},{% endunless %}{% endif %}{% endfor %}">
                                 SKU: {{ display_skus }}{% if sku_count > 2 %} +{{ sku_count | minus: 2 }} more{% endif %}
                               </span>
                             {% endif %}
@@ -163,55 +164,16 @@
             </ul>
           </div>
         {%- endif -%}
-        {%- if predictive_search.resources.pages.size > 0 -%}
-          <div class="results results--pages">
-            <h3 class="h4" id="predictive-search-pages">
-              {{ 'general.search.pages' | t }}
-            </h3>
-            <ul role="listbox" aria-labelledby="predictive-search-pages">
-              {%- for page in predictive_search.resources.pages -%}
-                <li role="option">
-                  <a href="{{ page.url }}">
-                    <span>{{ page.title }}</span>
-                  </a>
-                </li>
-              {%- endfor -%}
-            </ul>
-          </div>
-        {%- endif -%}
-        {%- if predictive_search.resources.articles.size > 0 -%}
-          <div class="results results--articles">
-            <h3 class="h4" id="predictive-search-articles">
-              {{ 'general.search.articles' | t }}
-            </h3>
-            <ul role="listbox" aria-labelledby="predictive-search-articles">
-              {%- for article in predictive_search.resources.articles -%}
-                <li role="option">
-                  <a href="{{ article.url }}">
-                    <span>{{ article.title }}</span>
-                  </a>
-                </li>
-              {%- endfor -%}
-            </ul>
-          </div>
-        {%- endif -%}
-        {%- if predictive_search.resources.collections.size > 0 -%}
-          <div class="results results--collections">
-            <h3 class="h4" id="predictive-search-collections">
-              {{ 'general.search.collections' | t }}
-            </h3>
-            <ul role="listbox" aria-labelledby="predictive-search-collections">
-              {%- for collection in predictive_search.resources.collections -%}
-                <li role="option">
-                  <a href="{{ collection.url }}">
-                    <span>{{ collection.title }}</span>
-                  </a>
-                </li>
-              {%- endfor -%}
-            </ul>
-          </div>
-        {%- endif -%}
       </div>
+      
+      <!-- Partial SKU matches section -->
+      <div id="partial-sku-results" class="results results--products" style="display: none;">
+        <h3 class="h4">SKU Matches</h3>
+        <ul role="listbox" id="partial-sku-products-list">
+          <!-- Dynamically populated by JavaScript -->
+        </ul>
+      </div>
+      
     {% else %}
       <div class="results"><a class="predictive-search__no-results" href="{{ routes.search_url }}?q={{ predictive_search.terms | escape }}">{{ 'general.search.no_results_html' | t: terms: predictive_search.terms }}</a></div>
     {% endif %}
@@ -223,10 +185,163 @@
   {% endif %}
 {%- endif -%}
 
-<!-- Add this script to your search.liquid template, right before the closing </body> tag or in the search template -->
-
+<!-- Enhanced script with partial SKU search -->
 {% unless request.design_mode %}
 <script>
+  // Store all product data for SKU searching
+  window.productSKUData = window.productSKUData || [];
+  
+  // Collect product SKU data when page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    collectProductSKUData();
+  });
+  
+  function collectProductSKUData() {
+    const productItems = document.querySelectorAll('.predictive-product-item[data-skus]');
+    window.productSKUData = [];
+    
+    productItems.forEach(item => {
+      const skusData = item.getAttribute('data-skus');
+      const vendor = item.getAttribute('data-vendor');
+      const productLink = item.querySelector('a');
+      const productTitle = item.querySelector('.results-products__info span');
+      const productImage = item.querySelector('.results-products__image img');
+      
+      if (skusData && productLink && productTitle) {
+        const skus = skusData.split(',').filter(sku => sku.trim());
+        
+        skus.forEach(sku => {
+          window.productSKUData.push({
+            sku: sku.trim(),
+            vendor: vendor || '',
+            title: productTitle.textContent.trim(),
+            url: productLink.href,
+            image: productImage ? productImage.src : '',
+            element: item
+          });
+        });
+      }
+    });
+    
+    console.log('Collected SKU data for', window.productSKUData.length, 'variants');
+  }
+  
+  // Enhanced partial SKU search function
+  function searchPartialSKU(query) {
+    if (!query || query.length < 2) return [];
+    
+    const searchTerm = query.toLowerCase().trim();
+    const matches = [];
+    
+    window.productSKUData.forEach(product => {
+      // Check if SKU starts with the search term (first 2+ digits)
+      if (product.sku.toLowerCase().startsWith(searchTerm)) {
+        matches.push({
+          ...product,
+          matchType: 'starts-with',
+          priority: 1
+        });
+      }
+      // Check if SKU contains the search term anywhere
+      else if (product.sku.toLowerCase().includes(searchTerm)) {
+        matches.push({
+          ...product,
+          matchType: 'contains',
+          priority: 2
+        });
+      }
+    });
+    
+    // Sort by priority (starts-with first, then contains)
+    matches.sort((a, b) => a.priority - b.priority);
+    
+    return matches;
+  }
+  
+  // Display partial SKU results
+  function displayPartialSKUResults(matches, query) {
+    const resultsContainer = document.getElementById('partial-sku-results');
+    const productsList = document.getElementById('partial-sku-products-list');
+    
+    if (!matches.length) {
+      resultsContainer.style.display = 'none';
+      return;
+    }
+    
+    // Clear previous results
+    productsList.innerHTML = '';
+    
+    // Create result items
+    matches.slice(0, 8).forEach(match => { // Limit to 8 results
+      const li = document.createElement('li');
+      li.className = 'predictive-product-item';
+      li.setAttribute('role', 'option');
+      
+      // Highlight the matching part of SKU
+      const highlightedSKU = match.sku.replace(
+        new RegExp(`(${query})`, 'gi'),
+        '<mark style="background: yellow; padding: 1px 2px;">$1</mark>'
+      );
+      
+      li.innerHTML = `
+        <a href="${match.url}">
+          <div class="results-products__image grid__image-ratio">
+            ${match.image ? `<img src="${match.image}" alt="${match.title}" loading="lazy">` : ''}
+          </div>
+          <div class="results-products__info">
+            <span>${match.title}</span>
+            <span class="grid-product__vendor">${match.vendor}</span>
+            <span class="grid-product__sku highlighted-sku">SKU: ${highlightedSKU}</span>
+          </div>
+        </a>
+      `;
+      
+      productsList.appendChild(li);
+    });
+    
+    resultsContainer.style.display = 'block';
+  }
+  
+  // Enhanced search functionality
+  function enhancedPredictiveSearch() {
+    const searchInput = document.querySelector('.search__input');
+    if (!searchInput) return;
+    
+    let searchTimeout;
+    
+    searchInput.addEventListener('input', function(e) {
+      const query = e.target.value.trim();
+      
+      // Clear previous timeout
+      clearTimeout(searchTimeout);
+      
+      // Debounce search
+      searchTimeout = setTimeout(() => {
+        if (query.length >= 2) {
+          // Check if query looks like a SKU (starts with numbers or specific pattern)
+          const looksLikeSKU = /^[0-9]/.test(query) || /^[A-Z0-9-_]/.test(query.toUpperCase());
+          
+          if (looksLikeSKU) {
+            const matches = searchPartialSKU(query);
+            displayPartialSKUResults(matches, query);
+            console.log(`Found ${matches.length} partial SKU matches for "${query}"`);
+          }
+        } else {
+          // Hide partial results if query is too short
+          document.getElementById('partial-sku-results').style.display = 'none';
+        }
+      }, 200);
+    });
+  }
+  
+  // Initialize enhanced search
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(() => {
+      enhancedPredictiveSearch();
+      collectProductSKUData();
+    }, 500);
+  });
+  
   // Filter main search results page based on selected store
   function filterSearchPageResults() {
     const selectedStore = localStorage.getItem("store-selected") || "";
