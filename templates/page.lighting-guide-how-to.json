@@ -30,7 +30,7 @@
             "link_text_2": "",
             "color_accent": "rgba(0,0,0,0)",
             "text_align": "vertical-center horizontal-center",
-            "image": "shopify://shop_images/Header.jpg",
+            "image": "shopify://shop_images/Header.png",
             "parallax_direction": "top",
             "overlay_opacity": 30
           }
