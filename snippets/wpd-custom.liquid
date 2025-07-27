@@ -48,14 +48,28 @@
   .hulk__wishlist-wrap .hulk-price .compare_price {
     display: none !important;
 }
-li.sales-point:not(.hide) {
-    display: list-item !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+.sales-points {
+    display: block !important;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-.hide {
+.sales-points li.sales-point:not(.hide) {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    margin: 5px 0;
+}
+
+.sales-points li.sales-point.hide {
     display: none !important;
+}
+
+.icon-and-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 </style>
 <!-- CSS for not logged-in -->  
