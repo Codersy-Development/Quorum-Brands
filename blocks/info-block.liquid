@@ -1,23 +1,27 @@
 <div class="info-block">
     {% if block.settings.heading %}
-        <div class="info-title">{{ block.settings.heading }}</div>
+        <div class="info-title" 
+             style="font-size: {{ block.settings.heading_font_size }}px; line-height: {{ block.settings.heading_line_height }};">
+            {{ block.settings.heading }}
+        </div>
     {% endif %}
     <div class="info-block__content
         {% if block.settings.image_position == 'left' %}info-block__horizontal{% endif %}
         {% if block.settings.image_position == 'right' %}info-block__horizontal info-block__reverse{% endif %}
     ">
         {% if block.settings.text %}
-            <div class="info-block__text">
+            <div class="info-block__text"
+                 style="font-size: {{ block.settings.text_font_size }}px; line-height: {{ block.settings.text_line_height }};">
                 {{ block.settings.text }}
             </div>
         {% endif %}
         {% if section.settings.image %}
-          <img src="{{ section.settings.image | image_url: width: 300 }}" alt="Info Image">
+          <img src="{{ section.settings.image | image_url: width: 300 }}" alt="Info Image"
+               style="border-radius: {{ block.settings.image_border_radius }}px;">
         {% endif %}
         {% content_for 'blocks' %}
     </div>
 </div>
-
 <style>
     .info-block {
         max-width: 1200px;
@@ -27,16 +31,12 @@
         text-align: center;
         font-weight: bold;
     }
-
     .info-block__text {
         flex: 1;
         padding: 0 1rem;
         text-align: center;
-        font-size: .6rem;
     }
-
 </style>
-
 {% schema %}
 {
   "name": "Info Block with Image",
@@ -69,6 +69,58 @@
         { "value": "right", "label": "Right" }
       ],
       "default": "bottom"
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "label": "Image Border Radius",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Typography Settings"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "label": "Heading Font Size",
+      "min": 12,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "heading_line_height",
+      "label": "Heading Line Height",
+      "min": 1.0,
+      "max": 2.5,
+      "step": 0.1,
+      "default": 1.2
+    },
+    {
+      "type": "range",
+      "id": "text_font_size",
+      "label": "Text Font Size",
+      "min": 10,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "text_line_height",
+      "label": "Text Line Height",
+      "min": 1.0,
+      "max": 2.5,
+      "step": 0.1,
+      "default": 1.5
     }
   ],
   "blocks": [{ "type": "@theme" }, { "type": "@app" }],
