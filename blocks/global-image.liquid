@@ -4,7 +4,12 @@
             src="{{ block.settings.image | img_url: 'master' }}"
             alt="Full width image"
             class="image-full"
-            style="border-radius: {{ block.settings.image_border_radius }}px; margin-top: {{ block.settings.image_margin_top }}px; margin-bottom: {{ block.settings.image_margin_bottom }}px;"
+            style="border-radius: {{ block.settings.image_border_radius }}px; 
+                   margin-top: {{ block.settings.image_margin_top }}px; 
+                   margin-bottom: {{ block.settings.image_margin_bottom }}px;
+                   width: {{ block.settings.image_width }}%;
+                   height: {{ block.settings.image_height }}px;
+                   object-fit: {{ block.settings.image_fit }};"
         >
     {% endif %}
     
@@ -30,10 +35,7 @@
     min-width: 300px;
 }
 .image-full {
-    width: 100%;
-    height: 100%;
     display: block;
-    object-fit: contain;
 }
 .designer-tip-box {
     display: flex;
@@ -72,6 +74,45 @@
       "step": 1,
       "unit": "px",
       "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Image Size Settings"
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "label": "Image Width",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100,
+      "info": "Width of the image relative to its container"
+    },
+    {
+      "type": "range",
+      "id": "image_height",
+      "label": "Image Height",
+      "min": 200,
+      "max": 800,
+      "step": 25,
+      "unit": "px",
+      "default": 400,
+      "info": "Fixed height for the image in pixels"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image Fit",
+      "options": [
+        { "value": "contain", "label": "Contain (fit within)" },
+        { "value": "cover", "label": "Cover (fill space)" },
+        { "value": "fill", "label": "Fill (stretch)" },
+        { "value": "none", "label": "Original size" }
+      ],
+      "default": "contain",
+      "info": "How the image should fit within its dimensions"
     },
     {
       "type": "header",
