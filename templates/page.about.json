@@ -289,16 +289,16 @@
             "image": "shopify://shop_images/535-1-80_5.jpg"
           }
         },
-        "image_pXaLy3": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/841-4-47_4.jpg"
-          }
-        },
         "image_bg8KxL": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/8002-3-47_5.jpg"
+          }
+        },
+        "image_pXaLy3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/841-4-47_4.jpg"
           }
         },
         "image_D8tyrf": {
@@ -314,8 +314,8 @@
         "image_XQ9pji",
         "image_gtgMQj",
         "image_FJhjDG",
-        "image_pXaLy3",
         "image_bg8KxL",
+        "image_pXaLy3",
         "image_D8tyrf"
       ],
       "name": "Brand Feature Grid",
