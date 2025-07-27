@@ -67,7 +67,12 @@
                 "heading": "Sconces",
                 "text": "<p>Create symmetry with sconces placed a few inches on each side of your mirror, spaced at least 26–30 inches apart. Keep the midpoint of the sconce backplate about 5 feet above the floor for ideal balance.</p>",
                 "image": "shopify://shop_images/Argo_Black_On.png",
-                "image_position": "bottom"
+                "image_position": "bottom",
+                "image_border_radius": 0,
+                "heading_font_size": 24,
+                "heading_line_height": 1.2,
+                "text_font_size": 16,
+                "text_line_height": 1.5
               },
               "blocks": {
                 "split_content_section_x4xM7m": {
@@ -81,7 +86,8 @@
                       "type": "global-image",
                       "name": "Global Image",
                       "settings": {
-                        "image": "shopify://shop_images/Sconce_bathroom_1.png"
+                        "image": "shopify://shop_images/Sconce_bathroom_1.png",
+                        "image_border_radius": 0
                       },
                       "blocks": {}
                     },
@@ -89,7 +95,8 @@
                       "type": "global-image",
                       "name": "Global Image",
                       "settings": {
-                        "image": "shopify://shop_images/548-1-65.jpg"
+                        "image": "shopify://shop_images/548-1-65.jpg",
+                        "image_border_radius": 0
                       },
                       "blocks": {}
                     }
@@ -111,7 +118,12 @@
                 "heading": "Bar Lighting",
                 "text": "<p>Maintain a distance of about 75 inches between the floor and the lowest point of the fixture.Match the fixture width to about 3/4 of the mirror’s width, avoiding overhang. Opt for minimal wall extension to reduce shadows.</p>",
                 "image": "shopify://shop_images/Argo_Black_On.png",
-                "image_position": "bottom"
+                "image_position": "bottom",
+                "image_border_radius": 0,
+                "heading_font_size": 24,
+                "heading_line_height": 1.2,
+                "text_font_size": 16,
+                "text_line_height": 1.5
               },
               "blocks": {
                 "split_content_section_eP6cw6": {
@@ -125,7 +137,8 @@
                       "type": "global-image",
                       "name": "Global Image",
                       "settings": {
-                        "image": "shopify://shop_images/Vanity_bathroom.png"
+                        "image": "shopify://shop_images/Vanity_bathroom.png",
+                        "image_border_radius": 0
                       },
                       "blocks": {}
                     },
@@ -133,7 +146,8 @@
                       "type": "global-image",
                       "name": "Global Image",
                       "settings": {
-                        "image": "shopify://shop_images/5169-3-47_4.jpg"
+                        "image": "shopify://shop_images/5169-3-47_4.jpg",
+                        "image_border_radius": 0
                       },
                       "blocks": {}
                     }
@@ -198,14 +212,20 @@
             "heading": "Mirror",
             "text": "<p>Ensure that the mirror is placed roughly 60 inches from the floor or at eye level so you can see yourself clearly when standing in front of it. If you have a taller faucet, adjust slightly and hang the mirror 2–3 inches above the tallest point of the faucet for the best look.</p>",
             "image": "shopify://shop_images/Mirrors_bathroom.png",
-            "image_position": "bottom"
+            "image_position": "bottom",
+            "image_border_radius": 0,
+            "heading_font_size": 24,
+            "heading_line_height": 1.2,
+            "text_font_size": 16,
+            "text_line_height": 1.5
           },
           "blocks": {
             "global_image_hEQQra": {
               "type": "global-image",
               "name": "Global Image",
               "settings": {
-                "image": "shopify://shop_images/Mirrors_bathroom.png"
+                "image": "shopify://shop_images/Mirrors_bathroom.png",
+                "image_border_radius": 0
               },
               "blocks": {}
             }
@@ -272,14 +292,20 @@
                     "heading": "Pendants",
                     "text": "<p>Maintain a distance of <strong>2.5 feet between the widest part</strong> of the shade.<br/>Ensure there’s a gap of about <strong>3 feet between the counter surface and the fixture base</strong>.</p>",
                     "image": "shopify://shop_images/3077-3-59_Lit_LS.jpg",
-                    "image_position": "bottom"
+                    "image_position": "bottom",
+                    "image_border_radius": 0,
+                    "heading_font_size": 24,
+                    "heading_line_height": 1.2,
+                    "text_font_size": 16,
+                    "text_line_height": 1.5
                   },
                   "blocks": {
                     "global_image_iUV7fx": {
                       "type": "global-image",
                       "name": "Global Image",
                       "settings": {
-                        "image": "shopify://shop_images/3077-3-59_Lit_LS.jpg"
+                        "image": "shopify://shop_images/3077-3-59_Lit_LS.jpg",
+                        "image_border_radius": 0
                       },
                       "blocks": {}
                     },
@@ -287,7 +313,8 @@
                       "type": "global-image",
                       "name": "Global Image",
                       "settings": {
-                        "image": "shopify://shop_images/Pendants_kitchen.png"
+                        "image": "shopify://shop_images/Pendants_kitchen.png",
+                        "image_border_radius": 0
                       },
                       "blocks": {}
                     }
@@ -315,14 +342,20 @@
                   "settings": {
                     "heading": "Linear",
                     "text": "<p>Ensure the length of a linear fixture does <strong>not exceed around 2/3 of the island length</strong>.<br/>Leave about <strong>three feet of space</strong> between the counter surface and the lowest point of the fixture.</p>",
-                    "image_position": "bottom"
+                    "image_position": "bottom",
+                    "image_border_radius": 0,
+                    "heading_font_size": 24,
+                    "heading_line_height": 1.2,
+                    "text_font_size": 16,
+                    "text_line_height": 1.5
                   },
                   "blocks": {
                     "global_image_YVJ3we": {
                       "type": "global-image",
                       "name": "Global Image",
                       "settings": {
-                        "image": "shopify://shop_images/Linear_kitchen.png"
+                        "image": "shopify://shop_images/Linear_kitchen.png",
+                        "image_border_radius": 0
                       },
                       "blocks": {}
                     },
@@ -330,7 +363,8 @@
                       "type": "global-image",
                       "name": "Global Image",
                       "settings": {
-                        "image": "shopify://shop_images/6863-16-5980_5.jpg"
+                        "image": "shopify://shop_images/6863-16-5980_5.jpg",
+                        "image_border_radius": 0
                       },
                       "blocks": {}
                     }
@@ -409,14 +443,20 @@
                     "heading": "Over a Square Table",
                     "text": "<p>Mount the fixture at a height of about <strong>3 feet above the table surface</strong>.Opt for a width that is <strong>6 inches less than all edges of the table</strong> for the ideal fit.</p>",
                     "image": "shopify://shop_images/Chandelier_square_table.png",
-                    "image_position": "bottom"
+                    "image_position": "bottom",
+                    "image_border_radius": 0,
+                    "heading_font_size": 17,
+                    "heading_line_height": 2.5,
+                    "text_font_size": 12,
+                    "text_line_height": 1.2
                   },
                   "blocks": {
                     "global_image_ped76m": {
                       "type": "global-image",
                       "name": "Global Image",
                       "settings": {
-                        "image": "shopify://shop_images/Chandelier_square_table.png"
+                        "image": "shopify://shop_images/Chandelier_square_table.png",
+                        "image_border_radius": 0
                       },
                       "blocks": {}
                     }
@@ -434,7 +474,8 @@
               "type": "global-image",
               "name": "Global Image",
               "settings": {
-                "image": "shopify://shop_images/6021-6-59_Location_Alt_2.jpg"
+                "image": "shopify://shop_images/6021-6-59_Location_Alt_2.jpg",
+                "image_border_radius": 0
               },
               "blocks": {}
             }
@@ -463,7 +504,8 @@
                   "name": "Global Image",
                   "disabled": true,
                   "settings": {
-                    "image": "shopify://shop_images/6123-4-47_4.jpg"
+                    "image": "shopify://shop_images/6123-4-47_4.jpg",
+                    "image_border_radius": 0
                   },
                   "blocks": {}
                 },
@@ -501,14 +543,20 @@
                   "settings": {
                     "heading": "Over a Round Table",
                     "text": "<p>Position the fixture <strong>3 feet above the tabletop</strong>.</p><p>Calculate the width of your ideal fixture by <strong>subtracting about a foot from the diameter</strong> of the table surface.</p>",
-                    "image_position": "bottom"
+                    "image_position": "bottom",
+                    "image_border_radius": 0,
+                    "heading_font_size": 24,
+                    "heading_line_height": 1.2,
+                    "text_font_size": 16,
+                    "text_line_height": 1.5
                   },
                   "blocks": {
                     "global_image_HEKiFc": {
                       "type": "global-image",
                       "name": "Global Image",
                       "settings": {
-                        "image": "shopify://shop_images/Chandelier_round_table.png"
+                        "image": "shopify://shop_images/Chandelier_round_table.png",
+                        "image_border_radius": 0
                       },
                       "blocks": {}
                     }
@@ -573,14 +621,20 @@
           "settings": {
             "heading": "Chandeliers in a Room",
             "text": "<p><strong>Measure the Room:<br/></strong>Measure the length and width of the room in feet.</p><p><strong>Calculate Fixture Diameter:<br/></strong>Add the room length and room width in feet together. Convert to inches — this sum gives you the suggested diameter for the chandelier.</p><p><strong>Determine Hang Height:<br/></strong>Measure the ceiling height in feet<br/>2.5 to find the <strong>minimum hang height</strong>.<br/>3 to find the <strong>maximum hang height</strong>.<br/></p>",
-            "image_position": "bottom"
+            "image_position": "bottom",
+            "image_border_radius": 0,
+            "heading_font_size": 24,
+            "heading_line_height": 1.2,
+            "text_font_size": 16,
+            "text_line_height": 1.5
           },
           "blocks": {
             "global_image_y93z66": {
               "type": "global-image",
               "name": "Global Image",
               "settings": {
-                "image": "shopify://shop_images/892-3-80_6.jpg"
+                "image": "shopify://shop_images/892-3-80_6.jpg",
+                "image_border_radius": 0
               },
               "blocks": {}
             }
@@ -653,14 +707,20 @@
                       "settings": {
                         "heading": "Pendants",
                         "text": "<p><strong>Proper Sizing:<br/></strong>Ensure that the size and scale of the hanging fixture are proportionate to the size of the nightstand and the space above it. A fixture that is too large may overwhelm the nightstand, while one that is too small may not provide adequate illumination or visual impact.<br/><strong>Height Placement:<br/></strong>A general guideline is to position the bottom of the fixture <strong>between 12 to 18 inches above the surface of the nightstand</strong>, allowing for comfortable reading and bedside tasks without obstructing the view.</p>",
-                        "image_position": "bottom"
+                        "image_position": "bottom",
+                        "image_border_radius": 0,
+                        "heading_font_size": 24,
+                        "heading_line_height": 1.2,
+                        "text_font_size": 16,
+                        "text_line_height": 1.5
                       },
                       "blocks": {
                         "global_image_wPnnFN": {
                           "type": "global-image",
                           "name": "Global Image",
                           "settings": {
-                            "image": "shopify://shop_images/Pendant_Bedroom.png"
+                            "image": "shopify://shop_images/Pendant_Bedroom.png",
+                            "image_border_radius": 0
                           },
                           "blocks": {}
                         }
@@ -678,7 +738,8 @@
                   "type": "global-image",
                   "name": "Global Image",
                   "settings": {
-                    "image": "shopify://shop_images/Peloton_10051_beauty_alternative_v1_1.jpg"
+                    "image": "shopify://shop_images/Peloton_10051_beauty_alternative_v1_1.jpg",
+                    "image_border_radius": 0
                   },
                   "blocks": {}
                 }
@@ -708,14 +769,20 @@
                       "settings": {
                         "heading": "Sconces",
                         "text": "<p>Ensure that the sconces are mounted at a height that allows for comfortable reading and bedside tasks, typically <strong>around eye level when seated in bed</strong>.</p>",
-                        "image_position": "bottom"
+                        "image_position": "bottom",
+                        "image_border_radius": 0,
+                        "heading_font_size": 24,
+                        "heading_line_height": 1.2,
+                        "text_font_size": 16,
+                        "text_line_height": 1.5
                       },
                       "blocks": {
                         "global_image_GcAWkQ": {
                           "type": "global-image",
                           "name": "Global Image",
                           "settings": {
-                            "image": "shopify://shop_images/Sconce_Bedroom.png"
+                            "image": "shopify://shop_images/Sconce_Bedroom.png",
+                            "image_border_radius": 0
                           },
                           "blocks": {}
                         }
@@ -733,7 +800,8 @@
                   "type": "global-image",
                   "name": "Global Image",
                   "settings": {
-                    "image": "shopify://shop_images/3-403-15_LS.jpg"
+                    "image": "shopify://shop_images/3-403-15_LS.jpg",
+                    "image_border_radius": 0
                   },
                   "blocks": {}
                 }
@@ -790,7 +858,8 @@
           "type": "global-image",
           "name": "Global Image",
           "settings": {
-            "image": "shopify://shop_images/715-10-69_lit_1.jpg"
+            "image": "shopify://shop_images/715-10-69_lit_1.jpg",
+            "image_border_radius": 0
           },
           "blocks": {}
         },
@@ -822,14 +891,20 @@
                         "heading": "Above an Exterior Door",
                         "text": "<p>Select a hanging fixture that is proportionate to the size of your outdoor entryway.<br/>A fixture that is too small may get lost in the space, while one that is too large may overwhelm it.<br/><strong>Aim for a size that provides adequate illumination without obstructing the entryway or door.</strong></p>",
                         "image": "shopify://shop_images/Sconce_Garage.png",
-                        "image_position": "left"
+                        "image_position": "left",
+                        "image_border_radius": 0,
+                        "heading_font_size": 24,
+                        "heading_line_height": 1.2,
+                        "text_font_size": 16,
+                        "text_line_height": 1.5
                       },
                       "blocks": {
                         "global_image_JGY3Yb": {
                           "type": "global-image",
                           "name": "Global Image",
                           "settings": {
-                            "image": "shopify://shop_images/OutdoorPendant_Entry.png"
+                            "image": "shopify://shop_images/OutdoorPendant_Entry.png",
+                            "image_border_radius": 0
                           },
                           "blocks": {}
                         }
@@ -849,14 +924,20 @@
                   "settings": {
                     "heading": "Sides of an Exterior Door",
                     "text": "<p>Ensure that the fixtures are installed at a <strong>height and position</strong> that provide ample illumination for safety and security — without obstructing the door’s operation or interfering with any architectural features.</p>",
-                    "image_position": "bottom"
+                    "image_position": "bottom",
+                    "image_border_radius": 0,
+                    "heading_font_size": 24,
+                    "heading_line_height": 1.2,
+                    "text_font_size": 16,
+                    "text_line_height": 1.5
                   },
                   "blocks": {
                     "global_image_Cq7WAG": {
                       "type": "global-image",
                       "name": "Global Image",
                       "settings": {
-                        "image": "shopify://shop_images/OutdoorSconce_Entry.png"
+                        "image": "shopify://shop_images/OutdoorSconce_Entry.png",
+                        "image_border_radius": 0
                       },
                       "blocks": {}
                     }
@@ -942,14 +1023,20 @@
                         "heading": "Garage Door Side Sconces",
                         "text": "<p>For garage door side sconces, place exterior wall sconces around <strong>5 to 6 feet from the ground</strong>.<br/>As a general rule, the <strong>size of the fixture should be about 1/4 of the height of the garage door</strong>.</p>",
                         "image": "shopify://shop_images/Sconce_Garage.png",
-                        "image_position": "left"
+                        "image_position": "left",
+                        "image_border_radius": 0,
+                        "heading_font_size": 24,
+                        "heading_line_height": 1.2,
+                        "text_font_size": 16,
+                        "text_line_height": 1.5
                       },
                       "blocks": {
                         "global_image_VnRy6Q": {
                           "type": "global-image",
                           "name": "Global Image",
                           "settings": {
-                            "image": "shopify://shop_images/Sconces_Garage.png"
+                            "image": "shopify://shop_images/Sconces_Garage.png",
+                            "image_border_radius": 0
                           },
                           "blocks": {}
                         }
@@ -969,14 +1056,20 @@
                   "settings": {
                     "heading": "Garage Door Above Sconce",
                     "text": "<p>Sconces above the garage door should be installed <strong>8 to 12 inches above it</strong>, ensuring that the bottom of the shade <strong>does not hang lower than the garage frame</strong>.</p>",
-                    "image_position": "bottom"
+                    "image_position": "bottom",
+                    "image_border_radius": 0,
+                    "heading_font_size": 24,
+                    "heading_line_height": 1.2,
+                    "text_font_size": 16,
+                    "text_line_height": 1.5
                   },
                   "blocks": {
                     "global_image_A8eL3c": {
                       "type": "global-image",
                       "name": "Global Image",
                       "settings": {
-                        "image": "shopify://shop_images/Sconce_Garage.png"
+                        "image": "shopify://shop_images/Sconce_Garage.png",
+                        "image_border_radius": 0
                       },
                       "blocks": {}
                     }
@@ -1000,7 +1093,8 @@
           "type": "global-image",
           "name": "Global Image",
           "settings": {
-            "image": "shopify://shop_images/736-15-69_1.jpg"
+            "image": "shopify://shop_images/736-15-69_1.jpg",
+            "image_border_radius": 0
           },
           "blocks": {}
         }
@@ -1070,14 +1164,20 @@
                         "heading": "",
                         "text": "",
                         "image": "shopify://shop_images/Sconce_Garage.png",
-                        "image_position": "left"
+                        "image_position": "left",
+                        "image_border_radius": 0,
+                        "heading_font_size": 24,
+                        "heading_line_height": 1.2,
+                        "text_font_size": 16,
+                        "text_line_height": 1.5
                       },
                       "blocks": {
                         "global_image_RJh3JA": {
                           "type": "global-image",
                           "name": "Global Image",
                           "settings": {
-                            "image": "shopify://shop_images/10656-80_LS.jpg"
+                            "image": "shopify://shop_images/10656-80_LS.jpg",
+                            "image_border_radius": 0
                           },
                           "blocks": {}
                         }
@@ -1097,14 +1197,20 @@
                   "settings": {
                     "heading": "Ceiling Height",
                     "text": "<p>Make sure your ceiling fan is installed at an efficient height.<br/>For standard ceilings, the fan blades should typically be mounted at least <strong>7 feet above the floor</strong>.<br/>For higher ceilings, consider using a <strong>downrod extension</strong> to lower the fan for optimal airflow.</p>",
-                    "image_position": "bottom"
+                    "image_position": "bottom",
+                    "image_border_radius": 0,
+                    "heading_font_size": 24,
+                    "heading_line_height": 1.2,
+                    "text_font_size": 16,
+                    "text_line_height": 1.5
                   },
                   "blocks": {
                     "global_image_xrVpUz": {
                       "type": "global-image",
                       "name": "Global Image",
                       "settings": {
-                        "image": "shopify://shop_images/Fan_Ceiling-Height_1.png"
+                        "image": "shopify://shop_images/Fan_Ceiling-Height_1.png",
+                        "image_border_radius": 0
                       },
                       "blocks": {}
                     }
@@ -1144,14 +1250,20 @@
                   "settings": {
                     "heading": "Ceiling Fan Size",
                     "text": "<p>Choose the right diameter of your ceiling fan based on the <strong>square footage</strong> of your space.<br/><strong>Formula:</strong> Diameter = 2 × Radius</p>",
-                    "image_position": "bottom"
+                    "image_position": "bottom",
+                    "image_border_radius": 0,
+                    "heading_font_size": 24,
+                    "heading_line_height": 1.2,
+                    "text_font_size": 16,
+                    "text_line_height": 1.5
                   },
                   "blocks": {
                     "global_image_R7PaRw": {
                       "type": "global-image",
                       "name": "Global Image",
                       "settings": {
-                        "image": "shopify://shop_images/Fan_SqFt_1.png"
+                        "image": "shopify://shop_images/Fan_SqFt_1.png",
+                        "image_border_radius": 0
                       },
                       "blocks": {}
                     }
@@ -1228,14 +1340,20 @@
                   "settings": {
                     "heading": "Ceiling Fan Installation Guide",
                     "text": "<p>For proper installation, make sure the ceiling fan is:<br/>18 inches from walls<br/>7 feet from the ground to the base of the fan<br/><strong>Mounting Types:<br/></strong> — for <strong>7½’–9’ ceilings</strong><br/> — for <strong>8’–9’ ceilings</strong><br/> — recommended for <strong>9’+ ceilings</strong></p>",
-                    "image_position": "bottom"
+                    "image_position": "bottom",
+                    "image_border_radius": 0,
+                    "heading_font_size": 24,
+                    "heading_line_height": 1.2,
+                    "text_font_size": 16,
+                    "text_line_height": 1.5
                   },
                   "blocks": {
                     "global_image_XemANm": {
                       "type": "global-image",
                       "name": "Global Image",
                       "settings": {
-                        "image": "shopify://shop_images/Fan_Mounting_1.png"
+                        "image": "shopify://shop_images/Fan_Mounting_1.png",
+                        "image_border_radius": 0
                       },
                       "blocks": {}
                     }
@@ -1274,14 +1392,20 @@
                   "settings": {
                     "heading": "Ceiling Fan Control Choices",
                     "text": "<p>You can control your ceiling fan using various methods to suit your convenience and lifestyle. <br/><strong>Wall controls</strong> <br/>Allow you to operate the fan and light directly from a switch integrated into your existing wall plate. For added flexibility. <br/><strong>Remote controls</strong> <br/>Offer the convenience of adjusting your fan settings from a distance. Additionally. <br/><strong>Smart home integration<br/></strong>Lets you manage your fan and lighting using your smartphone or connected smart device.</p>",
-                    "image_position": "bottom"
+                    "image_position": "bottom",
+                    "image_border_radius": 0,
+                    "heading_font_size": 24,
+                    "heading_line_height": 1.2,
+                    "text_font_size": 16,
+                    "text_line_height": 1.5
                   },
                   "blocks": {
                     "global_image_4nmaeU": {
                       "type": "global-image",
                       "name": "Global Image",
                       "settings": {
-                        "image": "shopify://shop_images/ceiling_fan_controls_high_quality.png"
+                        "image": "shopify://shop_images/ceiling_fan_controls_high_quality.png",
+                        "image_border_radius": 0
                       },
                       "blocks": {}
                     }
