@@ -973,9 +973,9 @@
                     "tip_heading": "Designer Tip",
                     "tip": "",
                     "tip_background_color": "#7b675c",
-                    "tip_horizontal_position": 50,
+                    "tip_horizontal_position": 0,
                     "tip_vertical_position": 0,
-                    "tip_box_width": 80
+                    "tip_box_width": 20
                   },
                   "blocks": {}
                 }
@@ -997,22 +997,22 @@
       ],
       "name": "Guide Section",
       "settings": {
-        "title_box_color": "",
-        "title_box_height": 40,
-        "title_box_width": 50,
+        "title_box_color": "#0f0f0f",
+        "title_box_height": 20,
+        "title_box_width": 15,
         "heading": "The Bedroom",
         "description": "ACHIEVE FUNCTIONAL BEDSIDE LIGHTING",
         "main_image": "shopify://shop_images/419_Bm_4274f.jpg",
         "image_width": 100,
-        "image_height": 400,
+        "image_height": 450,
         "image_fit": "cover",
         "tip_1_heading": "Lighting Level and Quality",
-        "tip": "Consider dimmer switches or adjustable brightness levels. This allows you to customize the lighting ambiance according to your mood or time of day — whether you prefer soft, ambient lighting for winding down in the evening or brighter task lighting for reading.",
-        "tip_1_background_color": "#7b675c",
+        "tip": "Choose a light fixture that provides adequate illumination for various activities in the bedroom, such as reading, getting dressed, or relaxing. Consider the type of lighting (ambient, task, accent) and the brightness level to ensure versatility and comfort.",
+        "tip_1_background_color": "#80807c",
         "tip_2_heading": "Size and Scale",
-        "tip_2": "",
-        "tip_2_background_color": "#7b675c",
-        "tip_3": ""
+        "tip_2": "Ensure that the size and scale of the light fixture are appropriate for the size of the bedroom and the height of the ceiling. A fixture that is too large or too small can overpower or underwhelm the space, affecting its visual appeal and functionality.",
+        "tip_2_background_color": "#80807c",
+        "tip_3": "Consider dimmer switches or adjustable brightness levels. This allows you to customize the lighting ambiance according to your mood or time of day — whether you prefer soft, ambient lighting for winding down in the evening or brighter task lighting for reading."
       }
     },
     "advanced_content_mABDzN": {
