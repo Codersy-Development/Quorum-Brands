@@ -22,10 +22,11 @@
     assign oos_and_continue_selling = false
   endif
 
-  assign show_incoming_inventory_message = false
-  if block.settings.inventory_transfers_enable and current_variant.incoming and show_low_inventory_message == false and current_variant.available == false and oos_and_continue_selling
-    assign show_incoming_inventory_message = true
-  endif
+assign show_incoming_inventory_message = false
+if block.settings.inventory_transfers_enable and current_variant.incoming and current_variant.inventory_quantity <= 0 and current_variant.available == false
+  assign show_incoming_inventory_message = true
+endif
+    
 -%}
 
 <div class="product-block product-block--sales-point" {{ block.shopify_attributes }}>
