@@ -83,6 +83,71 @@
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
 <script>
+// Force arrows to be visible immediately - run before other scripts
+(function forceArrowVisibility() {
+    function makeArrowsVisible() {
+        // Force all arrow wrappers to be visible
+        document.querySelectorAll('.product-feature-carousel .product-button-wrapper').forEach(wrapper => {
+            wrapper.style.setProperty('display', 'flex', 'important');
+            wrapper.style.setProperty('visibility', 'visible', 'important');
+            wrapper.style.setProperty('opacity', '1', 'important');
+            wrapper.style.setProperty('z-index', '999', 'important');
+        });
+        
+        // Force all arrow buttons to be visible
+        document.querySelectorAll('.product-feature-carousel .product-button-prev, .product-feature-carousel .product-button-next').forEach(button => {
+            button.style.setProperty('display', 'flex', 'important');
+            button.style.setProperty('visibility', 'visible', 'important');
+            button.style.setProperty('opacity', '1', 'important');
+            button.style.setProperty('width', '40px', 'important');
+            button.style.setProperty('height', '40px', 'important');
+            button.style.setProperty('background', '#f1f1f1', 'important');
+            button.style.setProperty('border-radius', '50%', 'important');
+            button.style.setProperty('justify-content', 'center', 'important');
+            button.style.setProperty('align-items', 'center', 'important');
+            button.style.setProperty('cursor', 'pointer', 'important');
+            button.style.setProperty('border', '1px solid #e0e0e0', 'important');
+            button.style.setProperty('position', 'relative', 'important');
+        });
+        
+        // Apply rotation to prev buttons
+        document.querySelectorAll('.product-feature-carousel .product-button-prev').forEach(button => {
+            button.style.setProperty('transform', 'rotate(180deg)', 'important');
+        });
+        
+        console.log('Forced arrow visibility for', document.querySelectorAll('.product-feature-carousel').length, 'carousels');
+    }
+
+    // Run immediately
+    makeArrowsVisible();
+    
+    // Run after DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', makeArrowsVisible);
+    }
+    
+    // Run after store changes
+    document.addEventListener('storeChanged', () => {
+        setTimeout(makeArrowsVisible, 50);
+    });
+    
+    document.addEventListener('storeUpdate', () => {
+        setTimeout(makeArrowsVisible, 50);
+    });
+    
+    // Run periodically to catch any dynamic hiding
+    const observer = new MutationObserver(makeArrowsVisible);
+    if (document.body) {
+        observer.observe(document.body, { childList: true, subtree: true });
+    } else {
+        document.addEventListener('DOMContentLoaded', () => {
+            observer.observe(document.body, { childList: true, subtree: true });
+        });
+    }
+})();
+</script>
+
+<script>
 (function() {
     'use strict';
     
