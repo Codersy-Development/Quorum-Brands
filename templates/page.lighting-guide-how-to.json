@@ -68,11 +68,11 @@
                 "text": "<p>Create symmetry with sconces placed a few inches on each side of your mirror, spaced at least 26–30 inches apart. Keep the midpoint of the sconce backplate about 5 feet above the floor for ideal balance.</p>",
                 "image": "shopify://shop_images/Argo_Black_On.png",
                 "image_position": "bottom",
-                "image_border_radius": 0,
-                "heading_font_size": 24,
-                "heading_line_height": 1.2,
-                "text_font_size": 16,
-                "text_line_height": 1.5
+                "image_border_radius": 6,
+                "heading_font_size": 15,
+                "heading_line_height": 2.4,
+                "text_font_size": 12,
+                "text_line_height": 1.2
               },
               "blocks": {
                 "split_content_section_x4xM7m": {
