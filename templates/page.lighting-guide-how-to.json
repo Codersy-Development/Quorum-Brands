@@ -120,10 +120,10 @@
                 "image": "shopify://shop_images/Argo_Black_On.png",
                 "image_position": "bottom",
                 "image_border_radius": 0,
-                "heading_font_size": 24,
-                "heading_line_height": 1.2,
-                "text_font_size": 16,
-                "text_line_height": 1.5
+                "heading_font_size": 15,
+                "heading_line_height": 2.5,
+                "text_font_size": 12,
+                "text_line_height": 1.2
               },
               "blocks": {
                 "split_content_section_eP6cw6": {
