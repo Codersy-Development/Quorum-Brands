@@ -97,6 +97,38 @@
                       {% if settings.predictive_search_show_vendor %}
                       <span class="grid-product__vendor">{{ product.vendor }}</span>
                       {% endif %}
+                      
+                      {%- comment -%} Display Variant SKUs {%- endcomment -%}
+                      {% if product.variants.size > 0 %}
+                        <div class="grid-product__skus">
+                          {% if product.variants.size == 1 %}
+                            {%- assign first_variant = product.variants.first -%}
+                            {% if first_variant.sku != blank %}
+                              <span class="grid-product__sku">SKU: {{ first_variant.sku }}</span>
+                            {% endif %}
+                          {% else %}
+                            {%- assign sku_count = 0 -%}
+                            {%- assign display_skus = '' -%}
+                            {%- for variant in product.variants -%}
+                              {%- if variant.sku != blank -%}
+                                {%- assign sku_count = sku_count | plus: 1 -%}
+                                {%- if sku_count <= 2 -%}
+                                  {%- if display_skus != '' -%}
+                                    {%- assign display_skus = display_skus | append: ', ' -%}
+                                  {%- endif -%}
+                                  {%- assign display_skus = display_skus | append: variant.sku -%}
+                                {%- endif -%}
+                              {%- endif -%}
+                            {%- endfor -%}
+                            {% if sku_count > 0 %}
+                              <span class="grid-product__sku">
+                                SKU: {{ display_skus }}{% if sku_count > 2 %} +{{ sku_count | minus: 2 }} more{% endif %}
+                              </span>
+                            {% endif %}
+                          {% endif %}
+                        </div>
+                      {% endif %}
+                      
                       {% if settings.predictive_search_show_price %}
                         {%- if on_sale -%}
                           <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
