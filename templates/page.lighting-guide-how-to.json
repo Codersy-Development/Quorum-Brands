@@ -554,31 +554,17 @@
                 "layout": "horizontal"
               },
               "blocks": {
-                "ai_gen_block_627cee1_aNB3Ak": {
-                  "type": "ai_gen_block_627cee1",
+                "global_image_enbXRg": {
+                  "type": "global-image",
+                  "name": "Global Image",
                   "settings": {
-                    "show_image": true,
                     "image": "shopify://shop_images/6123-4-59_4.jpg",
-                    "image_alignment": "center",
-                    "image_width": 300,
-                    "image_height": 200,
-                    "image_border_radius": 8,
-                    "image_spacing": 20,
-                    "heading": "",
-                    "content": "<p>A <strong>48-inch round table</strong> calls for achandelier <strong>diameter of 30-36 inches.</strong></p>",
-                    "text_alignment": "center",
-                    "max_width": 800,
-                    "padding_top": 10,
-                    "padding_bottom": 0,
-                    "padding_horizontal": 0,
-                    "heading_spacing": 16,
-                    "heading_size": 16,
-                    "text_size": 12,
-                    "line_height": 1.2,
-                    "background_color": "#ffffff",
-                    "heading_color": "#000000",
-                    "text_color": "#000000",
-                    "link_color": "#0066cc"
+                    "image_border_radius": 10,
+                    "image_margin_top": 0,
+                    "image_margin_bottom": 0,
+                    "tip_heading": "Example",
+                    "tip": "A 48 inch round table calls for a chandelier diameter of 30-36 inches.",
+                    "tip_background_color": "#352b26"
                   },
                   "blocks": {}
                 },
@@ -617,7 +603,7 @@
                 }
               },
               "block_order": [
-                "ai_gen_block_627cee1_aNB3Ak",
+                "global_image_enbXRg",
                 "info_block_4Nb9w9"
               ]
             }
@@ -686,9 +672,9 @@
                 "image_border_radius": 10,
                 "image_margin_top": 0,
                 "image_margin_bottom": 0,
-                "tip_heading": "Designer Tip",
-                "tip": "",
-                "tip_background_color": "#7b675c"
+                "tip_heading": "Example",
+                "tip": "Consider Aesthetics: Choose a chandelier size that compliments the scale of the room and the furniture. The chandelier should not overwhelm the space but should make a visual impact.",
+                "tip_background_color": "#352b26"
               },
               "blocks": {}
             }
