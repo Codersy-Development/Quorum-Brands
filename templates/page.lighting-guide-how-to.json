@@ -344,10 +344,10 @@
                     "text": "<p>Ensure the length of a linear fixture does <strong>not exceed around 2/3 of the island length</strong>.<br/>Leave about <strong>three feet of space</strong> between the counter surface and the lowest point of the fixture.</p>",
                     "image_position": "bottom",
                     "image_border_radius": 0,
-                    "heading_font_size": 24,
-                    "heading_line_height": 1.2,
-                    "text_font_size": 16,
-                    "text_line_height": 1.5
+                    "heading_font_size": 15,
+                    "heading_line_height": 2.5,
+                    "text_font_size": 12,
+                    "text_line_height": 1.2
                   },
                   "blocks": {
                     "global_image_YVJ3we": {
@@ -364,7 +364,7 @@
                       "name": "Global Image",
                       "settings": {
                         "image": "shopify://shop_images/6863-16-5980_5.jpg",
-                        "image_border_radius": 0
+                        "image_border_radius": 10
                       },
                       "blocks": {}
                     }
