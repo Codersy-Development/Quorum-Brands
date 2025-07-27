@@ -436,18 +436,18 @@
             "label": "Antique White"
           }
         },
-        "item_ygd9qT": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Black_Walnut.png",
-            "label": "Black Walnut"
-          }
-        },
         "item_BnwWCB": {
           "type": "item",
           "settings": {
             "image": "shopify://shop_images/Black.png",
             "label": "Black"
+          }
+        },
+        "item_ygd9qT": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Black_Walnut.png",
+            "label": "Black Walnut"
           }
         },
         "item_7mbUKh": {
@@ -572,8 +572,8 @@
       },
       "block_order": [
         "item_jP9bY4",
-        "item_ygd9qT",
         "item_BnwWCB",
+        "item_ygd9qT",
         "item_7mbUKh",
         "item_cdrJ79",
         "item_8QgyBt",
