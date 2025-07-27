@@ -771,10 +771,10 @@
                         "text": "<p>Ensure that the sconces are mounted at a height that allows for comfortable reading and bedside tasks, typically <strong>around eye level when seated in bed</strong>.</p>",
                         "image_position": "bottom",
                         "image_border_radius": 0,
-                        "heading_font_size": 24,
-                        "heading_line_height": 1.2,
-                        "text_font_size": 16,
-                        "text_line_height": 1.5
+                        "heading_font_size": 15,
+                        "heading_line_height": 2.5,
+                        "text_font_size": 12,
+                        "text_line_height": 1.2
                       },
                       "blocks": {
                         "global_image_GcAWkQ": {
