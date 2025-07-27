@@ -206,10 +206,17 @@
       ],
       "name": "Guide Section",
       "settings": {
+        "title_box_color": "",
+        "title_box_height": 40,
+        "title_box_width": 50,
         "heading": "The Bathroom",
         "description": "HOW TO LIGHT YOUR VANITY",
         "main_image": "shopify://shop_images/5119-4-259_8.jpg",
-        "tip": "Dimmer switches allow you to adjust the brightness of the lights according to different tasks and moods. For example, you can dim the lights for a relaxing bath or increase the brightness for grooming tasks. Additionally, dimmer switches can help conserve energy and extend the lifespan of your light bulbs."
+        "tip_1_heading": "",
+        "tip": "",
+        "tip_2_heading": "",
+        "tip_2": "",
+        "tip_3": "Dimmer switches allow you to adjust the brightness of the lights according to different tasks and moods. For example, you can dim the lights for a relaxing bath or increase the brightness for grooming tasks. Additionally, dimmer switches can help conserve energy and extend the lifespan of your light bulbs."
       }
     },
     "advanced_content_UeCmr9": {
@@ -280,10 +287,17 @@
       ],
       "name": "Guide Section",
       "settings": {
+        "title_box_color": "",
+        "title_box_height": 40,
+        "title_box_width": 50,
         "heading": "",
         "description": "",
         "main_image": "shopify://shop_images/Argo_Black_On.png",
-        "tip": ""
+        "tip_1_heading": "Lighting Level and Quality",
+        "tip": "",
+        "tip_2_heading": "Size and Scale",
+        "tip_2": "",
+        "tip_3": ""
       }
     },
     "advanced_content_kqp8Hz": {
@@ -463,10 +477,17 @@
       ],
       "name": "Guide Section",
       "settings": {
+        "title_box_color": "",
+        "title_box_height": 40,
+        "title_box_width": 50,
         "heading": "The Kitchen",
         "description": "HOW TO HANG OVER AN ISLAND",
         "main_image": "shopify://shop_images/8006-6980_1.jpg",
-        "tip": "Consider the style and finish of the pendant lights. Choose pendant lights that complement the overall design aesthetic of the kitchen, whether it’s modern, traditional, industrial, or eclectic.\nOpt for finishes that coordinate with other fixtures and hardware in the kitchen, such as brushed nickel, bronze, or matte black, to create a cohesive look."
+        "tip_1_heading": "Lighting Level and Quality",
+        "tip": "Consider the style and finish of the pendant lights. Choose pendant lights that complement the overall design aesthetic of the kitchen, whether it’s modern, traditional, industrial, or eclectic.\nOpt for finishes that coordinate with other fixtures and hardware in the kitchen, such as brushed nickel, bronze, or matte black, to create a cohesive look.",
+        "tip_2_heading": "Size and Scale",
+        "tip_2": "",
+        "tip_3": ""
       }
     },
     "advanced_content_dcJgkh": {
@@ -658,10 +679,17 @@
       ],
       "name": "Guide Section",
       "settings": {
+        "title_box_color": "",
+        "title_box_height": 40,
+        "title_box_width": 50,
         "heading": "Dining Areas",
         "description": "HOW TO HANG OVER A TABLE",
         "main_image": "shopify://shop_images/Dining_2_71a33cd0-89e4-4887-993f-8262d2dc05b1.jpg",
-        "tip": ""
+        "tip_1_heading": "Lighting Level and Quality",
+        "tip": "",
+        "tip_2_heading": "Size and Scale",
+        "tip_2": "",
+        "tip_3": ""
       }
     },
     "advanced_content_P3ARTf": {
@@ -731,10 +759,17 @@
       ],
       "name": "Guide Section",
       "settings": {
+        "title_box_color": "",
+        "title_box_height": 40,
+        "title_box_width": 50,
         "heading": "Living Spaces",
         "description": "HOW TO HANG IN ROOM",
         "main_image": "shopify://shop_images/681-8-80_LiteLS.jpg",
-        "tip": "Consider Aesthetics: Choose a chandelier size that complements the scale of the room and the furniture. The chandelier should not overwhelm the space but should make a visual impact."
+        "tip_1_heading": "Lighting Level and Quality",
+        "tip": "Consider Aesthetics: Choose a chandelier size that complements the scale of the room and the furniture. The chandelier should not overwhelm the space but should make a visual impact.",
+        "tip_2_heading": "Size and Scale",
+        "tip_2": "",
+        "tip_3": ""
       }
     },
     "advanced_content_pBYHKV": {
@@ -937,10 +972,17 @@
       ],
       "name": "Guide Section",
       "settings": {
+        "title_box_color": "",
+        "title_box_height": 40,
+        "title_box_width": 50,
         "heading": "The Bedroom",
         "description": "ACHIEVE FUNCTIONAL BEDSIDE LIGHTING",
         "main_image": "shopify://shop_images/419_Bm_4274f.jpg",
-        "tip": "Consider dimmer switches or adjustable brightness levels. This allows you to customize the lighting ambiance according to your mood or time of day — whether you prefer soft, ambient lighting for winding down in the evening or brighter task lighting for reading."
+        "tip_1_heading": "Lighting Level and Quality",
+        "tip": "Consider dimmer switches or adjustable brightness levels. This allows you to customize the lighting ambiance according to your mood or time of day — whether you prefer soft, ambient lighting for winding down in the evening or brighter task lighting for reading.",
+        "tip_2_heading": "Size and Scale",
+        "tip_2": "",
+        "tip_3": ""
       }
     },
     "advanced_content_mABDzN": {
@@ -1102,10 +1144,17 @@
       ],
       "name": "Guide Section",
       "settings": {
+        "title_box_color": "",
+        "title_box_height": 40,
+        "title_box_width": 50,
         "heading": "Foyers & Exteriors",
         "description": "HOW TO CREATE A WELCOMING ENTRY",
         "main_image": "shopify://shop_images/715-10-69_lit_1.jpg",
-        "tip": "Since the fixture will be exposed to the elements, choose a wet or damp rated product.\nCoastal Grade weather-resistant materials are a great choice as well."
+        "tip_1_heading": "Lighting Level and Quality",
+        "tip": "Since the fixture will be exposed to the elements, choose a wet or damp rated product.\nCoastal Grade weather-resistant materials are a great choice as well.",
+        "tip_2_heading": "Size and Scale",
+        "tip_2": "",
+        "tip_3": ""
       }
     },
     "advanced_content_jqLn3e": {
@@ -1267,10 +1316,17 @@
       ],
       "name": "Guide Section",
       "settings": {
+        "title_box_color": "",
+        "title_box_height": 40,
+        "title_box_width": 50,
         "heading": "Garage Doors",
         "description": "HOW TO CREATE A STYLES DRIVEWAY",
         "main_image": "shopify://shop_images/917-24-69_lit-tif.jpg",
-        "tip": ""
+        "tip_1_heading": "Lighting Level and Quality",
+        "tip": "",
+        "tip_2_heading": "Size and Scale",
+        "tip_2": "",
+        "tip_3": ""
       }
     },
     "advanced_content_ccURtF": {
@@ -1475,10 +1531,17 @@
       ],
       "name": "Guide Section",
       "settings": {
+        "title_box_color": "",
+        "title_box_height": 40,
+        "title_box_width": 50,
         "heading": "Ceiling Fan",
         "description": "CALM, COOL & COLLECTED",
         "main_image": "shopify://shop_images/35846-47_8_bce38010-4bb2-4ed1-a1c0-c2daba62f0c4.jpg",
-        "tip": ""
+        "tip_1_heading": "Lighting Level and Quality",
+        "tip": "",
+        "tip_2_heading": "Size and Scale",
+        "tip_2": "",
+        "tip_3": ""
       }
     },
     "advanced_content_fmnixD": {
@@ -1633,10 +1696,17 @@
       ],
       "name": "Guide Section",
       "settings": {
+        "title_box_color": "",
+        "title_box_height": 40,
+        "title_box_width": 50,
         "heading": "Ceiling Fan",
         "description": "MOUNTING & CONTROLS",
         "main_image": "shopify://shop_images/3-129-15_LS.jpg",
-        "tip": "Consider Blade Finish:\nPay attention to the finish and material of the fan blades.\n\t•\tWood blades add warmth and texture\n\t•\tMetal blades provide a sleek, modern look\n\nChoose a finish that complements other room elements such as furniture, flooring, and lighting fixtures."
+        "tip_1_heading": "Lighting Level and Quality",
+        "tip": "Consider Blade Finish:\nPay attention to the finish and material of the fan blades.\n\t•\tWood blades add warmth and texture\n\t•\tMetal blades provide a sleek, modern look\n\nChoose a finish that complements other room elements such as furniture, flooring, and lighting fixtures.",
+        "tip_2_heading": "Size and Scale",
+        "tip_2": "",
+        "tip_3": ""
       }
     }
   },
