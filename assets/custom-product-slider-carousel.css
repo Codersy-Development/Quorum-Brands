@@ -223,15 +223,15 @@
     }
 }
 
-/* Specific styling for main image element */
-#mainImageDynamic {
+/* Specific styling for main image elements */
+[id^="mainImageDynamic"] {
     transition: opacity 0.3s ease;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-#mainImageDynamic.visible {
+[id^="mainImageDynamic"].visible {
     opacity: 1;
 }
 
