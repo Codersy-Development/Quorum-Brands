@@ -450,7 +450,7 @@
                         "image": "shopify://shop_images/6863-16-5980_5.jpg",
                         "image_border_radius": 10,
                         "image_margin_top": 0,
-                        "image_margin_bottom": 10,
+                        "image_margin_bottom": 0,
                         "tip_heading": "Designer Tip",
                         "tip": "",
                         "tip_background_color": "#7b675c",
@@ -483,20 +483,20 @@
       ],
       "name": "Guide Section",
       "settings": {
-        "title_box_color": "",
-        "title_box_height": 40,
-        "title_box_width": 50,
+        "title_box_color": "#000000",
+        "title_box_height": 25,
+        "title_box_width": 20,
         "heading": "The Kitchen",
         "description": "HOW TO HANG OVER AN ISLAND",
         "main_image": "shopify://shop_images/8006-6980_1.jpg",
         "image_width": 100,
-        "image_height": 400,
+        "image_height": 725,
         "image_fit": "cover",
         "tip_1_heading": "Lighting Level and Quality",
-        "tip": "Consider the style and finish of the pendant lights. Choose pendant lights that complement the overall design aesthetic of the kitchen, whether it’s modern, traditional, industrial, or eclectic.\nOpt for finishes that coordinate with other fixtures and hardware in the kitchen, such as brushed nickel, bronze, or matte black, to create a cohesive look.",
+        "tip": "",
         "tip_2_heading": "Size and Scale",
         "tip_2": "",
-        "tip_3": ""
+        "tip_3": "Consider the style and finish of the pendant lights. Choose pendant lights that complement the overall design aesthetic of the kitchen, whether it’s modern, traditional, industrial, or eclectic.\nOpt for finishes that coordinate with other fixtures and hardware in the kitchen, such as brushed nickel, bronze, or matte black, to create a cohesive look."
       }
     },
     "advanced_content_dcJgkh": {
