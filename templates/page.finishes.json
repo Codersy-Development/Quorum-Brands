@@ -88,6 +88,20 @@
             "label": "Aged Brass"
           }
         },
+        "item_L9pUie": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Antique-Brass_CC-4.jpg",
+            "label": "Antique Brass"
+          }
+        },
+        "item_xrrJaN": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/AntiqueSilver_CC-92.jpg",
+            "label": "Antique Silver"
+          }
+        },
         "item_QEMrkV": {
           "type": "item",
           "settings": {
@@ -95,32 +109,32 @@
             "label": "Aged Silver Leaf"
           }
         },
-        "item_wdQbaP": {
+        "item_QiffMq": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/GoldLeaf_CC-74.jpg",
-            "label": "Gold Leaf"
+            "image": "shopify://shop_images/BrushedBrass_CC-47.jpg",
+            "label": "Brushed Brass"
           }
         },
-        "item_tdh4Wf": {
+        "item_cnfcGC": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/WeatheredZinc_CC-37.jpg",
-            "label": "Weathered Zinc"
+            "image": "shopify://shop_images/BrushedSilver_CC-63.jpg",
+            "label": "Brushed Silver"
           }
         },
-        "item_xLrNNL": {
+        "item_UafrMT": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Rust_CC-5.jpg",
-            "label": "Rust"
+            "image": "shopify://shop_images/Corsican-Gold_CC-88.jpg",
+            "label": "Corsican Gold"
           }
         },
-        "item_iYrUnA": {
+        "item_jb7wT9": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/ToastedSienna_CC-44.jpg",
-            "label": "Toasted Sienna"
+            "image": "shopify://shop_images/French-Umber_CC-94.jpg",
+            "label": "French Umber"
           }
         },
         "item_wADGmV": {
@@ -130,18 +144,25 @@
             "label": "Galvanized"
           }
         },
-        "item_e8BKEe": {
+        "item_wdQbaP": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Zinc_CC-17.jpg",
-            "label": "Zinc"
+            "image": "shopify://shop_images/GoldLeaf_CC-74.jpg",
+            "label": "Gold Leaf"
           }
         },
-        "item_UafrMT": {
+        "item_g48Paq": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Corsican-Gold_CC-88.jpg",
-            "label": "Corsican Gold"
+            "image": "shopify://shop_images/Graphite_CC-3.jpg",
+            "label": "Graphite"
+          }
+        },
+        "item_GFYN8e": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/ManchesterGray_CC-56.jpg",
+            "label": "Manchester Gray"
           }
         },
         "item_HxkBLw": {
@@ -158,18 +179,25 @@
             "label": "Oiled Bronze"
           }
         },
-        "item_cnfcGC": {
+        "item_xLrNNL": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/BrushedSilver_CC-63.jpg",
-            "label": "Brushed Silver"
+            "image": "shopify://shop_images/Rust_CC-5.jpg",
+            "label": "Rust"
           }
         },
-        "item_g48Paq": {
+        "item_AE9Dt4": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Graphite_CC-3.jpg",
-            "label": "Graphite"
+            "image": "shopify://shop_images/Silver_CC-61.jpg",
+            "label": "Silver"
+          }
+        },
+        "item_iYrUnA": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/ToastedSienna_CC-44.jpg",
+            "label": "Toasted Sienna"
           }
         },
         "item_PzdbJU": {
@@ -179,70 +207,42 @@
             "label": "Tumbled Steel"
           }
         },
-        "item_jb7wT9": {
+        "item_tdh4Wf": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/French-Umber_CC-94.jpg",
-            "label": "French Umber"
+            "image": "shopify://shop_images/WeatheredZinc_CC-37.jpg",
+            "label": "Weathered Zinc"
           }
         },
-        "item_GFYN8e": {
+        "item_e8BKEe": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/ManchesterGray_CC-56.jpg",
-            "label": "Manchester Gray"
-          }
-        },
-        "item_QiffMq": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/BrushedBrass_CC-47.jpg",
-            "label": "Brushed Brass"
-          }
-        },
-        "item_xrrJaN": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/AntiqueSilver_CC-92.jpg",
-            "label": "Antique Silver"
-          }
-        },
-        "item_L9pUie": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Antique-Brass_CC-4.jpg",
-            "label": "Antique Brass"
-          }
-        },
-        "item_AE9Dt4": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Silver_CC-61.jpg",
-            "label": "Silver"
+            "image": "shopify://shop_images/Zinc_CC-17.jpg",
+            "label": "Zinc"
           }
         }
       },
       "block_order": [
         "item_KJiqTQ",
+        "item_L9pUie",
+        "item_xrrJaN",
         "item_QEMrkV",
-        "item_wdQbaP",
-        "item_tdh4Wf",
-        "item_xLrNNL",
-        "item_iYrUnA",
-        "item_wADGmV",
-        "item_e8BKEe",
+        "item_QiffMq",
+        "item_cnfcGC",
         "item_UafrMT",
+        "item_jb7wT9",
+        "item_wADGmV",
+        "item_wdQbaP",
+        "item_g48Paq",
+        "item_GFYN8e",
         "item_HxkBLw",
         "item_8RBHMn",
-        "item_cnfcGC",
-        "item_g48Paq",
+        "item_xLrNNL",
+        "item_AE9Dt4",
+        "item_iYrUnA",
         "item_PzdbJU",
-        "item_jb7wT9",
-        "item_GFYN8e",
-        "item_QiffMq",
-        "item_xrrJaN",
-        "item_L9pUie",
-        "item_AE9Dt4"
+        "item_tdh4Wf",
+        "item_e8BKEe"
       ],
       "name": "Finishes",
       "settings": {
