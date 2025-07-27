@@ -62,7 +62,7 @@
         "text_JCcpkR": {
           "type": "text",
           "settings": {
-            "enlarge_text": false,
+            "enlarge_text": true,
             "text": "<p>We understand that the finish of a product can transform its entire look and feel. That’s why we offer a diverse collection of high-quality finishes that complement every style, from modern elegance to classic charm. Whether you’re looking to create a bold statement or add a subtle touch of sophis-</p>"
           }
         }
@@ -258,14 +258,14 @@
         "heading_EizcTh": {
           "type": "heading",
           "settings": {
-            "title": "Glass"
+            "title": "Glass Shades"
           }
         },
         "text_83mcQ7": {
           "type": "text",
           "settings": {
-            "enlarge_text": false,
-            "text": "<p>We understand that the finish of a product can transform its entire look and feel. That’s why we offer a diverse collection of high-quality finishes that complement every style, from modern elegance to classic charm. Whether you’re looking to create a bold statement or add a subtle touch of sophis-</p>"
+            "enlarge_text": true,
+            "text": "<p>Our collection of glass shades offers the perfect blend of style and function. Whether you prefer clear, frosted, or textured glass, each shade is designed to enhance the ambiance of your space. From bold and contemporary to soft and timeless, our glass shades provide versatile options to complement any design aesthetic.</p>"
           }
         }
       },
