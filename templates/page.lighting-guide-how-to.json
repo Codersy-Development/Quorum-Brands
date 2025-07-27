@@ -739,7 +739,7 @@
                   "name": "Global Image",
                   "settings": {
                     "image": "shopify://shop_images/Peloton_10051_beauty_alternative_v1_1.jpg",
-                    "image_border_radius": 0
+                    "image_border_radius": 10
                   },
                   "blocks": {}
                 }
