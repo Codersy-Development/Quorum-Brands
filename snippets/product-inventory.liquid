@@ -129,3 +129,60 @@ endif
   <strong>SOLD OUT TRANSLATION:</strong> "{{ 'products.product.sold_out' | t }}"<br>
   <strong>CONDITION CHECK:</strong> inventory_quantity <= 0 = {{ qty_check }}
 </div>
+
+<script>
+// Debug: Watch for changes to the sales-point elements
+document.addEventListener('DOMContentLoaded', function() {
+  const salesPoints = document.querySelectorAll('.sales-point');
+  
+  salesPoints.forEach((element, index) => {
+    // Log initial state
+    console.log(`Sales point ${index} initial display:`, window.getComputedStyle(element).display);
+    
+    // Watch for changes
+    const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+          console.log(`Sales point ${index} class changed:`, element.className);
+        }
+        if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+          console.log(`Sales point ${index} style changed:`, element.style.cssText);
+        }
+      });
+    });
+    
+    observer.observe(element, {
+      attributes: true,
+      attributeFilter: ['class', 'style']
+    });
+  });
+  
+  // Also check after 2 seconds
+  setTimeout(() => {
+    salesPoints.forEach((element, index) => {
+      console.log(`Sales point ${index} after 2s display:`, window.getComputedStyle(element).display);
+    });
+  }, 2000);
+});
+</script>    
+
+    document.addEventListener('DOMContentLoaded', function() {
+  // Force sold out to stay visible
+  function keepSoldOutVisible() {
+    const soldOutElements = document.querySelectorAll('.inventory--sold-out');
+    soldOutElements.forEach(el => {
+      const parent = el.closest('.sales-point');
+      if (parent && !parent.classList.contains('hide')) {
+        parent.style.display = 'block';
+        parent.style.visibility = 'visible';
+        parent.style.opacity = '1';
+      }
+    });
+  }
+  
+  // Run immediately and every 100ms for first 3 seconds
+  keepSoldOutVisible();
+  const interval = setInterval(keepSoldOutVisible, 100);
+  setTimeout(() => clearInterval(interval), 3000);
+});
+</script>
