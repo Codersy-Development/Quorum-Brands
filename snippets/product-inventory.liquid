@@ -101,3 +101,15 @@ endif
     </div>
   {%- endfor -%}
 </div>
+
+
+{% comment %} DEBUG - Remove after testing {% endcomment %}
+<div style="background: #ffeb3b; padding: 10px; margin: 10px 0; font-size: 12px;">
+  <strong>DEBUG INFO:</strong><br>
+  inventory_quantity: {{ current_variant.inventory_quantity }}<br>
+  available: {{ current_variant.available }}<br>
+  incoming: {{ current_variant.incoming }}<br>
+  inventory_transfers_enable: {{ block.settings.inventory_transfers_enable }}<br>
+  show_incoming_inventory_message: {{ show_incoming_inventory_message }}<br>
+  inventory_policy: {{ current_variant.inventory_policy }}
+</div>
