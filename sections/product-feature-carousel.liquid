@@ -83,6 +83,136 @@
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
 <script>
+// Ultra-simple approach - just force arrows to show and work
+(function() {
+    'use strict';
+    
+    function makeAllArrowsWork() {
+        // Find all carousel sections
+        const carousels = document.querySelectorAll('.product-feature-carousel');
+        console.log('Found', carousels.length, 'carousels');
+        
+        carousels.forEach((carousel, index) => {
+            console.log('Processing carousel', index + 1);
+            
+            // Force all elements to be visible
+            const card = carousel.querySelector('.feature-card');
+            const wrapper = carousel.querySelector('.product-button-wrapper');
+            const prevBtn = carousel.querySelector('.product-button-prev');
+            const nextBtn = carousel.querySelector('.product-button-next');
+            const swiperContainer = carousel.querySelector('.card-swiper');
+            
+            if (card) {
+                card.style.setProperty('display', 'flex', 'important');
+                card.style.setProperty('flex-direction', 'column', 'important');
+                card.style.setProperty('visibility', 'visible', 'important');
+                card.style.setProperty('opacity', '1', 'important');
+            }
+            
+            if (wrapper) {
+                wrapper.style.setProperty('display', 'flex', 'important');
+                wrapper.style.setProperty('visibility', 'visible', 'important');
+                wrapper.style.setProperty('opacity', '1', 'important');
+            }
+            
+            [prevBtn, nextBtn].forEach(btn => {
+                if (btn) {
+                    btn.style.setProperty('display', 'flex', 'important');
+                    btn.style.setProperty('visibility', 'visible', 'important');
+                    btn.style.setProperty('opacity', '1', 'important');
+                    btn.style.setProperty('width', '40px', 'important');
+                    btn.style.setProperty('height', '40px', 'important');
+                    btn.style.setProperty('background', '#f1f1f1', 'important');
+                    btn.style.setProperty('border-radius', '50%', 'important');
+                    btn.style.setProperty('justify-content', 'center', 'important');
+                    btn.style.setProperty('align-items', 'center', 'important');
+                    btn.style.setProperty('cursor', 'pointer', 'important');
+                    btn.style.setProperty('border', '1px solid #e0e0e0', 'important');
+                }
+            });
+            
+            // Apply rotation specifically to prev button
+            if (prevBtn) {
+                prevBtn.style.setProperty('transform', 'rotate(180deg)', 'important');
+            }
+            
+            // Initialize Swiper for this specific carousel
+            if (swiperContainer) {
+                try {
+                    const swiper = new Swiper(swiperContainer, {
+                        slidesPerView: 1,
+                        spaceBetween: 0,
+                        navigation: {
+                            nextEl: nextBtn,
+                            prevEl: prevBtn,
+                        },
+                        loop: false,
+                        effect: 'slide',
+                        speed: 400,
+                        allowTouchMove: true,
+                        on: {
+                            init: function() {
+                                console.log('Swiper', index + 1, 'initialized');
+                            },
+                            slideChange: function() {
+                                console.log('Swiper', index + 1, 'slide changed to:', this.activeIndex);
+                                // Update main image if needed
+                                updateMainImage(carousel, this.activeIndex);
+                                updateCounter(carousel, this.activeIndex);
+                            }
+                        }
+                    });
+                    console.log('✅ Carousel', index + 1, 'initialized successfully');
+                } catch (error) {
+                    console.error('❌ Failed to initialize carousel', index + 1, error);
+                }
+            }
+        });
+    }
+    
+    function updateMainImage(carousel, slideIndex) {
+        const slides = carousel.querySelectorAll('.swiper-slide[data-main-image]');
+        const mainImage = carousel.querySelector('.main-image');
+        
+        if (slides[slideIndex] && mainImage) {
+            const newImageUrl = slides[slideIndex].getAttribute('data-main-image');
+            if (newImageUrl && newImageUrl !== mainImage.src) {
+                mainImage.style.opacity = '0.3';
+                setTimeout(() => {
+                    mainImage.src = newImageUrl;
+                    mainImage.style.opacity = '1';
+                }, 150);
+            }
+        }
+    }
+    
+    function updateCounter(carousel, slideIndex) {
+        const counter = carousel.querySelector('.current-slide');
+        if (counter) {
+            counter.textContent = slideIndex + 1;
+        }
+    }
+    
+    // Run immediately
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', makeAllArrowsWork);
+    } else {
+        makeAllArrowsWork();
+    }
+    
+    // Run after store changes
+    document.addEventListener('storeChanged', () => {
+        setTimeout(makeAllArrowsWork, 200);
+    });
+    
+    document.addEventListener('storeUpdate', () => {
+        setTimeout(makeAllArrowsWork, 200);
+    });
+    
+    // Run periodically to catch any issues
+    setInterval(makeAllArrowsWork, 2000);
+})();
+</script>
 (function() {
     'use strict';
     
