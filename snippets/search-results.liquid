@@ -204,15 +204,20 @@
       '.grid-product, .product-item, .search-product, [data-product-id], .product-grid-item'
     );
     
+    console.log('=== FILTERING SEARCH PAGE RESULTS ===');
+    console.log('Selected store:', selectedStore);
+    console.log('Product items found:', productItems.length);
     
     if (productItems.length === 0) {
       // Try alternative selectors
       const altProductItems = document.querySelectorAll(
         '.product, .item, [class*="product"], [class*="grid"]'
       );
+      console.log('Alternative product items found:', altProductItems.length);
       
       // If still no products found, let's look for vendor info in the page
       const vendorElements = document.querySelectorAll('[class*="vendor"], .grid-product__vendor');
+      console.log('Vendor elements found:', vendorElements.length);
       
       if (vendorElements.length > 0) {
         vendorElements.forEach((vendorEl, index) => {
@@ -225,8 +230,10 @@
             
             if (shouldShow) {
               productContainer.style.display = '';
+              console.log(`✓ Showing product ${index + 1} (vendor: ${vendorText})`);
             } else {
               productContainer.style.display = 'none';
+              console.log(`✗ Hiding product ${index + 1} (vendor: ${vendorText})`);
             }
           }
         });
@@ -267,6 +274,7 @@
         }
       }
       
+      console.log(`Product ${index + 1} vendor:`, productVendor);
       
       // Allow products to show when "Shop All Brands" is selected
       const shouldShow = selectedStore.toLowerCase().includes("shop all") || 
@@ -276,12 +284,15 @@
       if (shouldShow) {
         item.style.display = '';
         visibleCount++;
+        console.log(`✓ Showing product ${index + 1} (vendor: ${productVendor})`);
       } else {
         item.style.display = 'none';
         hiddenCount++;
+        console.log(`✗ Hiding product ${index + 1} (vendor: ${productVendor})`);
       }
     });
     
+    console.log(`Search page results: ${visibleCount} visible, ${hiddenCount} hidden`);
     
     // Update no results message if needed
     updateSearchResultsDisplay(visibleCount);
@@ -320,6 +331,7 @@
   
   // Run filtering when page loads
   document.addEventListener('DOMContentLoaded', function() {
+    console.log('Search page loaded, filtering results...');
     setTimeout(filterSearchPageResults, 200);
   });
   
@@ -329,6 +341,7 @@
         (e.target.type === 'radio' && e.target.closest('store-switcher')) ||
         (e.target.type === 'radio' && e.target.name && e.target.name.startsWith('store-switcher-'))) {
       
+      console.log('Store changed on search page, re-filtering...');
       setTimeout(filterSearchPageResults, 100);
     }
   });
@@ -337,6 +350,7 @@
   document.addEventListener('click', function(e) {
     const storeLabel = e.target.closest('store-switcher label');
     if (storeLabel) {
+      console.log('Store switcher clicked on search page, re-filtering...');
       setTimeout(filterSearchPageResults, 150);
     }
   });
