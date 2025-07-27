@@ -4,10 +4,10 @@
             src="{{ block.settings.image | img_url: 'master' }}"
             alt="Full width image"
             class="image-full"
+            style="border-radius: {{ block.settings.image_border_radius }}px;"
         >
     {% endif %}
 </section>
-
 <style>
 .image-full-wrapper {
     width: 100%;
@@ -23,7 +23,6 @@
     object-fit: contain;
 }
 </style>
-
 {% schema %}
 {
   "name": "Global Image",
@@ -32,6 +31,16 @@
       "type": "image_picker",
       "id": "image",
       "label": "Upload Image"
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "label": "Image Border Radius",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 0
     }
   ],
   "presets": [
