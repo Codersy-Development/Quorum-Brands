@@ -74,6 +74,11 @@
     align-items: center;
     gap: 8px;
   }
+  /* FORCE show sales points for non-logged in users */
+  .grid__item div:nth-child(2) .product-block.product-block--sales-point {
+    display: block !important;  
+  }  
+  
 </style>
 
 <!-- CSS for non-wholesale customers -->  
