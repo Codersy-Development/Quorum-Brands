@@ -21,8 +21,8 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/Brett_Curtin_Profile_Photo.jpg",
-            "button_text": "View Brett's Product Collection",
-            "button_url": "#"
+            "button_text": "Meet Our Designers",
+            "button_url": "pages/meet-our-designers"
           }
         },
         "image_XdnEcj": {
