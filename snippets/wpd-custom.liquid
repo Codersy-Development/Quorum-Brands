@@ -51,17 +51,22 @@
   }
   
   /* Sales points styling for wholesale customers */
-  .sales-point.hide {
-    display: none !important;
+  .sales-points {
+    display: block !important;
     list-style: none;
     margin: 0;
     padding: 0;
   }
-  .sales-point.hide {
+  
+  .sales-point:not(.hide) {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
     margin: 5px 0;
+  }
+  
+  .sales-point.hide {
+    display: none !important;
   }
 
   .icon-and-text {
