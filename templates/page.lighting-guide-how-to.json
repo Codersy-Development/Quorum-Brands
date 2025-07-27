@@ -706,13 +706,13 @@
                       "name": "Info Block with Image",
                       "settings": {
                         "heading": "Pendants",
-                        "text": "<p><strong>Proper Sizing:<br/></strong>Ensure that the size and scale of the hanging fixture are proportionate to the size of the nightstand and the space above it. A fixture that is too large may overwhelm the nightstand, while one that is too small may not provide adequate illumination or visual impact.<br/><strong>Height Placement:<br/></strong>A general guideline is to position the bottom of the fixture <strong>between 12 to 18 inches above the surface of the nightstand</strong>, allowing for comfortable reading and bedside tasks without obstructing the view.</p>",
+                        "text": "<p><strong>Proper Sizing:<br/></strong></p><p>Ensure that the size and scale of the hanging fixture are proportionate to the size of the nightstand and the space above it. A fixture that is too large may overwhelm the nightstand, while one that is too small may not provide adequate illumination or visual impact.</p><p><br/><strong>Height Placement:<br/></strong></p><p>A general guideline is to position the bottom of the fixture <strong>between 12 to 18 inches above the surface of the nightstand</strong>, allowing for comfortable reading and bedside tasks without obstructing the view.</p>",
                         "image_position": "bottom",
                         "image_border_radius": 0,
-                        "heading_font_size": 24,
-                        "heading_line_height": 1.2,
-                        "text_font_size": 16,
-                        "text_line_height": 1.5
+                        "heading_font_size": 15,
+                        "heading_line_height": 2.5,
+                        "text_font_size": 12,
+                        "text_line_height": 1.2
                       },
                       "blocks": {
                         "global_image_wPnnFN": {
