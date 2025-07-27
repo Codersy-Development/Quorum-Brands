@@ -623,10 +623,10 @@
             "text": "<p><strong>Measure the Room:<br/></strong>Measure the length and width of the room in feet.</p><p><strong>Calculate Fixture Diameter:<br/></strong>Add the room length and room width in feet together. Convert to inches — this sum gives you the suggested diameter for the chandelier.</p><p><strong>Determine Hang Height:<br/></strong>Measure the ceiling height in feet<br/>2.5 to find the <strong>minimum hang height</strong>.<br/>3 to find the <strong>maximum hang height</strong>.<br/></p>",
             "image_position": "bottom",
             "image_border_radius": 0,
-            "heading_font_size": 24,
-            "heading_line_height": 1.2,
-            "text_font_size": 16,
-            "text_line_height": 1.5
+            "heading_font_size": 15,
+            "heading_line_height": 2.5,
+            "text_font_size": 12,
+            "text_line_height": 1.2
           },
           "blocks": {
             "global_image_y93z66": {
@@ -634,7 +634,7 @@
               "name": "Global Image",
               "settings": {
                 "image": "shopify://shop_images/892-3-80_6.jpg",
-                "image_border_radius": 0
+                "image_border_radius": 10
               },
               "blocks": {}
             }
