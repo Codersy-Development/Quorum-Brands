@@ -430,7 +430,7 @@
                         "image": "shopify://shop_images/6863-16-5980_5.jpg",
                         "image_border_radius": 10,
                         "image_margin_top": 0,
-                        "image_margin_bottom": 0,
+                        "image_margin_bottom": 10,
                         "tip_heading": "Designer Tip",
                         "tip": "",
                         "tip_background_color": "#7b675c",
