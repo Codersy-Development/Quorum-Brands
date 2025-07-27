@@ -9,7 +9,12 @@
     {% endif %}
     
     {% if block.settings.tip != blank %}
-        <div class="designer-tip-box" style="background-color: {{ block.settings.tip_background_color }};">
+        <div class="designer-tip-box" 
+             style="background-color: {{ block.settings.tip_background_color }}; 
+                    left: {{ block.settings.tip_horizontal_position }}%; 
+                    bottom: {{ block.settings.tip_vertical_position }}%; 
+                    width: {{ block.settings.tip_box_width }}%; 
+                    transform: translateX(-{{ block.settings.tip_horizontal_position }}%);">
             <p class="designer-tip-title">{{ block.settings.tip_heading }}:</p>
             <p>{{ block.settings.tip }}</p>
         </div>
@@ -38,12 +43,8 @@
     padding: 1rem 1.5rem;
     font-size: 10px;
     line-height: 1.6;
-    width: 100%;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
 }
 .designer-tip-title {
     font-weight: bold;
@@ -98,26 +99,63 @@
     },
     {
       "type": "header",
-      "content": "Designer Tip"
+      "content": "Example"
     },
     {
       "type": "text",
       "id": "tip_heading",
-      "label": "Tip Heading",
-      "default": "Designer Tip",
-      "info": "Text that appears before the colon (e.g., 'Pro Tip', 'Designer Tip')"
+      "label": "Example Heading",
+      "default": "Example",
+      "info": "Text that appears before the colon (e.g., 'Example', 'Pro Tip', 'Note')"
     },
     {
       "type": "textarea",
       "id": "tip",
-      "label": "Tip Text",
-      "info": "Add a helpful tip that will appear at the bottom of the image"
+      "label": "Example Text",
+      "info": "Add helpful example text that will appear over the image"
     },
     {
       "type": "color",
       "id": "tip_background_color",
-      "label": "Tip Background Color",
+      "label": "Example Background Color",
       "default": "#7B675C"
+    },
+    {
+      "type": "header",
+      "content": "Example Box Position & Size"
+    },
+    {
+      "type": "range",
+      "id": "tip_horizontal_position",
+      "label": "Horizontal Position",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 50,
+      "info": "0% = Left edge, 50% = Center, 100% = Right edge"
+    },
+    {
+      "type": "range",
+      "id": "tip_vertical_position",
+      "label": "Vertical Position",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 0,
+      "info": "0% = Bottom edge, 100% = Top edge"
+    },
+    {
+      "type": "range",
+      "id": "tip_box_width",
+      "label": "Example Box Width",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 80,
+      "info": "Width of the example box relative to the image"
     }
   ],
   "presets": [
