@@ -21,8 +21,8 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/David_Patton_Headshot.jpg",
-            "button_text": "View David's Collection of Products",
-            "button_url": "#"
+            "button_text": "Meet Our Designers",
+            "button_url": "pages/meet-our-designers"
           }
         },
         "image_XdnEcj": {
