@@ -60,7 +60,7 @@
         height: 821px;
     }
     & .feature-card {
-        padding: 30px;
+        padding: 30px 30px 60px 30px; /* Extra bottom padding for navigation */
         border-radius: 8px;
         width: 100%;
         max-width: 480px;
@@ -71,6 +71,7 @@
         height: 100% !important;
         visibility: visible !important;
         opacity: 1 !important;
+        position: relative;
     }
     & .card-swiper {
         width: 100%;
@@ -215,6 +216,16 @@
         font-weight: 700;
         color: #333;
     }
+}
+
+/* Force feature-card to display properly for all store selections */
+html[data-store-selected] .product-feature-carousel .feature-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    height: 100% !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 /* Specific styling for main image elements */
