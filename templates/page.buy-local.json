@@ -30,7 +30,7 @@
             "link_text_2": "",
             "color_accent": "rgba(0,0,0,0)",
             "text_align": "vertical-bottom horizontal-left",
-            "image": "shopify://shop_images/Quorum-Company-Photo.jpg",
+            "image": "shopify://shop_images/3-812-56_8_17f13354-c220-44d2-a75e-60ecce42ace5.jpg",
             "parallax_direction": "top",
             "overlay_opacity": 30
           }
@@ -84,16 +84,31 @@
         "sc_store_locator_map_map_kGkRfE": {
           "type": "shopify://apps/sc-store-locator-map/blocks/map/4ca379c6-722c-49d3-b6ec-a7fe7c1061a5",
           "settings": {
+            "map_layout": "",
+            "show_on_map_btn_txt": "VIEW ON MAP",
+            "user_marker_text": "You're here",
+            "user_marker_color": "#000000",
+            "store_marker_color": "#87ceeb",
             "distance_unit": "MI",
+            "initial_zoom": 5,
+            "map_theme": "silver",
+            "google_maps_language": "en",
             "display_title": false,
             "display_header_html": false,
-            "display_search": true,
             "display_footer_html": false,
+            "show_website": false,
+            "display_search": true,
             "search_text": "#121212",
             "search_background": "linear-gradient(180deg, rgba(232, 232, 225, 1), rgba(243, 243, 243, 1) 100%)",
             "display_addresses_sidebar": true,
-            "map_theme": "silver",
-            "google_maps_language": "en"
+            "search_placeholder": "Search for a store",
+            "distance_label": "Distance",
+            "limit_label": "Limit",
+            "no_limit_label": "No limit",
+            "use_my_location_text": "Use my current location",
+            "get_directions_text": "Get directions",
+            "hide_directions_text": "Hide directions",
+            "no_stores_found_text": "No stores found"
           }
         }
       },
