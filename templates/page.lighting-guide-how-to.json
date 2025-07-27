@@ -359,7 +359,7 @@
       "settings": {
         "heading": "The Kitchen",
         "description": "HOW TO HANG OVER AN ISLAND",
-        "main_image": "shopify://shop_images/5119-4-259_8.jpg",
+        "main_image": "shopify://shop_images/8006-6980_1.jpg",
         "tip": "Consider the style and finish of the pendant lights. Choose pendant lights that complement the overall design aesthetic of the kitchen, whether it’s modern, traditional, industrial, or eclectic.\nOpt for finishes that coordinate with other fixtures and hardware in the kitchen, such as brushed nickel, bronze, or matte black, to create a cohesive look."
       }
     },
@@ -461,8 +461,37 @@
                 "global_image_FKwkry": {
                   "type": "global-image",
                   "name": "Global Image",
+                  "disabled": true,
                   "settings": {
                     "image": "shopify://shop_images/6123-4-47_4.jpg"
+                  },
+                  "blocks": {}
+                },
+                "ai_gen_block_627cee1_aNB3Ak": {
+                  "type": "ai_gen_block_627cee1",
+                  "settings": {
+                    "show_image": true,
+                    "image": "shopify://shop_images/6123-4-59_4.jpg",
+                    "image_alignment": "center",
+                    "image_width": 300,
+                    "image_height": 200,
+                    "image_border_radius": 0,
+                    "image_spacing": 4,
+                    "heading": "",
+                    "content": "<p></p><p>A <strong>48-inch round table</strong> calls for achandelier <strong>diameter of 30-36 inches.</strong></p>",
+                    "text_alignment": "center",
+                    "max_width": 800,
+                    "padding_top": 35,
+                    "padding_bottom": 40,
+                    "padding_horizontal": 20,
+                    "heading_spacing": 16,
+                    "heading_size": 16,
+                    "text_size": 12,
+                    "line_height": 1.2,
+                    "background_color": "#ffffff",
+                    "heading_color": "#000000",
+                    "text_color": "#000000",
+                    "link_color": "#0066cc"
                   },
                   "blocks": {}
                 },
@@ -491,6 +520,7 @@
               },
               "block_order": [
                 "global_image_FKwkry",
+                "ai_gen_block_627cee1_aNB3Ak",
                 "info_block_4Nb9w9"
               ]
             }
