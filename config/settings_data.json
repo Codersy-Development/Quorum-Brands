@@ -118,11 +118,6 @@
         "disabled": false,
         "settings": {}
       },
-      "3824936769257688723": {
-        "type": "shopify://apps/sami-product-labels/blocks/app-embed-block/b9b44663-5d51-4be1-8104-faedd68da8c5",
-        "disabled": false,
-        "settings": {}
-      },
       "11989592277864780042": {
         "type": "shopify://apps/wholesale-pricing-discount/blocks/app-embed/94cbfa01-7191-4bb2-bcd8-b519b9b3bd06",
         "disabled": false,
@@ -160,6 +155,11 @@
           "collection_count_background_color": "#999166",
           "collection_count_color": "#ffffff"
         }
+      },
+      "3824936769257688723": {
+        "type": "shopify://apps/sami-product-labels/blocks/app-embed-block/b9b44663-5d51-4be1-8104-faedd68da8c5",
+        "disabled": false,
+        "settings": {}
       }
     }
   },
