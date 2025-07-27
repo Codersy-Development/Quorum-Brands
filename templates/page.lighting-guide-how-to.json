@@ -1604,9 +1604,9 @@
                           "settings": {
                             "image": "shopify://shop_images/10656-80_LS.jpg",
                             "image_border_radius": 0,
-                            "image_width": 100,
-                            "image_height": 400,
-                            "image_fit": "contain",
+                            "image_width": 60,
+                            "image_height": 375,
+                            "image_fit": "cover",
                             "image_margin_top": 0,
                             "image_margin_bottom": 0,
                             "tip_heading": "Designer Tip",
@@ -1633,13 +1633,13 @@
                   "name": "Info Block with Image",
                   "settings": {
                     "heading": "Ceiling Height",
-                    "text": "<p>Make sure your ceiling fan is installed at an efficient height.<br/>For standard ceilings, the fan blades should typically be mounted at least <strong>7 feet above the floor</strong>.<br/>For higher ceilings, consider using a <strong>downrod extension</strong> to lower the fan for optimal airflow.</p>",
+                    "text": "<p>Make sure your ceiling fan is installed at an efficient height. For standard ceilings, the fan blades should typically be mounted at least <strong>7 feet above the floor</strong>. For higher ceilings, consider using a <strong>downrod extension</strong> to lower the fan for optimal airflow.</p>",
                     "image_position": "bottom",
                     "image_border_radius": 0,
-                    "heading_font_size": 24,
-                    "heading_line_height": 1.2,
-                    "text_font_size": 16,
-                    "text_line_height": 1.5
+                    "heading_font_size": 15,
+                    "heading_line_height": 2.5,
+                    "text_font_size": 12,
+                    "text_line_height": 1.2
                   },
                   "blocks": {
                     "global_image_xrVpUz": {
@@ -1649,10 +1649,10 @@
                         "image": "shopify://shop_images/Fan_Ceiling-Height_1.png",
                         "image_border_radius": 0,
                         "image_width": 100,
-                        "image_height": 400,
-                        "image_fit": "contain",
+                        "image_height": 275,
+                        "image_fit": "cover",
                         "image_margin_top": 0,
-                        "image_margin_bottom": 0,
+                        "image_margin_bottom": 20,
                         "tip_heading": "Designer Tip",
                         "tip": "",
                         "tip_background_color": "#7b675c",
@@ -1708,10 +1708,10 @@
                     "text": "<p>Choose the right diameter of your ceiling fan based on the <strong>square footage</strong> of your space.<br/><strong>Formula:</strong> Diameter = 2 × Radius</p>",
                     "image_position": "bottom",
                     "image_border_radius": 0,
-                    "heading_font_size": 24,
-                    "heading_line_height": 1.2,
-                    "text_font_size": 16,
-                    "text_line_height": 1.5
+                    "heading_font_size": 15,
+                    "heading_line_height": 2.5,
+                    "text_font_size": 12,
+                    "text_line_height": 1.2
                   },
                   "blocks": {
                     "global_image_R7PaRw": {
@@ -1721,7 +1721,7 @@
                         "image": "shopify://shop_images/Fan_SqFt_1.png",
                         "image_border_radius": 0,
                         "image_width": 100,
-                        "image_height": 400,
+                        "image_height": 250,
                         "image_fit": "contain",
                         "image_margin_top": 0,
                         "image_margin_bottom": 0,
@@ -1756,14 +1756,14 @@
       ],
       "name": "Guide Section",
       "settings": {
-        "title_box_color": "",
-        "title_box_height": 40,
-        "title_box_width": 50,
+        "title_box_color": "#0f0f0f",
+        "title_box_height": 20,
+        "title_box_width": 15,
         "heading": "Ceiling Fan",
         "description": "CALM, COOL & COLLECTED",
         "main_image": "shopify://shop_images/35846-47_8_bce38010-4bb2-4ed1-a1c0-c2daba62f0c4.jpg",
         "image_width": 100,
-        "image_height": 400,
+        "image_height": 620,
         "image_fit": "cover",
         "tip_1_heading": "Lighting Level and Quality",
         "tip": "",
