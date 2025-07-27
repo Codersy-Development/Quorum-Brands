@@ -17,7 +17,7 @@
             <!-- Designer Tips under the main image -->
             {% if section.settings.tip != blank %}
                 <div class="under-image-tip">
-                    <div class="guide-designer-tip-box">
+                    <div class="guide-designer-tip-box" style="background-color: {{ section.settings.tip_1_background_color | default: '#7B675C' }};">
                         <p class="guide-designer-tip-title">{{ section.settings.tip_1_heading | default: "Designer Tip" }}:</p>
                         <p>{{ section.settings.tip }}</p>
                     </div>
@@ -26,7 +26,7 @@
             
             {% if section.settings.tip_2 != blank %}
                 <div class="under-image-tip">
-                    <div class="guide-designer-tip-box">
+                    <div class="guide-designer-tip-box" style="background-color: {{ section.settings.tip_2_background_color | default: '#7B675C' }};">
                         <p class="guide-designer-tip-title">{{ section.settings.tip_2_heading | default: "Designer Tip" }}:</p>
                         <p>{{ section.settings.tip_2 }}</p>
                     </div>
@@ -68,11 +68,9 @@
         width: 100%;
     }
     .guide-text img {
-        width: 100%;
         display: block;
         border-radius: 8px;
-        margin-bottom: 1rem; /* Add margin for tips below */
-        object-fit: cover;
+        margin-bottom: 1rem;
     }
     .title-colored-box {
         margin-bottom: 1rem;
@@ -192,7 +190,7 @@
       "label": "Image Height",
       "min": 200,
       "max": 800,
-      "step": 10,
+      "step": 25,
       "unit": "px",
       "default": 400,
       "info": "Fixed height for the image in pixels"
@@ -228,6 +226,12 @@
       "info": "Appears under the main image in the left column"
     },
     {
+      "type": "color",
+      "id": "tip_1_background_color",
+      "label": "Designer Tip 1 Background Color",
+      "default": "#7B675C"
+    },
+    {
       "type": "text",
       "id": "tip_2_heading",
       "label": "Designer Tip 2 Heading",
@@ -241,10 +245,16 @@
       "info": "Appears under Designer Tip 1 in the left column"
     },
     {
+      "type": "color",
+      "id": "tip_2_background_color",
+      "label": "Designer Tip 2 Background Color",
+      "default": "#7B675C"
+    },
+    {
       "type": "textarea",
       "id": "tip_3",
-      "label": "Designer Tip 3 (Below Section)",
-      "info": "Appears below the entire main layout (full width)"
+      "label": "Designer Tip 3 (Under Split Section)",
+      "info": "Appears below the entire split section layout (full width)"
     }
   ],
   "blocks": [{ "type": "@theme" }, { "type": "@app" }],
