@@ -134,7 +134,7 @@
         "tab_JKApLi": {
           "type": "tab",
           "settings": {
-            "title": "Addiitonal information",
+            "title": "Additional information",
             "content": "<p>{{ product.metafields.custom.special_attribute.value }}</p>",
             "page": ""
           }
