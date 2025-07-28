@@ -111,7 +111,7 @@
           "type": "tab",
           "settings": {
             "title": "Performance | Features",
-            "content": "<p>{{ product.metafields.custom.prefix_remote_adaptable.value }}<br/>{{ product.metafields.custom.prefix_smart_bond.value }}<br/>{{ product.metafields.custom.prefix_ghost_frame.value }}<br/>{{ product.metafields.custom.prefix_ghost_light.value }}<br/>{{ product.metafields.custom.prefix_dimmable.value }}<br/>{{ product.metafields.custom.prefix_infered.value }}<br/><br/>{{ product.metafields.custom.prefix_modular_system.value }}</p><p>{{ product.metafields.custom.special_attribute.value }}</p><p>{{ product.metafields.custom.prefix_manufacturer_warranty.value }}</p>",
+            "content": "<p>{{ product.metafields.custom.prefix_remote_adaptable.value }}<br/>{{ product.metafields.custom.prefix_smart_bond.value }}<br/>{{ product.metafields.custom.prefix_ghost_frame.value }}<br/>{{ product.metafields.custom.prefix_ghost_light.value }}<br/>{{ product.metafields.custom.prefix_dimmable.value }}<br/>{{ product.metafields.custom.prefix_infered.value }}<br/><br/>{{ product.metafields.custom.prefix_modular_system.value }}</p><p>{{ product.metafields.custom.prefix_manufacturer_warranty.value }}</p>",
             "page": ""
           }
         },
