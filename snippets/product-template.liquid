@@ -288,7 +288,7 @@
                   <!-- ADD THIS LINE: -->
 {%- render 'product-inventory', product: product, current_variant: current_variant -%}
                   {% endcomment %}
-
+{% render 'sold-out-inventory', product: product %}
                   {%- when 'quantity_selector' -%}
                     <div class="product-block" {{ block.shopify_attributes }}>
                       <div class="product__quantity">
