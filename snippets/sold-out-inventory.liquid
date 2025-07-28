@@ -4,6 +4,11 @@
   Only shows for wholesale customers and non-logged in users
 {% endcomment %}
 
+<!-- DEBUG: Always show this to confirm the snippet is loading -->
+<div style="background: yellow; padding: 5px; margin: 5px 0;">
+  🚨 SOLD OUT SNIPPET LOADED 🚨
+</div>
+
 {%- liquid
   assign current_variant = product.selected_or_first_available_variant
   assign show_sold_out = false
@@ -51,6 +56,18 @@
     endif
   endif
 -%}
+
+<!-- DEBUG: Show all the variables -->
+<div style="background: lightblue; padding: 10px; margin: 5px 0; font-size: 12px;">
+  <strong>DEBUG INFO:</strong><br>
+  inventory_quantity: {{ current_variant.inventory_quantity }}<br>
+  inventory_management: {{ current_variant.inventory_management }}<br>
+  customer exists: {{ customer != null }}<br>
+  wcp_wholesale_customer: {{ wcp_wholesale_customer }}<br>
+  show_sold_out: {{ show_sold_out }}<br>
+  Condition 1 (inventory <= 0): {{ current_variant.inventory_quantity <= 0 }}<br>
+  Condition 2 (wholesale OR not logged in): {{ wcp_wholesale_customer == true or customer == null }}
+</div>
 
 <style>
   .sold-out-indicator {
