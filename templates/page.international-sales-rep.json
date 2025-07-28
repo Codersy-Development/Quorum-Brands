@@ -87,30 +87,16 @@
     "sales_representatives_zFym6A": {
       "type": "sales-representatives",
       "blocks": {
-        "rep_9FNFk3": {
-          "type": "rep",
-          "settings": {
-            "name": "Adam Barri",
-            "rep_group": "303  Lighting ",
-            "position": "",
-            "territory": "Colorado, Utah, Southern Wyoming",
-            "territory_detail": "",
-            "email": "303lighting@gmail.com",
-            "phone": "(720)  984-5442",
-            "cellphone": "",
-            "website": ""
-          }
-        },
         "rep_zAQxJD": {
           "type": "rep",
           "settings": {
-            "name": "Representative Name",
-            "rep_group": "",
+            "name": "Andre O'Connell",
+            "rep_group": "A-Lume ",
             "position": "",
-            "territory": "",
-            "territory_detail": "",
-            "email": "",
-            "phone": "",
+            "territory": "Quebec, Nova Scotia,  Newfoundland, New Brunswick, Labrador",
+            "territory_detail": "Canada",
+            "email": "andre@a-lume.com",
+            "phone": "(418)  569-4152",
             "cellphone": "",
             "website": ""
           }
@@ -775,7 +761,6 @@
         }
       },
       "block_order": [
-        "rep_9FNFk3",
         "rep_zAQxJD",
         "rep_NtQABn",
         "rep_QBTinp",
