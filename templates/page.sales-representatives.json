@@ -84,20 +84,8 @@
             "enable_image": false,
             "image_mask": "none",
             "image_width": 60,
-            "title": "Mid-Western States",
-            "text": "<p>Search for Sales Representatives in the Mid-Western Region</p>",
-            "button_label": "Search",
-            "button_link": "shopify://pages/sales-representative-locator"
-          }
-        },
-        "text_block_3beVV9": {
-          "type": "text_block",
-          "settings": {
-            "enable_image": false,
-            "image_mask": "none",
-            "image_width": 60,
-            "title": "Western States",
-            "text": "<p>Search for Sales Representatives in the Western Region</p>",
+            "title": "International Sales",
+            "text": "<p>Search for Sales Representatives outside the US.</p>",
             "button_label": "Search",
             "button_link": "shopify://pages/sales-representative-locator"
           }
@@ -105,8 +93,7 @@
       },
       "block_order": [
         "text_block_kXVDip",
-        "text_block_MEePPP",
-        "text_block_3beVV9"
+        "text_block_MEePPP"
       ],
       "custom_css": [],
       "name": "t:sections.text-columns.presets.text_columns_with_images.name",
@@ -136,13 +123,13 @@
         "rep_9FNFk3": {
           "type": "rep",
           "settings": {
-            "name": "Representative Name",
-            "rep_group": "",
-            "position": "",
-            "territory": "",
+            "name": "Adam Barri",
+            "rep_group": "303  Lighting ",
+            "position": "Sales",
+            "territory": "Colorado, Utah, Southern Wyoming",
             "territory_detail": "",
-            "email": "",
-            "phone": "",
+            "email": "303lighting@gmail.com",
+            "phone": "(720)  984-5442",
             "cellphone": "",
             "website": ""
           }
