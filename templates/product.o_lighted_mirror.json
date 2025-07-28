@@ -186,7 +186,7 @@
         "image_position": "left",
         "image_size": "medium",
         "product_zoom_enable": true,
-        "thumbnail_position": "below",
+        "thumbnail_position": "beside",
         "thumbnail_height": "flexible",
         "thumbnail_arrows": true,
         "mobile_layout": "partial",
@@ -242,13 +242,15 @@
       "settings": {
         "product_recommendations_heading": "You may also like",
         "related_count": 5,
-        "products_per_row": 5
+        "products_per_row": 5,
+        "show_vendor": true
       }
     },
     "recently-viewed": {
       "type": "recently-viewed",
       "settings": {
-        "recent_count": 5
+        "recent_count": 5,
+        "show_vendor": true
       }
     },
     "collection-return": {
