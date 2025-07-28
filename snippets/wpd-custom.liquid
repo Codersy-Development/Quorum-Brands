@@ -74,11 +74,6 @@
     align-items: center;
     gap: 8px;
   }
-  /* FORCE show sales points for non-logged in users */
-  .grid__item div:nth-child(2) .product-block.product-block--sales-point {
-    display: block !important;  
-  }  
-  
 </style>
 
 <!-- CSS for non-wholesale customers -->  
@@ -108,14 +103,10 @@
   .grid__item div:nth-child(2) div:nth-child(13) .product__quantity {
     display: none;  
   }    
-/* Hide sales points for non-wholesale */
-/* .grid__item div:nth-child(2) .product-block.product-block--sales-point {
-  display: none;  
-}   */
-  /* FORCE show sales points for non-logged in users */
+  /* Hide sales points for non-wholesale */
   .grid__item div:nth-child(2) .product-block.product-block--sales-point {
-    display: block !important;  
-  }    
+    display: none;  
+  }  
   /* Hide price block */
   .product-block.product-block--price { 
     display: none;  
