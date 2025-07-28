@@ -1,3 +1,10 @@
+// Add this utility function at the top
+const isAllBrands = (storeValue) => {
+  if (!storeValue) return false;
+  const normalized = storeValue.toLowerCase().trim();
+  return normalized === 'all brands' || normalized === 'shop all';
+};
+
 const setCollectionsFilters = () => {
   const VENDOR_KEY = 'filter.p.vendor';
   const store      = getStoreSentenceCase();
@@ -9,14 +16,14 @@ const setCollectionsFilters = () => {
       // IMPORTANT: Only modify actual collections pages, not product pages
       if (url.pathname.includes('/products/')) {
         // This is a product page - don't modify the main URL structure, just handle filters
-        if (store === 'all brands' || store === 'All Brands') {
+        if (isAllBrands(store)) {
           url.searchParams.delete(VENDOR_KEY);
         } else {
           url.searchParams.set(VENDOR_KEY, store);
         }
       } else {
         // This is a collections page - apply normal filtering
-        if (store === 'all brands' || store === 'All Brands') {
+        if (isAllBrands(store)) {
           url.searchParams.delete(VENDOR_KEY);
         } else {
           url.searchParams.set(VENDOR_KEY, store);
@@ -38,17 +45,21 @@ const dispatchStoreChangeEvent = (selectedStore) => {
   const storeChangedEvent = new CustomEvent('storeChanged', {
     detail: { 
       selectedStore: selectedStore,
+      isAllBrands: isAllBrands(selectedStore),
       timestamp: Date.now()
     },
     bubbles: true
   });
   
   document.dispatchEvent(storeChangedEvent);
-  console.log('Dispatched storeChanged event for:', selectedStore);
+  console.log('Dispatched storeChanged event for:', selectedStore, 'Is All Brands:', isAllBrands(selectedStore));
   
   // Also dispatch backup event name
   const storeUpdateEvent = new CustomEvent('storeUpdate', {
-    detail: { store: selectedStore }
+    detail: { 
+      store: selectedStore,
+      isAllBrands: isAllBrands(selectedStore)
+    }
   });
   
   document.dispatchEvent(storeUpdateEvent);
@@ -100,7 +111,7 @@ class StoreSwitcher extends HTMLElement {
         if (/\/(?:collections|products)\//.test(current.pathname)) {
           if (current.pathname.includes("/collections/") && !current.pathname.includes("/products/")) {
             // This is a collections page
-            if(input.value.toLowerCase().includes("all brands")) {
+            if(isAllBrands(input.value)) {
               current.searchParams.delete("filter.p.vendor");
               window.location.replace(current.toString());
             } else {
@@ -109,7 +120,7 @@ class StoreSwitcher extends HTMLElement {
             }
           } else {
             // This is a product page - also handle vendor filter removal for "all brands"
-            if(input.value.toLowerCase().includes("all brands")) {
+            if(isAllBrands(input.value)) {
               current.searchParams.delete("filter.p.vendor");
               window.location.replace(current.toString());
             } else {
@@ -151,6 +162,12 @@ customElements.define("store-switcher", StoreSwitcher);
 const getStoreSentenceCase = () => {
   const rawStore = localStorage.getItem("store-selected");
   if (!rawStore) return;
+  
+  // Handle "All Brands" case specially to preserve the exact casing
+  if (isAllBrands(rawStore)) {
+    return rawStore; // Return as-is for "All Brands" or "Shop All"
+  }
+  
   return rawStore[0].toUpperCase() + rawStore.slice(1);
 };
 
@@ -158,13 +175,13 @@ document.addEventListener("DOMContentLoaded", () => {
   setCollectionsFilters();
 
   const current = new URL(window.location.href);
-  const currentStore = getStoreSentenceCase();
+  const currentStore = localStorage.getItem("store-selected");
   
   // Handle product pages with vendor filters when "ALL BRANDS" is selected
   if (current.pathname.includes("/products/") && 
       current.searchParams.has("filter.p.vendor") &&
       currentStore &&
-      currentStore.toLowerCase().includes("all brands")) {
+      isAllBrands(currentStore)) {
     current.searchParams.delete("filter.p.vendor");
     window.location.replace(current.toString());
     return;
@@ -177,9 +194,9 @@ document.addEventListener("DOMContentLoaded", () => {
     !current.pathname.includes("/products/") &&
     !current.searchParams.has("filter.p.vendor") &&
     currentStore &&
-    !currentStore.toLowerCase().includes("all brands")
+    !isAllBrands(currentStore)
   ) {
-    current.searchParams.set("filter.p.vendor", currentStore);
+    current.searchParams.set("filter.p.vendor", getStoreSentenceCase());
     window.location.replace(current.toString());
     return;
   }
