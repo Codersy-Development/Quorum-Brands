@@ -100,7 +100,7 @@ class StoreSwitcher extends HTMLElement {
         if (/\/(?:collections|products)\//.test(current.pathname)) {
           if (current.pathname.includes("/collections/") && !current.pathname.includes("/products/")) {
             // This is a collections page
-            if(input.value.toLowerCase().includes("shop all")) {
+            if(input.value.toLowerCase().includes("all brands")) {
               current.searchParams.delete("filter.p.vendor");
               window.location.replace(current.toString());
             } else {
@@ -109,7 +109,7 @@ class StoreSwitcher extends HTMLElement {
             }
           } else {
             // This is a product page - also handle vendor filter removal for "ALL BRANDS"
-            if(input.value.toLowerCase().includes("shop all")) {
+            if(input.value.toLowerCase().includes("all brands")) {
               current.searchParams.delete("filter.p.vendor");
               window.location.replace(current.toString());
             } else {
@@ -160,24 +160,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const current = new URL(window.location.href);
   const currentStore = getStoreSentenceCase();
   
-  // Handle product pages with vendor filters when "Shop All" is selected
+  // Handle product pages with vendor filters when "All BRANDS" is selected
   if (current.pathname.includes("/products/") && 
       current.searchParams.has("filter.p.vendor") &&
       currentStore &&
-      currentStore.toLowerCase().includes("shop all")) {
+      currentStore.toLowerCase().includes("all brands")) {
     current.searchParams.delete("filter.p.vendor");
     window.location.replace(current.toString());
     return;
   }
   
   // Only apply collection filtering logic to actual collections pages (not product pages)
-  // and respect "Shop All" selection
+  // and respect "all brands" selection
   if (
     current.pathname.includes("/collections/") &&
     !current.pathname.includes("/products/") &&
     !current.searchParams.has("filter.p.vendor") &&
     currentStore &&
-    !currentStore.toLowerCase().includes("shop all")
+    !currentStore.toLowerCase().includes("all brands")
   ) {
     current.searchParams.set("filter.p.vendor", currentStore);
     window.location.replace(current.toString());
