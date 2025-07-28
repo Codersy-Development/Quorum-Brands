@@ -68,7 +68,7 @@
             "title": "International Sales",
             "text": "<p>Search for Sales Representatives outside the US.</p>",
             "button_label": "Search",
-            "button_link": "shopify://pages/sales-representative-locator"
+            "button_link": "shopify://pages/international-sales-representatives"
           }
         }
       },
