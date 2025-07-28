@@ -60,7 +60,7 @@
           "type": "inventory_status",
           "settings": {
             "inventory_threshold": 10,
-            "inventory_transfers_enable": false
+            "inventory_transfers_enable": true
           }
         },
         "custom_YXn4Qg": {
