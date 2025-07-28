@@ -1,73 +1,16 @@
 {% comment %}
   Simple Sold Out Inventory Display
   Shows red icon and "Sold Out" message for out of stock products
-  Only shows for wholesale customers and non-logged in users
 {% endcomment %}
-
-<!-- DEBUG: Always show this to confirm the snippet is loading -->
-<div style="background: yellow; padding: 5px; margin: 5px 0;">
-  🚨 SOLD OUT SNIPPET LOADED 🚨
-</div>
 
 {%- liquid
   assign current_variant = product.selected_or_first_available_variant
   assign show_sold_out = false
   
-  # Check if customer is wholesale (reuse your existing logic)
-  assign wcp_wholesale_customer = false
-  if shop.metafields.wcp_status.wcp_status != 'disabled' and customer
-    assign active_discounts = shop.metafields.wcp_active_discounts.wcp_active_discounts
-    assign active_discounts_array = active_discounts | split: ','
-    assign customer_tags = blank
-    
-    for tag in customer.tags
-      assign tempTag = tag | downcase
-      assign customer_tags = customer_tags | append: tempTag
-      unless forloop.last
-        assign customer_tags = customer_tags | append: ','
-      endunless
-    endfor
-    
-    assign customer_tags = customer_tags | split: ','
-    assign active_discounts = active_discounts | downcase
-    
-    for discount_key in active_discounts_array
-      assign key_split = discount_key | split: '-'
-      assign key_split_length = key_split | size
-      if key_split_length > 2
-        assign removeable_key = key_split.last | prepend: '-'
-        assign wcp_customer_tag = discount_key | remove_last: removeable_key
-      else
-        assign wcp_customer_tag = key_split[0]
-      endif
-      assign wcp_customer_tag = wcp_customer_tag | downcase
-      if customer_tags contains wcp_customer_tag
-        assign wcp_wholesale_customer = true
-      endif
-    endfor
-  endif
-  
-  # Only show sold out indicator for:
-  # 1. Wholesale customers OR
-  # 2. Non-logged in users (customer == null)
   if current_variant.inventory_management == 'shopify' and current_variant.inventory_quantity <= 0
-    if wcp_wholesale_customer == true or customer == null
-      assign show_sold_out = true
-    endif
+    assign show_sold_out = true
   endif
 -%}
-
-<!-- DEBUG: Show all the variables -->
-<div style="background: lightblue; padding: 10px; margin: 5px 0; font-size: 12px;">
-  <strong>DEBUG INFO:</strong><br>
-  inventory_quantity: {{ current_variant.inventory_quantity }}<br>
-  inventory_management: {{ current_variant.inventory_management }}<br>
-  customer exists: {{ customer != null }}<br>
-  wcp_wholesale_customer: {{ wcp_wholesale_customer }}<br>
-  show_sold_out: {{ show_sold_out }}<br>
-  Condition 1 (inventory <= 0): {{ current_variant.inventory_quantity <= 0 }}<br>
-  Condition 2 (wholesale OR not logged in): {{ wcp_wholesale_customer == true or customer == null }}
-</div>
 
 <style>
   .sold-out-indicator {
@@ -84,6 +27,9 @@
   
   .sold-out-indicator .icon--inventory {
     fill: #dc2626 !important; /* Red color */
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
   }
   
   .sold-out-text {
@@ -103,7 +49,11 @@
 {%- if show_sold_out -%}
   <div class="sold-out-indicator" data-sold-out-display>
     <span class="icon-and-text">
-      <span class="icon icon--inventory" style="fill: #dc2626;"></span>
+      <svg class="icon icon--inventory" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <path d="M32 10L10 22v20l22 12 22-12V22L32 10z"/>
+        <path d="M32 34v20M10 22l22 12 22-12"/>
+        <circle cx="32" cy="32" r="3"/>
+      </svg>
       <span class="sold-out-text">{{ 'products.product.sold_out' | t | default: 'Sold Out' }}</span>
     </span>
   </div>
