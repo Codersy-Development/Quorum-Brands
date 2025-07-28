@@ -722,76 +722,6 @@
             "cellphone": "",
             "website": ""
           }
-        },
-        "rep_pAHnPj": {
-          "type": "rep",
-          "settings": {
-            "name": "Representative Name",
-            "rep_group": "",
-            "position": "",
-            "territory": "",
-            "territory_detail": "",
-            "email": "",
-            "phone": "",
-            "cellphone": "",
-            "website": ""
-          }
-        },
-        "rep_zeqBYE": {
-          "type": "rep",
-          "settings": {
-            "name": "Representative Name",
-            "rep_group": "",
-            "position": "",
-            "territory": "",
-            "territory_detail": "",
-            "email": "",
-            "phone": "",
-            "cellphone": "",
-            "website": ""
-          }
-        },
-        "rep_7FtdNH": {
-          "type": "rep",
-          "settings": {
-            "name": "Representative Name",
-            "rep_group": "",
-            "position": "",
-            "territory": "",
-            "territory_detail": "",
-            "email": "",
-            "phone": "",
-            "cellphone": "",
-            "website": ""
-          }
-        },
-        "rep_rhqUdj": {
-          "type": "rep",
-          "settings": {
-            "name": "Representative Name",
-            "rep_group": "",
-            "position": "",
-            "territory": "",
-            "territory_detail": "",
-            "email": "",
-            "phone": "",
-            "cellphone": "",
-            "website": ""
-          }
-        },
-        "rep_RX34Az": {
-          "type": "rep",
-          "settings": {
-            "name": "Representative Name",
-            "rep_group": "",
-            "position": "",
-            "territory": "",
-            "territory_detail": "",
-            "email": "",
-            "phone": "",
-            "cellphone": "",
-            "website": ""
-          }
         }
       },
       "block_order": [
@@ -838,12 +768,7 @@
         "rep_6QMehq",
         "rep_U8HwfX",
         "rep_PgFj4t",
-        "rep_DGxaFV",
-        "rep_pAHnPj",
-        "rep_zeqBYE",
-        "rep_7FtdNH",
-        "rep_rhqUdj",
-        "rep_RX34Az"
+        "rep_DGxaFV"
       ],
       "custom_css": [
         "@media screen and (min-width: 750px) {.sales-reps-header {margin-top: 75px; }}"
