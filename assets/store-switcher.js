@@ -9,14 +9,14 @@ const setCollectionsFilters = () => {
       // IMPORTANT: Only modify actual collections pages, not product pages
       if (url.pathname.includes('/products/')) {
         // This is a product page - don't modify the main URL structure, just handle filters
-        if (store === 'explore all brands' || store === 'Explore All Brands') {
+        if (store === 'all brands' || store === 'All Brands') {
           url.searchParams.delete(VENDOR_KEY);
         } else {
           url.searchParams.set(VENDOR_KEY, store);
         }
       } else {
         // This is a collections page - apply normal filtering
-        if (store === 'explore all brands' || store === 'Explore All Brands') {
+        if (store === 'all brands' || store === 'All Brands') {
           url.searchParams.delete(VENDOR_KEY);
         } else {
           url.searchParams.set(VENDOR_KEY, store);
@@ -108,7 +108,7 @@ class StoreSwitcher extends HTMLElement {
               window.location.replace(current.toString());
             }
           } else {
-            // This is a product page - also handle vendor filter removal for "Shop All"
+            // This is a product page - also handle vendor filter removal for "ALL BRANDS"
             if(input.value.toLowerCase().includes("shop all")) {
               current.searchParams.delete("filter.p.vendor");
               window.location.replace(current.toString());
