@@ -1,0 +1,94 @@
+{% comment %}
+  Simple Sold Out Inventory Display
+  Shows red icon and "Sold Out" message for out of stock products
+{% endcomment %}
+
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign show_sold_out = false
+  
+  if current_variant.inventory_management == 'shopify' and current_variant.inventory_quantity <= 0
+    assign show_sold_out = true
+  endif
+-%}
+
+<style>
+  .sold-out-indicator {
+    display: block !important;
+    margin: 10px 0;
+    padding: 8px 0;
+  }
+  
+  .sold-out-indicator .icon-and-text {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .sold-out-indicator .icon--inventory {
+    fill: #dc2626 !important; /* Red color */
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+  
+  .sold-out-text {
+    color: #dc2626 !important; /* Red color */
+    font-weight: 600;
+    font-size: 14px;
+  }
+  
+  /* Ensure this always shows for sold out products */
+  .sold-out-indicator:not(.force-hide) {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+</style>
+
+{%- if show_sold_out -%}
+  <div class="sold-out-indicator" data-sold-out-display>
+    <span class="icon-and-text">
+      <svg class="icon icon--inventory" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <path d="M32 10L10 22v20l22 12 22-12V22L32 10z"/>
+        <path d="M32 34v20M10 22l22 12 22-12"/>
+        <circle cx="32" cy="32" r="3"/>
+      </svg>
+      <span class="sold-out-text">{{ 'products.product.sold_out' | t | default: 'Sold Out' }}</span>
+    </span>
+  </div>
+  
+  <script>
+    // Ensure sold out indicator stays visible
+    document.addEventListener('DOMContentLoaded', function() {
+      const soldOutIndicator = document.querySelector('[data-sold-out-display]');
+      
+      if (soldOutIndicator) {
+        // Force it to be visible
+        soldOutIndicator.style.display = 'block';
+        soldOutIndicator.style.visibility = 'visible';
+        soldOutIndicator.style.opacity = '1';
+        
+        // Watch for any attempts to hide it
+        const observer = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type === 'attributes') {
+              // Reset display if something tries to hide it
+              if (soldOutIndicator.style.display === 'none' || 
+                  soldOutIndicator.style.visibility === 'hidden') {
+                soldOutIndicator.style.display = 'block';
+                soldOutIndicator.style.visibility = 'visible';
+                soldOutIndicator.style.opacity = '1';
+              }
+            }
+          });
+        });
+        
+        observer.observe(soldOutIndicator, {
+          attributes: true,
+          attributeFilter: ['style', 'class']
+        });
+      }
+    });
+  </script>
+{%- endif -%}
