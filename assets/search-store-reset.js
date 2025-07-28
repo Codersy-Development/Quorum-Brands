@@ -74,7 +74,7 @@
       }
       
       // Determine if product should be shown
-      const shouldShow = selectedStore.toLowerCase().includes("shop all") || 
+      const shouldShow = selectedStore.toLowerCase().includes("all brands") || 
                         productVendor === selectedStore.toLowerCase() ||
                         selectedStore === '';
       
