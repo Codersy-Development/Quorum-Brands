@@ -1,28 +1,26 @@
-<store-switch-menus class="store-switch-menus">
+<store-switch-menus>
   <div class="ssm__container">
-    <ul class="ssm__menu">
-      {% for block in section.blocks %}
-        {% case block.type %}
-          {% when 'store_selector' %}
-            {% assign menu = block.settings.menu %}
-            
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'store_selector' %}
+          {% assign menu = block.settings.menu %}
+          <ul class="ssm__menu no-bullets" data-store="{{ block.settings.title |  downcase }}">
             {% for link in menu.links %}
-              <li class="ssm__menu-item">
+              <li>
                 <a href="{{ link.url }}" class="ssm__menu-link">
                   {{ link.title }}
                 </a>
-                
                 {% if block.settings.is_mega_menu == true %}
                   {% if link.links.size > 0 %}
                     <div class="ssm__mega-menu">
                       <div class="ssm__mega-menu-container">
                         {% for childlink in link.links %}
-                          <div class="ssm__mega-menu-section">
+                          <div>
                             <a href="{{ childlink.url }}" class="ssm__menu-link ssm__menu-link--title">
                               {{ childlink.title }}
                             </a>
-                            {% if childlink.links.size > 0 %}
-                              <ul class="ssm__submenu">
+                            {% if childlink.links %}
+                              <ul class="no-bullets ssm__mega-menu--submenu">
                                 {% for grandchild in childlink.links %}
                                   <li>
                                     <a href="{{ grandchild.url }}" class="ssm__menu-link">
@@ -38,15 +36,15 @@
                     </div>
                   {% endif %}
                 {% else %}
-                  {% if link.links.size > 0 %}
-                    <ul class="ssm__menu--submenu">
+                  {% if link.links %}
+                    <ul class="no-bullets ssm__menu--submenu">
                       {% for childlink in link.links %}
                         <li>
                           <a href="{{ childlink.url }}" class="ssm__menu-link">
                             {{ childlink.title }}
                           </a>
-                          {% if childlink.links.size > 0 %}
-                            <ul class="ssm__menu--submenu">
+                          {% if childlink.links %}
+                            <ul class="no-bullets ssm__menu--submenu">
                               {% for grandchild in childlink.links %}
                                 <li>
                                   <a href="{{ grandchild.url }}" class="ssm__menu-link">
@@ -63,9 +61,8 @@
                 {% endif %}
               </li>
             {% endfor %}
-            
-        {% endcase %}
-      {% endfor %}
-    </ul>
+          </ul>
+      {% endcase %}
+    {% endfor %}
   </div>
 </store-switch-menus>
