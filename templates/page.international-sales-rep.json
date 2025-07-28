@@ -16,7 +16,7 @@
           "type": "image",
           "settings": {
             "top_subheading": "",
-            "title": "Authorized\nInternational\nSales\nRepresentatives",
+            "title": "Authorized\nSales\nRepresentatives",
             "title_size": 80,
             "subheading": "",
             "link": "",
@@ -29,10 +29,29 @@
             "parallax_direction": "top",
             "overlay_opacity": 0
           }
+        },
+        "image_JxBCMM": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "Authorized\nSales\nRepresentatives",
+            "title_size": 80,
+            "subheading": "",
+            "link": "",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-left",
+            "image": "shopify://shop_images/Brett-Design-2.jpg",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
         }
       },
       "block_order": [
-        "slide1"
+        "slide1",
+        "image_JxBCMM"
       ],
       "settings": {
         "section_height": "650px",
@@ -68,7 +87,7 @@
             "title": "International Sales",
             "text": "<p>Search for Sales Representatives outside the US.</p>",
             "button_label": "Search",
-            "button_link": "shopify://pages/international-sales-representatives"
+            "button_link": "shopify://pages/sales-representative-locator"
           }
         }
       },
@@ -87,16 +106,30 @@
     "sales_representatives_zFym6A": {
       "type": "sales-representatives",
       "blocks": {
+        "rep_9FNFk3": {
+          "type": "rep",
+          "settings": {
+            "name": "Adam Barri",
+            "rep_group": "303  Lighting ",
+            "position": "",
+            "territory": "Colorado, Utah, Southern Wyoming",
+            "territory_detail": "",
+            "email": "303lighting@gmail.com",
+            "phone": "(720)  984-5442",
+            "cellphone": "",
+            "website": ""
+          }
+        },
         "rep_zAQxJD": {
           "type": "rep",
           "settings": {
-            "name": "Andre O'Connell",
-            "rep_group": "A-Lume ",
+            "name": "Representative Name",
+            "rep_group": "",
             "position": "",
-            "territory": "Quebec, Nova Scotia,  Newfoundland, New Brunswick, Labrador",
-            "territory_detail": "Canada",
-            "email": "andre@a-lume.com",
-            "phone": "(418)  569-4152",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
             "cellphone": "",
             "website": ""
           }
@@ -761,6 +794,7 @@
         }
       },
       "block_order": [
+        "rep_9FNFk3",
         "rep_zAQxJD",
         "rep_NtQABn",
         "rep_QBTinp",
