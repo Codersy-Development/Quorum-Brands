@@ -1,17 +1,13 @@
-/* Your existing CSS + All Brands enhancements */
-
 .header-nav--second-row {
   display: grid;
   grid-template-columns: 50px 1fr 50px;
 }
-
 @media only screen and (max-width: 1199px) {
   .header-layout.header-layout--center-drawer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
-
 @media only screen and (min-width: 1200px) {
   .header-layout.header-layout--center-drawer {
     display: grid;
@@ -28,16 +24,13 @@ store-switcher {
   align-items: center;
   justify-content: end;
   height: 100%;
-  
   & * {
     margin: 0;
     padding: 0;
   }
-  
   & input {
     display: none;
   }
-  
   & .store-switcher__btn {
     border: 1px solid;
     border-radius: 0.3rem;
@@ -46,39 +39,21 @@ store-switcher {
     color: var(--store-switch-buttons-text-color);
     padding: 6px 18px;
     height: fit-content;
-    transition: all 0.3s ease; /* Smooth transitions */
   }
-  
   & .store-switcher-title {
     letter-spacing: 0.032rem;
     line-height: 1.4rem;
     font-size: 1rem;
     color: var(--store-switch-buttons-text-color);
-    transition: color 0.3s ease;
   }
-  
   & .store-switcher__btn:has(input:checked) {
     border-color: var(--selected-store-switch-btn-color);
     color: var(--selected-store-switch-btn-text-color);
     background-color: var(--selected-store-switch-btn-color);
   }
-  
   & .store-switcher__btn:has(input:checked) .store-switcher-title {
     color: var(--selected-store-switch-btn-text-color);
   }
-  
-  /* NEW: All Brands button styling */
-  & .store-switcher__btn--all-brands:has(input:checked) {
-    border-color: var(--all-brands-btn-color, #007bff);
-    color: var(--all-brands-btn-text-color, white);
-    background-color: var(--all-brands-btn-color, #007bff);
-    font-weight: 600;
-  }
-  
-  & .store-switcher__btn--all-brands:has(input:checked) .store-switcher-title {
-    color: var(--all-brands-btn-text-color, white);
-  }
-  
   @media only screen and (max-width: 768px) {
     flex-wrap: wrap;
   }
@@ -89,7 +64,6 @@ store-switch-menus {
     margin: 0;
     padding: 0;
   }
-  
   & .ssm__container {
     display: flex;
     flex-direction: column;
@@ -102,16 +76,13 @@ store-switch-menus {
     display: flex;
     gap: 1.5rem;
   }
-  
   & .ssm__menu-link {
     /* text-transform: uppercase; */
   }
-  
   & .ssm__menu-link:hover {
     text-decoration: underline;
     outline-offset: 2px;
   }
-  
   li:has(> .ssm__menu--submenu) {
     position: relative;
   }
@@ -128,11 +99,9 @@ store-switch-menus {
     min-width: 180px;
     gap: 8px;
   }
-  
   li:hover > .ssm__menu--submenu {
     display: flex;
   }
-  
   li > .ssm__menu--submenu li:hover > .ssm__menu--submenu {
     left: 100%;
     transform: translateX(0%);
@@ -142,26 +111,23 @@ store-switch-menus {
   li:has(> .ssm__mega-menu) {
     /* position: relative; */
   }
-  
   & .ssm__mega-menu {
     position: absolute;
     top: calc(100% - 4px);
     left: 0;
+
     background-color: var(--colorNav);
     padding: 1rem 1.5rem;
     visibility: hidden;
     opacity: 0;
     width: 100vw;
     pointer-events: none;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
   }
-  
   .ssm__mega-menu.visible {
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
   }
-  
   /* ===== UPDATED MEGA MENU CONTAINER ===== */
   & .ssm__mega-menu-container {
     display: flex;
@@ -187,7 +153,6 @@ store-switch-menus {
     text-transform: uppercase;
     font-weight: 600;
   }
-  
   @media only screen and (max-width: 1350px) {
     .ssm__menu-link--title {
       font-size: 14px;
@@ -201,7 +166,6 @@ store-switch-menus {
       font-size: 16px;
     }
   }
-  
   @media only screen and (max-width: 1250px) {
     & .ssm__mega-menu.ssm__menu-link {
       font-size: 14px;
@@ -212,7 +176,6 @@ store-switch-menus {
     }
   }
 }
-
 /* Brand-specific adjustments */
 html[data-store-selected="oxygen"] .ssm__mega-menu-container {
   max-width: 900px !important;
@@ -222,40 +185,6 @@ html[data-store-selected="oxygen"] .ssm__mega-menu-container {
 html[data-store-selected="quorum"] .ssm__mega-menu-container {
   max-width: 1200px !important;
   gap: 2rem !important;
-}
-
-/* NEW: All Brands specific adjustments */
-html[data-store-selected="all brands"] .ssm__mega-menu-container {
-  max-width: 1400px !important;
-  gap: 2.5rem !important;
-}
-
-/* Hide brand-specific tags when "All Brands" is selected */
-html[data-store-selected="all brands"] .tag:has(> #tag-oxygen),
-html[data-store-selected="all brands"] .tag:has(> #tag-quorum) {
-  display: block !important; /* Show all brand tags when "All Brands" is selected */
-}
-
-/* Keep existing brand-specific tag hiding */
-html[data-store-selected="oxygen"] .tag:has(> #tag-oxygen) {
-  display: none !important;
-}
-
-html[data-store-selected="quorum"] .tag:has(> #tag-quorum) {
-  display: none !important;
-}
-
-/* NEW: Collection/Product page indicators for All Brands */
-html[data-store-selected="all brands"] .collection-header::before {
-  content: "Showing all brands";
-  display: block;
-  padding: 0.5rem 1rem;
-  background: var(--all-brands-indicator-bg, #f8f9fa);
-  border: 1px solid var(--all-brands-indicator-border, #dee2e6);
-  border-radius: 0.25rem;
-  font-size: 0.875rem;
-  color: var(--all-brands-indicator-text, #6c757d);
-  margin-bottom: 1rem;
 }
 
 /* Additional responsive adjustments */
@@ -269,12 +198,6 @@ html[data-store-selected="all brands"] .collection-header::before {
     max-width: 1000px !important;
     gap: 1.5rem !important;
   }
-  
-  /* NEW: All Brands responsive */
-  html[data-store-selected="all brands"] .ssm__mega-menu-container {
-    max-width: 1200px !important;
-    gap: 2rem !important;
-  }
 }
 
 @media only screen and (max-width: 1250px) {
@@ -284,11 +207,6 @@ html[data-store-selected="all brands"] .collection-header::before {
   
   html[data-store-selected="quorum"] .ssm__mega-menu-container {
     max-width: 900px !important;
-  }
-  
-  /* NEW: All Brands responsive */
-  html[data-store-selected="all brands"] .ssm__mega-menu-container {
-    max-width: 1000px !important;
   }
 }
 
@@ -305,14 +223,15 @@ html[data-store-selected="all brands"] .collection-header::before {
   }
 }
 
-/* Mobile drawer and other existing styles */
+/* END OF MODIFICATIONS */
+
 #PBarNextFrameWrapper {
   display: none !important;
 }
 
 .store-switch-buttons--drawer {
   position: fixed;
-  bottom: 0;
+  bottom: -0;
   z-index: 9999;
   background: var(--colorDrawers);
   width: 100%;
@@ -350,34 +269,16 @@ html[data-store-selected="all brands"] .collection-header::before {
     display: none !important;
   }
 }
-
 @media only screen and (min-width: 1236px) {
   .navigation-cenetered-bottom {
     display: none !important;
   }
 }
 
-/* NEW: Loading states for store switching */
-store-switcher.switching {
-  pointer-events: none;
-  opacity: 0.7;
+html[data-store-selected="oxygen"] .tag:has(> #tag-oxygen){
+  display: none!important;
 }
 
-store-switcher.switching::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 20px;
-  height: 20px;
-  border: 2px solid transparent;
-  border-top: 2px solid var(--selected-store-switch-btn-color);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  transform: translate(-50%, -50%);
-}
-
-@keyframes spin {
-  0% { transform: translate(-50%, -50%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
+html[data-store-selected="quorum"] .tag:has(> #tag-quorum){
+  display: none!important;
 }

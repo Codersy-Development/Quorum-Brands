@@ -1,18 +1,23 @@
-<store-switcher class="store-switcher">
-  {% comment %} All Brands Button {% endcomment %}
-  <label class="store-switcher__btn store-switcher__btn--all-brands">
-    <input type="radio" name="store-select" value="all brands" class="store-switcher__input">
-    <span class="store-switcher-title">All Brands</span>
-  </label>
-
-  {% comment %} Individual Brand Buttons {% endcomment %}
-  {% assign all_vendors = collections.all.all_vendors %}
-  {% for vendor in all_vendors %}
-    {% unless vendor == blank %}
-      <label class="store-switcher__btn" data-vendor="{{ vendor | downcase | handle }}">
-        <input type="radio" name="store-select" value="{{ vendor | downcase }}" class="store-switcher__input">
-        <span class="store-switcher-title">{{ vendor }}</span>
-      </label>
-    {% endunless %}
+{% assign random_number = 'now' | date: '%N' | modulo: 9999 | plus: 1 %}
+<store-switcher class="store-switcher-box">
+  {% for block in section.blocks %}
+    {% case block.type %}
+      {% when 'store_selector' %}
+        {% assign store_name = block.settings.title %}
+        <div class="store-switcher__btn">
+          <label for="store-switcher-{{ store_name  |  downcase }}--{{ random_number }}">
+            <input
+              type="radio"
+              name="store-switcher-{{ random_number }}"
+              id="store-switcher-{{ store_name |  downcase }}--{{ random_number }}"
+              value="{{ store_name |  downcase  }}"
+              checked
+            >
+            <div class="store-switcher-content">
+              <div class="store-switcher-title">{{ store_name }}</div>
+            </div>
+          </label>
+        </div>
+    {% endcase %}
   {% endfor %}
 </store-switcher>
