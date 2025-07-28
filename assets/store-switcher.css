@@ -282,3 +282,52 @@ html[data-store-selected="oxygen"] .tag:has(> #tag-oxygen){
 html[data-store-selected="quorum"] .tag:has(> #tag-quorum){
   display: none!important;
 }
+
+
+/* Add these 3 sections to your existing store-switch.css */
+
+/* 1. Add "All Brands" mega menu container support */
+html[data-store-selected="all brands"] .ssm__mega-menu-container {
+  max-width: 1400px !important;
+  gap: 2rem !important;
+}
+
+/* 2. Add responsive support for "All Brands" */
+@media only screen and (max-width: 1350px) {
+  html[data-store-selected="oxygen"] .ssm__mega-menu-container {
+    max-width: 800px !important;
+    gap: 2rem !important;
+  }
+  
+  html[data-store-selected="quorum"] .ssm__mega-menu-container {
+    max-width: 1000px !important;
+    gap: 1.5rem !important;
+  }
+  
+  /* NEW: All Brands responsive */
+  html[data-store-selected="all brands"] .ssm__mega-menu-container {
+    max-width: 1200px !important;
+    gap: 1.5rem !important;
+  }
+}
+
+@media only screen and (max-width: 1250px) {
+  html[data-store-selected="oxygen"] .ssm__mega-menu-container {
+    max-width: 700px !important;
+  }
+  
+  html[data-store-selected="quorum"] .ssm__mega-menu-container {
+    max-width: 900px !important;
+  }
+  
+  /* NEW: All Brands responsive */
+  html[data-store-selected="all brands"] .ssm__mega-menu-container {
+    max-width: 1000px !important;
+  }
+}
+
+/* 3. Tag visibility for "All Brands" - SHOW all tags when "All Brands" is selected */
+html[data-store-selected="all brands"] .tag:has(> #tag-oxygen),
+html[data-store-selected="all brands"] .tag:has(> #tag-quorum) {
+  display: block !important; /* Override the hide rules and show all tags */
+}
