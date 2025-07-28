@@ -1,23 +1,145 @@
+{%- comment -%}
+  Insert the below 
+  {% render 'format-colons', content: cleaned_content %}
+  assign cleaned_content = format-colons
+{%- endcomment -%}
+
 {%- liquid
-  assign output_tab = true
-  if title == blank and content == blank
-    assign output_tab = false
+  assign has_content = false
+  assign cleaned_content = ''
+
+
+  if content != blank and content != '' and content != nil
+    comment
+      First, check if there's actually meaningful content
+    endcomment
+    assign content_test = content | strip_html | strip | replace: '&nbsp;', '' | replace: ' ', '' | replace: '\n', '' | replace: '\r', '' | replace: '\t', ''
+    
+    if content_test != blank and content_test != '' and content_test.size > 0
+      assign has_content = true
+      
+      comment
+        Aggressive content cleaning
+      endcomment
+      assign cleaned_content = content
+      
+      comment
+        First pass: normalize all br variants
+      endcomment
+      assign cleaned_content = cleaned_content | replace: '<br/>', '<br>'
+      assign cleaned_content = cleaned_content | replace: '<br />', '<br>'
+      assign cleaned_content = cleaned_content | replace: '<BR>', '<br>'
+      assign cleaned_content = cleaned_content | replace: '<BR/>', '<br>'
+      assign cleaned_content = cleaned_content | replace: '<BR />', '<br>'
+      
+      comment
+        Remove problematic paragraph patterns - do this multiple times
+      endcomment
+      assign cleaned_content = cleaned_content | replace: '<p><br></p>', ''
+      assign cleaned_content = cleaned_content | replace: '<p><br><br></p>', ''
+      assign cleaned_content = cleaned_content | replace: '<p><br><br><br></p>', ''
+      assign cleaned_content = cleaned_content | replace: '<p> </p>', ''
+      assign cleaned_content = cleaned_content | replace: '<p></p>', ''
+      assign cleaned_content = cleaned_content | replace: '<p>&nbsp;</p>', ''
+      
+      comment
+        Second pass to catch any remaining empty paragraphs
+      endcomment
+      assign cleaned_content = cleaned_content | replace: '<p></p>', ''
+      assign cleaned_content = cleaned_content | replace: '<p> </p>', ''
+      assign cleaned_content = cleaned_content | replace: '<p>&nbsp;</p>', ''
+      
+      comment
+        Remove br tags at end of paragraphs that create extra spacing
+      endcomment
+      assign cleaned_content = cleaned_content | replace: '<p><br>', '<p>'
+      assign cleaned_content = cleaned_content | replace: '<br></p>', '</p>'
+      assign cleaned_content = cleaned_content | replace: '<p><br><br>', '<p>'
+      assign cleaned_content = cleaned_content | replace: '<br><br></p>', '</p>'
+      
+      comment
+        Clean up double br tags within paragraphs - do this multiple times
+      endcomment
+      assign cleaned_content = cleaned_content | replace: '<br><br><br>', '<br>'
+      assign cleaned_content = cleaned_content | replace: '<br><br>', '<br>'
+      assign cleaned_content = cleaned_content | replace: '<br><br>', '<br>'
+      
+      comment
+        Remove br tags at end of paragraphs again after br cleanup
+      endcomment
+      assign cleaned_content = cleaned_content | replace: '<br></p>', '</p>'
+      
+      comment
+        Collapse multiple br tags - do this several times
+      endcomment
+      assign cleaned_content = cleaned_content | replace: '<br><br><br><br><br><br>', '<br><br>'
+      assign cleaned_content = cleaned_content | replace: '<br><br><br><br><br>', '<br><br>'
+      assign cleaned_content = cleaned_content | replace: '<br><br><br><br>', '<br><br>'
+      assign cleaned_content = cleaned_content | replace: '<br><br><br>', '<br><br>'
+      
+      comment
+        Remove standalone br tags outside of paragraphs
+      endcomment
+      assign cleaned_content = cleaned_content | replace: '</p><br><p>', '</p><p>'
+      assign cleaned_content = cleaned_content | replace: '</p><br><br><p>', '</p><p>'
+      assign cleaned_content = cleaned_content | replace: '</p><br><br><br><p>', '</p><p>'
+      
+      comment
+        Clean up whitespace
+      endcomment
+      assign cleaned_content = cleaned_content | replace: '    ', ' '
+      assign cleaned_content = cleaned_content | replace: '   ', ' '
+      assign cleaned_content = cleaned_content | replace: '  ', ' '
+      
+      comment
+        Remove leading/trailing br tags from entire content
+      endcomment
+      assign cleaned_content = cleaned_content | strip
+      
+      comment
+        Remove br at very beginning
+      endcomment
+      assign content_start = cleaned_content | slice: 0, 4
+      if content_start == '<br>'
+        assign cleaned_content = cleaned_content | slice: 4, 999999
+        assign cleaned_content = cleaned_content | strip
+      endif
+      
+      comment
+        Remove br at very end
+      endcomment
+      assign content_length = cleaned_content.size
+      if content_length > 4
+        assign content_end = cleaned_content | slice: -4, 4
+        if content_end == '<br>'
+          assign temp_size = content_length | minus: 4
+          assign cleaned_content = cleaned_content | slice: 0, temp_size
+          assign cleaned_content = cleaned_content | strip
+        endif
+      endif
+      
+      comment
+        Final cleanup pass - remove any remaining empty elements
+      endcomment
+      assign cleaned_content = cleaned_content | replace: '<p></p>', ''
+      assign cleaned_content = cleaned_content | replace: '<p> </p>', ''
+      assign cleaned_content = cleaned_content | replace: '<div></div>', ''
+      assign cleaned_content = cleaned_content | replace: '<div> </div>', ''
+      assign cleaned_content = cleaned_content | strip
+    endif
   endif
 -%}
-{%- if output_tab -%}
-  <div class="collapsibles-wrapper collapsibles-wrapper--border-bottom">
-    <button type="button"
-      class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height{% if force_open %} is-open{% endif %}" aria-controls="Product-content-{{ id }}"
-      {% if force_open %}aria-expanded="true"{% endif %}>
-      {{ title }}
-      {%- render 'collapsible-icons' -%}
-    </button>
-    <div id="Product-content-{{ id }}"
-      class="collapsible-content collapsible-content--all{% if force_open %} is-open{% endif %}"
-      {% if force_open %}style="height: auto;"{% endif %}>
-      <div class="collapsible-content__inner rte">
-        {{ content }}
-      </div>
+
+{%- if has_content -%}
+<div class="collapsibles-wrapper collapsibles-wrapper--border-bottom">
+  <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height{%- if force_open %} is-open{%- endif -%}" aria-controls="Product-content-{{ id }}"{%- if force_open %} aria-expanded="true"{%- endif -%}>
+    {{- title | strip -}}
+    {%- render 'collapsible-icons' -%}
+  </button>
+  <div id="Product-content-{{ id }}" class="collapsible-content collapsible-content--all{%- if force_open %} is-open{%- endif -%}"{%- if force_open %} style="height: auto;"{%- endif -%}>
+    <div class="collapsible-content__inner rte">
+      {{- cleaned_content -}}
     </div>
   </div>
+</div>
 {%- endif -%}
