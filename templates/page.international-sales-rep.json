@@ -1,0 +1,863 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "slideshow",
+      "blocks": {
+        "slide1": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "Authorized\nSales\nRepresentatives",
+            "title_size": 80,
+            "subheading": "",
+            "link": "",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-left",
+            "image": "shopify://shop_images/Outdoor_2.jpg",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        },
+        "image_JxBCMM": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "Authorized\nSales\nRepresentatives",
+            "title_size": 80,
+            "subheading": "",
+            "link": "",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-left",
+            "image": "shopify://shop_images/Brett-Design-2.jpg",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "slide1",
+        "image_JxBCMM"
+      ],
+      "settings": {
+        "section_height": "650px",
+        "mobile_height": "auto",
+        "parallax": true,
+        "style": "bars",
+        "autoplay": true,
+        "autoplay_speed": 7,
+        "lazyload_images": true
+      }
+    },
+    "text_columns_3c6Ygi": {
+      "type": "text-columns",
+      "blocks": {
+        "text_block_kXVDip": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": false,
+            "image_mask": "none",
+            "image_width": 60,
+            "title": "United State",
+            "text": "<p>Search for Sales Representatives in the United States.</p>",
+            "button_label": "Search",
+            "button_link": "shopify://pages/sales-representative-locator"
+          }
+        },
+        "text_block_MEePPP": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": false,
+            "image_mask": "none",
+            "image_width": 60,
+            "title": "International Sales",
+            "text": "<p>Search for Sales Representatives outside the US.</p>",
+            "button_label": "Search",
+            "button_link": "shopify://pages/sales-representative-locator"
+          }
+        }
+      },
+      "block_order": [
+        "text_block_kXVDip",
+        "text_block_MEePPP"
+      ],
+      "custom_css": [],
+      "name": "t:sections.text-columns.presets.text_columns_with_images.name",
+      "settings": {
+        "title": "Sales Representatives",
+        "align_text": "center",
+        "divider": false
+      }
+    },
+    "sales_representatives_zFym6A": {
+      "type": "sales-representatives",
+      "blocks": {
+        "rep_9FNFk3": {
+          "type": "rep",
+          "settings": {
+            "name": "Adam Barri",
+            "rep_group": "303  Lighting ",
+            "position": "",
+            "territory": "Colorado, Utah, Southern Wyoming",
+            "territory_detail": "",
+            "email": "303lighting@gmail.com",
+            "phone": "(720)  984-5442",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_zAQxJD": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_NtQABn": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_QBTinp": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_MEcmw9": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_FJytVV": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_L49bLB": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_48rWmq": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_TgTjWU": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_G8F3iP": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_BDdx33": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_kETnGJ": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_gFRHHr": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_rT7mAQ": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_qLYmeX": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_fg44zW": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_iDiTM3": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_jwJgmR": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_DTrqjL": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_DHVTEB": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_DVqyLc": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_GHcnk4": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_bJtYeC": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_CtY3Mw": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_M7HqJ3": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_rQEpDw": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_qifJYt": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_nCjxFe": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_h4QAn3": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_6pqwH8": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_RD67fd": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_iUAHdj": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_WH34Vp": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_rf4xez": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_6anpUX": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_rkhbPA": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_Na49FE": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_J7nqnt": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_ft3aY8": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_VeEN9j": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_U8HwfX": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_6QMehq": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_PgFj4t": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_DGxaFV": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_pAHnPj": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_zeqBYE": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_7FtdNH": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_rhqUdj": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_RX34Az": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
+            "cellphone": "",
+            "website": ""
+          }
+        }
+      },
+      "block_order": [
+        "rep_9FNFk3",
+        "rep_zAQxJD",
+        "rep_NtQABn",
+        "rep_QBTinp",
+        "rep_MEcmw9",
+        "rep_FJytVV",
+        "rep_L49bLB",
+        "rep_48rWmq",
+        "rep_TgTjWU",
+        "rep_G8F3iP",
+        "rep_BDdx33",
+        "rep_kETnGJ",
+        "rep_gFRHHr",
+        "rep_rT7mAQ",
+        "rep_qLYmeX",
+        "rep_fg44zW",
+        "rep_iDiTM3",
+        "rep_jwJgmR",
+        "rep_DTrqjL",
+        "rep_DHVTEB",
+        "rep_DVqyLc",
+        "rep_GHcnk4",
+        "rep_bJtYeC",
+        "rep_CtY3Mw",
+        "rep_M7HqJ3",
+        "rep_rQEpDw",
+        "rep_qifJYt",
+        "rep_nCjxFe",
+        "rep_h4QAn3",
+        "rep_6pqwH8",
+        "rep_RD67fd",
+        "rep_iUAHdj",
+        "rep_WH34Vp",
+        "rep_rf4xez",
+        "rep_6anpUX",
+        "rep_rkhbPA",
+        "rep_Na49FE",
+        "rep_J7nqnt",
+        "rep_ft3aY8",
+        "rep_VeEN9j",
+        "rep_U8HwfX",
+        "rep_6QMehq",
+        "rep_PgFj4t",
+        "rep_DGxaFV",
+        "rep_pAHnPj",
+        "rep_zeqBYE",
+        "rep_7FtdNH",
+        "rep_rhqUdj",
+        "rep_RX34Az"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 750px) {.sales-reps-header {margin-top: 75px; }}"
+      ],
+      "name": "Sales Representatives",
+      "settings": {
+        "title": "",
+        "description": "<p>Contact our professional sales team for assistance</p>",
+        "items_per_page": 15
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "text_columns_3c6Ygi",
+    "sales_representatives_zFym6A"
+  ]
+}
