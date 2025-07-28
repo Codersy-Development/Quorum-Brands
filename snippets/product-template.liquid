@@ -284,6 +284,8 @@
       </div>
     {%- endif -%}
   </div> <div id='wcp_vd_table'></div>
+                  <!-- ADD THIS LINE: -->
+{%- render 'product-inventory', product: product, current_variant: current_variant -%}
                   {%- when 'quantity_selector' -%}
                     <div class="product-block" {{ block.shopify_attributes }}>
                       <div class="product__quantity">
