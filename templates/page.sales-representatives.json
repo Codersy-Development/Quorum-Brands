@@ -106,26 +106,12 @@
     "sales_representatives_zFym6A": {
       "type": "sales-representatives",
       "blocks": {
-        "rep_39aeQb": {
-          "type": "rep",
-          "settings": {
-            "name": "AJ Howard",
-            "rep_group": "My House Lighting",
-            "position": "Owner",
-            "territory": "Washington, Oregon, Utah, Montana,",
-            "territory_detail": "E-commerce only",
-            "email": "aj@myhouselighting.com",
-            "phone": "6121234567",
-            "cellphone": "",
-            "website": "https://myhouselighting.com"
-          }
-        },
         "rep_9FNFk3": {
           "type": "rep",
           "settings": {
             "name": "Adam Barri",
             "rep_group": "303  Lighting ",
-            "position": "Sales",
+            "position": "",
             "territory": "Colorado, Utah, Southern Wyoming",
             "territory_detail": "",
             "email": "303lighting@gmail.com",
@@ -808,7 +794,6 @@
         }
       },
       "block_order": [
-        "rep_39aeQb",
         "rep_9FNFk3",
         "rep_zAQxJD",
         "rep_NtQABn",
