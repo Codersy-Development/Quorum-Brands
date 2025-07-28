@@ -56,14 +56,14 @@
         "heading_Jx8RJm": {
           "type": "heading",
           "settings": {
-            "title": "Images"
+            "title": "Images & Files"
           }
         },
         "text_3rqfy9": {
           "type": "text",
           "settings": {
             "enlarge_text": true,
-            "text": "<p><strong>Files can be downloaded in the following ways:</strong></p><ul><li>Scroll through drop-down tabs to view the files you want to download.</li><li>Using the search bar below to locate specific files using Product SKU or Collection Name.</li><li>For complete collection of images please contact us at <a href=\"mailto:customersupport@lavinrugs.com\" title=\"Customer Support | Lavin Rugs\">customersupport@lavinrugs.com</a></li></ul>"
+            "text": "<p><strong>Files can be downloaded in the following ways:</strong></p><ul><li>Scroll through drop-down tabs to view the files you want to download.</li><li>Using the search bar below to locate specific files using Product SKU or Collection Name.</li><li>For complete collection of images please contact us at <a href=\"mailto:customersupport@lavinrugs.com\" title=\"Customer Support | Lavin Rugs\">customersupport@lquoruminternational.com</a></li></ul>"
           }
         }
       },
@@ -78,18 +78,18 @@
         "divider": false
       }
     },
-    "product_accordion_eHy7mM": {
-      "type": "product-accordion",
-      "name": "Product Spec Sheets",
-      "settings": {
-        "title": ""
-      }
-    },
     "product_search_akTzTF": {
       "type": "product-search",
       "name": "Product Search",
       "settings": {
         "placeholder": ""
+      }
+    },
+    "product_accordion_eHy7mM": {
+      "type": "product-accordion",
+      "name": "Product Spec Sheets",
+      "settings": {
+        "title": ""
       }
     }
   },
