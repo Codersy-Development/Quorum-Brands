@@ -479,7 +479,7 @@
       ],
       "name": "Featured Products",
       "settings": {
-        "store": "explore all brands",
+        "store": "all brands",
         "heading": "Featured Products"
       }
     },
