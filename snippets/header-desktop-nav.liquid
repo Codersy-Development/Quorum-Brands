@@ -1,59 +1,152 @@
-/* Smaller brand buttons when positioned at top of drawer */
-.store-switch-buttons--top {
-  padding: 15px 20px 10px 20px;
-  border-bottom: 1px solid #e8e8e1;
-  margin-bottom: 0;
-}
+{%- liquid
+  unless limit
+    assign limit = main_menu.links.size
+  endunless
+  unless offset
+    assign offset = 0
+  endunless
+-%}
 
-.store-switch-buttons--top .store-switch-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
+<ul
+  class="site-nav site-navigation small--hide"
+>
+  {%- for link in main_menu.links limit: limit offset: offset -%}
+    {%- liquid
+      assign has_dropdown = false
+      assign is_megamenu = false
+      if link.links != blank
+        assign has_dropdown = true
+        if link.levels > 1
+          assign is_megamenu = true
+        endif
+      endif
+    -%}
 
-.store-switch-buttons--top .store-switch-button {
-  font-size: 11px !important;
-  padding: 6px 12px !important;
-  min-height: auto !important;
-  height: auto !important;
-  line-height: 1.2 !important;
-  border-radius: 3px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  flex: 0 0 auto;
-  white-space: nowrap;
-}
+    <li class="site-nav__item site-nav__expanded-item{% if has_dropdown %} site-nav--has-dropdown{% endif %}{% if is_megamenu %} site-nav--is-megamenu{% endif %}">
+      {% if is_megamenu or has_dropdown %}
+        <details
+          data-hover="{{ hover_menu }}"
+          id="site-nav-item--{{ forloop.index }}"
+          class="site-nav__details"
+        >
+          <summary
+            data-link="{{ link.url }}"
+            aria-expanded="false"
+            aria-controls="site-nav-item--{{ forloop.index }}"
+            class="site-nav__link site-nav__link--underline{% if has_dropdown %} site-nav__link--has-dropdown{% endif %}"
+          >
+            {{ link.title }} <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="m1.57 1.59 12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none"/></svg>
+          </summary>
+      {% else %}
 
-/* Make buttons even smaller on very small screens */
-@media screen and (max-width: 350px) {
-  .store-switch-buttons--top .store-switch-button {
-    font-size: 10px !important;
-    padding: 5px 10px !important;
-    letter-spacing: 0.3px;
-  }
-  
-  .store-switch-buttons--top {
-    padding: 12px 15px 8px 15px;
-  }
-}
+        <a
+          href="{{ link.url }}"
+          class="site-nav__link site-nav__link--underline{% if has_dropdown %} site-nav__link--has-dropdown{% endif %}"
+        >
+          {{ link.title }}
+        </a>
 
-/* Ensure buttons don't interfere with drawer animation */
-.store-switch-buttons--top.appear-animation {
-  animation-fill-mode: both;
-}
+      {% endif %}
+        {%- if is_megamenu -%}
+          {%- assign previous_column_type = '' -%}
+          {%- assign animation_column = 1 -%}
 
-/* Optional: Add subtle background to distinguish the button area */
-.store-switch-buttons--top {
-  background-color: rgba(0, 0, 0, 0.02);
-}
+          <div class="site-nav__dropdown megamenu text-left">
+            <div class="page-width">
+              <div class="grid{% if dropdown_alignment == 'center' %} grid--center{% endif %}">
+                <div class="grid__item medium-up--one-fifth appear-animation appear-delay-{{ animation_column }}">
+                  {%- assign animation_column = animation_column | plus: 1 -%}
 
-/* Override any existing bottom positioning styles */
-.drawer .store-switch-buttons--top {
-  position: static;
-  bottom: auto;
-  left: auto;
-  right: auto;
-  width: 100%;
-}
+                  {%- for childlink in link.links -%}
+                    {%- liquid
+                      assign create_new_column = false
+
+                      if childlink.levels > 0 and forloop.index != 1
+                        assign create_new_column = true
+                      endif
+
+                      if childlink.levels == 0 and previous_column_type == 'full'
+                        assign create_new_column = true
+                      endif
+                    -%}
+
+                    {%- if create_new_column -%}
+                      </div><div class="grid__item medium-up--one-fifth appear-animation appear-delay-{{ animation_column }}">
+                      {%- assign animation_column = animation_column | plus: 1 -%}
+                    {%- endif -%}
+
+                    {%- if childlink.levels > 0 and childlink.url contains '/collections/' -%}
+                      {%- if collections[childlink.object.handle].image != blank and section.settings.mega_menu_images -%}
+                        <a href="{{ childlink.url }}">
+                          <div class="svg-mask svg-mask--landscape">
+                          {%- render 'image-element',
+                            img: collections[childlink.object.handle].image,
+                            sizeVariable: '20vw',
+                            alt: collections[childlink.object.handle].title,
+                            classes: 'megamenu__collection-image',
+                          -%}
+                          </div>
+                        </a>
+                      {%- endif -%}
+                    {%- endif -%}
+
+                    <div class="h5">
+                      <a href="{{ childlink.url }}" class="site-nav__dropdown-link site-nav__dropdown-link--top-level">{{ childlink.title }}</a>
+                    </div>
+
+                    {%- liquid
+                      if childlink.levels > 0
+                        assign previous_column_type = 'full'
+                      else
+                        assign previous_column_type = 'single'
+                      endif
+                    -%}
+
+                    {%- for grandchildlink in childlink.links -%}
+                      <div>
+                        <a href="{{ grandchildlink.url }}" class="site-nav__dropdown-link">
+                          {{grandchildlink.title}}
+                        </a>
+                      </div>
+                    {%- endfor -%}
+                  {%- endfor -%}
+                </div>
+              </div>
+            </div>
+          </div>
+        {%- elsif has_dropdown -%}
+          <ul class="site-nav__dropdown text-left">
+            {%- for childlink in link.links -%}
+              {%- liquid
+                assign has_sub_dropdown = false
+                if childlink.links != blank
+                  assign has_sub_dropdown = true
+                endif
+              -%}
+
+              <li class="{% if has_sub_dropdown %} site-nav__deep-dropdown-trigger{% endif %}">
+                <a href="{{ childlink.url }}" class="site-nav__dropdown-link site-nav__dropdown-link--second-level{% if has_sub_dropdown %} site-nav__dropdown-link--has-children{% endif %}">
+                  {{ childlink.title | escape }}
+                  {%- if has_sub_dropdown -%}
+                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="m1.57 1.59 12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none"/></svg>
+                  {%- endif -%}
+                </a>
+                {%- if has_sub_dropdown -%}
+                  <ul class="site-nav__deep-dropdown">
+                    {%- for grandchildlink in childlink.links -%}
+                      <li>
+                        <a href="{{ grandchildlink.url }}" class="site-nav__dropdown-link">{{ grandchildlink.title | escape }}</a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      {% if is_megamenu or has_dropdown %}
+        </details>
+      {% endif %}
+    </li>
+  {%- endfor -%}
+</ul>
