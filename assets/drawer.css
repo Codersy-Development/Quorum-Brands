@@ -7,9 +7,9 @@
 
 .store-switch-buttons--top .store-switch-buttons {
   display: flex;
-  justify-content: center;
-  gap: 8px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
 }
 
 .store-switch-buttons--top .store-switch-button {
