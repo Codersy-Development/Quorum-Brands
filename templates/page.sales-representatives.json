@@ -211,10 +211,24 @@
             "name": "Scott McKenzie",
             "rep_group": "High  Country Lighting",
             "position": "",
-            "territory": "Idaho,  Montana,  Northern Wyoming",
+            "territory": "Idaho, Montana, Northern Wyoming",
             "territory_detail": "",
             "email": "scott@hightcountrylighting.com",
             "phone": "(406)  388-7568",
+            "cellphone": "",
+            "website": ""
+          }
+        },
+        "rep_6ymMBX": {
+          "type": "rep",
+          "settings": {
+            "name": "Representative Name",
+            "rep_group": "",
+            "position": "",
+            "territory": "",
+            "territory_detail": "",
+            "email": "",
+            "phone": "",
             "cellphone": "",
             "website": ""
           }
@@ -733,6 +747,7 @@
         "rep_FJytVV",
         "rep_L49bLB",
         "rep_48rWmq",
+        "rep_6ymMBX",
         "rep_TgTjWU",
         "rep_G8F3iP",
         "rep_BDdx33",
