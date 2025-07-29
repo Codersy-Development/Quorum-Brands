@@ -7,7 +7,7 @@
 
 /* Smaller brand buttons when positioned at top of drawer */
 .store-switch-buttons--top {
-  padding: 10px 20px 8px 20px;
+  padding: 15px 20px 15px 20px;
   border-bottom: 1px solid #e8e8e1;
   margin-bottom: 0;
   background-color: rgba(0, 0, 0, 0.02);
@@ -19,7 +19,7 @@
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
-  gap: 3px !important;
+  gap: 8px !important;
   margin: 0 !important;
 }
 
@@ -29,7 +29,7 @@
 .store-switch-buttons--top button,
 .store-switch-buttons--top a {
   font-size: 9px !important;
-  padding: 4px 8px !important;
+  padding: 6px 12px !important;
   min-height: auto !important;
   height: auto !important;
   line-height: 1.1 !important;
@@ -42,6 +42,8 @@
   margin: 0 !important;
   width: auto !important;
   display: inline-block !important;
+  min-width: 60px !important;
+  text-align: center !important;
 }
 
 /* Make buttons even smaller on very small screens */
@@ -51,12 +53,18 @@
   .store-switch-buttons--top button,
   .store-switch-buttons--top a {
     font-size: 8px !important;
-    padding: 3px 6px !important;
+    padding: 5px 10px !important;
     letter-spacing: 0.2px;
+    min-width: 50px !important;
   }
   
   .store-switch-buttons--top {
-    padding: 10px 15px 6px 15px;
+    padding: 12px 15px 12px 15px;
+  }
+  
+  .store-switch-buttons--top .store-switch-buttons,
+  .store-switch-buttons--top .ssb__container {
+    gap: 6px !important;
   }
 }
 
