@@ -3,9 +3,7 @@
 {% if logo_alignment == 'center' %}
   {%- assign drawer_position = 'left' -%}
 {% endif %}
-<script>  
-  {{ 'drawer.css' | asset_url }}
-</script>
+
 
 <div id="NavDrawer" class="drawer drawer--{{ drawer_position }}">
   <div class="drawer__contents">
