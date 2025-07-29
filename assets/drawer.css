@@ -39,7 +39,7 @@
   text-transform: uppercase !important;
   flex: 0 0 auto !important;
   white-space: nowrap !important;
-  margin: 0 !important;
+  margin: 5px !important;
   width: auto !important;
   display: inline-block !important;
   min-width: 60px !important;
@@ -77,6 +77,3 @@
   width: 100% !important;
 }
 
-store-switcher {
-    margin: 3px;
-}
