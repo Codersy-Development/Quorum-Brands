@@ -33,7 +33,7 @@
         aria-label="Primary"
       >
         {%- comment -%} CUSTOM MOBILE MENU ORDER {%- endcomment -%}
-{%- assign mobile_menu_order = "Products,What's New,Explore By Designer,Where to buy,About Us,Professional Resources" | split: ',' -%}
+{%- assign mobile_menu_order = "What's New,Products,Explore By Designer,Where to buy,About Us,Professional Resources" | split: ',' -%}
         {%- comment -%} First, show items in custom order {%- endcomment -%}
         {%- for menu_item_title in mobile_menu_order -%}
           {%- for link in main_menu.links -%}
