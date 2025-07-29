@@ -1,0 +1,59 @@
+/* Smaller brand buttons when positioned at top of drawer */
+.store-switch-buttons--top {
+  padding: 15px 20px 10px 20px;
+  border-bottom: 1px solid #e8e8e1;
+  margin-bottom: 0;
+}
+
+.store-switch-buttons--top .store-switch-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.store-switch-buttons--top .store-switch-button {
+  font-size: 11px !important;
+  padding: 6px 12px !important;
+  min-height: auto !important;
+  height: auto !important;
+  line-height: 1.2 !important;
+  border-radius: 3px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+/* Make buttons even smaller on very small screens */
+@media screen and (max-width: 350px) {
+  .store-switch-buttons--top .store-switch-button {
+    font-size: 10px !important;
+    padding: 5px 10px !important;
+    letter-spacing: 0.3px;
+  }
+  
+  .store-switch-buttons--top {
+    padding: 12px 15px 8px 15px;
+  }
+}
+
+/* Ensure buttons don't interfere with drawer animation */
+.store-switch-buttons--top.appear-animation {
+  animation-fill-mode: both;
+}
+
+/* Optional: Add subtle background to distinguish the button area */
+.store-switch-buttons--top {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Override any existing bottom positioning styles */
+.drawer .store-switch-buttons--top {
+  position: static;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  width: 100%;
+}
