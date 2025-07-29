@@ -13,7 +13,7 @@
       "type": "hero-video",
       "name": "t:sections.hero-video.presets.video_hero.name",
       "settings": {
-        "store": "explore all brands",
+        "store": "all brands",
         "title": "The Art of Light",
         "title_size": 80,
         "subheading": "Lighting the Way. Moving Air. Inspiring Spaces",
