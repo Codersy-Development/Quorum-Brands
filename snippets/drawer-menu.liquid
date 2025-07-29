@@ -18,7 +18,14 @@
           </button>
         </div>
       </div>
+      
+      <!-- MOVED: Brand buttons to top of drawer -->
+      {%- assign animation_row = animation_row | plus: 1 -%}
+      <div class="medium-up--hide store-switch-buttons--drawer store-switch-buttons--top appear-animation appear-delay-{{ animation_row }}">
+        {% render 'store-switch-buttons', section: section %}
+      </div>
     </div>
+    
     <div class="drawer__scrollable">
       <ul
         class="mobile-nav{% if settings.type_navigation_style == 'heading' %} mobile-nav--heading-style{% endif %}"
@@ -377,9 +384,9 @@
               {% assign main_menu_size = main_menu_size | plus: main_menu.links.size %}
           {% endcase %}
         {% endfor %}
-        <div class="medium-up--hide store-switch-buttons--drawer">
-          {% render 'store-switch-buttons', section: section %}
-        </div>
+        
+        <!-- REMOVED: Brand buttons from bottom - now at top -->
+        
         {%- assign have_secondary_list = false -%}
         {%- if section.settings.toolbar_menu != blank or shop.customer_accounts_enabled -%}
           {%- assign have_secondary_list = true -%}
