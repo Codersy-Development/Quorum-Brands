@@ -52,10 +52,10 @@
   .store-switch-buttons--top .ssb__button,
   .store-switch-buttons--top button,
   .store-switch-buttons--top a {
-    font-size: 5px !important;
+    font-size: 8px !important;
     padding: 5px 10px !important;
     letter-spacing: 0.2px;
-    min-width: 25px !important;
+    min-width: 50px !important;
   }
   
   .store-switch-buttons--top {
@@ -76,3 +76,6 @@
   right: auto !important;
   width: 100% !important;
 }
+
+store-switcher * {
+    margin: 3px;
