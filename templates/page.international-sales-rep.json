@@ -157,6 +157,20 @@
             "website": ""
           }
         },
+        "rep_AQNP7n": {
+          "type": "rep",
+          "settings": {
+            "name": "Carlos Leon",
+            "rep_group": "Lighting  Reps.   47/22",
+            "position": "",
+            "territory": "Grand Cayman, Bahamas, Haiti",
+            "territory_detail": "",
+            "email": "Carlos@lightingreps.net",
+            "phone": "(305)  500-5580",
+            "cellphone": "",
+            "website": ""
+          }
+        },
         "rep_FJytVV": {
           "type": "rep",
           "settings": {
@@ -276,6 +290,7 @@
         "rep_NtQABn",
         "rep_QBTinp",
         "rep_MEcmw9",
+        "rep_AQNP7n",
         "rep_FJytVV",
         "rep_L49bLB",
         "rep_48rWmq",
