@@ -219,27 +219,13 @@
             "website": ""
           }
         },
-        "rep_6ymMBX": {
-          "type": "rep",
-          "settings": {
-            "name": "Representative Name",
-            "rep_group": "",
-            "position": "",
-            "territory": "",
-            "territory_detail": "",
-            "email": "",
-            "phone": "",
-            "cellphone": "",
-            "website": ""
-          }
-        },
         "rep_TgTjWU": {
           "type": "rep",
           "settings": {
             "name": "Aaron Ward",
             "rep_group": "Horizon  Lighting Sales  32",
             "position": "",
-            "territory": "Texas,  New Mexico",
+            "territory": "Texas, New Mexico",
             "territory_detail": "",
             "email": "award7@horizonlightingsales.com",
             "phone": "(512)  736-9434",
@@ -253,7 +239,7 @@
             "name": "Brandon Bonacassio",
             "rep_group": "Horizon  Lighting Sales  32",
             "position": "",
-            "territory": "Texas,  New Mexico",
+            "territory": "Texas, New Mexico",
             "territory_detail": "",
             "email": "bbonacassio@gmail.com",
             "phone": "(281)  705-6740",
@@ -747,7 +733,6 @@
         "rep_FJytVV",
         "rep_L49bLB",
         "rep_48rWmq",
-        "rep_6ymMBX",
         "rep_TgTjWU",
         "rep_G8F3iP",
         "rep_BDdx33",
