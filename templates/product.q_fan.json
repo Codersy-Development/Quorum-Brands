@@ -288,6 +288,28 @@
     "collection-return": {
       "type": "collection-return",
       "settings": {}
+    },
+    "advanced_content_UWtn4n": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_DCAYer": {
+          "type": "liquid",
+          "settings": {
+            "code": "<!-- Basic metafield display -->\n<div class=\"product-metafields\">\n  <p>{{ product.metafields.custom.prefix_motor_size.value }}</p>\n  <p>{{ product.metafields.custom.prefix_motor_height.value }}</p>\n  <p>{{ product.metafields.custom.prefix_motor_diameter.value }}</p>\n  <p>{{ product.metafields.custom.prefix_motor_width.value }}</p>\n  <p>{{ product.metafields.custom.prefix_motor_warranty.value }}</p>\n</div>",
+            "width": "50%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_DCAYer"
+      ],
+      "name": "t:sections.advanced-content.presets.custom_content.name",
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
     }
   },
   "order": [
@@ -296,6 +318,7 @@
     "testimonials",
     "product-recommendations",
     "recently-viewed",
-    "collection-return"
+    "collection-return",
+    "advanced_content_UWtn4n"
   ]
 }
