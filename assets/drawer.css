@@ -77,3 +77,13 @@
   width: 100% !important;
 }
 
+store-switcher .store-switcher__btn {
+    border: 1px solid;
+    border-radius: .3rem;
+    border-color: var(--store-switch-buttons-text-color);
+    background-color: var(--store-switch-buttons-bg);
+    color: var(--store-switch-buttons-text-color);
+    padding: 4px 8px;
+    height: fit-content;
+    margin: 7px;
+}
