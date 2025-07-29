@@ -32,367 +32,176 @@
         role="navigation"
         aria-label="Primary"
       >
-        {%- comment -%} CUSTOM MOBILE MENU ORDER {%- endcomment -%}
-{%- assign mobile_menu_order = "What's New,Products,Explore By Designer,Where to buy,About Us,Professional Resources" | split: ',' -%}
-        {%- comment -%} First, show items in custom order {%- endcomment -%}
-        {%- for menu_item_title in mobile_menu_order -%}
-          {%- for link in main_menu.links -%}
-            {%- if link.title == menu_item_title -%}
-              {%- assign animation_row = animation_row | plus: 1 -%}
-              {%- assign child_list_handle = link.url | handleize | append: forloop.index -%}
-              {%- assign has_dropdown = false -%}
-              {%- if link.links != blank -%}
-                {%- assign has_dropdown = true -%}
-              {%- endif -%}
+        {%- for link in main_menu.links -%}
+          {%- assign animation_row = animation_row | plus: 1 -%}
+          {%- assign child_list_handle = link.url | handleize | append: forloop.index -%}
+          {%- assign has_dropdown = false -%}
+          {%- if link.links != blank -%}
+            {%- assign has_dropdown = true -%}
+          {%- endif -%}
 
-              <li class="mobile-nav__item appear-animation appear-delay-{{ animation_row }}">
-                {%- if has_dropdown -%}
-                  <div class="mobile-nav__has-sublist">
-                    {%- if link.url == '#' -%}
-                      <button
-                        type="button"
-                        aria-controls="Linklist-{{ child_list_handle }}"
-                        {% if link.active or link.child_active %}
-                          aria-open="true"
-                        {% endif %}
-                        class="mobile-nav__link--button mobile-nav__link--top-level collapsible-trigger collapsible--auto-height{% if link.active or link.child_active %} is-open{% endif %}"
-                      >
-                        <span
-                          class="mobile-nav__faux-link"
-                          {% if link.active %}
-                            data-active="true"
-                          {% endif %}
-                        >
-                          {{ link.title }}
-                        </span>
-                        <div class="mobile-nav__toggle">
-                          <span class="faux-button">
-                            {%- render 'collapsible-icons' -%}
-                          </span>
-                        </div>
-                      </button>
-                    {%- else -%}
-                      <a
-                        href="{{ link.url }}"
-                        class="mobile-nav__link mobile-nav__link--top-level"
-                        id="Label-{{ child_list_handle }}"
-                        {% if link.active %}
-                          data-active="true"
-                        {% endif %}
-                      >
-                        {{ link.title }}
-                      </a>
-                      <div class="mobile-nav__toggle">
-                        <button
-                          type="button"
-                          aria-controls="Linklist-{{ child_list_handle }}"
-                          {% if link.active or link.child_active %}
-                            aria-open="true"
-                          {% endif %}
-                          aria-labelledby="Label-{{ child_list_handle }}"
-                          class="collapsible-trigger collapsible--auto-height{% if link.active or link.child_active %} is-open{% endif %}"
-                        >
-                          {%- render 'collapsible-icons' -%}
-                        </button>
-                      </div>
-                    {%- endif -%}
-                  </div>
+          <li class="mobile-nav__item appear-animation appear-delay-{{ animation_row }}">
+            {%- if has_dropdown -%}
+              <div class="mobile-nav__has-sublist">
+                {%- if link.url == '#' -%}
+                  <button
+                    type="button"
+                    aria-controls="Linklist-{{ child_list_handle }}"
+                    {% if link.active or link.child_active %}
+                      aria-open="true"
+                    {% endif %}
+                    class="mobile-nav__link--button mobile-nav__link--top-level collapsible-trigger collapsible--auto-height{% if link.active or link.child_active %} is-open{% endif %}"
+                  >
+                    <span
+                      class="mobile-nav__faux-link"
+                      {% if link.active %}
+                        data-active="true"
+                      {% endif %}
+                    >
+                      {{ link.title }}
+                    </span>
+                    <div class="mobile-nav__toggle">
+                      <span class="faux-button">
+                        {%- render 'collapsible-icons' -%}
+                      </span>
+                    </div>
+                  </button>
                 {%- else -%}
                   <a
                     href="{{ link.url }}"
                     class="mobile-nav__link mobile-nav__link--top-level"
+                    id="Label-{{ child_list_handle }}"
                     {% if link.active %}
                       data-active="true"
                     {% endif %}
                   >
-                    {{- link.title -}}
+                    {{ link.title }}
                   </a>
-                {%- endif -%}
-
-                {%- if has_dropdown -%}
-                  <div
-                    id="Linklist-{{ child_list_handle }}"
-                    class="mobile-nav__sublist collapsible-content collapsible-content--all{% if link.active or link.child_active %} is-open{% endif %}"
-                    {% if link.active or link.child_active %}
-                      style="height: auto;"
-                    {% endif %}
-                  >
-                    <div class="collapsible-content__inner">
-                      <ul class="mobile-nav__sublist">
-                        {%- for childlink in link.links -%}
-                          {%- assign has_sub_dropdown = false -%}
-                          {%- assign grand_child_list_handle = childlink.url | handleize | append: forloop.index -%}
-                          {%- if childlink.links != blank -%}
-                            {%- assign has_sub_dropdown = true -%}
-                          {%- endif -%}
-
-                          <li class="mobile-nav__item">
-                            <div class="mobile-nav__child-item">
-                              {%- if childlink.url == '#' and has_sub_dropdown -%}
-                                <button
-                                  type="button"
-                                  aria-controls="Sublinklist-{{ child_list_handle }}-{{ grand_child_list_handle }}"
-                                  {% if childlink.active or childlink.child_active %}
-                                    aria-open="true"
-                                  {% endif %}
-                                  class="mobile-nav__link--button collapsible-trigger{% if childlink.active or childlink.child_active %} is-open{% endif %}"
-                                >
-                                  <span
-                                    class="mobile-nav__faux-link"
-                                    {% if childlink.active %}
-                                      data-active="true"
-                                    {% endif %}
-                                  >
-                                    {{- childlink.title | escape -}}
-                                  </span>
-                                  {%- render 'collapsible-icons-alt' -%}
-                                </button>
-                              {%- else -%}
-                                <a
-                                  href="{{ childlink.url }}"
-                                  class="mobile-nav__link"
-                                  id="Sublabel-{{ grand_child_list_handle }}"
-                                  {% if childlink.active %}
-                                    data-active="true"
-                                  {% endif %}
-                                >
-                                  {{ childlink.title | escape }}
-                                </a>
-                              {%- endif -%}
-                              {%- if childlink.url != '#' and has_sub_dropdown -%}
-                                <button
-                                  type="button"
-                                  aria-controls="Sublinklist-{{ child_list_handle }}-{{ grand_child_list_handle }}"
-                                  aria-labelledby="Sublabel-{{ grand_child_list_handle }}"
-                                  class="collapsible-trigger{% if childlink.active or childlink.child_active %} is-open{% endif %}"
-                                >
-                                  {%- render 'collapsible-icons-alt' -%}
-                                </button>
-                              {%- endif -%}
-                            </div>
-
-                            {%- if has_sub_dropdown -%}
-                              <div
-                                id="Sublinklist-{{ child_list_handle }}-{{ grand_child_list_handle }}"
-                                aria-labelledby="Sublabel-{{ grand_child_list_handle }}"
-                                class="mobile-nav__sublist collapsible-content collapsible-content--all{% if childlink.active or childlink.child_active %} is-open{% endif %}"
-                                {% if childlink.active or childlink.child_active %}
-                                  style="height: auto;"
-                                {% endif %}
-                              >
-                                <div class="collapsible-content__inner">
-                                  <ul class="mobile-nav__grandchildlist">
-                                    {%- for grandchildlink in childlink.links -%}
-                                      <li class="mobile-nav__item">
-                                        <a
-                                          href="{{ grandchildlink.url }}"
-                                          class="mobile-nav__link"
-                                          {% if grandchildlink.active %}
-                                            data-active="true"
-                                          {% endif %}
-                                        >
-                                          {{ grandchildlink.title }}
-                                        </a>
-                                      </li>
-                                    {%- endfor -%}
-                                  </ul>
-                                </div>
-                              </div>
-                            {%- endif -%}
-                          </li>
-                        {%- endfor -%}
-                      </ul>
-                    </div>
-                  </div>
-                {%- endif -%}
-              </li>
-              {%- break -%}
-            {%- endif -%}
-          {%- endfor -%}
-        {%- endfor -%}
-
-        {%- comment -%} Then show any remaining menu items not in the custom order {%- endcomment -%}
-        {%- for link in main_menu.links -%}
-          {%- assign show_item = true -%}
-          {%- for menu_item_title in mobile_menu_order -%}
-            {%- if link.title == menu_item_title -%}
-              {%- assign show_item = false -%}
-              {%- break -%}
-            {%- endif -%}
-          {%- endfor -%}
-          
-          {%- if show_item -%}
-            {%- assign animation_row = animation_row | plus: 1 -%}
-            {%- assign child_list_handle = link.url | handleize | append: forloop.index -%}
-            {%- assign has_dropdown = false -%}
-            {%- if link.links != blank -%}
-              {%- assign has_dropdown = true -%}
-            {%- endif -%}
-
-            <li class="mobile-nav__item appear-animation appear-delay-{{ animation_row }}">
-              {%- if has_dropdown -%}
-                <div class="mobile-nav__has-sublist">
-                  {%- if link.url == '#' -%}
+                  <div class="mobile-nav__toggle">
                     <button
                       type="button"
                       aria-controls="Linklist-{{ child_list_handle }}"
                       {% if link.active or link.child_active %}
                         aria-open="true"
                       {% endif %}
-                      class="mobile-nav__link--button mobile-nav__link--top-level collapsible-trigger collapsible--auto-height{% if link.active or link.child_active %} is-open{% endif %}"
+                      aria-labelledby="Label-{{ child_list_handle }}"
+                      class="collapsible-trigger collapsible--auto-height{% if link.active or link.child_active %} is-open{% endif %}"
                     >
-                      <span
-                        class="mobile-nav__faux-link"
-                        {% if link.active %}
-                          data-active="true"
-                        {% endif %}
-                      >
-                        {{ link.title }}
-                      </span>
-                      <div class="mobile-nav__toggle">
-                        <span class="faux-button">
-                          {%- render 'collapsible-icons' -%}
-                        </span>
-                      </div>
+                      {%- render 'collapsible-icons' -%}
                     </button>
-                  {%- else -%}
-                    <a
-                      href="{{ link.url }}"
-                      class="mobile-nav__link mobile-nav__link--top-level"
-                      id="Label-{{ child_list_handle }}"
-                      {% if link.active %}
-                        data-active="true"
-                      {% endif %}
-                    >
-                      {{ link.title }}
-                    </a>
-                    <div class="mobile-nav__toggle">
-                      <button
-                        type="button"
-                        aria-controls="Linklist-{{ child_list_handle }}"
-                        {% if link.active or link.child_active %}
-                          aria-open="true"
-                        {% endif %}
-                        aria-labelledby="Label-{{ child_list_handle }}"
-                        class="collapsible-trigger collapsible--auto-height{% if link.active or link.child_active %} is-open{% endif %}"
-                      >
-                        {%- render 'collapsible-icons' -%}
-                      </button>
-                    </div>
-                  {%- endif -%}
-                </div>
-              {%- else -%}
-                <a
-                  href="{{ link.url }}"
-                  class="mobile-nav__link mobile-nav__link--top-level"
-                  {% if link.active %}
-                    data-active="true"
-                  {% endif %}
-                >
-                  {{- link.title -}}
-                </a>
-              {%- endif -%}
+                  </div>
+                {%- endif -%}
+              </div>
+            {%- else -%}
+              <a
+                href="{{ link.url }}"
+                class="mobile-nav__link mobile-nav__link--top-level"
+                {% if link.active %}
+                  data-active="true"
+                {% endif %}
+              >
+                {{- link.title -}}
+              </a>
+            {%- endif -%}
 
-              {%- if has_dropdown -%}
-                <div
-                  id="Linklist-{{ child_list_handle }}"
-                  class="mobile-nav__sublist collapsible-content collapsible-content--all{% if link.active or link.child_active %} is-open{% endif %}"
-                  {% if link.active or link.child_active %}
-                    style="height: auto;"
-                  {% endif %}
-                >
-                  <div class="collapsible-content__inner">
-                    <ul class="mobile-nav__sublist">
-                      {%- for childlink in link.links -%}
-                        {%- assign has_sub_dropdown = false -%}
-                        {%- assign grand_child_list_handle = childlink.url | handleize | append: forloop.index -%}
-                        {%- if childlink.links != blank -%}
-                          {%- assign has_sub_dropdown = true -%}
-                        {%- endif -%}
+            {%- if has_dropdown -%}
+              <div
+                id="Linklist-{{ child_list_handle }}"
+                class="mobile-nav__sublist collapsible-content collapsible-content--all{% if link.active or link.child_active %} is-open{% endif %}"
+                {% if link.active or link.child_active %}
+                  style="height: auto;"
+                {% endif %}
+              >
+                <div class="collapsible-content__inner">
+                  <ul class="mobile-nav__sublist">
+                    {%- for childlink in link.links -%}
+                      {%- assign has_sub_dropdown = false -%}
+                      {%- assign grand_child_list_handle = childlink.url | handleize | append: forloop.index -%}
+                      {%- if childlink.links != blank -%}
+                        {%- assign has_sub_dropdown = true -%}
+                      {%- endif -%}
 
-                        <li class="mobile-nav__item">
-                          <div class="mobile-nav__child-item">
-                            {%- if childlink.url == '#' and has_sub_dropdown -%}
-                              <button
-                                type="button"
-                                aria-controls="Sublinklist-{{ child_list_handle }}-{{ grand_child_list_handle }}"
-                                {% if childlink.active or childlink.child_active %}
-                                  aria-open="true"
-                                {% endif %}
-                                class="mobile-nav__link--button collapsible-trigger{% if childlink.active or childlink.child_active %} is-open{% endif %}"
-                              >
-                                <span
-                                  class="mobile-nav__faux-link"
-                                  {% if childlink.active %}
-                                    data-active="true"
-                                  {% endif %}
-                                >
-                                  {{- childlink.title | escape -}}
-                                </span>
-                                {%- render 'collapsible-icons-alt' -%}
-                              </button>
-                            {%- else -%}
-                              <a
-                                href="{{ childlink.url }}"
-                                class="mobile-nav__link"
-                                id="Sublabel-{{ grand_child_list_handle }}"
+                      <li class="mobile-nav__item">
+                        <div class="mobile-nav__child-item">
+                          {%- if childlink.url == '#' and has_sub_dropdown -%}
+                            <button
+                              type="button"
+                              aria-controls="Sublinklist-{{ child_list_handle }}-{{ grand_child_list_handle }}"
+                              {% if childlink.active or childlink.child_active %}
+                                aria-open="true"
+                              {% endif %}
+                              class="mobile-nav__link--button collapsible-trigger{% if childlink.active or childlink.child_active %} is-open{% endif %}"
+                            >
+                              <span
+                                class="mobile-nav__faux-link"
                                 {% if childlink.active %}
                                   data-active="true"
                                 {% endif %}
                               >
-                                {{ childlink.title | escape }}
-                              </a>
-                            {%- endif -%}
-                            {%- if childlink.url != '#' and has_sub_dropdown -%}
-                              <button
-                                type="button"
-                                aria-controls="Sublinklist-{{ child_list_handle }}-{{ grand_child_list_handle }}"
-                                aria-labelledby="Sublabel-{{ grand_child_list_handle }}"
-                                class="collapsible-trigger{% if childlink.active or childlink.child_active %} is-open{% endif %}"
-                              >
-                                {%- render 'collapsible-icons-alt' -%}
-                              </button>
-                            {%- endif -%}
-                          </div>
-
-                          {%- if has_sub_dropdown -%}
-                            <div
-                              id="Sublinklist-{{ child_list_handle }}-{{ grand_child_list_handle }}"
-                              aria-labelledby="Sublabel-{{ grand_child_list_handle }}"
-                              class="mobile-nav__sublist collapsible-content collapsible-content--all{% if childlink.active or childlink.child_active %} is-open{% endif %}"
-                              {% if childlink.active or childlink.child_active %}
-                                style="height: auto;"
+                                {{- childlink.title | escape -}}
+                              </span>
+                              {%- render 'collapsible-icons-alt' -%}
+                            </button>
+                          {%- else -%}
+                            <a
+                              href="{{ childlink.url }}"
+                              class="mobile-nav__link"
+                              id="Sublabel-{{ grand_child_list_handle }}"
+                              {% if childlink.active %}
+                                data-active="true"
                               {% endif %}
                             >
-                              <div class="collapsible-content__inner">
-                                <ul class="mobile-nav__grandchildlist">
-                                  {%- for grandchildlink in childlink.links -%}
-                                    <li class="mobile-nav__item">
-                                      <a
-                                        href="{{ grandchildlink.url }}"
-                                        class="mobile-nav__link"
-                                        {% if grandchildlink.active %}
-                                          data-active="true"
-                                        {% endif %}
-                                      >
-                                        {{ grandchildlink.title }}
-                                      </a>
-                                    </li>
-                                  {%- endfor -%}
-                                </ul>
-                              </div>
-                            </div>
+                              {{ childlink.title | escape }}
+                            </a>
                           {%- endif -%}
-                        </li>
-                      {%- endfor -%}
-                    </ul>
-                  </div>
+                          {%- if childlink.url != '#' and has_sub_dropdown -%}
+                            <button
+                              type="button"
+                              aria-controls="Sublinklist-{{ child_list_handle }}-{{ grand_child_list_handle }}"
+                              aria-labelledby="Sublabel-{{ grand_child_list_handle }}"
+                              class="collapsible-trigger{% if childlink.active or childlink.child_active %} is-open{% endif %}"
+                            >
+                              {%- render 'collapsible-icons-alt' -%}
+                            </button>
+                          {%- endif -%}
+                        </div>
+
+                        {%- if has_sub_dropdown -%}
+                          <div
+                            id="Sublinklist-{{ child_list_handle }}-{{ grand_child_list_handle }}"
+                            aria-labelledby="Sublabel-{{ grand_child_list_handle }}"
+                            class="mobile-nav__sublist collapsible-content collapsible-content--all{% if childlink.active or childlink.child_active %} is-open{% endif %}"
+                            {% if childlink.active or childlink.child_active %}
+                              style="height: auto;"
+                            {% endif %}
+                          >
+                            <div class="collapsible-content__inner">
+                              <ul class="mobile-nav__grandchildlist">
+                                {%- for grandchildlink in childlink.links -%}
+                                  <li class="mobile-nav__item">
+                                    <a
+                                      href="{{ grandchildlink.url }}"
+                                      class="mobile-nav__link"
+                                      {% if grandchildlink.active %}
+                                        data-active="true"
+                                      {% endif %}
+                                    >
+                                      {{ grandchildlink.title }}
+                                    </a>
+                                  </li>
+                                {%- endfor -%}
+                              </ul>
+                            </div>
+                          </div>
+                        {%- endif -%}
+                      </li>
+                    {%- endfor -%}
+                  </ul>
                 </div>
-              {%- endif -%}
-            </li>
-          {%- endif -%}
+              </div>
+            {%- endif -%}
+          </li>
         {%- endfor -%}
-        
         {% assign main_menu_size = main_menu.links.size %}
         {% for block in section.blocks %}
           {% case block.type %}
@@ -575,6 +384,8 @@
               {% assign main_menu_size = main_menu_size | plus: main_menu.links.size %}
           {% endcase %}
         {% endfor %}
+        
+        <!-- REMOVED: Brand buttons from bottom - now at top -->
         
         {%- assign have_secondary_list = false -%}
         {%- if section.settings.toolbar_menu != blank or shop.customer_accounts_enabled -%}
