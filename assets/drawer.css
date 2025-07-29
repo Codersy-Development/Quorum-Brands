@@ -57,3 +57,16 @@
   right: auto;
   width: 100%;
 }
+
+
+/* Hide the bottom buttons */
+.drawer .store-switch-buttons--drawer:not(.store-switch-buttons--top) {
+  display: none !important;
+}
+
+/* If the buttons still appear at bottom, try this more specific selector */
+.mobile-nav .store-switch-buttons--drawer:not(.store-switch-buttons--top) {
+  display: none !important;
+}
+
+.drawer { border: 2px solid red !important; }
