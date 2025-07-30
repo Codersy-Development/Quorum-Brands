@@ -121,6 +121,20 @@
             "website": ""
           }
         },
+        "rep_NtQABn": {
+          "type": "rep",
+          "settings": {
+            "name": "Dan Adelberger",
+            "rep_group": "Adelberger  & Assoc.  34",
+            "position": "",
+            "territory": "Pensylvania, New Jersey, New York",
+            "territory_detail": "Eastern Pennsylvania, Southern New Jersy, Lower New York (except NY Metro),New Castle, Kent Counties",
+            "email": "Adelberger.dj@gmail.com",
+            "phone": "(215)  262-8810",
+            "cellphone": "",
+            "website": "https://www.Adelbergerassociates.com"
+          }
+        },
         "rep_zAQxJD": {
           "type": "rep",
           "settings": {
@@ -133,20 +147,6 @@
             "phone": "(985)  893-1860",
             "cellphone": "",
             "website": ""
-          }
-        },
-        "rep_NtQABn": {
-          "type": "rep",
-          "settings": {
-            "name": "Dan Adelberger",
-            "rep_group": "Adelberger  & Assoc.  34",
-            "position": "",
-            "territory": "Eastern Pennsylvania, Southern New Jersy, Lower New York (except NY Metro),New Castle, Kent Counties",
-            "territory_detail": "",
-            "email": "Adelberger.dj@gmail.com",
-            "phone": "(215)  262-8810",
-            "cellphone": "",
-            "website": "https://www.Adelbergerassociates.com"
           }
         },
         "rep_QBTinp": {
@@ -726,8 +726,8 @@
       },
       "block_order": [
         "rep_9FNFk3",
-        "rep_zAQxJD",
         "rep_NtQABn",
+        "rep_zAQxJD",
         "rep_QBTinp",
         "rep_MEcmw9",
         "rep_FJytVV",
