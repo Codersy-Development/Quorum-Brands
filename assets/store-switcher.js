@@ -113,14 +113,47 @@ document.addEventListener("DOMContentLoaded", () => {
   setCollectionsFilters();
 
   const current = new URL(window.location.href);
-  if (
-    current.pathname.includes("/collections/") &&
-    !current.searchParams.has("filter.p.vendor")
-  ) {
-    current.searchParams.set("filter.p.vendor", store);
-    // replace current history entry so back-button won’t bounce you endlessly
-    window.location.replace(current.toString());
-    return; // stop running the rest until after reload
+  const currentStore = localStorage.getItem("store-selected");
+  
+  console.log('Page URL:', current.href);
+  console.log('Current store:', currentStore);
+  console.log('Is product page:', current.pathname.includes("/products/"));
+  console.log('Is collection page:', current.pathname.includes("/collections/") && !current.pathname.includes("/products/"));
+  
+  // Handle product pages FIRST (they take priority)
+  if (current.pathname.includes("/products/")) {
+    console.log('Processing as product page');
+    
+    if (current.searchParams.has("filter.p.vendor") && currentStore && isAllBrands(currentStore)) {
+      console.log('Removing vendor filter from product page for All Brands');
+      current.searchParams.delete("filter.p.vendor");
+      window.location.replace(current.toString());
+      return;
+    }
+    // For product pages, don't do anything else - let the page load normally
+    return;
+  }
+  
+  // Handle collection pages ONLY (not products accessed through collections)
+  if (current.pathname.includes("/collections/") && !current.pathname.includes("/products/")) {
+    console.log('Processing as collection page');
+    
+    const existingVendor = current.searchParams.get("filter.p.vendor");
+    
+    if (currentStore && isAllBrands(currentStore)) {
+      if (existingVendor) {
+        console.log('All Brands selected - removing vendor filter from collection');
+        current.searchParams.delete("filter.p.vendor");
+        window.location.replace(current.toString());
+        return;
+      }
+    } else if (currentStore && !existingVendor) {
+      const storeSentence = currentStore[0].toUpperCase() + currentStore.slice(1);
+      console.log('Adding vendor filter for collection:', storeSentence);
+      current.searchParams.set("filter.p.vendor", storeSentence);
+      window.location.replace(current.toString());
+      return;
+    }
   }
 });
 
