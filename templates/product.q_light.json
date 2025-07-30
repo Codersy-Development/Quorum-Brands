@@ -149,7 +149,7 @@
           "type": "tab",
           "settings": {
             "title": "Certifications",
-            "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p><p>{{ product.metafields.custom.cETL_Logo.value }}</p><p>{{ product.metafields.custom.CCT_logo.value }}</p><p>{{ product.metafields.custom.ELT_logo.value }}</p><p>{{ product.metafields.custom.ELT_logo.value }}</p><p>{{ product.metafields.custom.ghost_logo.value }}</p>",
+            "content": "<p>{{ product.metafields.custom.prefix_safety_ratings.value }}</p>",
             "page": ""
           }
         },
