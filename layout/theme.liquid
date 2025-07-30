@@ -28,7 +28,9 @@
   {%- endif -%}
 
   {%- render 'social-meta-tags' -%}
-  <<script src="{{ 'search-store-reset.js' | asset_url }}" async></script>
+  
+  <script src="{{ 'search-store-reset.js' | asset_url }}" async></script>
+  
   <!-- <script src="{{ 'store-reset.js' | asset_url }}" defer></script> -->
   <script>
     const params = new URLSearchParams(window.location.search);
