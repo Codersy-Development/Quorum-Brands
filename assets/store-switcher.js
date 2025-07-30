@@ -1,3 +1,10 @@
+// ADD THIS AT THE VERY TOP
+const isAllBrands = (storeValue) => {
+  if (!storeValue) return false;
+  const normalized = storeValue.toLowerCase().trim();
+  return normalized === 'all brands';
+};
+
 const setCollectionsFilters = () => {
   // 1) pull + capitalize your store name
   const store = getStoreSentenceCase();
@@ -6,7 +13,7 @@ const setCollectionsFilters = () => {
     try {
       // aTag.href is always an absolute URL string
       const url = new URL(aTag.href);
-      if (store === 'Shop all brands') {
+  if (isAllBrands(store)) {
         url.searchParams.delete("filter.p.vendor");
         aTag.href = url.toString();
         return
