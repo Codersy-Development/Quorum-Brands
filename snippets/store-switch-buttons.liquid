@@ -1,5 +1,21 @@
 {% assign random_number = 'now' | date: '%N' | modulo: 9999 | plus: 1 %}
 <store-switcher class="store-switcher-box">
+  
+  {% comment %} ADD THIS: All Brands button {% endcomment %}
+  <div class="store-switcher__btn">
+    <label for="store-switcher-all-brands--{{ random_number }}">
+      <input
+        type="radio"
+        name="store-switcher-{{ random_number }}"
+        id="store-switcher-all-brands--{{ random_number }}"
+        value="all brands"
+      >
+      <div class="store-switcher-content">
+        <div class="store-switcher-title">All Brands</div>
+      </div>
+    </label>
+  </div>
+
   {% for block in section.blocks %}
     {% case block.type %}
       {% when 'store_selector' %}
@@ -11,7 +27,6 @@
               name="store-switcher-{{ random_number }}"
               id="store-switcher-{{ store_name |  downcase }}--{{ random_number }}"
               value="{{ store_name |  downcase  }}"
-              checked
             >
             <div class="store-switcher-content">
               <div class="store-switcher-title">{{ store_name }}</div>
