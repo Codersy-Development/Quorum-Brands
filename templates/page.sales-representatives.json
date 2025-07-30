@@ -230,7 +230,7 @@
             "email": "award7@horizonlightingsales.com",
             "phone": "(512)  736-9434",
             "cellphone": "",
-            "website": ""
+            "website": "https://www.horizonlightingsales.com"
           }
         },
         "rep_G8F3iP": {
@@ -244,7 +244,7 @@
             "email": "bbonacassio@gmail.com",
             "phone": "(281)  705-6740",
             "cellphone": "",
-            "website": ""
+            "website": "https://www.horizonlightingsales.com"
           }
         },
         "rep_BDdx33": {
@@ -272,7 +272,7 @@
             "email": "karli@jlwlighting.com",
             "phone": "(859)  815-0004",
             "cellphone": "",
-            "website": ""
+            "website": "https://www.JLWlightingacc.com"
           }
         },
         "rep_gFRHHr": {
@@ -286,7 +286,7 @@
             "email": "sales@jlwlighting.com",
             "phone": "(859)  991-0818",
             "cellphone": "",
-            "website": ""
+            "website": "https://www.JLWlightingacc.com"
           }
         },
         "rep_rT7mAQ": {
@@ -300,7 +300,7 @@
             "email": "dave@grayelectricalsales.com",
             "phone": "(412)  874-6519",
             "cellphone": "",
-            "website": ""
+            "website": "https://www.JLWlightingacc.com"
           }
         },
         "rep_qLYmeX": {
@@ -314,7 +314,7 @@
             "email": "Nathan@grayelectricalsales.com",
             "phone": "(724)  814-1309",
             "cellphone": "",
-            "website": ""
+            "website": "https://www.JLWlightingacc.com"
           }
         },
         "rep_fg44zW": {
@@ -328,7 +328,7 @@
             "email": "greg@grayelectricalsales.com",
             "phone": "(412)  720-1027",
             "cellphone": "",
-            "website": ""
+            "website": "https://www.JLWlightingacc.com"
           }
         },
         "rep_iDiTM3": {
@@ -351,8 +351,8 @@
             "name": "Jensen Lighting",
             "rep_group": "Jensen  Lighting Sales  50",
             "position": "",
-            "territory": "Minnesota,  North Dakota, South Dakota, Northwest Wisconsin",
-            "territory_detail": "",
+            "territory": "Minnesota,  North Dakota, South Dakota, Wisconsin",
+            "territory_detail": "Northwest Wisconsin",
             "email": "Info@jensenlighting.com",
             "phone": "(952)  996-9466",
             "cellphone": "",
@@ -365,8 +365,8 @@
             "name": "Dave Jensen",
             "rep_group": "Jensen  Lighting Sales  50",
             "position": "",
-            "territory": "Minnesota,  North Dakota, South Dakota, Northwest Wisconsin",
-            "territory_detail": "",
+            "territory": "Minnesota,  North Dakota, South Dakota, Wisconsin",
+            "territory_detail": "Northwest Wisconsin",
             "email": "Dave@jensenlighting.com",
             "phone": "(952)  996-9466",
             "cellphone": "",
@@ -379,8 +379,8 @@
             "name": "Nancy Jensen",
             "rep_group": "Jensen  Lighting Sales  50",
             "position": "",
-            "territory": "Minnesota,  North Dakota, South Dakota, Northwest Wisconsin",
-            "territory_detail": "",
+            "territory": "Minnesota,  North Dakota, South Dakota, Wisconsin",
+            "territory_detail": "Northwest Wisconsin",
             "email": "Nancy@jensenlighitng.com",
             "phone": "(952)  996-9466",
             "cellphone": "",
@@ -393,8 +393,8 @@
             "name": "Eric Jensen",
             "rep_group": "Jensen  Lighting Sales  50",
             "position": "",
-            "territory": "Minnesota,  North Dakota, South Dakota, Northwest Wisconsin",
-            "territory_detail": "",
+            "territory": "Minnesota,  North Dakota, South Dakota, Wisconsin",
+            "territory_detail": "Northwest Wisconsin",
             "email": "Eric@jensenlighting.com",
             "phone": "(952)  996-9466",
             "cellphone": "",
@@ -412,7 +412,7 @@
             "email": "stephenkatona@gmail.com",
             "phone": "(847)  644-3176",
             "cellphone": "",
-            "website": ""
+            "website": "https://www.kanopusagency.com"
           }
         },
         "rep_bJtYeC": {
@@ -440,7 +440,7 @@
             "email": "Carlos@lightingreps.net",
             "phone": "(305)  500-5580",
             "cellphone": "",
-            "website": ""
+            "website": "https://www.LightingReps.net"
           }
         },
         "rep_M7HqJ3": {
@@ -449,12 +449,12 @@
             "name": "Sebastian  Castrillon",
             "rep_group": "Lighting  Reps.   47/22",
             "position": "",
-            "territory": "Northern  Florida",
-            "territory_detail": "",
+            "territory": "Florida",
+            "territory_detail": "Northern Florida",
             "email": "Sebastian@lightingreps.net",
             "phone": "(305)  500-5580",
             "cellphone": "",
-            "website": ""
+            "website": "https://www.LightingReps.net"
           }
         },
         "rep_rQEpDw": {
@@ -468,7 +468,7 @@
             "email": "Mishir@lightingreps.net",
             "phone": "(787)  708-1532",
             "cellphone": "",
-            "website": ""
+            "website": "https://www.LightingReps.net"
           }
         },
         "rep_qifJYt": {
@@ -477,12 +477,12 @@
             "name": "Alejandro Franco",
             "rep_group": "Lighting  Reps.   47/22",
             "position": "",
-            "territory": "Southern  Florida",
-            "territory_detail": "",
+            "territory": "Florida",
+            "territory_detail": "Southern  Florida",
             "email": "alejandro@lightingreps.net",
             "phone": "(786)-488-9721",
             "cellphone": "",
-            "website": ""
+            "website": "https://www.LightingReps.net"
           }
         },
         "rep_nCjxFe": {
@@ -491,12 +491,12 @@
             "name": "Barry Troy",
             "rep_group": "Metrolight  Sales Corp.",
             "position": "",
-            "territory": "New York  Metro, Long Island, Northern New Jersey",
-            "territory_detail": "",
+            "territory": "New York  Metro, Long Island, New Jersey",
+            "territory_detail": "Northern New Jersey",
             "email": "barrytroy@mac.com",
             "phone": "(973)  912-9565",
             "cellphone": "",
-            "website": ""
+            "website": "https://www.Metrolightsales.com"
           }
         },
         "rep_h4QAn3": {
@@ -510,7 +510,7 @@
             "email": "Joe@Ortizlightingsales.com",
             "phone": "(407)  795-2764",
             "cellphone": "",
-            "website": ""
+            "website": "https://www.ortizlightingsales.com"
           }
         },
         "rep_6pqwH8": {
@@ -524,7 +524,7 @@
             "email": "Jose@Ortizlightingsales.com",
             "phone": "(407)  450-1067",
             "cellphone": "",
-            "website": ""
+            "website": "https://www.ortizlightingsales.com"
           }
         },
         "rep_RD67fd": {
@@ -538,7 +538,7 @@
             "email": "Scottrosenberg@pnwrs.com",
             "phone": "(541)  915-9177",
             "cellphone": "",
-            "website": ""
+            "website": "https://www.PNWRS.com"
           }
         },
         "rep_iUAHdj": {
@@ -552,7 +552,7 @@
             "email": "Reed@pnwrs.com",
             "phone": "(541)  914-8086",
             "cellphone": "",
-            "website": ""
+            "website": "https://www.PNWRS.com"
           }
         },
         "rep_WH34Vp": {
@@ -566,7 +566,7 @@
             "email": "Lisa@pnwrs.com",
             "phone": "(541)  514-2643",
             "cellphone": "",
-            "website": ""
+            "website": "https://www.PNWRS.com"
           }
         },
         "rep_rf4xez": {
@@ -580,7 +580,7 @@
             "email": "Chris@pnwrs.com",
             "phone": "(541)  510-3068",
             "cellphone": "",
-            "website": ""
+            "website": "https://www.PNWRS.com"
           }
         },
         "rep_6anpUX": {
@@ -594,7 +594,7 @@
             "email": "misicka@me.com",
             "phone": "(312)  217-3115",
             "cellphone": "",
-            "website": ""
+            "website": "https://www.rmlighting.com"
           }
         },
         "rep_rkhbPA": {
@@ -622,7 +622,7 @@
             "email": "jeff@southernglowsales.com",
             "phone": "(919)  349-3700",
             "cellphone": "",
-            "website": ""
+            "website": "https://www.Southernglowsales.com"
           }
         },
         "rep_J7nqnt": {
@@ -636,7 +636,7 @@
             "email": "creighton@southernglowsales.com",
             "phone": "(919)  604-0412",
             "cellphone": "",
-            "website": ""
+            "website": "https://www.Southernglowsales.com"
           }
         },
         "rep_ft3aY8": {
@@ -650,7 +650,7 @@
             "email": "mark@southernglowsales.com",
             "phone": "(803)  409-8211",
             "cellphone": "",
-            "website": ""
+            "website": "https://www.Southernglowsales.com"
           }
         },
         "rep_VeEN9j": {
@@ -664,7 +664,7 @@
             "email": "dandon@comcast.net",
             "phone": "(717)  891-1013",
             "cellphone": "",
-            "website": ""
+            "website": "https://www.Southernglowsales.com"
           }
         },
         "rep_6QMehq": {
@@ -706,7 +706,7 @@
             "email": "chris@zayamartin.com",
             "phone": "(617)  750-0677",
             "cellphone": "",
-            "website": ""
+            "website": "https://www.Zayamartin.com"
           }
         },
         "rep_DGxaFV": {
@@ -720,7 +720,7 @@
             "email": "kirk@zayamartin.com",
             "phone": "(508)  292-6771",
             "cellphone": "",
-            "website": ""
+            "website": "https://www.Zayamartin.com"
           }
         }
       },
