@@ -2,7 +2,7 @@
 const isAllBrands = (storeValue) => {
   if (!storeValue) return false;
   const normalized = storeValue.toLowerCase().trim();
-  return normalized === 'all brands';
+  return normalized === 'all brands' || normalized === 'all brand' || normalized.includes('all');
 };
 
 const setCollectionsFilters = () => {
