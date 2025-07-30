@@ -72,20 +72,28 @@ class StoreSwitcher extends HTMLElement {
         setCollectionsFilters();
         theme.headerNav.init();
         const current = new URL(window.location.href);
-        if (/\/(?:collections|products)\//.test(current.pathname)) {
-          if (current.pathname.includes("/collections/") && !current.pathname.includes("/products/")) {
-            console.log(input.value)
-if(isAllBrands(input.value)) {
-              current.searchParams.delete("filter.p.vendor");
-              window.location.replace(current.toString());
-            } else {
-              current.searchParams.set("filter.p.vendor", getStoreSentenceCase());
-              window.location.replace(current.toString());
-            }
-          } else {
-            window.location.reload();
-          }
-        }
+if (/\/(?:collections|products)\//.test(current.pathname)) {
+  if (current.pathname.includes("/collections/") && !current.pathname.includes("/products/")) {
+    // This is a collections page
+    console.log('Collection page - store value:', input.value)
+    if(isAllBrands(input.value)) {
+      current.searchParams.delete("filter.p.vendor");
+      window.location.replace(current.toString());
+    } else {
+      current.searchParams.set("filter.p.vendor", getStoreSentenceCase());
+      window.location.replace(current.toString());
+    }
+  } else if (current.pathname.includes("/products/")) {
+    // This is a product page
+    console.log('Product page - store value:', input.value)
+    if(isAllBrands(input.value)) {
+      current.searchParams.delete("filter.p.vendor");
+      window.location.replace(current.toString());
+    } else {
+      window.location.reload();
+    }
+  }
+}
       });
     });
 
