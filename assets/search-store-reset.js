@@ -261,13 +261,16 @@ function filterProductsOnPage() {
       }
     });
     
-    // Also listen for clicks as backup
-    document.addEventListener('click', function(e) {
-      const storeLabel = e.target.closest('store-switcher label');
-      if (storeLabel) {
-        setTimeout(handleStoreChange, 150);
-      }
-    });
+// Also listen for clicks as backup
+document.addEventListener('click', function(e) {
+  const storeLabel = e.target.closest('store-switcher label');
+  if (storeLabel) {
+    // Don't trigger store change handling on product pages from clicks
+    if (!window.location.pathname.includes('/products/')) {
+      setTimeout(handleStoreChange, 150);
+    }
+  }
+});
     
     // IMPROVED: Listen for the custom storeChanged event from store-switcher.js
     document.addEventListener('storeChanged', function(e) {
