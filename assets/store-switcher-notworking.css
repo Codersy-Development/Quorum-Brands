@@ -1,383 +1,223 @@
-/* Your existing CSS + All Brands enhancements */
+// ADD THIS AT THE VERY TOP
+const isAllBrands = (storeValue) => {
+  if (!storeValue) return false;
+  const normalized = storeValue.toLowerCase().trim();
+  return normalized === 'all brands';
+};
 
-.header-nav--second-row {
-  display: grid;
-  grid-template-columns: 50px 1fr 50px;
-}
-
-@media only screen and (max-width: 1199px) {
-  .header-layout.header-layout--center-drawer {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .header-layout.header-layout--center-drawer {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-store-switcher {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 90%;
-  column-gap: 0.8rem;
-  row-gap: 0;
-  align-items: center;
-  justify-content: end;
-  height: 100%;
-  
-  & * {
-    margin: 0;
-    padding: 0;
-  }
-  
-  & input {
-    display: none;
-  }
-  
-  & .store-switcher__btn {
-    border: 1px solid;
-    border-radius: 0.3rem;
-    border-color: var(--store-switch-buttons-text-color);
-    background-color: var(--store-switch-buttons-bg);
-    color: var(--store-switch-buttons-text-color);
-    padding: 6px 18px;
-    height: fit-content;
-    transition: all 0.3s ease; /* Smooth transitions */
-  }
-  
-  & .store-switcher-title {
-    letter-spacing: 0.032rem;
-    line-height: 1.4rem;
-    font-size: 1rem;
-    color: var(--store-switch-buttons-text-color);
-    transition: color 0.3s ease;
-  }
-  
-  & .store-switcher__btn:has(input:checked) {
-    border-color: var(--selected-store-switch-btn-color);
-    color: var(--selected-store-switch-btn-text-color);
-    background-color: var(--selected-store-switch-btn-color);
-  }
-  
-  & .store-switcher__btn:has(input:checked) .store-switcher-title {
-    color: var(--selected-store-switch-btn-text-color);
-  }
-  
-  /* NEW: All Brands button styling */
-  & .store-switcher__btn--all-brands:has(input:checked) {
-    border-color: var(--all-brands-btn-color, #007bff);
-    color: var(--all-brands-btn-text-color, white);
-    background-color: var(--all-brands-btn-color, #007bff);
-    font-weight: 600;
-  }
-  
-  & .store-switcher__btn--all-brands:has(input:checked) .store-switcher-title {
-    color: var(--all-brands-btn-text-color, white);
-  }
-  
-  @media only screen and (max-width: 768px) {
-    flex-wrap: wrap;
-  }
-}
-
-store-switch-menus {
-  & * {
-    margin: 0;
-    padding: 0;
-  }
-  
-  & .ssm__container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-  }
-
-  & .ssm__menu {
-    display: flex;
-    gap: 1.5rem;
-  }
-  
-  & .ssm__menu-link {
-    /* text-transform: uppercase; */
-  }
-  
-  & .ssm__menu-link:hover {
-    text-decoration: underline;
-    outline-offset: 2px;
-  }
-  
-  li:has(> .ssm__menu--submenu) {
-    position: relative;
-  }
-
-  .ssm__menu--submenu {
-    position: absolute;
-    top: calc(100% - 5px);
-    left: 50%;
-    transform: translateX(-50%);
-    display: none;
-    flex-direction: column;
-    padding: 10px;
-    background-color: var(--colorNav);
-    min-width: 180px;
-    gap: 8px;
-  }
-  
-  li:hover > .ssm__menu--submenu {
-    display: flex;
-  }
-  
-  li > .ssm__menu--submenu li:hover > .ssm__menu--submenu {
-    left: 100%;
-    transform: translateX(0%);
-    top: 0;
-  }
-
-  li:has(> .ssm__mega-menu) {
-    /* position: relative; */
-  }
-  
-  & .ssm__mega-menu {
-    position: absolute;
-    top: calc(100% - 4px);
-    left: 0;
-    background-color: var(--colorNav);
-    padding: 1rem 1.5rem;
-    visibility: hidden;
-    opacity: 0;
-    width: 100vw;
-    pointer-events: none;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-  }
-  
-  .ssm__mega-menu.visible {
-    visibility: visible;
-    opacity: 1;
-    pointer-events: auto;
-  }
-  
-  /* ===== UPDATED MEGA MENU CONTAINER ===== */
-  & .ssm__mega-menu-container {
-    display: flex;
-    gap: 2rem;
-    line-height: 2;
-    width: 100%;
-    flex-direction: row;
-    justify-content: center;
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 2rem;
-  }
-
-  /* Ensure columns don't stretch too wide */
-  & .ssm__mega-menu-container > * {
-    flex: 0 0 auto;
-    min-width: 150px;
-    max-width: 200px;
-  }
-  /* ===== END UPDATED SECTION ===== */
-  
-  & .ssm__menu-link--title {
-    text-transform: uppercase;
-    font-weight: 600;
-  }
-  
-  @media only screen and (max-width: 1350px) {
-    .ssm__menu-link--title {
-      font-size: 14px;
-      line-height: 1.5;
+const setCollectionsFilters = () => {
+  // 1) pull + capitalize your store name
+  const store = getStoreSentenceCase();
+  // 2) for each link whose href *contains* “/collections/”
+document.querySelectorAll('a[href*="/collections/"]').forEach((aTag) => {
+  try {
+    const url = new URL(aTag.href);
+    
+    // IMPORTANT: Skip product pages - only modify collection pages
+    if (url.pathname.includes('/products/')) {
+      return; // Don't modify product URLs
     }
-    & .ssm__mega-menu-container {
-      line-height: 1.7;
+    
+    if (isAllBrands(store)) {
+        url.searchParams.delete("filter.p.vendor");
+        aTag.href = url.toString();
+        return
+      }
+      // 3) only add if it’s missing
+      if (!url.searchParams.has("filter.p.vendor")) {
+        url.searchParams.set("filter.p.vendor", store);
+        aTag.href = url.toString();
+      } else {
+        url.searchParams.set("filter.p.vendor", store);
+        aTag.href = url.toString();
+      }
+    } catch (e) {
+      // this should almost never fire, since aTag.href is absolute
+      console.warn("Skipping invalid URL:", aTag.href);
+    }
+  });
+};
+
+
+class StoreSwitcher extends HTMLElement {
+  constructor() {
+    super();
+    this.htmlEL = document.querySelector("html");
+    this.inputs = this.querySelectorAll("input");
+
+    this._init();
+  }
+  connectedCallback() {
+    this.htmlEL = document.querySelector("html");
+    this.inputs = this.querySelectorAll("input");
+  }
+
+  _init() {
+    if (localStorage.getItem("store-selected")) {
+      this.inputs.forEach((input) => {
+        if (input.value === localStorage.getItem("store-selected")) {
+          input.checked = true;
+        }
+      });
     }
 
-    & .ssm__mega-menu .ssm__menu-link {
-      font-size: 16px;
-    }
-  }
-  
-  @media only screen and (max-width: 1250px) {
-    & .ssm__mega-menu.ssm__menu-link {
-      font-size: 14px;
-    }
-    & .ssm__mega-menu-container {
-      gap: 1rem;
-      padding: 0 1rem;
+    this.inputs.forEach((input) => {
+      input.addEventListener("change", () => {
+        if (!input.checked) {
+          return;
+        }
+        this.inputs.forEach((otherInput) => {
+          if (input.name === otherInput.name && input.id !== otherInput.id) {
+            console.log("FOUND: ", otherInput);
+            otherInput.removeAttribute("checked");
+          }
+        });
+        this.htmlEL.dataset.storeSelected = input.value;
+        localStorage.setItem("store-selected", input.value);
+        setCollectionsFilters();
+        theme.headerNav.init();
+        const current = new URL(window.location.href);
+        if (/\/(?:collections|products)\//.test(current.pathname)) {
+          if (current.pathname.includes("/collections/")) {
+            console.log(input.value)
+if(isAllBrands(input.value)) {
+              current.searchParams.delete("filter.p.vendor");
+              window.location.replace(current.toString());
+            } else {
+              current.searchParams.set("filter.p.vendor", getStoreSentenceCase());
+              window.location.replace(current.toString());
+            }
+          } else {
+            window.location.reload();
+          }
+        }
+      });
+    });
+
+    if (!localStorage.getItem("store-selected")) {
+      localStorage.setItem("store-selected", this.inputs[0].value);
+      this.htmlEL.dataset.storeSelected = this.inputs[0].value;
+      theme.headerNav.init();
+      const current = new URL(window.location.href);
+      if (/\/(?:collections|products)\//.test(current.pathname)) {
+        window.location.reload();
+      }
     }
   }
 }
 
-/* Brand-specific adjustments */
-html[data-store-selected="oxygen"] .ssm__mega-menu-container {
-  max-width: 900px !important;
-  gap: 3rem !important;
-}
+customElements.define("store-switcher", StoreSwitcher);
 
-html[data-store-selected="quorum"] .ssm__mega-menu-container {
-  max-width: 1200px !important;
-  gap: 2rem !important;
-}
+const getStoreSentenceCase = () => {
+  const rawStore = localStorage.getItem("store-selected");
+  if (!rawStore) return;
+  return rawStore[0].toUpperCase() + rawStore.slice(1);
+};
 
-/* NEW: All Brands specific adjustments */
-html[data-store-selected="all brands"] .ssm__mega-menu-container {
-  max-width: 1400px !important;
-  gap: 2.5rem !important;
-}
+document.addEventListener("DOMContentLoaded", () => {
+  setCollectionsFilters();
 
-/* Hide brand-specific tags when "All Brands" is selected */
-html[data-store-selected="all brands"] .tag:has(> #tag-oxygen),
-html[data-store-selected="all brands"] .tag:has(> #tag-quorum) {
-  display: block !important; /* Show all brand tags when "All Brands" is selected */
-}
-
-/* Keep existing brand-specific tag hiding */
-html[data-store-selected="oxygen"] .tag:has(> #tag-oxygen) {
-  display: none !important;
-}
-
-html[data-store-selected="quorum"] .tag:has(> #tag-quorum) {
-  display: none !important;
-}
-
-/* NEW: Collection/Product page indicators for All Brands */
-html[data-store-selected="all brands"] .collection-header::before {
-  content: "Showing all brands";
-  display: block;
-  padding: 0.5rem 1rem;
-  background: var(--all-brands-indicator-bg, #f8f9fa);
-  border: 1px solid var(--all-brands-indicator-border, #dee2e6);
-  border-radius: 0.25rem;
-  font-size: 0.875rem;
-  color: var(--all-brands-indicator-text, #6c757d);
-  margin-bottom: 1rem;
-}
-
-/* Additional responsive adjustments */
-@media only screen and (max-width: 1350px) {
-  html[data-store-selected="oxygen"] .ssm__mega-menu-container {
-    max-width: 800px !important;
-    gap: 2rem !important;
+  const current = new URL(window.location.href);
+  if (
+    current.pathname.includes("/collections/") &&
+    !current.searchParams.has("filter.p.vendor")
+  ) {
+    current.searchParams.set("filter.p.vendor", store);
+    // replace current history entry so back-button won’t bounce you endlessly
+    window.location.replace(current.toString());
+    return; // stop running the rest until after reload
   }
-  
-  html[data-store-selected="quorum"] .ssm__mega-menu-container {
-    max-width: 1000px !important;
-    gap: 1.5rem !important;
+});
+
+class StoreSwitchMenus extends HTMLElement {
+  constructor() {
+    super();
+
+    // this.initMegaMenuPos();
+    this.initMegaMenuHeight();
+    this.initShowingLogic();
+    this.initResizeListener();
   }
-  
-  /* NEW: All Brands responsive */
-  html[data-store-selected="all brands"] .ssm__mega-menu-container {
-    max-width: 1200px !important;
-    gap: 2rem !important;
+
+  initShowingLogic() {
+    const header = document.getElementById("SiteHeader");
+    const itemsWithMega = this.querySelectorAll(
+      ".ssm__menu li:has(.ssm__mega-menu)"
+    );
+    const hideAllMegas = () => {
+      itemsWithMega.forEach((li) => {
+        li.querySelector(".ssm__mega-menu").classList.remove("visible");
+      });
+    };
+
+    header.querySelectorAll("li:not(:has(.ssm__mega-menu))").forEach((el) => {
+      el.addEventListener("mouseover", () => {
+        hideAllMegas();
+      });
+    });
+
+    header.addEventListener("mouseleave", () => {
+      hideAllMegas();
+    });
+
+    this.querySelectorAll(".ssm__menu li:has(.ssm__mega-menu)").forEach(
+      (link) => {
+        link.addEventListener("mouseover", () => {
+          hideAllMegas();
+          this.initMegaMenuHeight();
+          link.querySelector(".ssm__mega-menu").classList.add("visible");
+        });
+      }
+    );
   }
-}
 
-@media only screen and (max-width: 1250px) {
-  html[data-store-selected="oxygen"] .ssm__mega-menu-container {
-    max-width: 700px !important;
+  initResizeListener() {
+    let resizeTimeout;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        this.initMegaMenuHeight();
+      }, 100);
+    });
   }
-  
-  html[data-store-selected="quorum"] .ssm__mega-menu-container {
-    max-width: 900px !important;
+  initMegaMenuPos() {
+    this.querySelectorAll(".ssm__menu-link").forEach((item) => {
+      const trigger = item;
+      const menu = item.parentElement.querySelector(".ssm__mega-menu");
+
+      if (!menu) {
+        return;
+      }
+      function positionMenu() {
+        const menuRect = menu.getBoundingClientRect();
+        const triggerRect = trigger.getBoundingClientRect();
+
+        if (menuRect.left < 0) {
+          menu.style.left = -triggerRect.left + "px";
+          menu.style.transform = "none";
+        }
+
+        console.log(menuRect);
+      }
+
+      trigger.addEventListener("mouseenter", positionMenu);
+
+      window.addEventListener("resize", positionMenu);
+    });
   }
-  
-  /* NEW: All Brands responsive */
-  html[data-store-selected="all brands"] .ssm__mega-menu-container {
-    max-width: 1000px !important;
-  }
-}
-
-@media only screen and (max-width: 990px) {
-  .ssm__mega-menu-container {
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 1rem !important;
-  }
-  
-  .ssm__mega-menu-container > * {
-    flex: 1 1 200px !important;
-    min-width: 150px !important;
-  }
-}
-
-/* Mobile drawer and other existing styles */
-#PBarNextFrameWrapper {
-  display: none !important;
-}
-
-.store-switch-buttons--drawer {
-  position: fixed;
-  bottom: 0;
-  z-index: 9999;
-  background: var(--colorDrawers);
-  width: 100%;
-  padding: 20px;
-  border-top: 1px solid var(--colorDrawerBorder);
-  padding-bottom: 40px;
-  left: 0;
-}
-
-#mobile-nav:has(.store-switch-buttons--drawer) {
-  padding-bottom: 100px;
-}
-
-.hamburger-menu {
-  display: flex;
-  align-items: center;
-}
-
-.store-switch-navigations {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-.store-switch-navigations .navigation-cenetered-bottom > .site-nav {
-  margin: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-@media only screen and (max-width: 1235px) {
-  .navigation-cenetered-top {
-    display: none !important;
+  initMegaMenuHeight() {
+    const megaMenus = this.querySelectorAll(".ssm__mega-menu");
+    megaMenus.forEach((megaMenu) => {
+      const container = megaMenu.querySelector(".ssm__mega-menu-container");
+      const menusMaxHeight =
+        Math.max(
+          ...Array.from(
+            megaMenu.querySelectorAll(".ssm__mega-menu-container > div")
+          ).map((menu) => menu.offsetHeight)
+        ) + 30;
+      console.log("MAx height: ", menusMaxHeight);
+      container.style.maxHeight = Math.max(250, menusMaxHeight) + "px";
+    });
   }
 }
-
-@media only screen and (min-width: 1236px) {
-  .navigation-cenetered-bottom {
-    display: none !important;
-  }
-}
-
-/* NEW: Loading states for store switching */
-store-switcher.switching {
-  pointer-events: none;
-  opacity: 0.7;
-}
-
-store-switcher.switching::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 20px;
-  height: 20px;
-  border: 2px solid transparent;
-  border-top: 2px solid var(--selected-store-switch-btn-color);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  transform: translate(-50%, -50%);
-}
-
-@keyframes spin {
-  0% { transform: translate(-50%, -50%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
-}
+customElements.define("store-switch-menus", StoreSwitchMenus);
