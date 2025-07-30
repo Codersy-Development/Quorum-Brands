@@ -241,15 +241,23 @@ function filterProductsOnPage() {
     );
   }
   
-  function handleStoreChange() {
-    log('Store changed - executing full reset and filter');
-    
-    // Update form vendor filters first
-    updateFormVendorFilters();
-    
-    // Then reset search and filter products
+function handleStoreChange() {
+  log('Store changed - executing reset and filter');
+  
+  // Always update form vendor filters (needed for search functionality)
+  updateFormVendorFilters();
+  
+  // Only do search reset and product filtering on non-product pages
+  if (!window.location.pathname.includes('/products/')) {
     setTimeout(resetSearchInputs, 100);
+  } else {
+    log('Skipping search reset on product page');
+    // Still update search placeholders on product pages
+    if (CONFIG.updatePlaceholders) {
+      updateSearchPlaceholders();
+    }
   }
+}
   
   function initializeSearchReset() {
     log('Initializing search reset and product filtering');
