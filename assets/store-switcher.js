@@ -13,7 +13,7 @@ const setCollectionsFilters = () => {
     try {
       // aTag.href is always an absolute URL string
       const url = new URL(aTag.href);
-      if (store === 'Shop all brands') {
+if (isAllBrands(store)) {
         url.searchParams.delete("filter.p.vendor");
         aTag.href = url.toString();
         return
@@ -75,7 +75,7 @@ class StoreSwitcher extends HTMLElement {
         if (/\/(?:collections|products)\//.test(current.pathname)) {
           if (current.pathname.includes("/collections/")) {
             console.log(input.value)
-            if(input.value.includes("shop all brands")) {
+if(isAllBrands(input.value)) {
               current.searchParams.delete("filter.p.vendor");
               window.location.replace(current.toString());
             } else {
