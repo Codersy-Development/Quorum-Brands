@@ -119,7 +119,7 @@
           "type": "tab",
           "settings": {
             "title": "Certifications",
-            "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p>",
+            "content": "<p>{{ product.metafields.custom.prefix_safety_ratings.value }}<br/>{{ product.metafields.custom.button_cutsheet.value }}</p>",
             "page": ""
           }
         },

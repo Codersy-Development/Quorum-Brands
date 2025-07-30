@@ -127,7 +127,7 @@
           "type": "tab",
           "settings": {
             "title": "Certifications",
-            "content": "<p>{{ product.metafields.custom.safety_ratings.value }}</p>",
+            "content": "<p>﻿{{ product.metafields.custom.prefix_safety_ratings.value }}{{ product.metafields.custom.button_cutsheet.value }}</p><p>{{ product.metafields.custom.button_instructions.value }}</p><p>{{ product.metafields.custom.button_RFA.value }}</p>",
             "page": ""
           }
         },
