@@ -111,7 +111,7 @@
           "type": "tab",
           "settings": {
             "title": "Performance | Features",
-            "content": "<p>{{ product.metafields.custom.prefix_dark_sky_compliant.value }}<br/>{{ product.metafields.custom.prefix_coastal_grade.value }}<br/>{{ product.metafields.custom.prefix_dimmable.value }}</p><p>{{ product.metafields.custom.prefix_manufacturer_warranty.value }}</p>",
+            "content": "<p>{{ product.metafields.custom.prefix_dark_sky_compliant.value }}<br/>{{ product.metafields.custom.prefix_coastal_grade.value }}<br/>{{ product.metafields.custom.prefix_dimmable.value }}</p><p>{{ product.metafields.custom.prefix_manufacturer_warranty.value }}</p><p>{{ product.metafields.custom.special_attribute.value }}</p>",
             "page": ""
           }
         },
@@ -125,9 +125,10 @@
         },
         "tab_PPiPwJ": {
           "type": "tab",
+          "disabled": true,
           "settings": {
             "title": "additional information",
-            "content": "<p>{{ product.metafields.custom.special_attribute.value }}</p>",
+            "content": "",
             "page": ""
           }
         },
@@ -187,19 +188,6 @@
     },
     "sub": {
       "type": "product-full-width",
-      "blocks": {
-        "tab_NGgmHF": {
-          "type": "tab",
-          "settings": {
-            "title": "Downloads",
-            "content": "<p>{{ product.metafields.custom.button_cutsheet.value }}</p><p>{{ product.metafields.custom.button_ies.value }}</p><p>{{ product.metafields.custom.button_revit.value }}</p><p>{{ product.metafields.custom.button_instructions.value }}</p><p>{{ product.metafields.custom.button_photo_metrics.value }}</p>",
-            "page": ""
-          }
-        }
-      },
-      "block_order": [
-        "tab_NGgmHF"
-      ],
       "disabled": true,
       "settings": {
         "max_width": true

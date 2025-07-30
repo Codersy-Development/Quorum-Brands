@@ -119,7 +119,7 @@
           "type": "tab",
           "settings": {
             "title": "Performance | Features",
-            "content": "<p>{{ product.metafields.custom.prefix_remote_adaptable.value }}<br/>{{ product.metafields.custom.prefix_smart_bond.value }}</p><p>{{ product.metafields.custom.prefix_switch_type.value }}<br/>{{ product.metafields.custom.prefix_reverse_switch_type.value }}</p><p>{{ product.metafields.custom.prefix_energyguide_airflow.value }}</p><p>{{ product.metafields.custom.prefix_energyguide_CFM_1.value }}</p><p>{{ product.metafields.custom.prefix_energyguide_sweep_1.value }}</p><p>{{ product.metafields.custom.prefix_energyguide_watts_1.value }}</p><p>{{ product.metafields.custom.prefix_wattage.value }}<br/>{{ product.metafields.custom.prefix_RPM_speed_1.value }}<br/>{{ product.metafields.custom.prefix_RPM_speed_3.value }}<br/>{{ product.metafields.custom.prefix_CFM_speed_1.value }}</p><p>{{ product.metafields.custom.prefix_CFM_watts_highspeed_1.value }}<br/>{{ product.metafields.custom.prefix_CFM_speed_3.value }}</p><p>{{ product.metafields.custom.prefix_watts_highspeed_1.value }}<br/>{{ product.metafields.custom.prefix_CFM_watts_1.value }}{{ product.metafields.custom.prefix_CFM_watts_3.value }}</p>",
+            "content": "<p>{{ product.metafields.custom.prefix_remote_adaptable.value }}<br/>{{ product.metafields.custom.prefix_smart_bond.value }}</p><p>{{ product.metafields.custom.prefix_switch_type.value }}<br/>{{ product.metafields.custom.prefix_reverse_switch_type.value }}</p><p>{{ product.metafields.custom.prefix_energyguide_airflow.value }}</p><p>{{ product.metafields.custom.prefix_energyguide_CFM_1.value }}</p><p>{{ product.metafields.custom.prefix_energyguide_sweep_1.value }}</p><p>{{ product.metafields.custom.prefix_energyguide_watts_1.value }}</p><p>{{ product.metafields.custom.prefix_wattage.value }}<br/>{{ product.metafields.custom.prefix_RPM_speed_1.value }}<br/>{{ product.metafields.custom.prefix_RPM_speed_3.value }}<br/>{{ product.metafields.custom.prefix_CFM_speed_1.value }}</p><p>{{ product.metafields.custom.prefix_CFM_watts_highspeed_1.value }}<br/>{{ product.metafields.custom.prefix_CFM_speed_3.value }}</p><p>{{ product.metafields.custom.prefix_watts_highspeed_1.value }}<br/>{{ product.metafields.custom.prefix_CFM_watts_1.value }}{{ product.metafields.custom.prefix_CFM_watts_3.value }}</p><p>{{ product.metafields.custom.special_attribute.value }}</p>",
             "page": ""
           }
         },
@@ -133,9 +133,10 @@
         },
         "tab_JKApLi": {
           "type": "tab",
+          "disabled": true,
           "settings": {
             "title": "Additional information",
-            "content": "<p>{{ product.metafields.custom.special_attribute.value }}</p>",
+            "content": "",
             "page": ""
           }
         },
@@ -197,19 +198,6 @@
     },
     "sub": {
       "type": "product-full-width",
-      "blocks": {
-        "tab_9AjKC6": {
-          "type": "tab",
-          "settings": {
-            "title": "Downloads",
-            "content": "<p>{{ product.metafields.custom.button_cutsheet.value }}</p><p>{{ product.metafields.custom.button_revit.value }}</p><p>{{ product.metafields.custom.button_ies.value }}</p><p>{{ product.metafields.custom.button_instructions.value }}</p><p>{{ product.metafields.custom.button_photo_metrics.value }}</p>",
-            "page": ""
-          }
-        }
-      },
-      "block_order": [
-        "tab_9AjKC6"
-      ],
       "disabled": true,
       "custom_css": [],
       "settings": {
