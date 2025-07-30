@@ -115,6 +115,14 @@
             "page": ""
           }
         },
+        "tab_94xPiJ": {
+          "type": "tab",
+          "settings": {
+            "title": "Mounting | Installation",
+            "content": "<p>{{ product.metafields.custom.prefix_rod_1.value }}</p><p>{{ product.metafields.custom.prefix_rod_2.value }}</p><p>{{ product.metafields.custom.prefix_rod_3.value }}</p><p>{{ product.metafields.custom.prefix_rod_finish.value }}</p><p>{{ product.metafields.custom.prefix_chain_length_1.value }}</p><p>{{ product.metafields.custom.prefix_chain_length_2.value }}</p><p>{{ product.metafields.custom.prefix_chain_finish.value }}</p><p>{{ product.metafields.custom.prefix_back_plate_width.value }}</p><p>{{ product.metafields.custom.prefix_back_plate_height.value }}</p><p>{{ product.metafields.custom.prefix_back_plate_depth.value }}</p><p>{{ product.metafields.custom.prefix_mount_plate_width.value }}</p><p>{{ product.metafields.custom.prefix_mount_plate_height.value }}</p><p>{{ product.metafields.custom.prefix_canopy_length.value }}</p><p>{{ product.metafields.custom.prefix_canopy_width.value }}</p><p>{{ product.metafields.custom.prefix_canopy_depth.value }}</p><p>{{ product.metafields.custom.prefix_J_Box.value }}</p><p>{{ product.metafields.custom.prefix_versatile_mounting.value }}</p><p>{{ product.metafields.custom.prefix_mount_top_back_plate.value }}</p><p>{{ product.metafields.custom.prefix_mount_bottom_fixture.value }}</p><p>{{ product.metafields.custom.prefix_mount_top_back_plate.value }}</p><p>{{ product.metafields.custom.prefix_mount_bottom_back_plate.value }}</p>",
+            "page": ""
+          }
+        },
         "tab_6WfjbQ": {
           "type": "tab",
           "settings": {
@@ -166,6 +174,7 @@
         "tab_HAmQP6",
         "tab_zFza3D",
         "tab",
+        "tab_94xPiJ",
         "tab_6WfjbQ",
         "tab_W4Vta8",
         "tab_ip7DD8",
