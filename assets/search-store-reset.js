@@ -286,12 +286,15 @@ document.addEventListener('storeChanged', function(e) {
   handleStoreChange();
 });
     
-    // Initial setup
-    setTimeout(function() {
-      updateSearchPlaceholders();
-      updateFormVendorFilters();
-      filterProductsOnPage();
-    }, 100);
+// Initial setup
+setTimeout(function() {
+  // Don't run initial filtering on product pages
+  if (!window.location.pathname.includes('/products/')) {
+    updateSearchPlaceholders();
+    updateFormVendorFilters();
+    filterProductsOnPage();
+  }
+}, 100);
     
     log('All event listeners attached');
   }
