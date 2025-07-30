@@ -113,47 +113,38 @@ document.addEventListener("DOMContentLoaded", () => {
   setCollectionsFilters();
 
   const current = new URL(window.location.href);
-  if (
-    current.pathname.includes("/collections/") &&
-    !current.searchParams.has("filter.p.vendor")
-  ) {
-    current.searchParams.set("filter.p.vendor", store);
-    // replace current history entry so back-button won’t bounce you endlessly
-    window.location.replace(current.toString());
-    return; // stop running the rest until after reload
+  const currentStore = localStorage.getItem("store-selected");
+  
+  // Handle collections pages
+  if (current.pathname.includes("/collections/") && !current.pathname.includes("/products/")) {
+    const existingVendor = current.searchParams.get("filter.p.vendor");
+    
+    if (currentStore && isAllBrands(currentStore)) {
+      // "All Brands" is selected - remove any vendor filter
+      if (existingVendor) {
+        console.log('All Brands selected - removing vendor filter');
+        current.searchParams.delete("filter.p.vendor");
+        window.location.replace(current.toString());
+        return;
+      }
+    } else if (currentStore) {
+      // Specific brand is selected
+      const storeSentence = currentStore[0].toUpperCase() + currentStore.slice(1);
+      
+      if (!existingVendor) {
+        console.log('Adding vendor filter for:', storeSentence);
+        current.searchParams.set("filter.p.vendor", storeSentence);
+        window.location.replace(current.toString());
+        return;
+      } else if (existingVendor.toLowerCase() !== storeSentence.toLowerCase()) {
+        console.log('Updating vendor filter from', existingVendor, 'to', storeSentence);
+        current.searchParams.set("filter.p.vendor", storeSentence);
+        window.location.replace(current.toString());
+        return;
+      }
+    }
   }
 });
-
-class StoreSwitchMenus extends HTMLElement {
-  constructor() {
-    super();
-
-    // this.initMegaMenuPos();
-    this.initMegaMenuHeight();
-    this.initShowingLogic();
-    this.initResizeListener();
-  }
-
-  initShowingLogic() {
-    const header = document.getElementById("SiteHeader");
-    const itemsWithMega = this.querySelectorAll(
-      ".ssm__menu li:has(.ssm__mega-menu)"
-    );
-    const hideAllMegas = () => {
-      itemsWithMega.forEach((li) => {
-        li.querySelector(".ssm__mega-menu").classList.remove("visible");
-      });
-    };
-
-    header.querySelectorAll("li:not(:has(.ssm__mega-menu))").forEach((el) => {
-      el.addEventListener("mouseover", () => {
-        hideAllMegas();
-      });
-    });
-
-    header.addEventListener("mouseleave", () => {
-      hideAllMegas();
-    });
 
     this.querySelectorAll(".ssm__menu li:has(.ssm__mega-menu)").forEach(
       (link) => {
