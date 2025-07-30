@@ -1,10 +1,13 @@
 {%- comment -%}
-  Collapsible content with improved vertical alignment
+  Insert the below 
+  {% render 'format-colons', content: cleaned_content %}
+  assign cleaned_content = format-colons
 {%- endcomment -%}
 
 {%- liquid
   assign has_content = false
   assign cleaned_content = ''
+
 
   if content != blank and content != '' and content != nil
     comment
@@ -16,7 +19,7 @@
       assign has_content = true
       
       comment
-        Aggressive content cleaning for better vertical alignment
+        Aggressive content cleaning
       endcomment
       assign cleaned_content = content
       
@@ -30,7 +33,7 @@
       assign cleaned_content = cleaned_content | replace: '<BR />', '<br>'
       
       comment
-        Remove problematic paragraph patterns - enhanced for vertical alignment
+        Remove problematic paragraph patterns - do this multiple times
       endcomment
       assign cleaned_content = cleaned_content | replace: '<p><br></p>', ''
       assign cleaned_content = cleaned_content | replace: '<p><br><br></p>', ''
@@ -38,17 +41,13 @@
       assign cleaned_content = cleaned_content | replace: '<p> </p>', ''
       assign cleaned_content = cleaned_content | replace: '<p></p>', ''
       assign cleaned_content = cleaned_content | replace: '<p>&nbsp;</p>', ''
-      assign cleaned_content = cleaned_content | replace: '<p>&nbsp;&nbsp;</p>', ''
-      assign cleaned_content = cleaned_content | replace: '<p>  </p>', ''
-      assign cleaned_content = cleaned_content | replace: '<p>   </p>', ''
       
       comment
-        Additional cleanup for div elements that can create spacing
+        Second pass to catch any remaining empty paragraphs
       endcomment
-      assign cleaned_content = cleaned_content | replace: '<div></div>', ''
-      assign cleaned_content = cleaned_content | replace: '<div> </div>', ''
-      assign cleaned_content = cleaned_content | replace: '<div>&nbsp;</div>', ''
-      assign cleaned_content = cleaned_content | replace: '<div><br></div>', ''
+      assign cleaned_content = cleaned_content | replace: '<p></p>', ''
+      assign cleaned_content = cleaned_content | replace: '<p> </p>', ''
+      assign cleaned_content = cleaned_content | replace: '<p>&nbsp;</p>', ''
       
       comment
         Remove br tags at end of paragraphs that create extra spacing
@@ -59,10 +58,8 @@
       assign cleaned_content = cleaned_content | replace: '<br><br></p>', '</p>'
       
       comment
-        Enhanced br tag cleanup - multiple passes for better results
+        Clean up double br tags within paragraphs - do this multiple times
       endcomment
-      assign cleaned_content = cleaned_content | replace: '<br><br><br><br><br>', '<br>'
-      assign cleaned_content = cleaned_content | replace: '<br><br><br><br>', '<br>'
       assign cleaned_content = cleaned_content | replace: '<br><br><br>', '<br>'
       assign cleaned_content = cleaned_content | replace: '<br><br>', '<br>'
       assign cleaned_content = cleaned_content | replace: '<br><br>', '<br>'
@@ -73,19 +70,23 @@
       assign cleaned_content = cleaned_content | replace: '<br></p>', '</p>'
       
       comment
-        Remove standalone br tags between elements
+        Collapse multiple br tags - do this several times
+      endcomment
+      assign cleaned_content = cleaned_content | replace: '<br><br><br><br><br><br>', '<br><br>'
+      assign cleaned_content = cleaned_content | replace: '<br><br><br><br><br>', '<br><br>'
+      assign cleaned_content = cleaned_content | replace: '<br><br><br><br>', '<br><br>'
+      assign cleaned_content = cleaned_content | replace: '<br><br><br>', '<br><br>'
+      
+      comment
+        Remove standalone br tags outside of paragraphs
       endcomment
       assign cleaned_content = cleaned_content | replace: '</p><br><p>', '</p><p>'
       assign cleaned_content = cleaned_content | replace: '</p><br><br><p>', '</p><p>'
       assign cleaned_content = cleaned_content | replace: '</p><br><br><br><p>', '</p><p>'
-      assign cleaned_content = cleaned_content | replace: '</div><br><div>', '</div><div>'
-      assign cleaned_content = cleaned_content | replace: '</div><br><p>', '</div><p>'
-      assign cleaned_content = cleaned_content | replace: '</p><br><div>', '</p><div>'
       
       comment
-        Clean up excessive whitespace
+        Clean up whitespace
       endcomment
-      assign cleaned_content = cleaned_content | replace: '     ', ' '
       assign cleaned_content = cleaned_content | replace: '    ', ' '
       assign cleaned_content = cleaned_content | replace: '   ', ' '
       assign cleaned_content = cleaned_content | replace: '  ', ' '
@@ -96,7 +97,7 @@
       assign cleaned_content = cleaned_content | strip
       
       comment
-        Remove br at very beginning - enhanced check
+        Remove br at very beginning
       endcomment
       assign content_start = cleaned_content | slice: 0, 4
       if content_start == '<br>'
@@ -105,7 +106,7 @@
       endif
       
       comment
-        Remove br at very end - enhanced check
+        Remove br at very end
       endcomment
       assign content_length = cleaned_content.size
       if content_length > 4
@@ -122,34 +123,21 @@
       endcomment
       assign cleaned_content = cleaned_content | replace: '<p></p>', ''
       assign cleaned_content = cleaned_content | replace: '<p> </p>', ''
-      assign cleaned_content = cleaned_content | replace: '<p>&nbsp;</p>', ''
       assign cleaned_content = cleaned_content | replace: '<div></div>', ''
       assign cleaned_content = cleaned_content | replace: '<div> </div>', ''
-      assign cleaned_content = cleaned_content | replace: '<div>&nbsp;</div>', ''
       assign cleaned_content = cleaned_content | strip
-      
-      comment
-        Final check to ensure no leading/trailing spacing elements
-      endcomment
-      if cleaned_content.size > 0
-        assign first_char = cleaned_content | slice: 0, 1
-        assign last_char = cleaned_content | slice: -1, 1
-        if first_char == ' ' or last_char == ' '
-          assign cleaned_content = cleaned_content | strip
-        endif
-      endif
     endif
   endif
 -%}
 
 {%- if has_content -%}
-<div class="collapsibles-wrapper collapsibles-wrapper--micro-spacing">
-  <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--tight{%- if force_open %} is-open{%- endif -%}" aria-controls="Product-content-{{ id }}"{%- if force_open %} aria-expanded="true"{%- endif -%}>
+<div class="collapsibles-wrapper collapsibles-wrapper--border-bottom">
+  <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height{%- if force_open %} is-open{%- endif -%}" aria-controls="Product-content-{{ id }}"{%- if force_open %} aria-expanded="true"{%- endif -%}>
     {{- title | strip -}}
     {%- render 'collapsible-icons' -%}
   </button>
-  <div id="Product-content-{{ id }}" class="collapsible-content collapsible-content--tight{%- if force_open %} is-open{%- endif -%}"{%- if force_open %} style="height: auto;"{%- endif -%}>
-    <div class="collapsible-content__inner collapsible-content__inner--no-margin rte">
+  <div id="Product-content-{{ id }}" class="collapsible-content collapsible-content--all{%- if force_open %} is-open{%- endif -%}"{%- if force_open %} style="height: auto;"{%- endif -%}>
+    <div class="collapsible-content__inner rte">
       {{- cleaned_content -}}
     </div>
   </div>
