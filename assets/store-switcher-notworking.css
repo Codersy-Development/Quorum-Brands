@@ -118,14 +118,28 @@ document.addEventListener("DOMContentLoaded", () => {
   setCollectionsFilters();
 
   const current = new URL(window.location.href);
-  if (
-    current.pathname.includes("/collections/") &&
-    !current.searchParams.has("filter.p.vendor")
-  ) {
-    current.searchParams.set("filter.p.vendor", store);
-    // replace current history entry so back-button won’t bounce you endlessly
+  const currentStore = localStorage.getItem("store-selected"); // FIXED: Use correct variable
+  
+  // Handle product pages with vendor filters when "ALL BRANDS" is selected
+  if (current.pathname.includes("/products/") && 
+      current.searchParams.has("filter.p.vendor") &&
+      currentStore &&
+      isAllBrands(currentStore)) {
+    current.searchParams.delete("filter.p.vendor");
     window.location.replace(current.toString());
-    return; // stop running the rest until after reload
+    return;
+  }
+  
+  // Only apply collection filtering logic to actual collections pages (not product pages)
+  if (current.pathname.includes("/collections/") &&
+      !current.pathname.includes("/products/") &&
+      !current.searchParams.has("filter.p.vendor") &&
+      currentStore &&
+      !isAllBrands(currentStore)) {
+    const storeSentence = currentStore[0].toUpperCase() + currentStore.slice(1);
+    current.searchParams.set("filter.p.vendor", storeSentence);
+    window.location.replace(current.toString());
+    return;
   }
 });
 
