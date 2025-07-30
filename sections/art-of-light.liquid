@@ -106,10 +106,40 @@
         const colorItems = document.querySelectorAll('.color-item');
         const galleries = document.querySelectorAll('.social-grid');
         const wrapper = document.querySelector('.social-grid-wrapper');
+        const artOfLightSection = document.querySelector('.art-of-light');
 
         const loader = document.createElement('div');
         loader.classList.add('loader');
         wrapper.appendChild(loader);
+
+        // Store filtering integration
+        function checkStoreVisibility() {
+            if (!artOfLightSection) return true;
+            
+            const selectedStore = localStorage.getItem("store-selected") || "";
+            const sectionStore = artOfLightSection.getAttribute('data-store');
+            
+            // If section is set to show on all stores, always show
+            if (!sectionStore || sectionStore === 'all') {
+                artOfLightSection.style.display = '';
+                return true;
+            }
+            
+            // Check if "All Brands" is selected (using the same logic as the filtering script)
+            function isAllBrands(storeValue) {
+                if (!storeValue) return false;
+                const normalized = storeValue.toLowerCase().trim();
+                return normalized === 'all brands' || normalized === 'shop all';
+            }
+            
+            // Show section if selected store matches section store, or if "All Brands" is selected
+            const shouldShow = isAllBrands(selectedStore) || 
+                             selectedStore.toLowerCase() === sectionStore.toLowerCase() || 
+                             selectedStore === '';
+            
+            artOfLightSection.style.display = shouldShow ? '' : 'none';
+            return shouldShow;
+        }
 
         function showGallery(id) {
             galleries.forEach(grid => {
@@ -136,15 +166,22 @@
             });
         }
 
-        // Initialize first gallery as visible and first color as active
-        if (colorItems.length) {
-            const firstColorId = colorItems[0].getAttribute('data-color');
-            const firstGallery = document.getElementById('gallery-' + firstColorId);
-            if (firstGallery) {
-                firstGallery.style.display = 'block';
-                firstGallery.style.opacity = '1';
+        function initializeGallery() {
+            // Only initialize if section should be visible
+            if (!checkStoreVisibility()) return;
+            
+            if (colorItems.length) {
+                const firstColorId = colorItems[0].getAttribute('data-color');
+                const firstGallery = document.getElementById('gallery-' + firstColorId);
+                if (firstGallery) {
+                    firstGallery.style.display = 'block';
+                    firstGallery.style.opacity = '1';
+                }
             }
         }
+
+        // Initialize first gallery as visible and first color as active
+        initializeGallery();
 
         colorItems.forEach(item => {
             item.addEventListener('click', function () {
@@ -152,6 +189,32 @@
                 showGallery(colorId);
             });
         });
+
+        // Listen for store changes (integrates with your store filtering script)
+        document.addEventListener('storeChanged', function(e) {
+            console.log('[Art of Light] Store changed, checking visibility');
+            setTimeout(() => {
+                const isVisible = checkStoreVisibility();
+                if (isVisible) {
+                    initializeGallery();
+                }
+            }, 100);
+        });
+
+        // Also listen for the regular change events as backup
+        document.addEventListener('change', function(e) {
+            if (e.target.type === 'radio' && e.target.closest('store-switcher')) {
+                setTimeout(() => {
+                    const isVisible = checkStoreVisibility();
+                    if (isVisible) {
+                        initializeGallery();
+                    }
+                }, 150);
+            }
+        });
+
+        // Initial store check
+        setTimeout(checkStoreVisibility, 100);
     });
 </script>
 
