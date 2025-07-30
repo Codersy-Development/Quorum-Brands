@@ -272,13 +272,19 @@ document.addEventListener('click', function(e) {
   }
 });
     
-    // IMPROVED: Listen for the custom storeChanged event from store-switcher.js
-    document.addEventListener('storeChanged', function(e) {
-      const newStore = e.detail.selectedStore;
-      const isAllBrandsSelected = e.detail.isAllBrands;
-      log(`Store changed via custom event: ${newStore} (All Brands: ${isAllBrandsSelected})`);
-      handleStoreChange();
-    });
+// IMPROVED: Listen for the custom storeChanged event from store-switcher.js
+document.addEventListener('storeChanged', function(e) {
+  // Don't handle store changes on product pages
+  if (window.location.pathname.includes('/products/')) {
+    log('Skipping store change handling on product page');
+    return;
+  }
+  
+  const newStore = e.detail.selectedStore;
+  const isAllBrandsSelected = e.detail.isAllBrands;
+  log(`Store changed via custom event: ${newStore} (All Brands: ${isAllBrandsSelected})`);
+  handleStoreChange();
+});
     
     // Initial setup
     setTimeout(function() {
