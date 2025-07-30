@@ -265,10 +265,7 @@ function filterProductsOnPage() {
 document.addEventListener('click', function(e) {
   const storeLabel = e.target.closest('store-switcher label');
   if (storeLabel) {
-    // Don't trigger store change handling on product pages from clicks
-    if (!window.location.pathname.includes('/products/')) {
-      setTimeout(handleStoreChange, 150);
-    }
+    setTimeout(handleStoreChange, 150);
   }
 });
     
