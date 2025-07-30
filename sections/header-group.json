@@ -36,7 +36,7 @@
           "type": "logo",
           "settings": {
             "logo_for_store": "All Brands",
-            "logo": "shopify://shop_images/QO_B.png",
+            "logo": "shopify://shop_images/qo_narrow.png",
             "desktop_logo_width": 360,
             "mobile_logo_width": 100
           }
