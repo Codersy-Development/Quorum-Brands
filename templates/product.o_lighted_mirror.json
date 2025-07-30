@@ -111,7 +111,7 @@
           "type": "tab",
           "settings": {
             "title": "Performance | Features",
-            "content": "<p>{{ product.metafields.custom.prefix_remote_adaptable.value }}<br/>{{ product.metafields.custom.prefix_smart_bond.value }}<br/>{{ product.metafields.custom.prefix_ghost_frame.value }}<br/>{{ product.metafields.custom.prefix_ghost_light.value }}<br/>{{ product.metafields.custom.prefix_dimmable.value }}<br/>{{ product.metafields.custom.prefix_infered.value }}<br/><br/>{{ product.metafields.custom.prefix_modular_system.value }}</p><p>{{ product.metafields.custom.prefix_manufacturer_warranty.value }}</p>",
+            "content": "<p>{{ product.metafields.custom.prefix_remote_adaptable.value }}<br/>{{ product.metafields.custom.prefix_smart_bond.value }}<br/>{{ product.metafields.custom.prefix_ghost_frame.value }}<br/>{{ product.metafields.custom.prefix_ghost_light.value }}<br/>{{ product.metafields.custom.prefix_dimmable.value }}<br/>{{ product.metafields.custom.prefix_infered.value }}<br/><br/>{{ product.metafields.custom.prefix_modular_system.value }}</p><p>{{ product.metafields.custom.prefix_manufacturer_warranty.value }}</p><p>{{ product.metafields.custom.special_attribute.value }}</p>",
             "page": ""
           }
         },
@@ -143,7 +143,7 @@
           "type": "tab",
           "settings": {
             "title": "Additional Information",
-            "content": "<p>{{ product.metafields.custom.special_attribute.value }}</p>",
+            "content": "",
             "page": ""
           }
         },
@@ -196,19 +196,6 @@
     },
     "sub": {
       "type": "product-full-width",
-      "blocks": {
-        "tab_9AjKC6": {
-          "type": "tab",
-          "settings": {
-            "title": "Downloads",
-            "content": "<p>{{ product.metafields.custom.button_cutsheet.value }}</p><p>{{ product.metafields.custom.button_revit.value }}</p><p>{{ product.metafields.custom.button_ies.value }}</p><p>{{ product.metafields.custom.button_instructions.value }}</p><p>{{ product.metafields.custom.button_photo_metrics.value }}</p>",
-            "page": ""
-          }
-        }
-      },
-      "block_order": [
-        "tab_9AjKC6"
-      ],
       "disabled": true,
       "settings": {
         "max_width": true
