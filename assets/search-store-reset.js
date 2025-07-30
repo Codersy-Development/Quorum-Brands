@@ -241,23 +241,15 @@ function filterProductsOnPage() {
     );
   }
   
-function handleStoreChange() {
-  log('Store changed - executing reset and filter');
-  
-  // Always update form vendor filters (needed for search functionality)
-  updateFormVendorFilters();
-  
-  // Only do search reset and product filtering on non-product pages
-  if (!window.location.pathname.includes('/products/')) {
+  function handleStoreChange() {
+    log('Store changed - executing full reset and filter');
+    
+    // Update form vendor filters first
+    updateFormVendorFilters();
+    
+    // Then reset search and filter products
     setTimeout(resetSearchInputs, 100);
-  } else {
-    log('Skipping search reset on product page');
-    // Still update search placeholders on product pages
-    if (CONFIG.updatePlaceholders) {
-      updateSearchPlaceholders();
-    }
   }
-}
   
   function initializeSearchReset() {
     log('Initializing search reset and product filtering');
@@ -273,27 +265,27 @@ function handleStoreChange() {
 document.addEventListener('click', function(e) {
   const storeLabel = e.target.closest('store-switcher label');
   if (storeLabel) {
-    setTimeout(handleStoreChange, 150);
+    // Don't trigger store change handling on product pages from clicks
+    if (!window.location.pathname.includes('/products/')) {
+      setTimeout(handleStoreChange, 150);
+    }
   }
 });
     
-// IMPROVED: Listen for the custom storeChanged event from store-switcher.js
-document.addEventListener('storeChanged', function(e) {
-  const newStore = e.detail.selectedStore;
-  const isAllBrandsSelected = e.detail.isAllBrands;
-  log(`Store changed via custom event: ${newStore} (All Brands: ${isAllBrandsSelected})`);
-  handleStoreChange();
-});
+    // IMPROVED: Listen for the custom storeChanged event from store-switcher.js
+    document.addEventListener('storeChanged', function(e) {
+      const newStore = e.detail.selectedStore;
+      const isAllBrandsSelected = e.detail.isAllBrands;
+      log(`Store changed via custom event: ${newStore} (All Brands: ${isAllBrandsSelected})`);
+      handleStoreChange();
+    });
     
-// Initial setup
-setTimeout(function() {
-  // Don't run initial filtering on product pages
-  if (!window.location.pathname.includes('/products/')) {
-    updateSearchPlaceholders();
-    updateFormVendorFilters();
-    filterProductsOnPage();
-  }
-}, 100);
+    // Initial setup
+    setTimeout(function() {
+      updateSearchPlaceholders();
+      updateFormVendorFilters();
+      filterProductsOnPage();
+    }, 100);
     
     log('All event listeners attached');
   }
