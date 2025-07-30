@@ -10,11 +10,11 @@
     redirectFromSearchPage: false,
     clearPredictiveSearch: true,
     updatePlaceholders: true,
-    filterProducts: true,        // NEW: Filter products on page
-    logActions: true  // Changed to true for debugging
+    filterProducts: true,
+    logActions: false  // Changed back to false to reduce console spam
   };
   
-  // NEW: Utility function to check if store is "All Brands"
+  // Utility function to check if store is "All Brands"
   function isAllBrands(storeValue) {
     if (!storeValue) return false;
     const normalized = storeValue.toLowerCase().trim();
@@ -58,6 +58,17 @@
     let visibleCount = 0;
     let hiddenCount = 0;
     
+    // IMPROVED: If "All Brands" is selected, show everything immediately
+    if (isAllBrands(selectedStore)) {
+      allProducts.forEach((item) => {
+        item.style.display = '';
+        visibleCount++;
+      });
+      log(`All Brands selected - showing all ${visibleCount} products`);
+      return; // Exit early, no need for complex filtering
+    }
+    
+    // Only do complex filtering for specific brands
     allProducts.forEach((item) => {
       let productVendor = '';
       
@@ -70,29 +81,31 @@
         if (vendorElement) {
           productVendor = vendorElement.textContent.trim().toLowerCase();
         } else {
-          // Scan text content for vendor names
+          // Scan text content for vendor names - be more specific
           const itemText = item.textContent.toLowerCase();
-          if (itemText.includes('oxygen')) {
+          if (itemText.includes('oxygen') && !itemText.includes('quorum')) {
             productVendor = 'oxygen';
-          } else if (itemText.includes('quorum')) {
+          } else if (itemText.includes('quorum') && !itemText.includes('oxygen')) {
             productVendor = 'quorum';
           }
+          // IMPROVED: Add more vendor detection here as needed
+          // else if (itemText.includes('brand3')) {
+          //   productVendor = 'brand3';
+          // }
         }
       }
       
-      // FIXED: Determine if product should be shown using new isAllBrands function
-      const shouldShow = isAllBrands(selectedStore) || 
-                        productVendor === selectedStore.toLowerCase() ||
-                        selectedStore === '';
+      // Determine if product should be shown for specific brand
+      const shouldShow = productVendor === selectedStore.toLowerCase() || selectedStore === '';
       
       if (shouldShow) {
         item.style.display = '';
         visibleCount++;
-        log(`Showing product with vendor: ${productVendor}`);
+        if (CONFIG.logActions) log(`Showing product with vendor: ${productVendor}`);
       } else {
         item.style.display = 'none';
         hiddenCount++;
-        log(`Hiding product with vendor: ${productVendor} (selected: ${selectedStore})`);
+        if (CONFIG.logActions) log(`Hiding product with vendor: ${productVendor} (selected: ${selectedStore})`);
       }
     });
     
@@ -103,13 +116,26 @@
   }
   
   function hideEmptyProductSections(visibleCount) {
-    // Hide product sections if no products are visible
+    // Don't hide sections if "All Brands" is selected
+    const selectedStore = localStorage.getItem("store-selected") || "";
+    if (isAllBrands(selectedStore)) {
+      // Show all product sections when "All Brands" is selected
+      const productSections = document.querySelectorAll(
+        '.results--products, [data-type-products], .product-grid, .search-results'
+      );
+      productSections.forEach(section => {
+        section.style.display = '';
+      });
+      return;
+    }
+    
+    // Hide product sections if no products are visible (for specific brands only)
     const productSections = document.querySelectorAll(
       '.results--products, [data-type-products], .product-grid, .search-results'
     );
     
     productSections.forEach(section => {
-      const visibleProductsInSection = section.querySelectorAll(
+      const hiddenProductsInSection = section.querySelectorAll(
         '[style*="display: none"]'
       ).length;
       
@@ -117,7 +143,7 @@
         '.grid-product, .product-item, .predictive-product-wrapper'
       ).length;
       
-      if (totalProductsInSection > 0 && visibleProductsInSection === totalProductsInSection) {
+      if (totalProductsInSection > 0 && hiddenProductsInSection === totalProductsInSection) {
         section.style.display = 'none';
         log('Hid empty product section');
       } else if (totalProductsInSection > 0) {
@@ -172,9 +198,8 @@
     const searchInputs = document.querySelectorAll('input[type="search"], input[name="q"]');
     
     searchInputs.forEach(input => {
-      let placeholder = 'Search';
+      let placeholder = 'Search all products'; // IMPROVED: Better default for "All Brands"
       
-      // FIXED: Use isAllBrands function
       if (selectedStore && !isAllBrands(selectedStore)) {
         const capitalizedStore = selectedStore.charAt(0).toUpperCase() + selectedStore.slice(1);
         placeholder = `Search ${capitalizedStore} products...`;
@@ -191,12 +216,11 @@
     searchForms.forEach(form => {
       const vendorInput = form.querySelector('input[name="filter.p.vendor"], .vendor-filter-input');
       if (vendorInput) {
-        // FIXED: Use isAllBrands function
         if (selectedStore && !isAllBrands(selectedStore)) {
           const capitalizedStore = selectedStore.charAt(0).toUpperCase() + selectedStore.slice(1);
           vendorInput.value = capitalizedStore;
         } else {
-          vendorInput.value = '';
+          vendorInput.value = ''; // Clear for "All Brands"
         }
       }
     });
@@ -238,6 +262,14 @@
       }
     });
     
+    // IMPROVED: Listen for the custom storeChanged event from store-switcher.js
+    document.addEventListener('storeChanged', function(e) {
+      const newStore = e.detail.selectedStore;
+      const isAllBrandsSelected = e.detail.isAllBrands;
+      log(`Store changed via custom event: ${newStore} (All Brands: ${isAllBrandsSelected})`);
+      handleStoreChange();
+    });
+    
     // Initial setup
     setTimeout(function() {
       updateSearchPlaceholders();
@@ -262,7 +294,17 @@
     filterProducts: filterProductsOnPage,
     updatePlaceholders: updateSearchPlaceholders,
     updateForms: updateFormVendorFilters,
-    isAllBrands: isAllBrands  // NEW: Expose for debugging
+    isAllBrands: isAllBrands,
+    // IMPROVED: Add debugging helpers
+    debug: {
+      showAllProducts: () => {
+        document.querySelectorAll('.grid-product, .product-item, [data-vendor]')
+          .forEach(p => p.style.display = '');
+        console.log('Debug: Forced all products visible');
+      },
+      getCurrentStore: () => localStorage.getItem("store-selected"),
+      testAllBrands: (value) => isAllBrands(value)
+    }
   };
   
 })();
