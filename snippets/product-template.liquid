@@ -8,8 +8,8 @@
   const productVendor = "{{ product.vendor }}" || ""
   const selectedStore = localStorage.getItem("store-selected") || ""
   
-  // Allow products to show when "Shop All Brands" is selected
-  if (!selectedStore.toLowerCase().includes("shop all") && 
+  // Allow products to show when "All Brands" is selected
+  if (!selectedStore.toLowerCase().includes("all brands") && 
       productVendor.toLowerCase() !== selectedStore) {
     window.location.href = "/"
   }
