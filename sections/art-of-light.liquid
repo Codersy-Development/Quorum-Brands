@@ -17,7 +17,7 @@
 
         <div class="colors">
             {% for block in section.blocks %}
-                <div class="color-item" data-color="{{ block.id }}">
+                <div class="color-item{% if forloop.first %} active{% endif %}" data-color="{{ block.id }}">
                     {% if block.settings.icon %}
                         <img src="{{ block.settings.icon | img_url: 'small' }}" alt="{{ block.settings.label }}" class="color-icon">
                     {% endif %}
@@ -30,7 +30,7 @@
 
         <div class="social-grid-wrapper">
             {% for block in section.blocks %}
-                <div class="social-grid" id="gallery-{{ block.id }}" style="display: none;">
+                <div class="social-grid" id="gallery-{{ block.id }}" {% unless forloop.first %}style="display: none;"{% endunless %}>
                     {% for i in (1..8) %}
                         {% assign key = "image_" | append: i %}
                         {% assign url_key = "url_" | append: i %}
@@ -83,6 +83,22 @@
     width: 100%;
     height: auto;
 }
+
+/* Active state styling for color items */
+.color-item.active {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.color-item {
+    opacity: 0.7;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.color-item:hover {
+    opacity: 1;
+}
 </style>
 
 <script>
@@ -120,8 +136,14 @@
             });
         }
 
+        // Initialize first gallery as visible and first color as active
         if (colorItems.length) {
-            showGallery(colorItems[0].getAttribute('data-color'));
+            const firstColorId = colorItems[0].getAttribute('data-color');
+            const firstGallery = document.getElementById('gallery-' + firstColorId);
+            if (firstGallery) {
+                firstGallery.style.display = 'block';
+                firstGallery.style.opacity = '1';
+            }
         }
 
         colorItems.forEach(item => {
