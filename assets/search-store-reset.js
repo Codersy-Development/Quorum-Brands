@@ -27,11 +27,18 @@
     }
   }
   
-  function filterProductsOnPage() {
-    if (!CONFIG.filterProducts) return;
-    
-    const selectedStore = localStorage.getItem("store-selected") || "";
-    log(`Filtering products for store: ${selectedStore}`);
+function filterProductsOnPage() {
+  if (!CONFIG.filterProducts) return;
+  
+  const selectedStore = localStorage.getItem("store-selected") || "";
+  
+  // IMPORTANT: Don't run product filtering on product pages!
+  if (window.location.pathname.includes('/products/')) {
+    log('Skipping product filtering on product page');
+    return;
+  }
+  
+  log(`Filtering products for store: ${selectedStore}`);
     
     // Find all product elements (adjust selectors for your theme)
     const productSelectors = [
