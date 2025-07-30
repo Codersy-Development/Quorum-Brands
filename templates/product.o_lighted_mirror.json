@@ -119,7 +119,7 @@
           "type": "tab",
           "settings": {
             "title": "Mounting | Installation",
-            "content": "<p>{{ product.metafields.custom.prefix_back_plate_width.value }}<br/>{{ product.metafields.custom.prefix_back_plate_height.value }}<br/>{{ product.metafields.custom.prefix_back_plate_width.value }}</p><p>{{ product.metafields.custom.prefix_mount_plate_height.value }}</p><p>{{ product.metafields.custom.prefix_versatile_mounting.value }}<br/><br/>{{ product.metafields.custom.prefix_mount_top_back_plate.value }}<br/></p>",
+            "content": "<p>{{ product.metafields.custom.prefix_back_plate_width.value }}<br/>{{ product.metafields.custom.prefix_back_plate_height.value }}<br/>{{ product.metafields.custom.prefix_back_plate_width.value }}</p><p>{{ product.metafields.custom.prefix_versatile_mounting.value }}<br/><br/>{{ product.metafields.custom.prefix_mount_bottom_back_plate.value }}</p><p>{{ product.metafields.custom.prefix_mount_plate_height.value }}</p><p>{{ product.metafields.custom.prefix_mount_plate_width.value }}</p><p>{{ product.metafields.custom.prefix_mount_top_back_plate.value }}</p><p>{{ product.metafields.custom.prefix_mount_top_fixture.value }}</p><p>{{ product.metafields.custom.prefix_mount_bottom_fixture.value }}<br/></p>",
             "page": ""
           }
         },
