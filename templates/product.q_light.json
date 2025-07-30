@@ -101,7 +101,7 @@
           "type": "tab",
           "settings": {
             "title": "Specifications",
-            "content": "<p>{{ product.metafields.custom.prefix_material_1.value }}<br/>{{ product.metafields.custom.prefix_material_2.value }}<br/>{{ product.metafields.custom.prefix_material_3.value }}</p><p>{{ product.metafields.custom.prefix_finish_1.value }}<br/>{{ product.metafields.custom.prefix_finish_2.value }}<br/>{{ product.metafields.custom.prefix_finish_3.value }}</p><p>{{ product.metafields.custom.prefix_length.value }}<br/>{{ product.metafields.custom.prefix_width.value }}<br/>{{ product.metafields.custom.prefix_height.value }}<br/>{{ product.metafields.custom.prefix_extension.value }}<br/>{{ product.metafields.custom.prefix_diameter.value }}<br/>{{ product.metafields.custom.prefix_Depth.value }}<br/>{{ product.metafields.custom.prefix_weight.value }}</p><p>{{ product.metafields.custom.prefix_candle_finish_1.value }}<br/>{{ product.metafields.custom.prefix_candle_finish_2.value }}</p><p>{{ product.metafields.custom.prefix_shade_length.value }}<br/>{{ product.metafields.custom.prefix_shade_width.value }}<br/>{{ product.metafields.custom.prefix_shade_height.value }}</p><p>{{ product.metafields.custom.prefix_diffuser_material.value }}<br/>{{ product.metafields.custom.prefix_diffuser_height_1.value }}<br/>{{ product.metafields.custom.prefix_diffuser_width_1.value }}<br/>{{ product.metafields.custom.prefix_diffuser_height_2.value }}<br/>{{ product.metafields.custom.prefix_diffuser_width_2.value }}</p>",
+            "content": "<p>{{ product.metafields.custom.prefix_material_1.value }}<br/>{{ product.metafields.custom.prefix_material_2.value }}<br/>{{ product.metafields.custom.prefix_material_3.value }}</p><p>{{ product.metafields.custom.prefix_finish_1.value }}<br/>{{ product.metafields.custom.prefix_finish_2.value }}<br/>{{ product.metafields.custom.prefix_finish_3.value }}</p><p>{{ product.metafields.custom.prefix_length.value }}<br/>{{ product.metafields.custom.prefix_width.value }}<br/>{{ product.metafields.custom.prefix_height.value }}<br/>{{ product.metafields.custom.prefix_extension.value }}<br/>{{ product.metafields.custom.prefix_diameter.value }}<br/>{{ product.metafields.custom.prefix_Depth.value }}<br/>{{ product.metafields.custom.prefix_weight.value }}</p><p>{{ product.metafields.custom.prefix_candle_finish_1.value }}<br/>{{ product.metafields.custom.prefix_candle_finish_2.value }}</p><p>{{ product.metafields.custom.prefix_shade_length.value }}<br/>{{ product.metafields.custom.prefix_shade_width.value }}<br/>{{ product.metafields.custom.prefix_shade_height.value }}</p><p>{{ product.metafields.custom.prefix_diffuser_material.value }}<br/>{{ product.metafields.custom.prefix_diffuser_height_1.value }}<br/>{{ product.metafields.custom.prefix_diffuser_width_1.value }}<br/>{{ product.metafields.custom.prefix_diffuser_height_2.value }}<br/>{{ product.metafields.custom.prefix_diffuser_width_2.value }}</p><p>{{ product.metafields.custom.prefix_UL_type.value }}</p>",
             "page": ""
           }
         },
@@ -109,7 +109,7 @@
           "type": "tab",
           "settings": {
             "title": "Electrical | Lighting",
-            "content": "<p>{{ product.metafields.custom.prefix_UL_type.value }}</p><p>{{ product.metafields.custom.prefix_bulbs_included.value }}<br/>{{ product.metafields.custom.prefix_number_of_lights.value }}<br/>{{ product.metafields.custom.prefix_integrated_LED.value }}<br/>{{ product.metafields.custom.prefix_socket_base.value }}<br/>{{ product.metafields.custom.prefix_blub_type.value }}</p><p>{{ product.metafields.custom.prefix_blub_type.value }}</p><p>{{ product.metafields.custom.prefix_color_temp.value }}<br/>{{ product.metafields.custom.prefix_CCT_1.value }}<br/>{{ product.metafields.custom.prefix_CCT_2.value }}<br/>{{ product.metafields.custom.prefix_CCT_3.value }}<br/>{{ product.metafields.custom.prefix_CCT_4.value }}<br/></p><p>{{ product.metafields.custom.prefix_initial_lumens.value }}<br/>{{ product.metafields.custom.prefix_delivered_lumens.value }}<br/>{{ product.metafields.custom.prefix_cri.value }}<br/>{{ product.metafields.custom.prefix_wattage.value }}<br/>{{ product.metafields.custom.prefix_voltage.value }}</p><p>{{ product.metafields.custom.prefix_driver_model.value }}<br/>{{ product.metafields.custom.prefix_driver_voltage.value }}</p><p>{{ product.metafields.custom.prefix_power_cord.value }}</p>",
+            "content": "<p>{{ product.metafields.custom.prefix_bulbs_included.value }}<br/>{{ product.metafields.custom.prefix_number_of_lights.value }}<br/>{{ product.metafields.custom.prefix_integrated_LED.value }}<br/>{{ product.metafields.custom.prefix_socket_base.value }}<br/>{{ product.metafields.custom.prefix_blub_type.value }}</p><p>{{ product.metafields.custom.prefix_blub_type.value }}</p><p>{{ product.metafields.custom.prefix_color_temp.value }}<br/>{{ product.metafields.custom.prefix_CCT_1.value }}<br/>{{ product.metafields.custom.prefix_CCT_2.value }}<br/>{{ product.metafields.custom.prefix_CCT_3.value }}<br/>{{ product.metafields.custom.prefix_CCT_4.value }}<br/></p><p>{{ product.metafields.custom.prefix_initial_lumens.value }}<br/>{{ product.metafields.custom.prefix_delivered_lumens.value }}<br/>{{ product.metafields.custom.prefix_cri.value }}<br/>{{ product.metafields.custom.prefix_wattage.value }}<br/>{{ product.metafields.custom.prefix_voltage.value }}</p><p>{{ product.metafields.custom.prefix_driver_model.value }}<br/>{{ product.metafields.custom.prefix_driver_voltage.value }}</p><p>{{ product.metafields.custom.prefix_power_cord.value }}</p>",
             "page": ""
           }
         },
@@ -125,7 +125,7 @@
           "type": "tab",
           "settings": {
             "title": "Performance | Features",
-            "content": "<p>{{ product.metafields.custom.prefix_dark_sky_compliant.value }}<br/>{{ product.metafields.custom.prefix_coastal_grade.value }}<br/>{{ product.metafields.custom.prefix_dimmable.value }}</p><p>{{ product.metafields.custom.prefix_manufacturer_warranty.value }}</p>",
+            "content": "<p>{{ product.metafields.custom.prefix_dark_sky_compliant.value }}<br/>{{ product.metafields.custom.prefix_coastal_grade.value }}<br/>{{ product.metafields.custom.prefix_dimmable.value }}</p><p>{{ product.metafields.custom.prefix_manufacturer_warranty.value }}</p><p>{{ product.metafields.custom.special_attribute.value }}</p>",
             "page": ""
           }
         },
@@ -139,9 +139,10 @@
         },
         "tab_rATNWd": {
           "type": "tab",
+          "disabled": true,
           "settings": {
             "title": "additional information",
-            "content": "<p>{{ product.metafields.custom.special_attribute.value }}</p>",
+            "content": "",
             "page": ""
           }
         },
@@ -204,19 +205,6 @@
     },
     "sub": {
       "type": "product-full-width",
-      "blocks": {
-        "tab_NGgmHF": {
-          "type": "tab",
-          "settings": {
-            "title": "Downloads",
-            "content": "<p>{{ product.metafields.custom.button_cutsheet.value }}</p><p>{{ product.metafields.custom.button_ies.value }}</p><p>{{ product.metafields.custom.button_revit.value }}</p><p>{{ product.metafields.custom.button_instructions.value }}</p><p>{{ product.metafields.custom.button_photo_metrics.value }}</p>",
-            "page": ""
-          }
-        }
-      },
-      "block_order": [
-        "tab_NGgmHF"
-      ],
       "disabled": true,
       "settings": {
         "max_width": true
