@@ -180,11 +180,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 isUserInteracting = true;
                 clearInterval(autoRotateInterval);
                 
-                // Resume auto-rotation after 8 seconds
+                // Resume auto-rotation after 15 seconds
                 setTimeout(() => {
                     isUserInteracting = false;
-                    autoRotateInterval = setInterval(nextColor, 4000);
-                }, 8000);
+                    autoRotateInterval = setInterval(nextColor, 10000);
+                }, 15000);
             });
             
             // Pause on hover
@@ -201,7 +201,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Start the auto-rotation - simple approach like your working slideshow
         setTimeout(() => {
-            autoRotateInterval = setInterval(nextColor, 4000); // Change every 4 seconds
+            autoRotateInterval = setInterval(nextColor, 10000); // Change every 10 seconds
             console.log('🎨 Art of Light auto-rotation started');
         }, 2000); // Start after 2 seconds
         
@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (document.hidden) {
                 clearInterval(autoRotateInterval);
             } else if (!isUserInteracting) {
-                autoRotateInterval = setInterval(nextColor, 4000);
+                autoRotateInterval = setInterval(nextColor, 10000);
             }
         });
     });
