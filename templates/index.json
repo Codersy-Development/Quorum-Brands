@@ -728,10 +728,10 @@
         "card_slide_KUTyUQ": {
           "type": "card_slide",
           "settings": {
-            "main_image": "shopify://shop_images/Kitchen.jpg",
-            "main_image_url": "shopify://collections/island",
-            "card_image": "shopify://shop_images/Kitchen_2.jpg",
-            "card_image_url": "shopify://collections/pendant",
+            "main_image": "shopify://shop_images/8006-6980_1.jpg",
+            "main_image_url": "shopify://collections/pendant",
+            "card_image": "shopify://shop_images/604-6-69_1.jpg",
+            "card_image_url": "shopify://collections/ceiling-mount",
             "heading": "Shop by Room: Kitchen",
             "text": "Transform your kitchen with modern lighting and ceiling fans that combine style and performance, making it the heart of your home.",
             "button_label": "Explore Products",
