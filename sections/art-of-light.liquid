@@ -158,6 +158,7 @@
         let currentIndex = 0;
         let autoRotateInterval;
         let isUserInteracting = false;
+        let checkVisibilityInterval;
 
         if (!colorItems.length || !galleries.length) return; // Exit if no content
 
@@ -232,6 +233,14 @@
             console.log('🔄 Auto-rotation started');
         }
 
+        function stopAutoRotation() {
+            if (autoRotateInterval) {
+                clearInterval(autoRotateInterval);
+                autoRotateInterval = null;
+                console.log('⏸️ Auto-rotation stopped');
+            }
+        }
+
         function restartAutoRotationIfVisible() {
             const section = document.querySelector('.art-of-light');
             if (section && section.style.display !== 'none' && section.offsetParent !== null) {
@@ -241,14 +250,6 @@
                         startAutoRotation();
                     }
                 }, 1000); // Short delay to ensure section is fully visible
-            }
-        }
-
-        function stopAutoRotation() {
-            if (autoRotateInterval) {
-                clearInterval(autoRotateInterval);
-                autoRotateInterval = null;
-                console.log('⏸️ Auto-rotation stopped');
             }
         }
 
@@ -273,7 +274,7 @@
         }, 1000); // Reduced delay
 
         // Watch for section visibility changes (for store filtering)
-        const checkVisibilityInterval = setInterval(() => {
+        checkVisibilityInterval = setInterval(() => {
             const section = document.querySelector('.art-of-light');
             if (section && section.style.display !== 'none' && section.offsetParent !== null) {
                 // Section is visible
@@ -361,11 +362,6 @@
             } else {
                 setTimeout(restartAutoRotationIfVisible, 2000);
             }
-        });
-
-        // Clean up on page unload
-        window.addEventListener('beforeunload', () => {
-            stopAutoRotation();
         });
 
         console.log('✨ Art of Light with auto-rotation loaded successfully');
