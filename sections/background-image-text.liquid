@@ -1,159 +1,67 @@
-<section
-    class="t:sections.background-image-text.name index-section--flush"
-    {% unless section.settings.store == "all" %}
-        data-store="{{ section.settings.store }}"
-    {% endunless %}
-    style="width: 100%; display: flex; justify-content: center; align-items: center; margin: 0; padding: 0;"
->
-<div
-  data-section-id="{{ section.id }}"
-  data-section-type="background-image"
-  class="background-media-text background-media-text--{{ section.id }} background-media-text--{{ section.settings.height }} loaded"
-  style="max-width: 1400px; width: 100%; overflow: hidden; position: relative; left: 0; right: 0; margin-left: auto; margin-right: auto;"
-  data-aos="background-media-text__animation">
-
-  <div class="background-media-text__container">
-    {%- if section.settings.image != blank -%}
-        {% assign classes = 'image-fit background-media-text__image background-media-text__image--' | append: section.id %}
-        {%- render 'image-element',
-          img: section.settings.image,
-          img_width: 1400,
-          loading: section.settings.lazyload_images,
-          classes: classes,
-        -%}
-    {%- else -%}
-      {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
-    {%- endif -%}
-  </div>
-  
-  {%- if section.settings.subtitle != blank or section.settings.title != blank or section.settings.text != blank -%}
-    <div class="background-media-text__inner">
-      <div class="background-media-text__aligner background-media-text--{{ section.settings.layout }}">
-        <div class="animation-cropper">
-          <div class="animation-contents">
-            <div class="background-media-text__text{% if section.settings.framed %} background-media-text__text--framed{% endif %}">
-              {%- if section.settings.subtitle -%}
-                <p class="h5">{{ section.settings.subtitle }}</p>
-              {%- endif -%}
-              {%- if section.settings.title != blank -%}
-                <p class="h3">{{ section.settings.title | escape }}</p>
-              {%- endif -%}
-              {%- if section.settings.text != blank -%}
-                <div class="rte background-media-text__subtext">{{ section.settings.text }}</div>
-              {%- endif -%}
-              {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
-                <a href="{{ section.settings.button_link }}" class="btn">
-                  {{ section.settings.button_label }}
-                </a>
-              {%- endif -%}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  {%- endif -%}
-</div>
-
-<div class="background-media-text__spacer background-media-text--{{ section.settings.height }}"></div>
-
-{% schema %}
-{
-  "name": "t:sections.background-image-text.name",
-  "class": "index-section--flush",
-  "settings": [
-        {
-      "type": "select",
-      "id": "store",
-      "label": "Store",
-      "info": "Populate this to show only on specific store",
-      "options": [
-        { "value": "all", "label": "Show On Both" },
-        { "value": "all brands", "label": "All Brands" },
-        { "value": "quorum", "label": "Quorum" },
-        { "value": "oxygen", "label": "Oxygen" }
-      ],
-      "default": "all"
-    },
-    {
-      "type": "text",
-      "id": "subtitle",
-      "label": "t:sections.background-image-text.settings.subtitle.label",
-      "default": "Impressive"
-    },
-    {
-      "type": "text",
-      "id": "title",
-      "label": "t:sections.background-image-text.settings.title.label",
-      "default": "Large image with text box"
-    },
-    {
-      "type": "richtext",
-      "id": "text",
-      "label": "t:sections.background-image-text.settings.text.label",
-      "default": "<p>Pair large text with a full-width image to draw attention to an important detail of your brand or product line.</p>"
-    },
-    {
-      "type": "text",
-      "id": "button_label",
-      "label": "t:sections.background-image-text.settings.button_label.label"
-    },
-    {
-      "type": "url",
-      "id": "button_link",
-      "label": "t:sections.background-image-text.settings.button_link.label"
-    },
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "t:sections.background-image-text.settings.image.label"
-    },
-    {
-      "type": "select",
-      "id": "layout",
-      "label": "t:sections.background-image-text.settings.layout.label",
-      "default": "left",
-      "options": [
-        {
-          "value": "left",
-          "label": "t:sections.background-image-text.settings.layout.options.left.label"
-        },
-        {
-          "value": "right",
-          "label": "t:sections.background-image-text.settings.layout.options.right.label"
+/**
+ * Universal Section Store Filter
+ * Handles show/hide for all sections with data-store attributes
+ * Add this to your theme.liquid or as a separate JS file
+ */
+(function() {
+    'use strict';
+    
+    function handleSectionStoreFiltering() {
+        const selectedStore = localStorage.getItem("store-selected") || "";
+        const sectionsWithStore = document.querySelectorAll('[data-store]');
+        
+        // Check if "All Brands" is selected
+        function isAllBrands(storeValue) {
+            if (!storeValue) return false;
+            const normalized = storeValue.toLowerCase().trim();
+            return normalized === 'all brands';
         }
-      ]
-    },
-    {
-      "type": "range",
-      "id": "height",
-      "label": "t:sections.background-image-text.settings.height.label",
-      "default": 550,
-      "min": 450,
-      "max": 750,
-      "step": 100,
-      "unit": "px"
-    },
-    {
-      "type": "checkbox",
-      "id": "framed",
-      "label": "t:sections.background-image-text.settings.framed.label",
-      "default": false
-    },
-    {
-      "type": "checkbox",
-      "id": "lazyload_images",
-      "label": "t:common.lazyload_images.label",
-      "info": "t:common.lazyload_images.info",
-      "default": true
+        
+        sectionsWithStore.forEach(section => {
+            const sectionStore = section.getAttribute('data-store');
+            
+            // If section is set to show on all stores, always show
+            if (!sectionStore || sectionStore === 'all') {
+                section.style.display = '';
+                return;
+            }
+            
+            // Show section if selected store matches section store, or if "All Brands" is selected
+            const shouldShow = isAllBrands(selectedStore) || 
+                             selectedStore.toLowerCase() === sectionStore.toLowerCase() || 
+                             selectedStore === '';
+            
+            section.style.display = shouldShow ? '' : 'none';
+            
+            console.log(`[Section Filter] ${section.className || 'Section'}: ${shouldShow ? 'shown' : 'hidden'} for store: ${selectedStore}`);
+        });
     }
-  ],
-  "presets": [
-    {
-      "name": "t:sections.background-image-text.presets.large_image_with_text_box.name"
+    
+    function initializeSectionStoreFiltering() {
+        // Listen for store changes
+        document.addEventListener('storeChanged', function(e) {
+            console.log('[Section Filter] Store changed, updating section visibility');
+            setTimeout(handleSectionStoreFiltering, 100);
+        });
+
+        // Also listen for the regular change events as backup
+        document.addEventListener('change', function(e) {
+            if (e.target.type === 'radio' && e.target.closest('store-switcher')) {
+                setTimeout(handleSectionStoreFiltering, 150);
+            }
+        });
+
+        // Initial check
+        setTimeout(handleSectionStoreFiltering, 100);
+        
+        console.log('[Section Filter] Initialized - monitoring', document.querySelectorAll('[data-store]').length, 'sections');
     }
-  ],
-  "disabled_on": {
-    "groups": ["footer", "header", "custom.popups"]
-  }
-}
-{% endschema %}
+    
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeSectionStoreFiltering);
+    } else {
+        initializeSectionStoreFiltering();
+    }
+    
+})();
