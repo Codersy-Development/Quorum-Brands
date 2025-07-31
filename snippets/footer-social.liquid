@@ -1,32 +1,104 @@
 {% comment %}
-  Renders the social section (contact button + social links) as a block.
-  Expects a `block` variable to be passed in.
+  Enhanced footer social that uses existing structure but supports store-specific links
 {% endcomment %}
-
-<div>
-    <a class="contact-btn" href="{{ block.settings.contact_button_link }}">
+<div class="footer-social-wrapper" data-store-social>
+    <a class="contact-btn" href="{{ block.settings.contact_button_link }}" data-contact-link>
         {{ block.settings.contact_button_label }}
     </a>
     <div class="footer-social">
-        {% if block.settings.facebook_url != blank %}
-            <a href="{{ block.settings.facebook_url }}">
+        {% if block.settings.facebook_url != blank or block.settings.oxygen_facebook_url != blank or block.settings.quorum_facebook_url != blank %}
+            <a href="{{ block.settings.facebook_url }}" data-social-link="facebook">
                 <i class="fab fa-facebook-f"></i> Facebook
             </a>
         {% endif %}
-        {% if block.settings.linkedin_url != blank %}
-            <a href="{{ block.settings.linkedin_url }}">
+        {% if block.settings.linkedin_url != blank or block.settings.oxygen_linkedin_url != blank or block.settings.quorum_linkedin_url != blank %}
+            <a href="{{ block.settings.linkedin_url }}" data-social-link="linkedin">
                 <i class="fab fa-linkedin-in"></i> Linkedin
             </a>
         {% endif %}
-        {% if block.settings.instagram_url != blank %}
-            <a href="{{ block.settings.instagram_url }}">
+        {% if block.settings.instagram_url != blank or block.settings.oxygen_instagram_url != blank or block.settings.quorum_instagram_url != blank %}
+            <a href="{{ block.settings.instagram_url }}" data-social-link="instagram">
                 <i class="fab fa-instagram"></i> Instagram
             </a>
         {% endif %}
-        {% if block.settings.vimeo_url != blank %}
-            <a href="{{ block.settings.vimeo_url }}">
+        {% if block.settings.vimeo_url != blank or block.settings.oxygen_vimeo_url != blank or block.settings.quorum_vimeo_url != blank %}
+            <a href="{{ block.settings.vimeo_url }}" data-social-link="vimeo">
                 <i class="fab fa-vimeo-v"></i> Vimeo
             </a>
         {% endif %}
     </div>
 </div>
+
+<script>
+(function() {
+  'use strict';
+  
+  // Store-specific social links configuration
+  const socialLinks = {
+    'all brands': {
+      facebook: "{{ block.settings.facebook_url }}",
+      linkedin: "{{ block.settings.linkedin_url }}",
+      instagram: "{{ block.settings.instagram_url }}",
+      vimeo: "{{ block.settings.vimeo_url }}",
+      contact: "{{ block.settings.contact_button_link }}"
+    },
+    'oxygen': {
+      facebook: "{{ block.settings.oxygen_facebook_url | default: block.settings.facebook_url }}",
+      linkedin: "{{ block.settings.oxygen_linkedin_url | default: block.settings.linkedin_url }}",
+      instagram: "{{ block.settings.oxygen_instagram_url | default: block.settings.instagram_url }}",
+      vimeo: "{{ block.settings.oxygen_vimeo_url | default: block.settings.vimeo_url }}",
+      contact: "{{ block.settings.oxygen_contact_link | default: block.settings.contact_button_link }}"
+    },
+    'quorum': {
+      facebook: "{{ block.settings.quorum_facebook_url | default: block.settings.facebook_url }}",
+      linkedin: "{{ block.settings.quorum_linkedin_url | default: block.settings.linkedin_url }}",
+      instagram: "{{ block.settings.quorum_instagram_url | default: block.settings.instagram_url }}",
+      vimeo: "{{ block.settings.quorum_vimeo_url | default: block.settings.vimeo_url }}",
+      contact: "{{ block.settings.quorum_contact_link | default: block.settings.contact_button_link }}"
+    }
+  };
+  
+  function updateSocialLinks() {
+    const selectedStore = localStorage.getItem("store-selected") || "all brands";
+    const storeLinks = socialLinks[selectedStore] || socialLinks['all brands'];
+    
+    console.log('Updating footer social links for:', selectedStore);
+    
+    // Update social media links
+    document.querySelectorAll('[data-social-link]').forEach(link => {
+      const platform = link.getAttribute('data-social-link');
+      const newUrl = storeLinks[platform];
+      
+      if (newUrl && newUrl !== '') {
+        link.href = newUrl;
+        link.style.display = '';
+        console.log(`Updated ${platform} link:`, newUrl);
+      } else {
+        // Hide link if no URL is set for this store
+        link.style.display = 'none';
+      }
+    });
+    
+    // Update contact button
+    const contactBtn = document.querySelector('[data-contact-link]');
+    if (contactBtn && storeLinks.contact && storeLinks.contact !== '') {
+      contactBtn.href = storeLinks.contact;
+      console.log('Updated contact link:', storeLinks.contact);
+    }
+  }
+  
+  // Update on page load
+  document.addEventListener('DOMContentLoaded', updateSocialLinks);
+  
+  // Update when store changes
+  document.addEventListener('storeChanged', function(e) {
+    console.log('Footer social detected store change:', e.detail.selectedStore);
+    updateSocialLinks();
+  });
+  
+  // Initial update if DOM is already loaded
+  if (document.readyState !== 'loading') {
+    updateSocialLinks();
+  }
+})();
+</script>
