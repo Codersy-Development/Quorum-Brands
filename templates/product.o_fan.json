@@ -88,7 +88,7 @@
         "custom_tHzDh9": {
           "type": "custom",
           "settings": {
-            "code": "<div class=\"variant-button\">\n  {%- if product.metafields.custom.buy_now_button != blank -%}\n\n    <a href=\"{{ product.metafields.custom.buy_now_button }}\" \n       class=\"btn btn--full\" \n       target=\"_blank\" \n       rel=\"noopener noreferrer\">\n      <span>Buy Online</span>\n    </a>\n  {%- endif -%}\n</div>"
+            "code": "<div class=\"variant-button\">\n  <div class=\"button-group\" style=\"display: flex; gap: 10px;\">\n    {%- if product.metafields.custom.buy_now_button != blank -%}\n      <a href=\"{{ product.metafields.custom.buy_now_button }}\" \n         class=\"btn btn--half\" \n         target=\"_blank\" \n         rel=\"noopener noreferrer\"\n         style=\"flex: 1;\">\n        <span>Buy Online</span>\n      </a>\n    {%- endif -%}\n    \n    <a href=\"/pages/buy-local\" \n       class=\"btn btn--half\"\n       style=\"flex: 1;\">\n      <span>Buy Local</span>\n    </a>\n  </div>\n</div>"
           }
         },
         "tab_HAmQP6": {
