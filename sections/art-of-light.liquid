@@ -106,29 +106,10 @@
         const colorItems = document.querySelectorAll('.color-item');
         const galleries = document.querySelectorAll('.social-grid');
         const wrapper = document.querySelector('.social-grid-wrapper');
-        const artOfLightSection = document.querySelector('.art-of-light');
 
         const loader = document.createElement('div');
         loader.classList.add('loader');
         wrapper.appendChild(loader);
-
-
-            
-            // Check if "All Brands" is selected (using the same logic as the filtering script)
-            function isAllBrands(storeValue) {
-                if (!storeValue) return false;
-                const normalized = storeValue.toLowerCase().trim();
-                return normalized === 'all brands';
-            }
-            
-            // Show section if selected store matches section store, or if "All Brands" is selected
-            const shouldShow = isAllBrands(selectedStore) || 
-                             selectedStore.toLowerCase() === sectionStore.toLowerCase() || 
-                             selectedStore === '';
-            
-            artOfLightSection.style.display = shouldShow ? '' : 'none';
-            return shouldShow;
-        }
 
         function showGallery(id) {
             galleries.forEach(grid => {
@@ -156,9 +137,6 @@
         }
 
         function initializeGallery() {
-            // Only initialize if section should be visible
-            if (!checkStoreVisibility()) return;
-            
             if (colorItems.length) {
                 const firstColorId = colorItems[0].getAttribute('data-color');
                 const firstGallery = document.getElementById('gallery-' + firstColorId);
@@ -178,10 +156,7 @@
                 showGallery(colorId);
             });
         });
-
-
-
-   });
+    });
 </script>
 
 {% schema %}
