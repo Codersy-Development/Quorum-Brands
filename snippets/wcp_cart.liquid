@@ -753,7 +753,8 @@ var fnCalled = false;
      {% endif %}
     }
   
-  function submitNet30(wcp_data){
+ function submitNet30(wcp_data){
+  if(window.netOrderProcessing){return false;} window.netOrderProcessing=true;
     
     if(typeof(wcp_data.discounted_hash.discount_value) == 'undefined'  || wcp_data.discounted_hash.discount_value== false){
       	for (var i = 0; i < window.wcp_data.wcp_cart.items.length; i++) { 
