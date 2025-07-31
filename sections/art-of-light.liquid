@@ -1,97 +1,349 @@
-/**
- * Universal Section Store Filter - DEBUG VERSION
- * Handles show/hide for all sections with data-store attributes
- * File: assets/universal-section-filter.js
- */
-(function() {
-    'use strict';
-    
-    function handleSectionStoreFiltering() {
-        const selectedStore = localStorage.getItem("store-selected") || "";
-        const sectionsWithStore = document.querySelectorAll('[data-store]');
-        
-        console.log('🔍 [Universal Filter] Selected store:', selectedStore);
-        console.log('🔍 [Universal Filter] Found sections with data-store:', sectionsWithStore.length);
-        
-        // Check if "All Brands" is selected
-        function isAllBrands(storeValue) {
-            if (!storeValue) return false;
-            const normalized = storeValue.toLowerCase().trim();
-            return normalized === 'all brands';
+{{ 'custom-art-of-light.css' | asset_url | stylesheet_tag }}
+<section
+    class="art-of-light"
+    {% unless section.settings.store == "all" %}
+        data-store="{{ section.settings.store }}"
+    {% endunless %}
+>
+    <div class="container">
+        <div class="header">
+            {% if section.settings.title %}
+                <h2 class="title">{{ section.settings.title }}</h2>
+            {% endif %}
+            {% if section.settings.subtitle %}
+                <p class="subtitle">{{ section.settings.subtitle }}</p>
+            {% endif %}
+        </div>
+
+        <div class="colors">
+            {% for block in section.blocks %}
+                <div class="color-item{% if forloop.first %} active{% endif %}" data-color="{{ block.id }}">
+                    {% if block.settings.icon %}
+                        <img src="{{ block.settings.icon | img_url: 'small' }}" alt="{{ block.settings.label }}" class="color-icon">
+                    {% endif %}
+                    {% if block.settings.label %}
+                        <p class="color-label">{{ block.settings.label }}</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="social-grid-wrapper">
+            {% for block in section.blocks %}
+                <div class="social-grid" id="gallery-{{ block.id }}" {% unless forloop.first %}style="display: none;"{% endunless %}>
+                    {% for i in (1..8) %}
+                        {% assign key = "image_" | append: i %}
+                        {% assign url_key = "url_" | append: i %}
+                        {% assign image = block.settings[key] %}
+                        {% assign image_url = block.settings[url_key] %}
+                        {% if image %}
+                            <div class="social-item">
+                                {% if image_url %}
+                                    <a href="{{ image_url }}" target="_blank" rel="noopener" class="image-link">
+                                        <img src="{{ image | img_url: '1024x1024' }}" alt="Social Image {{ i }}">
+                                    </a>
+                                {% else %}
+                                    <img src="{{ image | img_url: '1024x1024' }}" alt="Social Image {{ i }}">
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+
+        {% if section.settings.button_text and section.settings.button_link %}
+            <div class="button-wrapper">
+                <a href="{{ section.settings.button_link }}" class="cta-button">{{ section.settings.button_text }}</a>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+<style>
+.image-link {
+    display: block;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.image-link:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+.social-item {
+    cursor: pointer;
+}
+
+.social-item img {
+    transition: transform 0.3s ease;
+}
+
+.image-link img {
+    width: 100%;
+    height: auto;
+}
+
+/* Active state styling for color items */
+.color-item.active {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.color-item {
+    opacity: 0.7;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.color-item:hover {
+    opacity: 1;
+}
+
+/* Force gallery visibility - debugging */
+.social-grid {
+    min-height: 200px;
+    width: 100%;
+}
+
+.social-grid.active {
+    display: block !important;
+    opacity: 1 !important;
+}
+
+.social-item {
+    border: 1px solid #eee; /* Temporary - to see if items are there */
+    min-height: 100px;
+}
+
+.social-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const colorItems = document.querySelectorAll('.color-item');
+        const galleries = document.querySelectorAll('.social-grid');
+        const wrapper = document.querySelector('.social-grid-wrapper');
+
+        const loader = document.createElement('div');
+        loader.classList.add('loader');
+        wrapper.appendChild(loader);
+
+        function showGallery(id) {
+            galleries.forEach(grid => {
+                grid.style.display = 'none';
+                grid.style.opacity = '0';
+            });
+
+            loader.style.display = 'block';
+
+            setTimeout(() => {
+                galleries.forEach(grid => {
+                    if (grid.id === 'gallery-' + id) {
+                        grid.style.display = 'block';
+                        setTimeout(() => {
+                            grid.style.opacity = '1';
+                        }, 50);
+                    }
+                });
+                loader.style.display = 'none';
+            }, 500);
+
+            colorItems.forEach(item => {
+                item.classList.toggle('active', item.getAttribute('data-color') === id);
+            });
         }
-        
-        sectionsWithStore.forEach((section, index) => {
-            const sectionStore = section.getAttribute('data-store');
-            
-            console.log(`📋 Section ${index + 1}:`, {
-                sectionStore: sectionStore,
-                selectedStore: selectedStore,
-                sectionClass: section.className || section.tagName
-            });
-            
-            // If section is set to show on all stores, always show
-            if (!sectionStore || sectionStore === 'all') {
-                section.style.display = '';
-                console.log(`✅ Section ${index + 1}: SHOWN (set to 'all')`);
-                return;
-            }
-            
-            // Check if "All Brands" is selected
-            if (isAllBrands(selectedStore)) {
-                section.style.display = '';
-                console.log(`✅ Section ${index + 1}: SHOWN (All Brands selected)`);
-                return;
-            }
-            
-            // Show section if selected store matches section store
-            const storeMatches = selectedStore.toLowerCase() === sectionStore.toLowerCase();
-            const shouldShow = storeMatches || selectedStore === '';
-            
-            console.log(`🔍 Section ${index + 1} comparison:`, {
-                selectedLower: selectedStore.toLowerCase(),
-                sectionLower: sectionStore.toLowerCase(),
-                storeMatches: storeMatches,
-                shouldShow: shouldShow
-            });
-            
-            section.style.display = shouldShow ? '' : 'none';
-            
-            if (shouldShow) {
-                console.log(`✅ Section ${index + 1}: SHOWN (store match)`);
-            } else {
-                console.log(`❌ Section ${index + 1}: HIDDEN (no match)`);
-            }
-        });
-        
-        console.log('🏁 [Universal Filter] Processing complete');
-    }
-    
-    function initializeSectionStoreFiltering() {
-        // Listen for store changes
-        document.addEventListener('storeChanged', function(e) {
-            console.log('[Universal Filter] Store changed via custom event');
-            setTimeout(handleSectionStoreFiltering, 100);
-        });
 
-        // Also listen for the regular change events as backup
-        document.addEventListener('change', function(e) {
-            if (e.target.type === 'radio' && e.target.closest('store-switcher')) {
-                console.log('[Universal Filter] Store changed via radio button');
-                setTimeout(handleSectionStoreFiltering, 150);
+        function initializeGallery() {
+            console.log('Initializing gallery...');
+            console.log('Color items found:', colorItems.length);
+            console.log('Galleries found:', galleries.length);
+            
+            if (colorItems.length) {
+                const firstColorId = colorItems[0].getAttribute('data-color');
+                const firstGallery = document.getElementById('gallery-' + firstColorId);
+                console.log('First color ID:', firstColorId);
+                console.log('First gallery found:', !!firstGallery);
+                
+                if (firstGallery) {
+                    firstGallery.style.display = 'block';
+                    firstGallery.style.opacity = '1';
+                    console.log('First gallery should now be visible');
+                    
+                    // Check how many images are in the first gallery
+                    const images = firstGallery.querySelectorAll('.social-item');
+                    console.log('Images in first gallery:', images.length);
+                }
             }
-        });
+        }
 
-        // Initial check
-        setTimeout(handleSectionStoreFiltering, 100);
-        
-        console.log('[Universal Filter] Initialized - monitoring', document.querySelectorAll('[data-store]').length, 'sections');
+        // Initialize first gallery as visible and first color as active
+        initializeGallery();
+
+        colorItems.forEach(item => {
+            item.addEventListener('click', function () {
+                const colorId = this.getAttribute('data-color');
+                showGallery(colorId);
+            });
+        });
+    });
+</script>
+
+{% schema %}
+{
+  "name": "Art of Light with Colors",
+  "settings": [
+    {
+      "type": "select",
+      "id": "store",
+      "label": "Store",
+      "info": "Populate this to show only on specific store",
+      "options": [
+        { "value": "all", "label": "Show On Both" },
+        { "value": "all brands", "label": "All Brands" },
+        { "value": "quorum", "label": "Quorum" },
+        { "value": "oxygen", "label": "Oxygen" }
+      ],
+      "default": "all"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "The ART OF LIGHT"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle Paragraph",
+      "default": "Our lighting, fans, and mirrors are the finishing touches that turn any room into a place you'll love. Each piece is crafted to be the color, shape, and style that brings your space to life. Explore some of our favorites below."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "More Inspiration"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
     }
-    
-    // Initialize when DOM is ready
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initializeSectionStoreFiltering);
-    } else {
-        initializeSectionStoreFiltering();
+  ],
+  "blocks": [
+    {
+      "type": "color_images",
+      "name": "Color + Images Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Color Label"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Color Icon Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "url",
+          "id": "url_1",
+          "label": "Image 1 URL",
+          "info": "Optional link for Image 1 - opens in new tab"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Image 2"
+        },
+        {
+          "type": "url",
+          "id": "url_2",
+          "label": "Image 2 URL",
+          "info": "Optional link for Image 2 - opens in new tab"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Image 3"
+        },
+        {
+          "type": "url",
+          "id": "url_3",
+          "label": "Image 3 URL",
+          "info": "Optional link for Image 3 - opens in new tab"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_4",
+          "label": "Image 4"
+        },
+        {
+          "type": "url",
+          "id": "url_4",
+          "label": "Image 4 URL",
+          "info": "Optional link for Image 4 - opens in new tab"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_5",
+          "label": "Image 5"
+        },
+        {
+          "type": "url",
+          "id": "url_5",
+          "label": "Image 5 URL",
+          "info": "Optional link for Image 5 - opens in new tab"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_6",
+          "label": "Image 6"
+        },
+        {
+          "type": "url",
+          "id": "url_6",
+          "label": "Image 6 URL",
+          "info": "Optional link for Image 6 - opens in new tab"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_7",
+          "label": "Image 7"
+        },
+        {
+          "type": "url",
+          "id": "url_7",
+          "label": "Image 7 URL",
+          "info": "Optional link for Image 7 - opens in new tab"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_8",
+          "label": "Image 8"
+        },
+        {
+          "type": "url",
+          "id": "url_8",
+          "label": "Image 8 URL",
+          "info": "Optional link for Image 8 - opens in new tab"
+        }
+      ]
     }
-    
-})();
+  ],
+  "presets": [
+    {
+      "name": "Art of Light Colors"
+    }
+  ]
+}
+{% endschema %}
