@@ -100,8 +100,8 @@
           "settings": {
             "contact_button_label": "CONTACT US",
             "contact_button_link": "shopify://pages/contact-us",
-            "facebook_url": "https://www.facebook.com/quoruminternational",
-            "linkedin_url": "https://www.linkedin.com/company/quorum-lighting",
+            "facebook_url": "",
+            "linkedin_url": "https://www.linkedin.com/company/quorum-lighting/",
             "instagram_url": "https://www.instagram.com/quoruminternational",
             "vimeo_url": "https://vimeo.com/quoruminternational"
           }
