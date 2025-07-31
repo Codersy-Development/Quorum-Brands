@@ -647,12 +647,12 @@
         "card_slide_yPEAWh": {
           "type": "card_slide",
           "settings": {
-            "main_image": "shopify://shop_images/Hallway_1_fa07f335-112e-42fc-9de5-6caf3ef4846d.png",
-            "main_image_url": "shopify://collections/oxygen-wall-lights",
+            "main_image": "shopify://shop_images/89-14-6965_4.jpg",
+            "main_image_url": "shopify://collections/oxygen-pendant-lights",
             "card_image": "shopify://shop_images/Hallway_2.jpg",
             "card_image_url": "shopify://collections/oxygen-sconces",
-            "heading": "Shop by Room: Hallways & Entries",
-            "text": "Illuminate any hallways and entries with stylish lighting that sets the tone for your home, creating a  welcoming and sophisticated first impression",
+            "heading": "Shop by Room: Kitchen",
+            "text": "Transform your kitchen with modern lighting and ceiling fans that combine style and performance, making it the heart of your home.",
             "button_label": "Explore Products",
             "button_link": "shopify://collections/oxygen-wall-lights"
           }
@@ -660,7 +660,7 @@
         "card_slide_xgmhVR": {
           "type": "card_slide",
           "settings": {
-            "main_image": "shopify://shop_images/Dining_Room_1.jpg",
+            "main_image": "shopify://shop_images/876-3280_2.jpg",
             "main_image_url": "shopify://collections/oxygen-chandeliers",
             "card_image": "shopify://shop_images/Dining_Room_2.png",
             "card_image_url": "shopify://collections/oxygen-chandeliers",
