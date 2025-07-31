@@ -214,7 +214,7 @@
         "product_grid"
       ],
       "settings": {
-        "enable_sidebar": false,
+        "enable_sidebar": true,
         "collapsed": true,
         "filter_style": "sidebar",
         "enable_color_swatches": false,
