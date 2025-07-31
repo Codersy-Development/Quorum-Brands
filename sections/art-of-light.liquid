@@ -211,7 +211,16 @@
         function startAutoRotation() {
             if (colorItems.length <= 1) return; // No need to rotate if only one color
             
+            // Clear any existing interval first
+            stopAutoRotation();
+            
             autoRotateInterval = setInterval(() => {
+                // Check if section is visible before rotating
+                const section = document.querySelector('.art-of-light');
+                if (!section || section.style.display === 'none' || section.offsetParent === null) {
+                    return; // Don't rotate if section is hidden
+                }
+                
                 if (!isUserInteracting) {
                     currentIndex = (currentIndex + 1) % colorItems.length;
                     const nextColorId = colorItems[currentIndex].getAttribute('data-color');
@@ -221,6 +230,18 @@
             }, 4000); // Change every 4 seconds
             
             console.log('🔄 Auto-rotation started');
+        }
+
+        function restartAutoRotationIfVisible() {
+            const section = document.querySelector('.art-of-light');
+            if (section && section.style.display !== 'none' && section.offsetParent !== null) {
+                console.log('👁️ Section became visible - restarting auto-rotation');
+                setTimeout(() => {
+                    if (!isUserInteracting) {
+                        startAutoRotation();
+                    }
+                }, 1000); // Short delay to ensure section is fully visible
+            }
         }
 
         function stopAutoRotation() {
@@ -234,19 +255,59 @@
         function resetAutoRotation() {
             stopAutoRotation();
             setTimeout(() => {
-                if (!isUserInteracting) {
-                    startAutoRotation();
-                }
+                restartAutoRotationIfVisible();
             }, 8000); // Resume auto-rotation after 8 seconds of no interaction
         }
 
         // Initialize first gallery as visible and first color as active
         initializeGallery();
 
-        // Start auto-rotation after initial delay
+        // Start auto-rotation after initial delay - but only if section is visible
         setTimeout(() => {
-            startAutoRotation();
-        }, 3000); // Start after 3 seconds
+            const section = document.querySelector('.art-of-light');
+            if (section && section.style.display !== 'none' && section.offsetParent !== null) {
+                startAutoRotation();
+            } else {
+                console.log('⏳ Section not visible yet - waiting for visibility');
+            }
+        }, 1000); // Reduced delay
+
+        // Watch for section visibility changes (for store filtering)
+        const checkVisibilityInterval = setInterval(() => {
+            const section = document.querySelector('.art-of-light');
+            if (section && section.style.display !== 'none' && section.offsetParent !== null) {
+                // Section is visible
+                if (!autoRotateInterval && !isUserInteracting) {
+                    console.log('🔍 Detected section is now visible - starting auto-rotation');
+                    startAutoRotation();
+                }
+            } else {
+                // Section is hidden
+                if (autoRotateInterval) {
+                    console.log('🙈 Section hidden - stopping auto-rotation');
+                    stopAutoRotation();
+                }
+            }
+        }, 2000); // Check every 2 seconds
+
+        // Listen for store changes that might affect section visibility
+        document.addEventListener('storeChanged', () => {
+            console.log('🏪 Store changed detected - checking section visibility');
+            setTimeout(restartAutoRotationIfVisible, 500);
+        });
+
+        document.addEventListener('change', (e) => {
+            if (e.target.type === 'radio' && e.target.closest('store-switcher')) {
+                console.log('📻 Store radio changed - checking section visibility');
+                setTimeout(restartAutoRotationIfVisible, 500);
+            }
+        });
+
+        // Stop the visibility checker when page unloads
+        window.addEventListener('beforeunload', () => {
+            clearInterval(checkVisibilityInterval);
+            stopAutoRotation();
+        });
 
         colorItems.forEach((item, index) => {
             item.addEventListener('click', function () {
@@ -298,11 +359,7 @@
             if (document.hidden) {
                 stopAutoRotation();
             } else {
-                setTimeout(() => {
-                    if (!isUserInteracting) {
-                        startAutoRotation();
-                    }
-                }, 2000);
+                setTimeout(restartAutoRotationIfVisible, 2000);
             }
         });
 
