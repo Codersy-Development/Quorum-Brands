@@ -51,6 +51,7 @@
         "banner",
         "advanced"
       ],
+      "disabled": true,
       "settings": {
         "full_width": false,
         "gutter_size": 20,
@@ -61,6 +62,7 @@
     },
     "featured-collection": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Abaca",
         "home_featured_products": "abaca-by-quourm",
@@ -73,6 +75,7 @@
     },
     "featured-collection2": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Abram",
         "home_featured_products": "abram-by-quorum",
@@ -159,6 +162,7 @@
     },
     "featured-collection3": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Adirondacks",
         "home_featured_products": "adirondacks-by-quorum",
@@ -171,6 +175,7 @@
     },
     "featured_collection_Qjh8pU": {
       "type": "featured-collection",
+      "disabled": true,
       "name": "t:sections.featured-collection.presets.featured_collection.name",
       "settings": {
         "title": "Al Fresco",
@@ -274,7 +279,7 @@
         "product_grid"
       ],
       "settings": {
-        "enable_sidebar": true,
+        "enable_sidebar": false,
         "collapsed": true,
         "filter_style": "sidebar",
         "enable_color_swatches": false,
@@ -347,6 +352,7 @@
         "advanced_EfJztr",
         "advanced_zazG6D"
       ],
+      "disabled": true,
       "settings": {
         "full_width": false,
         "gutter_size": 20,
