@@ -99,6 +99,28 @@
 .color-item:hover {
     opacity: 1;
 }
+
+/* Force gallery visibility - debugging */
+.social-grid {
+    min-height: 200px;
+    width: 100%;
+}
+
+.social-grid.active {
+    display: block !important;
+    opacity: 1 !important;
+}
+
+.social-item {
+    border: 1px solid #eee; /* Temporary - to see if items are there */
+    min-height: 100px;
+}
+
+.social-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
 </style>
 
 <script>
@@ -137,12 +159,24 @@
         }
 
         function initializeGallery() {
+            console.log('Initializing gallery...');
+            console.log('Color items found:', colorItems.length);
+            console.log('Galleries found:', galleries.length);
+            
             if (colorItems.length) {
                 const firstColorId = colorItems[0].getAttribute('data-color');
                 const firstGallery = document.getElementById('gallery-' + firstColorId);
+                console.log('First color ID:', firstColorId);
+                console.log('First gallery found:', !!firstGallery);
+                
                 if (firstGallery) {
                     firstGallery.style.display = 'block';
                     firstGallery.style.opacity = '1';
+                    console.log('First gallery should now be visible');
+                    
+                    // Check how many images are in the first gallery
+                    const images = firstGallery.querySelectorAll('.social-item');
+                    console.log('Images in first gallery:', images.length);
                 }
             }
         }
