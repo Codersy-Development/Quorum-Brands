@@ -417,72 +417,6 @@
         "description": "Browse our extensive product selection, from stylish furniture to unique accessories that elevate any space."
       }
     },
-    "featured_products_4iHgi6": {
-      "type": "featured-products",
-      "blocks": {
-        "product_card_VUEjV4": {
-          "type": "product_card",
-          "settings": {
-            "product": "5391-69",
-            "custom_link": "",
-            "open_in_new_tab": true
-          }
-        },
-        "product_card_LmMFmB": {
-          "type": "product_card",
-          "settings": {
-            "product": "38-13-69",
-            "custom_link": "",
-            "open_in_new_tab": true
-          }
-        },
-        "product_card_B3p7pL": {
-          "type": "product_card",
-          "settings": {
-            "product": "60523-59",
-            "custom_link": "",
-            "open_in_new_tab": true
-          }
-        },
-        "product_card_FErbDU": {
-          "type": "product_card",
-          "settings": {
-            "product": "344-14-80",
-            "custom_link": "",
-            "open_in_new_tab": true
-          }
-        },
-        "product_card_akWdCY": {
-          "type": "product_card",
-          "settings": {
-            "product": "713-22-69",
-            "custom_link": "",
-            "open_in_new_tab": true
-          }
-        },
-        "product_card_k6Lgpw": {
-          "type": "product_card",
-          "settings": {
-            "product": "5403-1-095",
-            "custom_link": "",
-            "open_in_new_tab": true
-          }
-        }
-      },
-      "block_order": [
-        "product_card_VUEjV4",
-        "product_card_LmMFmB",
-        "product_card_B3p7pL",
-        "product_card_FErbDU",
-        "product_card_akWdCY",
-        "product_card_k6Lgpw"
-      ],
-      "name": "Featured Products",
-      "settings": {
-        "store": "all brands",
-        "heading": "Featured Products"
-      }
-    },
     "featured_products_UP4fnw": {
       "type": "featured-products",
       "blocks": {
@@ -542,6 +476,72 @@
         "product_card_aPcfaF",
         "product_card_UqJEDX",
         "product_card_yqFPJB"
+      ],
+      "name": "Featured Products",
+      "settings": {
+        "store": "all brands",
+        "heading": "Featured Products"
+      }
+    },
+    "featured_products_kPrxKE": {
+      "type": "featured-products",
+      "blocks": {
+        "product_card_Qp3Uph": {
+          "type": "product_card",
+          "settings": {
+            "product": "866-8-0880",
+            "custom_link": "shopify://products/866-8-0880",
+            "open_in_new_tab": true
+          }
+        },
+        "product_card_yfEiUg": {
+          "type": "product_card",
+          "settings": {
+            "product": "6123-8-59",
+            "custom_link": "shopify://products/6123-8-59",
+            "open_in_new_tab": true
+          }
+        },
+        "product_card_4VzEUq": {
+          "type": "product_card",
+          "settings": {
+            "product": "840-8-5947",
+            "custom_link": "shopify://products/840-8-5947",
+            "open_in_new_tab": true
+          }
+        },
+        "product_card_gibcaD": {
+          "type": "product_card",
+          "settings": {
+            "product": "8905-6-59",
+            "custom_link": "shopify://products/8905-6-59",
+            "open_in_new_tab": true
+          }
+        },
+        "product_card_MxymWT": {
+          "type": "product_card",
+          "settings": {
+            "product": "593-4-47",
+            "custom_link": "shopify://products/593-4-47",
+            "open_in_new_tab": true
+          }
+        },
+        "product_card_GjJME3": {
+          "type": "product_card",
+          "settings": {
+            "product": "5240-2-47",
+            "custom_link": "shopify://products/5240-2-47",
+            "open_in_new_tab": true
+          }
+        }
+      },
+      "block_order": [
+        "product_card_Qp3Uph",
+        "product_card_yfEiUg",
+        "product_card_4VzEUq",
+        "product_card_gibcaD",
+        "product_card_MxymWT",
+        "product_card_GjJME3"
       ],
       "name": "Featured Products",
       "settings": {
@@ -1277,8 +1277,8 @@
     "shop_by_category_76eCUa",
     "shop_by_category_QkkUV6",
     "shop_by_category_ag9Wrh",
-    "featured_products_4iHgi6",
     "featured_products_UP4fnw",
+    "featured_products_kPrxKE",
     "featured_products_jFKX9w",
     "product_feature_carousel_ThxpUR",
     "product_feature_carousel_GDqwrm",
