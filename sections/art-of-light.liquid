@@ -187,56 +187,6 @@
         colorItems.forEach(item => {
             item.addEventListener('click', function () {
                 const colorId = this.getAttribute('data-color');
-                const colorLabel = this.querySelector('.color-label')?.textContent?.toLowerCase().trim();
-                
-                // Auto-switch stores based on color
-                if (colorLabel === 'brass') {
-                    // Switch to Quorum store
-                    localStorage.setItem("store-selected", "quorum");
-                    document.querySelector('html').dataset.storeSelected = "quorum";
-                    
-                    // Update store switcher radio buttons
-                    const quorumRadio = document.querySelector('store-switcher input[value="quorum"]');
-                    if (quorumRadio) {
-                        quorumRadio.checked = true;
-                        // Trigger change event to update other parts of the site
-                        quorumRadio.dispatchEvent(new Event('change', { bubbles: true }));
-                    }
-                    
-                    console.log('🔄 [Art of Light] Switched to Quorum store via Brass button');
-                    
-                } else if (colorLabel === 'white') {
-                    // Switch to Oxygen store
-                    localStorage.setItem("store-selected", "oxygen");
-                    document.querySelector('html').dataset.storeSelected = "oxygen";
-                    
-                    // Update store switcher radio buttons
-                    const oxygenRadio = document.querySelector('store-switcher input[value="oxygen"]');
-                    if (oxygenRadio) {
-                        oxygenRadio.checked = true;
-                        // Trigger change event to update other parts of the site
-                        oxygenRadio.dispatchEvent(new Event('change', { bubbles: true }));
-                    }
-                    
-                    console.log('🔄 [Art of Light] Switched to Oxygen store via White button');
-                    
-                } else {
-                    // For other colors, switch to "All Brands" to show everything
-                    localStorage.setItem("store-selected", "all brands");
-                    document.querySelector('html').dataset.storeSelected = "all brands";
-                    
-                    // Update store switcher radio buttons
-                    const allBrandsRadio = document.querySelector('store-switcher input[value="all brands"]');
-                    if (allBrandsRadio) {
-                        allBrandsRadio.checked = true;
-                        // Trigger change event to update other parts of the site
-                        allBrandsRadio.dispatchEvent(new Event('change', { bubbles: true }));
-                    }
-                    
-                    console.log('🔄 [Art of Light] Switched to All Brands via', colorLabel, 'button');
-                }
-                
-                // Show the selected color gallery
                 showGallery(colorId);
             });
         });
