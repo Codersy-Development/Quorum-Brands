@@ -60,20 +60,9 @@
         "lazyload_images": true
       }
     },
-    "featured-collection": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Abaca",
-        "home_featured_products": "abaca-by-quourm",
-        "per_row": 5,
-        "rows": 1,
-        "mobile_scrollable": true,
-        "view_all": true,
-        "divider": false
-      }
-    },
     "featured-collection2": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Abram",
         "home_featured_products": "abram-by-quorum",
@@ -135,6 +124,7 @@
     },
     "featured-collection3": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Featured collection",
         "home_featured_products": "",
@@ -224,7 +214,7 @@
         "product_grid"
       ],
       "settings": {
-        "enable_sidebar": true,
+        "enable_sidebar": false,
         "collapsed": true,
         "filter_style": "sidebar",
         "enable_color_swatches": false,
@@ -235,7 +225,6 @@
   },
   "order": [
     "promo-grid",
-    "featured-collection",
     "featured-collection2",
     "promo-grid2",
     "featured-collection3",
