@@ -112,18 +112,7 @@
         loader.classList.add('loader');
         wrapper.appendChild(loader);
 
-        // Store filtering integration
-        function checkStoreVisibility() {
-            if (!artOfLightSection) return true;
-            
-            const selectedStore = localStorage.getItem("store-selected") || "";
-            const sectionStore = artOfLightSection.getAttribute('data-store');
-            
-            // If section is set to show on all stores, always show
-            if (!sectionStore || sectionStore === 'all') {
-                artOfLightSection.style.display = '';
-                return true;
-            }
+
             
             // Check if "All Brands" is selected (using the same logic as the filtering script)
             function isAllBrands(storeValue) {
@@ -190,32 +179,9 @@
             });
         });
 
-        // Listen for store changes (integrates with your store filtering script)
-        document.addEventListener('storeChanged', function(e) {
-            console.log('[Art of Light] Store changed, checking visibility');
-            setTimeout(() => {
-                const isVisible = checkStoreVisibility();
-                if (isVisible) {
-                    initializeGallery();
-                }
-            }, 100);
-        });
 
-        // Also listen for the regular change events as backup
-        document.addEventListener('change', function(e) {
-            if (e.target.type === 'radio' && e.target.closest('store-switcher')) {
-                setTimeout(() => {
-                    const isVisible = checkStoreVisibility();
-                    if (isVisible) {
-                        initializeGallery();
-                    }
-                }, 150);
-            }
-        });
 
-        // Initial store check
-        setTimeout(checkStoreVisibility, 100);
-    });
+   });
 </script>
 
 {% schema %}
