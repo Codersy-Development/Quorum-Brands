@@ -88,20 +88,6 @@
 .color-item.active {
     opacity: 1;
     transform: scale(1.05);
-}
-
-.color-item {
-    opacity: 0.7;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-}
-
-.color-item:hover {
-    opacity: 1;
-}
-
-/* Auto-rotation visual feedback */
-.color-item.active {
     position: relative;
 }
 
@@ -118,30 +104,19 @@
     border-radius: 1px;
 }
 
+.color-item {
+    opacity: 0.7;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.color-item:hover {
+    opacity: 1;
+}
+
 /* Smooth transitions for galleries */
 .social-grid {
     transition: opacity 0.3s ease;
-}
-
-/* Loading indicator styling */
-.loader {
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 40px;
-    height: 40px;
-    border: 3px solid #f3f3f3;
-    border-top: 3px solid #333;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    z-index: 10;
-}
-
-@keyframes spin {
-    0% { transform: translate(-50%, -50%) rotate(0deg); }
-    100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 .social-grid-wrapper {
@@ -151,168 +126,95 @@
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const colorItems = document.querySelectorAll('.art-of-light .color-item');
-        const galleries = document.querySelectorAll('.art-of-light .social-grid');
-        const wrapper = document.querySelector('.art-of-light .social-grid-wrapper');
+document.addEventListener('DOMContentLoaded', function() {
+    const colorContainers = document.querySelectorAll('.art-of-light');
+    
+    colorContainers.forEach(container => {
+        const colorItems = container.querySelectorAll('.color-item');
+        const galleries = container.querySelectorAll('.social-grid');
         let currentIndex = 0;
         let autoRotateInterval;
         let isUserInteracting = false;
-
-        if (!colorItems.length || !galleries.length) return; // Exit if no content
-
-        const loader = document.createElement('div');
-        loader.classList.add('loader');
-        wrapper.appendChild(loader);
-
-        function showGallery(id, skipAnimation = false) {
-            galleries.forEach(grid => {
-                grid.style.display = 'none';
-                grid.style.opacity = '0';
+        
+        // No rotation needed if there's only one color
+        if (colorItems.length <= 1) return;
+        
+        // Initialize the first color and gallery as active
+        colorItems[0].classList.add('active');
+        galleries[0].style.display = 'block';
+        galleries[0].style.opacity = '1';
+        
+        function showGallery(index) {
+            // Hide all galleries
+            galleries.forEach(gallery => {
+                gallery.style.display = 'none';
+                gallery.style.opacity = '0';
             });
-
-            if (!skipAnimation && loader) {
-                loader.style.display = 'block';
-            }
-
-            const delay = skipAnimation ? 0 : 500;
             
-            setTimeout(() => {
-                galleries.forEach(grid => {
-                    if (grid.id === 'gallery-' + id) {
-                        grid.style.display = 'block';
-                        setTimeout(() => {
-                            grid.style.opacity = '1';
-                        }, 50);
-                    }
-                });
-                if (!skipAnimation && loader) {
-                    loader.style.display = 'none';
-                }
-            }, delay);
-
-            colorItems.forEach(item => {
-                item.classList.toggle('active', item.getAttribute('data-color') === id);
-            });
+            // Remove active class from all color items
+            colorItems.forEach(item => item.classList.remove('active'));
+            
+            // Show the current gallery with fade effect
+            galleries[index].style.display = 'block';
+            galleries[index].style.opacity = '1';
+            
+            // Mark the current color as active
+            colorItems[index].classList.add('active');
         }
-
-        function initializeGallery() {
-            if (colorItems.length) {
-                const firstColorId = colorItems[0].getAttribute('data-color');
-                const firstGallery = document.getElementById('gallery-' + firstColorId);
-                if (firstGallery) {
-                    firstGallery.style.display = 'block';
-                    firstGallery.style.opacity = '1';
-                }
-                console.log('🎨 Art of Light initialized with', colorItems.length, 'colors');
+        
+        function nextColor() {
+            if (!isUserInteracting) {
+                currentIndex = (currentIndex + 1) % colorItems.length;
+                showGallery(currentIndex);
+                console.log(`🎯 Auto-rotated to color ${currentIndex + 1}/${colorItems.length}`);
             }
         }
-
-        function startAutoRotation() {
-            if (colorItems.length <= 1) return; // No need to rotate if only one color
-            
-            autoRotateInterval = setInterval(() => {
-                if (!isUserInteracting) {
-                    currentIndex = (currentIndex + 1) % colorItems.length;
-                    const nextColorId = colorItems[currentIndex].getAttribute('data-color');
-                    showGallery(nextColorId, true); // Skip loading animation for auto-rotation
-                    console.log(`🎯 Auto-rotated to color ${currentIndex + 1}/${colorItems.length}`);
-                }
-            }, 4000); // Change every 4 seconds
-            
-            console.log('🔄 Auto-rotation started');
-        }
-
-        function stopAutoRotation() {
-            if (autoRotateInterval) {
-                clearInterval(autoRotateInterval);
-                autoRotateInterval = null;
-                console.log('⏸️ Auto-rotation stopped');
-            }
-        }
-
-        function resetAutoRotation() {
-            stopAutoRotation();
-            setTimeout(() => {
-                if (!isUserInteracting) {
-                    startAutoRotation();
-                }
-            }, 8000); // Resume auto-rotation after 8 seconds of no interaction
-        }
-
-        // Initialize first gallery as visible and first color as active
-        initializeGallery();
-
-        // Start auto-rotation after initial delay
-        setTimeout(() => {
-            startAutoRotation();
-        }, 3000); // Start after 3 seconds
-
+        
+        // Add click events to color items
         colorItems.forEach((item, index) => {
-            item.addEventListener('click', function () {
-                const colorId = this.getAttribute('data-color');
-                currentIndex = index; // Update current index to clicked item
+            item.addEventListener('click', () => {
+                currentIndex = index;
+                showGallery(currentIndex);
                 
-                // Stop auto-rotation temporarily when user clicks
+                // Pause auto-rotation temporarily when user clicks
                 isUserInteracting = true;
-                stopAutoRotation();
+                clearInterval(autoRotateInterval);
                 
-                showGallery(colorId);
-                
-                console.log(`👆 User clicked color ${index + 1}: ${colorId}`);
-                
-                // Resume auto-rotation after delay
+                // Resume auto-rotation after 8 seconds
                 setTimeout(() => {
                     isUserInteracting = false;
-                    resetAutoRotation();
-                }, 10000); // Resume after 10 seconds
+                    autoRotateInterval = setInterval(nextColor, 4000);
+                }, 8000);
             });
-
-            // Pause auto-rotation on hover
+            
+            // Pause on hover
             item.addEventListener('mouseenter', () => {
                 isUserInteracting = true;
             });
-
+            
             item.addEventListener('mouseleave', () => {
-                setTimeout(() => {
-                    isUserInteracting = false;
-                }, 500); // Small delay before resuming
-            });
-        });
-
-        // Pause auto-rotation when hovering over the gallery area
-        if (wrapper) {
-            wrapper.addEventListener('mouseenter', () => {
-                isUserInteracting = true;
-            });
-
-            wrapper.addEventListener('mouseleave', () => {
                 setTimeout(() => {
                     isUserInteracting = false;
                 }, 1000);
             });
-        }
-
-        // Pause auto-rotation when page is not visible
+        });
+        
+        // Start the auto-rotation - simple approach like your working slideshow
+        setTimeout(() => {
+            autoRotateInterval = setInterval(nextColor, 4000); // Change every 4 seconds
+            console.log('🎨 Art of Light auto-rotation started');
+        }, 2000); // Start after 2 seconds
+        
+        // Pause when page is not visible
         document.addEventListener('visibilitychange', () => {
             if (document.hidden) {
-                stopAutoRotation();
-            } else {
-                setTimeout(() => {
-                    if (!isUserInteracting) {
-                        startAutoRotation();
-                    }
-                }, 2000);
+                clearInterval(autoRotateInterval);
+            } else if (!isUserInteracting) {
+                autoRotateInterval = setInterval(nextColor, 4000);
             }
         });
-
-        // Clean up on page unload
-        window.addEventListener('beforeunload', () => {
-            stopAutoRotation();
-        });
-
-        console.log('✨ Art of Light with auto-rotation loaded successfully');
     });
+});
 </script>
 
 {% schema %}
