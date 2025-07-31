@@ -100,10 +100,20 @@
           "settings": {
             "contact_button_label": "CONTACT US",
             "contact_button_link": "shopify://pages/contact-us",
-            "facebook_url": "",
+            "facebook_url": "https://www.facebook.com/oxygeno2lighting",
             "linkedin_url": "https://www.linkedin.com/company/quorum-lighting/",
             "instagram_url": "https://www.instagram.com/quoruminternational",
-            "vimeo_url": "https://vimeo.com/quoruminternational"
+            "vimeo_url": "https://vimeo.com/quoruminternational",
+            "oxygen_facebook_url": "https://www.facebook.com/oxygeno2lighting",
+            "oxygen_linkedin_url": "https://www.linkedin.com/company/51652031/admin/dashboard/",
+            "oxygen_instagram_url": "https://www.instagram.com/oxygenlighting/",
+            "oxygen_vimeo_url": "https://vimeo.com/oxygenlighting",
+            "oxygen_contact_link": "shopify://pages/contact-us",
+            "quorum_facebook_url": "",
+            "quorum_linkedin_url": "https://www.linkedin.com/company/quorum-lighting/",
+            "quorum_instagram_url": "https://www.instagram.com/quoruminternational/",
+            "quorum_vimeo_url": "",
+            "quorum_contact_link": "shopify://pages/contact-us"
           }
         }
       },
