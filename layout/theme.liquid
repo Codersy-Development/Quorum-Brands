@@ -202,7 +202,7 @@
 {{ 'universal-section-filter.js' | asset_url | script_tag }}
 
   <!-- Redirect Modal -->
-  {{ 'redirect-modal.js' | asset_url | script_tag }}
+
 <div id="redirectModal" class="redirect-modal-overlay">
     <div class="redirect-modal">
         <button class="redirect-modal-close" onclick="closeRedirectModal()">&times;</button>
@@ -236,3 +236,50 @@
   
   </body>
 </html>
+// Redirect Modal Functionality
+let redirectUrl = '';
+
+function showRedirectModal(url) {
+    redirectUrl = url;
+    const modal = document.getElementById('redirectModal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeRedirectModal() {
+    const modal = document.getElementById('redirectModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+    redirectUrl = '';
+}
+
+function proceedToRedirect() {
+    if (redirectUrl) {
+        window.open(redirectUrl, '_blank');
+        closeRedirectModal();
+    }
+}
+
+// Event listener for Quorum Home links
+document.addEventListener('click', function(event) {
+    const link = event.target.closest('a');
+    
+    if (link && link.href && link.href.startsWith('https://www.quorumhome.com')) {
+        event.preventDefault();
+        showRedirectModal(link.href);
+    }
+});
+
+// Close modal when clicking overlay or pressing Escape
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('redirectModal');
+    if (modal) {
+        modal.addEventListener('click', function(event) {
+            if (event.target === this) closeRedirectModal();
+        });
+    }
+    
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') closeRedirectModal();
+    });
+});
