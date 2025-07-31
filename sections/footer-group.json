@@ -67,7 +67,15 @@
             "address_line_1": "201 Railhead Rd.",
             "address_line_2": "Fort Worth, TX 76106",
             "phone_number": "(800) 443 4626",
-            "email_address": "customersupport@quorumintl.com"
+            "email_address": "customersupport@quorumintl.com",
+            "oxygen_address_line_1": "201 Railhead Rd.",
+            "oxygen_address_line_2": "Fort Worth, TX 76106",
+            "oxygen_phone_number": "877-607-0202",
+            "oxygen_email_address": "customerservice@oxygenlighting.com",
+            "quorum_address_line_1": "201 Railhead Rd.",
+            "quorum_address_line_2": "Fort Worth, TX 76106",
+            "quorum_phone_number": "800-443-4626",
+            "quorum_email_address": "customersupport@quorumintl.com "
           }
         },
         "menu_AdxKpD": {
