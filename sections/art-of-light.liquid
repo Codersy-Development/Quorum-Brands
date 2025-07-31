@@ -158,8 +158,6 @@
         let currentIndex = 0;
         let autoRotateInterval;
         let isUserInteracting = false;
-        let checkVisibilityInterval;
-        let intersectionObserver;
 
         if (!colorItems.length || !galleries.length) return; // Exit if no content
 
@@ -213,16 +211,7 @@
         function startAutoRotation() {
             if (colorItems.length <= 1) return; // No need to rotate if only one color
             
-            // Clear any existing interval first
-            stopAutoRotation();
-            
             autoRotateInterval = setInterval(() => {
-                // Check if section is visible before rotating
-                const section = document.querySelector('.art-of-light');
-                if (!section || section.style.display === 'none' || section.offsetParent === null) {
-                    return; // Don't rotate if section is hidden
-                }
-                
                 if (!isUserInteracting) {
                     currentIndex = (currentIndex + 1) % colorItems.length;
                     const nextColorId = colorItems[currentIndex].getAttribute('data-color');
@@ -242,166 +231,22 @@
             }
         }
 
-        function restartAutoRotationIfVisible() {
-            const section = document.querySelector('.art-of-light');
-            if (section && section.style.display !== 'none' && section.offsetParent !== null) {
-                console.log('👁️ Section became visible - restarting auto-rotation');
-                setTimeout(() => {
-                    if (!isUserInteracting) {
-                        startAutoRotation();
-                    }
-                }, 1000); // Short delay to ensure section is fully visible
-            }
-        }
-
         function resetAutoRotation() {
             stopAutoRotation();
             setTimeout(() => {
-                restartAutoRotationIfVisible();
+                if (!isUserInteracting) {
+                    startAutoRotation();
+                }
             }, 8000); // Resume auto-rotation after 8 seconds of no interaction
         }
 
         // Initialize first gallery as visible and first color as active
         initializeGallery();
 
-        // AGGRESSIVE STARTUP: Multiple attempts to start auto-rotation
-        // Try immediately
+        // Start auto-rotation after initial delay
         setTimeout(() => {
-            const section = document.querySelector('.art-of-light');
-            if (section && section.style.display !== 'none' && section.offsetParent !== null) {
-                console.log('✅ Starting auto-rotation immediately - section is visible');
-                startAutoRotation();
-            } else {
-                console.log('⏳ Section not visible yet - will keep trying');
-            }
-        }, 100);
-
-        // Try again after potential script delays
-        setTimeout(() => {
-            if (!autoRotateInterval && !isUserInteracting) {
-                const section = document.querySelector('.art-of-light');
-                if (section && section.style.display !== 'none' && section.offsetParent !== null) {
-                    console.log('✅ Starting auto-rotation (2nd attempt) - section is visible');
-                    startAutoRotation();
-                }
-            }
-        }, 500);
-
-        // Final attempt for stubborn cases
-        setTimeout(() => {
-            if (!autoRotateInterval && !isUserInteracting) {
-                const section = document.querySelector('.art-of-light');
-                if (section && section.style.display !== 'none' && section.offsetParent !== null) {
-                    console.log('✅ Starting auto-rotation (final attempt) - section is visible');
-                    startAutoRotation();
-                }
-            }
-        }, 1500);
-
-        // Watch for section visibility changes (for store filtering)
-        checkVisibilityInterval = setInterval(() => {
-            const section = document.querySelector('.art-of-light');
-            if (section && section.style.display !== 'none' && section.offsetParent !== null) {
-                // Section is visible
-                if (!autoRotateInterval && !isUserInteracting) {
-                    console.log('🔍 Detected section is now visible - starting auto-rotation');
-                    startAutoRotation();
-                }
-            } else {
-                // Section is hidden
-                if (autoRotateInterval) {
-                    console.log('🙈 Section hidden - stopping auto-rotation');
-                    stopAutoRotation();
-                }
-            }
-        }, 500); // Check every 500ms (more frequent)
-
-        // AGGRESSIVE: Multiple approaches to detect when section becomes visible
-        
-        // Method 1: MutationObserver to detect style changes
-        const observer = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
-                if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
-                    const section = mutation.target.closest('.art-of-light');
-                    if (section && section.style.display !== 'none') {
-                        console.log('🔬 MutationObserver detected section became visible');
-                        setTimeout(() => {
-                            if (!autoRotateInterval && !isUserInteracting) {
-                                startAutoRotation();
-                            }
-                        }, 100);
-                    }
-                }
-            });
-        });
-        
-        // Observe the art-of-light section for style changes
-        const artSection = document.querySelector('.art-of-light');
-        if (artSection) {
-            observer.observe(artSection, { 
-                attributes: true, 
-                attributeFilter: ['style'] 
-            });
-        }
-
-        // Method 2: Listen for store changes with multiple fallbacks
-        const handleStoreChangeDetection = () => {
-            console.log('🏪 Store change detected - checking section visibility');
-            
-            // Check immediately
-            setTimeout(() => restartAutoRotationIfVisible(), 100);
-            // Check again after potential delays from other scripts
-            setTimeout(() => restartAutoRotationIfVisible(), 300);
-            // Final check for stubborn cases
-            setTimeout(() => restartAutoRotationIfVisible(), 800);
-        };
-
-        document.addEventListener('storeChanged', handleStoreChangeDetection);
-
-        document.addEventListener('change', (e) => {
-            if (e.target.type === 'radio' && e.target.closest('store-switcher')) {
-                console.log('📻 Store radio changed - checking section visibility');
-                handleStoreChangeDetection();
-            }
-        });
-
-        // Method 3: Listen for any changes to localStorage (store changes)
-        const originalSetItem = localStorage.setItem;
-        localStorage.setItem = function(key, value) {
-            originalSetItem.call(this, key, value);
-            if (key === 'store-selected') {
-                console.log('💾 localStorage store-selected changed - checking visibility');
-                handleStoreChangeDetection();
-            }
-        };
-
-        // Method 4: Intersection Observer as backup
-        if ('IntersectionObserver' in window) {
-            intersectionObserver = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting && entry.target.classList.contains('art-of-light')) {
-                        console.log('👁️ IntersectionObserver detected section visible');
-                        setTimeout(() => {
-                            if (!autoRotateInterval && !isUserInteracting) {
-                                startAutoRotation();
-                            }
-                        }, 200);
-                    }
-                });
-            });
-            
-            if (artSection) {
-                intersectionObserver.observe(artSection);
-            }
-        }
-
-        // Stop all observers when page unloads
-        window.addEventListener('beforeunload', () => {
-            if (checkVisibilityInterval) clearInterval(checkVisibilityInterval);
-            if (observer) observer.disconnect();
-            if (intersectionObserver) intersectionObserver.disconnect();
-            stopAutoRotation();
-        });
+            startAutoRotation();
+        }, 3000); // Start after 3 seconds
 
         colorItems.forEach((item, index) => {
             item.addEventListener('click', function () {
@@ -453,12 +298,20 @@
             if (document.hidden) {
                 stopAutoRotation();
             } else {
-                setTimeout(restartAutoRotationIfVisible, 2000);
+                setTimeout(() => {
+                    if (!isUserInteracting) {
+                        startAutoRotation();
+                    }
+                }, 2000);
             }
         });
 
-        console.log('✨ Art of Light with ROBUST auto-rotation loaded successfully');
-        console.log('🛡️ Using multiple detection methods: Interval, MutationObserver, IntersectionObserver, localStorage hook');
+        // Clean up on page unload
+        window.addEventListener('beforeunload', () => {
+            stopAutoRotation();
+        });
+
+        console.log('✨ Art of Light with auto-rotation loaded successfully');
     });
 </script>
 
