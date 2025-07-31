@@ -125,6 +125,8 @@
   
 </head>
 
+
+  
 <body class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}{% if request.path == '/challenge' %} template-challange{% endif %}" data-center-text="{{ settings.type_body_align_text }}" data-button_style="{{ settings.button_style }}" data-type_header_capitalize="{{ settings.type_header_capitalize }}" data-type_headers_align_text="{{ settings.type_headers_align_text }}" data-type_product_capitalize="{{ settings.type_product_capitalize }}" data-swatch_style="{{ settings.swatch_style }}" {% if settings.disable_animations %}data-disable-animations="true"{% endif %}>
 
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
@@ -198,6 +200,39 @@
                <!-- WPD End -->
 
 {{ 'universal-section-filter.js' | asset_url | script_tag }}
+
+  <!-- Redirect Modal -->
+  {{ 'redirect-modal.js' | asset_url | script_tag }}
+<div id="redirectModal" class="redirect-modal-overlay">
+    <div class="redirect-modal">
+        <button class="redirect-modal-close" onclick="closeRedirectModal()">&times;</button>
+        
+        <div class="redirect-modal-header">
+            <div class="redirect-modal-icon">
+                <img src="{{ 'https://cdn.shopify.com/s/files/1/0740/2668/0533/files/QB-Color.png?v=1747238620' | asset_url }}" 
+                     alt="Company Logo" 
+                     class="redirect-modal-logo">
+            </div>
+            <h3 class="redirect-modal-title">Redirecting to Authorized Distributor</h3>
+        </div>
+        
+        <div class="redirect-modal-content">
+            <p class="redirect-modal-message">
+                You're about to be redirected to one of our authorized distributor stores to complete your purchase. Click "Proceed" to open a new tab where the product will be pre-selected for you.
+            </p>
+        </div>
+        
+        <div class="redirect-modal-actions">
+            <button class="redirect-btn redirect-btn-secondary" onclick="closeRedirectModal()">
+                Go Back
+            </button>
+            <button class="redirect-btn redirect-btn-primary" onclick="proceedToRedirect()">
+                Proceed
+            </button>
+        </div>
+    </div>
+</div>
+
   
   </body>
 </html>
