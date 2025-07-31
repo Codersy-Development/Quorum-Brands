@@ -268,8 +268,8 @@
           "settings": {
             "enable_collection_count": true,
             "per_row": 4,
-            "rows_per_page": 7,
-            "mobile_flush_grid": false
+            "rows_per_page": 14,
+            "mobile_flush_grid": true
           }
         }
       },
@@ -279,7 +279,7 @@
         "product_grid"
       ],
       "settings": {
-        "enable_sidebar": false,
+        "enable_sidebar": true,
         "collapsed": true,
         "filter_style": "sidebar",
         "enable_color_swatches": false,
