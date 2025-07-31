@@ -1,8 +1,8 @@
 {% comment %}
-  Renders the contact information block for the footer.
+  Renders the contact information block for the footer with brand-specific details.
   Expects a `block` object passed into the snippet.
 {% endcomment %}
-<div class="footer-contact">
+<div class="footer-contact" data-store-contact>
     <div>
         <div class="footer-contact-icon-wrapper">
             <i class="fas fa-map-marker-alt"></i>
@@ -10,8 +10,9 @@
         <div class="footer-contact-content-wrapper">
             <div class="footer-contact-title">ADDRESS</div>
             <p class="footer-contact-desc">
-                <a href="https://maps.google.com/maps?q={{ block.settings.address_line_1 | url_encode }}%20{{ block.settings.address_line_2 | url_encode }}" target="_blank" rel="noopener">
-                    {{ block.settings.address_line_1 }}<br>{{ block.settings.address_line_2 }}
+                <a href="https://maps.google.com/maps?q={{ block.settings.address_line_1 | url_encode }}%20{{ block.settings.address_line_2 | url_encode }}" target="_blank" rel="noopener" data-contact-address>
+                    <span data-address-line1>{{ block.settings.address_line_1 }}</span><br>
+                    <span data-address-line2>{{ block.settings.address_line_2 }}</span>
                 </a>
             </p>
         </div>
@@ -23,8 +24,8 @@
         <div class="footer-contact-content-wrapper">
             <div class="footer-contact-title">PHONE</div>
             <p class="footer-contact-desc">
-                <a href="tel:{{ block.settings.phone_number | replace: ' ', '' | replace: '-', '' | replace: '(', '' | replace: ')', '' }}">
-                    {{ block.settings.phone_number }}
+                <a href="tel:{{ block.settings.phone_number | replace: ' ', '' | replace: '-', '' | replace: '(', '' | replace: ')', '' }}" data-contact-phone>
+                    <span data-phone-display>{{ block.settings.phone_number }}</span>
                 </a>
             </p>
         </div>
@@ -36,10 +37,105 @@
         <div class="footer-contact-content-wrapper">
             <div class="footer-contact-title">EMAIL</div>
             <p class="footer-contact-desc">
-                <a href="mailto:{{ block.settings.email_address }}">
-                    {{ block.settings.email_address }}
+                <a href="mailto:{{ block.settings.email_address }}" data-contact-email>
+                    <span data-email-display>{{ block.settings.email_address }}</span>
                 </a>
             </p>
         </div>
     </div>
 </div>
+
+<script>
+(function() {
+  'use strict';
+  
+  // Store-specific contact information configuration
+  const contactInfo = {
+    'all brands': {
+      address_line1: "{{ block.settings.address_line_1 }}",
+      address_line2: "{{ block.settings.address_line_2 }}",
+      phone: "{{ block.settings.phone_number }}",
+      email: "{{ block.settings.email_address }}"
+    },
+    'oxygen': {
+      address_line1: "{{ block.settings.oxygen_address_line_1 | default: block.settings.address_line_1 }}",
+      address_line2: "{{ block.settings.oxygen_address_line_2 | default: block.settings.address_line_2 }}",
+      phone: "{{ block.settings.oxygen_phone_number | default: block.settings.phone_number }}",
+      email: "{{ block.settings.oxygen_email_address | default: block.settings.email_address }}"
+    },
+    'quorum': {
+      address_line1: "{{ block.settings.quorum_address_line_1 | default: block.settings.address_line_1 }}",
+      address_line2: "{{ block.settings.quorum_address_line_2 | default: block.settings.address_line_2 }}",
+      phone: "{{ block.settings.quorum_phone_number | default: block.settings.phone_number }}",
+      email: "{{ block.settings.quorum_email_address | default: block.settings.email_address }}"
+    }
+  };
+  
+  function cleanPhoneNumber(phone) {
+    return phone.replace(/[^0-9+]/g, '');
+  }
+  
+  function updateContactInfo() {
+    const selectedStore = localStorage.getItem("store-selected") || "all brands";
+    const storeContact = contactInfo[selectedStore] || contactInfo['all brands'];
+    
+    console.log('Updating footer contact info for:', selectedStore);
+    
+    // Update address
+    const addressLine1 = document.querySelector('[data-address-line1]');
+    const addressLine2 = document.querySelector('[data-address-line2]');
+    const addressLink = document.querySelector('[data-contact-address]');
+    
+    if (addressLine1 && storeContact.address_line1) {
+      addressLine1.textContent = storeContact.address_line1;
+    }
+    if (addressLine2 && storeContact.address_line2) {
+      addressLine2.textContent = storeContact.address_line2;
+    }
+    if (addressLink && storeContact.address_line1 && storeContact.address_line2) {
+      const encodedAddress = encodeURIComponent(storeContact.address_line1 + ' ' + storeContact.address_line2);
+      addressLink.href = `https://maps.google.com/maps?q=${encodedAddress}`;
+    }
+    
+    // Update phone number
+    const phoneDisplay = document.querySelector('[data-phone-display]');
+    const phoneLink = document.querySelector('[data-contact-phone]');
+    
+    if (phoneDisplay && storeContact.phone) {
+      phoneDisplay.textContent = storeContact.phone;
+      console.log('Updated phone display:', storeContact.phone);
+    }
+    if (phoneLink && storeContact.phone) {
+      phoneLink.href = `tel:${cleanPhoneNumber(storeContact.phone)}`;
+      console.log('Updated phone link:', cleanPhoneNumber(storeContact.phone));
+    }
+    
+    // Update email
+    const emailDisplay = document.querySelector('[data-email-display]');
+    const emailLink = document.querySelector('[data-contact-email]');
+    
+    if (emailDisplay && storeContact.email) {
+      emailDisplay.textContent = storeContact.email;
+      console.log('Updated email display:', storeContact.email);
+    }
+    if (emailLink && storeContact.email) {
+      emailLink.href = `mailto:${storeContact.email}`;
+      console.log('Updated email link:', storeContact.email);
+    }
+  }
+  
+  // Update on page load
+  document.addEventListener('DOMContentLoaded', updateContactInfo);
+  
+  // Update when store changes
+  document.addEventListener('storeChanged', function(e) {
+    console.log('Footer contact detected store change:', e.detail.selectedStore);
+    updateContactInfo();
+  });
+  
+  // Initial update if DOM is already loaded
+  if (document.readyState !== 'loading') {
+    updateContactInfo();
+  }
+})();
+</script>
