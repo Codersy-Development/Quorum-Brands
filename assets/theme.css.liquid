@@ -13703,51 +13703,57 @@ html[dir=rtl] .product-single__meta .rte{
     }
 }
 
-/* Override Snize filter icons with chevron-style arrows matching your filter styling */
-.snize-product-filters-open {
-    display: inline-block !important;
-    font-style: normal !important;
-    font-family: var(--typeBasePrimary), var(--typeBaseFallback) !important;
-    font-size: 0.8em !important;
-    letter-spacing: 0.3em !important;
-    text-transform: uppercase !important;
-    line-height: var(--typeBaseLineHeight) !important;
-    width: auto !important;
-    height: auto !important;
-    position: relative !important;
-    text-align: left !important;
-}
-
-.snize-product-filters-open::before {
-    content: "⌄" !important; /* Down chevron for open state */
-    font-size: 16px;
-    color: var(--shopify-editor-setting-color_body_text);
-    font-weight: 400;
-    letter-spacing: normal;
-    text-transform: none;
-}
-
+/* Hide default Snize icons and override with chevron arrows */
+.snize-product-filters-open,
 .snize-product-filters-close {
     display: inline-block !important;
     font-style: normal !important;
-    font-family: var(--typeBasePrimary), var(--typeBaseFallback) !important;
-    font-size: 0.8em !important;
-    letter-spacing: 0.3em !important;
-    text-transform: uppercase !important;
-    line-height: var(--typeBaseLineHeight) !important;
-    width: auto !important;
-    height: auto !important;
+    width: 16px !important;
+    height: 16px !important;
     position: relative !important;
-    text-align: left !important;
+    vertical-align: middle !important;
+}
+
+/* Hide any existing pseudo-elements that might show + or other symbols */
+.snize-product-filters-open::after,
+.snize-product-filters-close::after {
+    display: none !important;
+}
+
+/* Override with clean chevron arrows */
+.snize-product-filters-open::before {
+    content: "⌄" !important; /* Down chevron for open state */
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    font-size: 16px !important;
+    line-height: 1 !important;
+    color: var(--colorTextBody) !important;
+    font-weight: 400 !important;
+    font-family: system-ui, -apple-system, sans-serif !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
 }
 
 .snize-product-filters-close::before {
     content: "⌃" !important; /* Up chevron for close state */
-    font-size: 16px;
-    color: var(--shopify-editor-setting-color_body_text);
-    font-weight: 400;
-    letter-spacing: normal;
-    text-transform: none;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    font-size: 16px !important;
+    line-height: 1 !important;
+    color: var(--colorTextBody) !important;
+    font-weight: 400 !important;
+    font-family: system-ui, -apple-system, sans-serif !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+}
+
+/* Additional reset to ensure no other content shows */
+.snize-product-filters-open,
+.snize-product-filters-close {
+    text-indent: -9999px !important;
+    overflow: hidden !important;
 }
 
 
