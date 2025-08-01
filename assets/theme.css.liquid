@@ -13706,21 +13706,37 @@ html[dir=rtl] .product-single__meta .rte{
 
 /* Replace + and - symbols with chevrons */
 .snize-product-filters-open {
-    font-size: 0 !important;
+    color: transparent !important;
+    text-indent: -9999px !important;
+    overflow: hidden !important;
+    position: relative !important;
 }
 
 .snize-product-filters-open::before {
     content: "⌄" !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    color: var(--colorTextBody) !important;
+    text-indent: 0 !important;
     font-size: 16px !important;
     font-family: system-ui, sans-serif !important;
 }
 
 .snize-product-filters-close {
-    font-size: 0 !important;
+    color: transparent !important;
+    text-indent: -9999px !important;
+    overflow: hidden !important;
+    position: relative !important;
 }
 
 .snize-product-filters-close::before {
     content: "⌃" !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    color: var(--colorTextBody) !important;
+    text-indent: 0 !important;
     font-size: 16px !important;
     font-family: system-ui, sans-serif !important;
 }
