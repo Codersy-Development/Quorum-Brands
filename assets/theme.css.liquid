@@ -13789,49 +13789,49 @@ html[dir=rtl] .product-single__meta .rte{
     padding: 10px 0 !important;
 }
 
-/* Target search results page specifically */
-.snize-results-page .page-width--narrow,
-.snize-results-page .page-width,
-.snize-results-page .container,
-.snize-results-page .page-content {
-  max-width: 1400px !important; /* Adjust this value as needed */
-  width: 100% !important;
-  margin: 0 auto !important;
-  padding-left: 20px !important;
-  padding-right: 20px !important;
+/* Simple version - Target search results page */
+.snize-results-page .page-width--narrow {
+  max-width: 1400px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
-/* Alternative: Target by URL path if the above doesn't work */
-body[class*="search"] .page-width--narrow,
-body[class*="search"] .page-width,
-body[class*="search"] .container {
-  max-width: 1400px !important;
-  width: 100% !important;
+.snize-results-page .page-width {
+  max-width: 1400px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
-/* Specific targeting for the search results container */
+.snize-results-page .container {
+  max-width: 1400px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
 .snize-search-results {
-  max-width: none !important;
-  width: 100% !important;
+  max-width: none;
+  width: 100%;
 }
 
-/* Ensure the main content area is wide */
-.snize-results-page .page-content,
-.snize-results-page .main-content,
-.snize-results-page .site-main {
-  max-width: 1400px !important;
-  width: 100% !important;
-  margin: 0 auto !important;
+/* Alternative simple targeting */
+body.snize-results-page .page-content {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
-/* For mobile responsiveness */
+/* For mobile - keep 30px padding */
 @media (max-width: 768px) {
   .snize-results-page .page-width--narrow,
   .snize-results-page .page-width,
-  .snize-results-page .container {
-    padding-left: 15px !important;
-    padding-right: 15px !important;
+  .snize-results-page .container,
+  .snize-results-page .page-content {
+    padding-left: 30px;
+    padding-right: 30px;
   }
+}
 }
 
 
