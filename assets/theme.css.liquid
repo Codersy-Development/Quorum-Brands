@@ -13703,70 +13703,16 @@ html[dir=rtl] .product-single__meta .rte{
     }
 }
 
-/* Hide ALL content and pseudo-elements from Snize icons */
-.snize-product-filters-open,
-.snize-product-filters-close {
-    font-size: 0 !important;
-    text-indent: -9999px !important;
-    overflow: hidden !important;
-    width: 20px !important;
-    height: 20px !important;
-    display: inline-block !important;
-    position: relative !important;
-}
 
-.snize-product-filters-open *,
-.snize-product-filters-close * {
-    display: none !important;
-}
-
-.snize-product-filters-open::before,
-.snize-product-filters-open::after,
-.snize-product-filters-close::before,
-.snize-product-filters-close::after {
-    display: none !important;
-    content: none !important;
-}
-
-/* Create new chevron arrows */
-.snize-product-filters-open {
-    background: none !important;
-}
-
+/* Simple replacement of Snize filter icons with chevrons */
 .snize-product-filters-open::before {
     content: "⌄" !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-size: 16px !important;
-    line-height: 1 !important;
-    color: var(--colorTextBody) !important;
     font-family: system-ui, sans-serif !important;
-    text-indent: 0 !important;
-    overflow: visible !important;
 }
 
 .snize-product-filters-close::before {
     content: "⌃" !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-size: 16px !important;
-    line-height: 1 !important;
-    color: var(--colorTextBody) !important;
     font-family: system-ui, sans-serif !important;
-    text-indent: 0 !important;
-    overflow: visible !important;
 }
 
 
