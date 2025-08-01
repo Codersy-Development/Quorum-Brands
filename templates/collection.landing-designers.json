@@ -61,6 +61,7 @@
     },
     "featured-collection": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Jason Brewer, MOD",
         "home_featured_products": "jason-brewer-mod",
@@ -73,6 +74,7 @@
     },
     "featured-collection2": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Sergio Orozco",
         "home_featured_products": "sergio-orozco",
@@ -134,6 +136,7 @@
     },
     "featured-collection3": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Smyth & Picket",
         "home_featured_products": "smyth-pickett",
