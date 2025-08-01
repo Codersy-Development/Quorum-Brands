@@ -39,6 +39,7 @@
       "block_order": [
         "image_6X7fQq"
       ],
+      "disabled": true,
       "name": "t:sections.slideshow.presets.hero_optional_slideshow.name",
       "settings": {
         "section_height": "650px",
@@ -64,6 +65,7 @@
       "block_order": [
         "text_Rc7nAj"
       ],
+      "disabled": true,
       "name": "t:sections.rich-text.presets.rich_text.name",
       "settings": {
         "align_text": "center",
@@ -73,6 +75,7 @@
     },
     "image_jGWtyL": {
       "type": "image",
+      "disabled": true,
       "name": "Full Width Image",
       "settings": {
         "store": "all",
@@ -101,6 +104,7 @@
         "text_rdTx3G",
         "text_dCYtWK"
       ],
+      "disabled": true,
       "name": "t:sections.rich-text.presets.rich_text.name",
       "settings": {
         "align_text": "center",
@@ -142,6 +146,7 @@
         "text_block_JDXMWW",
         "text_block_pf79bb"
       ],
+      "disabled": true,
       "custom_css": [
         ".image-wrap,image-element,img {padding-bottom: 0 !important; height: 450px !important; object-fit: cover;}"
       ],
@@ -186,6 +191,7 @@
         "text_block_f7rVM6",
         "text_block_bYamN6"
       ],
+      "disabled": true,
       "custom_css": [
         ".image-wrap,image-element,img {padding-bottom: 0 !important; height: 450px !important; object-fit: cover;}"
       ],
@@ -230,6 +236,7 @@
         "text_block_33REAi",
         "text_block_PYUVam"
       ],
+      "disabled": true,
       "custom_css": [
         ".image-wrap,image-element,img {padding: 0; height: 450px !important; object-fit: cover;}"
       ],
