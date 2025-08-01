@@ -76,7 +76,7 @@
     "cart_terms_conditions_enable": false,
     "favicon": "shopify://shop_images/Q_Fav.png",
     "search_enable": true,
-    "show_breadcrumbs": false,
+    "show_breadcrumbs": true,
     "breadcrumb": false,
     "checkout_accent_color": "#111111",
     "checkout_body_background_color": "#ffffff",
