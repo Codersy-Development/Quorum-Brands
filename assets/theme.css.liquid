@@ -13704,11 +13704,10 @@ html[dir=rtl] .product-single__meta .rte{
 }
 
 
-/* Replace + and - symbols with chevrons */
+/* Replace background SVG + and - with chevrons */
 .snize-product-filters-open {
-    color: transparent !important;
-    text-indent: -9999px !important;
-    overflow: hidden !important;
+    background-image: none !important;
+    background: none !important;
     position: relative !important;
 }
 
@@ -13717,16 +13716,19 @@ html[dir=rtl] .product-single__meta .rte{
     position: absolute !important;
     left: 0 !important;
     top: 0 !important;
-    color: var(--colorTextBody) !important;
-    text-indent: 0 !important;
-    font-size: 16px !important;
+    width: 14px !important;
+    height: 14px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #333333 !important;
+    font-size: 12px !important;
     font-family: system-ui, sans-serif !important;
 }
 
 .snize-product-filters-close {
-    color: transparent !important;
-    text-indent: -9999px !important;
-    overflow: hidden !important;
+    background-image: none !important;
+    background: none !important;
     position: relative !important;
 }
 
@@ -13735,9 +13737,13 @@ html[dir=rtl] .product-single__meta .rte{
     position: absolute !important;
     left: 0 !important;
     top: 0 !important;
-    color: var(--colorTextBody) !important;
-    text-indent: 0 !important;
-    font-size: 16px !important;
+    width: 14px !important;
+    height: 14px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #333333 !important;
+    font-size: 12px !important;
     font-family: system-ui, sans-serif !important;
 }
 
