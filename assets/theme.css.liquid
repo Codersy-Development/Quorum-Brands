@@ -13704,7 +13704,8 @@ html[dir=rtl] .product-single__meta .rte{
 }
 
 
-/* SNIZE - Replace background SVG + and - with chevrons matching theme typography */
+/* SNIZE */
+/* Replace background SVG + and - with chevrons matching collection page filters */
 .snize-product-filters-open {
     background-image: none !important;
     background: none !important;
@@ -13721,12 +13722,17 @@ html[dir=rtl] .product-single__meta .rte{
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    color: inherit !important;
-    font-size: 0.8em !important;
+    color: var(--colorTextBody) !important;
     font-family: var(--typeBasePrimary), var(--typeBaseFallback) !important;
+    font-size: var(--typeBaseSize) !important;
     font-weight: var(--typeBaseWeight) !important;
     line-height: var(--typeBaseLineHeight) !important;
-    letter-spacing: 0 !important;
+    letter-spacing: var(--typeBaseSpacing) !important;
+    text-rendering: optimizeSpeed !important;
+    -webkit-font-smoothing: antialiased !important;
+    -webkit-text-size-adjust: 100% !important;
+    transition: transform 0.5s cubic-bezier(.25,.46,.45,.94) !important;
+    padding-bottom: 5px !important;
     text-transform: none !important;
 }
 
@@ -13746,12 +13752,17 @@ html[dir=rtl] .product-single__meta .rte{
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    color: inherit !important;
-    font-size: 0.8em !important;
+    color: var(--colorTextBody) !important;
     font-family: var(--typeBasePrimary), var(--typeBaseFallback) !important;
+    font-size: var(--typeBaseSize) !important;
     font-weight: var(--typeBaseWeight) !important;
     line-height: var(--typeBaseLineHeight) !important;
-    letter-spacing: 0 !important;
+    letter-spacing: var(--typeBaseSpacing) !important;
+    text-rendering: optimizeSpeed !important;
+    -webkit-font-smoothing: antialiased !important;
+    -webkit-text-size-adjust: 100% !important;
+    transition: transform 0.5s cubic-bezier(.25,.46,.45,.94) !important;
+    padding-bottom: 5px !important;
     text-transform: none !important;
 }
 
