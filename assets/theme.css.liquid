@@ -13703,57 +13703,70 @@ html[dir=rtl] .product-single__meta .rte{
     }
 }
 
-/* Hide default Snize icons and override with chevron arrows */
+/* Hide ALL content and pseudo-elements from Snize icons */
 .snize-product-filters-open,
 .snize-product-filters-close {
+    font-size: 0 !important;
+    text-indent: -9999px !important;
+    overflow: hidden !important;
+    width: 20px !important;
+    height: 20px !important;
     display: inline-block !important;
-    font-style: normal !important;
-    width: 16px !important;
-    height: 16px !important;
     position: relative !important;
-    vertical-align: middle !important;
 }
 
-/* Hide any existing pseudo-elements that might show + or other symbols */
-.snize-product-filters-open::after,
-.snize-product-filters-close::after {
+.snize-product-filters-open *,
+.snize-product-filters-close * {
     display: none !important;
 }
 
-/* Override with clean chevron arrows */
+.snize-product-filters-open::before,
+.snize-product-filters-open::after,
+.snize-product-filters-close::before,
+.snize-product-filters-close::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* Create new chevron arrows */
+.snize-product-filters-open {
+    background: none !important;
+}
+
 .snize-product-filters-open::before {
-    content: "⌄" !important; /* Down chevron for open state */
+    content: "⌄" !important;
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     font-size: 16px !important;
     line-height: 1 !important;
     color: var(--colorTextBody) !important;
-    font-weight: 400 !important;
-    font-family: system-ui, -apple-system, sans-serif !important;
-    letter-spacing: 0 !important;
-    text-transform: none !important;
+    font-family: system-ui, sans-serif !important;
+    text-indent: 0 !important;
+    overflow: visible !important;
 }
 
 .snize-product-filters-close::before {
-    content: "⌃" !important; /* Up chevron for close state */
+    content: "⌃" !important;
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     font-size: 16px !important;
     line-height: 1 !important;
     color: var(--colorTextBody) !important;
-    font-weight: 400 !important;
-    font-family: system-ui, -apple-system, sans-serif !important;
-    letter-spacing: 0 !important;
-    text-transform: none !important;
-}
-
-/* Additional reset to ensure no other content shows */
-.snize-product-filters-open,
-.snize-product-filters-close {
-    text-indent: -9999px !important;
-    overflow: hidden !important;
+    font-family: system-ui, sans-serif !important;
+    text-indent: 0 !important;
+    overflow: visible !important;
 }
 
 
