@@ -268,7 +268,7 @@
 </style>
 
 {% capture hamburger_menu %}
-  <div class="header-item header-item--left header-item--navigation">
+    <details-modal class="header_search_snize-custom-widget-opener">
               {%- if section.settings.main_menu_alignment == 'center'
                 or section.settings.main_menu_alignment == 'center-split'
                 or section.settings.main_menu_alignment == 'center-below'
@@ -354,12 +354,14 @@
             data-logo-align="{{ logo_alignment }}"
           >
             {%- if logo_alignment == 'left' -%}
+                <div class="header-item header-item--left header-item--navigation">
               <div class="header-item header-item--logo">
                 {%- render 'header-logo-block', section: section -%}
               </div>
             {%- endif -%}
 
             {%- if logo_alignment == 'left' and section.settings.main_menu_alignment != 'left-drawer' -%}
+                <div class="header-item header-item--left header-item--navigation">
               <div
                 class="header-item header-item--navigation{% if section.settings.main_menu_alignment == 'left-center' %} text-center{% endif %}"
                 {% unless disable_aria %}
@@ -375,6 +377,7 @@
             {%- endif -%}
 
             {%- if logo_alignment == 'center' -%}
+                <div class="header-item header-item--left header-item--navigation">
               {%- if section.settings.main_menu_alignment == 'center-below' -%}
                 <div class="store-buttons-wrapper medium-down--hide">
                   {% render 'store-switch-buttons', section: section %}
